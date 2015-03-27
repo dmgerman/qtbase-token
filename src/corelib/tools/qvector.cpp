@@ -45,6 +45,18 @@ begin_comment
 comment|/*! \fn bool QVector::operator!=(const QVector<T>&other) const      Returns \c true if \a other is not equal to this vector; otherwise     returns \c false.      Two vectors are considered equal if they contain the same values     in the same order.      This function requires the value type to have an implementation     of \c operator==().      \sa operator==() */
 end_comment
 begin_comment
+comment|/*! \fn bool operator<(const QVector<T>&lhs, const QVector<T>&rhs)     \since 5.6     \relates QVector      Returns \c true if vector \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically less than} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
+end_comment
+begin_comment
+comment|/*! \fn bool operator<=(const QVector<T>&lhs, const QVector<T>&rhs)     \since 5.6     \relates QVector      Returns \c true if vector \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically less than or equal to} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
+end_comment
+begin_comment
+comment|/*! \fn bool operator>(const QVector<T>&lhs, const QVector<T>&rhs)     \since 5.6     \relates QVector      Returns \c true if vector \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically greater than} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
+end_comment
+begin_comment
+comment|/*! \fn bool operator>=(const QVector<T>&lhs, const QVector<T>&rhs)     \since 5.6     \relates QVector      Returns \c true if vector \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically greater than or equal to} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
+end_comment
+begin_comment
 comment|/*! \fn int QVector::size() const      Returns the number of items in the vector.      \sa isEmpty(), resize() */
 end_comment
 begin_comment
