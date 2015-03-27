@@ -5229,6 +5229,10 @@ name|QT_Q_ENUM
 argument_list|(
 argument|MouseEventSource
 argument_list|)
+name|QT_Q_FLAG
+argument_list|(
+argument|MouseEventFlag
+argument_list|)
 name|QT_Q_ENUM
 argument_list|(
 argument|TabFocusBehavior
