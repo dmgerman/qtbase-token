@@ -768,6 +768,10 @@ name|defined
 argument_list|(
 name|_WIN32_WCE
 argument_list|)
+operator|&&
+name|_WIN32_WCE
+operator|<
+literal|0x800
 end_if
 begin_define
 DECL|macro|fdopen
