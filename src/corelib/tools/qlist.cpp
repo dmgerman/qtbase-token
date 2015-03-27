@@ -1886,6 +1886,18 @@ begin_comment
 comment|/*! \fn bool QList::operator!=(const QList<T>&other) const      Returns \c true if \a other is not equal to this list; otherwise     returns \c false.      Two lists are considered equal if they contain the same values in     the same order.      This function requires the value type to have an implementation of     \c operator==().      \sa operator==() */
 end_comment
 begin_comment
+comment|/*! \fn bool operator<(const QList<T>&lhs, const QList<T>&rhs)     \since 5.6     \relates QList      Returns \c true if list \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically less than} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
+end_comment
+begin_comment
+comment|/*! \fn bool operator<=(const QList<T>&lhs, const QList<T>&rhs)     \since 5.6     \relates QList      Returns \c true if list \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically less than or equal to} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
+end_comment
+begin_comment
+comment|/*! \fn bool operator>(const QList<T>&lhs, const QList<T>&rhs)     \since 5.6     \relates QList      Returns \c true if list \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically greater than} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
+end_comment
+begin_comment
+comment|/*! \fn bool operator>=(const QList<T>&lhs, const QList<T>&rhs)     \since 5.6     \relates QList      Returns \c true if list \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically greater than or equal to} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
+end_comment
+begin_comment
 comment|/*!     \fn int QList::size() const      Returns the number of items in the list.      \sa isEmpty(), count() */
 end_comment
 begin_comment
