@@ -201,6 +201,14 @@ operator|)
 name|removeAppleEventHandlers
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
+name|bool
+operator|)
+name|inLaunch
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 unit|@
 name|end
