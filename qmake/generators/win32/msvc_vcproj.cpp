@@ -9212,12 +9212,10 @@ argument_list|(
 literal|"$(TargetName).windeployqt.$(Platform).$(Configuration)"
 argument_list|)
 expr_stmt|;
-name|conf
-operator|.
-name|windeployqt
-operator|.
-name|CommandLine
-operator|=
+specifier|const
+name|QString
+name|commandLine
+init|=
 name|MakefileGenerator
 operator|::
 name|shellQuote
@@ -9257,6 +9255,71 @@ argument_list|(
 literal|' '
 argument_list|)
 argument_list|)
+decl_stmt|;
+comment|//  Visual Studio copies all files to be deployed into the MSIL directory
+comment|//  and then invokes MDILXapCompile on it, which checks for managed code and
+comment|//  translates it into native code. The problem is that all entries of the
+comment|//  package will be copied into the MSIL directly, losing the subdirectory
+comment|//  structure (for instance for plugins). However, the MDILXapCompile call
+comment|//  itself contains the original subdirectories as parameters and hence the
+comment|//  call fails.
+comment|//  Neither there is a way to disable this behavior for Windows Phone, nor
+comment|//  to influence the parameters. Hence the only way to get a release build
+comment|//  done is to recreate the directory structure manually by invoking
+comment|//  windeployqt a second time, so that the MDILXapCompile call succeeds and
+comment|//  deployment continues.
+if|if
+condition|(
+name|conf
+operator|.
+name|WinPhone
+operator|&&
+name|conf
+operator|.
+name|Name
+operator|==
+name|QStringLiteral
+argument_list|(
+literal|"Release|ARM"
+argument_list|)
+condition|)
+block|{
+name|conf
+operator|.
+name|windeployqt
+operator|.
+name|CommandLine
+operator|=
+name|commandLine
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|" -list relative -dir \"$(MSBuildProjectDirectory)\\"
+argument_list|)
+operator|+
+name|var
+argument_list|(
+literal|"OBJECTS_DIR"
+argument_list|)
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"MSIL\" \"$(OutDir)\\$(TargetName).exe\" "
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"&& "
+argument_list|)
+expr_stmt|;
+block|}
+name|conf
+operator|.
+name|windeployqt
+operator|.
+name|CommandLine
+operator|+=
+name|commandLine
 operator|+
 name|QStringLiteral
 argument_list|(
