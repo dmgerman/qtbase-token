@@ -1531,6 +1531,10 @@ name|AA_ShareOpenGLContexts
 init|=
 literal|18
 block|,
+name|AA_SetPalette
+init|=
+literal|19
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}

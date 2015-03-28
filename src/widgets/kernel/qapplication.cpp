@@ -5828,6 +5828,15 @@ name|set_pal
 operator|=
 name|palette
 expr_stmt|;
+name|QCoreApplication
+operator|::
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|AA_SetPalette
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function

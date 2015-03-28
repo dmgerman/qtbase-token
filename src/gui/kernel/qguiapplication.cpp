@@ -12917,6 +12917,15 @@ name|applicationResourceFlags
 operator||=
 name|ApplicationPaletteExplicitlySet
 expr_stmt|;
+name|QCoreApplication
+operator|::
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|AA_SetPalette
+argument_list|)
+expr_stmt|;
 emit|emit
 name|qGuiApp
 operator|->
