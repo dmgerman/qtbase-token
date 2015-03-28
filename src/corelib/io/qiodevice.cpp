@@ -2515,6 +2515,15 @@ name|readBytes
 init|=
 literal|0
 decl_stmt|;
+specifier|const
+name|bool
+name|sequential
+init|=
+name|d
+operator|->
+name|isSequential
+argument_list|()
+decl_stmt|;
 comment|// flush internal read buffer
 if|if
 condition|(
@@ -2567,6 +2576,11 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|sequential
+condition|)
 name|d
 operator|->
 name|pos
@@ -2579,10 +2593,7 @@ name|theSize
 decl_stmt|;
 if|if
 condition|(
-name|d
-operator|->
-name|isSequential
-argument_list|()
+name|sequential
 operator|||
 operator|(
 name|theSize
