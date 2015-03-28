@@ -2615,10 +2615,7 @@ name|result
 operator|.
 name|resize
 argument_list|(
-name|result
-operator|.
-name|size
-argument_list|()
+name|readBytes
 operator|+
 name|QIODEVICE_BUFFERSIZE
 argument_list|)
@@ -2634,12 +2631,7 @@ argument_list|()
 operator|+
 name|readBytes
 argument_list|,
-name|result
-operator|.
-name|size
-argument_list|()
-operator|-
-name|readBytes
+name|QIODEVICE_BUFFERSIZE
 argument_list|)
 expr_stmt|;
 if|if
