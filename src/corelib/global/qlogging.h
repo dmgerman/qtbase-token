@@ -758,7 +758,7 @@ DECL|macro|QT_MESSAGELOG_FILE
 define|#
 directive|define
 name|QT_MESSAGELOG_FILE
-value|0
+value|Q_NULLPTR
 end_define
 begin_define
 DECL|macro|QT_MESSAGELOG_LINE
@@ -772,7 +772,7 @@ DECL|macro|QT_MESSAGELOG_FUNC
 define|#
 directive|define
 name|QT_MESSAGELOG_FUNC
-value|0
+value|Q_NULLPTR
 end_define
 begin_endif
 endif|#
