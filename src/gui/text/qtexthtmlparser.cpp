@@ -11132,8 +11132,6 @@ name|propertyId
 operator|=
 name|QCss
 operator|::
-name|Property
-operator|::
 name|Color
 expr_stmt|;
 name|val
@@ -11223,8 +11221,6 @@ operator|->
 name|propertyId
 operator|=
 name|QCss
-operator|::
-name|Property
 operator|::
 name|TextDecoration
 expr_stmt|;
@@ -11329,8 +11325,6 @@ operator|->
 name|propertyId
 operator|=
 name|QCss
-operator|::
-name|Property
 operator|::
 name|FontWeight
 expr_stmt|;
@@ -11439,8 +11433,6 @@ operator|->
 name|propertyId
 operator|=
 name|QCss
-operator|::
-name|Property
 operator|::
 name|FontSize
 expr_stmt|;
@@ -11608,8 +11600,6 @@ name|propertyId
 operator|=
 name|QCss
 operator|::
-name|Property
-operator|::
 name|TextAlignment
 expr_stmt|;
 name|val
@@ -11705,8 +11695,6 @@ operator|->
 name|propertyId
 operator|=
 name|QCss
-operator|::
-name|Property
 operator|::
 name|TextDecoration
 expr_stmt|;
@@ -11804,8 +11792,6 @@ name|propertyId
 operator|=
 name|QCss
 operator|::
-name|Property
-operator|::
 name|FontStyle
 expr_stmt|;
 name|val
@@ -11889,8 +11875,6 @@ operator|->
 name|propertyId
 operator|=
 name|QCss
-operator|::
-name|Property
 operator|::
 name|VerticalAlignment
 expr_stmt|;
@@ -11990,8 +11974,6 @@ operator|->
 name|propertyId
 operator|=
 name|QCss
-operator|::
-name|Property
 operator|::
 name|ListStyle
 expr_stmt|;
@@ -12101,8 +12083,6 @@ operator|->
 name|propertyId
 operator|=
 name|QCss
-operator|::
-name|Property
 operator|::
 name|FontFamily
 expr_stmt|;
@@ -12243,8 +12223,6 @@ operator|->
 name|propertyId
 operator|=
 name|QCss
-operator|::
-name|Property
 operator|::
 name|Whitespace
 expr_stmt|;
