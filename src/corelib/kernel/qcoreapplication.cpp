@@ -1384,6 +1384,10 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
+name|applicationNameSet
+operator|=
+literal|false
+expr_stmt|;
 block|}
 DECL|function|~QCoreApplicationData
 name|~
@@ -1625,15 +1629,15 @@ name|QString
 name|application
 decl_stmt|;
 comment|// application name, initially from argv[0], can then be modified.
-DECL|member|applicationNameCompat
-name|QString
-name|applicationNameCompat
-decl_stmt|;
-comment|// for QDesktopServices. Only set explicitly.
 DECL|member|applicationVersion
 name|QString
 name|applicationVersion
 decl_stmt|;
+DECL|member|applicationNameSet
+name|bool
+name|applicationNameSet
+decl_stmt|;
+comment|// true if setApplicationName was called
 ifndef|#
 directive|ifndef
 name|QT_NO_LIBRARY
@@ -2975,6 +2979,14 @@ operator|=
 name|this
 expr_stmt|;
 comment|// Store app name (so it's still available after QCoreApplication is destroyed)
+if|if
+condition|(
+operator|!
+name|coreappdata
+argument_list|()
+operator|->
+name|applicationNameSet
+condition|)
 name|coreappdata
 argument_list|()
 operator|->
@@ -8314,6 +8326,17 @@ modifier|&
 name|application
 parameter_list|)
 block|{
+name|coreappdata
+argument_list|()
+operator|->
+name|applicationNameSet
+operator|=
+operator|!
+name|application
+operator|.
+name|isEmpty
+argument_list|()
+expr_stmt|;
 name|QString
 name|newAppName
 init|=
@@ -8356,13 +8379,6 @@ name|coreappdata
 argument_list|()
 operator|->
 name|application
-operator|=
-name|newAppName
-expr_stmt|;
-name|coreappdata
-argument_list|()
-operator|->
-name|applicationNameCompat
 operator|=
 name|newAppName
 expr_stmt|;
@@ -8434,7 +8450,15 @@ return|return
 name|coreappdata
 argument_list|()
 operator|->
-name|applicationNameCompat
+name|applicationNameSet
+condition|?
+name|coreappdata
+argument_list|()
+operator|->
+name|application
+else|:
+name|QString
+argument_list|()
 return|;
 block|}
 end_function
