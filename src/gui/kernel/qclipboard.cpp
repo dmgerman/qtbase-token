@@ -990,6 +990,9 @@ argument_list|)
 emit|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
@@ -997,7 +1000,4 @@ end_endif
 begin_comment
 comment|// QT_NO_CLIPBOARD
 end_comment
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
 end_unit

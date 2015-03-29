@@ -28,6 +28,9 @@ include|#
 directive|include
 file|<QStringList>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_struct_decl
 struct_decl|struct
 name|navigator_invoke_invocation_t
@@ -254,6 +257,9 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

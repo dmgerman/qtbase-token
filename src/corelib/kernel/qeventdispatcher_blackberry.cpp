@@ -72,6 +72,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|BpsChannelScopeSwitcher
 class|class
