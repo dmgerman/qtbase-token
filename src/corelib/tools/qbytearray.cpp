@@ -3049,6 +3049,24 @@ begin_comment
 comment|/*! \fn QByteArray::const_iterator QByteArray::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     character after the last character in the list.      \sa constBegin(), end() */
 end_comment
 begin_comment
+comment|/*! \fn QByteArray::reverse_iterator QByteArray::rbegin()     \since 5.6      Returns a \l{STL-style iterators}{STL-style} reverse iterator pointing to the first     character in the byte-array, in reverse order.      \sa begin(), crbegin(), rend() */
+end_comment
+begin_comment
+comment|/*! \fn QByteArray::const_reverse_iterator QByteArray::rbegin() const     \since 5.6     \overload */
+end_comment
+begin_comment
+comment|/*! \fn QByteArray::const_reverse_iterator QByteArray::crbegin() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style} reverse iterator pointing to the first     character in the byte-array, in reverse order.      \sa begin(), rbegin(), rend() */
+end_comment
+begin_comment
+comment|/*! \fn QByteArray::reverse_iterator QByteArray::rend()     \since 5.6      Returns a \l{STL-style iterators}{STL-style} reverse iterator pointing to one past     the last character in the byte-array, in reverse order.      \sa end(), crend(), rbegin() */
+end_comment
+begin_comment
+comment|/*! \fn QByteArray::const_reverse_iterator QByteArray::rend() const     \since 5.6     \overload */
+end_comment
+begin_comment
+comment|/*! \fn QByteArray::const_reverse_iterator QByteArray::crend() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style} reverse iterator pointing to one     past the last character in the byte-array, in reverse order.      \sa end(), rend(), rbegin() */
+end_comment
+begin_comment
 comment|/*! \fn void QByteArray::push_back(const QByteArray&other)      This function is provided for STL compatibility. It is equivalent     to append(\a other). */
 end_comment
 begin_comment
