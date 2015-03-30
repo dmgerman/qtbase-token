@@ -1190,6 +1190,9 @@ argument_list|(
 name|currentIndex
 argument_list|)
 expr_stmt|;
+name|modelChanged
+argument_list|()
+expr_stmt|;
 name|q
 operator|->
 name|update
