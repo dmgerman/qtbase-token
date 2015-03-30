@@ -5900,16 +5900,6 @@ name|nCols
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_endif
-unit|void QTextTable::mergeCells(const QTextCursor&selection) { }
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     \fn QTextCursor QTextTable::rowStart(const QTextCursor&cursor) const      Returns a cursor pointing to the start of the row that contains the     given \a cursor.      \sa rowEnd() */
 end_comment
