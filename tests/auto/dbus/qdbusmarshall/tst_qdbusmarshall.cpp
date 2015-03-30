@@ -6376,7 +6376,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QDBusConnection: error: could not send signal path \"/foo\" interface \"local.interfaceName\" member \"signalName\": Marshalling failed: Invalid object path passed in arguments"
+literal|"QDBusConnection: error: could not send signal to service \"\" path \"/foo\" interface \"local.interfaceName\" member \"signalName\": Marshalling failed: Invalid object path passed in arguments"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -6432,7 +6432,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QDBusConnection: error: could not send signal path \"/foo\" interface \"local.interfaceName\" member \"signalName\": Marshalling failed: Invalid object path passed in arguments"
+literal|"QDBusConnection: error: could not send signal to service \"\" path \"/foo\" interface \"local.interfaceName\" member \"signalName\": Marshalling failed: Invalid object path passed in arguments"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -6470,7 +6470,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QDBusConnection: error: could not send signal path \"/foo\" interface \"local.interfaceName\" member \"signalName\": Marshalling failed: Invalid signature passed in arguments"
+literal|"QDBusConnection: error: could not send signal to service \"\" path \"/foo\" interface \"local.interfaceName\" member \"signalName\": Marshalling failed: Invalid signature passed in arguments"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -6523,7 +6523,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QDBusConnection: error: could not send signal path \"/foo\" interface \"local.interfaceName\" member \"signalName\": Marshalling failed: Invalid signature passed in arguments"
+literal|"QDBusConnection: error: could not send signal to service \"\" path \"/foo\" interface \"local.interfaceName\" member \"signalName\": Marshalling failed: Invalid signature passed in arguments"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
