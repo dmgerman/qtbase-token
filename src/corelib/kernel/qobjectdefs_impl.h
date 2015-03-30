@@ -17,6 +17,11 @@ error|#
 directive|error
 error|Do not include qobjectdefs_impl.h directly
 end_error
+begin_include
+include|#
+directive|include
+file|<QtCore/qnamespace.h>
+end_include
 begin_endif
 endif|#
 directive|endif
