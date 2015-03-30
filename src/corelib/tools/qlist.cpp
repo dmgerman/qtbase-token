@@ -2018,6 +2018,24 @@ begin_comment
 comment|/*! \fn QList::const_iterator QList::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa constBegin(), end() */
 end_comment
 begin_comment
+comment|/*! \fn QList::reverse_iterator QList::rbegin()     \since 5.6      Returns a \l{STL-style iterators}{STL-style} reverse iterator pointing to the first     item in the list, in reverse order.      \sa begin(), crbegin(), rend() */
+end_comment
+begin_comment
+comment|/*! \fn QList::const_reverse_iterator QList::rbegin() const     \since 5.6     \overload */
+end_comment
+begin_comment
+comment|/*! \fn QList::const_reverse_iterator QList::crbegin() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style} reverse iterator pointing to the first     item in the list, in reverse order.      \sa begin(), rbegin(), rend() */
+end_comment
+begin_comment
+comment|/*! \fn QList::reverse_iterator QList::rend()     \since 5.6      Returns a \l{STL-style iterators}{STL-style} reverse iterator pointing to one past     the last item in the list, in reverse order.      \sa end(), crend(), rbegin() */
+end_comment
+begin_comment
+comment|/*! \fn QList::const_reverse_iterator QList::rend() const     \since 5.6     \overload */
+end_comment
+begin_comment
+comment|/*! \fn QList::const_reverse_iterator QList::crend() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style} reverse iterator pointing to one     past the last item in the list, in reverse order.      \sa end(), rend(), rbegin() */
+end_comment
+begin_comment
 comment|/*! \fn QList::iterator QList::erase(iterator pos)      Removes the item associated with the iterator \a pos from the     list, and returns an iterator to the next item in the list (which     may be end()).      \sa insert(), removeAt() */
 end_comment
 begin_comment
@@ -2049,6 +2067,12 @@ comment|/*!     \typedef QList::reference      Typedef for T&. Provided for STL 
 end_comment
 begin_comment
 comment|/*!     \typedef QList::const_reference      Typedef for const T&. Provided for STL compatibility. */
+end_comment
+begin_comment
+comment|/*! \typedef QList::reverse_iterator     \since 5.6      The QList::reverse_iterator typedef provides an STL-style non-const     reverse iterator for QList.      It is simply a typedef for \c{std::reverse_iterator<iterator>}.      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QList::rbegin(), QList::rend(), QList::const_reverse_iterator, QList::iterator */
+end_comment
+begin_comment
+comment|/*! \typedef QList::const_reverse_iterator     \since 5.6      The QList::const_reverse_iterator typedef provides an STL-style const     reverse iterator for QList.      It is simply a typedef for \c{std::reverse_iterator<const_iterator>}.      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QList::rbegin(), QList::rend(), QList::reverse_iterator, QList::const_iterator */
 end_comment
 begin_comment
 comment|/*! \fn int QList::count() const      Returns the number of items in the list. This is effectively the     same as size(). */
