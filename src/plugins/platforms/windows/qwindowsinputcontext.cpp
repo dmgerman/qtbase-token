@@ -406,6 +406,7 @@ name|m_compositionContext
 operator|.
 name|isComposing
 operator|&&
+operator|!
 name|m_compositionContext
 operator|.
 name|focusObject
