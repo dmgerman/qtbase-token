@@ -4002,6 +4002,12 @@ begin_comment
 comment|/*! \typedef QString::iterator      The QString::iterator typedef provides an STL-style non-const     iterator for QString.      \sa QString::const_iterator */
 end_comment
 begin_comment
+comment|/*! \typedef QString::const_reverse_iterator     \since 5.6      This typedef provides an STL-style const reverse iterator for QString.      \sa QString::reverse_iterator, QString::const_iterator */
+end_comment
+begin_comment
+comment|/*! \typedef QString::reverse_iterator     \since 5.6      This typedef provides an STL-style non-const reverse iterator for QString.      \sa QString::const_reverse_iterator, QString::iterator */
+end_comment
+begin_comment
 comment|/*!     \typedef QString::size_type      The QString::size_type typedef provides an STL-style type for sizes (int). */
 end_comment
 begin_comment
@@ -4045,6 +4051,24 @@ comment|/*! \fn QString::const_iterator QString::cend() const     \since 5.0    
 end_comment
 begin_comment
 comment|/*! \fn QString::const_iterator QString::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     character after the last character in the list.      \sa constBegin(), end() */
+end_comment
+begin_comment
+comment|/*! \fn QString::reverse_iterator QString::rbegin()     \since 5.6      Returns a \l{STL-style iterators}{STL-style} reverse iterator pointing to the first     character in the string, in reverse order.      \sa begin(), crbegin(), rend() */
+end_comment
+begin_comment
+comment|/*! \fn QString::const_reverse_iterator QString::rbegin() const     \since 5.6     \overload */
+end_comment
+begin_comment
+comment|/*! \fn QString::const_reverse_iterator QString::crbegin() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style} reverse iterator pointing to the first     character in the string, in reverse order.      \sa begin(), rbegin(), rend() */
+end_comment
+begin_comment
+comment|/*! \fn QString::reverse_iterator QString::rend()     \since 5.6      Returns a \l{STL-style iterators}{STL-style} reverse iterator pointing to one past     the last character in the string, in reverse order.      \sa end(), crend(), rbegin() */
+end_comment
+begin_comment
+comment|/*! \fn QString::const_reverse_iterator QString::rend() const     \since 5.6     \overload */
+end_comment
+begin_comment
+comment|/*! \fn QString::const_reverse_iterator QString::crend() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style} reverse iterator pointing to one     past the last character in the string, in reverse order.      \sa end(), rend(), rbegin() */
 end_comment
 begin_comment
 comment|/*!     \fn QString::QString()      Constructs a null string. Null strings are also empty.      \sa isEmpty() */
