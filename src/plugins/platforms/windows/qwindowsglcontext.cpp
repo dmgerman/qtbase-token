@@ -4564,6 +4564,47 @@ operator|/=
 literal|2
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|iAttributes
+index|[
+name|samplesValuePosition
+index|]
+operator|==
+literal|1
+condition|)
+block|{
+comment|// Fallback in case it is unable to initialize with any
+comment|// samples to avoid falling back to the GDI path
+comment|// NB: The sample attributes needs to be at the end for this
+comment|// to work correctly
+name|iAttributes
+index|[
+name|samplesValuePosition
+operator|-
+literal|1
+index|]
+operator|=
+name|FALSE
+expr_stmt|;
+name|iAttributes
+index|[
+name|samplesValuePosition
+index|]
+operator|=
+literal|0
+expr_stmt|;
+name|iAttributes
+index|[
+name|samplesValuePosition
+operator|+
+literal|1
+index|]
+operator|=
+literal|0
+expr_stmt|;
+block|}
 else|else
 block|{
 break|break;
