@@ -6235,6 +6235,8 @@ if|if
 condition|(
 name|checkSslErrors
 argument_list|()
+operator|&&
+name|ssl
 condition|)
 name|continueHandshake
 argument_list|()
