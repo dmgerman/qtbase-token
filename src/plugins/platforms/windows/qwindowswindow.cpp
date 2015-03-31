@@ -5158,7 +5158,13 @@ endif|#
 directive|endif
 comment|// QT_NO_OPENGL
 name|updateDropSite
+argument_list|(
+name|window
 argument_list|()
+operator|->
+name|isTopLevel
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|registerTouchWindow
 argument_list|()
@@ -5597,7 +5603,10 @@ name|void
 name|QWindowsWindow
 operator|::
 name|updateDropSite
-parameter_list|()
+parameter_list|(
+name|bool
+name|topLevel
+parameter_list|)
 block|{
 name|bool
 name|enabled
@@ -5606,11 +5615,7 @@ literal|false
 decl_stmt|;
 if|if
 condition|(
-name|window
-argument_list|()
-operator|->
-name|isTopLevel
-argument_list|()
+name|topLevel
 condition|)
 block|{
 switch|switch
@@ -7155,7 +7160,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|updateDropSite
-argument_list|()
+argument_list|(
+name|isTopLevel
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -8585,7 +8592,13 @@ name|flags
 argument_list|)
 expr_stmt|;
 name|updateDropSite
+argument_list|(
+name|window
 argument_list|()
+operator|->
+name|isTopLevel
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

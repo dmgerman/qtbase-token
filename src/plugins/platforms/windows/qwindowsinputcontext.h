@@ -143,6 +143,18 @@ argument_list|(
 argument|HWND hwnd
 argument_list|)
 block|;
+specifier|inline
+name|bool
+name|isComposing
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_compositionContext
+operator|.
+name|isComposing
+return|;
+block|}
 name|int
 name|reconvertString
 argument_list|(

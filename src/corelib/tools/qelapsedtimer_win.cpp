@@ -91,9 +91,19 @@ condition|(
 name|done
 condition|)
 return|return;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WINRT
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 comment|// try to get GetTickCount64 from the system
 name|HMODULE
 name|kernel32
@@ -109,27 +119,6 @@ operator|!
 name|kernel32
 condition|)
 return|return;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-comment|// does this function exist on WinCE, or will ever exist?
-name|ptrGetTickCount64
-operator|=
-operator|(
-name|PtrGetTickCount64
-operator|)
-name|GetProcAddress
-argument_list|(
-name|kernel32
-argument_list|,
-literal|L"GetTickCount64"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|ptrGetTickCount64
 operator|=
 operator|(
@@ -144,9 +133,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-endif|#
-directive|endif
-comment|// !Q_OS_WINRT
+comment|// !Q_OS_WINRT&& !Q_OS_WINCE
 comment|// Retrieve the number of high-resolution performance counter ticks per second
 name|LARGE_INTEGER
 name|frequency

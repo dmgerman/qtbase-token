@@ -208,6 +208,28 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|/* Return with error when an invalid argument is passed. */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|SLJIT_ARGUMENT_CHECKS
+end_ifndef
+begin_comment
+comment|/* Disabled by default */
+end_comment
+begin_define
+DECL|macro|SLJIT_ARGUMENT_CHECKS
+define|#
+directive|define
+name|SLJIT_ARGUMENT_CHECKS
+value|0
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|/* Debug checks (assertions, etc.). */
 end_comment
 begin_ifndef
@@ -230,7 +252,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* Verbose operations */
+comment|/* Verbose operations. */
 end_comment
 begin_ifndef
 ifndef|#

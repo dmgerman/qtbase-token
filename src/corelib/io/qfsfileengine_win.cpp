@@ -2268,6 +2268,12 @@ expr_stmt|;
 if|if
 condition|(
 name|ret
+operator|||
+operator|::
+name|GetLastError
+argument_list|()
+operator|==
+name|ERROR_FILE_NOT_FOUND
 condition|)
 name|ret
 operator|=

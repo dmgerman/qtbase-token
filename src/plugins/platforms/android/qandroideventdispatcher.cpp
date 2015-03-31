@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"androidjnimain.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"androiddeadlockprotector.h"
+end_include
 begin_constructor
 DECL|function|QAndroidEventDispatcher
 name|QAndroidEventDispatcher
@@ -236,8 +241,17 @@ modifier|*
 name|timeout
 parameter_list|)
 block|{
+block|{
+name|AndroidDeadlockProtector
+name|protector
+decl_stmt|;
 if|if
 condition|(
+name|protector
+operator|.
+name|acquire
+argument_list|()
+operator|&&
 name|m_stopRequest
 operator|.
 name|testAndSetAcquire
@@ -256,6 +270,7 @@ expr_stmt|;
 name|wakeUp
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|QUnixEventDispatcherQPA
