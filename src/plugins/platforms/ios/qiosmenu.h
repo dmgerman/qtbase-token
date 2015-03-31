@@ -244,7 +244,7 @@ argument_list|(
 argument|QPlatformMenuItem *
 argument_list|)
 name|Q_DECL_OVERRIDE
-block|{}
+block|;
 name|void
 name|syncSeparatorsCollapsible
 argument_list|(
