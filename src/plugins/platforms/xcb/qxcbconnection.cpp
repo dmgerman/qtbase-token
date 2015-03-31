@@ -212,6 +212,18 @@ name|lcQpaScreen
 argument_list|,
 literal|"qt.qpa.screen"
 argument_list|)
+comment|// this event type was added in libxcb 1.10,
+comment|// but we support also older version
+ifndef|#
+directive|ifndef
+name|XCB_GE_GENERIC
+DECL|macro|XCB_GE_GENERIC
+define|#
+directive|define
+name|XCB_GE_GENERIC
+value|35
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|XCB_USE_XLIB
@@ -3232,6 +3244,11 @@ argument_list|)
 expr_stmt|;
 name|PRINT_XCB_EVENT
 argument_list|(
+name|XCB_NO_EXPOSURE
+argument_list|)
+expr_stmt|;
+name|PRINT_XCB_EVENT
+argument_list|(
 name|XCB_VISIBILITY_NOTIFY
 argument_list|)
 expr_stmt|;
@@ -3323,6 +3340,16 @@ expr_stmt|;
 name|PRINT_XCB_EVENT
 argument_list|(
 name|XCB_CLIENT_MESSAGE
+argument_list|)
+expr_stmt|;
+name|PRINT_XCB_EVENT
+argument_list|(
+name|XCB_MAPPING_NOTIFY
+argument_list|)
+expr_stmt|;
+name|PRINT_XCB_EVENT
+argument_list|(
+name|XCB_GE_GENERIC
 argument_list|)
 expr_stmt|;
 default|default:
@@ -5215,7 +5242,7 @@ argument_list|(
 name|XCB_USE_XINPUT2
 argument_list|)
 case|case
-name|GenericEvent
+name|XCB_GE_GENERIC
 case|:
 if|if
 condition|(
