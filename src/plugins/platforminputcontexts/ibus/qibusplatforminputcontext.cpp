@@ -1597,6 +1597,16 @@ operator|-
 name|pos
 argument_list|)
 expr_stmt|;
+else|else
+name|displayNumber
+operator|=
+name|display
+operator|.
+name|right
+argument_list|(
+name|pos
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|debug

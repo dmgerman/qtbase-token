@@ -12675,6 +12675,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QT_NO_OPENGL
+name|Q_UNUSED
+argument_list|(
+argument|nativeConfig
+argument_list|)
 return|return
 literal|0
 return|;
@@ -12728,6 +12732,9 @@ operator|::
 name|invalidateSurface
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 if|if
 condition|(
 name|m_surface
@@ -12756,6 +12763,9 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_OPENGL
 block|}
 end_function
 begin_function

@@ -5712,27 +5712,19 @@ name|buttons
 expr_stmt|;
 if|if
 condition|(
-specifier|const
-name|int
-name|mods
-init|=
-name|int
-argument_list|(
 name|me
 operator|->
 name|modifiers
 argument_list|()
-argument_list|)
 condition|)
 name|dbg
 operator|<<
-literal|", modifiers=0x"
+literal|", "
 operator|<<
-name|hex
-operator|<<
-name|mods
-operator|<<
-name|dec
+name|me
+operator|->
+name|modifiers
+argument_list|()
 expr_stmt|;
 name|dbg
 operator|<<
@@ -5884,23 +5876,23 @@ literal|"QKeyEvent("
 operator|<<
 name|type
 operator|<<
-literal|", key=0x"
+literal|", "
 operator|<<
-name|hex
-operator|<<
+cast|static_cast
+argument_list|<
+name|Qt
+operator|::
+name|Key
+argument_list|>
+argument_list|(
 name|ke
 operator|->
 name|key
 argument_list|()
-operator|<<
-name|dec
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
-specifier|const
-name|int
-name|mods
-init|=
 name|ke
 operator|->
 name|modifiers
@@ -5908,13 +5900,12 @@ argument_list|()
 condition|)
 name|dbg
 operator|<<
-literal|", modifiers=0x"
+literal|", "
 operator|<<
-name|hex
-operator|<<
-name|mods
-operator|<<
-name|dec
+name|ke
+operator|->
+name|modifiers
+argument_list|()
 expr_stmt|;
 if|if
 condition|(

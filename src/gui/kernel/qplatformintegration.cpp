@@ -661,6 +661,12 @@ operator|::
 name|TabFocusBehavior
 argument_list|)
 return|;
+case|case
+name|ReplayMousePressOutsidePopup
+case|:
+return|return
+literal|true
+return|;
 block|}
 return|return
 literal|0

@@ -324,7 +324,7 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
-name|module
+name|camelCaseModuleName
 argument_list|,
 name|QDocDatabase
 operator|*
@@ -1286,6 +1286,17 @@ label|:
 specifier|const
 name|QString
 operator|&
+name|camelCaseModuleName
+argument_list|()
+specifier|const
+block|{
+return|return
+name|camelCaseModuleName_
+return|;
+block|}
+specifier|const
+name|QString
+operator|&
 name|physicalModuleName
 argument_list|()
 specifier|const
@@ -1342,6 +1353,9 @@ name|docsHaveBeenGenerated_
 decl_stmt|;
 name|long
 name|linkCount_
+decl_stmt|;
+name|QString
+name|camelCaseModuleName_
 decl_stmt|;
 name|QString
 name|physicalModuleName_

@@ -547,6 +547,15 @@ argument_list|(
 name|type
 argument_list|)
 block|; }
+name|int
+name|dbusID
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_dbusID
+return|;
+block|}
 name|void
 name|showPopup
 argument_list|(
@@ -653,10 +662,15 @@ operator|*
 operator|>
 name|topLevelMenus
 argument_list|()
-block|;
+block|{
+return|return
+name|m_topLevelMenus
+return|;
+block|}
 name|uint
 name|revision
 argument_list|()
+specifier|const
 block|{
 return|return
 name|m_revision
@@ -725,6 +739,14 @@ name|QDBusPlatformMenuItem
 operator|*
 operator|>
 name|m_items
+block|;
+specifier|static
+name|QList
+operator|<
+name|QDBusPlatformMenu
+operator|*
+operator|>
+name|m_topLevelMenus
 block|; }
 decl_stmt|;
 end_decl_stmt

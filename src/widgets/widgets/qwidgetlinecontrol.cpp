@@ -4157,6 +4157,11 @@ name|internalSetText
 argument_list|(
 name|QString
 argument_list|()
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -4653,6 +4658,11 @@ block|}
 name|internalSetText
 argument_list|(
 name|m_text
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

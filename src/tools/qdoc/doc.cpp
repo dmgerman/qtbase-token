@@ -16818,6 +16818,55 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|QString
+name|details
+init|=
+name|QLatin1String
+argument_list|(
+literal|"Example directories: "
+argument_list|)
+operator|+
+name|DocParser
+operator|::
+name|exampleDirs
+operator|.
+name|join
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|DocParser
+operator|::
+name|exampleFiles
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|details
+operator|+=
+name|QLatin1String
+argument_list|(
+literal|", example files: "
+argument_list|)
+operator|+
+name|DocParser
+operator|::
+name|exampleFiles
+operator|.
+name|join
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|location
 operator|.
 name|warning
@@ -16831,6 +16880,8 @@ name|arg
 argument_list|(
 name|fileName
 argument_list|)
+argument_list|,
+name|details
 argument_list|)
 expr_stmt|;
 block|}

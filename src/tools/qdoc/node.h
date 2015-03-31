@@ -324,9 +324,9 @@ name|Preliminary
 block|,
 name|Commendable
 block|,
-name|Main
-block|,
 name|Internal
+block|,
+name|Intermediate
 block|}
 enum|;
 comment|// don't reorder this enum
@@ -2742,6 +2742,30 @@ name|tree_
 operator|=
 name|t
 block|; }
+specifier|const
+name|NodeList
+operator|&
+name|orphans
+argument_list|()
+specifier|const
+block|{
+return|return
+name|orphans_
+return|;
+block|}
+name|void
+name|addOrphan
+argument_list|(
+argument|Node* child
+argument_list|)
+block|{
+name|orphans_
+operator|.
+name|append
+argument_list|(
+name|child
+argument_list|)
+block|; }
 name|private
 operator|:
 name|bool
@@ -2750,6 +2774,9 @@ block|;
 name|Tree
 operator|*
 name|tree_
+block|;
+name|NodeList
+name|orphans_
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -3166,25 +3193,6 @@ return|return
 name|usingClauses_
 return|;
 block|}
-name|QString
-name|serviceName
-argument_list|()
-specifier|const
-block|{
-return|return
-name|sname
-return|;
-block|}
-name|void
-name|setServiceName
-argument_list|(
-argument|const QString& value
-argument_list|)
-block|{
-name|sname
-operator|=
-name|value
-block|; }
 name|QmlTypeNode
 operator|*
 name|qmlElement
@@ -3273,9 +3281,6 @@ name|abstract_
 block|;
 name|bool
 name|wrapper_
-block|;
-name|QString
-name|sname
 block|;
 name|QString
 name|obsoleteLink_

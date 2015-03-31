@@ -999,6 +999,11 @@ argument_list|)
 block|,
 name|important
 argument_list|(
+name|false
+argument_list|)
+block|,
+name|inheritable
+argument_list|(
 argument|false
 argument_list|)
 block|{}
@@ -1019,6 +1024,13 @@ name|parsed
 block|;
 name|bool
 name|important
+operator|:
+literal|1
+block|;
+name|bool
+name|inheritable
+operator|:
+literal|1
 block|;     }
 decl_stmt|;
 name|QExplicitlySharedDataPointer

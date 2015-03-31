@@ -657,6 +657,47 @@ operator|)
 condition|)
 continue|continue;
 comment|// we're not exporting any slots or invokables
+comment|// we want to skip non-scriptable stuff as early as possible to avoid bogus warning
+comment|// for methods that are not being exported at all
+name|bool
+name|isScriptable
+init|=
+name|mm
+operator|.
+name|attributes
+argument_list|()
+operator|&
+name|QMetaMethod
+operator|::
+name|Scriptable
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|isScriptable
+operator|&&
+operator|!
+operator|(
+name|flags
+operator|&
+operator|(
+name|isSignal
+condition|?
+name|QDBusConnection
+operator|::
+name|ExportNonScriptableSignals
+else|:
+name|QDBusConnection
+operator|::
+name|ExportNonScriptableInvokables
+operator||
+name|QDBusConnection
+operator|::
+name|ExportNonScriptableSlots
+operator|)
+operator|)
+condition|)
+continue|continue;
 name|QString
 name|xml
 init|=
@@ -949,18 +990,6 @@ continue|continue;
 comment|// cloned signal?
 name|int
 name|j
-decl_stmt|;
-name|bool
-name|isScriptable
-init|=
-name|mm
-operator|.
-name|attributes
-argument_list|()
-operator|&
-name|QMetaMethod
-operator|::
-name|Scriptable
 decl_stmt|;
 for|for
 control|(

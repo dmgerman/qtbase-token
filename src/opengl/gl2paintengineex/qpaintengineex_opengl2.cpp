@@ -6949,10 +6949,6 @@ name|setVertexAttributePointer
 argument_list|(
 name|QT_VERTEX_COORDS_ATTR
 argument_list|,
-operator|(
-name|GLfloat
-operator|*
-operator|)
 name|data
 argument_list|)
 expr_stmt|;

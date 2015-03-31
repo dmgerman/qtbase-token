@@ -3896,6 +3896,12 @@ operator|->
 name|subtype
 operator|==
 name|XCB_XFIXES_SELECTION_EVENT_SELECTION_CLIENT_CLOSE
+operator|||
+name|event
+operator|->
+name|subtype
+operator|==
+name|XCB_XFIXES_SELECTION_EVENT_SELECTION_WINDOW_DESTROY
 condition|)
 name|emitChanged
 argument_list|(

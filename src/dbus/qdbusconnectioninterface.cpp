@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdbus_symbols_p.h"
+file|"qdbusutil_p.h"
 end_include
 begin_comment
 comment|// for the DBUS_* constants
@@ -103,15 +103,15 @@ parameter_list|)
 member_init_list|:
 name|QDBusAbstractInterface
 argument_list|(
-name|QLatin1String
-argument_list|(
-name|DBUS_SERVICE_DBUS
-argument_list|)
+name|QDBusUtil
+operator|::
+name|dbusService
+argument_list|()
 argument_list|,
-name|QLatin1String
-argument_list|(
-name|DBUS_PATH_DBUS
-argument_list|)
+name|QDBusUtil
+operator|::
+name|dbusPath
+argument_list|()
 argument_list|,
 name|DBUS_INTERFACE_DBUS
 argument_list|,

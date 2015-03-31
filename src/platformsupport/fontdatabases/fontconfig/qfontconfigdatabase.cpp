@@ -796,7 +796,76 @@ literal|"srb"
 block|,
 comment|// SoraSompeng
 literal|"doi"
+block|,
 comment|// Takri
+literal|"lez"
+block|,
+comment|// CaucasianAlbanian
+literal|"bsq"
+block|,
+comment|// BassaVah
+literal|"fr"
+block|,
+comment|// Duployan
+literal|"sq"
+block|,
+comment|// Elbasan
+literal|"sa"
+block|,
+comment|// Grantha
+literal|"hnj"
+block|,
+comment|// PahawhHmong
+literal|"sd"
+block|,
+comment|// Khojki
+literal|"lab"
+block|,
+comment|// LinearA
+literal|"hi"
+block|,
+comment|// Mahajani
+literal|"xmn"
+block|,
+comment|// Manichaean
+literal|"men"
+block|,
+comment|// MendeKikakui
+literal|"mr"
+block|,
+comment|// Modi
+literal|"mru"
+block|,
+comment|// Mro
+literal|"xna"
+block|,
+comment|// OldNorthArabian
+literal|"arc"
+block|,
+comment|// Nabataean
+literal|"arc"
+block|,
+comment|// Palmyrene
+literal|"ctd"
+block|,
+comment|// PauCinHau
+literal|"kv"
+block|,
+comment|// OldPermic
+literal|"pal"
+block|,
+comment|// PsalterPahlavi
+literal|"sa"
+block|,
+comment|// Siddham
+literal|"sd"
+block|,
+comment|// Khudawadi
+literal|"mai"
+block|,
+comment|// Tirhuta
+literal|"hoc"
+comment|// WarangCiti
 block|}
 decl_stmt|;
 end_decl_stmt

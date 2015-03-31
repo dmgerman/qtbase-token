@@ -3117,6 +3117,12 @@ operator|&
 name|m
 operator|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+block|;
 name|dbg
 operator|.
 name|nospace
@@ -3205,9 +3211,6 @@ end_expr_stmt
 begin_return
 return|return
 name|dbg
-operator|.
-name|space
-argument_list|()
 return|;
 end_return
 begin_endif

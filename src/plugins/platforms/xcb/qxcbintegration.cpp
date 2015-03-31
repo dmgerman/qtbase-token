@@ -802,18 +802,6 @@ name|window
 parameter_list|)
 specifier|const
 block|{
-if|if
-condition|(
-name|window
-operator|->
-name|type
-argument_list|()
-operator|!=
-name|Qt
-operator|::
-name|Desktop
-condition|)
-block|{
 name|QXcbScreen
 modifier|*
 name|screen
@@ -845,6 +833,18 @@ operator|->
 name|glIntegration
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|window
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|Desktop
+condition|)
+block|{
 if|if
 condition|(
 name|glIntegration
@@ -887,8 +887,23 @@ name|window
 operator|->
 name|supportsOpenGL
 argument_list|()
+operator|||
+operator|(
+operator|!
+name|glIntegration
+operator|&&
+name|window
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|RasterGLSurface
+operator|)
 argument_list|)
 expr_stmt|;
+comment|// for VNC
 name|QXcbWindow
 modifier|*
 name|xcbWindow
@@ -1791,6 +1806,14 @@ name|ShowIsFullScreen
 case|:
 comment|// X11 always has support for windows, but the
 comment|// window manager could prevent it (e.g. matchbox)
+return|return
+literal|false
+return|;
+case|case
+name|QPlatformIntegration
+operator|::
+name|ReplayMousePressOutsidePopup
+case|:
 return|return
 literal|false
 return|;

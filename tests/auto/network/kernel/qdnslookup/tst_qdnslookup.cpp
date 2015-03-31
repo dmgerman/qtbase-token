@@ -1817,7 +1817,19 @@ literal|""
 operator|<<
 literal|""
 operator|<<
-literal|"Hello World"
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Hello\0World"
+argument_list|,
+sizeof|sizeof
+argument_list|(
+literal|"Hello\0World"
+argument_list|)
+operator|-
+literal|1
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -2838,7 +2850,7 @@ argument_list|()
 condition|)
 name|text
 operator|+=
-literal|' '
+literal|'\0'
 expr_stmt|;
 name|text
 operator|+=

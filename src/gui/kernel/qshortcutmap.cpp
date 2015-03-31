@@ -308,7 +308,7 @@ begin_comment
 comment|/*! \internal     QDebug operator<< for easy debug output of the shortcut entries. */
 end_comment
 begin_endif
-unit|static QDebug&operator<<(QDebug&dbg, const QShortcutEntry *se) {     if (!se)         return dbg<< "QShortcutEntry(0x0)";     dbg.nospace()<< "QShortcutEntry("<< se->keyseq<< "), id("<< se->id<< "), enabled("<< se->enabled<< "), autorepeat("<< se->autorepeat<< "), owner("<< se->owner<< ')';     return dbg.space(); }
+unit|static QDebug&operator<<(QDebug&dbg, const QShortcutEntry *se) {     QDebugStateSaver saver(dbg);     if (!se)         return dbg<< "QShortcutEntry(0x0)";     dbg.nospace()<< "QShortcutEntry("<< se->keyseq<< "), id("<< se->id<< "), enabled("<< se->enabled<< "), autorepeat("<< se->autorepeat<< "), owner("<< se->owner<< ')';     return dbg; }
 endif|#
 directive|endif
 end_endif

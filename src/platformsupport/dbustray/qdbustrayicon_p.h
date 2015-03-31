@@ -360,25 +360,6 @@ return|return
 name|m_menu
 return|;
 block|}
-name|public
-name|Q_SLOTS
-operator|:
-name|void
-name|activate
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
-block|;
-name|void
-name|contextMenu
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
-block|;
 name|signals
 operator|:
 name|void

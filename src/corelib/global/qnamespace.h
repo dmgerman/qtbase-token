@@ -848,6 +848,10 @@ name|WindowDoesNotAcceptFocus
 init|=
 literal|0x00200000
 block|,
+name|MaximizeUsingFullscreenGeometryHint
+init|=
+literal|0x00400000
+block|,
 name|CustomizeWindowHint
 init|=
 literal|0x02000000
@@ -5224,6 +5228,10 @@ argument_list|)
 name|QT_Q_ENUM
 argument_list|(
 argument|MouseEventSource
+argument_list|)
+name|QT_Q_FLAG
+argument_list|(
+argument|MouseEventFlag
 argument_list|)
 name|QT_Q_ENUM
 argument_list|(

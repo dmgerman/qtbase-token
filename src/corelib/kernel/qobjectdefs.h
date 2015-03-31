@@ -343,7 +343,7 @@ define|#
 directive|define
 name|QT_TR_FUNCTIONS
 define|\
-value|static inline QString tr(const char *s, const char *c = 0, int n = -1) \         { return staticMetaObject.tr(s, c, n); } \     QT_DEPRECATED static inline QString trUtf8(const char *s, const char *c = 0, int n = -1) \         { return staticMetaObject.tr(s, c, n); }
+value|static inline QString tr(const char *s, const char *c = Q_NULLPTR, int n = -1) \         { return staticMetaObject.tr(s, c, n); } \     QT_DEPRECATED static inline QString trUtf8(const char *s, const char *c = Q_NULLPTR, int n = -1) \         { return staticMetaObject.tr(s, c, n); }
 end_define
 begin_else
 else|#

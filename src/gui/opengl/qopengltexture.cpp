@@ -12912,7 +12912,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum ComparisonFunction     \since 5.5     This enum specifies which comparison operator is used when texture comparison     is enabled on this texture.      \value CompareLessEqual Equivalent to GL_LEQUAL.     \value CompareGreaterEqual Equivalent to GL_GEQUAL.     \value CompareLess Equivalent to GL_LESS.     \value CompareGreater Equivalent to GL_GREATER.     \value CompareEqual Equivalent to GL_EQUAL.     \value CommpareNotEqual Equivalent to GL_NOTEQUAL.     \value CompareAlways Equivalent to GL_ALWAYS.     \value CompareNever Equivalent to GL_NEVER.  */
+comment|/*!     \enum QOpenGLTexture::ComparisonFunction     \since 5.5     This enum specifies which comparison operator is used when texture comparison     is enabled on this texture.      \value CompareLessEqual Equivalent to GL_LEQUAL.     \value CompareGreaterEqual Equivalent to GL_GEQUAL.     \value CompareLess Equivalent to GL_LESS.     \value CompareGreater Equivalent to GL_GREATER.     \value CompareEqual Equivalent to GL_EQUAL.     \value CommpareNotEqual Equivalent to GL_NOTEQUAL.     \value CompareAlways Equivalent to GL_ALWAYS.     \value CompareNever Equivalent to GL_NEVER.  */
 end_comment
 begin_comment
 comment|/*     \since 5.5      Sets the texture comparison function on this texture to \a function. The texture     comparison function is used by shadow samplers when sampling a depth texture.      \sa comparisonFunction() */

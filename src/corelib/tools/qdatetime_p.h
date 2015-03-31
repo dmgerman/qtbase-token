@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qpair.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qtimezone.h"
 end_include
 begin_decl_stmt
@@ -276,13 +281,14 @@ operator|&
 name|time
 argument_list|)
 block|;
-name|void
+name|QPair
+operator|<
+name|QDate
+block|,
+name|QTime
+operator|>
 name|getDateTime
-argument_list|(
-argument|QDate *date
-argument_list|,
-argument|QTime *time
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|void

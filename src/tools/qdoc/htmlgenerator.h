@@ -626,7 +626,7 @@ operator|*
 name|marker
 argument_list|,
 specifier|const
-name|NodeMap
+name|NodeMultiMap
 operator|&
 name|nodeMap
 argument_list|)
@@ -656,7 +656,7 @@ argument|ListType listType
 argument_list|,
 argument|const Node *relative
 argument_list|,
-argument|const NodeMap&classMap
+argument|const NodeMultiMap&classMap
 argument_list|,
 argument|bool includeAlphabet
 argument_list|,

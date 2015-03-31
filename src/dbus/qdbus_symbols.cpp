@@ -204,6 +204,16 @@ operator|=
 operator|new
 name|QLibrary
 expr_stmt|;
+name|lib
+operator|->
+name|setLoadHints
+argument_list|(
+name|QLibrary
+operator|::
+name|ExportExternalSymbolsHint
+argument_list|)
+expr_stmt|;
+comment|// make libdbus symbols available for apps that need more advanced control over the dbus
 name|triedToLoadLibrary
 operator|=
 literal|true

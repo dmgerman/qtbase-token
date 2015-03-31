@@ -85,6 +85,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QUrl>
+end_include
+begin_include
+include|#
+directive|include
 file|<QTimer>
 end_include
 begin_include

@@ -431,6 +431,8 @@ block|,
 name|MousePressAndHoldInterval
 block|,
 name|TabFocusBehavior
+block|,
+name|ReplayMousePressOutsidePopup
 block|}
 enum|;
 name|virtual

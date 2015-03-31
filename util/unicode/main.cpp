@@ -61,14 +61,14 @@ DECL|macro|DATA_VERSION_S
 define|#
 directive|define
 name|DATA_VERSION_S
-value|"6.3"
+value|"7.0"
 end_define
 begin_define
 DECL|macro|DATA_VERSION_STR
 define|#
 directive|define
 name|DATA_VERSION_STR
-value|"QChar::Unicode_6_3"
+value|"QChar::Unicode_7_0"
 end_define
 begin_decl_stmt
 DECL|variable|age_map
@@ -228,6 +228,14 @@ operator|::
 name|Unicode_6_3
 block|,
 literal|"6.3"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Unicode_7_0
+block|,
+literal|"7.0"
 block|}
 block|,
 block|{
@@ -3388,6 +3396,191 @@ block|,
 literal|"Takri"
 block|}
 block|,
+comment|// 7.0
+block|{
+name|QChar
+operator|::
+name|Script_CaucasianAlbanian
+block|,
+literal|"CaucasianAlbanian"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_BassaVah
+block|,
+literal|"BassaVah"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Duployan
+block|,
+literal|"Duployan"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Elbasan
+block|,
+literal|"Elbasan"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Grantha
+block|,
+literal|"Grantha"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_PahawhHmong
+block|,
+literal|"PahawhHmong"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Khojki
+block|,
+literal|"Khojki"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_LinearA
+block|,
+literal|"LinearA"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Mahajani
+block|,
+literal|"Mahajani"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Manichaean
+block|,
+literal|"Manichaean"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_MendeKikakui
+block|,
+literal|"MendeKikakui"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Modi
+block|,
+literal|"Modi"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Mro
+block|,
+literal|"Mro"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_OldNorthArabian
+block|,
+literal|"OldNorthArabian"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Nabataean
+block|,
+literal|"Nabataean"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Palmyrene
+block|,
+literal|"Palmyrene"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_PauCinHau
+block|,
+literal|"PauCinHau"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_OldPermic
+block|,
+literal|"OldPermic"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_PsalterPahlavi
+block|,
+literal|"PsalterPahlavi"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Siddham
+block|,
+literal|"Siddham"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Khudawadi
+block|,
+literal|"Khudawadi"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Tirhuta
+block|,
+literal|"Tirhuta"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_WarangCiti
+block|,
+literal|"WarangCiti"
+block|}
+block|,
 comment|// unhandled
 block|{
 name|QChar
@@ -3446,24 +3639,24 @@ literal|"    ushort category            : 8; /* 5 used */\n"
 literal|"    ushort direction           : 8; /* 5 used */\n"
 literal|"    ushort combiningClass      : 8;\n"
 literal|"    ushort joining             : 3;\n"
-literal|"    signed short digitValue    : 5; /* 5 used */\n"
+literal|"    signed short digitValue    : 5;\n"
 literal|"    signed short mirrorDiff    : 16;\n"
-literal|"    signed short lowerCaseDiff : 16;\n"
-literal|"    signed short upperCaseDiff : 16;\n"
-literal|"    signed short titleCaseDiff : 16;\n"
-literal|"    signed short caseFoldDiff  : 16;\n"
 literal|"    ushort lowerCaseSpecial    : 1;\n"
+literal|"    signed short lowerCaseDiff : 15;\n"
 literal|"    ushort upperCaseSpecial    : 1;\n"
+literal|"    signed short upperCaseDiff : 15;\n"
 literal|"    ushort titleCaseSpecial    : 1;\n"
+literal|"    signed short titleCaseDiff : 15;\n"
 literal|"    ushort caseFoldSpecial     : 1;\n"
-literal|"    ushort unicodeVersion      : 4;\n"
+literal|"    signed short caseFoldDiff  : 15;\n"
+literal|"    ushort unicodeVersion      : 8; /* 5 used */\n"
 literal|"    ushort nfQuickCheck        : 8;\n"
 comment|// could be narrowed
 literal|"    ushort graphemeBreakClass  : 4; /* 4 used */\n"
 literal|"    ushort wordBreakClass      : 4; /* 4 used */\n"
 literal|"    ushort sentenceBreakClass  : 8; /* 4 used */\n"
 literal|"    ushort lineBreakClass      : 8; /* 6 used */\n"
-literal|"    ushort script              : 8; /* 7 used */\n"
+literal|"    ushort script              : 8;\n"
 literal|"};\n\n"
 literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(uint ucs4) Q_DECL_NOTHROW;\n"
 literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(ushort ucs2) Q_DECL_NOTHROW;\n"
@@ -3692,7 +3885,7 @@ operator|::
 name|UnicodeVersion
 name|age
 range|:
-literal|4
+literal|5
 decl_stmt|;
 DECL|member|digitValue
 name|int
@@ -3990,6 +4183,9 @@ name|pos
 return|;
 block|}
 end_function
+begin_comment
+comment|// DerivedCoreProperties.txt
+end_comment
 begin_function
 DECL|function|isDefaultIgnorable
 specifier|static
@@ -4022,6 +4218,10 @@ name|ucs4
 operator|==
 literal|0x034f
 operator|||
+name|ucs4
+operator|==
+literal|0x061c
+operator|||
 operator|(
 name|ucs4
 operator|>=
@@ -4051,6 +4251,10 @@ name|ucs4
 operator|<=
 literal|0x180d
 operator|)
+operator|||
+name|ucs4
+operator|==
+literal|0x180e
 operator|||
 operator|(
 name|ucs4
@@ -4117,21 +4321,31 @@ operator|||
 operator|(
 name|ucs4
 operator|>=
+literal|0x1bca0
+operator|&&
+name|ucs4
+operator|<=
+literal|0x1bca3
+operator|)
+operator|||
+operator|(
+name|ucs4
+operator|>=
 literal|0x1d173
 operator|&&
 name|ucs4
 operator|<=
-literal|0xe0fff
-operator|&&
-operator|(
-name|ucs4
-operator|<=
 literal|0x1d17a
+operator|)
 operator|||
+operator|(
 name|ucs4
 operator|>=
 literal|0xe0000
-operator|)
+operator|&&
+name|ucs4
+operator|<=
+literal|0xe0fff
 operator|)
 return|;
 block|}
@@ -5413,7 +5627,7 @@ operator|>=
 operator|(
 literal|1
 operator|<<
-literal|14
+literal|13
 operator|)
 condition|)
 block|{
@@ -5607,7 +5821,7 @@ operator|>=
 operator|(
 literal|1
 operator|<<
-literal|14
+literal|13
 operator|)
 condition|)
 block|{
@@ -5822,7 +6036,7 @@ operator|>=
 operator|(
 literal|1
 operator|<<
-literal|14
+literal|13
 operator|)
 condition|)
 block|{
@@ -9406,7 +9620,7 @@ operator|>=
 operator|(
 literal|1
 operator|<<
-literal|14
+literal|13
 operator|)
 condition|)
 block|{
@@ -11077,7 +11291,7 @@ operator|<
 operator|(
 literal|1
 operator|<<
-literal|14
+literal|13
 operator|)
 argument_list|)
 expr_stmt|;
@@ -11088,7 +11302,7 @@ operator|<
 operator|(
 literal|1
 operator|<<
-literal|14
+literal|13
 operator|)
 argument_list|)
 expr_stmt|;
@@ -11099,7 +11313,7 @@ operator|<
 operator|(
 literal|1
 operator|<<
-literal|14
+literal|13
 operator|)
 argument_list|)
 expr_stmt|;
@@ -11110,7 +11324,7 @@ operator|<
 operator|(
 literal|1
 operator|<<
-literal|14
+literal|13
 operator|)
 argument_list|)
 expr_stmt|;
@@ -12244,7 +12458,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        signed short digitValue    : 5; /* 5 used */\n"
+comment|//     "        signed short digitValue    : 5;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -12261,10 +12475,6 @@ operator|+=
 literal|", "
 expr_stmt|;
 comment|//     "        signed short mirrorDiff    : 16;\n"
-comment|//     "        signed short lowerCaseDiff : 16;\n"
-comment|//     "        signed short upperCaseDiff : 16;\n"
-comment|//     "        signed short titleCaseDiff : 16;\n"
-comment|//     "        signed short caseFoldDiff  : 16;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -12280,70 +12490,8 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|lowerCaseDiff
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|upperCaseDiff
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|titleCaseDiff
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
-name|out
-operator|+=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|p
-operator|.
-name|caseFoldDiff
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-literal|", "
-expr_stmt|;
 comment|//     "        ushort lowerCaseSpecial    : 1;\n"
-comment|//     "        ushort upperCaseSpecial    : 1;\n"
-comment|//     "        ushort titleCaseSpecial    : 1;\n"
-comment|//     "        ushort caseFoldSpecial     : 1;\n"
+comment|//     "        signed short lowerCaseDiff : 15;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -12367,6 +12515,23 @@ name|number
 argument_list|(
 name|p
 operator|.
+name|lowerCaseDiff
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+comment|//     "        ushort upperCaseSpecial    : 1;\n"
+comment|//     "        signed short upperCaseDiff : 15;\n"
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
 name|upperCaseSpecial
 argument_list|)
 expr_stmt|;
@@ -12374,6 +12539,23 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|upperCaseDiff
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+comment|//     "        ushort titleCaseSpecial    : 1;\n"
+comment|//     "        signed short titleCaseDiff : 15;\n"
 name|out
 operator|+=
 name|QByteArray
@@ -12397,6 +12579,23 @@ name|number
 argument_list|(
 name|p
 operator|.
+name|titleCaseDiff
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+comment|//     "        ushort caseFoldSpecial     : 1;\n"
+comment|//     "        signed short caseFoldDiff  : 15;\n"
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
 name|caseFoldSpecial
 argument_list|)
 expr_stmt|;
@@ -12404,7 +12603,22 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort unicodeVersion      : 4;\n"
+name|out
+operator|+=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|p
+operator|.
+name|caseFoldDiff
+argument_list|)
+expr_stmt|;
+name|out
+operator|+=
+literal|", "
+expr_stmt|;
+comment|//     "        ushort unicodeVersion      : 8; /* 5 used */\n"
 name|out
 operator|+=
 name|QByteArray
@@ -12500,7 +12714,7 @@ name|out
 operator|+=
 literal|", "
 expr_stmt|;
-comment|//     "        ushort script              : 8; /* 7 used */\n"
+comment|//     "        ushort script              : 8;\n"
 name|out
 operator|+=
 name|QByteArray

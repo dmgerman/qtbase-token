@@ -50,7 +50,7 @@ block|{
 comment|// -----------------------------------------------------------------------------------------------------
 comment|//
 comment|// The text boundaries determination algorithm.
-comment|// See http://www.unicode.org/reports/tr29/tr29-23.html
+comment|// See http://www.unicode.org/reports/tr29/tr29-25.html
 comment|//
 comment|// -----------------------------------------------------------------------------------------------------
 DECL|namespace|GB
@@ -2614,7 +2614,7 @@ block|}
 comment|// -----------------------------------------------------------------------------------------------------
 comment|//
 comment|// The line breaking algorithm.
-comment|// See http://www.unicode.org/reports/tr14/tr14-32.html
+comment|// See http://www.unicode.org/reports/tr14/tr14-33.html
 comment|//
 comment|// -----------------------------------------------------------------------------------------------------
 DECL|namespace|LB
@@ -6076,7 +6076,7 @@ block|}
 block|}
 comment|// ----------------------------------------------------------------------------
 comment|//
-comment|// The Unicode script property. See http://www.unicode.org/reports/tr24/tr24-21.html
+comment|// The Unicode script property. See http://www.unicode.org/reports/tr24/tr24-22.html
 comment|//
 comment|// ----------------------------------------------------------------------------
 DECL|function|initScripts

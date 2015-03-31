@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdbusutil_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qcoreapplication.h"
 end_include
 begin_include
@@ -933,10 +938,10 @@ name|QDBusError
 operator|::
 name|Disconnected
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"Not connected to D-Bus server"
-argument_list|)
+name|QDBusUtil
+operator|::
+name|disconnectedErrorMessage
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

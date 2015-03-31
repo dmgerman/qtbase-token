@@ -964,11 +964,18 @@ condition|)
 block|{
 name|node
 operator|->
-name|setStatus
+name|doc
+argument_list|()
+operator|.
+name|location
+argument_list|()
+operator|.
+name|warning
 argument_list|(
-name|Node
-operator|::
-name|Main
+name|tr
+argument_list|(
+literal|"'\\mainclass' is deprecated. Consider '\\ingroup mainclasses'"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

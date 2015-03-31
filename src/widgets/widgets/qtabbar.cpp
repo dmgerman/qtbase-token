@@ -11265,6 +11265,9 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|Q_D
 argument_list|(
 name|QTabBar
@@ -11299,6 +11302,8 @@ argument_list|(
 name|event
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif

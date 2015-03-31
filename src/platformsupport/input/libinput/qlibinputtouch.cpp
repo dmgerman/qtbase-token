@@ -719,11 +719,21 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|state
 operator|->
 name|m_touchDevice
-operator|&&
-operator|!
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"TouchFrame without registered device"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|state
 operator|->
 name|m_points
@@ -731,7 +741,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
+return|return;
 name|QWindowSystemInterface
 operator|::
 name|handleTouchEvent
@@ -824,15 +834,6 @@ operator|=
 name|Qt
 operator|::
 name|TouchPointStationary
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|qWarning
-argument_list|(
-literal|"TouchFrame without registered device"
-argument_list|)
 expr_stmt|;
 block|}
 block|}

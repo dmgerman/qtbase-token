@@ -1496,6 +1496,18 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+operator|!
+name|dialogOptions
+operator|->
+name|nameFilters
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|ComPtr
 argument_list|<
 name|IMap
@@ -1681,18 +1693,14 @@ specifier|const
 name|QString
 name|filterTitle
 init|=
-name|offset
-operator|>
-literal|0
-condition|?
 name|namedFilter
 operator|.
-name|left
+name|mid
 argument_list|(
+literal|0
+argument_list|,
 name|offset
 argument_list|)
-else|:
-name|filterTitle
 decl_stmt|;
 name|HStringReference
 name|namedFilterRef
@@ -1745,6 +1753,7 @@ literal|"Failed to insert file extension choice entry"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 specifier|const
 name|QString
 name|suffix
@@ -1754,6 +1763,15 @@ operator|->
 name|defaultSuffix
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|suffix
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|HStringReference
 name|nativeSuffix
 argument_list|(
@@ -1793,6 +1811,7 @@ argument_list|(
 literal|"Failed to set default file extension"
 argument_list|)
 expr_stmt|;
+block|}
 specifier|const
 name|QString
 name|suggestedName
@@ -1810,6 +1829,15 @@ operator|.
 name|fileName
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|suggestedName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|HStringReference
 name|nativeSuggestedName
 argument_list|(
@@ -1849,6 +1877,7 @@ argument_list|(
 literal|"Failed to set suggested file name"
 argument_list|)
 expr_stmt|;
+block|}
 name|ComPtr
 argument_list|<
 name|IAsyncOperation

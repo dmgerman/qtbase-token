@@ -4365,6 +4365,12 @@ name|f
 operator|.
 name|d
 decl_stmt|;
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+decl_stmt|;
 name|dbg
 operator|.
 name|nospace
@@ -4460,9 +4466,6 @@ literal|')'
 expr_stmt|;
 return|return
 name|dbg
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function
@@ -7261,17 +7264,14 @@ literal|0
 argument_list|)
 decl_stmt|;
 comment|// NB! avoid detach here
+specifier|const
 name|uchar
 modifier|*
 name|srcPixels
 init|=
-operator|(
-name|uchar
-operator|*
-operator|)
 name|img
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|img
 operator|.

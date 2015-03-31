@@ -132,6 +132,7 @@ name|HB_SCRIPT_TAGBANWA
 block|,
 name|HB_SCRIPT_COPTIC
 block|,
+comment|// Unicode 4.0 additions
 name|HB_SCRIPT_LIMBU
 block|,
 name|HB_SCRIPT_TAI_LE
@@ -148,6 +149,7 @@ name|HB_SCRIPT_CYPRIOT
 block|,
 name|HB_SCRIPT_BRAILLE
 block|,
+comment|// Unicode 4.1 additions
 name|HB_SCRIPT_BUGINESE
 block|,
 name|HB_SCRIPT_NEW_TAI_LUE
@@ -162,6 +164,7 @@ name|HB_SCRIPT_OLD_PERSIAN
 block|,
 name|HB_SCRIPT_KHAROSHTHI
 block|,
+comment|// Unicode 5.0 additions
 name|HB_SCRIPT_BALINESE
 block|,
 name|HB_SCRIPT_CUNEIFORM
@@ -172,6 +175,7 @@ name|HB_SCRIPT_PHAGS_PA
 block|,
 name|HB_SCRIPT_NKO
 block|,
+comment|// Unicode 5.1 additions
 name|HB_SCRIPT_SUNDANESE
 block|,
 name|HB_SCRIPT_LEPCHA
@@ -194,6 +198,7 @@ name|HB_SCRIPT_LYDIAN
 block|,
 name|HB_SCRIPT_CHAM
 block|,
+comment|// Unicode 5.2 additions
 name|HB_SCRIPT_TAI_THAM
 block|,
 name|HB_SCRIPT_TAI_VIET
@@ -224,12 +229,14 @@ name|HB_SCRIPT_OLD_TURKIC
 block|,
 name|HB_SCRIPT_KAITHI
 block|,
+comment|// Unicode 6.0 additions
 name|HB_SCRIPT_BATAK
 block|,
 name|HB_SCRIPT_BRAHMI
 block|,
 name|HB_SCRIPT_MANDAIC
 block|,
+comment|// Unicode 6.1 additions
 name|HB_SCRIPT_CHAKMA
 block|,
 name|HB_SCRIPT_MEROITIC_CURSIVE
@@ -243,6 +250,53 @@ block|,
 name|HB_SCRIPT_SORA_SOMPENG
 block|,
 name|HB_SCRIPT_TAKRI
+block|,
+comment|// Unicode 7.0 additions
+name|HB_SCRIPT_CAUCASIAN_ALBANIAN
+block|,
+name|HB_SCRIPT_BASSA_VAH
+block|,
+name|HB_SCRIPT_DUPLOYAN
+block|,
+name|HB_SCRIPT_ELBASAN
+block|,
+name|HB_SCRIPT_GRANTHA
+block|,
+name|HB_SCRIPT_PAHAWH_HMONG
+block|,
+name|HB_SCRIPT_KHOJKI
+block|,
+name|HB_SCRIPT_LINEAR_A
+block|,
+name|HB_SCRIPT_MAHAJANI
+block|,
+name|HB_SCRIPT_MANICHAEAN
+block|,
+name|HB_SCRIPT_MENDE_KIKAKUI
+block|,
+name|HB_SCRIPT_MODI
+block|,
+name|HB_SCRIPT_MRO
+block|,
+name|HB_SCRIPT_OLD_NORTH_ARABIAN
+block|,
+name|HB_SCRIPT_NABATAEAN
+block|,
+name|HB_SCRIPT_PALMYRENE
+block|,
+name|HB_SCRIPT_PAU_CIN_HAU
+block|,
+name|HB_SCRIPT_OLD_PERMIC
+block|,
+name|HB_SCRIPT_PSALTER_PAHLAVI
+block|,
+name|HB_SCRIPT_SIDDHAM
+block|,
+name|HB_SCRIPT_KHUDAWADI
+block|,
+name|HB_SCRIPT_TIRHUTA
+block|,
+name|HB_SCRIPT_WARANG_CITI
 block|}
 decl_stmt|;
 end_decl_stmt

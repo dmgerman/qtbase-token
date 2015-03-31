@@ -1052,8 +1052,10 @@ operator|::
 name|javaVM
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+specifier|const
+name|jint
+name|ret
+init|=
 name|vm
 operator|->
 name|GetEnv
@@ -1068,10 +1070,23 @@ name|jniEnv
 argument_list|,
 name|JNI_VERSION_1_6
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ret
+operator|==
+name|JNI_OK
+condition|)
+comment|// Already attached
+return|return;
+if|if
+condition|(
+name|ret
 operator|==
 name|JNI_EDETACHED
 condition|)
 block|{
+comment|// We need to (re-)attach
 name|JavaVMAttachArgs
 name|args
 init|=
@@ -1099,13 +1114,6 @@ operator|!=
 name|JNI_OK
 condition|)
 return|return;
-block|}
-if|if
-condition|(
-operator|!
-name|jniEnv
-condition|)
-return|return;
 if|if
 condition|(
 operator|!
@@ -1114,6 +1122,7 @@ operator|->
 name|hasLocalData
 argument_list|()
 condition|)
+comment|// If we attached the thread we own it.
 name|jniEnvTLS
 operator|->
 name|setLocalData
@@ -1122,6 +1131,7 @@ operator|new
 name|QJNIEnvironmentPrivateTLS
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_constructor
 begin_function
