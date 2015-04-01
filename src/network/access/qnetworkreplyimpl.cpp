@@ -1699,41 +1699,6 @@ else|else
 block|{
 comment|// for HTTP, we want to send out the request as fast as possible to the network, without
 comment|// invoking methods in a QueuedConnection
-ifndef|#
-directive|ifndef
-name|QT_NO_HTTP
-if|if
-condition|(
-name|backend
-operator|&&
-name|backend
-operator|->
-name|isSynchronous
-argument_list|()
-condition|)
-block|{
-name|_q_startOperation
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|QMetaObject
-operator|::
-name|invokeMethod
-argument_list|(
-name|q
-argument_list|,
-literal|"_q_startOperation"
-argument_list|,
-name|Qt
-operator|::
-name|QueuedConnection
-argument_list|)
-expr_stmt|;
-block|}
-else|#
-directive|else
 if|if
 condition|(
 name|backend
@@ -1760,9 +1725,6 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_NO_HTTP
 block|}
 block|}
 end_function
@@ -4774,9 +4736,6 @@ name|bytesDownloaded
 argument_list|)
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_HTTP
 name|QMetaObject
 operator|::
 name|invokeMethod
@@ -4790,24 +4749,6 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QMetaObject
-operator|::
-name|invokeMethod
-argument_list|(
-name|q
-argument_list|,
-literal|"_q_startOperation"
-argument_list|,
-name|Qt
-operator|::
-name|QueuedConnection
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_NO_HTTP
 return|return
 literal|true
 return|;

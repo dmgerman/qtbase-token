@@ -79,6 +79,16 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|void
+name|addButtons
+argument_list|(
+argument|QSharedPointer<QMessageDialogOptions> opt
+argument_list|,
+argument|ButtonRole role
+argument_list|)
+block|;
+name|private
+operator|:
 name|int
 name|m_buttonId
 block|;

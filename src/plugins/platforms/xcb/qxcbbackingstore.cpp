@@ -708,6 +708,11 @@ operator|!
 name|shm_present
 operator|||
 name|error
+operator|||
+name|id
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
 name|free

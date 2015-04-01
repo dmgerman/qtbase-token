@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"androiddeadlockprotector.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qandroidplatformdialoghelpers.h"
 end_include
 begin_include
@@ -2835,6 +2840,21 @@ operator|::
 name|ApplicationInactive
 condition|)
 block|{
+comment|// NOTE: sometimes we will receive two consecutive suspended notifications,
+comment|// In the second suspended notification, QWindowSystemInterface::flushWindowSystemEvents()
+comment|// will deadlock since the dispatcher has been stopped in the first suspended notification.
+comment|// To avoid the deadlock we simply return if we found the event dispatcher has been stopped.
+if|if
+condition|(
+name|QAndroidEventDispatcherStopper
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|stopped
+argument_list|()
+condition|)
+return|return;
 comment|// Don't send timers and sockets events anymore if we are going to hide all windows
 name|QAndroidEventDispatcherStopper
 operator|::
@@ -2863,11 +2883,23 @@ name|state
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|{
+name|AndroidDeadlockProtector
+name|protector
+decl_stmt|;
+if|if
+condition|(
+name|protector
+operator|.
+name|acquire
+argument_list|()
+condition|)
 name|QWindowSystemInterface
 operator|::
 name|flushWindowSystemEvents
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|state

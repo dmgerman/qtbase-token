@@ -1641,20 +1641,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// Determine gravity from initial position. Do not change
-comment|// later as it will cause the window to move uncontrollably.
-name|m_gravity
-operator|=
-name|positionIncludesFrame
-argument_list|(
-name|window
-argument_list|()
-argument_list|)
-condition|?
-name|XCB_GRAVITY_NORTH_WEST
-else|:
-name|XCB_GRAVITY_STATIC
-expr_stmt|;
 specifier|const
 name|quint32
 name|mask
@@ -4091,6 +4077,18 @@ argument_list|,
 operator|&
 name|hints
 argument_list|)
+expr_stmt|;
+name|m_gravity
+operator|=
+name|positionIncludesFrame
+argument_list|(
+name|window
+argument_list|()
+argument_list|)
+condition|?
+name|XCB_GRAVITY_NORTH_WEST
+else|:
+name|XCB_GRAVITY_STATIC
 expr_stmt|;
 comment|// update WM_NORMAL_HINTS
 name|propagateSizeHints
