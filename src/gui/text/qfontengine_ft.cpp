@@ -5926,7 +5926,6 @@ name|info
 operator|.
 name|x
 operator|=
-operator|-
 name|slot
 operator|->
 name|bitmap_left
@@ -6495,7 +6494,6 @@ name|info
 operator|.
 name|x
 operator|=
-operator|-
 name|TRUNC
 argument_list|(
 name|left
@@ -6524,7 +6522,7 @@ expr_stmt|;
 name|info
 operator|.
 name|x
-operator|+=
+operator|-=
 literal|1
 expr_stmt|;
 block|}
@@ -7663,7 +7661,6 @@ name|g
 operator|->
 name|x
 operator|=
-operator|-
 name|info
 operator|.
 name|x
