@@ -5243,9 +5243,11 @@ literal|0
 decl_stmt|;
 name|FormatMessage
 argument_list|(
-name|FORMAT_MESSAGE_ALLOCATE_BUFFER
-operator||
 name|FORMAT_MESSAGE_FROM_SYSTEM
+operator||
+name|FORMAT_MESSAGE_IGNORE_INSERTS
+operator||
+name|FORMAT_MESSAGE_ALLOCATE_BUFFER
 argument_list|,
 name|NULL
 argument_list|,
