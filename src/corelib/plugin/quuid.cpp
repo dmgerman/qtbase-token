@@ -2146,18 +2146,6 @@ end_function
 begin_comment
 comment|/*!     \fn bool QUuid::operator<(const QUuid&other) const      Returns \c true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{before} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
 end_comment
-begin_define
-DECL|macro|ISLESS
-define|#
-directive|define
-name|ISLESS
-parameter_list|(
-name|f1
-parameter_list|,
-name|f2
-parameter_list|)
-value|if (f1!=f2) return (f1<f2);
-end_define
 begin_function
 DECL|function|operator <
 name|bool
@@ -2192,6 +2180,16 @@ operator|.
 name|variant
 argument_list|()
 return|;
+DECL|macro|ISLESS
+define|#
+directive|define
+name|ISLESS
+parameter_list|(
+name|f1
+parameter_list|,
+name|f2
+parameter_list|)
+value|if (f1!=f2) return (f1<f2);
 name|ISLESS
 argument_list|(
 name|data1
@@ -2250,6 +2248,10 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+DECL|macro|ISLESS
+undef|#
+directive|undef
+name|ISLESS
 return|return
 literal|false
 return|;
