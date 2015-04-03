@@ -5338,7 +5338,7 @@ name|QXcbCursor
 operator|::
 name|cursorThemePropertyChanged
 parameter_list|(
-name|QXcbScreen
+name|QXcbVirtualDesktop
 modifier|*
 name|screen
 parameter_list|,

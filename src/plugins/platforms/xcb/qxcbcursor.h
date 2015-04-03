@@ -345,7 +345,7 @@ specifier|static
 name|void
 name|cursorThemePropertyChanged
 parameter_list|(
-name|QXcbScreen
+name|QXcbVirtualDesktop
 modifier|*
 name|screen
 parameter_list|,
