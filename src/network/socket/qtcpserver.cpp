@@ -256,6 +256,46 @@ begin_comment
 comment|/*! \internal */
 end_comment
 begin_function
+DECL|function|configureCreatedSocket
+name|void
+name|QTcpServerPrivate
+operator|::
+name|configureCreatedSocket
+parameter_list|()
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+comment|// Under Unix, we want to be able to bind to the port, even if a socket on
+comment|// the same address-port is in TIME_WAIT. Under Windows this is possible
+comment|// anyway -- furthermore, the meaning of reusable on Windows is different:
+comment|// it means that you can use the same address-port for multiple listening
+comment|// sockets.
+comment|// Don't abort though if we can't set that option. For example the socks
+comment|// engine doesn't support that option, but that shouldn't prevent us from
+comment|// trying to bind/listen.
+name|socketEngine
+operator|->
+name|setOption
+argument_list|(
+name|QAbstractSocketEngine
+operator|::
+name|AddressReusable
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+block|}
+end_function
+begin_comment
+comment|/*! \internal */
+end_comment
+begin_function
 DECL|function|readNotification
 name|void
 name|QTcpServerPrivate
@@ -725,35 +765,11 @@ name|QHostAddress
 operator|::
 name|AnyIPv4
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_UNIX
-argument_list|)
-comment|// Under Unix, we want to be able to bind to the port, even if a socket on
-comment|// the same address-port is in TIME_WAIT. Under Windows this is possible
-comment|// anyway -- furthermore, the meaning of reusable on Windows is different:
-comment|// it means that you can use the same address-port for multiple listening
-comment|// sockets.
-comment|// Don't abort though if we can't set that option. For example the socks
-comment|// engine doesn't support that option, but that shouldn't prevent us from
-comment|// trying to bind/listen.
 name|d
 operator|->
-name|socketEngine
-operator|->
-name|setOption
-argument_list|(
-name|QAbstractSocketEngine
-operator|::
-name|AddressReusable
-argument_list|,
-literal|1
-argument_list|)
+name|configureCreatedSocket
+argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!

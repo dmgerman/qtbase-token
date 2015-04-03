@@ -156,6 +156,11 @@ parameter_list|)
 function_decl|;
 endif|#
 directive|endif
+name|virtual
+name|void
+name|configureCreatedSocket
+parameter_list|()
+function_decl|;
 comment|// from QAbstractSocketEngineReceiver
 name|void
 name|readNotification
