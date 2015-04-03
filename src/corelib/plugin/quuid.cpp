@@ -1908,13 +1908,13 @@ begin_comment
 comment|/*!     Returns \c true if this is the null UUID     {00000000-0000-0000-0000-000000000000}; otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|isNull
 name|bool
 name|QUuid
 operator|::
 name|isNull
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|data4
@@ -1997,7 +1997,6 @@ begin_comment
 comment|/*!     \fn QUuid::Variant QUuid::variant() const      Returns the value in the \l{Variant field} {variant field} of the     UUID. If the return value is QUuid::DCE, call version() to see     which layout it uses. The null UUID is considered to be of an     unknown variant.      \sa version() */
 end_comment
 begin_function
-DECL|function|variant
 name|QUuid
 operator|::
 name|Variant
@@ -2006,6 +2005,7 @@ operator|::
 name|variant
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2092,7 +2092,6 @@ begin_comment
 comment|/*!     \fn QUuid::Version QUuid::version() const      Returns the \l{Version field} {version field} of the UUID, if the     UUID's \l{Variant field} {variant field} is QUuid::DCE. Otherwise     it returns QUuid::VerUnknown.      \sa variant() */
 end_comment
 begin_function
-DECL|function|version
 name|QUuid
 operator|::
 name|Version
@@ -2101,6 +2100,7 @@ operator|::
 name|version
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 comment|// Check the 4 MSB of data3
 name|Version
@@ -2147,7 +2147,6 @@ begin_comment
 comment|/*!     \fn bool QUuid::operator<(const QUuid&other) const      Returns \c true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{before} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
 end_comment
 begin_function
-DECL|function|operator <
 name|bool
 name|QUuid
 operator|::
@@ -2160,6 +2159,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2261,7 +2261,6 @@ begin_comment
 comment|/*!     \fn bool QUuid::operator>(const QUuid&other) const      Returns \c true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{after} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
 end_comment
 begin_function
-DECL|function|operator >
 name|bool
 name|QUuid
 operator|::
@@ -2274,6 +2273,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|other
