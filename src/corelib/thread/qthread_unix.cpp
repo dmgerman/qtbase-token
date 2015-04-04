@@ -1330,6 +1330,7 @@ argument_list|(
 name|Q_OS_QNX
 argument_list|)
 operator|)
+block|{
 comment|// sets the name of the current thread.
 name|QString
 name|objectName
@@ -1383,6 +1384,7 @@ name|toLocal8Bit
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 emit|emit
