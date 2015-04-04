@@ -5848,6 +5848,22 @@ name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|closeConnection
+argument_list|()
+expr_stmt|;
+name|rootNode
+operator|.
+name|children
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|// free resources
+name|qDeleteAll
+argument_list|(
+name|cachedMetaObjects
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|mode
@@ -5892,22 +5908,6 @@ operator|delete
 name|obj
 expr_stmt|;
 block|}
-name|closeConnection
-argument_list|()
-expr_stmt|;
-name|rootNode
-operator|.
-name|children
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-comment|// free resources
-name|qDeleteAll
-argument_list|(
-name|cachedMetaObjects
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|server

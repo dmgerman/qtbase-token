@@ -90,6 +90,13 @@ argument_list|()
 block|;
 name|QDBusConnectionPrivate
 operator|*
+name|busConnection
+argument_list|(
+argument|QDBusConnection::BusType type
+argument_list|)
+block|;
+name|QDBusConnectionPrivate
+operator|*
 name|connection
 argument_list|(
 argument|const QString&name
@@ -221,6 +228,16 @@ name|QDBusConnectionPrivate
 operator|*
 operator|>
 name|connectionHash
+block|;
+name|QMutex
+name|defaultBusMutex
+block|;
+name|QDBusConnectionPrivate
+operator|*
+name|defaultBuses
+index|[
+literal|2
+index|]
 block|;
 name|mutable
 name|QMutex
