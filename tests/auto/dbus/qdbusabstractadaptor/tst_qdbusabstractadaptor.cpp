@@ -1023,7 +1023,8 @@ name|con
 operator|.
 name|connect
 argument_list|(
-name|serviceName
+name|QString
+argument_list|()
 argument_list|,
 name|objectPath
 argument_list|,
