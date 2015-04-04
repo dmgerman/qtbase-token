@@ -303,6 +303,15 @@ expr_stmt|;
 block|}
 name|d
 operator|->
+name|ref
+operator|.
+name|store
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
 name|deleteLater
 argument_list|()
 expr_stmt|;
