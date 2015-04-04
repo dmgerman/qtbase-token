@@ -85,14 +85,30 @@ end_include
 begin_comment
 comment|// for qobject_cast
 end_comment
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
 file|<QtCore/qhash.h>
 end_include
-begin_comment
-comment|// for qHash
-end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_include
+include|#
+directive|include
+file|<QtCore/qhashfunctions.h>
+end_include
 begin_if
 if|#
 directive|if

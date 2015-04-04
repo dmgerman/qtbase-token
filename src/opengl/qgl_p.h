@@ -71,7 +71,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtCore/qhash.h"
+file|"QtCore/qhashfunctions.h"
 end_include
 begin_include
 include|#

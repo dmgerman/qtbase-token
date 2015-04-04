@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qhash.h>
+file|<qhashfunctions.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
