@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QHash>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QUrl>
 end_include
 begin_include

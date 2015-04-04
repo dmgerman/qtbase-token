@@ -53,11 +53,6 @@ include|#
 directive|include
 file|"QtCore/qvector.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"QtCore/qhash.h"
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class

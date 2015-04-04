@@ -64,11 +64,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qhash.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qobject.h"
 end_include
 begin_include

@@ -244,9 +244,6 @@ directive|include
 file|<qlist.h>
 include|#
 directive|include
-file|<qhash.h>
-include|#
-directive|include
 file|<qmutex.h>
 include|#
 directive|include

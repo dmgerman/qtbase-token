@@ -73,11 +73,6 @@ include|#
 directive|include
 file|<qevent.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<qhash.h>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QKeyMapperPrivate

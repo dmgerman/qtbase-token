@@ -65,11 +65,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qhash.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qtranslator_p.h"
 end_include
 begin_include

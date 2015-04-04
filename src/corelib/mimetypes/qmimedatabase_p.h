@@ -66,11 +66,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qhash.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qmutex.h>
 end_include
 begin_decl_stmt

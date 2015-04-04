@@ -86,11 +86,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qhash.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qpen_p.h>
 end_include
 begin_decl_stmt

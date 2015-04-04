@@ -282,11 +282,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QHash>
-end_include
-begin_include
-include|#
-directive|include
 file|<errno.h>
 end_include
 begin_if

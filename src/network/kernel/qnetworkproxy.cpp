@@ -54,11 +54,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qhash.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qmutex.h"
 end_include
 begin_include

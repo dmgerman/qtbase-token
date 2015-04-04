@@ -35,11 +35,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qhash.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qlayout.h"
 end_include
 begin_include
