@@ -324,43 +324,6 @@ name|conn
 operator|->
 name|baseService
 operator|<<
-literal|", thread="
-expr_stmt|;
-if|if
-condition|(
-name|conn
-operator|->
-name|thread
-argument_list|()
-operator|==
-name|QThread
-operator|::
-name|currentThread
-argument_list|()
-condition|)
-name|dbg
-operator|.
-name|nospace
-argument_list|()
-operator|<<
-literal|"same thread"
-expr_stmt|;
-else|else
-name|dbg
-operator|.
-name|nospace
-argument_list|()
-operator|<<
-name|conn
-operator|->
-name|thread
-argument_list|()
-expr_stmt|;
-name|dbg
-operator|.
-name|nospace
-argument_list|()
-operator|<<
 literal|')'
 expr_stmt|;
 return|return
@@ -5610,6 +5573,13 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+name|qDBusDebug
+argument_list|()
+operator|<<
+name|this
+operator|<<
+literal|"Disconnected"
+expr_stmt|;
 name|ConnectionMode
 name|oldMode
 init|=
@@ -5684,13 +5654,6 @@ name|qDeleteAll
 argument_list|(
 name|pendingCalls
 argument_list|)
-expr_stmt|;
-name|qDBusDebug
-argument_list|()
-operator|<<
-name|this
-operator|<<
-literal|"Disconnected"
 expr_stmt|;
 block|}
 end_function
@@ -11580,16 +11543,15 @@ name|PeerMode
 condition|)
 block|{
 name|qDBusDebug
-argument_list|(
-literal|"Adding rule: %s"
-argument_list|,
+argument_list|()
+operator|<<
+name|this
+operator|<<
+literal|"Adding rule:"
+operator|<<
 name|hook
 operator|.
 name|matchRule
-operator|.
-name|constData
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|q_dbus_bus_add_match
 argument_list|(
@@ -12117,16 +12079,15 @@ name|PeerMode
 condition|)
 block|{
 name|qDBusDebug
-argument_list|(
-literal|"Removing rule: %s"
-argument_list|,
+argument_list|()
+operator|<<
+name|this
+operator|<<
+literal|"Removing rule:"
+operator|<<
 name|hook
 operator|.
 name|matchRule
-operator|.
-name|constData
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|q_dbus_bus_remove_match
 argument_list|(
