@@ -63,6 +63,34 @@ name|other
 argument_list|)
 block|; }
 comment|// prevent QList<->QQueue swaps
+ifndef|#
+directive|ifndef
+name|Q_QDOC
+comment|// bring in QList::swap(int, int). We cannot say using QList<T>::swap,
+comment|// because we don't want to make swap(QList&) available.
+specifier|inline
+name|void
+name|swap
+argument_list|(
+argument|int i
+argument_list|,
+argument|int j
+argument_list|)
+block|{
+name|QList
+operator|<
+name|T
+operator|>
+operator|::
+name|swap
+argument_list|(
+name|i
+argument_list|,
+name|j
+argument_list|)
+block|; }
+endif|#
+directive|endif
 specifier|inline
 name|void
 name|enqueue
