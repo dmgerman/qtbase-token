@@ -25317,22 +25317,6 @@ modifier|&
 name|str
 parameter_list|)
 block|{
-ifdef|#
-directive|ifdef
-name|QT_QSTRING_UCS_4
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
-warning|#
-directive|warning
-literal|"operator>> not working properly"
-endif|#
-directive|endif
-endif|#
-directive|endif
 if|if
 condition|(
 name|in
