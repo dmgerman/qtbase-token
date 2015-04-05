@@ -203,7 +203,9 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_class
+begin_namespace
+namespace|namespace
+block|{
 DECL|class|QErrorMessageTextView
 class|class
 name|QErrorMessageTextView
@@ -249,7 +251,11 @@ name|Q_DECL_OVERRIDE
 function_decl|;
 block|}
 class|;
-end_class
+block|}
+end_namespace
+begin_comment
+comment|// unnamed namespace
+end_comment
 begin_function
 DECL|function|minimumSizeHint
 name|QSize
