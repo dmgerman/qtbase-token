@@ -1715,6 +1715,7 @@ block|{
 specifier|const
 name|char
 modifier|*
+specifier|volatile
 name|path
 init|=
 literal|0

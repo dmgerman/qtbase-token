@@ -1139,6 +1139,22 @@ operator|=
 literal|'\r'
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+operator|*
+name|p
+operator|==
+literal|'t'
+condition|)
+block|{
+operator|*
+name|data
+operator|++
+operator|=
+literal|'\t'
+expr_stmt|;
+block|}
 else|else
 block|{
 comment|// escaped

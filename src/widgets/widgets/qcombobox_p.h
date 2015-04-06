@@ -1007,6 +1007,10 @@ block|;
 name|friend
 name|class
 name|QComboBox
+block|;
+name|friend
+name|class
+name|QComboBoxPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -1741,6 +1745,14 @@ block|;
 name|void
 name|updateFocusPolicy
 argument_list|()
+block|;
+name|void
+name|showPopupFromMouseEvent
+argument_list|(
+name|QMouseEvent
+operator|*
+name|e
+argument_list|)
 block|;
 ifdef|#
 directive|ifdef

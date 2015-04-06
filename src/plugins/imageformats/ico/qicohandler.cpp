@@ -3328,6 +3328,12 @@ operator|.
 name|ncolors
 operator|==
 literal|2
+operator|&&
+name|icoAttrib
+operator|.
+name|depth
+operator|==
+literal|1
 condition|)
 name|format
 operator|=

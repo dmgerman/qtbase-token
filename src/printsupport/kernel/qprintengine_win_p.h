@@ -399,6 +399,11 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
+name|ownsDevMode
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|mode
 argument_list|(
 name|QPrinter
@@ -597,6 +602,10 @@ name|hMem
 block|;
 name|HDC
 name|hdc
+block|;
+comment|// True if devMode was allocated separately from pInfo.
+name|bool
+name|ownsDevMode
 block|;
 name|QPrinter
 operator|::

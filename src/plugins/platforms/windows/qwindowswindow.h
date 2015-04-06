@@ -1398,7 +1398,9 @@ argument_list|)
 block|;
 name|void
 name|updateDropSite
-argument_list|()
+argument_list|(
+argument|bool topLevel
+argument_list|)
 block|;
 name|void
 name|handleGeometryChange
