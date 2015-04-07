@@ -1524,6 +1524,7 @@ literal|0
 argument_list|)
 block|{         }
 DECL|function|~DirectWriteFontFileStream
+specifier|virtual
 name|~
 name|DirectWriteFontFileStream
 parameter_list|()
@@ -1747,14 +1748,17 @@ name|NULL
 expr_stmt|;
 if|if
 condition|(
-name|fragmentSize
-operator|+
 name|fileOffset
+operator|+
+name|fragmentSize
 operator|<=
+name|quint64
+argument_list|(
 name|m_fontData
 operator|.
 name|size
 argument_list|()
+argument_list|)
 condition|)
 block|{
 operator|*
@@ -1857,6 +1861,7 @@ literal|0
 argument_list|)
 block|{}
 DECL|function|~DirectWriteFontFileLoader
+specifier|virtual
 name|~
 name|DirectWriteFontFileLoader
 parameter_list|()
