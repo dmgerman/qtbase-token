@@ -3022,28 +3022,28 @@ begin_comment
 comment|/*!     \enum QByteArray::Base64Option     \since 5.2      This enum contains the options available for encoding and decoding Base64.     Base64 is defined by \l{RFC 4648}, with the following options:      \value Base64Encoding     (default) The regular Base64 alphabet, called simply "base64"     \value Base64UrlEncoding  An alternate alphabet, called "base64url", which replaces two                               characters in the alphabet to be more friendly to URLs.     \value KeepTrailingEquals (default) Keeps the trailing padding equal signs at the end                               of the encoded data, so the data is always a size multiple of                               four.     \value OmitTrailingEquals Omits adding the padding equal signs at the end of the encoded                               data.      QByteArray::fromBase64() ignores the KeepTrailingEquals and     OmitTrailingEquals options and will not flag errors in case they are     missing or if there are too many of them. */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::iterator QByteArray::begin()      \internal */
+comment|/*! \fn QByteArray::iterator QByteArray::begin()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the first character in     the byte-array.      \sa constBegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::const_iterator QByteArray::begin() const      \internal */
+comment|/*! \fn QByteArray::const_iterator QByteArray::begin() const      \overload begin() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::const_iterator QByteArray::cbegin() const     \since 5.0      \internal */
+comment|/*! \fn QByteArray::const_iterator QByteArray::cbegin() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first character     in the byte-array.      \sa begin(), cend() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::const_iterator QByteArray::constBegin() const      \internal */
+comment|/*! \fn QByteArray::const_iterator QByteArray::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first character     in the byte-array.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::iterator QByteArray::end()      \internal */
+comment|/*! \fn QByteArray::iterator QByteArray::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary character     after the last character in the byte-array.      \sa begin(), constEnd() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::const_iterator QByteArray::end() const      \internal */
+comment|/*! \fn QByteArray::const_iterator QByteArray::end() const      \overload end() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::const_iterator QByteArray::cend() const     \since 5.0      \internal */
+comment|/*! \fn QByteArray::const_iterator QByteArray::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     character after the last character in the list.      \sa cbegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::const_iterator QByteArray::constEnd() const      \internal */
+comment|/*! \fn QByteArray::const_iterator QByteArray::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     character after the last character in the list.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn void QByteArray::push_back(const QByteArray&other)      This function is provided for STL compatibility. It is equivalent     to append(\a other). */
