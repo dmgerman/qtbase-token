@@ -4046,10 +4046,10 @@ begin_comment
 comment|/*! \fn QString::const_iterator QString::end() const      \overload end() */
 end_comment
 begin_comment
-comment|/*! \fn QString::const_iterator QString::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa cbegin(), end() */
+comment|/*! \fn QString::const_iterator QString::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     character after the last character in the list.      \sa cbegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn QString::const_iterator QString::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa constBegin(), end() */
+comment|/*! \fn QString::const_iterator QString::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     character after the last character in the list.      \sa constBegin(), end() */
 end_comment
 begin_comment
 comment|/*!     \fn QString::QString()      Constructs a null string. Null strings are also empty.      \sa isEmpty() */
