@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngstruct.h - header file for PNG reference library  *  * Copyright (c) 1998-2011 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * Last changed in libpng 1.5.9 [March 29, 2012]  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pngstruct.h - header file for PNG reference library  *  * Last changed in libpng 1.6.1 [March 28, 2013]  * Copyright (c) 1998-2013 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_comment
 comment|/* The structure that holds the information to read and write PNG files.  * The only people who need to care about what is inside of this are the  * people who will be modifying the library for their own special needs.  * It should NOT be accessed directly by an application.  */
@@ -19,11 +19,442 @@ end_define
 begin_comment
 comment|/* zlib.h defines the structure z_stream, an instance of which is included  * in this structure and is required for decompressing the LZ compressed  * data in PNG files.  */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ZLIB_CONST
+end_ifndef
+begin_comment
+comment|/* We must ensure that zlib uses 'const' in declarations. */
+end_comment
+begin_define
+DECL|macro|ZLIB_CONST
+define|#
+directive|define
+name|ZLIB_CONST
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
 file|"zlib.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|const
+end_ifdef
+begin_comment
+comment|/* zlib.h sometimes #defines const to nothing, undo this. */
+end_comment
+begin_undef
+DECL|macro|const
+undef|#
+directive|undef
+name|const
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* zlib.h has mediocre z_const use before 1.2.6, this stuff is for compatibility  * with older builds.  */
+end_comment
+begin_if
+if|#
+directive|if
+name|ZLIB_VERNUM
+operator|<
+literal|0x1260
+end_if
+begin_define
+DECL|macro|PNGZ_MSG_CAST
+define|#
+directive|define
+name|PNGZ_MSG_CAST
+parameter_list|(
+name|s
+parameter_list|)
+value|png_constcast(char*,s)
+end_define
+begin_define
+DECL|macro|PNGZ_INPUT_CAST
+define|#
+directive|define
+name|PNGZ_INPUT_CAST
+parameter_list|(
+name|b
+parameter_list|)
+value|png_constcast(png_bytep,b)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|PNGZ_MSG_CAST
+define|#
+directive|define
+name|PNGZ_MSG_CAST
+parameter_list|(
+name|s
+parameter_list|)
+value|(s)
+end_define
+begin_define
+DECL|macro|PNGZ_INPUT_CAST
+define|#
+directive|define
+name|PNGZ_INPUT_CAST
+parameter_list|(
+name|b
+parameter_list|)
+value|(b)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* zlib.h declares a magic type 'uInt' that limits the amount of data that zlib  * can handle at once.  This type need be no larger than 16 bits (so maximum of  * 65535), this define allows us to discover how big it is, but limited by the  * maximuum for png_size_t.  The value can be overriden in a library build  * (pngusr.h, or set it in CPPFLAGS) and it works to set it to a considerably  * lower value (e.g. 255 works).  A lower value may help memory usage (slightly)  * and may even improve performance on some systems (and degrade it on others.)  */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ZLIB_IO_MAX
+end_ifndef
+begin_define
+DECL|macro|ZLIB_IO_MAX
+define|#
+directive|define
+name|ZLIB_IO_MAX
+value|((uInt)-1)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_SUPPORTED
+end_ifdef
+begin_comment
+comment|/* The type of a compression buffer list used by the write code. */
+end_comment
+begin_typedef
+DECL|struct|png_compression_buffer
+typedef|typedef
+struct|struct
+name|png_compression_buffer
+block|{
+DECL|member|next
+name|struct
+name|png_compression_buffer
+modifier|*
+name|next
+decl_stmt|;
+DECL|member|output
+name|png_byte
+name|output
+index|[
+literal|1
+index|]
+decl_stmt|;
+comment|/* actually zbuf_size */
+block|}
+DECL|typedef|png_compression_buffer
+DECL|typedef|png_compression_bufferp
+name|png_compression_buffer
+operator|,
+typedef|*
+name|png_compression_bufferp
+typedef|;
+end_typedef
+begin_define
+DECL|macro|PNG_COMPRESSION_BUFFER_SIZE
+define|#
+directive|define
+name|PNG_COMPRESSION_BUFFER_SIZE
+parameter_list|(
+name|pp
+parameter_list|)
+define|\
+value|(offsetof(png_compression_buffer, output) + (pp)->zbuffer_size)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* Colorspace support; structures used in png_struct, png_info and in internal  * functions to hold and communicate information about the color space.  *  * PNG_COLORSPACE_SUPPORTED is only required if the application will perform  * colorspace corrections, otherwise all the colorspace information can be  * skipped and the size of libpng can be reduced (significantly) by compiling  * out the colorspace support.  */
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|PNG_COLORSPACE_SUPPORTED
+end_ifdef
+begin_comment
+comment|/* The chromaticities of the red, green and blue colorants and the chromaticity  * of the corresponding white point (i.e. of rgb(1.0,1.0,1.0)).  */
+end_comment
+begin_typedef
+DECL|struct|png_xy
+typedef|typedef
+struct|struct
+name|png_xy
+block|{
+DECL|member|redx
+DECL|member|redy
+name|png_fixed_point
+name|redx
+decl_stmt|,
+name|redy
+decl_stmt|;
+DECL|member|greenx
+DECL|member|greeny
+name|png_fixed_point
+name|greenx
+decl_stmt|,
+name|greeny
+decl_stmt|;
+DECL|member|bluex
+DECL|member|bluey
+name|png_fixed_point
+name|bluex
+decl_stmt|,
+name|bluey
+decl_stmt|;
+DECL|member|whitex
+DECL|member|whitey
+name|png_fixed_point
+name|whitex
+decl_stmt|,
+name|whitey
+decl_stmt|;
+block|}
+DECL|typedef|png_xy
+name|png_xy
+typedef|;
+end_typedef
+begin_comment
+comment|/* The same data as above but encoded as CIE XYZ values.  When this data comes  * from chromaticities the sum of the Y values is assumed to be 1.0  */
+end_comment
+begin_typedef
+DECL|struct|png_XYZ
+typedef|typedef
+struct|struct
+name|png_XYZ
+block|{
+DECL|member|red_X
+DECL|member|red_Y
+DECL|member|red_Z
+name|png_fixed_point
+name|red_X
+decl_stmt|,
+name|red_Y
+decl_stmt|,
+name|red_Z
+decl_stmt|;
+DECL|member|green_X
+DECL|member|green_Y
+DECL|member|green_Z
+name|png_fixed_point
+name|green_X
+decl_stmt|,
+name|green_Y
+decl_stmt|,
+name|green_Z
+decl_stmt|;
+DECL|member|blue_X
+DECL|member|blue_Y
+DECL|member|blue_Z
+name|png_fixed_point
+name|blue_X
+decl_stmt|,
+name|blue_Y
+decl_stmt|,
+name|blue_Z
+decl_stmt|;
+block|}
+DECL|typedef|png_XYZ
+name|png_XYZ
+typedef|;
+end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* COLORSPACE */
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|PNG_COLORSPACE_SUPPORTED
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|PNG_GAMMA_SUPPORTED
+argument_list|)
+end_if
+begin_comment
+comment|/* A colorspace is all the above plus, potentially, profile information;  * however at present libpng does not use the profile internally so it is only  * stored in the png_info struct (if iCCP is supported.)  The rendering intent  * is retained here and is checked.  *  * The file gamma encoding information is also stored here and gamma correction  * is done by libpng, whereas color correction must currently be done by the  * application.  */
+end_comment
+begin_typedef
+DECL|struct|png_colorspace
+typedef|typedef
+struct|struct
+name|png_colorspace
+block|{
+ifdef|#
+directive|ifdef
+name|PNG_GAMMA_SUPPORTED
+DECL|member|gamma
+name|png_fixed_point
+name|gamma
+decl_stmt|;
+comment|/* File gamma */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_COLORSPACE_SUPPORTED
+DECL|member|end_points_xy
+name|png_xy
+name|end_points_xy
+decl_stmt|;
+comment|/* End points as chromaticities */
+DECL|member|end_points_XYZ
+name|png_XYZ
+name|end_points_XYZ
+decl_stmt|;
+comment|/* End points as CIE XYZ colorant values */
+DECL|member|rendering_intent
+name|png_uint_16
+name|rendering_intent
+decl_stmt|;
+comment|/* Rendering intent of a profile */
+endif|#
+directive|endif
+comment|/* Flags are always defined to simplify the code. */
+DECL|member|flags
+name|png_uint_16
+name|flags
+decl_stmt|;
+comment|/* As defined below */
+block|}
+DECL|typedef|png_colorspace
+DECL|typedef|png_colorspacerp
+name|png_colorspace
+operator|,
+typedef|*
+name|PNG_RESTRICT
+name|png_colorspacerp
+typedef|;
+end_typedef
+begin_typedef
+DECL|typedef|png_const_colorspacerp
+typedef|typedef
+specifier|const
+name|png_colorspace
+modifier|*
+name|PNG_RESTRICT
+name|png_const_colorspacerp
+typedef|;
+end_typedef
+begin_comment
+comment|/* General flags for the 'flags' field */
+end_comment
+begin_define
+DECL|macro|PNG_COLORSPACE_HAVE_GAMMA
+define|#
+directive|define
+name|PNG_COLORSPACE_HAVE_GAMMA
+value|0x0001
+end_define
+begin_define
+DECL|macro|PNG_COLORSPACE_HAVE_ENDPOINTS
+define|#
+directive|define
+name|PNG_COLORSPACE_HAVE_ENDPOINTS
+value|0x0002
+end_define
+begin_define
+DECL|macro|PNG_COLORSPACE_HAVE_INTENT
+define|#
+directive|define
+name|PNG_COLORSPACE_HAVE_INTENT
+value|0x0004
+end_define
+begin_define
+DECL|macro|PNG_COLORSPACE_FROM_gAMA
+define|#
+directive|define
+name|PNG_COLORSPACE_FROM_gAMA
+value|0x0008
+end_define
+begin_define
+DECL|macro|PNG_COLORSPACE_FROM_cHRM
+define|#
+directive|define
+name|PNG_COLORSPACE_FROM_cHRM
+value|0x0010
+end_define
+begin_define
+DECL|macro|PNG_COLORSPACE_FROM_sRGB
+define|#
+directive|define
+name|PNG_COLORSPACE_FROM_sRGB
+value|0x0020
+end_define
+begin_define
+DECL|macro|PNG_COLORSPACE_ENDPOINTS_MATCH_sRGB
+define|#
+directive|define
+name|PNG_COLORSPACE_ENDPOINTS_MATCH_sRGB
+value|0x0040
+end_define
+begin_define
+DECL|macro|PNG_COLORSPACE_MATCHES_sRGB
+define|#
+directive|define
+name|PNG_COLORSPACE_MATCHES_sRGB
+value|0x0080
+end_define
+begin_comment
+DECL|macro|PNG_COLORSPACE_MATCHES_sRGB
+comment|/* exact match on profile */
+end_comment
+begin_define
+DECL|macro|PNG_COLORSPACE_INVALID
+define|#
+directive|define
+name|PNG_COLORSPACE_INVALID
+value|0x8000
+end_define
+begin_define
+DECL|macro|PNG_COLORSPACE_CANCEL
+define|#
+directive|define
+name|PNG_COLORSPACE_CANCEL
+parameter_list|(
+name|flags
+parameter_list|)
+value|(0xffff ^ (flags))
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* COLORSPACE || GAMMA */
+end_comment
 begin_struct
 DECL|struct|png_struct_def
 struct|struct
@@ -32,16 +463,27 @@ block|{
 ifdef|#
 directive|ifdef
 name|PNG_SETJMP_SUPPORTED
-DECL|member|longjmp_buffer
+DECL|member|jmp_buf_local
 name|jmp_buf
-name|longjmp_buffer
+name|jmp_buf_local
 decl_stmt|;
-comment|/* used in png_error */
+comment|/* New name in 1.6.0 for jmp_buf in png_struct */
 DECL|member|longjmp_fn
 name|png_longjmp_ptr
 name|longjmp_fn
 decl_stmt|;
 comment|/* setjmp non-local goto function. */
+DECL|member|jmp_buf_ptr
+name|jmp_buf
+modifier|*
+name|jmp_buf_ptr
+decl_stmt|;
+comment|/* passed to longjmp_fn */
+DECL|member|jmp_buf_size
+name|size_t
+name|jmp_buf_size
+decl_stmt|;
+comment|/* size of the above, if allocated */
 endif|#
 directive|endif
 DECL|member|error_fn
@@ -149,59 +591,29 @@ name|png_uint_32
 name|transformations
 decl_stmt|;
 comment|/* which transformations to perform */
+DECL|member|zowner
+name|png_uint_32
+name|zowner
+decl_stmt|;
+comment|/* ID (chunk type) of zstream owner, 0 if none */
 DECL|member|zstream
 name|z_stream
 name|zstream
 decl_stmt|;
-comment|/* pointer to decompression structure (below) */
-DECL|member|zbuf
-name|png_bytep
-name|zbuf
-decl_stmt|;
-comment|/* buffer for zlib */
-DECL|member|zbuf_size
-name|uInt
-name|zbuf_size
-decl_stmt|;
-comment|/* size of zbuf (typically 65536) */
+comment|/* decompression structure */
 ifdef|#
 directive|ifdef
 name|PNG_WRITE_SUPPORTED
-comment|/* Added in 1.5.4: state to keep track of whether the zstream has been  * initialized and if so whether it is for IDAT or some other chunk.  */
-DECL|macro|PNG_ZLIB_UNINITIALIZED
-define|#
-directive|define
-name|PNG_ZLIB_UNINITIALIZED
-value|0
-DECL|macro|PNG_ZLIB_FOR_IDAT
-define|#
-directive|define
-name|PNG_ZLIB_FOR_IDAT
-value|1
-DECL|macro|PNG_ZLIB_FOR_TEXT
-define|#
-directive|define
-name|PNG_ZLIB_FOR_TEXT
-value|2
-comment|/* anything other than IDAT */
-DECL|macro|PNG_ZLIB_USE_MASK
-define|#
-directive|define
-name|PNG_ZLIB_USE_MASK
-value|3
-comment|/* bottom two bits */
-DECL|macro|PNG_ZLIB_IN_USE
-define|#
-directive|define
-name|PNG_ZLIB_IN_USE
-value|4
-comment|/* a flag value */
-DECL|member|zlib_state
-name|png_uint_32
-name|zlib_state
+DECL|member|zbuffer_list
+name|png_compression_bufferp
+name|zbuffer_list
 decl_stmt|;
-comment|/* State of zlib initialization */
-comment|/* End of material added at libpng 1.5.4 */
+comment|/* Created on demand during write */
+DECL|member|zbuffer_size
+name|uInt
+name|zbuffer_size
+decl_stmt|;
+comment|/* size of the actual buffer */
 DECL|member|zlib_level
 name|int
 name|zlib_level
@@ -230,18 +642,9 @@ comment|/* holds zlib compression strategy */
 endif|#
 directive|endif
 comment|/* Added at libpng 1.5.4 */
-if|#
-directive|if
-name|defined
-argument_list|(
-name|PNG_WRITE_COMPRESSED_TEXT_SUPPORTED
-argument_list|)
-operator|||
-expr|\
-name|defined
-argument_list|(
+ifdef|#
+directive|ifdef
 name|PNG_WRITE_CUSTOMIZE_ZTXT_COMPRESSION_SUPPORTED
-argument_list|)
 DECL|member|zlib_text_level
 name|int
 name|zlib_text_level
@@ -270,6 +673,33 @@ comment|/* holds zlib compression strategy */
 endif|#
 directive|endif
 comment|/* End of material added at libpng 1.5.4 */
+comment|/* Added at libpng 1.6.0 */
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_SUPPORTED
+DECL|member|zlib_set_level
+name|int
+name|zlib_set_level
+decl_stmt|;
+comment|/* Actual values set into the zstream on write */
+DECL|member|zlib_set_method
+name|int
+name|zlib_set_method
+decl_stmt|;
+DECL|member|zlib_set_window_bits
+name|int
+name|zlib_set_window_bits
+decl_stmt|;
+DECL|member|zlib_set_mem_level
+name|int
+name|zlib_set_mem_level
+decl_stmt|;
+DECL|member|zlib_set_strategy
+name|int
+name|zlib_set_strategy
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|width
 name|png_uint_32
 name|width
@@ -320,6 +750,9 @@ name|png_bytep
 name|row_buf
 decl_stmt|;
 comment|/* buffer to save current (unfiltered) row.                                * This is a pointer into big_row_buf                                */
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_SUPPORTED
 DECL|member|sub_row
 name|png_bytep
 name|sub_row
@@ -340,6 +773,8 @@ name|png_bytep
 name|paeth_row
 decl_stmt|;
 comment|/* buffer to save "Paeth" row when filtering */
+endif|#
+directive|endif
 DECL|member|info_rowbytes
 name|png_size_t
 name|info_rowbytes
@@ -431,11 +866,16 @@ name|png_byte
 name|channels
 decl_stmt|;
 comment|/* number of channels in file */
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_SUPPORTED
 DECL|member|usr_channels
 name|png_byte
 name|usr_channels
 decl_stmt|;
 comment|/* channels at start of write: write only */
+endif|#
+directive|endif
 DECL|member|sig_bytes
 name|png_byte
 name|sig_bytes
@@ -451,14 +891,6 @@ name|png_byte
 name|transformed_pixel_depth
 decl_stmt|;
 comment|/* pixel depth after read/write transforms */
-DECL|member|io_chunk_string
-name|png_byte
-name|io_chunk_string
-index|[
-literal|5
-index|]
-decl_stmt|;
-comment|/* string name of chunk */
 if|#
 directive|if
 name|defined
@@ -519,7 +951,7 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-comment|/* PNG_bKGD_SUPPORTED */
+comment|/* bKGD */
 ifdef|#
 directive|ifdef
 name|PNG_WRITE_FLUSH_SUPPORTED
@@ -548,11 +980,6 @@ name|int
 name|gamma_shift
 decl_stmt|;
 comment|/* number of "insignificant" bits in 16-bit gamma */
-DECL|member|gamma
-name|png_fixed_point
-name|gamma
-decl_stmt|;
-comment|/* file gamma value */
 DECL|member|screen_gamma
 name|png_fixed_point
 name|screen_gamma
@@ -771,7 +1198,7 @@ decl_stmt|;
 comment|/* current push library palette index */
 endif|#
 directive|endif
-comment|/* PNG_PROGRESSIVE_READ_SUPPORTED */
+comment|/* PROGRESSIVE_READ */
 if|#
 directive|if
 name|defined
@@ -828,24 +1255,6 @@ decl_stmt|;
 comment|/* index translation for palette files */
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|PNG_READ_QUANTIZE_SUPPORTED
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|PNG_hIST_SUPPORTED
-argument_list|)
-DECL|member|hist
-name|png_uint_16p
-name|hist
-decl_stmt|;
-comment|/* histogram */
-endif|#
-directive|endif
 ifdef|#
 directive|ifdef
 name|PNG_WRITE_WEIGHTED_FILTER_SUPPORTED
@@ -886,6 +1295,23 @@ decl_stmt|;
 comment|/* 1/relative filter calculation cost */
 endif|#
 directive|endif
+comment|/* Options */
+ifdef|#
+directive|ifdef
+name|PNG_SET_OPTION_SUPPORTED
+DECL|member|options
+name|png_byte
+name|options
+decl_stmt|;
+comment|/* On/off state (up to 4 options) */
+endif|#
+directive|endif
+if|#
+directive|if
+name|PNG_LIBPNG_VER
+operator|<
+literal|10700
+comment|/* To do: remove this from libpng-1.7 */
 ifdef|#
 directive|ifdef
 name|PNG_TIME_RFC1123_SUPPORTED
@@ -897,6 +1323,8 @@ literal|29
 index|]
 decl_stmt|;
 comment|/* String to hold RFC 1123 time text */
+endif|#
+directive|endif
 endif|#
 directive|endif
 comment|/* New members added in libpng-1.0.6 */
@@ -912,6 +1340,9 @@ DECL|member|user_chunk_ptr
 name|png_voidp
 name|user_chunk_ptr
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|PNG_READ_USER_CHUNKS_SUPPORTED
 DECL|member|read_user_chunk_fn
 name|png_user_chunk_ptr
 name|read_user_chunk_fn
@@ -919,27 +1350,27 @@ decl_stmt|;
 comment|/* user read chunk handler */
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|PNG_HANDLE_AS_UNKNOWN_SUPPORTED
-DECL|member|num_chunk_list
-name|int
-name|num_chunk_list
-decl_stmt|;
-DECL|member|chunk_list
-name|png_bytep
-name|chunk_list
-decl_stmt|;
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|PNG_READ_sRGB_SUPPORTED
-comment|/* Added in 1.5.5 to record an sRGB chunk in the png. */
-DECL|member|is_sRGB
-name|png_byte
-name|is_sRGB
+name|PNG_SET_UNKNOWN_CHUNKS_SUPPORTED
+DECL|member|unknown_default
+name|int
+name|unknown_default
 decl_stmt|;
+comment|/* As PNG_HANDLE_* */
+DECL|member|num_chunk_list
+name|unsigned
+name|int
+name|num_chunk_list
+decl_stmt|;
+comment|/* Number of entries in the list */
+DECL|member|chunk_list
+name|png_bytep
+name|chunk_list
+decl_stmt|;
+comment|/* List of png_byte[5]; the textual chunk name                                   * followed by a PNG_HANDLE_* byte */
 endif|#
 directive|endif
 comment|/* New members added in libpng-1.0.3 */
@@ -1071,8 +1502,8 @@ directive|endif
 comment|/* New member added in libpng-1.0.25 and 1.2.17 */
 ifdef|#
 directive|ifdef
-name|PNG_UNKNOWN_CHUNKS_SUPPORTED
-comment|/* Storage for unknown chunk that the library doesn't recognize. */
+name|PNG_READ_UNKNOWN_CHUNKS_SUPPORTED
+comment|/* Temporary storage for unknown chunk that the library doesn't recognize,     * used while reading the chunk.     */
 DECL|member|unknown_chunk
 name|png_unknown_chunk
 name|unknown_chunk
@@ -1084,12 +1515,32 @@ DECL|member|old_big_row_buf_size
 name|png_size_t
 name|old_big_row_buf_size
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|PNG_READ_SUPPORTED
 comment|/* New member added in libpng-1.2.30 */
-DECL|member|chunkdata
-name|png_charp
-name|chunkdata
+DECL|member|read_buffer
+name|png_bytep
+name|read_buffer
 decl_stmt|;
 comment|/* buffer for reading chunk data */
+DECL|member|read_buffer_size
+name|png_alloc_size_t
+name|read_buffer_size
+decl_stmt|;
+comment|/* current size of the buffer */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_SEQUENTIAL_READ_SUPPORTED
+DECL|member|IDAT_read_size
+name|uInt
+name|IDAT_read_size
+decl_stmt|;
+comment|/* limit on read buffer size for IDAT */
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|PNG_IO_STATE_SUPPORTED
@@ -1105,6 +1556,7 @@ DECL|member|big_prev_row
 name|png_bytep
 name|big_prev_row
 decl_stmt|;
+comment|/* New member added in libpng-1.5.7 */
 DECL|member|read_filter
 name|void
 function_decl|(
@@ -1127,6 +1579,28 @@ name|png_const_bytep
 name|prev_row
 parameter_list|)
 function_decl|;
+ifdef|#
+directive|ifdef
+name|PNG_READ_SUPPORTED
+if|#
+directive|if
+name|defined
+argument_list|(
+name|PNG_COLORSPACE_SUPPORTED
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|PNG_GAMMA_SUPPORTED
+argument_list|)
+DECL|member|colorspace
+name|png_colorspace
+name|colorspace
+decl_stmt|;
+endif|#
+directive|endif
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
