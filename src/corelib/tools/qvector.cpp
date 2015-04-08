@@ -57,6 +57,9 @@ begin_comment
 comment|/*! \fn bool operator>=(const QVector<T>&lhs, const QVector<T>&rhs)     \since 5.6     \relates QVector      Returns \c true if vector \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically greater than or equal to} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
 end_comment
 begin_comment
+comment|/*!     \fn uint qHash(const QVector<T>&key, uint seed = 0)     \since 5.6     \relates QVector      Returns the hash value for \a key,     using \a seed to seed the calculation.      This function requires qHash() to be overloaded for the value type \c T. */
+end_comment
+begin_comment
 comment|/*! \fn int QVector::size() const      Returns the number of items in the vector.      \sa isEmpty(), resize() */
 end_comment
 begin_comment

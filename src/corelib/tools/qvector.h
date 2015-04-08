@@ -41,6 +41,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qhashfunctions.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<iterator>
 end_include
 begin_include
@@ -6566,6 +6571,43 @@ argument_list|(
 argument|Vector
 argument_list|)
 end_macro
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|uint
+name|qHash
+argument_list|(
+argument|const QVector<T>&key
+argument_list|,
+argument|uint seed =
+literal|0
+argument_list|)
+name|Q_DECL_NOEXCEPT_EXPR
+argument_list|(
+argument|noexcept(qHashRange(key.cbegin(), key.cend(), seed))
+argument_list|)
+block|{
+return|return
+name|qHashRange
+argument_list|(
+name|key
+operator|.
+name|cbegin
+argument_list|()
+argument_list|,
+name|key
+operator|.
+name|cend
+argument_list|()
+argument_list|,
+name|seed
+argument_list|)
+return|;
+block|}
+end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<
