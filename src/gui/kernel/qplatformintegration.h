@@ -219,6 +219,8 @@ block|,
 name|RasterGLSurface
 block|,
 name|AllGLFunctionsQueryable
+block|,
+name|ApplicationIcon
 block|}
 enum|;
 name|virtual
@@ -541,6 +543,17 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+name|virtual
+name|void
+name|setApplicationIcon
+argument_list|(
+specifier|const
+name|QIcon
+operator|&
+name|icon
+argument_list|)
+decl|const
+decl_stmt|;
 name|protected
 label|:
 name|void
