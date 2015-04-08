@@ -128,6 +128,9 @@ begin_comment
 comment|/*!     \fn bool QSizePolicy::operator!=(const QSizePolicy&other) const      Returns \c true if this policy is different from \a other; otherwise     returns \c false.      \sa operator==() */
 end_comment
 begin_comment
+comment|/*!     \fn uint qHash(QSizePolicy key, uint seed = 0)     \since 5.6     \relates QSizePolicy      Returns the hash value for \a key, using     \a seed to seed the calculation. */
+end_comment
+begin_comment
 comment|/*!     \fn int QSizePolicy::horizontalStretch() const      Returns the horizontal stretch factor of the size policy.      \sa setHorizontalStretch(), verticalStretch(), horizontalPolicy() */
 end_comment
 begin_comment
