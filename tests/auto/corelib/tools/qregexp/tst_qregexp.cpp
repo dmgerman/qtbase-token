@@ -9820,6 +9820,35 @@ operator|/
 name|ELL
 argument_list|)
 expr_stmt|;
+comment|// this just happens to have no hash collisions. If at some point
+comment|// we get collisions, restrict the test to only equal elements:
+name|QCOMPARE
+argument_list|(
+name|qHash
+argument_list|(
+name|rxtable
+index|[
+name|i
+index|]
+argument_list|)
+operator|==
+name|qHash
+argument_list|(
+name|rxtable
+index|[
+name|j
+index|]
+argument_list|)
+argument_list|,
+name|i
+operator|/
+name|ELL
+operator|==
+name|j
+operator|/
+name|ELL
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
