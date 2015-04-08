@@ -593,6 +593,25 @@ name|Q_MOVABLE_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|Q_GUI_EXPORT
+name|Q_DECL_CONST_FUNCTION
+name|uint
+name|qHash
+argument_list|(
+specifier|const
+name|QMatrix
+operator|&
+name|key
+argument_list|,
+name|uint
+name|seed
+operator|=
+literal|0
+argument_list|)
+name|Q_DECL_NOTHROW
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// mathematical semantics
 end_comment
