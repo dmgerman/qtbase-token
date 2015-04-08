@@ -680,6 +680,10 @@ name|limit
 parameter_list|,
 name|sljit_uw
 name|max_limit
+parameter_list|,
+name|void
+modifier|*
+name|allocator_data
 parameter_list|)
 block|{
 name|struct
@@ -707,6 +711,11 @@ name|si
 decl_stmt|;
 endif|#
 directive|endif
+name|SLJIT_UNUSED_ARG
+argument_list|(
+name|allocator_data
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|limit
@@ -802,6 +811,8 @@ argument_list|(
 expr|struct
 name|sljit_stack
 argument_list|)
+argument_list|,
+name|allocator_data
 argument_list|)
 expr_stmt|;
 if|if
@@ -841,6 +852,8 @@ block|{
 name|SLJIT_FREE
 argument_list|(
 name|stack
+argument_list|,
+name|allocator_data
 argument_list|)
 expr_stmt|;
 return|return
@@ -890,6 +903,8 @@ block|{
 name|sljit_free_stack
 argument_list|(
 name|stack
+argument_list|,
+name|allocator_data
 argument_list|)
 expr_stmt|;
 return|return
@@ -943,6 +958,8 @@ block|{
 name|SLJIT_FREE
 argument_list|(
 name|stack
+argument_list|,
+name|allocator_data
 argument_list|)
 expr_stmt|;
 return|return
@@ -985,6 +1002,8 @@ block|{
 name|SLJIT_FREE
 argument_list|(
 name|stack
+argument_list|,
+name|allocator_data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1051,8 +1070,17 @@ name|struct
 name|sljit_stack
 modifier|*
 name|stack
+parameter_list|,
+name|void
+modifier|*
+name|allocator_data
 parameter_list|)
 block|{
+name|SLJIT_UNUSED_ARG
+argument_list|(
+name|allocator_data
+argument_list|)
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|_WIN32
@@ -1097,6 +1125,8 @@ directive|endif
 name|SLJIT_FREE
 argument_list|(
 name|stack
+argument_list|,
+name|allocator_data
 argument_list|)
 expr_stmt|;
 block|}

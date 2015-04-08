@@ -80,7 +80,7 @@ begin_comment
 comment|//! [meta-object flags]
 end_comment
 begin_macro
-name|Q_FLAGS
+name|Q_FLAG
 argument_list|(
 argument|Options
 argument_list|)

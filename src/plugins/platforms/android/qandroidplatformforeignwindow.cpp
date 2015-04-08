@@ -346,11 +346,6 @@ name|Qt
 operator|::
 name|ApplicationHidden
 operator|&&
-name|QtAndroid
-operator|::
-name|blockEventLoopsWhenSuspended
-argument_list|()
-operator|&&
 name|m_surfaceId
 operator|!=
 operator|-

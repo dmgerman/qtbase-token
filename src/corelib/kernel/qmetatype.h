@@ -7047,12 +7047,22 @@ block|}
 block|;     }
 expr_stmt|;
 end_expr_stmt
-begin_expr_stmt
+begin_decl_stmt
+name|QT_WARNING_PUSH
+comment|// In C++03 mode, clang consider local or unnamed type and throw a warning instead of ignoring them
+name|QT_WARNING_DISABLE_CLANG
+argument_list|(
+literal|"-Wunnamed-type-template-args"
+argument_list|)
+name|QT_WARNING_DISABLE_CLANG
+argument_list|(
+literal|"-Wlocal-type-template-args"
+argument_list|)
 name|template
-operator|<
+decl|<
 name|typename
 name|T
-operator|>
+decl|>
 name|char
 name|qt_getEnumMetaObject
 argument_list|(
@@ -7060,8 +7070,8 @@ specifier|const
 name|T
 operator|&
 argument_list|)
-expr_stmt|;
-end_expr_stmt
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|template
 operator|<
@@ -7105,6 +7115,7 @@ block|;     }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+name|QT_WARNING_POP
 name|template
 operator|<
 name|typename

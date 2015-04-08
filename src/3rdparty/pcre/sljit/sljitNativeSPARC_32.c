@@ -1125,12 +1125,12 @@ name|RDY
 operator||
 name|D
 argument_list|(
-name|TMP_REG4
+name|TMP_LINK
 argument_list|)
 argument_list|,
 name|DR
 argument_list|(
-name|TMP_REG4
+name|TMP_LINK
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1156,7 +1156,7 @@ argument_list|)
 operator||
 name|S2
 argument_list|(
-name|TMP_REG4
+name|TMP_LINK
 argument_list|)
 argument_list|,
 name|MOVABLE_INS

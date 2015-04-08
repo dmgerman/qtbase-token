@@ -2444,6 +2444,12 @@ modifier|*
 name|iface
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2499,7 +2505,7 @@ operator|::
 name|Name
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 name|d
 operator|<<
@@ -2513,7 +2519,7 @@ name|role
 argument_list|()
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 if|if
 condition|(
@@ -2531,7 +2537,7 @@ operator|->
 name|childCount
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 if|if
 condition|(
@@ -2662,13 +2668,10 @@ expr_stmt|;
 block|}
 name|d
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|d
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function
@@ -2690,6 +2693,12 @@ modifier|&
 name|ev
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
 name|nospace
@@ -3162,17 +3171,11 @@ literal|"supportsAutoCompletion"
 expr_stmt|;
 block|}
 name|d
-operator|.
-name|nospace
-argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|d
-operator|.
-name|space
-argument_list|()
 return|;
 block|}
 end_function

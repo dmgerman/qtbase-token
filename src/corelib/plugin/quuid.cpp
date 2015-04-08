@@ -1908,13 +1908,13 @@ begin_comment
 comment|/*!     Returns \c true if this is the null UUID     {00000000-0000-0000-0000-000000000000}; otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|isNull
 name|bool
 name|QUuid
 operator|::
 name|isNull
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|data4
@@ -1997,7 +1997,6 @@ begin_comment
 comment|/*!     \fn QUuid::Variant QUuid::variant() const      Returns the value in the \l{Variant field} {variant field} of the     UUID. If the return value is QUuid::DCE, call version() to see     which layout it uses. The null UUID is considered to be of an     unknown variant.      \sa version() */
 end_comment
 begin_function
-DECL|function|variant
 name|QUuid
 operator|::
 name|Variant
@@ -2006,6 +2005,7 @@ operator|::
 name|variant
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2092,7 +2092,6 @@ begin_comment
 comment|/*!     \fn QUuid::Version QUuid::version() const      Returns the \l{Version field} {version field} of the UUID, if the     UUID's \l{Variant field} {variant field} is QUuid::DCE. Otherwise     it returns QUuid::VerUnknown.      \sa variant() */
 end_comment
 begin_function
-DECL|function|version
 name|QUuid
 operator|::
 name|Version
@@ -2101,6 +2100,7 @@ operator|::
 name|version
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 comment|// Check the 4 MSB of data3
 name|Version
@@ -2146,20 +2146,7 @@ end_function
 begin_comment
 comment|/*!     \fn bool QUuid::operator<(const QUuid&other) const      Returns \c true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{before} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
 end_comment
-begin_define
-DECL|macro|ISLESS
-define|#
-directive|define
-name|ISLESS
-parameter_list|(
-name|f1
-parameter_list|,
-name|f2
-parameter_list|)
-value|if (f1!=f2) return (f1<f2);
-end_define
 begin_function
-DECL|function|operator <
 name|bool
 name|QUuid
 operator|::
@@ -2172,6 +2159,7 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2192,6 +2180,16 @@ operator|.
 name|variant
 argument_list|()
 return|;
+DECL|macro|ISLESS
+define|#
+directive|define
+name|ISLESS
+parameter_list|(
+name|f1
+parameter_list|,
+name|f2
+parameter_list|)
+value|if (f1!=f2) return (f1<f2);
 name|ISLESS
 argument_list|(
 name|data1
@@ -2250,6 +2248,10 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+DECL|macro|ISLESS
+undef|#
+directive|undef
+name|ISLESS
 return|return
 literal|false
 return|;
@@ -2258,20 +2260,7 @@ end_function
 begin_comment
 comment|/*!     \fn bool QUuid::operator>(const QUuid&other) const      Returns \c true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{after} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
 end_comment
-begin_define
-DECL|macro|ISMORE
-define|#
-directive|define
-name|ISMORE
-parameter_list|(
-name|f1
-parameter_list|,
-name|f2
-parameter_list|)
-value|if (f1!=f2) return (f1>f2);
-end_define
 begin_function
-DECL|function|operator >
 name|bool
 name|QUuid
 operator|::
@@ -2284,89 +2273,22 @@ modifier|&
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
-if|if
-condition|(
-name|variant
-argument_list|()
-operator|!=
-name|other
-operator|.
-name|variant
-argument_list|()
-condition|)
 return|return
-name|variant
-argument_list|()
-operator|>
 name|other
-operator|.
-name|variant
-argument_list|()
-return|;
-name|ISMORE
-argument_list|(
-name|data1
-argument_list|,
-name|other
-operator|.
-name|data1
-argument_list|)
-expr_stmt|;
-name|ISMORE
-argument_list|(
-name|data2
-argument_list|,
-name|other
-operator|.
-name|data2
-argument_list|)
-expr_stmt|;
-name|ISMORE
-argument_list|(
-name|data3
-argument_list|,
-name|other
-operator|.
-name|data3
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|int
-name|n
-init|=
-literal|0
-init|;
-name|n
 operator|<
-literal|8
-condition|;
-name|n
-operator|++
-control|)
-block|{
-name|ISMORE
-argument_list|(
-name|data4
-index|[
-name|n
-index|]
-argument_list|,
-name|other
-operator|.
-name|data4
-index|[
-name|n
-index|]
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|false
+operator|*
+name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn bool operator<=(const QUuid&lhs, const QUuid&rhs)     \relates QUuid     \since 5.5      Returns \c true if \a lhs has the same \l{Variant field}     {variant field} as \a rhs and is lexicographically     \e{not after} \a rhs. If \a rhs has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
+end_comment
+begin_comment
+comment|/*!     \fn bool operator>=(const QUuid&lhs, const QUuid&rhs)     \relates QUuid     \since 5.5      Returns \c true if \a lhs has the same \l{Variant field}     {variant field} as \a rhs and is lexicographically     \e{not before} \a rhs. If \a rhs has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
+end_comment
 begin_comment
 comment|/*!     \fn QUuid QUuid::createUuid()      On any platform other than Windows, this function returns a new     UUID with variant QUuid::DCE and version QUuid::Random.  If     the /dev/urandom device exists, then the numbers used to construct     the UUID will be of cryptographic quality, which will make the UUID     unique.  Otherwise, the numbers of the UUID will be obtained from     the local pseudo-random number generator (qrand(), which is seeded     by qsrand()) which is usually not of cryptograhic quality, which     means that the UUID can't be guaranteed to be unique.      On a Windows platform, a GUID is generated, which almost certainly     \e{will} be unique, on this or any other system, networked or not.      \sa variant(), version() */
 end_comment

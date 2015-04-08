@@ -286,12 +286,13 @@ parameter_list|()
 function_decl|;
 name|bool
 name|event
-parameter_list|(
+argument_list|(
 name|QEvent
-modifier|*
+operator|*
 name|event
-parameter_list|)
-function_decl|;
+argument_list|)
+name|Q_DECL_OVERRIDE
+decl_stmt|;
 name|QFbWindow
 modifier|*
 name|windowForId

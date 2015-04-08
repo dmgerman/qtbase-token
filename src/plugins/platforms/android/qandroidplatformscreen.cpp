@@ -1191,11 +1191,6 @@ operator|<=
 name|Qt
 operator|::
 name|ApplicationHidden
-operator|&&
-name|QtAndroid
-operator|::
-name|blockEventLoopsWhenSuspended
-argument_list|()
 condition|)
 block|{
 name|lockSurface

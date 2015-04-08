@@ -83,6 +83,12 @@ block|,
 name|ThemingEventFlag
 init|=
 literal|0x2000000
+block|,
+name|GenericEventFlag
+init|=
+literal|0x4000000
+block|,
+comment|// Misc
 block|}
 enum|;
 enum|enum
@@ -373,6 +379,12 @@ name|DisplayChangedEvent
 operator|+
 literal|1
 block|,
+name|ScrollEvent
+init|=
+name|GenericEventFlag
+operator|+
+literal|1
+block|,
 name|ContextMenu
 init|=
 literal|123
@@ -508,6 +520,14 @@ return|return
 name|QtWindows
 operator|::
 name|MouseEvent
+return|;
+case|case
+name|WM_HSCROLL
+case|:
+return|return
+name|QtWindows
+operator|::
+name|ScrollEvent
 return|;
 case|case
 name|WM_MOUSEWHEEL

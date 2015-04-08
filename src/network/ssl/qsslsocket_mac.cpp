@@ -1387,12 +1387,7 @@ name|data
 decl_stmt|;
 while|while
 condition|(
-name|plainSocket
-operator|->
-name|bytesAvailable
-argument_list|()
-operator|>
-literal|0
+literal|true
 condition|)
 block|{
 name|size_t
@@ -1407,47 +1402,6 @@ argument_list|(
 literal|4096
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|shutdown
-condition|)
-block|{
-comment|// SSLRead(context, data.data(), data.size(),&readBytes) fails with errSSLClosedGraceful
-comment|// if the session was closed (see disconnectFromHost).
-comment|// SSLClose SSLRead fails and we'll stay in this loop forever.
-comment|// At the moment we're never here (see the test '!context || shutdown' above) -
-comment|// we read nothing from the socket as soon as SSL session closed.
-name|qCritical
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"read attempt after SSL session closed"
-expr_stmt|;
-name|size_t
-name|nBytes
-init|=
-name|plainSocket
-operator|->
-name|bytesAvailable
-argument_list|()
-decl_stmt|;
-name|_q_SSLRead
-argument_list|(
-name|plainSocket
-argument_list|,
-name|data
-operator|.
-name|data
-argument_list|()
-argument_list|,
-operator|&
-name|nBytes
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 specifier|const
 name|OSStatus
 name|err
@@ -1504,7 +1458,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-block|}
 if|if
 condition|(
 name|readBytes
@@ -1557,6 +1510,13 @@ name|readyRead
 argument_list|()
 emit|;
 block|}
+if|if
+condition|(
+name|err
+operator|==
+name|errSSLWouldBlock
+condition|)
+break|break;
 block|}
 block|}
 block|}
