@@ -94,14 +94,18 @@ argument_list|(
 argument|sh::GLenum type
 argument_list|,
 argument|const TPragma&pragma
+argument_list|,
+argument|ShShaderOutput output
 argument_list|)
 block|;
-comment|// Returns 120 if the following is used the shader:
-comment|// - "invariant",
-comment|// - "gl_PointCoord",
-comment|// - matrix/matrix constructors
-comment|// - array "out" parameters
-comment|// Else 110 is returned.
+comment|// If output is core profile, returns 150.
+comment|// If output is legacy profile,
+comment|//   Returns 120 if the following is used the shader:
+comment|//   - "invariant",
+comment|//   - "gl_PointCoord",
+comment|//   - matrix/matrix constructors
+comment|//   - array "out" parameters
+comment|//   Else 110 is returned.
 name|int
 name|getVersion
 argument_list|()

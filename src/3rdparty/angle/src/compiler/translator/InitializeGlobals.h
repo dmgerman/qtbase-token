@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__INITIALIZE_GLOBALS_INCLUDED_
+name|COMPILER_TRANSLATOR_INITIALIZEGLOBALS_H_
 end_ifndef
 begin_define
-DECL|macro|__INITIALIZE_GLOBALS_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_INITIALIZEGLOBALS_H_
 define|#
 directive|define
-name|__INITIALIZE_GLOBALS_INCLUDED_
+name|COMPILER_TRANSLATOR_INITIALIZEGLOBALS_H_
 end_define
 begin_function_decl
 name|bool
@@ -42,6 +42,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// __INITIALIZE_GLOBALS_INCLUDED_
+comment|// COMPILER_TRANSLATOR_INITIALIZEGLOBALS_H_
 end_comment
 end_unit

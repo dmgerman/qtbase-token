@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILIER_BUILT_IN_FUNCTION_EMULATOR_H_
+name|COMPILER_TRANSLATOR_BUILTINFUNCTIONEMULATOR_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILIER_BUILT_IN_FUNCTION_EMULATOR_H_
+DECL|macro|COMPILER_TRANSLATOR_BUILTINFUNCTIONEMULATOR_H_
 define|#
 directive|define
-name|COMPILIER_BUILT_IN_FUNCTION_EMULATOR_H_
+name|COMPILER_TRANSLATOR_BUILTINFUNCTIONEMULATOR_H_
 end_define
 begin_include
 include|#
@@ -45,7 +45,10 @@ begin_comment
 comment|// emulated ones.
 end_comment
 begin_comment
-comment|// It's only a workaround for OpenGL driver bugs, and isn't needed in general.
+comment|// It can be used to work around driver bugs or implement functions that are
+end_comment
+begin_comment
+comment|// not natively implemented on a specific platform.
 end_comment
 begin_comment
 comment|//
@@ -57,58 +60,8 @@ block|{
 name|public
 label|:
 name|BuiltInFunctionEmulator
-argument_list|(
-argument|sh::GLenum shaderType
-argument_list|)
-empty_stmt|;
-comment|// Records that a function is called by the shader and might needs to be
-comment|// emulated.  If the function's group is not in mFunctionGroupFilter, this
-comment|// becomes an no-op.
-comment|// Returns true if the function call needs to be replaced with an emulated
-comment|// one.
-name|bool
-name|SetFunctionCalled
-parameter_list|(
-name|TOperator
-name|op
-parameter_list|,
-specifier|const
-name|TType
-modifier|&
-name|param
-parameter_list|)
-function_decl|;
-name|bool
-name|SetFunctionCalled
-parameter_list|(
-name|TOperator
-name|op
-parameter_list|,
-specifier|const
-name|TType
-modifier|&
-name|param1
-parameter_list|,
-specifier|const
-name|TType
-modifier|&
-name|param2
-parameter_list|)
-function_decl|;
-comment|// Output function emulation definition.  This should be before any other
-comment|// shader source.
-name|void
-name|OutputEmulatedFunctionDefinition
-argument_list|(
-name|TInfoSinkBase
-operator|&
-name|out
-argument_list|,
-name|bool
-name|withPrecision
-argument_list|)
-decl|const
-decl_stmt|;
+argument_list|()
+expr_stmt|;
 name|void
 name|MarkBuiltInFunctionsForEmulation
 parameter_list|(
@@ -132,93 +85,100 @@ modifier|&
 name|name
 parameter_list|)
 function_decl|;
+name|bool
+name|IsOutputEmpty
+argument_list|()
+specifier|const
+expr_stmt|;
+comment|// Output function emulation definition. This should be before any other
+comment|// shader source.
+name|void
+name|OutputEmulatedFunctions
+argument_list|(
+name|TInfoSinkBase
+operator|&
+name|out
+argument_list|)
+decl|const
+decl_stmt|;
+comment|// Add functions that need to be emulated.
+name|void
+name|addEmulatedFunction
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|emulatedFunctionDefinition
+parameter_list|)
+function_decl|;
+name|void
+name|addEmulatedFunction
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param1
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param2
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|emulatedFunctionDefinition
+parameter_list|)
+function_decl|;
+name|void
+name|addEmulatedFunction
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param1
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param2
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param3
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|emulatedFunctionDefinition
+parameter_list|)
+function_decl|;
 name|private
 label|:
-comment|//
-comment|// Built-in functions.
-comment|//
-enum|enum
-name|TBuiltInFunction
-block|{
-name|TFunctionCos1
-init|=
-literal|0
-block|,
-comment|// float cos(float);
-name|TFunctionCos2
-block|,
-comment|// vec2 cos(vec2);
-name|TFunctionCos3
-block|,
-comment|// vec3 cos(vec3);
-name|TFunctionCos4
-block|,
-comment|// vec4 cos(vec4);
-name|TFunctionDistance1_1
-block|,
-comment|// float distance(float, float);
-name|TFunctionDistance2_2
-block|,
-comment|// vec2 distance(vec2, vec2);
-name|TFunctionDistance3_3
-block|,
-comment|// vec3 distance(vec3, vec3);
-name|TFunctionDistance4_4
-block|,
-comment|// vec4 distance(vec4, vec4);
-name|TFunctionDot1_1
-block|,
-comment|// float dot(float, float);
-name|TFunctionDot2_2
-block|,
-comment|// vec2 dot(vec2, vec2);
-name|TFunctionDot3_3
-block|,
-comment|// vec3 dot(vec3, vec3);
-name|TFunctionDot4_4
-block|,
-comment|// vec4 dot(vec4, vec4);
-name|TFunctionLength1
-block|,
-comment|// float length(float);
-name|TFunctionLength2
-block|,
-comment|// float length(vec2);
-name|TFunctionLength3
-block|,
-comment|// float length(vec3);
-name|TFunctionLength4
-block|,
-comment|// float length(vec4);
-name|TFunctionNormalize1
-block|,
-comment|// float normalize(float);
-name|TFunctionNormalize2
-block|,
-comment|// vec2 normalize(vec2);
-name|TFunctionNormalize3
-block|,
-comment|// vec3 normalize(vec3);
-name|TFunctionNormalize4
-block|,
-comment|// vec4 normalize(vec4);
-name|TFunctionReflect1_1
-block|,
-comment|// float reflect(float, float);
-name|TFunctionReflect2_2
-block|,
-comment|// vec2 reflect(vec2, vec2);
-name|TFunctionReflect3_3
-block|,
-comment|// vec3 reflect(vec3, vec3);
-name|TFunctionReflect4_4
-block|,
-comment|// vec4 reflect(vec4, vec4);
-name|TFunctionUnknown
-block|}
-enum|;
-name|TBuiltInFunction
-name|IdentifyFunction
+name|class
+name|BuiltInFunctionEmulationMarker
+decl_stmt|;
+comment|// Records that a function is called by the shader and might need to be
+comment|// emulated. If the function is not in mEmulatedFunctions, this becomes a
+comment|// no-op. Returns true if the function call needs to be replaced with an
+comment|// emulated one.
+name|bool
+name|SetFunctionCalled
 parameter_list|(
 name|TOperator
 name|op
@@ -229,8 +189,8 @@ modifier|&
 name|param
 parameter_list|)
 function_decl|;
-name|TBuiltInFunction
-name|IdentifyFunction
+name|bool
+name|SetFunctionCalled
 parameter_list|(
 name|TOperator
 name|op
@@ -249,30 +209,126 @@ function_decl|;
 name|bool
 name|SetFunctionCalled
 parameter_list|(
-name|TBuiltInFunction
-name|function
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param1
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param2
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param3
 parameter_list|)
 function_decl|;
+name|class
+name|FunctionId
+block|{
+name|public
+label|:
+name|FunctionId
+argument_list|(
+argument|TOperator op
+argument_list|,
+argument|const TType& param
+argument_list|)
+empty_stmt|;
+name|FunctionId
+argument_list|(
+argument|TOperator op
+argument_list|,
+argument|const TType& param1
+argument_list|,
+argument|const TType& param2
+argument_list|)
+empty_stmt|;
+name|FunctionId
+argument_list|(
+argument|TOperator op
+argument_list|,
+argument|const TType& param1
+argument_list|,
+argument|const TType& param2
+argument_list|,
+argument|const TType& param3
+argument_list|)
+empty_stmt|;
+name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|FunctionId
+operator|&
+name|other
+operator|)
+specifier|const
+expr_stmt|;
+name|bool
+name|operator
+operator|<
+operator|(
+specifier|const
+name|FunctionId
+operator|&
+name|other
+operator|)
+specifier|const
+expr_stmt|;
+name|private
+label|:
+name|TOperator
+name|mOp
+decl_stmt|;
+name|TType
+name|mParam1
+decl_stmt|;
+name|TType
+name|mParam2
+decl_stmt|;
+name|TType
+name|mParam3
+decl_stmt|;
+block|}
+empty_stmt|;
+name|bool
+name|SetFunctionCalled
+parameter_list|(
+specifier|const
+name|FunctionId
+modifier|&
+name|functionId
+parameter_list|)
+function_decl|;
+comment|// Map from function id to emulated function definition
+name|std
+operator|::
+name|map
+operator|<
+name|FunctionId
+operator|,
+name|std
+operator|::
+name|string
+operator|>
+name|mEmulatedFunctions
+expr_stmt|;
+comment|// Called function ids
 name|std
 operator|::
 name|vector
 operator|<
-name|TBuiltInFunction
+name|FunctionId
 operator|>
 name|mFunctions
 expr_stmt|;
-specifier|const
-name|bool
-modifier|*
-name|mFunctionMask
-decl_stmt|;
-comment|// a boolean flag for each function.
-specifier|const
-name|char
-modifier|*
-modifier|*
-name|mFunctionSource
-decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -283,6 +339,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILIER_BUILT_IN_FUNCTION_EMULATOR_H_
+comment|// COMPILER_TRANSLATOR_BUILTINFUNCTIONEMULATOR_H_
 end_comment
 end_unit

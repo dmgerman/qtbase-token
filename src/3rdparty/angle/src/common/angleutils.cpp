@@ -22,7 +22,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"debug.h"
+file|"common/debug.h"
 end_include
 begin_include
 include|#

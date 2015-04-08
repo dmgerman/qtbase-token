@@ -29,464 +29,11 @@ include|#
 directive|include
 file|"compiler/translator/SymbolTable.h"
 end_include
-begin_namespace
-namespace|namespace
-block|{
-comment|// we use macros here instead of function definitions to work around more GLSL
-comment|// compiler bugs, in particular on NVIDIA hardware on Mac OSX. Macros are
-comment|// problematic because if the argument has side-effects they will be repeatedly
-comment|// evaluated. This is unlikely to show up in real shaders, but is something to
-comment|// consider.
-DECL|member|kFunctionEmulationVertexSource
-specifier|const
-name|char
-modifier|*
-name|kFunctionEmulationVertexSource
-index|[]
-init|=
-block|{
-literal|"#error no emulation for cos(float)"
-block|,
-literal|"#error no emulation for cos(vec2)"
-block|,
-literal|"#error no emulation for cos(vec3)"
-block|,
-literal|"#error no emulation for cos(vec4)"
-block|,
-literal|"#define webgl_distance_emu(x, y) ((x)>= (y) ? (x) - (y) : (y) - (x))"
-block|,
-literal|"#error no emulation for distance(vec2, vec2)"
-block|,
-literal|"#error no emulation for distance(vec3, vec3)"
-block|,
-literal|"#error no emulation for distance(vec4, vec4)"
-block|,
-literal|"#define webgl_dot_emu(x, y) ((x) * (y))"
-block|,
-literal|"#error no emulation for dot(vec2, vec2)"
-block|,
-literal|"#error no emulation for dot(vec3, vec3)"
-block|,
-literal|"#error no emulation for dot(vec4, vec4)"
-block|,
-literal|"#define webgl_length_emu(x) ((x)>= 0.0 ? (x) : -(x))"
-block|,
-literal|"#error no emulation for length(vec2)"
-block|,
-literal|"#error no emulation for length(vec3)"
-block|,
-literal|"#error no emulation for length(vec4)"
-block|,
-literal|"#define webgl_normalize_emu(x) ((x) == 0.0 ? 0.0 : ((x)> 0.0 ? 1.0 : -1.0))"
-block|,
-literal|"#error no emulation for normalize(vec2)"
-block|,
-literal|"#error no emulation for normalize(vec3)"
-block|,
-literal|"#error no emulation for normalize(vec4)"
-block|,
-literal|"#define webgl_reflect_emu(I, N) ((I) - 2.0 * (N) * (I) * (N))"
-block|,
-literal|"#error no emulation for reflect(vec2, vec2)"
-block|,
-literal|"#error no emulation for reflect(vec3, vec3)"
-block|,
-literal|"#error no emulation for reflect(vec4, vec4)"
-block|}
-decl_stmt|;
-DECL|member|kFunctionEmulationFragmentSource
-specifier|const
-name|char
-modifier|*
-name|kFunctionEmulationFragmentSource
-index|[]
-init|=
-block|{
-literal|"webgl_emu_precision float webgl_cos_emu(webgl_emu_precision float a) { return cos(a); }"
-block|,
-literal|"webgl_emu_precision vec2 webgl_cos_emu(webgl_emu_precision vec2 a) { return cos(a); }"
-block|,
-literal|"webgl_emu_precision vec3 webgl_cos_emu(webgl_emu_precision vec3 a) { return cos(a); }"
-block|,
-literal|"webgl_emu_precision vec4 webgl_cos_emu(webgl_emu_precision vec4 a) { return cos(a); }"
-block|,
-literal|"#define webgl_distance_emu(x, y) ((x)>= (y) ? (x) - (y) : (y) - (x))"
-block|,
-literal|"#error no emulation for distance(vec2, vec2)"
-block|,
-literal|"#error no emulation for distance(vec3, vec3)"
-block|,
-literal|"#error no emulation for distance(vec4, vec4)"
-block|,
-literal|"#define webgl_dot_emu(x, y) ((x) * (y))"
-block|,
-literal|"#error no emulation for dot(vec2, vec2)"
-block|,
-literal|"#error no emulation for dot(vec3, vec3)"
-block|,
-literal|"#error no emulation for dot(vec4, vec4)"
-block|,
-literal|"#define webgl_length_emu(x) ((x)>= 0.0 ? (x) : -(x))"
-block|,
-literal|"#error no emulation for length(vec2)"
-block|,
-literal|"#error no emulation for length(vec3)"
-block|,
-literal|"#error no emulation for length(vec4)"
-block|,
-literal|"#define webgl_normalize_emu(x) ((x) == 0.0 ? 0.0 : ((x)> 0.0 ? 1.0 : -1.0))"
-block|,
-literal|"#error no emulation for normalize(vec2)"
-block|,
-literal|"#error no emulation for normalize(vec3)"
-block|,
-literal|"#error no emulation for normalize(vec4)"
-block|,
-literal|"#define webgl_reflect_emu(I, N) ((I) - 2.0 * (N) * (I) * (N))"
-block|,
-literal|"#error no emulation for reflect(vec2, vec2)"
-block|,
-literal|"#error no emulation for reflect(vec3, vec3)"
-block|,
-literal|"#error no emulation for reflect(vec4, vec4)"
-block|}
-decl_stmt|;
-DECL|member|kFunctionEmulationVertexMask
-specifier|const
-name|bool
-name|kFunctionEmulationVertexMask
-index|[]
-init|=
-block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__APPLE__
-argument_list|)
-comment|// Work around ATI driver bugs in Mac.
-literal|false
-block|,
-comment|// TFunctionCos1
-literal|false
-block|,
-comment|// TFunctionCos2
-literal|false
-block|,
-comment|// TFunctionCos3
-literal|false
-block|,
-comment|// TFunctionCos4
-literal|true
-block|,
-comment|// TFunctionDistance1_1
-literal|false
-block|,
-comment|// TFunctionDistance2_2
-literal|false
-block|,
-comment|// TFunctionDistance3_3
-literal|false
-block|,
-comment|// TFunctionDistance4_4
-literal|true
-block|,
-comment|// TFunctionDot1_1
-literal|false
-block|,
-comment|// TFunctionDot2_2
-literal|false
-block|,
-comment|// TFunctionDot3_3
-literal|false
-block|,
-comment|// TFunctionDot4_4
-literal|true
-block|,
-comment|// TFunctionLength1
-literal|false
-block|,
-comment|// TFunctionLength2
-literal|false
-block|,
-comment|// TFunctionLength3
-literal|false
-block|,
-comment|// TFunctionLength4
-literal|true
-block|,
-comment|// TFunctionNormalize1
-literal|false
-block|,
-comment|// TFunctionNormalize2
-literal|false
-block|,
-comment|// TFunctionNormalize3
-literal|false
-block|,
-comment|// TFunctionNormalize4
-literal|true
-block|,
-comment|// TFunctionReflect1_1
-literal|false
-block|,
-comment|// TFunctionReflect2_2
-literal|false
-block|,
-comment|// TFunctionReflect3_3
-literal|false
-block|,
-comment|// TFunctionReflect4_4
-else|#
-directive|else
-comment|// Work around D3D driver bug in Win.
-literal|false
-block|,
-comment|// TFunctionCos1
-literal|false
-block|,
-comment|// TFunctionCos2
-literal|false
-block|,
-comment|// TFunctionCos3
-literal|false
-block|,
-comment|// TFunctionCos4
-literal|false
-block|,
-comment|// TFunctionDistance1_1
-literal|false
-block|,
-comment|// TFunctionDistance2_2
-literal|false
-block|,
-comment|// TFunctionDistance3_3
-literal|false
-block|,
-comment|// TFunctionDistance4_4
-literal|false
-block|,
-comment|// TFunctionDot1_1
-literal|false
-block|,
-comment|// TFunctionDot2_2
-literal|false
-block|,
-comment|// TFunctionDot3_3
-literal|false
-block|,
-comment|// TFunctionDot4_4
-literal|false
-block|,
-comment|// TFunctionLength1
-literal|false
-block|,
-comment|// TFunctionLength2
-literal|false
-block|,
-comment|// TFunctionLength3
-literal|false
-block|,
-comment|// TFunctionLength4
-literal|false
-block|,
-comment|// TFunctionNormalize1
-literal|false
-block|,
-comment|// TFunctionNormalize2
-literal|false
-block|,
-comment|// TFunctionNormalize3
-literal|false
-block|,
-comment|// TFunctionNormalize4
-literal|false
-block|,
-comment|// TFunctionReflect1_1
-literal|false
-block|,
-comment|// TFunctionReflect2_2
-literal|false
-block|,
-comment|// TFunctionReflect3_3
-literal|false
-block|,
-comment|// TFunctionReflect4_4
-endif|#
-directive|endif
-literal|false
-comment|// TFunctionUnknown
-block|}
-decl_stmt|;
-DECL|member|kFunctionEmulationFragmentMask
-specifier|const
-name|bool
-name|kFunctionEmulationFragmentMask
-index|[]
-init|=
-block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__APPLE__
-argument_list|)
-comment|// Work around ATI driver bugs in Mac.
-literal|true
-block|,
-comment|// TFunctionCos1
-literal|true
-block|,
-comment|// TFunctionCos2
-literal|true
-block|,
-comment|// TFunctionCos3
-literal|true
-block|,
-comment|// TFunctionCos4
-literal|true
-block|,
-comment|// TFunctionDistance1_1
-literal|false
-block|,
-comment|// TFunctionDistance2_2
-literal|false
-block|,
-comment|// TFunctionDistance3_3
-literal|false
-block|,
-comment|// TFunctionDistance4_4
-literal|true
-block|,
-comment|// TFunctionDot1_1
-literal|false
-block|,
-comment|// TFunctionDot2_2
-literal|false
-block|,
-comment|// TFunctionDot3_3
-literal|false
-block|,
-comment|// TFunctionDot4_4
-literal|true
-block|,
-comment|// TFunctionLength1
-literal|false
-block|,
-comment|// TFunctionLength2
-literal|false
-block|,
-comment|// TFunctionLength3
-literal|false
-block|,
-comment|// TFunctionLength4
-literal|true
-block|,
-comment|// TFunctionNormalize1
-literal|false
-block|,
-comment|// TFunctionNormalize2
-literal|false
-block|,
-comment|// TFunctionNormalize3
-literal|false
-block|,
-comment|// TFunctionNormalize4
-literal|true
-block|,
-comment|// TFunctionReflect1_1
-literal|false
-block|,
-comment|// TFunctionReflect2_2
-literal|false
-block|,
-comment|// TFunctionReflect3_3
-literal|false
-block|,
-comment|// TFunctionReflect4_4
-else|#
-directive|else
-comment|// Work around D3D driver bug in Win.
-literal|false
-block|,
-comment|// TFunctionCos1
-literal|false
-block|,
-comment|// TFunctionCos2
-literal|false
-block|,
-comment|// TFunctionCos3
-literal|false
-block|,
-comment|// TFunctionCos4
-literal|false
-block|,
-comment|// TFunctionDistance1_1
-literal|false
-block|,
-comment|// TFunctionDistance2_2
-literal|false
-block|,
-comment|// TFunctionDistance3_3
-literal|false
-block|,
-comment|// TFunctionDistance4_4
-literal|false
-block|,
-comment|// TFunctionDot1_1
-literal|false
-block|,
-comment|// TFunctionDot2_2
-literal|false
-block|,
-comment|// TFunctionDot3_3
-literal|false
-block|,
-comment|// TFunctionDot4_4
-literal|false
-block|,
-comment|// TFunctionLength1
-literal|false
-block|,
-comment|// TFunctionLength2
-literal|false
-block|,
-comment|// TFunctionLength3
-literal|false
-block|,
-comment|// TFunctionLength4
-literal|false
-block|,
-comment|// TFunctionNormalize1
-literal|false
-block|,
-comment|// TFunctionNormalize2
-literal|false
-block|,
-comment|// TFunctionNormalize3
-literal|false
-block|,
-comment|// TFunctionNormalize4
-literal|false
-block|,
-comment|// TFunctionReflect1_1
-literal|false
-block|,
-comment|// TFunctionReflect2_2
-literal|false
-block|,
-comment|// TFunctionReflect3_3
-literal|false
-block|,
-comment|// TFunctionReflect4_4
-endif|#
-directive|endif
-literal|false
-comment|// TFunctionUnknown
-block|}
-decl_stmt|;
+begin_class
 DECL|class|BuiltInFunctionEmulationMarker
 class|class
+name|BuiltInFunctionEmulator
+operator|::
 name|BuiltInFunctionEmulationMarker
 super|:
 specifier|public
@@ -655,6 +202,9 @@ case|case
 name|EOpRefract
 case|:
 case|case
+name|EOpOuterProduct
+case|:
+case|case
 name|EOpMul
 case|:
 break|break;
@@ -677,19 +227,22 @@ name|getSequence
 argument_list|()
 operator|)
 decl_stmt|;
-comment|// Right now we only handle built-in functions with two parameters.
+name|bool
+name|needToEmulate
+init|=
+literal|false
+decl_stmt|;
+comment|// Right now we only handle built-in functions with two or three parameters.
 if|if
 condition|(
 name|sequence
 operator|.
 name|size
 argument_list|()
-operator|!=
+operator|==
 literal|2
 condition|)
-return|return
-literal|true
-return|;
+block|{
 name|TIntermTyped
 modifier|*
 name|param1
@@ -725,9 +278,8 @@ condition|)
 return|return
 literal|true
 return|;
-name|bool
 name|needToEmulate
-init|=
+operator|=
 name|mEmulator
 operator|.
 name|SetFunctionCalled
@@ -747,7 +299,103 @@ operator|->
 name|getType
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|sequence
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|3
+condition|)
+block|{
+name|TIntermTyped
+modifier|*
+name|param1
+init|=
+name|sequence
+index|[
+literal|0
+index|]
+operator|->
+name|getAsTyped
+argument_list|()
 decl_stmt|;
+name|TIntermTyped
+modifier|*
+name|param2
+init|=
+name|sequence
+index|[
+literal|1
+index|]
+operator|->
+name|getAsTyped
+argument_list|()
+decl_stmt|;
+name|TIntermTyped
+modifier|*
+name|param3
+init|=
+name|sequence
+index|[
+literal|2
+index|]
+operator|->
+name|getAsTyped
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|param1
+operator|||
+operator|!
+name|param2
+operator|||
+operator|!
+name|param3
+condition|)
+return|return
+literal|true
+return|;
+name|needToEmulate
+operator|=
+name|mEmulator
+operator|.
+name|SetFunctionCalled
+argument_list|(
+name|node
+operator|->
+name|getOp
+argument_list|()
+argument_list|,
+name|param1
+operator|->
+name|getType
+argument_list|()
+argument_list|,
+name|param2
+operator|->
+name|getType
+argument_list|()
+argument_list|,
+name|param3
+operator|->
+name|getType
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+return|return
+literal|true
+return|;
+block|}
 if|if
 condition|(
 name|needToEmulate
@@ -770,53 +418,228 @@ name|mEmulator
 decl_stmt|;
 block|}
 class|;
-block|}
-end_namespace
-begin_comment
-comment|// anonymous namepsace
-end_comment
+end_class
 begin_constructor
 DECL|function|BuiltInFunctionEmulator
 name|BuiltInFunctionEmulator
 operator|::
 name|BuiltInFunctionEmulator
-parameter_list|(
-name|sh
-operator|::
-name|GLenum
-name|shaderType
-parameter_list|)
-block|{
-if|if
-condition|(
-name|shaderType
-operator|==
-name|GL_FRAGMENT_SHADER
-condition|)
-block|{
-name|mFunctionMask
-operator|=
-name|kFunctionEmulationFragmentMask
-expr_stmt|;
-name|mFunctionSource
-operator|=
-name|kFunctionEmulationFragmentSource
-expr_stmt|;
-block|}
-else|else
-block|{
-name|mFunctionMask
-operator|=
-name|kFunctionEmulationVertexMask
-expr_stmt|;
-name|mFunctionSource
-operator|=
-name|kFunctionEmulationVertexSource
-expr_stmt|;
-block|}
-block|}
+parameter_list|()
+block|{}
 end_constructor
 begin_function
+DECL|function|addEmulatedFunction
+name|void
+name|BuiltInFunctionEmulator
+operator|::
+name|addEmulatedFunction
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|emulatedFunctionDefinition
+parameter_list|)
+block|{
+name|mEmulatedFunctions
+index|[
+name|FunctionId
+argument_list|(
+name|op
+argument_list|,
+name|param
+argument_list|)
+index|]
+operator|=
+name|std
+operator|::
+name|string
+argument_list|(
+name|emulatedFunctionDefinition
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|addEmulatedFunction
+name|void
+name|BuiltInFunctionEmulator
+operator|::
+name|addEmulatedFunction
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param1
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param2
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|emulatedFunctionDefinition
+parameter_list|)
+block|{
+name|mEmulatedFunctions
+index|[
+name|FunctionId
+argument_list|(
+name|op
+argument_list|,
+name|param1
+argument_list|,
+name|param2
+argument_list|)
+index|]
+operator|=
+name|std
+operator|::
+name|string
+argument_list|(
+name|emulatedFunctionDefinition
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|addEmulatedFunction
+name|void
+name|BuiltInFunctionEmulator
+operator|::
+name|addEmulatedFunction
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param1
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param2
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param3
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|emulatedFunctionDefinition
+parameter_list|)
+block|{
+name|mEmulatedFunctions
+index|[
+name|FunctionId
+argument_list|(
+name|op
+argument_list|,
+name|param1
+argument_list|,
+name|param2
+argument_list|,
+name|param3
+argument_list|)
+index|]
+operator|=
+name|std
+operator|::
+name|string
+argument_list|(
+name|emulatedFunctionDefinition
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|IsOutputEmpty
+name|bool
+name|BuiltInFunctionEmulator
+operator|::
+name|IsOutputEmpty
+parameter_list|()
+specifier|const
+block|{
+return|return
+operator|(
+name|mFunctions
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+operator|)
+return|;
+block|}
+end_function
+begin_function
+DECL|function|OutputEmulatedFunctions
+name|void
+name|BuiltInFunctionEmulator
+operator|::
+name|OutputEmulatedFunctions
+parameter_list|(
+name|TInfoSinkBase
+modifier|&
+name|out
+parameter_list|)
+specifier|const
+block|{
+for|for
+control|(
+name|size_t
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|mFunctions
+operator|.
+name|size
+argument_list|()
+condition|;
+operator|++
+name|i
+control|)
+block|{
+name|out
+operator|<<
+name|mEmulatedFunctions
+operator|.
+name|find
+argument_list|(
+name|mFunctions
+index|[
+name|i
+index|]
+argument_list|)
+operator|->
+name|second
+operator|<<
+literal|"\n\n"
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_function
 DECL|function|SetFunctionCalled
 name|bool
 name|BuiltInFunctionEmulator
@@ -832,20 +655,15 @@ modifier|&
 name|param
 parameter_list|)
 block|{
-name|TBuiltInFunction
-name|function
-init|=
-name|IdentifyFunction
+return|return
+name|SetFunctionCalled
+argument_list|(
+name|FunctionId
 argument_list|(
 name|op
 argument_list|,
 name|param
 argument_list|)
-decl_stmt|;
-return|return
-name|SetFunctionCalled
-argument_list|(
-name|function
 argument_list|)
 return|;
 block|}
@@ -871,10 +689,10 @@ modifier|&
 name|param2
 parameter_list|)
 block|{
-name|TBuiltInFunction
-name|function
-init|=
-name|IdentifyFunction
+return|return
+name|SetFunctionCalled
+argument_list|(
+name|FunctionId
 argument_list|(
 name|op
 argument_list|,
@@ -882,11 +700,6 @@ name|param1
 argument_list|,
 name|param2
 argument_list|)
-decl_stmt|;
-return|return
-name|SetFunctionCalled
-argument_list|(
-name|function
 argument_list|)
 return|;
 block|}
@@ -898,28 +711,70 @@ name|BuiltInFunctionEmulator
 operator|::
 name|SetFunctionCalled
 parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param1
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param2
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param3
+parameter_list|)
+block|{
+return|return
+name|SetFunctionCalled
+argument_list|(
+name|FunctionId
+argument_list|(
+name|op
+argument_list|,
+name|param1
+argument_list|,
+name|param2
+argument_list|,
+name|param3
+argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
+DECL|function|SetFunctionCalled
+name|bool
 name|BuiltInFunctionEmulator
 operator|::
-name|TBuiltInFunction
-name|function
+name|SetFunctionCalled
+parameter_list|(
+specifier|const
+name|FunctionId
+modifier|&
+name|functionId
 parameter_list|)
 block|{
 if|if
 condition|(
-name|function
-operator|==
-name|TFunctionUnknown
-operator|||
-name|mFunctionMask
-index|[
-name|function
-index|]
-operator|==
-literal|false
+name|mEmulatedFunctions
+operator|.
+name|find
+argument_list|(
+name|functionId
+argument_list|)
+operator|!=
+name|mEmulatedFunctions
+operator|.
+name|end
+argument_list|()
 condition|)
-return|return
-literal|false
-return|;
+block|{
 for|for
 control|(
 name|size_t
@@ -945,7 +800,7 @@ index|[
 name|i
 index|]
 operator|==
-name|function
+name|functionId
 condition|)
 return|return
 literal|true
@@ -955,352 +810,15 @@ name|mFunctions
 operator|.
 name|push_back
 argument_list|(
-name|function
+name|functionId
 argument_list|)
 expr_stmt|;
 return|return
 literal|true
 return|;
 block|}
-end_function
-begin_function
-DECL|function|OutputEmulatedFunctionDefinition
-name|void
-name|BuiltInFunctionEmulator
-operator|::
-name|OutputEmulatedFunctionDefinition
-parameter_list|(
-name|TInfoSinkBase
-modifier|&
-name|out
-parameter_list|,
-name|bool
-name|withPrecision
-parameter_list|)
-specifier|const
-block|{
-if|if
-condition|(
-name|mFunctions
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|0
-condition|)
-return|return;
-name|out
-operator|<<
-literal|"// BEGIN: Generated code for built-in function emulation\n\n"
-expr_stmt|;
-if|if
-condition|(
-name|withPrecision
-condition|)
-block|{
-name|out
-operator|<<
-literal|"#if defined(GL_FRAGMENT_PRECISION_HIGH)\n"
-operator|<<
-literal|"#define webgl_emu_precision highp\n"
-operator|<<
-literal|"#else\n"
-operator|<<
-literal|"#define webgl_emu_precision mediump\n"
-operator|<<
-literal|"#endif\n\n"
-expr_stmt|;
-block|}
-else|else
-block|{
-name|out
-operator|<<
-literal|"#define webgl_emu_precision\n\n"
-expr_stmt|;
-block|}
-for|for
-control|(
-name|size_t
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|mFunctions
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-name|out
-operator|<<
-name|mFunctionSource
-index|[
-name|mFunctions
-index|[
-name|i
-index|]
-index|]
-operator|<<
-literal|"\n\n"
-expr_stmt|;
-block|}
-name|out
-operator|<<
-literal|"// END: Generated code for built-in function emulation\n\n"
-expr_stmt|;
-block|}
-end_function
-begin_function
-name|BuiltInFunctionEmulator
-operator|::
-name|TBuiltInFunction
-DECL|function|IdentifyFunction
-name|BuiltInFunctionEmulator
-operator|::
-name|IdentifyFunction
-parameter_list|(
-name|TOperator
-name|op
-parameter_list|,
-specifier|const
-name|TType
-modifier|&
-name|param
-parameter_list|)
-block|{
-if|if
-condition|(
-name|param
-operator|.
-name|getNominalSize
-argument_list|()
-operator|>
-literal|4
-operator|||
-name|param
-operator|.
-name|getSecondarySize
-argument_list|()
-operator|>
-literal|4
-condition|)
 return|return
-name|TFunctionUnknown
-return|;
-name|unsigned
-name|int
-name|function
-init|=
-name|TFunctionUnknown
-decl_stmt|;
-switch|switch
-condition|(
-name|op
-condition|)
-block|{
-case|case
-name|EOpCos
-case|:
-name|function
-operator|=
-name|TFunctionCos1
-expr_stmt|;
-break|break;
-case|case
-name|EOpLength
-case|:
-name|function
-operator|=
-name|TFunctionLength1
-expr_stmt|;
-break|break;
-case|case
-name|EOpNormalize
-case|:
-name|function
-operator|=
-name|TFunctionNormalize1
-expr_stmt|;
-break|break;
-default|default:
-break|break;
-block|}
-if|if
-condition|(
-name|function
-operator|==
-name|TFunctionUnknown
-condition|)
-return|return
-name|TFunctionUnknown
-return|;
-if|if
-condition|(
-name|param
-operator|.
-name|isVector
-argument_list|()
-condition|)
-name|function
-operator|+=
-name|param
-operator|.
-name|getNominalSize
-argument_list|()
-operator|-
-literal|1
-expr_stmt|;
-return|return
-cast|static_cast
-argument_list|<
-name|TBuiltInFunction
-argument_list|>
-argument_list|(
-name|function
-argument_list|)
-return|;
-block|}
-end_function
-begin_function
-name|BuiltInFunctionEmulator
-operator|::
-name|TBuiltInFunction
-DECL|function|IdentifyFunction
-name|BuiltInFunctionEmulator
-operator|::
-name|IdentifyFunction
-parameter_list|(
-name|TOperator
-name|op
-parameter_list|,
-specifier|const
-name|TType
-modifier|&
-name|param1
-parameter_list|,
-specifier|const
-name|TType
-modifier|&
-name|param2
-parameter_list|)
-block|{
-comment|// Right now for all the emulated functions with two parameters, the two
-comment|// parameters have the same type.
-if|if
-condition|(
-name|param1
-operator|.
-name|getNominalSize
-argument_list|()
-operator|!=
-name|param2
-operator|.
-name|getNominalSize
-argument_list|()
-operator|||
-name|param1
-operator|.
-name|getSecondarySize
-argument_list|()
-operator|!=
-name|param2
-operator|.
-name|getSecondarySize
-argument_list|()
-operator|||
-name|param1
-operator|.
-name|getNominalSize
-argument_list|()
-operator|>
-literal|4
-operator|||
-name|param1
-operator|.
-name|getSecondarySize
-argument_list|()
-operator|>
-literal|4
-condition|)
-return|return
-name|TFunctionUnknown
-return|;
-name|unsigned
-name|int
-name|function
-init|=
-name|TFunctionUnknown
-decl_stmt|;
-switch|switch
-condition|(
-name|op
-condition|)
-block|{
-case|case
-name|EOpDistance
-case|:
-name|function
-operator|=
-name|TFunctionDistance1_1
-expr_stmt|;
-break|break;
-case|case
-name|EOpDot
-case|:
-name|function
-operator|=
-name|TFunctionDot1_1
-expr_stmt|;
-break|break;
-case|case
-name|EOpReflect
-case|:
-name|function
-operator|=
-name|TFunctionReflect1_1
-expr_stmt|;
-break|break;
-default|default:
-break|break;
-block|}
-if|if
-condition|(
-name|function
-operator|==
-name|TFunctionUnknown
-condition|)
-return|return
-name|TFunctionUnknown
-return|;
-if|if
-condition|(
-name|param1
-operator|.
-name|isVector
-argument_list|()
-condition|)
-name|function
-operator|+=
-name|param1
-operator|.
-name|getNominalSize
-argument_list|()
-operator|-
-literal|1
-expr_stmt|;
-return|return
-cast|static_cast
-argument_list|<
-name|TBuiltInFunction
-argument_list|>
-argument_list|(
-name|function
-argument_list|)
+literal|false
 return|;
 block|}
 end_function
@@ -1321,6 +839,14 @@ argument_list|(
 name|root
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|mEmulatedFunctions
+operator|.
+name|empty
+argument_list|()
+condition|)
+return|return;
 name|BuiltInFunctionEmulationMarker
 name|marker
 argument_list|(
@@ -1403,6 +929,268 @@ argument_list|)
 operator|+
 literal|"_emu("
 return|;
+block|}
+end_function
+begin_constructor
+DECL|function|FunctionId
+name|BuiltInFunctionEmulator
+operator|::
+name|FunctionId
+operator|::
+name|FunctionId
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param
+parameter_list|)
+member_init_list|:
+name|mOp
+argument_list|(
+name|op
+argument_list|)
+member_init_list|,
+name|mParam1
+argument_list|(
+name|param
+argument_list|)
+member_init_list|,
+name|mParam2
+argument_list|(
+name|EbtVoid
+argument_list|)
+member_init_list|,
+name|mParam3
+argument_list|(
+name|EbtVoid
+argument_list|)
+block|{ }
+end_constructor
+begin_constructor
+DECL|function|FunctionId
+name|BuiltInFunctionEmulator
+operator|::
+name|FunctionId
+operator|::
+name|FunctionId
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param1
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param2
+parameter_list|)
+member_init_list|:
+name|mOp
+argument_list|(
+name|op
+argument_list|)
+member_init_list|,
+name|mParam1
+argument_list|(
+name|param1
+argument_list|)
+member_init_list|,
+name|mParam2
+argument_list|(
+name|param2
+argument_list|)
+member_init_list|,
+name|mParam3
+argument_list|(
+name|EbtVoid
+argument_list|)
+block|{ }
+end_constructor
+begin_constructor
+DECL|function|FunctionId
+name|BuiltInFunctionEmulator
+operator|::
+name|FunctionId
+operator|::
+name|FunctionId
+parameter_list|(
+name|TOperator
+name|op
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param1
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param2
+parameter_list|,
+specifier|const
+name|TType
+modifier|&
+name|param3
+parameter_list|)
+member_init_list|:
+name|mOp
+argument_list|(
+name|op
+argument_list|)
+member_init_list|,
+name|mParam1
+argument_list|(
+name|param1
+argument_list|)
+member_init_list|,
+name|mParam2
+argument_list|(
+name|param2
+argument_list|)
+member_init_list|,
+name|mParam3
+argument_list|(
+name|param3
+argument_list|)
+block|{ }
+end_constructor
+begin_function
+DECL|function|operator ==
+name|bool
+name|BuiltInFunctionEmulator
+operator|::
+name|FunctionId
+operator|::
+name|operator
+name|==
+parameter_list|(
+specifier|const
+name|BuiltInFunctionEmulator
+operator|::
+name|FunctionId
+modifier|&
+name|other
+parameter_list|)
+specifier|const
+block|{
+return|return
+operator|(
+name|mOp
+operator|==
+name|other
+operator|.
+name|mOp
+operator|&&
+name|mParam1
+operator|==
+name|other
+operator|.
+name|mParam1
+operator|&&
+name|mParam2
+operator|==
+name|other
+operator|.
+name|mParam2
+operator|&&
+name|mParam3
+operator|==
+name|other
+operator|.
+name|mParam3
+operator|)
+return|;
+block|}
+end_function
+begin_function
+DECL|function|operator <
+name|bool
+name|BuiltInFunctionEmulator
+operator|::
+name|FunctionId
+operator|::
+name|operator
+name|<
+parameter_list|(
+specifier|const
+name|BuiltInFunctionEmulator
+operator|::
+name|FunctionId
+modifier|&
+name|other
+parameter_list|)
+specifier|const
+block|{
+if|if
+condition|(
+name|mOp
+operator|!=
+name|other
+operator|.
+name|mOp
+condition|)
+return|return
+name|mOp
+operator|<
+name|other
+operator|.
+name|mOp
+return|;
+if|if
+condition|(
+name|mParam1
+operator|!=
+name|other
+operator|.
+name|mParam1
+condition|)
+return|return
+name|mParam1
+operator|<
+name|other
+operator|.
+name|mParam1
+return|;
+if|if
+condition|(
+name|mParam2
+operator|!=
+name|other
+operator|.
+name|mParam2
+condition|)
+return|return
+name|mParam2
+operator|<
+name|other
+operator|.
+name|mParam2
+return|;
+if|if
+condition|(
+name|mParam3
+operator|!=
+name|other
+operator|.
+name|mParam3
+condition|)
+return|return
+name|mParam3
+operator|<
+name|other
+operator|.
+name|mParam3
+return|;
+return|return
+literal|false
+return|;
+comment|// all fields are equal
 block|}
 end_function
 end_unit

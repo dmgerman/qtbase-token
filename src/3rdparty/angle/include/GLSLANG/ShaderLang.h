@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_COMPILER_INTERFACE_INCLUDED_
+name|GLSLANG_SHADERLANG_H_
 end_ifndef
 begin_define
-DECL|macro|_COMPILER_INTERFACE_INCLUDED_
+DECL|macro|GLSLANG_SHADERLANG_H_
 define|#
 directive|define
-name|_COMPILER_INTERFACE_INCLUDED_
+name|GLSLANG_SHADERLANG_H_
 end_define
 begin_if
 if|#
@@ -191,7 +191,7 @@ DECL|macro|ANGLE_SH_VERSION
 define|#
 directive|define
 name|ANGLE_SH_VERSION
-value|132
+value|134
 end_define
 begin_typedef
 typedef|typedef
@@ -255,25 +255,37 @@ name|SH_ESSL_OUTPUT
 init|=
 literal|0x8B45
 block|,
+comment|// SH_GLSL_OUTPUT is deprecated. This is to not break the build.
 DECL|enumerator|SH_GLSL_OUTPUT
 name|SH_GLSL_OUTPUT
 init|=
 literal|0x8B46
 block|,
+DECL|enumerator|SH_GLSL_COMPATIBILITY_OUTPUT
+name|SH_GLSL_COMPATIBILITY_OUTPUT
+init|=
+literal|0x8B46
+block|,
+DECL|enumerator|SH_GLSL_CORE_OUTPUT
+name|SH_GLSL_CORE_OUTPUT
+init|=
+literal|0x8B47
+block|,
+comment|// HLSL output only supported in some configurations.
 DECL|enumerator|SH_HLSL_OUTPUT
 name|SH_HLSL_OUTPUT
 init|=
-literal|0x8B47
+literal|0x8B48
 block|,
 DECL|enumerator|SH_HLSL9_OUTPUT
 name|SH_HLSL9_OUTPUT
 init|=
-literal|0x8B47
+literal|0x8B48
 block|,
 DECL|enumerator|SH_HLSL11_OUTPUT
 name|SH_HLSL11_OUTPUT
 init|=
-literal|0x8B48
+literal|0x8B49
 block|}
 DECL|typedef|ShShaderOutput
 name|ShShaderOutput
@@ -604,6 +616,22 @@ DECL|member|EXT_shader_texture_lod
 name|int
 name|EXT_shader_texture_lod
 decl_stmt|;
+DECL|member|WEBGL_debug_shader_precision
+name|int
+name|WEBGL_debug_shader_precision
+decl_stmt|;
+DECL|member|EXT_shader_framebuffer_fetch
+name|int
+name|EXT_shader_framebuffer_fetch
+decl_stmt|;
+DECL|member|NV_shader_framebuffer_fetch
+name|int
+name|NV_shader_framebuffer_fetch
+decl_stmt|;
+DECL|member|ARM_shader_framebuffer_fetch
+name|int
+name|ARM_shader_framebuffer_fetch
+decl_stmt|;
 comment|// Set to 1 to enable replacing GL_EXT_draw_buffers #extension directives
 comment|// with GL_NV_draw_buffers in ESSL output. This flag can be used to emulate
 comment|// EXT_draw_buffers by using it in combination with GLES3.0 glDrawBuffers
@@ -780,7 +808,10 @@ begin_comment
 comment|// output: Specifies the output code type - SH_ESSL_OUTPUT, SH_GLSL_OUTPUT,
 end_comment
 begin_comment
-comment|//         SH_HLSL9_OUTPUT or SH_HLSL11_OUTPUT.
+comment|//         SH_HLSL9_OUTPUT or SH_HLSL11_OUTPUT. Note: HLSL output is only
+end_comment
+begin_comment
+comment|//         supported in some configurations.
 end_comment
 begin_comment
 comment|// resources: Specifies the built-in resources.
@@ -1288,6 +1319,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _COMPILER_INTERFACE_INCLUDED_
+comment|// GLSLANG_SHADERLANG_H_
 end_comment
 end_unit

@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_PREPROCESSOR_SOURCE_LOCATION_H_
+name|COMPILER_PREPROCESSOR_SOURCELOCATION_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_PREPROCESSOR_SOURCE_LOCATION_H_
+DECL|macro|COMPILER_PREPROCESSOR_SOURCELOCATION_H_
 define|#
 directive|define
-name|COMPILER_PREPROCESSOR_SOURCE_LOCATION_H_
+name|COMPILER_PREPROCESSOR_SOURCELOCATION_H_
 end_define
 begin_decl_stmt
 name|namespace
@@ -156,6 +156,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_PREPROCESSOR_SOURCE_LOCATION_H_
+comment|// COMPILER_PREPROCESSOR_SOURCELOCATION_H_
 end_comment
 end_unit

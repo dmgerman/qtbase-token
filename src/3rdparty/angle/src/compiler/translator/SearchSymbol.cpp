@@ -30,11 +30,6 @@ include|#
 directive|include
 file|"compiler/translator/InfoSink.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"compiler/translator/OutputHLSL.h"
-end_include
 begin_namespace
 DECL|namespace|sh
 namespace|namespace

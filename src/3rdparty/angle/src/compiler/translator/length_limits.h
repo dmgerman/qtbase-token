@@ -23,21 +23,16 @@ end_comment
 begin_comment
 comment|//
 end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|__LENGTH_LIMITS_H
-argument_list|)
-end_if
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|COMPILER_TRANSLATOR_LENGTHLIMITS_H_
+end_ifndef
 begin_define
-DECL|macro|__LENGTH_LIMITS_H
+DECL|macro|COMPILER_TRANSLATOR_LENGTHLIMITS_H_
 define|#
 directive|define
-name|__LENGTH_LIMITS_H
-value|1
+name|COMPILER_TRANSLATOR_LENGTHLIMITS_H_
 end_define
 begin_include
 include|#
@@ -64,6 +59,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !(defined(__LENGTH_LIMITS_H)
+comment|// COMPILER_TRANSLATOR_LENGTHLIMITS_H_
 end_comment
 end_unit

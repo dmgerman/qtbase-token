@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_H
+name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPH_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_H
+DECL|macro|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPH_H_
 define|#
 directive|define
-name|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_H
+name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPH_H_
 end_define
 begin_include
 include|#
@@ -914,9 +914,13 @@ end_comment
 begin_decl_stmt
 name|class
 name|TDependencyGraphTraverser
+range|:
+name|angle
+operator|::
+name|NonCopyable
 block|{
 name|public
-label|:
+operator|:
 name|TDependencyGraphTraverser
 argument_list|()
 operator|:
@@ -932,57 +936,47 @@ argument_list|(
 argument|TGraphSymbol* symbol
 argument_list|)
 block|{}
-expr_stmt|;
+block|;
 name|virtual
 name|void
 name|visitArgument
-parameter_list|(
-name|TGraphArgument
-modifier|*
-name|selection
-parameter_list|)
+argument_list|(
+argument|TGraphArgument* selection
+argument_list|)
 block|{}
-empty_stmt|;
+block|;
 name|virtual
 name|void
 name|visitFunctionCall
-parameter_list|(
-name|TGraphFunctionCall
-modifier|*
-name|functionCall
-parameter_list|)
+argument_list|(
+argument|TGraphFunctionCall* functionCall
+argument_list|)
 block|{}
-empty_stmt|;
+block|;
 name|virtual
 name|void
 name|visitSelection
-parameter_list|(
-name|TGraphSelection
-modifier|*
-name|selection
-parameter_list|)
+argument_list|(
+argument|TGraphSelection* selection
+argument_list|)
 block|{}
-empty_stmt|;
+block|;
 name|virtual
 name|void
 name|visitLoop
-parameter_list|(
-name|TGraphLoop
-modifier|*
-name|loop
-parameter_list|)
+argument_list|(
+argument|TGraphLoop* loop
+argument_list|)
 block|{}
-empty_stmt|;
+block|;
 name|virtual
 name|void
 name|visitLogicalOp
-parameter_list|(
-name|TGraphLogicalOp
-modifier|*
-name|logicalOp
-parameter_list|)
+argument_list|(
+argument|TGraphLogicalOp* logicalOp
+argument_list|)
 block|{}
-empty_stmt|;
+block|;
 name|int
 name|getDepth
 argument_list|()
@@ -994,37 +988,32 @@ return|;
 block|}
 name|void
 name|incrementDepth
-parameter_list|()
+argument_list|()
 block|{
 operator|++
 name|mDepth
-expr_stmt|;
-block|}
+block|; }
 name|void
 name|decrementDepth
-parameter_list|()
+argument_list|()
 block|{
 operator|--
 name|mDepth
-expr_stmt|;
-block|}
+block|; }
 name|void
 name|clearVisited
-parameter_list|()
+argument_list|()
 block|{
 name|mVisited
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-block|}
+block|; }
 name|void
 name|markVisited
-parameter_list|(
-name|TGraphNode
-modifier|*
-name|node
-parameter_list|)
+argument_list|(
+argument|TGraphNode* node
+argument_list|)
 block|{
 name|mVisited
 operator|.
@@ -1032,16 +1021,13 @@ name|insert
 argument_list|(
 name|node
 argument_list|)
-expr_stmt|;
-block|}
+block|; }
 name|bool
 name|isVisited
 argument_list|(
-name|TGraphNode
-operator|*
-name|node
+argument|TGraphNode* node
 argument_list|)
-decl|const
+specifier|const
 block|{
 return|return
 name|mVisited
@@ -1058,20 +1044,20 @@ argument_list|()
 return|;
 block|}
 name|private
-label|:
+operator|:
 name|int
 name|mDepth
-decl_stmt|;
+block|;
 name|TGraphNodeSet
 name|mVisited
+block|; }
 decl_stmt|;
-block|}
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPH_H_
+end_comment
 end_unit

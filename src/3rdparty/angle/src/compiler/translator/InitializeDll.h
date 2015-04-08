@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__INITIALIZEDLL_H
+name|COMPILER_TRANSLATOR_INITIALIZEDLL_H_
 end_ifndef
 begin_define
-DECL|macro|__INITIALIZEDLL_H
+DECL|macro|COMPILER_TRANSLATOR_INITIALIZEDLL_H_
 define|#
 directive|define
-name|__INITIALIZEDLL_H
+name|COMPILER_TRANSLATOR_INITIALIZEDLL_H_
 end_define
 begin_function_decl
 name|bool
@@ -42,6 +42,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// __INITIALIZEDLL_H
+comment|// COMPILER_TRANSLATOR_INITIALIZEDLL_H_
 end_comment
 end_unit
