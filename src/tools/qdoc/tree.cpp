@@ -1710,7 +1710,7 @@ name|setVirtualness
 argument_list|(
 name|FunctionNode
 operator|::
-name|ImpureVirtual
+name|NormalVirtual
 argument_list|)
 expr_stmt|;
 name|func

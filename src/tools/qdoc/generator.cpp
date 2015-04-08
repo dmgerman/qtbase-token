@@ -3791,7 +3791,7 @@ operator|&&
 operator|!
 name|node
 operator|->
-name|isReimp
+name|isReimplemented
 argument_list|()
 condition|)
 block|{
@@ -3888,7 +3888,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|isReimp
+name|isReimplemented
 argument_list|()
 condition|)
 return|return;
@@ -4602,7 +4602,7 @@ operator|&&
 operator|!
 name|func
 operator|->
-name|isReimp
+name|isReimplemented
 argument_list|()
 condition|)
 name|node
@@ -6766,8 +6766,9 @@ block|{
 case|case
 name|Node
 operator|::
-name|Commendable
+name|Active
 case|:
+comment|// Do nothing.
 break|break;
 case|case
 name|Node

@@ -322,7 +322,7 @@ name|Deprecated
 block|,
 name|Preliminary
 block|,
-name|Commendable
+name|Active
 block|,
 name|Internal
 block|,
@@ -354,7 +354,6 @@ block|,
 name|ContentsLink
 block|,
 name|IndexLink
-comment|/*,         GlossaryLink,         CopyrightLink,         ChapterLink,         SectionLink,         SubsectionLink,         AppendixLink */
 block|}
 enum|;
 enum|enum
@@ -504,7 +503,7 @@ name|void
 name|setAccess
 parameter_list|(
 name|Access
-name|access
+name|t
 parameter_list|)
 block|{
 name|access_
@@ -513,7 +512,7 @@ operator|(
 name|unsigned
 name|char
 operator|)
-name|access
+name|t
 expr_stmt|;
 block|}
 name|void
@@ -548,7 +547,7 @@ name|void
 name|setStatus
 parameter_list|(
 name|Status
-name|status
+name|t
 parameter_list|)
 block|{
 if|if
@@ -561,7 +560,7 @@ name|char
 operator|)
 name|Obsolete
 operator|&&
-name|status
+name|t
 operator|==
 name|Deprecated
 condition|)
@@ -572,14 +571,14 @@ operator|(
 name|unsigned
 name|char
 operator|)
-name|status
+name|t
 expr_stmt|;
 block|}
 name|void
 name|setThreadSafeness
 parameter_list|(
 name|ThreadSafeness
-name|safeness
+name|t
 parameter_list|)
 block|{
 name|safeness_
@@ -588,7 +587,7 @@ operator|(
 name|unsigned
 name|char
 operator|)
-name|safeness
+name|t
 expr_stmt|;
 block|}
 name|void
@@ -642,12 +641,12 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|templateStuff
+name|t
 parameter_list|)
 block|{
 name|templateStuff_
 operator|=
-name|templateStuff
+name|t
 expr_stmt|;
 block|}
 name|void
@@ -906,7 +905,7 @@ return|;
 block|}
 name|virtual
 name|bool
-name|isReimp
+name|isReimplemented
 argument_list|()
 specifier|const
 block|{
@@ -4690,12 +4689,12 @@ operator|&
 name|value
 argument_list|)
 operator|:
-name|nam
+name|name_
 argument_list|(
 name|name
 argument_list|)
 block|,
-name|val
+name|value_
 argument_list|(
 argument|value
 argument_list|)
@@ -4708,7 +4707,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|nam
+name|name_
 return|;
 block|}
 specifier|const
@@ -4719,16 +4718,16 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|val
+name|value_
 return|;
 block|}
 name|private
 operator|:
 name|QString
-name|nam
+name|name_
 block|;
 name|QString
-name|val
+name|value_
 block|; }
 block|;
 name|class
@@ -4781,7 +4780,7 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|names
+name|names_
 operator|.
 name|contains
 argument_list|(
@@ -4800,7 +4799,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|itms
+name|items_
 return|;
 block|}
 name|Access
@@ -4818,7 +4817,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|ft
+name|flagsType_
 return|;
 block|}
 name|QString
@@ -4834,18 +4833,18 @@ name|QList
 operator|<
 name|EnumItem
 operator|>
-name|itms
+name|items_
 block|;
 name|QSet
 operator|<
 name|QString
 operator|>
-name|names
+name|names_
 block|;
 specifier|const
 name|TypedefNode
 operator|*
-name|ft
+name|flagsType_
 block|; }
 block|;
 name|class
@@ -4881,7 +4880,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|ae
+name|associatedEnum_
 return|;
 block|}
 name|private
@@ -4892,7 +4891,7 @@ argument_list|(
 specifier|const
 name|EnumNode
 operator|*
-name|enume
+name|t
 argument_list|)
 block|;
 name|friend
@@ -4902,7 +4901,7 @@ block|;
 specifier|const
 name|EnumNode
 operator|*
-name|ae
+name|associatedEnum_
 block|; }
 block|;
 DECL|function|setFlagsType
@@ -4912,14 +4911,14 @@ name|EnumNode
 operator|::
 name|setFlagsType
 argument_list|(
-argument|TypedefNode* typedeff
+argument|TypedefNode* t
 argument_list|)
 block|{
-name|ft
+name|flagsType_
 operator|=
-name|typedeff
+name|t
 block|;
-name|typedeff
+name|t
 operator|->
 name|setAssociatedEnum
 argument_list|(
@@ -4991,7 +4990,7 @@ argument_list|(
 argument|const QString& name
 argument_list|)
 block|{
-name|nam
+name|name_
 operator|=
 name|name
 block|; }
@@ -5001,12 +5000,12 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|lef
+name|leftType_
 operator|.
 name|length
 argument_list|()
 operator|+
-name|rig
+name|rightType_
 operator|.
 name|length
 argument_list|()
@@ -5022,7 +5021,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|lef
+name|leftType_
 return|;
 block|}
 specifier|const
@@ -5033,7 +5032,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|rig
+name|rightType_
 return|;
 block|}
 specifier|const
@@ -5044,7 +5043,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|nam
+name|name_
 return|;
 block|}
 specifier|const
@@ -5055,7 +5054,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|def
+name|defaultValue_
 return|;
 block|}
 name|QString
@@ -5068,16 +5067,16 @@ block|;
 name|private
 operator|:
 name|QString
-name|lef
+name|leftType_
 block|;
 name|QString
-name|rig
+name|rightType_
 block|;
 name|QString
-name|nam
+name|name_
 block|;
 name|QString
-name|def
+name|defaultValue_
 block|; }
 block|;
 name|class
@@ -5112,7 +5111,7 @@ name|Virtualness
 block|{
 name|NonVirtual
 block|,
-name|ImpureVirtual
+name|NormalVirtual
 block|,
 name|PureVirtual
 block|}
@@ -5148,69 +5147,69 @@ block|{ }
 name|void
 name|setReturnType
 argument_list|(
-argument|const QString& returnType
+argument|const QString& t
 argument_list|)
 block|{
-name|rt
+name|returnType_
 operator|=
-name|returnType
+name|t
 block|; }
 name|void
 name|setParentPath
 argument_list|(
-argument|const QStringList& parentPath
+argument|const QStringList& p
 argument_list|)
 block|{
-name|pp
+name|parentPath_
 operator|=
-name|parentPath
+name|p
 block|; }
 name|void
 name|setMetaness
 argument_list|(
-argument|Metaness metaness
+argument|Metaness t
 argument_list|)
 block|{
-name|met
+name|metaness_
 operator|=
-name|metaness
+name|t
 block|; }
 name|void
 name|setVirtualness
 argument_list|(
-argument|Virtualness virtualness
+argument|Virtualness v
 argument_list|)
 block|;
 name|void
 name|setConst
 argument_list|(
-argument|bool conste
+argument|bool b
 argument_list|)
 block|{
-name|con
+name|const_
 operator|=
-name|conste
+name|b
 block|; }
 name|void
 name|setStatic
 argument_list|(
-argument|bool statique
+argument|bool b
 argument_list|)
 block|{
-name|sta
+name|static_
 operator|=
-name|statique
+name|b
 block|; }
 name|void
 name|setOverload
 argument_list|(
-argument|bool overlode
+argument|bool b
 argument_list|)
 block|;
 name|void
-name|setReimp
+name|setReimplemented
 argument_list|(
-argument|bool r
+argument|bool b
 argument_list|)
 block|;
 name|void
@@ -5260,7 +5259,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|rt
+name|returnType_
 return|;
 block|}
 name|Metaness
@@ -5269,7 +5268,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|met
+name|metaness_
 return|;
 block|}
 name|bool
@@ -5278,11 +5277,11 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|met
+name|metaness_
 operator|==
 name|MacroWithParams
 operator|||
-name|met
+name|metaness_
 operator|==
 name|MacroWithoutParams
 return|;
@@ -5293,7 +5292,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|vir
+name|virtualness_
 return|;
 block|}
 name|bool
@@ -5302,7 +5301,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|con
+name|const_
 return|;
 block|}
 name|bool
@@ -5311,7 +5310,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|sta
+name|static_
 return|;
 block|}
 name|bool
@@ -5320,17 +5319,17 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|ove
+name|overload_
 return|;
 block|}
 name|bool
-name|isReimp
+name|isReimplemented
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|{
 return|return
-name|reimp
+name|reimplemented_
 return|;
 block|}
 name|bool
@@ -5521,14 +5520,14 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|params
+name|parameters_
 return|;
 block|}
 name|void
 name|clearParams
 argument_list|()
 block|{
-name|params
+name|parameters_
 operator|.
 name|clear
 argument_list|()
@@ -5555,7 +5554,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|rf
+name|reimplementedFrom_
 return|;
 block|}
 specifier|const
@@ -5570,7 +5569,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|rb
+name|reimplementedBy_
 return|;
 block|}
 specifier|const
@@ -5581,7 +5580,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|ap
+name|associatedProperty_
 return|;
 block|}
 specifier|const
@@ -5592,11 +5591,11 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|pp
+name|parentPath_
 return|;
 block|}
 name|QStringList
-name|reconstructParams
+name|reconstructParameters
 argument_list|(
 argument|bool values = false
 argument_list|)
@@ -5734,34 +5733,34 @@ name|class
 name|PropertyNode
 block|;
 name|QString
-name|rt
+name|returnType_
 block|;
 name|QStringList
-name|pp
+name|parentPath_
 block|;
 name|Metaness
-name|met
+name|metaness_
 block|;
 name|Virtualness
-name|vir
+name|virtualness_
 block|;
 name|bool
-name|con
+name|const_
 operator|:
 literal|1
 block|;
 name|bool
-name|sta
+name|static_
 operator|:
 literal|1
 block|;
 name|bool
-name|ove
+name|overload_
 operator|:
 literal|1
 block|;
 name|bool
-name|reimp
+name|reimplemented_
 operator|:
 literal|1
 block|;
@@ -5774,24 +5773,24 @@ name|QList
 operator|<
 name|Parameter
 operator|>
-name|params
+name|parameters_
 block|;
 specifier|const
 name|FunctionNode
 operator|*
-name|rf
+name|reimplementedFrom_
 block|;
 specifier|const
 name|PropertyNode
 operator|*
-name|ap
+name|associatedProperty_
 block|;
 name|QList
 operator|<
 name|FunctionNode
 operator|*
 operator|>
-name|rb
+name|reimplementedBy_
 block|; }
 block|;
 name|class
@@ -5958,7 +5957,7 @@ argument_list|(
 argument|const QString& rdf
 argument_list|)
 block|{
-name|runtimeDesFunc
+name|runtimeDesFunc_
 operator|=
 name|rdf
 block|; }
@@ -5968,7 +5967,7 @@ argument_list|(
 argument|const QString& scrf
 argument_list|)
 block|{
-name|runtimeScrFunc
+name|runtimeScrFunc_
 operator|=
 name|scrf
 block|; }
@@ -5976,7 +5975,7 @@ name|void
 name|setConstant
 argument_list|()
 block|{
-name|cst
+name|const_
 operator|=
 name|true
 block|; }
@@ -5984,7 +5983,7 @@ name|void
 name|setFinal
 argument_list|()
 block|{
-name|fnl
+name|final_
 operator|=
 name|true
 block|; }
@@ -5994,7 +5993,7 @@ argument_list|(
 argument|int revision
 argument_list|)
 block|{
-name|rev
+name|revision_
 operator|=
 name|revision
 block|; }
@@ -6027,7 +6026,7 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|funcs
+name|functions_
 index|[
 operator|(
 name|int
@@ -6137,7 +6136,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|runtimeDesFunc
+name|runtimeDesFunc_
 return|;
 block|}
 specifier|const
@@ -6148,7 +6147,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|runtimeScrFunc
+name|runtimeScrFunc_
 return|;
 block|}
 name|bool
@@ -6187,7 +6186,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|cst
+name|const_
 return|;
 block|}
 name|bool
@@ -6196,7 +6195,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|fnl
+name|final_
 return|;
 block|}
 specifier|const
@@ -6207,7 +6206,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|overrides
+name|overrides_
 return|;
 block|}
 name|bool
@@ -6271,13 +6270,13 @@ name|QString
 name|type_
 block|;
 name|QString
-name|runtimeDesFunc
+name|runtimeDesFunc_
 block|;
 name|QString
-name|runtimeScrFunc
+name|runtimeScrFunc_
 block|;
 name|NodeList
-name|funcs
+name|functions_
 index|[
 name|NumFunctionRoles
 index|]
@@ -6298,18 +6297,18 @@ name|FlagValue
 name|user_
 block|;
 name|bool
-name|cst
+name|const_
 block|;
 name|bool
-name|fnl
+name|final_
 block|;
 name|int
-name|rev
+name|revision_
 block|;
 specifier|const
 name|PropertyNode
 operator|*
-name|overrides
+name|overrides_
 block|; }
 block|;
 specifier|inline
@@ -6318,12 +6317,12 @@ name|FunctionNode
 operator|::
 name|setParameters
 argument_list|(
-argument|const QList<Parameter>&parameters
+argument|const QList<Parameter>&p
 argument_list|)
 block|{
-name|params
+name|parameters_
 operator|=
-name|parameters
+name|p
 block|; }
 DECL|function|addFunction
 specifier|inline
@@ -6337,7 +6336,7 @@ argument_list|,
 argument|FunctionRole role
 argument_list|)
 block|{
-name|funcs
+name|functions_
 index|[
 operator|(
 name|int
@@ -6369,7 +6368,7 @@ argument_list|,
 argument|FunctionRole role
 argument_list|)
 block|{
-name|funcs
+name|functions_
 index|[
 operator|(
 name|int
@@ -6417,7 +6416,7 @@ name|i
 control|)
 name|list
 operator|+=
-name|funcs
+name|functions_
 index|[
 name|i
 index|]
@@ -6459,7 +6458,7 @@ argument_list|(
 argument|const QString&leftType
 argument_list|)
 block|{
-name|lt
+name|lrftType_
 operator|=
 name|leftType
 block|; }
@@ -6469,19 +6468,19 @@ argument_list|(
 argument|const QString&rightType
 argument_list|)
 block|{
-name|rt
+name|rightType_
 operator|=
 name|rightType
 block|; }
 name|void
 name|setStatic
 argument_list|(
-argument|bool statique
+argument|bool b
 argument_list|)
 block|{
-name|sta
+name|static_
 operator|=
-name|statique
+name|b
 block|; }
 specifier|const
 name|QString
@@ -6491,7 +6490,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|lt
+name|lrftType_
 return|;
 block|}
 specifier|const
@@ -6502,7 +6501,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|rt
+name|rightType_
 return|;
 block|}
 name|QString
@@ -6511,9 +6510,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|lt
+name|lrftType_
 operator|+
-name|rt
+name|rightType_
 return|;
 block|}
 name|bool
@@ -6522,19 +6521,19 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|sta
+name|static_
 return|;
 block|}
 name|private
 operator|:
 name|QString
-name|lt
+name|lrftType_
 block|;
 name|QString
-name|rt
+name|rightType_
 block|;
 name|bool
-name|sta
+name|static_
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -6564,7 +6563,7 @@ argument_list|,
 name|name
 argument_list|)
 operator|,
-name|sta
+name|static_
 argument_list|(
 argument|false
 argument_list|)

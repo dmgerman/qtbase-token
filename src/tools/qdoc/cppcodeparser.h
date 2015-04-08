@@ -694,7 +694,7 @@ block|;
 name|FunctionNode
 operator|::
 name|Metaness
-name|metaness
+name|metaness_
 block|;
 name|QString
 name|physicalModuleName

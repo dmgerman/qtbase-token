@@ -2994,13 +2994,13 @@ if|if
 condition|(
 name|t
 operator|==
-literal|"impure"
+literal|"virtual"
 condition|)
 name|virt
 operator|=
 name|FunctionNode
 operator|::
-name|ImpureVirtual
+name|NormalVirtual
 expr_stmt|;
 elseif|else
 if|if
@@ -3866,7 +3866,7 @@ if|if
 condition|(
 name|status
 operator|==
-literal|"commendable"
+literal|"active"
 condition|)
 name|node
 operator|->
@@ -3874,7 +3874,7 @@ name|setStatus
 argument_list|(
 name|Node
 operator|::
-name|Commendable
+name|Active
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -3900,7 +3900,7 @@ name|setStatus
 argument_list|(
 name|Node
 operator|::
-name|Commendable
+name|Active
 argument_list|)
 expr_stmt|;
 name|QString
@@ -5023,11 +5023,11 @@ break|break;
 case|case
 name|Node
 operator|::
-name|Commendable
+name|Active
 case|:
 name|status
 operator|=
-literal|"commendable"
+literal|"active"
 expr_stmt|;
 break|break;
 case|case
@@ -6775,7 +6775,7 @@ break|break;
 case|case
 name|FunctionNode
 operator|::
-name|ImpureVirtual
+name|NormalVirtual
 case|:
 name|writer
 operator|.
@@ -6783,7 +6783,7 @@ name|writeAttribute
 argument_list|(
 literal|"virtual"
 argument_list|,
-literal|"impure"
+literal|"virtual"
 argument_list|)
 expr_stmt|;
 break|break;

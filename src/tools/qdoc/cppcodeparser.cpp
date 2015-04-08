@@ -4360,7 +4360,7 @@ expr_stmt|;
 block|}
 name|func
 operator|->
-name|setReimp
+name|setReimplemented
 argument_list|(
 literal|true
 argument_list|)
@@ -5182,7 +5182,7 @@ name|Node
 operator|::
 name|Public
 expr_stmt|;
-name|metaness
+name|metaness_
 operator|=
 name|FunctionNode
 operator|::
@@ -6450,7 +6450,7 @@ name|vir
 operator|=
 name|FunctionNode
 operator|::
-name|ImpureVirtual
+name|NormalVirtual
 expr_stmt|;
 if|if
 condition|(
@@ -7099,7 +7099,7 @@ name|func
 operator|->
 name|setMetaness
 argument_list|(
-name|metaness
+name|metaness_
 argument_list|)
 expr_stmt|;
 if|if
@@ -7773,9 +7773,9 @@ operator|::
 name|Metaness
 name|outerMetaness
 init|=
-name|metaness
+name|metaness_
 decl_stmt|;
-name|metaness
+name|metaness_
 operator|=
 name|FunctionNode
 operator|::
@@ -7805,7 +7805,7 @@ name|access
 operator|=
 name|outerAccess
 expr_stmt|;
-name|metaness
+name|metaness_
 operator|=
 name|outerMetaness
 expr_stmt|;
@@ -9483,7 +9483,7 @@ name|Node
 operator|::
 name|Private
 expr_stmt|;
-name|metaness
+name|metaness_
 operator|=
 name|FunctionNode
 operator|::
@@ -9502,7 +9502,7 @@ name|Node
 operator|::
 name|Protected
 expr_stmt|;
-name|metaness
+name|metaness_
 operator|=
 name|FunctionNode
 operator|::
@@ -9521,7 +9521,7 @@ name|Node
 operator|::
 name|Public
 expr_stmt|;
-name|metaness
+name|metaness_
 operator|=
 name|FunctionNode
 operator|::
@@ -9543,7 +9543,7 @@ name|Node
 operator|::
 name|Public
 expr_stmt|;
-name|metaness
+name|metaness_
 operator|=
 name|FunctionNode
 operator|::
@@ -9559,7 +9559,7 @@ case|:
 name|readToken
 argument_list|()
 expr_stmt|;
-name|metaness
+name|metaness_
 operator|=
 name|FunctionNode
 operator|::

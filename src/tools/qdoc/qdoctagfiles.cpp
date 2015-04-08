@@ -902,7 +902,7 @@ break|break;
 case|case
 name|FunctionNode
 operator|::
-name|ImpureVirtual
+name|NormalVirtual
 case|:
 name|writer
 operator|.
