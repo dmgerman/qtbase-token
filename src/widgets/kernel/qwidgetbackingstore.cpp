@@ -4037,6 +4037,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
 operator|delete
+name|widgetTextures
+expr_stmt|;
+operator|delete
 name|dirtyOnScreenWidgets
 expr_stmt|;
 endif|#
