@@ -192,7 +192,7 @@ parameter_list|)
 value|QT_TRANSLATE_NOOP(QNativeSocketEngine, a)
 end_define
 begin_comment
-comment|/*! \internal     Constructs the private class and initializes all data members.      On Windows, WSAStartup is called "recursively" for every     concurrent QNativeSocketEngine. This is safe, because WSAStartup and     WSACleanup are reference counted. */
+comment|/*! \internal     Constructs the private class and initializes all data members. */
 end_comment
 begin_constructor
 DECL|function|QNativeSocketEnginePrivate
@@ -221,7 +221,28 @@ name|exceptNotifier
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+name|QSysInfo
+operator|::
+name|machineHostName
+argument_list|()
+expr_stmt|;
+comment|// this initializes ws2_32.dll
+endif|#
+directive|endif
+block|}
 end_constructor
 begin_comment
 comment|/*! \internal     Destructs the private class. */
