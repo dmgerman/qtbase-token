@@ -562,6 +562,8 @@ argument_list|(
 name|d
 operator|->
 name|finalFileName
+argument_list|,
+literal|0666
 argument_list|)
 expr_stmt|;
 comment|// Same as in QFile: QIODevice provides the buffering, so there's no need to request it from the file engine.

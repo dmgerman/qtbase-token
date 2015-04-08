@@ -3258,12 +3258,9 @@ name|QABSTRACTSOCKET_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QAbstractSocketPrivate::readFromSocket() about to read %d bytes"
+literal|"QAbstractSocketPrivate::readFromSocket() about to read %lld bytes"
 argument_list|,
-name|int
-argument_list|(
 name|bytesToRead
-argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3316,8 +3313,6 @@ name|buffer
 operator|.
 name|chop
 argument_list|(
-name|int
-argument_list|(
 name|bytesToRead
 operator|-
 operator|(
@@ -3333,7 +3328,6 @@ else|:
 name|readBytes
 operator|)
 argument_list|)
-argument_list|)
 expr_stmt|;
 if|#
 directive|if
@@ -3343,12 +3337,9 @@ name|QABSTRACTSOCKET_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QAbstractSocketPrivate::readFromSocket() got %d bytes, buffer size = %d"
+literal|"QAbstractSocketPrivate::readFromSocket() got %lld bytes, buffer size = %lld"
 argument_list|,
-name|int
-argument_list|(
 name|readBytes
-argument_list|)
 argument_list|,
 name|buffer
 operator|.
@@ -5086,7 +5077,7 @@ name|QABSTRACTSOCKET_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QAbstractSocket::bytesAvailable() == %llu"
+literal|"QAbstractSocket::bytesAvailable() == %lld"
 argument_list|,
 name|available
 argument_list|)
@@ -5265,7 +5256,7 @@ name|QABSTRACTSOCKET_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QAbstractSocket::canReadLine() == %s, buffer size = %d, size = %d"
+literal|"QAbstractSocket::canReadLine() == %s, buffer size = %lld, size = %lld"
 argument_list|,
 name|hasLine
 condition|?

@@ -433,6 +433,9 @@ block|;     }
 block|;      struct
 name|GlyphInfo
 block|{
+name|int
+name|linearAdvance
+block|;
 name|unsigned
 name|short
 name|width
