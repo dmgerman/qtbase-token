@@ -1935,11 +1935,6 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|bogusWritingSystems
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|askedForFallback
 argument_list|(
 literal|false
@@ -2009,10 +2004,6 @@ name|QtFontFoundry
 modifier|*
 modifier|*
 name|foundries
-decl_stmt|;
-DECL|member|bogusWritingSystems
-name|bool
-name|bogusWritingSystems
 decl_stmt|;
 DECL|member|fallbackFamilies
 name|QStringList
