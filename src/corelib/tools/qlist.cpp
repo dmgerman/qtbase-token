@@ -1898,6 +1898,9 @@ begin_comment
 comment|/*! \fn bool operator>=(const QList<T>&lhs, const QList<T>&rhs)     \since 5.6     \relates QList      Returns \c true if list \a lhs is     \l{http://en.cppreference.com/w/cpp/algorithm/lexicographical_compare}     {lexicographically greater than or equal to} \a rhs; otherwise returns \c false.      This function requires the value type to have an implementation     of \c operator<(). */
 end_comment
 begin_comment
+comment|/*!     \fn uint qHash(const QList<T>&key, uint seed = 0)     \since 5.6     \relates QList      Returns the hash value for \a key,     using \a seed to seed the calculation.      This function requires qHash() to be overloaded for the value type \c T. */
+end_comment
+begin_comment
 comment|/*!     \fn int QList::size() const      Returns the number of items in the list.      \sa isEmpty(), count() */
 end_comment
 begin_comment
