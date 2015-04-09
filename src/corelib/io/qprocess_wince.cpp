@@ -1229,15 +1229,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|_q_notified
-name|void
-name|QProcessPrivate
-operator|::
-name|_q_notified
-parameter_list|()
-block|{ }
-end_function
-begin_function
 DECL|function|startDetached
 name|bool
 name|QProcessPrivate

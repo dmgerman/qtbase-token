@@ -1331,10 +1331,6 @@ name|bool
 name|_q_processDied
 parameter_list|()
 function_decl|;
-name|void
-name|_q_notified
-parameter_list|()
-function_decl|;
 name|QProcess
 operator|::
 name|ProcessChannel
@@ -1466,10 +1462,9 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-comment|// the wonderful windows notifier
 name|QTimer
 modifier|*
-name|notifier
+name|stdinWriteTrigger
 decl_stmt|;
 name|QWinEventNotifier
 modifier|*

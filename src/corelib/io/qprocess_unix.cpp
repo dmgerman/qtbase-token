@@ -6166,15 +6166,6 @@ literal|true
 return|;
 block|}
 end_function
-begin_function
-DECL|function|_q_notified
-name|void
-name|QProcessPrivate
-operator|::
-name|_q_notified
-parameter_list|()
-block|{ }
-end_function
 begin_if
 if|#
 directive|if
