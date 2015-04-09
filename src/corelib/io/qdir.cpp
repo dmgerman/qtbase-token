@@ -1095,7 +1095,7 @@ operator|.
 name|isDir
 argument_list|()
 return|;
-name|int
+name|qint64
 name|r
 init|=
 literal|0
