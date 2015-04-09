@@ -5006,6 +5006,15 @@ operator|.
 name|height
 argument_list|()
 decl_stmt|;
+specifier|const
+name|GLuint
+name|defaultFboId
+init|=
+name|ctx
+operator|->
+name|defaultFramebufferObject
+argument_list|()
+decl_stmt|;
 name|extensions
 operator|.
 name|glBindFramebuffer
@@ -5019,7 +5028,7 @@ operator|->
 name|handle
 argument_list|()
 else|:
-literal|0
+name|defaultFboId
 argument_list|)
 expr_stmt|;
 name|extensions
@@ -5035,7 +5044,7 @@ operator|->
 name|handle
 argument_list|()
 else|:
-literal|0
+name|defaultFboId
 argument_list|)
 expr_stmt|;
 name|extensions
