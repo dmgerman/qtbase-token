@@ -435,6 +435,8 @@ block|,
 name|TabFocusBehavior
 block|,
 name|ReplayMousePressOutsidePopup
+block|,
+name|ItemViewActivateItemOnSingleClick
 block|}
 enum|;
 name|virtual

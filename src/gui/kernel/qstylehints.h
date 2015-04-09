@@ -104,6 +104,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|Qt::TabFocusBehavior tabFocusBehavior READ tabFocusBehavior STORED false CONSTANT FINAL
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool singleClickActivation READ singleClickActivation STORED false CONSTANT FINAL
+argument_list|)
 name|public
 operator|:
 name|void
@@ -210,6 +214,11 @@ name|Qt
 operator|::
 name|TabFocusBehavior
 name|tabFocusBehavior
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|singleClickActivation
 argument_list|()
 specifier|const
 block|;
