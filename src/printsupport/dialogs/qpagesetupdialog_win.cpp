@@ -374,9 +374,13 @@ modifier|*
 name|parentWindow
 init|=
 name|parent
+condition|?
+name|parent
 operator|->
 name|windowHandle
 argument_list|()
+else|:
+literal|0
 decl_stmt|;
 name|psd
 operator|.
