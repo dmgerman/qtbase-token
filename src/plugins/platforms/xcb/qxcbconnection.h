@@ -928,6 +928,8 @@ argument|QXcbNativeInterface *nativeInterface
 argument_list|,
 argument|bool canGrabServer
 argument_list|,
+argument|xcb_visualid_t defaultVisualId
+argument_list|,
 argument|const char *displayName =
 literal|0
 argument_list|)
@@ -1123,12 +1125,38 @@ name|xcb_window_t
 name|rootWindow
 argument_list|()
 block|;
+name|bool
+name|hasDefaultVisualId
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_defaultVisualId
+operator|!=
+name|UINT_MAX
+return|;
+block|}
+name|xcb_visualid_t
+name|defaultVisualId
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_defaultVisualId
+return|;
+block|}
 ifdef|#
 directive|ifdef
 name|XCB_USE_XLIB
 name|void
 operator|*
 name|xlib_display
+argument_list|()
+specifier|const
+block|;
+name|void
+operator|*
+name|createVisualInfoForDefaultVisualId
 argument_list|()
 specifier|const
 block|;
@@ -2241,6 +2269,11 @@ name|bool
 name|m_canGrabServer
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|xcb_visualid_t
+name|m_defaultVisualId
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|QList
 operator|<
@@ -2567,6 +2600,16 @@ parameter_list|(
 name|object
 parameter_list|)
 value|((Display *)(object->connection()->xlib_display()))
+end_define
+begin_define
+DECL|macro|CREATE_VISUALINFO_FROM_DEFAULT_VISUALID
+define|#
+directive|define
+name|CREATE_VISUALINFO_FROM_DEFAULT_VISUALID
+parameter_list|(
+name|object
+parameter_list|)
+value|((XVisualInfo *)(object->connection()->createVisualInfoForDefaultVisualId()))
 end_define
 begin_expr_stmt
 name|template

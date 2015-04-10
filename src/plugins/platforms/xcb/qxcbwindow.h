@@ -596,6 +596,15 @@ name|WmWindowTypes
 name|windowTypes
 argument_list|)
 decl_stmt|;
+specifier|static
+name|uint
+name|visualIdStatic
+parameter_list|(
+name|QWindow
+modifier|*
+name|window
+parameter_list|)
+function_decl|;
 name|QXcbWindowFunctions
 operator|::
 name|WmWindowTypes
@@ -612,6 +621,11 @@ name|WmWindowTypes
 name|types
 argument_list|)
 decl_stmt|;
+name|uint
+name|visualId
+argument_list|()
+specifier|const
+expr_stmt|;
 name|bool
 name|needsSync
 argument_list|()
