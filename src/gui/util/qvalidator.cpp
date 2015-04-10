@@ -726,6 +726,9 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|// FIXME: Qt 6: Make QIntValidator::setRange() non-virtual
+end_comment
+begin_comment
 comment|/*!     Sets the range of the validator to only accept integers between \a     bottom and \a top inclusive. */
 end_comment
 begin_function
@@ -1423,6 +1426,9 @@ name|Intermediate
 return|;
 block|}
 end_function
+begin_comment
+comment|// FIXME: Qt 6: Make QDoubleValidator::setRange() non-virtual
+end_comment
 begin_comment
 comment|/*!     Sets the validator to accept doubles from \a minimum to \a maximum     inclusive, with at most \a decimals digits after the decimal     point. */
 end_comment
