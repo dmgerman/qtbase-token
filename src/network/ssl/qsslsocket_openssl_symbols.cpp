@@ -3087,6 +3087,11 @@ begin_else
 else|#
 directive|else
 end_else
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
+end_ifndef
 begin_macro
 name|DEFINEFUNC
 argument_list|(
@@ -3104,6 +3109,10 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -3164,6 +3173,11 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
+end_ifndef
 begin_macro
 name|DEFINEFUNC
 argument_list|(
@@ -3181,6 +3195,10 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
