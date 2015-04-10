@@ -9232,7 +9232,7 @@ if|if
 condition|(
 name|dn
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -9359,7 +9359,7 @@ if|if
 condition|(
 name|dn
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -21355,7 +21355,7 @@ argument_list|(
 name|node
 argument_list|)
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -21380,7 +21380,7 @@ argument_list|(
 name|node
 argument_list|)
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -21993,7 +21993,7 @@ operator|*
 name|node
 operator|)
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -25784,7 +25784,7 @@ if|if
 condition|(
 name|child
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -26536,7 +26536,7 @@ if|if
 condition|(
 name|child
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -27109,7 +27109,7 @@ switch|switch
 condition|(
 name|child
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 condition|)
 block|{

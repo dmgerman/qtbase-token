@@ -2303,7 +2303,7 @@ name|append
 parameter_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|type
 parameter_list|,
 specifier|const
@@ -2320,7 +2320,7 @@ name|append
 parameter_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|type
 parameter_list|,
 specifier|const
@@ -2383,7 +2383,7 @@ name|code
 parameter_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|defaultType
 parameter_list|)
 function_decl|;
@@ -2396,7 +2396,7 @@ name|enterPara
 parameter_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|leftType
 init|=
 name|Atom
@@ -2405,7 +2405,7 @@ name|ParaLeft
 parameter_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|rightType
 init|=
 name|Atom
@@ -2642,13 +2642,13 @@ comment|// ### rename
 DECL|member|pendingParaLeftType
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|pendingParaLeftType
 decl_stmt|;
 DECL|member|pendingParaRightType
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|pendingParaRightType
 decl_stmt|;
 DECL|member|pendingParaString
@@ -10043,7 +10043,7 @@ name|append
 parameter_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|type
 parameter_list|,
 specifier|const
@@ -10054,7 +10054,7 @@ parameter_list|)
 block|{
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|lastType
 init|=
 name|priv
@@ -10133,7 +10133,7 @@ parameter_list|)
 block|{
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|lastType
 init|=
 name|priv
@@ -10205,7 +10205,7 @@ name|append
 parameter_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|type
 parameter_list|,
 specifier|const
@@ -10221,7 +10221,7 @@ parameter_list|)
 block|{
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|lastType
 init|=
 name|priv
@@ -10307,7 +10307,7 @@ parameter_list|)
 block|{
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|lastType
 init|=
 name|priv
@@ -10551,7 +10551,7 @@ parameter_list|)
 block|{
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|lastType
 init|=
 name|priv
@@ -10619,13 +10619,13 @@ name|markedCode
 parameter_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|defaultType
 parameter_list|)
 block|{
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|lastType
 init|=
 name|priv
@@ -10705,12 +10705,12 @@ name|enterPara
 parameter_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|leftType
 parameter_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|rightType
 parameter_list|,
 specifier|const

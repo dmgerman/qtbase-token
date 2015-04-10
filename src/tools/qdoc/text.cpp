@@ -164,7 +164,7 @@ name|<<
 parameter_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|atomType
 parameter_list|)
 block|{
@@ -676,12 +676,12 @@ name|subText
 parameter_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|left
 parameter_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|right
 parameter_list|,
 specifier|const

@@ -81,7 +81,7 @@ block|;
 comment|// Used as the parent.
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 block|;
 comment|// The node type: Function, etc.
@@ -122,7 +122,7 @@ name|ExtraFuncData
 argument_list|(
 argument|InnerNode* r
 argument_list|,
-argument|Node::Type t
+argument|Node::NodeType t
 argument_list|,
 argument|bool a
 argument_list|)
@@ -619,7 +619,7 @@ argument|const QString& sig
 argument_list|,
 argument|InnerNode* parent
 argument_list|,
-argument|Node::Type type
+argument|Node::NodeType type
 argument_list|,
 argument|bool attached
 argument_list|,
@@ -675,7 +675,7 @@ name|QString
 block|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 operator|>
 name|nodeTypeMap
 block|;

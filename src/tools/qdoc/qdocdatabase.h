@@ -430,7 +430,7 @@ name|path
 argument_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 argument_list|)
 block|{
@@ -1616,7 +1616,7 @@ name|title
 argument_list|,
 name|TargetRec
 operator|::
-name|Type
+name|TargetType
 name|type
 argument_list|,
 name|Node
@@ -1697,7 +1697,7 @@ name|path
 argument_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 argument_list|)
 decl_stmt|;
@@ -1900,7 +1900,7 @@ name|path
 argument_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 argument_list|)
 block|{

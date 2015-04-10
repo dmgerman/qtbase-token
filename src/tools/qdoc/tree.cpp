@@ -1192,7 +1192,7 @@ name|Class
 argument_list|,
 name|Node
 operator|::
-name|NoSubType
+name|NoSubtype
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1208,7 +1208,7 @@ name|Namespace
 argument_list|,
 name|Node
 operator|::
-name|NoSubType
+name|NoSubtype
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2660,7 +2660,7 @@ name|path
 parameter_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 parameter_list|)
 specifier|const
@@ -2706,7 +2706,7 @@ name|start
 parameter_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 parameter_list|)
 specifier|const
@@ -4629,7 +4629,7 @@ name|title
 parameter_list|,
 name|TargetRec
 operator|::
-name|Type
+name|TargetType
 name|type
 parameter_list|,
 name|Node
@@ -4822,7 +4822,7 @@ index|[
 name|i
 index|]
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -6126,7 +6126,7 @@ argument_list|()
 return|;
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|t
 init|=
 name|Node

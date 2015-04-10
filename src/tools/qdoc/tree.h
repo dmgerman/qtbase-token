@@ -54,7 +54,7 @@ DECL|member|Class
 DECL|member|Function
 DECL|member|Page
 enum|enum
-name|Type
+name|TargetType
 block|{
 name|Unknown
 block|,
@@ -80,7 +80,7 @@ argument|const QString& name
 argument_list|,
 argument|const QString& title
 argument_list|,
-argument|TargetRec::Type type
+argument|TargetRec::TargetType type
 argument_list|,
 argument|Node* node
 argument_list|,
@@ -143,7 +143,7 @@ name|int
 name|priority_
 decl_stmt|;
 DECL|variable|type_
-name|Type
+name|TargetType
 name|type_
 decl_stmt|;
 block|}
@@ -430,7 +430,7 @@ name|start
 argument_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 argument_list|)
 decl|const
@@ -578,7 +578,7 @@ name|path
 argument_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 argument_list|)
 decl|const
@@ -623,7 +623,7 @@ name|title
 argument_list|,
 name|TargetRec
 operator|::
-name|Type
+name|TargetType
 name|type
 argument_list|,
 name|Node

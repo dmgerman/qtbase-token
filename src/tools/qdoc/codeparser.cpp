@@ -1874,21 +1874,21 @@ break|break;
 if|#
 directive|if
 literal|0
-block|case Node::Document:             if (n->access() != Node::Private&& !n->doc().isEmpty()) {                 if (n->subType() == Node::HeaderFile) {
+block|case Node::Document:             if (n->access() != Node::Private&& !n->doc().isEmpty()) {                 if (n->docSubtype() == Node::HeaderFile) {
 if|#
 directive|if
 literal|0
 block|n->doc().location().warning(tr("Header file with title \"%1\" has no \\inmodule command; "                                                    "using project name by default: %2")                                                 .arg(n->title()).arg(Generator::defaultModuleName()));
 endif|#
 directive|endif
-block|}                 else if (n->subType() == Node::Page) {
+block|}                 else if (n->docSubtype() == Node::Page) {
 if|#
 directive|if
 literal|0
 block|n->doc().location().warning(tr("Page with title \"%1\" has no \\inmodule command; "                                                    "using project name by default: %2")                                                 .arg(n->title()).arg(Generator::defaultModuleName()));
 endif|#
 directive|endif
-block|}                 else if (n->subType() == Node::Example) {
+block|}                 else if (n->docSubtype() == Node::Example) {
 if|#
 directive|if
 literal|0

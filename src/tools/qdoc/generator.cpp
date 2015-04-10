@@ -3740,7 +3740,7 @@ condition|(
 operator|(
 name|dn
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -3751,7 +3751,7 @@ operator|||
 operator|(
 name|dn
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -4765,7 +4765,7 @@ if|if
 condition|(
 name|dn
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -4989,7 +4989,7 @@ name|marker
 parameter_list|,
 name|Node
 operator|::
-name|SubType
+name|DocSubtype
 name|subtype
 parameter_list|,
 specifier|const
@@ -5055,7 +5055,7 @@ if|if
 condition|(
 name|child
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|subtype
@@ -5696,7 +5696,7 @@ if|if
 condition|(
 name|docNode
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -5708,7 +5708,7 @@ if|if
 condition|(
 name|docNode
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -5720,7 +5720,7 @@ if|if
 condition|(
 name|docNode
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -9596,7 +9596,7 @@ name|atom
 parameter_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|expectedAtomType
 parameter_list|)
 block|{
@@ -10274,7 +10274,7 @@ name|atom
 parameter_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|type
 parameter_list|)
 specifier|const

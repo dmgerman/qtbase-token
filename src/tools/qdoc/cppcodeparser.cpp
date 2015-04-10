@@ -1559,7 +1559,7 @@ block|{
 comment|/*           We should only get in here if the command refers to           something that can appear in a C++ namespace,           i.e. a class, another namespace, an enum, a typedef,           a property or a variable. I think these are handled           this way to allow the writer to refer to the entity           without including the namespace qualifier.          */
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 init|=
 name|nodeTypeMap
@@ -2643,7 +2643,7 @@ literal|false
 decl_stmt|;
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|nodeType
 init|=
 name|Node
@@ -11024,7 +11024,7 @@ name|parent
 parameter_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 parameter_list|,
 name|bool

@@ -74,7 +74,7 @@ block|;
 name|virtual
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|atomType
 argument_list|()
 specifier|const

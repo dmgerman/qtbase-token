@@ -69,7 +69,7 @@ name|QString
 argument_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 argument_list|>
 name|Node
 operator|::
@@ -77,7 +77,7 @@ name|goals_
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   Initialize the map of search goals. This is called once   by QDocDatabase::initializeDB(). The map key is a string   representing a value in the enum Node::Type. The map value   is the enum value.    There should be an entry in the map for each value in the   Type enum.  */
+comment|/*!   Initialize the map of search goals. This is called once   by QDocDatabase::initializeDB(). The map key is a string   representing a value in the enum Node::NodeType. The map value   is the enum value.    There should be an entry in the map for each value in the   NodeType enum.  */
 end_comment
 begin_function
 DECL|function|initialize
@@ -539,7 +539,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Try to match this node's type and subtype with one of the   pairs in \a types. If a match is found, return true. If no   match is found, return false.    \a types is a list of type/subtype pairs, where the first   value in the pair is a Node::Type, and the second value is   a Node::SubType. The second value is used in the match if   this node's type is Node::Document.  */
+comment|/*!   Try to match this node's type and subtype with one of the   pairs in \a types. If a match is found, return true. If no   match is found, return false.    \a types is a list of type/subtype pairs, where the first   value in the pair is a Node::NodeType, and the second value is   a Node::DocSubtype. The second value is used in the match if   this node's type is Node::Document.  */
 end_comment
 begin_function
 DECL|function|match
@@ -600,7 +600,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|types
@@ -700,7 +700,7 @@ name|Node
 operator|::
 name|Node
 parameter_list|(
-name|Type
+name|NodeType
 name|type
 parameter_list|,
 name|InnerNode
@@ -1347,7 +1347,7 @@ block|{
 switch|switch
 condition|(
 operator|(
-name|Type
+name|NodeType
 operator|)
 name|t
 condition|)
@@ -1484,7 +1484,7 @@ block|{
 return|return
 name|nodeSubtypeString
 argument_list|(
-name|subType
+name|docSubtype
 argument_list|()
 argument_list|)
 return|;
@@ -1508,7 +1508,7 @@ block|{
 switch|switch
 condition|(
 operator|(
-name|SubType
+name|DocSubtype
 operator|)
 name|t
 condition|)
@@ -1556,7 +1556,7 @@ return|return
 literal|"ditamap"
 return|;
 case|case
-name|NoSubType
+name|NoSubtype
 case|:
 default|default:
 break|break;
@@ -2975,7 +2975,7 @@ name|QString
 modifier|&
 name|name
 parameter_list|,
-name|Type
+name|NodeType
 name|type
 parameter_list|)
 block|{
@@ -4242,7 +4242,7 @@ name|InnerNode
 operator|::
 name|InnerNode
 parameter_list|(
-name|Type
+name|NodeType
 name|type
 parameter_list|,
 name|InnerNode
@@ -5537,7 +5537,7 @@ name|LeafNode
 operator|::
 name|LeafNode
 parameter_list|(
-name|Type
+name|NodeType
 name|type
 parameter_list|,
 name|InnerNode
@@ -5615,7 +5615,7 @@ name|InnerNode
 modifier|*
 name|parent
 parameter_list|,
-name|Type
+name|NodeType
 name|type
 parameter_list|,
 specifier|const
@@ -6679,7 +6679,7 @@ name|QString
 modifier|&
 name|name
 parameter_list|,
-name|SubType
+name|DocSubtype
 name|subtype
 parameter_list|,
 name|Node
@@ -6782,7 +6782,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the document node's full title, which is usually   just title(), but for some SubType values is different   from title()  */
+comment|/*!   Returns the document node's full title, which is usually   just title(), but for some DocSubtype values is different   from title()  */
 end_comment
 begin_function
 DECL|function|fullTitle
@@ -7547,7 +7547,7 @@ name|FunctionNode
 operator|::
 name|FunctionNode
 parameter_list|(
-name|Type
+name|NodeType
 name|type
 parameter_list|,
 name|InnerNode
@@ -10792,7 +10792,7 @@ literal|"qdoc internal error: Node subtype not handled:"
 operator|<<
 name|parent_
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|<<
 name|func
@@ -10910,7 +10910,7 @@ case|:
 block|{
 switch|switch
 condition|(
-name|subType
+name|docSubtype
 argument_list|()
 condition|)
 block|{
@@ -11040,9 +11040,9 @@ argument_list|()
 operator|<<
 literal|"ERROR: A case was not handled in Node::idForNode():"
 operator|<<
-literal|"subType():"
+literal|"docSubtype():"
 operator|<<
-name|subType
+name|docSubtype
 argument_list|()
 operator|<<
 literal|"type():"
@@ -11409,9 +11409,9 @@ operator|<<
 name|type
 argument_list|()
 operator|<<
-literal|"subType():"
+literal|"docSubtype():"
 operator|<<
-name|subType
+name|docSubtype
 argument_list|()
 expr_stmt|;
 break|break;
@@ -11434,9 +11434,9 @@ operator|<<
 name|type
 argument_list|()
 operator|<<
-literal|"subType():"
+literal|"docSubtype():"
 operator|<<
-name|subType
+name|docSubtype
 argument_list|()
 operator|<<
 literal|"name():"

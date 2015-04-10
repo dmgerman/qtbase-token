@@ -802,7 +802,7 @@ name|atom
 argument_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|type
 argument_list|)
 decl|const
@@ -828,7 +828,7 @@ name|atom
 argument_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|expectedAtomType
 argument_list|)
 decl_stmt|;
@@ -976,7 +976,7 @@ name|marker
 argument_list|,
 name|Node
 operator|::
-name|SubType
+name|DocSubtype
 name|subtype
 argument_list|,
 specifier|const

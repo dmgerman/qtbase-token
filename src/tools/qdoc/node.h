@@ -222,7 +222,7 @@ argument_list|)
 name|public
 label|:
 enum|enum
-name|Type
+name|NodeType
 block|{
 name|NoType
 block|,
@@ -266,9 +266,9 @@ name|LastType
 block|}
 enum|;
 enum|enum
-name|SubType
+name|DocSubtype
 block|{
-name|NoSubType
+name|NoSubtype
 block|,
 name|Example
 block|,
@@ -1305,9 +1305,9 @@ name|Node
 modifier|*
 name|disambiguate
 parameter_list|(
-name|Type
+name|NodeType
 parameter_list|,
-name|SubType
+name|DocSubtype
 parameter_list|)
 block|{
 return|return
@@ -1380,26 +1380,26 @@ return|return
 name|indexNodeFlag_
 return|;
 block|}
-name|Type
+name|NodeType
 name|type
 argument_list|()
 specifier|const
 block|{
 return|return
 operator|(
-name|Type
+name|NodeType
 operator|)
 name|nodeType_
 return|;
 block|}
 name|virtual
-name|SubType
-name|subType
+name|DocSubtype
+name|docSubtype
 argument_list|()
 specifier|const
 block|{
 return|return
-name|NoSubType
+name|NoSubtype
 return|;
 block|}
 name|bool
@@ -2015,7 +2015,7 @@ name|initialize
 parameter_list|()
 function_decl|;
 specifier|static
-name|Type
+name|NodeType
 name|goal
 parameter_list|(
 specifier|const
@@ -2037,7 +2037,7 @@ name|protected
 label|:
 name|Node
 argument_list|(
-argument|Type type
+argument|NodeType type
 argument_list|,
 argument|InnerNode* parent
 argument_list|,
@@ -2143,7 +2143,7 @@ name|QString
 operator|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 operator|>
 name|goals_
 expr_stmt|;
@@ -2182,7 +2182,7 @@ name|findChildNode
 argument_list|(
 argument|const QString& name
 argument_list|,
-argument|Type type
+argument|NodeType type
 argument_list|)
 block|;
 name|virtual
@@ -2498,7 +2498,7 @@ name|protected
 operator|:
 name|InnerNode
 argument_list|(
-argument|Type type
+argument|NodeType type
 argument_list|,
 argument|InnerNode* parent
 argument_list|,
@@ -2626,7 +2626,7 @@ name|protected
 operator|:
 name|LeafNode
 argument_list|(
-argument|Type type
+argument|NodeType type
 argument_list|,
 argument|InnerNode* parent
 argument_list|,
@@ -2637,7 +2637,7 @@ name|LeafNode
 argument_list|(
 argument|InnerNode* parent
 argument_list|,
-argument|Type type
+argument|NodeType type
 argument_list|,
 argument|const QString& name
 argument_list|)
@@ -3305,7 +3305,7 @@ argument|InnerNode* parent
 argument_list|,
 argument|const QString& name
 argument_list|,
-argument|SubType subType
+argument|DocSubtype docSubtype
 argument_list|,
 argument|PageType ptype
 argument_list|)
@@ -3346,8 +3346,8 @@ name|subtitle_
 operator|=
 name|subTitle
 block|; }
-name|SubType
-name|subType
+name|DocSubtype
+name|docSubtype
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -3420,7 +3420,7 @@ name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -3438,7 +3438,7 @@ name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|(
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -3482,7 +3482,7 @@ return|;
 block|}
 name|protected
 operator|:
-name|SubType
+name|DocSubtype
 name|nodeSubtype_
 block|;
 name|QString
@@ -5130,7 +5130,7 @@ argument_list|)
 block|;
 name|FunctionNode
 argument_list|(
-argument|Type type
+argument|NodeType type
 argument_list|,
 argument|InnerNode* parent
 argument_list|,
@@ -6639,7 +6639,7 @@ name|public
 operator|:
 name|CollectionNode
 argument_list|(
-argument|Type type
+argument|NodeType type
 argument_list|,
 argument|InnerNode* parent
 argument_list|,

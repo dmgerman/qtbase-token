@@ -83,7 +83,7 @@ begin_function
 DECL|function|atomType
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|PlainCodeMarker
 operator|::
 name|atomType

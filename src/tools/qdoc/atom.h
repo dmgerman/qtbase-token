@@ -48,7 +48,7 @@ block|{
 name|public
 label|:
 enum|enum
-name|Type
+name|AtomType
 block|{
 name|AbstractLeft
 block|,
@@ -253,7 +253,7 @@ name|string
 block|;     }
 name|Atom
 argument_list|(
-argument|Type type
+argument|AtomType type
 argument_list|,
 argument|const QString& string =
 literal|""
@@ -275,7 +275,7 @@ name|string
 block|;     }
 name|Atom
 argument_list|(
-argument|Type type
+argument|AtomType type
 argument_list|,
 argument|const QString& p1
 argument_list|,
@@ -313,7 +313,7 @@ name|Atom
 argument_list|(
 argument|Atom* previous
 argument_list|,
-argument|Type type
+argument|AtomType type
 argument_list|,
 argument|const QString& string =
 literal|""
@@ -345,7 +345,7 @@ name|Atom
 argument_list|(
 argument|Atom* previous
 argument_list|,
-argument|Type type
+argument|AtomType type
 argument_list|,
 argument|const QString& p1
 argument_list|,
@@ -491,7 +491,7 @@ name|Atom
 modifier|*
 name|next
 argument_list|(
-name|Type
+name|AtomType
 name|t
 argument_list|)
 decl|const
@@ -503,7 +503,7 @@ name|Atom
 modifier|*
 name|next
 argument_list|(
-name|Type
+name|AtomType
 name|t
 argument_list|,
 specifier|const
@@ -515,7 +515,7 @@ decl|const
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|Type
+name|AtomType
 name|type
 argument_list|()
 specifier|const
@@ -655,7 +655,7 @@ begin_expr_stmt
 name|virtual
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|goal
 argument_list|()
 block|{
@@ -703,7 +703,7 @@ name|next_
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|Type
+name|AtomType
 name|type_
 decl_stmt|;
 end_decl_stmt
@@ -820,7 +820,7 @@ block|}
 name|virtual
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|goal
 argument_list|()
 name|Q_DECL_OVERRIDE
@@ -862,7 +862,7 @@ name|genus_
 block|;
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|goal_
 block|;
 name|Tree

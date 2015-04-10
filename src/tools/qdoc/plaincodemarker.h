@@ -61,7 +61,7 @@ name|Q_DECL_OVERRIDE
 block|;
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|atomType
 argument_list|()
 specifier|const

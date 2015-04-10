@@ -88,7 +88,7 @@ operator|<<
 operator|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|atomType
 operator|)
 expr_stmt|;
@@ -187,12 +187,12 @@ name|subText
 argument_list|(
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|left
 argument_list|,
 name|Atom
 operator|::
-name|Type
+name|AtomType
 name|right
 argument_list|,
 specifier|const

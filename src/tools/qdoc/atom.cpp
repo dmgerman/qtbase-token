@@ -35,7 +35,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*! \class Atom     \brief The Atom class is the fundamental unit for representing     documents internally.    Atoms have a \i type and are completed by a \i string whose   meaning depends on the \i type. For example, the string   \quotation       \i italic text looks nicer than \bold bold text   \endquotation   is represented by the following atoms:   \quotation       (FormattingLeft, ATOM_FORMATTING_ITALIC)       (String, "italic")       (FormattingRight, ATOM_FORMATTING_ITALIC)       (String, " text is more attractive than ")       (FormattingLeft, ATOM_FORMATTING_BOLD)       (String, "bold")       (FormattingRight, ATOM_FORMATTING_BOLD)       (String, " text")   \endquotation    \also Text */
-comment|/*! \enum Atom::Type    \value AbstractLeft   \value AbstractRight   \value AnnotatedList   \value AutoLink   \value BaseName   \value BriefLeft   \value BriefRight   \value C   \value CaptionLeft   \value CaptionRight   \value Code   \value CodeBad   \value CodeNew   \value CodeOld   \value CodeQuoteArgument   \value CodeQuoteCommand   \value DivLeft   \value DivRight   \value EndQmlText   \value FormatElse   \value FormatEndif   \value FormatIf   \value FootnoteLeft   \value FootnoteRight   \value FormattingLeft   \value FormattingRight   \value GeneratedList   \value Image   \value ImageText   \value ImportantNote   \value InlineImage   \value JavaScript   \value EndJavaScript   \value Keyword   \value LineBreak   \value Link   \value LinkNode   \value ListLeft   \value ListItemNumber   \value ListTagLeft   \value ListTagRight   \value ListItemLeft   \value ListItemRight   \value ListRight   \value NavAutoLink   \value NavLink   \value Nop   \value Note   \value ParaLeft   \value ParaRight   \value Qml   \value QmlText   \value QuotationLeft   \value QuotationRight   \value RawString   \value SectionLeft   \value SectionRight   \value SectionHeadingLeft   \value SectionHeadingRight   \value SidebarLeft   \value SidebarRight   \value SinceList   \value String   \value TableLeft   \value TableRight   \value TableHeaderLeft   \value TableHeaderRight   \value TableRowLeft   \value TableRowRight   \value TableItemLeft   \value TableItemRight   \value TableOfContents   \value Target   \value UnhandledFormat   \value UnknownCommand */
+comment|/*! \enum Atom::AtomType    \value AbstractLeft   \value AbstractRight   \value AnnotatedList   \value AutoLink   \value BaseName   \value BriefLeft   \value BriefRight   \value C   \value CaptionLeft   \value CaptionRight   \value Code   \value CodeBad   \value CodeNew   \value CodeOld   \value CodeQuoteArgument   \value CodeQuoteCommand   \value DivLeft   \value DivRight   \value EndQmlText   \value FormatElse   \value FormatEndif   \value FormatIf   \value FootnoteLeft   \value FootnoteRight   \value FormattingLeft   \value FormattingRight   \value GeneratedList   \value Image   \value ImageText   \value ImportantNote   \value InlineImage   \value JavaScript   \value EndJavaScript   \value Keyword   \value LineBreak   \value Link   \value LinkNode   \value ListLeft   \value ListItemNumber   \value ListTagLeft   \value ListTagRight   \value ListItemLeft   \value ListItemRight   \value ListRight   \value NavAutoLink   \value NavLink   \value Nop   \value Note   \value ParaLeft   \value ParaRight   \value Qml   \value QmlText   \value QuotationLeft   \value QuotationRight   \value RawString   \value SectionLeft   \value SectionRight   \value SectionHeadingLeft   \value SectionHeadingRight   \value SidebarLeft   \value SidebarRight   \value SinceList   \value String   \value TableLeft   \value TableRight   \value TableHeaderLeft   \value TableHeaderRight   \value TableRowLeft   \value TableRowRight   \value TableItemLeft   \value TableItemRight   \value TableOfContents   \value Target   \value UnhandledFormat   \value UnknownCommand */
 DECL|member|noError_
 name|QString
 name|Atom
@@ -756,16 +756,16 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/*! \fn Atom::Atom(Type type, const QString& string)    Constructs an atom of the specified \a type with the single   parameter \a string and does not put the new atom in a list. */
+comment|/*! \fn Atom::Atom(AtomType type, const QString& string)    Constructs an atom of the specified \a type with the single   parameter \a string and does not put the new atom in a list. */
 end_comment
 begin_comment
-comment|/*! \fn Atom::Atom(Type type, const QString& p1, const QString& p2)    Constructs an atom of the specified \a type with the two   parameters \a p1 and \a p2 and does not put the new atom   in a list. */
+comment|/*! \fn Atom::Atom(AtomType type, const QString& p1, const QString& p2)    Constructs an atom of the specified \a type with the two   parameters \a p1 and \a p2 and does not put the new atom   in a list. */
 end_comment
 begin_comment
-comment|/*! \fn Atom(Atom *previous, Type type, const QString& string)    Constructs an atom of the specified \a type with the single   parameter \a string and inserts the new atom into the list   after the \a previous atom. */
+comment|/*! \fn Atom(Atom *previous, AtomType type, const QString& string)    Constructs an atom of the specified \a type with the single   parameter \a string and inserts the new atom into the list   after the \a previous atom. */
 end_comment
 begin_comment
-comment|/*! \fn Atom::Atom(Atom* previous, Type type, const QString& p1, const QString& p2)    Constructs an atom of the specified \a type with the two   parameters \a p1 and \a p2 and inserts the new atom into   the list after the \a previous atom. */
+comment|/*! \fn Atom::Atom(Atom* previous, AtomType type, const QString& p1, const QString& p2)    Constructs an atom of the specified \a type with the two   parameters \a p1 and \a p2 and inserts the new atom into   the list after the \a previous atom. */
 end_comment
 begin_comment
 comment|/*! \fn void Atom::appendChar(QChar ch)    Appends \a ch to the string parameter of this atom.    \also string() */
@@ -780,7 +780,7 @@ begin_comment
 comment|/*! \fn Atom *Atom::next()   Return the next atom in the atom list.   \also type(), string() */
 end_comment
 begin_comment
-comment|/*!   Return the next Atom in the list if it is of Type \a t.   Otherwise return 0.  */
+comment|/*!   Return the next Atom in the list if it is of AtomType \a t.   Otherwise return 0.  */
 end_comment
 begin_function
 DECL|function|next
@@ -791,7 +791,7 @@ name|Atom
 operator|::
 name|next
 parameter_list|(
-name|Type
+name|AtomType
 name|t
 parameter_list|)
 specifier|const
@@ -817,7 +817,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Return the next Atom in the list if it is of Type \a t   and its string part is \a s. Otherwise return 0.  */
+comment|/*!   Return the next Atom in the list if it is of AtomType \a t   and its string part is \a s. Otherwise return 0.  */
 end_comment
 begin_function
 DECL|function|next
@@ -828,7 +828,7 @@ name|Atom
 operator|::
 name|next
 parameter_list|(
-name|Type
+name|AtomType
 name|t
 parameter_list|,
 specifier|const
@@ -871,7 +871,7 @@ begin_comment
 comment|/*! \fn const Atom *Atom::next() const   Return the next atom in the atom list.   \also type(), string() */
 end_comment
 begin_comment
-comment|/*! \fn Type Atom::type() const   Return the type of this atom.   \also string(), next() */
+comment|/*! \fn AtomType Atom::type() const   Return the type of this atom.   \also string(), next() */
 end_comment
 begin_comment
 comment|/*!   Return the type of this atom as a string. Return "Invalid" if   type() returns an impossible value.    This is only useful for debugging.    \also type() */

@@ -1930,7 +1930,7 @@ condition|)
 block|{
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|t
 init|=
 name|Node
@@ -2027,7 +2027,7 @@ condition|)
 block|{
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|t
 init|=
 name|Node
@@ -2443,7 +2443,7 @@ condition|)
 block|{
 name|Node
 operator|::
-name|SubType
+name|DocSubtype
 name|subtype
 decl_stmt|;
 name|Node
@@ -4454,7 +4454,7 @@ argument_list|()
 operator|||
 name|node
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node
@@ -5938,7 +5938,7 @@ switch|switch
 condition|(
 name|docNode
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 condition|)
 block|{
@@ -7860,7 +7860,7 @@ if|if
 condition|(
 name|docNode
 operator|->
-name|subType
+name|docSubtype
 argument_list|()
 operator|==
 name|Node

@@ -7085,7 +7085,7 @@ name|path
 parameter_list|,
 name|Node
 operator|::
-name|Type
+name|NodeType
 name|type
 parameter_list|)
 block|{
@@ -7661,7 +7661,7 @@ operator|::
 name|DontCare
 decl_stmt|;
 comment|// Reserved for future use
-comment|//Node::Type goal = Node::NoType;
+comment|//Node::NodeType goal = Node::NoType;
 if|if
 condition|(
 name|atom
