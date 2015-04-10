@@ -363,7 +363,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void sentUploadDataSlot(qint64)
+argument|void sentUploadDataSlot(qint64,qint64)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
@@ -458,6 +458,8 @@ block|;
 name|void
 name|haveUploadData
 argument_list|(
+argument|const qint64 pos
+argument_list|,
 argument|QByteArray dataArray
 argument_list|,
 argument|bool dataAtEnd
@@ -613,6 +615,9 @@ operator|<
 name|QNonContiguousByteDevice
 operator|>
 name|uploadByteDevice
+block|;
+name|qint64
+name|uploadByteDevicePosition
 block|;
 name|bool
 name|uploadDeviceChoking
@@ -951,6 +956,8 @@ block|;
 name|void
 name|sentUploadDataSlot
 argument_list|(
+name|qint64
+argument_list|,
 name|qint64
 argument_list|)
 block|;
