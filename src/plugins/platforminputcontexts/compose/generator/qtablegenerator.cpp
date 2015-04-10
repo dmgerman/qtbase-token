@@ -1979,6 +1979,10 @@ operator|::
 name|fromLocal8Bit
 argument_list|(
 name|composeValue
+argument_list|,
+name|composeValueEnd
+operator|-
+name|composeValue
 argument_list|)
 operator|.
 name|at
