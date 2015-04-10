@@ -1633,6 +1633,50 @@ include|#
 directive|include
 file|<QtTest/qtestsystem.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<set>
+end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
+begin_define
+DECL|macro|QTEST_ADD_GPU_BLACKLIST_SUPPORT_DEFS
+define|#
+directive|define
+name|QTEST_ADD_GPU_BLACKLIST_SUPPORT_DEFS
+define|\
+value|extern Q_TESTLIB_EXPORT std::set<QByteArray> *(*qgpu_features_ptr)(const QString&); \     extern Q_GUI_EXPORT std::set<QByteArray> *qgpu_features(const QString&);
+end_define
+begin_define
+DECL|macro|QTEST_ADD_GPU_BLACKLIST_SUPPORT
+define|#
+directive|define
+name|QTEST_ADD_GPU_BLACKLIST_SUPPORT
+define|\
+value|qgpu_features_ptr = qgpu_features;
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+define|#
+directive|define
+name|QTEST_ADD_GPU_BLACKLIST_SUPPORT_DEFS
+end_define
+begin_define
+define|#
+directive|define
+name|QTEST_ADD_GPU_BLACKLIST_SUPPORT
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
@@ -1680,7 +1724,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     QTEST_DISABLE_KEYPAD_NAVIGATION \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
+value|QT_BEGIN_NAMESPACE \ QTEST_ADD_GPU_BLACKLIST_SUPPORT_DEFS \ QT_END_NAMESPACE \ int main(int argc, char *argv[]) \ { \     QApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     QTEST_DISABLE_KEYPAD_NAVIGATION \     QTEST_ADD_GPU_BLACKLIST_SUPPORT \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_elif
 elif|#
@@ -1703,7 +1747,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QGuiApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
+value|QT_BEGIN_NAMESPACE \ QTEST_ADD_GPU_BLACKLIST_SUPPORT_DEFS \ QT_END_NAMESPACE \ int main(int argc, char *argv[]) \ { \     QGuiApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     QTEST_ADD_GPU_BLACKLIST_SUPPORT \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_else
 else|#

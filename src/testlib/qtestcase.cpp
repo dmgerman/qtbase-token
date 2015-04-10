@@ -4843,7 +4843,7 @@ literal|true
 expr_stmt|;
 name|QTestPrivate
 operator|::
-name|checkBlackList
+name|checkBlackLists
 argument_list|(
 name|slot
 argument_list|,
@@ -7006,6 +7006,11 @@ directive|endif
 name|QTestPrivate
 operator|::
 name|parseBlackList
+argument_list|()
+expr_stmt|;
+name|QTestPrivate
+operator|::
+name|parseGpuBlackList
 argument_list|()
 expr_stmt|;
 name|QTestResult
