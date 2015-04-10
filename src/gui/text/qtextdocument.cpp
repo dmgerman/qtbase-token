@@ -3227,7 +3227,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the plain text contained in the document. If you want     formatting information use a QTextCursor instead.      \sa toHtml() */
+comment|/*!     Returns the plain text contained in the document. If you want     formatting information use a QTextCursor instead.      \note Embedded objects, such as images, are represented by a     Unicode value U+FFFC (OBJECT REPLACEMENT CHARACTER).      \sa toHtml() */
 end_comment
 begin_function
 DECL|function|toPlainText
