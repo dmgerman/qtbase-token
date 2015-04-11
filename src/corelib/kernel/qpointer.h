@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtCore/qsharedpointer.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qtypeinfo.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -39,6 +44,21 @@ operator|>
 name|class
 name|QPointer
 block|{
+name|Q_STATIC_ASSERT_X
+argument_list|(
+operator|!
+name|QtPrivate
+operator|::
+name|is_pointer
+operator|<
+name|T
+operator|>
+operator|::
+name|value
+argument_list|,
+literal|"QPointer's template type must not be a pointer type"
+argument_list|)
+block|;
 name|template
 operator|<
 name|typename
