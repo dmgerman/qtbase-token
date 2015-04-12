@@ -4819,6 +4819,10 @@ case|case
 name|OP_DEF
 case|:
 comment|/* DEFINE - always false */
+case|case
+name|OP_FAIL
+case|:
+comment|/* From optimized (?!) condition */
 break|break;
 comment|/* The condition is an assertion. Call match() to evaluate it - setting       md->match_function_type to MATCH_CONDASSERT causes it to stop at the end       of an assertion. */
 default|default:
@@ -13042,7 +13046,7 @@ block|{
 if|if
 condition|(
 name|eptr
-operator|==
+operator|<=
 name|pp
 condition|)
 goto|goto
@@ -14749,7 +14753,7 @@ block|{
 if|if
 condition|(
 name|eptr
-operator|==
+operator|<=
 name|pp
 condition|)
 goto|goto
@@ -15302,7 +15306,7 @@ block|{
 if|if
 condition|(
 name|eptr
-operator|==
+operator|<=
 name|pp
 condition|)
 goto|goto
@@ -21828,7 +21832,7 @@ block|{
 if|if
 condition|(
 name|eptr
-operator|==
+operator|<=
 name|pp
 condition|)
 goto|goto
@@ -22017,6 +22021,7 @@ name|possessive
 condition|)
 continue|continue;
 comment|/* No backtracking */
+comment|/* We use<= pp rather than == pp to detect the start of the run while         backtracking because the use of \C in UTF mode can cause BACKCHAR to         move back past pp. This is just palliative; the use of \C in UTF mode         is fraught with danger. */
 for|for
 control|(
 init|;
@@ -22034,7 +22039,7 @@ decl_stmt|;
 if|if
 condition|(
 name|eptr
-operator|==
+operator|<=
 name|pp
 condition|)
 goto|goto
@@ -22112,7 +22117,7 @@ block|{
 if|if
 condition|(
 name|eptr
-operator|==
+operator|<=
 name|pp
 condition|)
 goto|goto
@@ -23189,7 +23194,7 @@ block|{
 if|if
 condition|(
 name|eptr
-operator|==
+operator|<=
 name|pp
 condition|)
 goto|goto
