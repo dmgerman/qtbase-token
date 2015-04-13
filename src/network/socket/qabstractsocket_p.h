@@ -375,6 +375,11 @@ name|NetworkLayerProtocol
 name|protocol
 argument_list|)
 decl_stmt|;
+name|virtual
+name|void
+name|configureCreatedSocket
+parameter_list|()
+function_decl|;
 name|void
 name|startConnectingByName
 parameter_list|(

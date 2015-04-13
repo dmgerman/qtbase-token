@@ -917,6 +917,9 @@ return|return
 literal|false
 return|;
 block|}
+name|configureCreatedSocket
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|threadData
@@ -964,6 +967,18 @@ return|return
 literal|true
 return|;
 block|}
+end_function
+begin_comment
+comment|/*! \internal */
+end_comment
+begin_function
+DECL|function|configureCreatedSocket
+name|void
+name|QAbstractSocketPrivate
+operator|::
+name|configureCreatedSocket
+parameter_list|()
+block|{ }
 end_function
 begin_comment
 comment|/*! \internal      Slot connected to the read socket notifier. This slot is called     when new data is available for reading, or when the socket has     been closed. Handles recursive calls. */
