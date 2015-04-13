@@ -583,7 +583,7 @@ name|type
 argument_list|)
 decl|const
 decl_stmt|;
-name|InnerNode
+name|Aggregate
 modifier|*
 name|findRelatesNode
 parameter_list|(
@@ -637,7 +637,7 @@ decl_stmt|;
 name|void
 name|resolveTargets
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|root
 parameter_list|)
@@ -691,7 +691,7 @@ decl_stmt|;
 name|void
 name|resolveInheritance
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|n
 init|=

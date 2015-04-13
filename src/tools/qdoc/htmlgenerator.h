@@ -240,7 +240,7 @@ name|virtual
 name|void
 name|generateClassLikeNode
 argument_list|(
-argument|InnerNode* inner
+argument|Aggregate* inner
 argument_list|,
 argument|CodeMarker* marker
 argument_list|)
@@ -475,7 +475,7 @@ block|;
 name|void
 name|generateRequisites
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|inner
 argument_list|,
@@ -520,7 +520,7 @@ name|void
 name|generateIncludes
 argument_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 name|inner
 argument_list|,
@@ -559,7 +559,7 @@ name|QString
 name|generateListOfAllMemberFile
 argument_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 name|inner
 argument_list|,
@@ -583,7 +583,7 @@ block|;
 name|QString
 name|generateLowStatusMemberFile
 argument_list|(
-argument|InnerNode *inner
+argument|Aggregate *inner
 argument_list|,
 argument|CodeMarker *marker
 argument_list|,
@@ -753,7 +753,7 @@ operator|*
 name|node
 argument_list|,
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 name|relative
 argument_list|,
@@ -896,7 +896,7 @@ operator|*
 name|node
 argument_list|,
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 name|relative
 argument_list|,
@@ -1071,7 +1071,7 @@ name|void
 name|reportOrphans
 argument_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|)
@@ -1080,7 +1080,7 @@ name|void
 name|beginDitamapPage
 argument_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 name|node
 argument_list|,

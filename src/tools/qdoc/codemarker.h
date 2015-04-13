@@ -160,13 +160,13 @@ DECL|member|reimpMembers
 name|NodeList
 name|reimpMembers
 decl_stmt|;
-DECL|member|InnerNode
+DECL|member|Aggregate
 DECL|member|inherited
 name|QList
 operator|<
 name|QPair
 operator|<
-name|InnerNode
+name|Aggregate
 operator|*
 operator|,
 name|int
@@ -274,7 +274,7 @@ name|FastSection
 block|{
 DECL|member|parent_
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent_
 decl_stmt|;
@@ -320,13 +320,13 @@ DECL|member|classMapList_
 name|ClassMapList
 name|classMapList_
 decl_stmt|;
-DECL|member|InnerNode
+DECL|member|Aggregate
 DECL|member|inherited
 name|QList
 operator|<
 name|QPair
 operator|<
-name|InnerNode
+name|Aggregate
 operator|*
 operator|,
 name|int
@@ -338,7 +338,7 @@ DECL|function|FastSection
 name|FastSection
 argument_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -671,7 +671,7 @@ name|Section
 operator|>
 name|sections
 argument_list|(
-argument|const InnerNode *inner
+argument|const Aggregate *inner
 argument_list|,
 argument|SynopsisStyle style
 argument_list|,

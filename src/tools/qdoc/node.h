@@ -69,9 +69,9 @@ name|ClassNode
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|InnerNode
+DECL|variable|Aggregate
 name|class
-name|InnerNode
+name|Aggregate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -602,7 +602,7 @@ function_decl|;
 name|void
 name|setRelates
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|pseudoParent
 parameter_list|)
@@ -691,7 +691,7 @@ function_decl|;
 name|void
 name|setParent
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|n
 parameter_list|)
@@ -757,7 +757,7 @@ return|;
 block|}
 name|virtual
 name|bool
-name|isInnerNode
+name|isAggregate
 argument_list|()
 specifier|const
 operator|=
@@ -1412,7 +1412,7 @@ name|types
 argument_list|)
 decl|const
 decl_stmt|;
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|()
@@ -1429,7 +1429,7 @@ name|root
 argument_list|()
 specifier|const
 expr_stmt|;
-name|InnerNode
+name|Aggregate
 operator|*
 name|relates
 argument_list|()
@@ -2039,7 +2039,7 @@ name|Node
 argument_list|(
 argument|NodeType type
 argument_list|,
-argument|InnerNode* parent
+argument|Aggregate* parent
 argument_list|,
 argument|const QString& name
 argument_list|)
@@ -2073,11 +2073,11 @@ decl_stmt|;
 name|bool
 name|indexNodeFlag_
 decl_stmt|;
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent_
 decl_stmt|;
-name|InnerNode
+name|Aggregate
 modifier|*
 name|relatesTo_
 decl_stmt|;
@@ -2154,7 +2154,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|InnerNode
+name|Aggregate
 range|:
 name|public
 name|Node
@@ -2163,7 +2163,7 @@ name|public
 operator|:
 name|virtual
 operator|~
-name|InnerNode
+name|Aggregate
 argument_list|()
 block|;
 name|Node
@@ -2256,7 +2256,7 @@ argument_list|()
 block|;
 name|virtual
 name|bool
-name|isInnerNode
+name|isAggregate
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -2496,11 +2496,11 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|InnerNode
+name|Aggregate
 argument_list|(
 argument|NodeType type
 argument_list|,
-argument|InnerNode* parent
+argument|Aggregate* parent
 argument_list|,
 argument|const QString& name
 argument_list|)
@@ -2602,7 +2602,7 @@ argument_list|()
 block|{ }
 name|virtual
 name|bool
-name|isInnerNode
+name|isAggregate
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -2628,14 +2628,14 @@ name|LeafNode
 argument_list|(
 argument|NodeType type
 argument_list|,
-argument|InnerNode* parent
+argument|Aggregate* parent
 argument_list|,
 argument|const QString& name
 argument_list|)
 block|;
 name|LeafNode
 argument_list|(
-argument|InnerNode* parent
+argument|Aggregate* parent
 argument_list|,
 argument|NodeType type
 argument_list|,
@@ -2649,13 +2649,13 @@ name|class
 name|NamespaceNode
 range|:
 name|public
-name|InnerNode
+name|Aggregate
 block|{
 name|public
 operator|:
 name|NamespaceNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -2965,13 +2965,13 @@ name|class
 name|ClassNode
 range|:
 name|public
-name|InnerNode
+name|Aggregate
 block|{
 name|public
 operator|:
 name|ClassNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -3295,13 +3295,13 @@ name|class
 name|DocumentNode
 range|:
 name|public
-name|InnerNode
+name|Aggregate
 block|{
 name|public
 operator|:
 name|DocumentNode
 argument_list|(
-argument|InnerNode* parent
+argument|Aggregate* parent
 argument_list|,
 argument|const QString& name
 argument_list|,
@@ -3504,7 +3504,7 @@ name|public
 operator|:
 name|ExampleNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -3700,13 +3700,13 @@ name|class
 name|QmlTypeNode
 range|:
 name|public
-name|InnerNode
+name|Aggregate
 block|{
 name|public
 operator|:
 name|QmlTypeNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -4106,13 +4106,13 @@ name|class
 name|QmlBasicTypeNode
 range|:
 name|public
-name|InnerNode
+name|Aggregate
 block|{
 name|public
 operator|:
 name|QmlBasicTypeNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -4169,7 +4169,7 @@ name|class
 name|QmlPropertyGroupNode
 operator|:
 name|public
-name|InnerNode
+name|Aggregate
 block|{
 name|public
 operator|:
@@ -4338,7 +4338,7 @@ name|public
 operator|:
 name|QmlPropertyNode
 argument_list|(
-argument|InnerNode *parent
+argument|Aggregate *parent
 argument_list|,
 argument|const QString& name
 argument_list|,
@@ -4740,7 +4740,7 @@ name|public
 operator|:
 name|EnumNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -4857,7 +4857,7 @@ name|public
 operator|:
 name|TypedefNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -5118,7 +5118,7 @@ block|}
 block|;
 name|FunctionNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -5132,7 +5132,7 @@ name|FunctionNode
 argument_list|(
 argument|NodeType type
 argument_list|,
-argument|InnerNode* parent
+argument|Aggregate* parent
 argument_list|,
 argument|const QString&name
 argument_list|,
@@ -5726,7 +5726,7 @@ argument_list|)
 block|;
 name|friend
 name|class
-name|InnerNode
+name|Aggregate
 block|;
 name|friend
 name|class
@@ -5823,7 +5823,7 @@ block|}
 block|;
 name|PropertyNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -6437,7 +6437,7 @@ name|public
 operator|:
 name|VariableNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -6544,7 +6544,7 @@ name|VariableNode
 operator|::
 name|VariableNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -6585,7 +6585,7 @@ name|public
 operator|:
 name|DitaMapNode
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -6633,7 +6633,7 @@ name|class
 name|CollectionNode
 range|:
 name|public
-name|InnerNode
+name|Aggregate
 block|{
 name|public
 operator|:
@@ -6641,14 +6641,14 @@ name|CollectionNode
 argument_list|(
 argument|NodeType type
 argument_list|,
-argument|InnerNode* parent
+argument|Aggregate* parent
 argument_list|,
 argument|const QString& name
 argument_list|,
 argument|Genus genus
 argument_list|)
 operator|:
-name|InnerNode
+name|Aggregate
 argument_list|(
 name|type
 argument_list|,

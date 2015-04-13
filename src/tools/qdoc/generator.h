@@ -508,7 +508,7 @@ name|void
 name|beginSubPage
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|,
@@ -598,7 +598,7 @@ name|virtual
 name|void
 name|generateClassLikeNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -685,9 +685,9 @@ parameter_list|)
 function_decl|;
 name|virtual
 name|void
-name|generateInnerNode
+name|generateAggregate
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|)
@@ -697,7 +697,7 @@ name|void
 name|generateMaintainerList
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|,
@@ -1028,7 +1028,7 @@ name|QString
 name|getMetadataElement
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -1042,7 +1042,7 @@ name|QStringList
 name|getMetadataElements
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,

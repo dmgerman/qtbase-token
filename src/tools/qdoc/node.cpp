@@ -703,7 +703,7 @@ parameter_list|(
 name|NodeType
 name|type
 parameter_list|,
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -1788,7 +1788,7 @@ name|Node
 operator|::
 name|setRelates
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|pseudoParent
 parameter_list|)
@@ -2539,17 +2539,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \class InnerNode  */
+comment|/*!   \class Aggregate  */
 end_comment
 begin_comment
 comment|/*!   The inner node destructor deletes the children and removes   this node from its related nodes.  */
 end_comment
 begin_destructor
-DECL|function|~InnerNode
-name|InnerNode
+DECL|function|~Aggregate
+name|Aggregate
 operator|::
 name|~
-name|InnerNode
+name|Aggregate
 parameter_list|()
 block|{
 name|deleteChildren
@@ -2567,7 +2567,7 @@ begin_function
 DECL|function|findChildNode
 name|Node
 modifier|*
-name|InnerNode
+name|Aggregate
 operator|::
 name|findChildNode
 parameter_list|(
@@ -2670,7 +2670,7 @@ name|node
 operator|=
 cast|static_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -2776,7 +2776,7 @@ end_comment
 begin_function
 DECL|function|findChildren
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|findChildren
 parameter_list|(
@@ -2966,7 +2966,7 @@ begin_function
 DECL|function|findChildNode
 name|Node
 modifier|*
-name|InnerNode
+name|Aggregate
 operator|::
 name|findChildNode
 parameter_list|(
@@ -3060,7 +3060,7 @@ begin_function
 DECL|function|findFunctionNode
 name|FunctionNode
 modifier|*
-name|InnerNode
+name|Aggregate
 operator|::
 name|findFunctionNode
 parameter_list|(
@@ -3095,7 +3095,7 @@ begin_function
 DECL|function|findFunctionNode
 name|FunctionNode
 modifier|*
-name|InnerNode
+name|Aggregate
 operator|::
 name|findFunctionNode
 parameter_list|(
@@ -3247,7 +3247,7 @@ end_comment
 begin_function
 DECL|function|primaryKeys
 name|QStringList
-name|InnerNode
+name|Aggregate
 operator|::
 name|primaryKeys
 parameter_list|()
@@ -3306,7 +3306,7 @@ end_comment
 begin_function
 DECL|function|secondaryKeys
 name|QStringList
-name|InnerNode
+name|Aggregate
 operator|::
 name|secondaryKeys
 parameter_list|()
@@ -3364,7 +3364,7 @@ end_comment
 begin_function
 DECL|function|setOverload
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|setOverload
 parameter_list|(
@@ -3517,7 +3517,7 @@ end_comment
 begin_function
 DECL|function|makeUndocumentedChildrenInternal
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|makeUndocumentedChildrenInternal
 parameter_list|()
@@ -3580,7 +3580,7 @@ end_comment
 begin_function
 DECL|function|normalizeOverloads
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|normalizeOverloads
 parameter_list|()
@@ -3919,12 +3919,12 @@ operator|*
 name|c
 operator|)
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 operator|(
 operator|(
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 operator|*
@@ -3946,7 +3946,7 @@ end_comment
 begin_function
 DECL|function|removeFromRelated
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|removeFromRelated
 parameter_list|()
@@ -4003,7 +4003,7 @@ end_comment
 begin_function
 DECL|function|deleteChildren
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|deleteChildren
 parameter_list|()
@@ -4022,7 +4022,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool InnerNode::isInnerNode() const   Returns \c true because this is an inner node.  */
+comment|/*! \fn bool Aggregate::isAggregate() const   Returns \c true because this is an inner node.  */
 end_comment
 begin_comment
 comment|/*!   Returns \c true if the node is a class node or a QML type node   that is marked as being a wrapper class or QML type, or if   it is a member of a wrapper class or type.  */
@@ -4058,7 +4058,7 @@ DECL|function|findEnumNodeForValue
 specifier|const
 name|EnumNode
 modifier|*
-name|InnerNode
+name|Aggregate
 operator|::
 name|findEnumNodeForValue
 parameter_list|(
@@ -4118,7 +4118,7 @@ end_comment
 begin_function
 DECL|function|overloadNumber
 name|int
-name|InnerNode
+name|Aggregate
 operator|::
 name|overloadNumber
 parameter_list|(
@@ -4186,7 +4186,7 @@ end_comment
 begin_function
 DECL|function|overloads
 name|NodeList
-name|InnerNode
+name|Aggregate
 operator|::
 name|overloads
 parameter_list|(
@@ -4237,15 +4237,15 @@ begin_comment
 comment|/*!   Construct an inner node (i.e., not a leaf node) of the   given \a type and having the given \a parent and \a name.  */
 end_comment
 begin_constructor
-DECL|function|InnerNode
-name|InnerNode
+DECL|function|Aggregate
+name|Aggregate
 operator|::
-name|InnerNode
+name|Aggregate
 parameter_list|(
 name|NodeType
 name|type
 parameter_list|,
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -4295,7 +4295,7 @@ end_comment
 begin_function
 DECL|function|addInclude
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|addInclude
 parameter_list|(
@@ -4320,7 +4320,7 @@ end_comment
 begin_function
 DECL|function|setIncludes
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|setIncludes
 parameter_list|(
@@ -4342,7 +4342,7 @@ end_comment
 begin_function
 DECL|function|isSameSignature
 name|bool
-name|InnerNode
+name|Aggregate
 operator|::
 name|isSameSignature
 parameter_list|(
@@ -4558,7 +4558,7 @@ end_comment
 begin_function
 DECL|function|addChild
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|addChild
 parameter_list|(
@@ -4722,7 +4722,7 @@ end_comment
 begin_function
 DECL|function|addChild
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|addChild
 parameter_list|(
@@ -4753,7 +4753,7 @@ end_comment
 begin_function
 DECL|function|removeChild
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|removeChild
 parameter_list|(
@@ -5024,7 +5024,7 @@ end_comment
 begin_function
 DECL|function|setOutputSubdirectory
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|setOutputSubdirectory
 parameter_list|(
@@ -5304,7 +5304,7 @@ end_comment
 begin_function
 DECL|function|removeRelated
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|removeRelated
 parameter_list|(
@@ -5329,7 +5329,7 @@ begin_function
 DECL|function|hasQmlProperty
 name|QmlPropertyNode
 modifier|*
-name|InnerNode
+name|Aggregate
 operator|::
 name|hasQmlProperty
 parameter_list|(
@@ -5423,7 +5423,7 @@ begin_function
 DECL|function|hasQmlProperty
 name|QmlPropertyNode
 modifier|*
-name|InnerNode
+name|Aggregate
 operator|::
 name|hasQmlProperty
 parameter_list|(
@@ -5526,7 +5526,7 @@ begin_comment
 comment|/*!   \class LeafNode  */
 end_comment
 begin_comment
-comment|/*! \fn bool LeafNode::isInnerNode() const   Returns \c false because this is a LeafNode.  */
+comment|/*! \fn bool LeafNode::isAggregate() const   Returns \c false because this is a LeafNode.  */
 end_comment
 begin_comment
 comment|/*!   Constructs a leaf node named \a name of the specified   \a type. The new leaf node becomes a child of \a parent.  */
@@ -5540,7 +5540,7 @@ parameter_list|(
 name|NodeType
 name|type
 parameter_list|,
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -5611,7 +5611,7 @@ name|LeafNode
 operator|::
 name|LeafNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -5690,7 +5690,7 @@ name|NamespaceNode
 operator|::
 name|NamespaceNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -5700,7 +5700,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|InnerNode
+name|Aggregate
 argument_list|(
 name|Namespace
 argument_list|,
@@ -5745,7 +5745,7 @@ name|ClassNode
 operator|::
 name|ClassNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -5755,7 +5755,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|InnerNode
+name|Aggregate
 argument_list|(
 name|Class
 argument_list|,
@@ -6670,7 +6670,7 @@ name|DocumentNode
 operator|::
 name|DocumentNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -6688,7 +6688,7 @@ name|PageType
 name|ptype
 parameter_list|)
 member_init_list|:
-name|InnerNode
+name|Aggregate
 argument_list|(
 name|Document
 argument_list|,
@@ -6994,7 +6994,7 @@ name|EnumNode
 operator|::
 name|EnumNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -7163,7 +7163,7 @@ name|TypedefNode
 operator|::
 name|TypedefNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -7465,7 +7465,7 @@ name|FunctionNode
 operator|::
 name|FunctionNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -7550,7 +7550,7 @@ parameter_list|(
 name|NodeType
 name|type
 parameter_list|,
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -8335,7 +8335,7 @@ name|PropertyNode
 operator|::
 name|PropertyNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -8637,7 +8637,7 @@ name|QmlTypeNode
 operator|::
 name|QmlTypeNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -8647,7 +8647,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|InnerNode
+name|Aggregate
 argument_list|(
 name|QmlType
 argument_list|,
@@ -9044,7 +9044,7 @@ name|QmlBasicTypeNode
 operator|::
 name|QmlBasicTypeNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -9054,7 +9054,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|InnerNode
+name|Aggregate
 argument_list|(
 name|QmlBasicType
 argument_list|,
@@ -9096,7 +9096,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|InnerNode
+name|Aggregate
 argument_list|(
 name|QmlPropertyGroup
 argument_list|,
@@ -9162,7 +9162,7 @@ name|QmlPropertyNode
 operator|::
 name|QmlPropertyNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -11471,7 +11471,7 @@ end_comment
 begin_function
 DECL|function|printChildren
 name|void
-name|InnerNode
+name|Aggregate
 operator|::
 name|printChildren
 parameter_list|(

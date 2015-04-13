@@ -2290,7 +2290,7 @@ operator|::
 name|sections
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -2702,7 +2702,7 @@ block|}
 name|QStack
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 argument_list|>
 name|stack
@@ -2724,7 +2724,7 @@ argument_list|()
 condition|)
 block|{
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|ancestor
 init|=
@@ -4099,7 +4099,7 @@ decl_stmt|;
 name|QStack
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 argument_list|>
 name|stack
@@ -4121,7 +4121,7 @@ argument_list|()
 condition|)
 block|{
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|ancestor
 init|=
@@ -4747,7 +4747,7 @@ argument_list|()
 control|)
 block|{
 comment|// Use inner as a temporary parent when inserting orphans
-name|InnerNode
+name|Aggregate
 modifier|*
 name|p
 init|=
@@ -4762,7 +4762,7 @@ name|setParent
 argument_list|(
 cast|const_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(

@@ -179,7 +179,7 @@ modifier|&
 name|writer
 parameter_list|,
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|)
@@ -463,7 +463,7 @@ argument_list|,
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -484,7 +484,7 @@ argument_list|,
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -531,7 +531,7 @@ argument_list|,
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -552,7 +552,7 @@ argument_list|,
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -579,7 +579,7 @@ modifier|&
 name|writer
 parameter_list|,
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|)

@@ -7231,7 +7231,7 @@ name|HtmlGenerator
 operator|::
 name|generateClassLikeNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -11947,7 +11947,7 @@ name|HtmlGenerator
 operator|::
 name|generateRequisites
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -13495,7 +13495,7 @@ operator|::
 name|generateIncludes
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -14317,7 +14317,7 @@ operator|::
 name|generateListOfAllMemberFile
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -14882,7 +14882,7 @@ name|HtmlGenerator
 operator|::
 name|generateLowStatusMemberFile
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -18942,7 +18942,7 @@ name|QList
 argument_list|<
 name|QPair
 argument_list|<
-name|InnerNode
+name|Aggregate
 modifier|*
 argument_list|,
 name|int
@@ -21277,7 +21277,7 @@ condition|(
 operator|!
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 block|{
@@ -22222,7 +22222,7 @@ condition|(
 operator|!
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 operator|||
 name|node
@@ -22512,7 +22512,7 @@ modifier|*
 name|node
 parameter_list|,
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|relative
 parameter_list|,
@@ -23232,7 +23232,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 name|Generator
@@ -23773,7 +23773,7 @@ modifier|*
 name|node
 parameter_list|,
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|relative
 parameter_list|,
@@ -26939,7 +26939,7 @@ operator|::
 name|reportOrphans
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|)
@@ -27550,7 +27550,7 @@ operator|::
 name|beginDitamapPage
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|,

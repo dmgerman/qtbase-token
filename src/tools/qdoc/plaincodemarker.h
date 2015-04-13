@@ -141,7 +141,7 @@ name|Section
 operator|>
 name|sections
 argument_list|(
-argument|const InnerNode *innerNode
+argument|const Aggregate *innerNode
 argument_list|,
 argument|SynopsisStyle style
 argument_list|,

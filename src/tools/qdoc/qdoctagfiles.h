@@ -20,9 +20,9 @@ file|"qxmlstream.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|InnerNode
+DECL|variable|Aggregate
 name|class
-name|InnerNode
+name|Aggregate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -73,7 +73,7 @@ modifier|&
 name|writer
 parameter_list|,
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|)
@@ -86,7 +86,7 @@ modifier|&
 name|writer
 parameter_list|,
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|)

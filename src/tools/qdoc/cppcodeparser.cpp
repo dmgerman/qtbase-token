@@ -1671,7 +1671,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 block|{
@@ -4101,13 +4101,13 @@ literal|0
 operator|&&
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 block|{
 operator|(
 operator|(
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 name|node
@@ -4461,7 +4461,7 @@ name|setRelates
 argument_list|(
 cast|static_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -6339,7 +6339,7 @@ name|CppCodeParser
 operator|::
 name|matchFunctionDecl
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -7535,7 +7535,7 @@ name|CppCodeParser
 operator|::
 name|matchClassDecl
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -7613,7 +7613,7 @@ name|parent
 operator|=
 cast|static_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -7821,7 +7821,7 @@ name|CppCodeParser
 operator|::
 name|matchNamespaceDecl
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|)
@@ -7958,7 +7958,7 @@ name|CppCodeParser
 operator|::
 name|matchUsingDecl
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|)
@@ -8214,7 +8214,7 @@ name|CppCodeParser
 operator|::
 name|matchEnumItem
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,
@@ -8511,7 +8511,7 @@ name|CppCodeParser
 operator|::
 name|matchEnumDecl
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|)
@@ -8650,7 +8650,7 @@ name|CppCodeParser
 operator|::
 name|matchTypedefDecl
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|)
@@ -8755,7 +8755,7 @@ name|CppCodeParser
 operator|::
 name|matchProperty
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|)
@@ -9338,7 +9338,7 @@ name|CppCodeParser
 operator|::
 name|matchDeclList
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|)
@@ -10663,12 +10663,12 @@ operator|*
 name|n
 operator|)
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 operator|&&
 operator|(
 operator|(
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 operator|*
@@ -10682,13 +10682,13 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|InnerNode
+name|Aggregate
 modifier|*
 name|m
 init|=
 cast|static_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -10729,7 +10729,7 @@ name|n
 condition|)
 operator|(
 operator|(
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 operator|*
@@ -10750,7 +10750,7 @@ expr_stmt|;
 else|else
 operator|(
 operator|(
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 operator|*
@@ -11018,7 +11018,7 @@ name|QString
 modifier|&
 name|sig
 parameter_list|,
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 parameter_list|,

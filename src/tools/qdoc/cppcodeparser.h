@@ -49,9 +49,9 @@ name|FunctionNode
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|InnerNode
+DECL|variable|Aggregate
 name|class
-name|InnerNode
+name|Aggregate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -74,7 +74,7 @@ argument_list|)
 block|struct
 name|ExtraFuncData
 block|{
-name|InnerNode
+name|Aggregate
 operator|*
 name|root
 block|;
@@ -120,7 +120,7 @@ argument_list|)
 block|{ }
 name|ExtraFuncData
 argument_list|(
-argument|InnerNode* r
+argument|Aggregate* r
 argument_list|,
 argument|Node::NodeType t
 argument_list|,
@@ -468,7 +468,7 @@ block|;
 name|bool
 name|matchFunctionDecl
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -510,7 +510,7 @@ block|;
 name|bool
 name|matchClassDecl
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -526,7 +526,7 @@ block|;
 name|bool
 name|matchNamespaceDecl
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|)
@@ -534,7 +534,7 @@ block|;
 name|bool
 name|matchUsingDecl
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|)
@@ -542,7 +542,7 @@ block|;
 name|bool
 name|matchEnumItem
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|,
@@ -554,7 +554,7 @@ block|;
 name|bool
 name|matchEnumDecl
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|)
@@ -562,7 +562,7 @@ block|;
 name|bool
 name|matchTypedefDecl
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|)
@@ -570,7 +570,7 @@ block|;
 name|bool
 name|matchProperty
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|)
@@ -578,7 +578,7 @@ block|;
 name|bool
 name|matchDeclList
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 name|parent
 argument_list|)
@@ -617,7 +617,7 @@ argument|const Doc& doc
 argument_list|,
 argument|const QString& sig
 argument_list|,
-argument|InnerNode* parent
+argument|Aggregate* parent
 argument_list|,
 argument|Node::NodeType type
 argument_list|,

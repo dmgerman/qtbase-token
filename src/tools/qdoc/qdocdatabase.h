@@ -546,7 +546,7 @@ return|return
 literal|0
 return|;
 block|}
-name|InnerNode
+name|Aggregate
 modifier|*
 name|findRelatesNode
 parameter_list|(
@@ -563,7 +563,7 @@ argument_list|,
 argument|searchOrder()
 argument_list|)
 block|{
-name|InnerNode
+name|Aggregate
 modifier|*
 name|n
 init|=
@@ -1413,7 +1413,7 @@ label|:
 name|void
 name|findAllClasses
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|)
@@ -1421,7 +1421,7 @@ function_decl|;
 name|void
 name|findAllFunctions
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|)
@@ -1429,7 +1429,7 @@ function_decl|;
 name|void
 name|findAllLegaleseTexts
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|)
@@ -1437,7 +1437,7 @@ function_decl|;
 name|void
 name|findAllNamespaces
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|)
@@ -1445,7 +1445,7 @@ function_decl|;
 name|void
 name|findAllObsoleteThings
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|)
@@ -1453,7 +1453,7 @@ function_decl|;
 name|void
 name|findAllSince
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|)
@@ -1566,7 +1566,7 @@ block|}
 name|void
 name|resolveQmlInheritance
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|root
 parameter_list|)
@@ -1784,7 +1784,7 @@ name|path
 argument_list|)
 return|;
 block|}
-name|InnerNode
+name|Aggregate
 modifier|*
 name|findRelatesNode
 parameter_list|(
@@ -2526,7 +2526,7 @@ operator|::
 operator|*
 argument_list|)
 argument_list|(
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|)
 argument_list|)

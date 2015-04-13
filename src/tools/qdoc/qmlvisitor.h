@@ -364,7 +364,7 @@ name|quint32
 operator|>
 name|usedComments
 block|;
-name|InnerNode
+name|Aggregate
 operator|*
 name|current
 block|; }

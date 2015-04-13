@@ -1846,7 +1846,7 @@ name|relates
 argument_list|()
 condition|)
 block|{
-name|InnerNode
+name|Aggregate
 modifier|*
 name|p
 init|=
@@ -2219,7 +2219,7 @@ condition|)
 block|{
 name|QPair
 argument_list|<
-name|InnerNode
+name|Aggregate
 modifier|*
 argument_list|,
 name|int

@@ -508,7 +508,7 @@ operator|||
 operator|!
 name|parent
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 return|return
@@ -518,7 +518,7 @@ return|return
 operator|(
 operator|(
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 name|parent
@@ -863,7 +863,7 @@ operator|||
 operator|!
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 break|break;
@@ -888,7 +888,7 @@ operator|=
 operator|(
 operator|(
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 name|node
@@ -910,7 +910,7 @@ operator|=
 operator|(
 operator|(
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 name|node
@@ -987,7 +987,7 @@ operator|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -1010,7 +1010,7 @@ operator|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -1239,7 +1239,7 @@ comment|/*!   This function searches for the node specified by \a path.   The ma
 end_comment
 begin_function
 DECL|function|findRelatesNode
-name|InnerNode
+name|Aggregate
 modifier|*
 name|Tree
 operator|::
@@ -1275,13 +1275,13 @@ name|n
 operator|&&
 name|n
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 operator|)
 condition|?
 cast|static_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -1342,7 +1342,7 @@ name|Tree
 operator|::
 name|resolveInheritance
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|n
 parameter_list|)
@@ -1570,7 +1570,7 @@ if|#
 directive|if
 literal|0
 comment|/*                   If the node for the base class was not found,                   the reason might be that the subclass is in a                   namespace and the base class is in the same                   namespace, but the base class name was not                   qualified with the namespace name. That is the                   case most of the time. Then restart the search                   at the parent of the subclass node (the namespace                   node) using the unqualified base class name.                  */
-block|if (!n) {                     InnerNode* parent = cn->parent();                     n = findClassNode((*b).path_, parent);                 }
+block|if (!n) {                     Aggregate* parent = cn->parent();                     n = findClassNode((*b).path_, parent);                 }
 endif|#
 directive|endif
 if|if
@@ -1801,7 +1801,7 @@ operator|.
 name|key
 argument_list|()
 decl_stmt|;
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 init|=
@@ -2764,13 +2764,13 @@ literal|0
 return|;
 comment|// premature leaf
 block|}
-name|InnerNode
+name|Aggregate
 modifier|*
 name|current
 init|=
 cast|static_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -3031,13 +3031,13 @@ condition|)
 return|return
 literal|0
 return|;
-name|InnerNode
+name|Aggregate
 modifier|*
 name|current
 init|=
 cast|static_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -3525,7 +3525,7 @@ if|if
 condition|(
 name|current
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 block|{
@@ -3814,7 +3814,7 @@ operator|)
 operator|&&
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 operator|&&
 operator|(
@@ -3829,7 +3829,7 @@ operator|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -3980,7 +3980,7 @@ operator|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -4194,7 +4194,7 @@ operator|||
 operator|!
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 break|break;
@@ -4206,7 +4206,7 @@ init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -4251,7 +4251,7 @@ operator|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -4335,7 +4335,7 @@ operator|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -4379,7 +4379,7 @@ operator|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -4688,7 +4688,7 @@ name|Tree
 operator|::
 name|resolveTargets
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|root
 parameter_list|)

@@ -1243,7 +1243,7 @@ operator|::
 name|beginSubPage
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|,
@@ -1437,7 +1437,7 @@ argument_list|)
 expr_stmt|;
 cast|const_cast
 argument_list|<
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -1521,7 +1521,7 @@ condition|(
 operator|!
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 name|node
@@ -4864,7 +4864,7 @@ name|Generator
 operator|::
 name|generateClassLikeNode
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 comment|/* classe */
 parameter_list|,
@@ -5629,13 +5629,13 @@ begin_comment
 comment|/*!   Recursive writing of HTML files from the root \a node.  */
 end_comment
 begin_function
-DECL|function|generateInnerNode
+DECL|function|generateAggregate
 name|void
 name|Generator
 operator|::
-name|generateInnerNode
+name|generateAggregate
 parameter_list|(
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|)
@@ -6068,7 +6068,7 @@ if|if
 condition|(
 name|c
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 operator|&&
 name|c
@@ -6081,10 +6081,10 @@ operator|::
 name|Private
 condition|)
 block|{
-name|generateInnerNode
+name|generateAggregate
 argument_list|(
 operator|(
-name|InnerNode
+name|Aggregate
 operator|*
 operator|)
 name|c
@@ -6108,7 +6108,7 @@ operator|::
 name|generateMaintainerList
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|node
 parameter_list|,
@@ -6828,7 +6828,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 name|text
@@ -6857,7 +6857,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 name|text
@@ -6893,7 +6893,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 name|text
@@ -6922,7 +6922,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 name|text
@@ -6959,7 +6959,7 @@ if|if
 condition|(
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 block|{
@@ -7299,19 +7299,19 @@ if|if
 condition|(
 name|node
 operator|->
-name|isInnerNode
+name|isAggregate
 argument_list|()
 condition|)
 block|{
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|innerNode
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|InnerNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -7806,7 +7806,7 @@ operator|::
 name|generateDocs
 parameter_list|()
 block|{
-name|generateInnerNode
+name|generateAggregate
 argument_list|(
 name|qdb_
 operator|->
@@ -7890,7 +7890,7 @@ operator|::
 name|getMetadataElement
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,
@@ -7975,7 +7975,7 @@ operator|::
 name|getMetadataElements
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 name|inner
 parameter_list|,

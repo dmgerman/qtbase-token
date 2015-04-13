@@ -888,7 +888,7 @@ name|nodePassedIn
 init|=
 name|node
 decl_stmt|;
-name|InnerNode
+name|Aggregate
 modifier|*
 name|parent
 init|=

@@ -289,7 +289,7 @@ operator|::
 name|sections
 parameter_list|(
 specifier|const
-name|InnerNode
+name|Aggregate
 modifier|*
 comment|/* innerNode */
 parameter_list|,
