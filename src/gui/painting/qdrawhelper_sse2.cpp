@@ -3545,6 +3545,8 @@ name|QRadialFetchSimd
 argument_list|<
 name|QSimdSse2
 argument_list|>
+argument_list|,
+name|uint
 argument_list|>
 argument_list|(
 name|buffer

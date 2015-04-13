@@ -6349,6 +6349,8 @@ name|QRadialFetchSimd
 argument_list|<
 name|QSimdNeon
 argument_list|>
+argument_list|,
+name|uint
 argument_list|>
 argument_list|(
 name|buffer
