@@ -123,15 +123,7 @@ name|chkexists
 block|;
 name|QString
 name|build_args
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|outdir
-operator|=
-name|QString
 argument_list|()
-argument_list|)
 block|;
 comment|//internal caches
 name|mutable

@@ -16786,12 +16786,7 @@ name|QString
 name|MakefileGenerator
 operator|::
 name|build_args
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|outdir
-parameter_list|)
+parameter_list|()
 block|{
 name|QString
 name|ret
@@ -16857,8 +16852,6 @@ name|project
 operator|->
 name|projectFile
 argument_list|()
-argument_list|,
-name|outdir
 argument_list|)
 argument_list|)
 expr_stmt|;
