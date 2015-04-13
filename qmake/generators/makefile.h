@@ -1034,105 +1034,77 @@ operator|&
 name|lib
 argument_list|)
 block|;
+name|public
+operator|:
 comment|//file fixification to unify all file names into a single pattern
-block|enum
+expr|enum
 name|FileFixifyType
 block|{
-name|FileFixifyAbsolute
+name|FileFixifyFromIndir
+operator|=
+literal|0
 block|,
-name|FileFixifyRelative
+name|FileFixifyFromOutdir
+operator|=
+literal|1
+block|,
+name|FileFixifyToOutDir
+operator|=
+literal|0
+block|,
+name|FileFixifyToIndir
+operator|=
+literal|2
+block|,
+name|FileFixifyBackwards
+operator|=
+name|FileFixifyFromOutdir
+operator||
+name|FileFixifyToIndir
 block|,
 name|FileFixifyDefault
+operator|=
+literal|0
+block|,
+name|FileFixifyAbsolute
+operator|=
+literal|4
+block|,
+name|FileFixifyRelative
+operator|=
+literal|8
 block|}
 block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|FileFixifyTypes
+argument_list|,
+argument|FileFixifyType
+argument_list|)
+name|protected
+operator|:
 name|QString
 name|fileFixify
 argument_list|(
-argument|const QString& file
+argument|const QString&file
 argument_list|,
-argument|const QString&out_dir=QString()
+argument|FileFixifyTypes fix = FileFixifyDefault
 argument_list|,
-argument|const QString&in_dir=QString()
-argument_list|,
-argument|FileFixifyType fix=FileFixifyDefault
-argument_list|,
-argument|bool canon=true
+argument|bool canon = true
 argument_list|)
 specifier|const
 block|;
-specifier|inline
-name|QString
-name|fileFixify
-argument_list|(
-argument|const QString& file
-argument_list|,
-argument|FileFixifyType fix
-argument_list|,
-argument|bool canon=true
-argument_list|)
-specifier|const
-block|{
-return|return
-name|fileFixify
-argument_list|(
-name|file
-argument_list|,
-name|QString
-argument_list|()
-argument_list|,
-name|QString
-argument_list|()
-argument_list|,
-name|fix
-argument_list|,
-name|canon
-argument_list|)
-return|;
-block|}
 name|QStringList
 name|fileFixify
 argument_list|(
-argument|const QStringList& files
+argument|const QStringList&files
 argument_list|,
-argument|const QString&out_dir=QString()
+argument|FileFixifyTypes fix = FileFixifyDefault
 argument_list|,
-argument|const QString&in_dir=QString()
-argument_list|,
-argument|FileFixifyType fix=FileFixifyDefault
-argument_list|,
-argument|bool canon=true
+argument|bool canon = true
 argument_list|)
 specifier|const
 block|;
-specifier|inline
-name|QStringList
-name|fileFixify
-argument_list|(
-argument|const QStringList& files
-argument_list|,
-argument|FileFixifyType fix
-argument_list|,
-argument|bool canon=true
-argument_list|)
-specifier|const
-block|{
-return|return
-name|fileFixify
-argument_list|(
-name|files
-argument_list|,
-name|QString
-argument_list|()
-argument_list|,
-name|QString
-argument_list|()
-argument_list|,
-name|fix
-argument_list|,
-name|canon
-argument_list|)
-return|;
-block|}
 name|QString
 name|installMetaFile
 argument_list|(
@@ -1298,6 +1270,12 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|MakefileGenerator::FileFixifyTypes
+argument_list|)
+end_macro
 begin_expr_stmt
 DECL|function|setNoIO
 specifier|inline

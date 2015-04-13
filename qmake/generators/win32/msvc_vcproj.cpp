@@ -10311,12 +10311,7 @@ argument_list|(
 literal|' '
 argument_list|)
 argument_list|,
-name|QString
-argument_list|()
-argument_list|,
-name|Option
-operator|::
-name|output_dir
+name|FileFixifyFromOutdir
 argument_list|)
 expr_stmt|;
 block|}

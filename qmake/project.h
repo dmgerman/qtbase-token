@@ -29,6 +29,9 @@ block|{
 name|QString
 name|m_projectFile
 block|;
+name|QString
+name|m_projectDir
+block|;
 name|public
 operator|:
 name|QMakeProject
@@ -56,6 +59,15 @@ specifier|const
 block|{
 return|return
 name|m_projectFile
+return|;
+block|}
+name|QString
+name|projectDir
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_projectDir
 return|;
 block|}
 name|QString
