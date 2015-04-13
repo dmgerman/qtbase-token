@@ -88,6 +88,16 @@ name|render
 argument_list|()
 block|;
 name|void
+name|setUseCompositing
+argument_list|(
+argument|bool on
+argument_list|)
+block|{
+name|m_useCompositing
+operator|=
+name|on
+block|; }
+name|void
 name|setPixmap
 argument_list|(
 specifier|const
@@ -134,6 +144,9 @@ name|m_pixmap
 block|;
 name|QPoint
 name|m_hotSpot
+block|;
+name|bool
+name|m_useCompositing
 block|; }
 decl_stmt|;
 end_decl_stmt
