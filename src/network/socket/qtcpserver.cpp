@@ -484,7 +484,23 @@ name|QTcpServerPrivate
 argument_list|,
 name|parent
 argument_list|)
-block|{ }
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QTCPSERVER_DEBUG
+argument_list|)
+name|qDebug
+argument_list|(
+literal|"QTcpServer::QTcpServer(%p)"
+argument_list|,
+name|parent
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 end_constructor
 begin_comment
 comment|/*!     Destroys the QTcpServer object. If the server is listening for     connections, the socket is automatically closed.      Any client \l{QTcpSocket}s that are still connected must either     disconnect or be reparented before the server is deleted.      \sa close() */
@@ -497,6 +513,19 @@ name|~
 name|QTcpServer
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QTCPSERVER_DEBUG
+argument_list|)
+name|qDebug
+argument_list|(
+literal|"QTcpServer::~QTcpServer()"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|close
 argument_list|()
 expr_stmt|;
@@ -526,7 +555,26 @@ name|dd
 argument_list|,
 name|parent
 argument_list|)
-block|{ }
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QTCPSERVER_DEBUG
+argument_list|)
+name|qDebug
+argument_list|(
+literal|"QTcpServer::QTcpServer(QTcpServerPrivate == %p, parent == %p)"
+argument_list|,
+operator|&
+name|dd
+argument_list|,
+name|parent
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 end_constructor
 begin_comment
 comment|/*!     Tells the server to listen for incoming connections on address \a     address and port \a port. If \a port is 0, a port is chosen     automatically. If \a address is QHostAddress::Any, the server     will listen on all network interfaces.      Returns \c true on success; otherwise returns \c false.      \sa isListening() */
