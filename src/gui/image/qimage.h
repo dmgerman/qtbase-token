@@ -16,12 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qtransform.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtGui/qpaintdevice.h>
+file|<QtGui/qcolor.h>
 end_include
 begin_include
 include|#
@@ -31,7 +26,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qpaintdevice.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qpixelformat.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qtransform.h>
 end_include
 begin_include
 include|#
@@ -973,6 +978,46 @@ argument_list|,
 argument|uint index_or_rgb
 argument_list|)
 block|;
+name|QColor
+name|pixelColor
+argument_list|(
+argument|int x
+argument_list|,
+argument|int y
+argument_list|)
+specifier|const
+block|;
+name|QColor
+name|pixelColor
+argument_list|(
+argument|const QPoint&pt
+argument_list|)
+specifier|const
+block|;
+name|void
+name|setPixelColor
+argument_list|(
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|const QColor&c
+argument_list|)
+block|;
+name|void
+name|setPixelColor
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pt
+argument_list|,
+specifier|const
+name|QColor
+operator|&
+name|c
+argument_list|)
+block|;
 name|QVector
 operator|<
 name|QRgb
@@ -1896,6 +1941,61 @@ name|y
 argument_list|()
 argument_list|,
 name|index_or_rgb
+argument_list|)
+block|; }
+DECL|function|pixelColor
+specifier|inline
+name|QColor
+name|QImage
+operator|::
+name|pixelColor
+argument_list|(
+argument|const QPoint&pt
+argument_list|)
+specifier|const
+block|{
+return|return
+name|pixelColor
+argument_list|(
+name|pt
+operator|.
+name|x
+argument_list|()
+argument_list|,
+name|pt
+operator|.
+name|y
+argument_list|()
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+DECL|function|setPixelColor
+specifier|inline
+name|void
+name|QImage
+operator|::
+name|setPixelColor
+argument_list|(
+argument|const QPoint&pt
+argument_list|,
+argument|const QColor&c
+argument_list|)
+block|{
+name|setPixelColor
+argument_list|(
+name|pt
+operator|.
+name|x
+argument_list|()
+argument_list|,
+name|pt
+operator|.
+name|y
+argument_list|()
+argument_list|,
+name|c
 argument_list|)
 block|; }
 if|#
