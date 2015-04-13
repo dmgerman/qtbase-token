@@ -8667,7 +8667,7 @@ name|output_dir
 argument_list|,
 name|input_dir
 argument_list|,
-name|FileFixifyRelative
+name|FileFixifyAbsolute
 argument_list|)
 decl_stmt|;
 name|QString
