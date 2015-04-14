@@ -1851,6 +1851,16 @@ name|PLANES
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|QPaintDevice
+operator|::
+name|PdmDevicePixelRatio
+case|:
+name|val
+operator|=
+literal|1
+expr_stmt|;
+break|break;
 default|default:
 name|qWarning
 argument_list|(
