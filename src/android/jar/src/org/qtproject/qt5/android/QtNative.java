@@ -2783,6 +2783,9 @@ name|unicode
 parameter_list|,
 name|int
 name|modifier
+parameter_list|,
+name|boolean
+name|autoRepeat
 parameter_list|)
 function_decl|;
 DECL|method|keyUp
@@ -2800,6 +2803,9 @@ name|unicode
 parameter_list|,
 name|int
 name|modifier
+parameter_list|,
+name|boolean
+name|autoRepeat
 parameter_list|)
 function_decl|;
 DECL|method|keyboardVisibilityChanged
