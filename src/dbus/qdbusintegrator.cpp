@@ -3039,6 +3039,8 @@ name|i
 init|=
 literal|0
 init|;
+name|list
+operator|&&
 name|i
 operator|<
 name|list
