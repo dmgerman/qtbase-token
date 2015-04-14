@@ -158,12 +158,10 @@ argument_list|(
 literal|0
 argument_list|)
 block|{ }
-name|virtual
 operator|~
 name|QTextureGlyphCache
 argument_list|()
-block|{ }
-expr|struct
+block|;      struct
 name|GlyphAndSubPixelPosition
 block|{
 name|GlyphAndSubPixelPosition
@@ -523,6 +521,10 @@ argument_list|,
 argument|matrix
 argument_list|)
 block|{ }
+operator|~
+name|QImageTextureGlyphCache
+argument_list|()
+block|;
 name|virtual
 name|void
 name|createTextureData
