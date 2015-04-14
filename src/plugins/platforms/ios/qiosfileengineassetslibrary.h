@@ -126,6 +126,27 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_FILESYSTEMITERATOR
+name|Iterator
+operator|*
+name|beginEntryList
+argument_list|(
+argument|QDir::Filters filters
+argument_list|,
+argument|const QStringList&filterNames
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|Iterator
+operator|*
+name|endEntryList
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+endif|#
+directive|endif
 name|void
 name|setError
 argument_list|(
