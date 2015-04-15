@@ -11381,6 +11381,12 @@ argument_list|(
 name|nativeRect
 argument_list|)
 decl_stmt|;
+name|QXcbScreen
+modifier|*
+name|currentScreen
+init|=
+name|m_xcbScreen
+decl_stmt|;
 name|m_xcbScreen
 operator|=
 name|newScreen
@@ -11423,8 +11429,7 @@ if|if
 condition|(
 name|newScreen
 operator|!=
-name|screen
-argument_list|()
+name|currentScreen
 condition|)
 name|QWindowSystemInterface
 operator|::
