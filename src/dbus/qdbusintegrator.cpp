@@ -9239,6 +9239,12 @@ name|serverObject
 operator|=
 name|object
 expr_stmt|;
+name|object
+operator|->
+name|d
+operator|=
+name|this
+expr_stmt|;
 if|if
 condition|(
 operator|!

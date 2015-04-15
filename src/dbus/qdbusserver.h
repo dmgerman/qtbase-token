@@ -145,6 +145,10 @@ argument_list|)
 name|QDBusConnectionPrivate
 operator|*
 name|d
+block|;
+name|friend
+name|class
+name|QDBusConnectionPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt
