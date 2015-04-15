@@ -1000,7 +1000,7 @@ index|]
 expr_stmt|;
 name|text
 operator|<<
-name|separator
+name|comma
 argument_list|(
 name|index
 operator|++
@@ -1162,7 +1162,7 @@ index|]
 expr_stmt|;
 name|text
 operator|<<
-name|separator
+name|comma
 argument_list|(
 name|index
 operator|++

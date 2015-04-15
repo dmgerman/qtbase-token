@@ -12516,7 +12516,7 @@ expr_stmt|;
 block|}
 name|text
 operator|<<
-name|separator
+name|comma
 argument_list|(
 name|index
 operator|++
