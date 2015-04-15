@@ -237,6 +237,9 @@ name|int
 name|actualReadBufferSize
 block|;
 name|bool
+name|stopped
+block|;
+name|bool
 name|readSequenceStarted
 block|;
 name|bool
