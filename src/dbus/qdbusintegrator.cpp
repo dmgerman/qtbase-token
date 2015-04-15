@@ -5909,44 +5909,6 @@ expr_stmt|;
 block|}
 end_destructor
 begin_function
-DECL|function|deleteYourself
-name|void
-name|QDBusConnectionPrivate
-operator|::
-name|deleteYourself
-parameter_list|()
-block|{
-if|if
-condition|(
-name|thread
-argument_list|()
-operator|&&
-name|thread
-argument_list|()
-operator|!=
-name|QThread
-operator|::
-name|currentThread
-argument_list|()
-condition|)
-block|{
-comment|// last reference dropped while not in the correct thread
-comment|// ask the correct thread to delete
-comment|// note: since we're posting an event to another thread, we
-comment|// must consider deleteLater() to take effect immediately
-name|deleteLater
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-operator|delete
-name|this
-expr_stmt|;
-block|}
-block|}
-end_function
-begin_function
 DECL|function|closeConnection
 name|void
 name|QDBusConnectionPrivate

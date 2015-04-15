@@ -158,7 +158,7 @@ argument_list|()
 operator|)
 name|d
 operator|->
-name|deleteYourself
+name|deleteLater
 argument_list|()
 argument_list|;
 comment|// Static objects may be keeping the connection open.
@@ -465,7 +465,7 @@ argument_list|()
 condition|)
 name|d
 operator|->
-name|deleteYourself
+name|deleteLater
 argument_list|()
 expr_stmt|;
 block|}
@@ -517,7 +517,7 @@ argument_list|()
 condition|)
 name|d
 operator|->
-name|deleteYourself
+name|deleteLater
 argument_list|()
 expr_stmt|;
 name|d

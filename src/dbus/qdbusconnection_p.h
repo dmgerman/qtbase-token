@@ -795,12 +795,6 @@ expr_stmt|;
 end_expr_stmt
 begin_function_decl
 name|void
-name|deleteYourself
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-name|void
 name|setBusService
 parameter_list|(
 specifier|const
