@@ -387,7 +387,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Stops the asynchronous read sequence.  */
+comment|/*!     Copies at most \c{maxlen} bytes from the internal read buffer to \c{data}.  */
 end_comment
 begin_function
 DECL|function|read
