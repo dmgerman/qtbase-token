@@ -11274,12 +11274,16 @@ condition|)
 return|return
 name|PCRE_ERROR_DFA_UCOND
 return|;
-comment|/* The DEFINE condition is always false */
+comment|/* The DEFINE condition is always false, and the assertion (?!) is         converted to OP_FAIL. */
 if|if
 condition|(
 name|condcode
 operator|==
 name|OP_DEF
+operator|||
+name|condcode
+operator|==
+name|OP_FAIL
 condition|)
 block|{
 name|ADD_ACTIVE

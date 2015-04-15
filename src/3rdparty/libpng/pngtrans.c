@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngtrans.c - transforms the data in a row (used by both readers and writers)  *  * Last changed in libpng 1.5.10 [March 8, 2012]  * Copyright (c) 1998-2012 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pngtrans.c - transforms the data in a row (used by both readers and writers)  *  * Last changed in libpng 1.6.17 [March 26, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_include
 include|#
@@ -42,7 +42,7 @@ name|PNGAPI
 DECL|function|png_set_bgr
 name|png_set_bgr
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -94,7 +94,7 @@ name|PNGAPI
 DECL|function|png_set_swap
 name|png_set_swap
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -154,7 +154,7 @@ name|PNGAPI
 DECL|function|png_set_packing
 name|png_set_packing
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -187,12 +187,17 @@ name|transformations
 operator||=
 name|PNG_PACK
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_SUPPORTED
 name|png_ptr
 operator|->
 name|usr_bit_depth
 operator|=
 literal|8
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 end_function
@@ -222,7 +227,7 @@ name|PNGAPI
 DECL|function|png_set_packswap
 name|png_set_packswap
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -279,7 +284,7 @@ name|PNGAPI
 DECL|function|png_set_shift
 name|png_set_shift
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|,
 name|png_const_color_8p
@@ -339,7 +344,7 @@ name|PNGAPI
 DECL|function|png_set_interlace_handling
 name|png_set_interlace_handling
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -353,10 +358,14 @@ expr_stmt|;
 if|if
 condition|(
 name|png_ptr
+operator|!=
+literal|0
 operator|&&
 name|png_ptr
 operator|->
 name|interlaced
+operator|!=
+literal|0
 condition|)
 block|{
 name|png_ptr
@@ -404,7 +413,7 @@ name|PNGAPI
 DECL|function|png_set_filler
 name|png_set_filler
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|,
 name|png_uint_32
@@ -428,12 +437,24 @@ operator|==
 name|NULL
 condition|)
 return|return;
+comment|/* In libpng 1.6 it is possible to determine whether this is a read or write     * operation and therefore to do more checking here for a valid call.     */
+if|if
+condition|(
+operator|(
 name|png_ptr
 operator|->
-name|transformations
-operator||=
-name|PNG_FILLER
-expr_stmt|;
+name|mode
+operator|&
+name|PNG_IS_READ_STRUCT
+operator|)
+operator|!=
+literal|0
+condition|)
+block|{
+ifdef|#
+directive|ifdef
+name|PNG_READ_FILLER_SUPPORTED
+comment|/* On read png_set_filler is always valid, regardless of the base PNG           * format, because other transformations can give a format where the           * filler code can execute (basically an 8 or 16-bit component RGB or G           * format.)           *           * NOTE: usr_channels is not used by the read code!  (This has led to           * confusion in the past.)  The filler is only used in the read code.           */
 name|png_ptr
 operator|->
 name|filler
@@ -442,6 +463,110 @@ operator|(
 name|png_uint_16
 operator|)
 name|filler
+expr_stmt|;
+else|#
+directive|else
+name|png_app_error
+argument_list|(
+name|png_ptr
+argument_list|,
+literal|"png_set_filler not supported on read"
+argument_list|)
+expr_stmt|;
+name|PNG_UNUSED
+argument_list|(
+argument|filler
+argument_list|)
+comment|/* not used in the write case */
+return|return;
+endif|#
+directive|endif
+block|}
+else|else
+comment|/* write */
+block|{
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_FILLER_SUPPORTED
+comment|/* On write the usr_channels parameter must be set correctly at the           * start to record the number of channels in the app-supplied data.           */
+switch|switch
+condition|(
+name|png_ptr
+operator|->
+name|color_type
+condition|)
+block|{
+case|case
+name|PNG_COLOR_TYPE_RGB
+case|:
+name|png_ptr
+operator|->
+name|usr_channels
+operator|=
+literal|4
+expr_stmt|;
+break|break;
+case|case
+name|PNG_COLOR_TYPE_GRAY
+case|:
+if|if
+condition|(
+name|png_ptr
+operator|->
+name|bit_depth
+operator|>=
+literal|8
+condition|)
+block|{
+name|png_ptr
+operator|->
+name|usr_channels
+operator|=
+literal|2
+expr_stmt|;
+break|break;
+block|}
+else|else
+block|{
+comment|/* There simply isn't any code in libpng to strip out bits                    * from bytes when the components are less than a byte in                    * size!                    */
+name|png_app_error
+argument_list|(
+name|png_ptr
+argument_list|,
+literal|"png_set_filler is invalid for low bit depth gray output"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+default|default:
+name|png_app_error
+argument_list|(
+name|png_ptr
+argument_list|,
+literal|"png_set_filler: inappropriate color type"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+else|#
+directive|else
+name|png_app_error
+argument_list|(
+name|png_ptr
+argument_list|,
+literal|"png_set_filler not supported on write"
+argument_list|)
+expr_stmt|;
+return|return;
+endif|#
+directive|endif
+block|}
+comment|/* Here on success - libpng supports the operation, set the transformation     * and the flag to say where the filler channel is.     */
+name|png_ptr
+operator|->
+name|transformations
+operator||=
+name|PNG_FILLER
 expr_stmt|;
 if|if
 condition|(
@@ -463,46 +588,6 @@ operator|&=
 operator|~
 name|PNG_FLAG_FILLER_AFTER
 expr_stmt|;
-comment|/* This should probably go in the "do_read_filler" routine.     * I attempted to do that in libpng-1.0.1a but that caused problems     * so I restored it in libpng-1.0.2a    */
-if|if
-condition|(
-name|png_ptr
-operator|->
-name|color_type
-operator|==
-name|PNG_COLOR_TYPE_RGB
-condition|)
-block|{
-name|png_ptr
-operator|->
-name|usr_channels
-operator|=
-literal|4
-expr_stmt|;
-block|}
-comment|/* Also I added this in libpng-1.0.2a (what happens when we expand     * a less-than-8-bit grayscale to GA?) */
-if|if
-condition|(
-name|png_ptr
-operator|->
-name|color_type
-operator|==
-name|PNG_COLOR_TYPE_GRAY
-operator|&&
-name|png_ptr
-operator|->
-name|bit_depth
-operator|>=
-literal|8
-condition|)
-block|{
-name|png_ptr
-operator|->
-name|usr_channels
-operator|=
-literal|2
-expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment
@@ -514,7 +599,7 @@ name|PNGAPI
 DECL|function|png_set_add_alpha
 name|png_set_add_alpha
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|,
 name|png_uint_32
@@ -547,6 +632,19 @@ argument_list|,
 name|filler_loc
 argument_list|)
 expr_stmt|;
+comment|/* The above may fail to do anything. */
+if|if
+condition|(
+operator|(
+name|png_ptr
+operator|->
+name|transformations
+operator|&
+name|PNG_FILLER
+operator|)
+operator|!=
+literal|0
+condition|)
 name|png_ptr
 operator|->
 name|transformations
@@ -579,7 +677,7 @@ name|PNGAPI
 DECL|function|png_set_swap_alpha
 name|png_set_swap_alpha
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -629,7 +727,7 @@ name|PNGAPI
 DECL|function|png_set_invert_alpha
 name|png_set_invert_alpha
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -678,7 +776,7 @@ name|PNGAPI
 DECL|function|png_set_invert_mono
 name|png_set_invert_mono
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -1037,6 +1135,29 @@ operator|+=
 literal|2
 control|)
 block|{
+ifdef|#
+directive|ifdef
+name|PNG_BUILTIN_BSWAP16_SUPPORTED
+comment|/* Feature added to libpng-1.6.11 for testing purposes, not           * enabled by default.           */
+operator|*
+operator|(
+name|png_uint_16
+operator|*
+operator|)
+name|rp
+operator|=
+name|__builtin_bswap16
+argument_list|(
+operator|*
+operator|(
+name|png_uint_16
+operator|*
+operator|)
+name|rp
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|png_byte
 name|t
 init|=
@@ -1062,6 +1183,8 @@ operator|)
 operator|=
 name|t
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 block|}
@@ -2780,7 +2903,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* PNG_READ_PACKSWAP_SUPPORTED or PNG_WRITE_PACKSWAP_SUPPORTED */
+comment|/* PACKSWAP || WRITE_PACKSWAP */
 end_comment
 begin_if
 if|#
@@ -2860,6 +2983,8 @@ block|{
 if|if
 condition|(
 name|at_start
+operator|!=
+literal|0
 condition|)
 comment|/* Skip initial filler */
 operator|++
@@ -2912,6 +3037,8 @@ block|{
 if|if
 condition|(
 name|at_start
+operator|!=
+literal|0
 condition|)
 comment|/* Skip initial filler */
 name|sp
@@ -3008,6 +3135,8 @@ block|{
 if|if
 condition|(
 name|at_start
+operator|!=
+literal|0
 condition|)
 comment|/* Skip initial filler */
 operator|++
@@ -3077,6 +3206,8 @@ block|{
 if|if
 condition|(
 name|at_start
+operator|!=
+literal|0
 condition|)
 comment|/* Skip initial filler */
 name|sp
@@ -3248,6 +3379,8 @@ name|color_type
 operator|&
 name|PNG_COLOR_MASK_COLOR
 operator|)
+operator|!=
+literal|0
 condition|)
 block|{
 name|png_uint_32
@@ -3613,7 +3746,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* PNG_READ_BGR_SUPPORTED or PNG_WRITE_BGR_SUPPORTED */
+comment|/* READ_BGR || WRITE_BGR */
 end_comment
 begin_if
 if|#
@@ -3638,7 +3771,7 @@ comment|/* PRIVATE */
 DECL|function|png_do_check_palette_indexes
 name|png_do_check_palette_indexes
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|,
 name|png_row_infop
@@ -3661,10 +3794,11 @@ operator|)
 operator|&&
 name|png_ptr
 operator|->
-name|num_palette_max
-operator|>=
+name|num_palette
+operator|>
 literal|0
 condition|)
+comment|/* num_palette can be 0 in MNG files */
 block|{
 comment|/* Calculations moved outside switch in an attempt to stop different        * compiler warnings.  'padding' is in *bits* within the last byte, it is        * an 'int' because pixel_depth becomes an 'int' in the expression below,        * and this calculation is used because it avoids warnings that other        * forms produced on either GCC or MSVC.        */
 name|int
@@ -3990,7 +4124,7 @@ if|if
 condition|(
 operator|*
 name|rp
-operator|>=
+operator|>
 name|png_ptr
 operator|->
 name|num_palette_max
@@ -4019,7 +4153,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* PNG_CHECK_FOR_INVALID_INDEX_SUPPORTED */
+comment|/* CHECK_FOR_INVALID_INDEX */
 end_comment
 begin_if
 if|#
@@ -4046,7 +4180,7 @@ name|PNGAPI
 DECL|function|png_set_user_transform_info
 name|png_set_user_transform_info
 parameter_list|(
-name|png_structp
+name|png_structrp
 name|png_ptr
 parameter_list|,
 name|png_voidp
@@ -4073,6 +4207,43 @@ operator|==
 name|NULL
 condition|)
 return|return;
+ifdef|#
+directive|ifdef
+name|PNG_READ_USER_TRANSFORM_SUPPORTED
+if|if
+condition|(
+operator|(
+name|png_ptr
+operator|->
+name|mode
+operator|&
+name|PNG_IS_READ_STRUCT
+operator|)
+operator|!=
+literal|0
+operator|&&
+operator|(
+name|png_ptr
+operator|->
+name|flags
+operator|&
+name|PNG_FLAG_ROW_INIT
+operator|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|png_app_error
+argument_list|(
+name|png_ptr
+argument_list|,
+literal|"info change after png_start_read_image or png_read_update_info"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+endif|#
+directive|endif
 name|png_ptr
 operator|->
 name|user_transform_ptr
@@ -4117,7 +4288,7 @@ name|PNGAPI
 DECL|function|png_get_user_transform_ptr
 name|png_get_user_transform_ptr
 parameter_list|(
-name|png_const_structp
+name|png_const_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -4133,14 +4304,9 @@ name|NULL
 operator|)
 return|;
 return|return
-operator|(
-operator|(
-name|png_voidp
-operator|)
 name|png_ptr
 operator|->
 name|user_transform_ptr
-operator|)
 return|;
 block|}
 end_function
@@ -4159,11 +4325,11 @@ name|PNGAPI
 DECL|function|png_get_current_row_number
 name|png_get_current_row_number
 parameter_list|(
-name|png_const_structp
+name|png_const_structrp
 name|png_ptr
 parameter_list|)
 block|{
-comment|/* See the comments in png.h - this is the sub-image row when reading and     * interlaced image.     */
+comment|/* See the comments in png.h - this is the sub-image row when reading an     * interlaced image.     */
 if|if
 condition|(
 name|png_ptr
@@ -4187,7 +4353,7 @@ name|PNGAPI
 DECL|function|png_get_current_pass_number
 name|png_get_current_pass_number
 parameter_list|(
-name|png_const_structp
+name|png_const_structrp
 name|png_ptr
 parameter_list|)
 block|{
@@ -4213,20 +4379,20 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* PNG_USER_TRANSFORM_INFO_SUPPORTED */
+comment|/* USER_TRANSFORM_INFO */
 end_comment
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* PNG_READ_USER_TRANSFORM_SUPPORTED ||           PNG_WRITE_USER_TRANSFORM_SUPPORTED */
+comment|/* READ_USER_TRANSFORM || WRITE_USER_TRANSFORM */
 end_comment
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* PNG_READ_SUPPORTED || PNG_WRITE_SUPPORTED */
+comment|/* READ || WRITE */
 end_comment
 end_unit
