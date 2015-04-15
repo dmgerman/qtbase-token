@@ -24,13 +24,13 @@ directive|include
 file|<qpa/qplatformtheme.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QPlatformFontDatabase
 name|class
 name|QPlatformFontDatabase
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|QT_BEGIN_NAMESPACE
 DECL|member|Font
 name|QHash
 operator|<

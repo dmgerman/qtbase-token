@@ -4478,7 +4478,7 @@ directive|ifdef
 name|Q_OS_MAC
 name|qWarning
 argument_list|(
-literal|"On Mac OS X, you might be loading two sets of Qt binaries into the same process. "
+literal|"You might be loading two sets of Qt binaries into the same process. "
 literal|"Check that all plugins are compiled against the right Qt binaries. Export "
 literal|"DYLD_PRINT_LIBRARIES=1 and check that only one set of binaries are being loaded."
 argument_list|)

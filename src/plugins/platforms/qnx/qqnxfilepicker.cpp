@@ -100,6 +100,7 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|s_filePickerTarget
 specifier|static
 specifier|const
@@ -1337,4 +1338,7 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

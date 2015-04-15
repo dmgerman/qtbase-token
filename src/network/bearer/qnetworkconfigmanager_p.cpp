@@ -1069,9 +1069,16 @@ operator|&
 name|mutex
 argument_list|)
 block|;
+comment|// We need allConfigurations since onlineConfigurations is filled with queued connections
+comment|// and thus is not always (more importantly just after creation) up to date
 return|return
 operator|!
-name|onlineConfigurations
+name|allConfigurations
+argument_list|(
+name|QNetworkConfiguration
+operator|::
+name|Active
+argument_list|)
 operator|.
 name|isEmpty
 argument_list|()
