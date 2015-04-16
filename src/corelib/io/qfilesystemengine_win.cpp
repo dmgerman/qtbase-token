@@ -7457,9 +7457,6 @@ name|qgetenv
 argument_list|(
 literal|"SystemDrive"
 argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -7659,9 +7656,6 @@ name|qgetenv
 argument_list|(
 literal|"USERPROFILE"
 argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -7690,9 +7684,6 @@ name|qgetenv
 argument_list|(
 literal|"HOMEDRIVE"
 argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 operator|+
 name|QString
@@ -7703,9 +7694,6 @@ name|qgetenv
 argument_list|(
 literal|"HOMEPATH"
 argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -7734,9 +7722,6 @@ name|qgetenv
 argument_list|(
 literal|"HOME"
 argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
