@@ -56,11 +56,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qtimer.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qringbuffer_p.h>
 end_include
 begin_include
@@ -251,10 +246,6 @@ name|actualReadBufferSize
 block|;
 name|bool
 name|readSequenceStarted
-block|;
-name|QTimer
-operator|*
-name|emitReadyReadTimer
 block|;
 name|bool
 name|pipeBroken
