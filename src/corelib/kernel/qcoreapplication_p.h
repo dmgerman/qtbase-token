@@ -175,6 +175,7 @@ name|QEvent
 operator|*
 argument_list|)
 block|;
+specifier|static
 name|bool
 name|sendThroughObjectEventFilters
 argument_list|(
@@ -185,6 +186,7 @@ name|QEvent
 operator|*
 argument_list|)
 block|;
+specifier|static
 name|bool
 name|notify_helper
 argument_list|(
@@ -289,6 +291,7 @@ argument_list|,
 argument|QThreadData *data
 argument_list|)
 block|;
+specifier|static
 name|void
 name|checkReceiverThread
 argument_list|(
