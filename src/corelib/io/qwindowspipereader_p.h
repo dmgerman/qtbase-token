@@ -211,14 +211,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|bool
-name|completeAsyncRead
-argument_list|(
-argument|DWORD bytesRead
-argument_list|,
-argument|DWORD errorCode
-argument_list|)
-block|;
 name|DWORD
 name|checkPipeState
 argument_list|()
