@@ -148,6 +148,9 @@ operator|:
 name|QString
 name|m_fileName
 block|;
+name|QString
+name|m_assetUrl
+block|;
 name|qint64
 name|m_offset
 block|;
