@@ -8187,6 +8187,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// equivalent of XLookupString
+specifier|const
+name|int
+name|size
+init|=
 name|xkb_state_key_get_utf8
 argument_list|(
 name|state
@@ -8203,13 +8207,18 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 return|return
 name|QString
 operator|::
 name|fromUtf8
 argument_list|(
 name|chars
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|size
 argument_list|)
 return|;
 block|}
