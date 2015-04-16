@@ -4272,7 +4272,6 @@ begin_comment
 comment|/*!     If \a block is true, signals emitted by this object are blocked     (i.e., emitting a signal will not invoke anything connected to it).     If \a block is false, no such blocking will occur.      The return value is the previous value of signalsBlocked().      Note that the destroyed() signal will be emitted even if the signals     for this object have been blocked.      \sa signalsBlocked() */
 end_comment
 begin_function
-DECL|function|blockSignals
 name|bool
 name|QObject
 operator|::
@@ -4281,6 +4280,7 @@ parameter_list|(
 name|bool
 name|block
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|Q_D
 argument_list|(
