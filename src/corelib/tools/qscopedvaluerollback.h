@@ -68,7 +68,10 @@ argument_list|)
 block|{
 name|varRef
 operator|=
+name|qMove
+argument_list|(
 name|value
+argument_list|)
 block|;     }
 operator|~
 name|QScopedValueRollback
@@ -76,7 +79,10 @@ argument_list|()
 block|{
 name|varRef
 operator|=
+name|qMove
+argument_list|(
 name|oldValue
+argument_list|)
 block|;     }
 name|void
 name|commit
