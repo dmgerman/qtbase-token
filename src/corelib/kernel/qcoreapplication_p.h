@@ -281,6 +281,11 @@ name|mainThread
 argument_list|()
 block|;
 specifier|static
+name|bool
+name|threadRequiresCoreApplication
+argument_list|()
+block|;
+specifier|static
 name|void
 name|sendPostedEvents
 argument_list|(

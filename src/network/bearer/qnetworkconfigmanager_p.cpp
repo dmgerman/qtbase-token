@@ -42,6 +42,11 @@ include|#
 directive|include
 file|<QtCore/private/qcoreapplication_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qthread_p.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -123,7 +128,7 @@ comment|//Two stage construction, because we only want to do this heavyweight wo
 name|bearerThread
 operator|=
 operator|new
-name|QThread
+name|QDaemonThread
 argument_list|()
 argument_list|;
 name|bearerThread

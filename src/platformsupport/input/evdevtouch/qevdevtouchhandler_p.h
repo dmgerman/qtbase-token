@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/private/qthread_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_if
@@ -177,7 +182,7 @@ name|class
 name|QEvdevTouchScreenHandlerThread
 range|:
 name|public
-name|QThread
+name|QDaemonThread
 block|{
 name|public
 operator|:

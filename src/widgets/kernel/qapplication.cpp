@@ -16698,6 +16698,21 @@ block|{
 comment|// send to all application event filters
 if|if
 condition|(
+name|threadRequiresCoreApplication
+argument_list|()
+operator|&&
+name|receiver
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|threadData
+operator|->
+name|thread
+operator|==
+name|mainThread
+argument_list|()
+operator|&&
 name|sendThroughApplicationEventFilters
 argument_list|(
 name|receiver

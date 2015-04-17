@@ -58,6 +58,11 @@ include|#
 directive|include
 file|<QThread>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qthread_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QEvdevTabletData
@@ -117,7 +122,7 @@ name|class
 name|QEvdevTabletHandlerThread
 range|:
 name|public
-name|QThread
+name|QDaemonThread
 block|{
 name|public
 operator|:

@@ -3848,7 +3848,7 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QThread
+name|QDaemonThread
 argument_list|(
 name|parent
 argument_list|)

@@ -106,6 +106,14 @@ block|;
 name|void
 name|applicationEventFilters_auxThread
 argument_list|()
+block|;
+name|void
+name|threadedEventDelivery_data
+argument_list|()
+block|;
+name|void
+name|threadedEventDelivery
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt

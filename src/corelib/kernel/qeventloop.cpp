@@ -86,6 +86,11 @@ name|QCoreApplication
 operator|::
 name|instance
 argument_list|()
+operator|&&
+name|QCoreApplicationPrivate
+operator|::
+name|threadRequiresCoreApplication
+argument_list|()
 condition|)
 block|{
 name|qWarning

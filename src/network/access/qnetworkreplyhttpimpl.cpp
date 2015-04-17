@@ -83,6 +83,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/private/qthread_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qnetworkcookiejar.h"
 end_include
 begin_ifndef
