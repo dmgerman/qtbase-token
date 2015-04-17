@@ -4635,6 +4635,22 @@ argument_list|()
 operator|<<
 literal|"bytes to write, doing that now"
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_OSX
+if|if
+condition|(
+operator|!
+name|client
+operator|->
+name|waitForBytesWritten
+argument_list|(
+literal|4000
+argument_list|)
+condition|)
+block|{
+else|#
+directive|else
 if|if
 condition|(
 operator|!
@@ -4646,6 +4662,8 @@ literal|2000
 argument_list|)
 condition|)
 block|{
+endif|#
+directive|endif
 name|qDebug
 argument_list|()
 operator|<<
@@ -4743,6 +4761,22 @@ operator|>
 literal|0
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_OSX
+if|if
+condition|(
+operator|!
+name|client
+operator|->
+name|waitForBytesWritten
+argument_list|(
+literal|4000
+argument_list|)
+condition|)
+block|{
+else|#
+directive|else
 if|if
 condition|(
 operator|!
@@ -4754,6 +4788,8 @@ literal|2000
 argument_list|)
 condition|)
 block|{
+endif|#
+directive|endif
 name|qDebug
 argument_list|()
 operator|<<
@@ -4815,9 +4851,7 @@ name|dataReady
 parameter_list|()
 function_decl|;
 block|}
-class|;
-end_class
-begin_class
+empty_stmt|;
 DECL|class|RateControlledReader
 class|class
 name|RateControlledReader
@@ -5213,8 +5247,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_constructor
 DECL|function|tst_QNetworkReply
 name|tst_QNetworkReply
 operator|::
@@ -5466,8 +5498,6 @@ endif|#
 directive|endif
 comment|// !QT_NO_NETWORKPROXY
 block|}
-end_constructor
-begin_destructor
 DECL|function|~tst_QNetworkReply
 name|tst_QNetworkReply
 operator|::
@@ -5475,8 +5505,6 @@ name|~
 name|tst_QNetworkReply
 parameter_list|()
 block|{ }
-end_destructor
-begin_function
 DECL|function|authenticationRequired
 name|void
 name|tst_QNetworkReply
@@ -5506,8 +5534,6 @@ literal|"httptest"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|proxyAuthenticationRequired
 name|void
 name|tst_QNetworkReply
@@ -5538,13 +5564,9 @@ literal|"password"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
-end_ifndef
-begin_function
 DECL|function|sslErrors
 name|void
 name|tst_QNetworkReply
@@ -5591,8 +5613,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|storeSslConfiguration
 name|void
 name|tst_QNetworkReply
@@ -5631,12 +5651,8 @@ name|sslConfiguration
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|runMultipartRequest
 name|QString
 name|tst_QNetworkReply
@@ -5826,8 +5842,6 @@ name|QString
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|runSimpleRequest
 name|QString
 name|tst_QNetworkReply
@@ -6187,8 +6201,6 @@ name|QString
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|runCustomRequest
 name|QString
 name|tst_QNetworkReply
@@ -6348,8 +6360,6 @@ name|QString
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|msgWaitForFinished
 specifier|static
 name|QByteArray
@@ -6430,8 +6440,6 @@ name|toLocal8Bit
 argument_list|()
 return|;
 block|}
-end_function
-begin_function
 DECL|function|waitForFinish
 name|int
 name|tst_QNetworkReply
@@ -6586,8 +6594,6 @@ return|return
 name|returnCode
 return|;
 block|}
-end_function
-begin_function
 DECL|function|finished
 name|void
 name|tst_QNetworkReply
@@ -6605,8 +6611,6 @@ name|Success
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|gotError
 name|void
 name|tst_QNetworkReply
@@ -6642,8 +6646,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|initTestCase
 name|void
 name|tst_QNetworkReply
@@ -6860,8 +6862,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|cleanupTestCase
 name|void
 name|tst_QNetworkReply
@@ -6913,8 +6913,6 @@ block|}
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|init
 name|void
 name|tst_QNetworkReply
@@ -6926,8 +6924,6 @@ name|cleanup
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|cleanup
 name|void
 name|tst_QNetworkReply
@@ -7052,8 +7048,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|stateChecking
 name|void
 name|tst_QNetworkReply
@@ -7231,8 +7225,6 @@ name|abort
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|invalidProtocol
 name|void
 name|tst_QNetworkReply
@@ -7308,8 +7300,6 @@ name|ProtocolUnknownError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromData_data
 name|void
 name|tst_QNetworkReply
@@ -7758,8 +7748,6 @@ operator|<<
 literal|"text/css"
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromData
 name|void
 name|tst_QNetworkReply
@@ -7897,8 +7885,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromFile
 name|void
 name|tst_QNetworkReply
@@ -8219,8 +8205,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromFileSpecial_data
 name|void
 name|tst_QNetworkReply
@@ -8305,8 +8289,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|getFromFileSpecial
 name|void
 name|tst_QNetworkReply
@@ -8433,8 +8415,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromFtp_data
 name|void
 name|tst_QNetworkReply
@@ -8507,8 +8487,6 @@ operator|+
 literal|"/qtest/bigfile"
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromFtp
 name|void
 name|tst_QNetworkReply
@@ -8630,8 +8608,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromFtpAfterError
 name|void
 name|tst_QNetworkReply
@@ -8821,8 +8797,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromHttp_data
 name|void
 name|tst_QNetworkReply
@@ -8910,8 +8884,6 @@ operator|+
 literal|"/qtest/bigfile"
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromHttp
 name|void
 name|tst_QNetworkReply
@@ -9113,13 +9085,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY
-end_ifndef
-begin_function
 DECL|function|headFromHttp_data
 name|void
 name|tst_QNetworkReply
@@ -9429,8 +9397,6 @@ name|proxy
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|headFromHttp
 name|void
 name|tst_QNetworkReply
@@ -9743,15 +9709,9 @@ name|contentType
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// !QT_NO_NETWORKPROXY
-end_comment
-begin_function
 DECL|function|getErrors_data
 name|void
 name|tst_QNetworkReply
@@ -10292,8 +10252,6 @@ operator|<<
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getErrors
 name|void
 name|tst_QNetworkReply
@@ -10518,8 +10476,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|md5sum
 specifier|static
 specifier|inline
@@ -10545,8 +10501,6 @@ name|Md5
 argument_list|)
 return|;
 block|}
-end_function
-begin_function
 DECL|function|putToFile_data
 name|void
 name|tst_QNetworkReply
@@ -10734,8 +10688,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToFile
 name|void
 name|tst_QNetworkReply
@@ -10891,8 +10843,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToFtp_data
 name|void
 name|tst_QNetworkReply
@@ -10904,8 +10854,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToFtp
 name|void
 name|tst_QNetworkReply
@@ -11262,8 +11210,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToFtpWithInvalidCredentials
 name|void
 name|tst_QNetworkReply
@@ -11394,8 +11340,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|putToHttp_data
 name|void
 name|tst_QNetworkReply
@@ -11407,8 +11351,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToHttp
 name|void
 name|tst_QNetworkReply
@@ -11592,8 +11534,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToHttpSynchronous_data
 name|void
 name|tst_QNetworkReply
@@ -11610,8 +11550,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToHttpSynchronous
 name|void
 name|tst_QNetworkReply
@@ -11806,8 +11744,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttp_data
 name|void
 name|tst_QNetworkReply
@@ -11819,8 +11755,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttp
 name|void
 name|tst_QNetworkReply
@@ -11951,8 +11885,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttpSynchronous_data
 name|void
 name|tst_QNetworkReply
@@ -11964,8 +11896,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttpSynchronous
 name|void
 name|tst_QNetworkReply
@@ -12107,8 +12037,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttpMultipart_data
 name|void
 name|tst_QNetworkReply
@@ -13409,8 +13337,6 @@ literal|"form-data"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttpMultipart
 name|void
 name|tst_QNetworkReply
@@ -13650,8 +13576,6 @@ name|expectedReplyData
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|multipartSkipIndices
 name|void
 name|tst_QNetworkReply
@@ -13958,8 +13882,6 @@ name|deleteLater
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToHttpMultipart_data
 name|void
 name|tst_QNetworkReply
@@ -13971,8 +13893,6 @@ name|postToHttpMultipart_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToHttpMultipart
 name|void
 name|tst_QNetworkReply
@@ -14217,13 +14137,9 @@ name|expectedReplyData
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
-end_ifndef
-begin_function
 DECL|function|putToHttps_data
 name|void
 name|tst_QNetworkReply
@@ -14240,8 +14156,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToHttps
 name|void
 name|tst_QNetworkReply
@@ -14457,8 +14371,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToHttpsSynchronous_data
 name|void
 name|tst_QNetworkReply
@@ -14475,8 +14387,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putToHttpsSynchronous
 name|void
 name|tst_QNetworkReply
@@ -14703,8 +14613,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttps_data
 name|void
 name|tst_QNetworkReply
@@ -14716,8 +14624,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttps
 name|void
 name|tst_QNetworkReply
@@ -14880,8 +14786,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttpsSynchronous_data
 name|void
 name|tst_QNetworkReply
@@ -14893,8 +14797,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttpsSynchronous
 name|void
 name|tst_QNetworkReply
@@ -15068,8 +14970,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttpsMultipart_data
 name|void
 name|tst_QNetworkReply
@@ -15081,8 +14981,6 @@ name|postToHttpMultipart_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|postToHttpsMultipart
 name|void
 name|tst_QNetworkReply
@@ -15360,15 +15258,9 @@ name|expectedReplyData
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// QT_NO_SSL
-end_comment
-begin_function
 DECL|function|deleteFromHttp_data
 name|void
 name|tst_QNetworkReply
@@ -15535,8 +15427,6 @@ operator|::
 name|ContentNotFoundError
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|deleteFromHttp
 name|void
 name|tst_QNetworkReply
@@ -15627,8 +15517,6 @@ name|resultCode
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putGetDeleteGetFromHttp_data
 name|void
 name|tst_QNetworkReply
@@ -15852,8 +15740,6 @@ operator|::
 name|NoError
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|putGetDeleteGetFromHttp
 name|void
 name|tst_QNetworkReply
@@ -16117,8 +16003,6 @@ name|get2ResultCode
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|connectToIPv6Address_data
 name|void
 name|tst_QNetworkReply
@@ -16200,8 +16084,6 @@ expr_stmt|;
 comment|//QTest::newRow("ipv4localhost")<< QUrl(QByteArray("http://127.0.0.1"))<< QNetworkReply::NoError<< QByteArray("ipv4localhost")<< QByteArray("127.0.0.1");
 comment|//to add more test data here
 block|}
-end_function
-begin_function
 DECL|function|connectToIPv6Address
 name|void
 name|tst_QNetworkReply
@@ -16415,8 +16297,6 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sendCustomRequestToHttp_data
 name|void
 name|tst_QNetworkReply
@@ -16770,8 +16650,6 @@ literal|"098f6bcd4621d373cade4e832627b4f6\n"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sendCustomRequestToHttp
 name|void
 name|tst_QNetworkReply
@@ -16900,8 +16778,6 @@ name|expectedContent
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromData_data
 name|void
 name|tst_QNetworkReply
@@ -16984,8 +16860,6 @@ literal|"Qt is great!"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromData
 name|void
 name|tst_QNetworkReply
@@ -17158,8 +17032,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromFileSpecial_data
 name|void
 name|tst_QNetworkReply
@@ -17171,8 +17043,6 @@ name|getFromFileSpecial_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromFileSpecial
 name|void
 name|tst_QNetworkReply
@@ -17360,8 +17230,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromFile_data
 name|void
 name|tst_QNetworkReply
@@ -17373,8 +17241,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromFile
 name|void
 name|tst_QNetworkReply
@@ -17609,8 +17475,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromFtp_data
 name|void
 name|tst_QNetworkReply
@@ -17675,8 +17539,6 @@ name|size
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromFtp
 name|void
 name|tst_QNetworkReply
@@ -17838,8 +17700,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromFtpWithReuse
 name|void
 name|tst_QNetworkReply
@@ -18114,8 +17974,6 @@ name|referenceData
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttp
 name|void
 name|tst_QNetworkReply
@@ -18284,8 +18142,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithReuseParallel
 name|void
 name|tst_QNetworkReply
@@ -18591,8 +18447,6 @@ name|referenceData
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithReuseSequential
 name|void
 name|tst_QNetworkReply
@@ -18897,8 +18751,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithAuth_data
 name|void
 name|tst_QNetworkReply
@@ -19160,8 +19012,6 @@ operator|<<
 literal|3
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithAuth
 name|void
 name|tst_QNetworkReply
@@ -19849,8 +19699,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithAuthSynchronous
 name|void
 name|tst_QNetworkReply
@@ -19966,13 +19814,9 @@ literal|401
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY
-end_ifndef
-begin_function
 DECL|function|ioGetFromHttpWithProxyAuth
 name|void
 name|tst_QNetworkReply
@@ -20545,8 +20389,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithProxyAuthSynchronous
 name|void
 name|tst_QNetworkReply
@@ -20692,8 +20534,6 @@ literal|407
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithSocksProxy
 name|void
 name|tst_QNetworkReply
@@ -21133,20 +20973,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// !QT_NO_NETWORKPROXY
-end_comment
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
-end_ifndef
-begin_function
 DECL|function|ioGetFromHttpsWithSslErrors
 name|void
 name|tst_QNetworkReply
@@ -21390,8 +21222,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpsWithIgnoreSslErrors
 name|void
 name|tst_QNetworkReply
@@ -21573,8 +21403,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpsWithSslHandshakeError
 name|void
 name|tst_QNetworkReply
@@ -21714,12 +21542,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|ioGetFromHttpBrokenServer_data
 name|void
 name|tst_QNetworkReply
@@ -22057,8 +21881,6 @@ operator|<<
 literal|true
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpBrokenServer
 name|void
 name|tst_QNetworkReply
@@ -22190,8 +22012,6 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpStatus100_data
 name|void
 name|tst_QNetworkReply
@@ -22318,8 +22138,6 @@ operator|<<
 literal|200
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpStatus100
 name|void
 name|tst_QNetworkReply
@@ -22454,8 +22272,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpNoHeaders_data
 name|void
 name|tst_QNetworkReply
@@ -22486,8 +22302,6 @@ literal|"HTTP/1.0 200 OK\r\n\r\n"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpNoHeaders
 name|void
 name|tst_QNetworkReply
@@ -22602,8 +22416,6 @@ literal|200
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithCache_data
 name|void
 name|tst_QNetworkReply
@@ -23636,8 +23448,6 @@ operator|<<
 literal|true
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromHttpWithCache
 name|void
 name|tst_QNetworkReply
@@ -23901,13 +23711,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY
-end_ifndef
-begin_function
 DECL|function|ioGetWithManyProxies_data
 name|void
 name|tst_QNetworkReply
@@ -25129,8 +24935,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|ioGetWithManyProxies
 name|void
 name|tst_QNetworkReply
@@ -25562,15 +25366,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// !QT_NO_NETWORKPROXY
-end_comment
-begin_function
 DECL|function|ioPutToFileFromFile_data
 name|void
 name|tst_QNetworkReply
@@ -25633,8 +25431,6 @@ operator|<<
 literal|"testdata:/rfc3252.txt"
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPutToFileFromFile
 name|void
 name|tst_QNetworkReply
@@ -25829,8 +25625,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPutToFileFromSocket_data
 name|void
 name|tst_QNetworkReply
@@ -25842,8 +25636,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPutToFileFromSocket
 name|void
 name|tst_QNetworkReply
@@ -26062,8 +25854,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPutToFileFromLocalSocket_data
 name|void
 name|tst_QNetworkReply
@@ -26075,8 +25865,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPutToFileFromLocalSocket
 name|void
 name|tst_QNetworkReply
@@ -26417,11 +26205,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Currently no stdin/out supported for Windows CE.
-end_comment
-begin_function
 DECL|function|ioPutToFileFromProcess_data
 name|void
 name|tst_QNetworkReply
@@ -26438,8 +26222,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|ioPutToFileFromProcess
 name|void
 name|tst_QNetworkReply
@@ -26725,8 +26507,6 @@ endif|#
 directive|endif
 comment|// QT_NO_PROCESS
 block|}
-end_function
-begin_function
 DECL|function|ioPutToFtpFromFile_data
 name|void
 name|tst_QNetworkReply
@@ -26738,8 +26518,6 @@ name|ioPutToFileFromFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPutToFtpFromFile
 name|void
 name|tst_QNetworkReply
@@ -27092,8 +26870,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPutToHttpFromFile_data
 name|void
 name|tst_QNetworkReply
@@ -27105,8 +26881,6 @@ name|ioPutToFileFromFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPutToHttpFromFile
 name|void
 name|tst_QNetworkReply
@@ -27347,8 +27121,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpFromFile_data
 name|void
 name|tst_QNetworkReply
@@ -27360,8 +27132,6 @@ name|ioPutToFileFromFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpFromFile
 name|void
 name|tst_QNetworkReply
@@ -27530,13 +27300,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY
-end_ifndef
-begin_function
 DECL|function|ioPostToHttpFromSocket_data
 name|void
 name|tst_QNetworkReply
@@ -27903,8 +27669,6 @@ name|proxyauthcount
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpFromSocket
 name|void
 name|tst_QNetworkReply
@@ -28298,8 +28062,6 @@ literal|"proxyAuthenticationRequiredCount"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpFromSocketSynchronous_data
 name|void
 name|tst_QNetworkReply
@@ -28487,8 +28249,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpFromSocketSynchronous
 name|void
 name|tst_QNetworkReply
@@ -28697,21 +28457,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// !QT_NO_NETWORKPROXY
-end_comment
-begin_comment
 comment|// this tests checks if rewinding the POST-data to some place in the middle
-end_comment
-begin_comment
 comment|// worked.
-end_comment
-begin_function
 DECL|function|ioPostToHttpFromMiddleOfFileToEnd
 name|void
 name|tst_QNetworkReply
@@ -28911,8 +28661,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpFromMiddleOfFileFiveBytes
 name|void
 name|tst_QNetworkReply
@@ -29141,8 +28889,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpFromMiddleOfQBufferFiveBytes
 name|void
 name|tst_QNetworkReply
@@ -29334,8 +29080,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpNoBufferFlag
 name|void
 name|tst_QNetworkReply
@@ -29546,13 +29290,9 @@ name|ContentReSendError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
-end_ifndef
-begin_class
 DECL|class|SslServer
 class|class
 name|SslServer
@@ -29755,20 +29495,20 @@ block|}
 signals|signals:
 name|void
 name|newEncryptedConnection
-parameter_list|(
+argument_list|(
 name|QSslSocket
-modifier|*
+operator|*
 name|s
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 name|void
 name|newPlainConnection
-parameter_list|(
+argument_list|(
 name|QSslSocket
-modifier|*
+operator|*
 name|s
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 public|public
 name|slots
 public|:
@@ -29813,11 +29553,7 @@ name|m_ssl
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_comment
 comment|// very similar to ioPostToHttpUploadProgress but for SSL
-end_comment
-begin_function
 DECL|function|ioPostToHttpsUploadProgress
 name|void
 name|tst_QNetworkReply
@@ -30262,12 +29998,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|ioGetFromBuiltinHttp_data
 name|void
 name|tst_QNetworkReply
@@ -30345,8 +30077,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|ioGetFromBuiltinHttp
 name|void
 name|tst_QNetworkReply
@@ -30867,8 +30597,6 @@ comment|//QEXPECT_FAIL("https+limited", "Limiting is broken right now, check QTB
 comment|//QVERIFY(server.transferRate>= minRate&& server.transferRate<= maxRate);
 block|}
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpUploadProgress
 name|void
 name|tst_QNetworkReply
@@ -31357,8 +31085,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|emitAllUploadProgressSignals
 name|void
 name|tst_QNetworkReply
@@ -31708,8 +31434,6 @@ literal|"no upload signal was suppressed"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioPostToHttpEmptyUploadProgress
 name|void
 name|tst_QNetworkReply
@@ -32046,8 +31770,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|lastModifiedHeaderForFile
 name|void
 name|tst_QNetworkReply
@@ -32142,8 +31864,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|lastModifiedHeaderForHttp
 name|void
 name|tst_QNetworkReply
@@ -32242,8 +31962,6 @@ name|realDate
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|httpCanReadLine
 name|void
 name|tst_QNetworkReply
@@ -32335,13 +32053,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|rateControl_data
 name|void
 name|tst_QNetworkReply
@@ -32423,17 +32137,11 @@ operator|<<
 literal|1024
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|rateControl
 name|void
 name|tst_QNetworkReply
@@ -32713,12 +32421,8 @@ name|maxRate
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|downloadProgress_data
 name|void
 name|tst_QNetworkReply
@@ -32872,8 +32576,6 @@ operator|<<
 literal|519240
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|SlowReader
 class|class
 name|SlowReader
@@ -32959,8 +32661,6 @@ name|device
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|downloadProgress
 name|void
 name|tst_QNetworkReply
@@ -33248,13 +32948,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|uploadProgress_data
 name|void
 name|tst_QNetworkReply
@@ -33266,17 +32962,11 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|uploadProgress
 name|void
 name|tst_QNetworkReply
@@ -33521,12 +33211,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 DECL|function|chaining_data
 name|void
 name|tst_QNetworkReply
@@ -33538,8 +33224,6 @@ name|putToFile_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|chaining
 name|void
 name|tst_QNetworkReply
@@ -33854,8 +33538,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|receiveCookiesFromHttp_data
 name|void
 name|tst_QNetworkReply
@@ -34165,8 +33847,6 @@ operator|<<
 name|jar
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|receiveCookiesFromHttp
 name|void
 name|tst_QNetworkReply
@@ -34320,8 +34000,6 @@ literal|"expectedCookiesInJar"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|receiveCookiesFromHttpSynchronous_data
 name|void
 name|tst_QNetworkReply
@@ -34335,8 +34013,6 @@ name|receiveCookiesFromHttp_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|receiveCookiesFromHttpSynchronous
 name|void
 name|tst_QNetworkReply
@@ -34501,8 +34177,6 @@ literal|"expectedCookiesInJar"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sendCookies_data
 name|void
 name|tst_QNetworkReply
@@ -34745,8 +34419,6 @@ operator|<<
 literal|"a=b"
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sendCookies
 name|void
 name|tst_QNetworkReply
@@ -34873,8 +34545,6 @@ name|expectedCookieString
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sendCookiesSynchronous_data
 name|void
 name|tst_QNetworkReply
@@ -34888,8 +34558,6 @@ name|sendCookies_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sendCookiesSynchronous
 name|void
 name|tst_QNetworkReply
@@ -35027,8 +34695,6 @@ name|expectedCookieString
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|nestedEventLoops_slot
 name|void
 name|tst_QNetworkReply
@@ -35070,8 +34736,6 @@ name|exitLoop
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|nestedEventLoops
 name|void
 name|tst_QNetworkReply
@@ -35217,13 +34881,9 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY
-end_ifndef
-begin_function
 DECL|function|httpProxyCommands_data
 name|void
 name|tst_QNetworkReply
@@ -35305,8 +34965,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
 DECL|function|httpProxyCommands
 name|void
 name|tst_QNetworkReply
@@ -35486,8 +35144,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|ProxyChangeHelper
 class|class
 name|ProxyChangeHelper
@@ -35552,8 +35208,6 @@ name|signalCount
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|httpProxyCommandsSynchronous_data
 name|void
 name|tst_QNetworkReply
@@ -35565,15 +35219,9 @@ name|httpProxyCommands_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// !QT_NO_NETWORKPROXY
-end_comment
-begin_struct
 DECL|struct|QThreadCleanup
 struct|struct
 name|QThreadCleanup
@@ -35615,8 +35263,6 @@ expr_stmt|;
 block|}
 block|}
 struct|;
-end_struct
-begin_struct
 DECL|struct|QDeleteLaterCleanup
 struct|struct
 name|QDeleteLaterCleanup
@@ -35640,13 +35286,9 @@ expr_stmt|;
 block|}
 block|}
 struct|;
-end_struct
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY
-end_ifndef
-begin_function
 DECL|function|httpProxyCommandsSynchronous
 name|void
 name|tst_QNetworkReply
@@ -35807,8 +35449,6 @@ name|expectedCommand
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|proxyChange
 name|void
 name|tst_QNetworkReply
@@ -36099,15 +35739,9 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// !QT_NO_NETWORKPROXY
-end_comment
-begin_function
 DECL|function|authorizationError_data
 name|void
 name|tst_QNetworkReply
@@ -36238,8 +35872,6 @@ operator|<<
 literal|"authorization required"
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|authorizationError
 name|void
 name|tst_QNetworkReply
@@ -36451,8 +36083,6 @@ name|httpBody
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|httpConnectionCount
 name|void
 name|tst_QNetworkReply
@@ -36627,8 +36257,6 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|httpReUsingConnectionSequential_data
 name|void
 name|tst_QNetworkReply
@@ -36665,8 +36293,6 @@ operator|<<
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|httpReUsingConnectionSequential
 name|void
 name|tst_QNetworkReply
@@ -36940,8 +36566,6 @@ name|deleteLater
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|HttpReUsingConnectionFromFinishedSlot
 class|class
 name|HttpReUsingConnectionFromFinishedSlot
@@ -37054,8 +36678,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|httpReUsingConnectionFromFinishedSlot_data
 name|void
 name|tst_QNetworkReply
@@ -37067,8 +36689,6 @@ name|httpReUsingConnectionSequential_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|httpReUsingConnectionFromFinishedSlot
 name|void
 name|tst_QNetworkReply
@@ -37246,8 +36866,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|HttpRecursiveCreationHelper
 class|class
 name|HttpRecursiveCreationHelper
@@ -37513,8 +37131,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|httpRecursiveCreation
 name|void
 name|tst_QNetworkReply
@@ -37555,13 +37171,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
-end_ifndef
-begin_function
 DECL|function|ignoreSslErrorsList_data
 name|void
 name|tst_QNetworkReply
@@ -37783,8 +37395,6 @@ operator|::
 name|SslHandshakeFailedError
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ignoreSslErrorsList
 name|void
 name|tst_QNetworkReply
@@ -37863,8 +37473,6 @@ name|expectedNetworkError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ignoreSslErrorsListWithSlot_data
 name|void
 name|tst_QNetworkReply
@@ -37876,11 +37484,7 @@ name|ignoreSslErrorsList_data
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// this is not a test, just a slot called in the test below
-end_comment
-begin_function
 DECL|function|ignoreSslErrorListSlot
 name|void
 name|tst_QNetworkReply
@@ -37907,11 +37511,7 @@ name|storedExpectedSslErrors
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// do the same as in ignoreSslErrorsList, but ignore the errors in the slot
-end_comment
-begin_function
 DECL|function|ignoreSslErrorsListWithSlot
 name|void
 name|tst_QNetworkReply
@@ -38024,8 +37624,6 @@ name|expectedNetworkError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sslConfiguration_data
 name|void
 name|tst_QNetworkReply
@@ -38139,8 +37737,6 @@ operator|<<
 literal|true
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|encrypted
 name|void
 name|tst_QNetworkReply
@@ -38262,8 +37858,6 @@ name|deleteLater
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sslConfiguration
 name|void
 name|tst_QNetworkReply
@@ -38355,13 +37949,9 @@ name|expectedError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|sslSessionSharing_data
 name|void
 name|tst_QNetworkReply
@@ -38398,8 +37988,6 @@ operator|<<
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sslSessionSharing
 name|void
 name|tst_QNetworkReply
@@ -38657,8 +38245,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sslSessionSharingHelperSlot
 name|void
 name|tst_QNetworkReply
@@ -38793,8 +38379,6 @@ expr_stmt|;
 comment|// reset for next row
 block|}
 block|}
-end_function
-begin_function
 DECL|function|sslSessionSharingFromPersistentSession_data
 name|void
 name|tst_QNetworkReply
@@ -38831,8 +38415,6 @@ operator|<<
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|sslSessionSharingFromPersistentSession
 name|void
 name|tst_QNetworkReply
@@ -39188,22 +38770,12 @@ name|sslSessionSharingWasUsedInReply
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// QT_BUILD_INTERNAL
-end_comment
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// QT_NO_SSL
-end_comment
-begin_function
 DECL|function|getAndThenDeleteObject_data
 name|void
 name|tst_QNetworkReply
@@ -39240,8 +38812,6 @@ operator|<<
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getAndThenDeleteObject
 name|void
 name|tst_QNetworkReply
@@ -39407,11 +38977,7 @@ name|reply
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|// see https://bugs.webkit.org/show_bug.cgi?id=38935
-end_comment
-begin_function
 DECL|function|symbianOpenCDataUrlCrash
 name|void
 name|tst_QNetworkReply
@@ -39504,8 +39070,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromHttpIntoBuffer_data
 name|void
 name|tst_QNetworkReply
@@ -39543,11 +39107,7 @@ literal|"/qtest/rfc3252.txt"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Please note that the whole "zero copy" download buffer API is private right now. Do not use it.
-end_comment
-begin_function
 DECL|function|getFromHttpIntoBuffer
 name|void
 name|tst_QNetworkReply
@@ -39880,11 +39440,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// FIXME we really need to consolidate all those server implementations
-end_comment
-begin_class
 DECL|class|GetFromHttpIntoBuffer2Server
 class|class
 name|GetFromHttpIntoBuffer2Server
@@ -40312,8 +39868,6 @@ block|}
 block|}
 block|}
 class|;
-end_class
-begin_class
 DECL|class|GetFromHttpIntoBuffer2Client
 class|class
 name|GetFromHttpIntoBuffer2Client
@@ -40596,8 +40150,6 @@ expr_stmt|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|getFromHttpIntoBuffer2_data
 name|void
 name|tst_QNetworkReply
@@ -40634,14 +40186,8 @@ operator|<<
 literal|false
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// This test checks mostly that signal emissions are in correct order
-end_comment
-begin_comment
 comment|// Please note that the whole "zero copy" download buffer API is private right now. Do not use it.
-end_comment
-begin_function
 DECL|function|getFromHttpIntoBuffer2
 name|void
 name|tst_QNetworkReply
@@ -40832,8 +40378,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|getFromHttpIntoBufferCanReadLine
 name|void
 name|tst_QNetworkReply
@@ -41013,11 +40557,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Is handled somewhere else too, introduced this special test to have it more accessible
-end_comment
-begin_function
 DECL|function|ioGetFromHttpWithoutContentLength
 name|void
 name|tst_QNetworkReply
@@ -41122,11 +40662,7 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Is handled somewhere else too, introduced this special test to have it more accessible
-end_comment
-begin_function
 DECL|function|ioGetFromHttpBrokenChunkedEncoding
 name|void
 name|tst_QNetworkReply
@@ -41269,20 +40805,10 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// TODO:
-end_comment
-begin_comment
 comment|// Prepare a gzip that has one chunk that expands to the size mentioned in the bugreport.
-end_comment
-begin_comment
 comment|// Then have a custom HTTP server that waits after this chunk so the returning gets
-end_comment
-begin_comment
 comment|// triggered.
-end_comment
-begin_function
 DECL|function|qtbug12908compressedHttpReply
 name|void
 name|tst_QNetworkReply
@@ -41429,8 +40955,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|compressedHttpReplyBrokenGzip
 name|void
 name|tst_QNetworkReply
@@ -41548,11 +41072,7 @@ name|ProtocolFailure
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// TODO add similar test for FTP
-end_comment
-begin_function
 DECL|function|getFromUnreachableIp
 name|void
 name|tst_QNetworkReply
@@ -41609,8 +41129,6 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|qtbug4121unknownAuthentication
 name|void
 name|tst_QNetworkReply
@@ -41812,13 +41330,9 @@ name|AuthenticationRequiredError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY
-end_ifndef
-begin_function
 DECL|function|authenticationCacheAfterCancel_data
 name|void
 name|tst_QNetworkReply
@@ -41973,8 +41487,6 @@ endif|#
 directive|endif
 block|}
 block|}
-end_function
-begin_class
 DECL|class|AuthenticationCacheHelper
 class|class
 name|AuthenticationCacheHelper
@@ -42107,11 +41619,7 @@ name|proxyPassword
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_comment
 comment|/* Purpose of this test is to check credentials are cached correctly.  - If user cancels authentication dialog (i.e. nothing is set to the QAuthenticator by the callback) then this is not cached  - if user supplies a wrong password, then this is not cached  - if user supplies a correct user/password combination then this is cached   Test is checking both the proxyAuthenticationRequired and authenticationRequired signals.  */
-end_comment
-begin_function
 DECL|function|authenticationCacheAfterCancel
 name|void
 name|tst_QNetworkReply
@@ -43045,8 +42553,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|authenticationWithDifferentRealm
 name|void
 name|tst_QNetworkReply
@@ -43363,15 +42869,9 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// !QT_NO_NETWORKPROXY
-end_comment
-begin_class
 DECL|class|QtBug13431Helper
 class|class
 name|QtBug13431Helper
@@ -43486,8 +42986,6 @@ block|}
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|qtbug13431replyThrottling
 name|void
 name|tst_QNetworkReply
@@ -43655,8 +43153,6 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|httpWithNoCredentialUsage
 name|void
 name|tst_QNetworkReply
@@ -43999,8 +43495,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|qtbug15311doubleContentLength
 name|void
 name|tst_QNetworkReply
@@ -44153,8 +43647,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|qtbug18232gzipContentLengthZero
 name|void
 name|tst_QNetworkReply
@@ -44290,14 +43782,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// Reproduced a crash in QHttpNetworkReplyPrivate::gunzipBodyPartiallyEnd
-end_comment
-begin_comment
 comment|// where zlib inflateEnd was called for uninitialized zlib stream
-end_comment
-begin_function
 DECL|function|qtbug22660gzipNoContentLengthEmptyContent
 name|void
 name|tst_QNetworkReply
@@ -44430,8 +43916,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_class
 DECL|class|QtBug27161Helper
 class|class
 name|QtBug27161Helper
@@ -44623,8 +44107,6 @@ name|m_Timer
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|qtbug27161httpHeaderMayBeDamaged_data
 name|void
 name|tst_QNetworkReply
@@ -44722,11 +44204,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|/*  * Purpose of this test is to check whether a content from server is parsed correctly  * if it is split into two parts.  */
-end_comment
-begin_function
 DECL|function|qtbug27161httpHeaderMayBeDamaged
 name|void
 name|tst_QNetworkReply
@@ -44910,8 +44388,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|qtbug28035browserDoesNotLoadQtProjectOrgCorrectly
 name|void
 name|tst_QNetworkReply
@@ -45702,8 +45178,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|qtbug45581WrongReplyStatusCode
 name|void
 name|tst_QNetworkReply
@@ -45892,8 +45366,6 @@ name|deleteLater
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|synchronousRequest_data
 name|void
 name|tst_QNetworkReply
@@ -46115,11 +45587,7 @@ name|QString
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|// FIXME add testcase for failing network etc
-end_comment
-begin_function
 DECL|function|synchronousRequest
 name|void
 name|tst_QNetworkReply
@@ -46438,13 +45906,9 @@ name|deleteLater
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
-end_ifndef
-begin_function
 DECL|function|synchronousRequestSslFailure
 name|void
 name|tst_QNetworkReply
@@ -46553,12 +46017,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_class
 DECL|class|HttpAbortHelper
 class|class
 name|HttpAbortHelper
@@ -46649,8 +46109,6 @@ name|mReply
 decl_stmt|;
 block|}
 class|;
-end_class
-begin_function
 DECL|function|httpAbort
 name|void
 name|tst_QNetworkReply
@@ -46860,8 +46318,6 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|dontInsertPartialContentIntoTheCache
 name|void
 name|tst_QNetworkReply
@@ -47002,8 +46458,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|httpUserAgent
 name|void
 name|tst_QNetworkReply
@@ -47118,8 +46572,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|synchronousAuthenticationCache
 name|void
 name|tst_QNetworkReply
@@ -47498,8 +46950,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|pipelining
 name|void
 name|tst_QNetworkReply
@@ -47631,8 +47081,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|pipeliningHelperSlot
 name|void
 name|tst_QNetworkReply
@@ -47747,8 +47195,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|emitErrorForAllRepliesSlot
 name|void
 name|tst_QNetworkReply
@@ -47778,8 +47224,6 @@ name|exitLoop
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|closeDuringDownload_data
 name|void
 name|tst_QNetworkReply
@@ -47836,8 +47280,6 @@ literal|"/qtest/bigfile"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|closeDuringDownload
 name|void
 name|tst_QNetworkReply
@@ -47956,8 +47398,6 @@ argument_list|)
 expr_stmt|;
 comment|//cancelling ftp takes some time, this avoids a warning caused by test's cleanup() destroying the connection cache before the abort is finished
 block|}
-end_function
-begin_function
 DECL|function|ftpAuthentication_data
 name|void
 name|tst_QNetworkReply
@@ -48054,8 +47494,6 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ftpAuthentication
 name|void
 name|tst_QNetworkReply
@@ -48151,8 +47589,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|emitErrorForAllReplies
 name|void
 name|tst_QNetworkReply
@@ -48442,13 +47878,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|backgroundRequest_data
 name|void
 name|tst_QNetworkReply
@@ -48803,20 +48235,12 @@ operator|::
 name|BackgroundRequestNotAllowedError
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|//test purpose: background requests can't be started when not allowed
-end_comment
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|backgroundRequest
 name|void
 name|tst_QNetworkReply
@@ -49055,17 +48479,11 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|backgroundRequestInterruption_data
 name|void
 name|tst_QNetworkReply
@@ -49240,20 +48658,12 @@ operator|::
 name|BackgroundRequestNotAllowedError
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|//test purpose: background requests in progress are aborted when policy changes to disallow them
-end_comment
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|backgroundRequestInterruption
 name|void
 name|tst_QNetworkReply
@@ -49579,17 +48989,11 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|backgroundRequestConnectInBackground_data
 name|void
 name|tst_QNetworkReply
@@ -49686,20 +49090,12 @@ operator|<<
 literal|true
 expr_stmt|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|//test purpose: check that backgroundness is propagated to the network session
-end_comment
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-end_ifdef
-begin_function
 DECL|function|backgroundRequestConnectInBackground
 name|void
 name|tst_QNetworkReply
@@ -49974,12 +49370,8 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_class
 DECL|class|RateLimitedUploadDevice
 class|class
 name|RateLimitedUploadDevice
@@ -50296,8 +49688,6 @@ emit|;
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|putWithRateLimiting
 name|void
 name|tst_QNetworkReply
@@ -50457,8 +49847,6 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioHttpSingleRedirect
 name|void
 name|tst_QNetworkReply
@@ -50699,8 +50087,6 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioHttpChangeMaxRedirects
 name|void
 name|tst_QNetworkReply
@@ -51029,8 +50415,6 @@ name|NoError
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioHttpRedirectErrors_data
 name|void
 name|tst_QNetworkReply
@@ -51133,8 +50517,6 @@ operator|::
 name|ProtocolUnknownError
 expr_stmt|;
 block|}
-end_function
-begin_function
 DECL|function|ioHttpRedirectErrors
 name|void
 name|tst_QNetworkReply
@@ -51320,13 +50702,9 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
-end_ifndef
-begin_class
 DECL|class|PutWithServerClosingConnectionImmediatelyHandler
 class|class
 name|PutWithServerClosingConnectionImmediatelyHandler
@@ -51585,8 +50963,6 @@ block|}
 block|}
 block|}
 class|;
-end_class
-begin_class
 DECL|class|PutWithServerClosingConnectionImmediatelyServer
 class|class
 name|PutWithServerClosingConnectionImmediatelyServer
@@ -51817,8 +51193,6 @@ block|}
 block|}
 block|}
 class|;
-end_class
-begin_function
 DECL|function|putWithServerClosingConnectionImmediately
 name|void
 name|tst_QNetworkReply
@@ -52113,15 +51487,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// NOTE: This test must be last testcase in tst_qnetworkreply!
-end_comment
-begin_function
 DECL|function|parentingRepliesToTheApp
 name|void
 name|tst_QNetworkReply
@@ -52170,13 +51538,11 @@ argument_list|)
 expr_stmt|;
 comment|// parent to the app
 block|}
-end_function
-begin_macro
 name|QTEST_MAIN
 argument_list|(
 argument|tst_QNetworkReply
 argument_list|)
-end_macro
+end_class
 begin_include
 include|#
 directive|include
