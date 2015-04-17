@@ -346,7 +346,7 @@ begin_comment
 comment|/*!     \fn QPointF::QPointF(qreal xpos, qreal ypos)      Constructs a point with the given coordinates (\a xpos, \a ypos).      \sa setX(), setY() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPointF::isNull() const      Returns \c true if both the x and y coordinates are set to +0.0;     otherwise returns \c false.      \note Since this function treats +0.0 and -0.0 differently, points     with zero-valued coordinates where either or both values have a     negative sign are not defined to be null points. */
+comment|/*!     \fn bool QPointF::isNull() const      Returns \c true if both the x and y coordinates are set to 0.0 (ignoring     the sign); otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \fn qreal QPointF::manhattanLength() const     \since 4.6      Returns the sum of the absolute values of x() and y(),     traditionally known as the "Manhattan length" of the vector from     the origin to the point.      \sa QPoint::manhattanLength() */
