@@ -501,6 +501,16 @@ return|return
 name|qmlTypeContext_
 return|;
 block|}
+specifier|static
+name|QString
+name|cleanRef
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|ref
+parameter_list|)
+function_decl|;
 name|protected
 label|:
 name|virtual

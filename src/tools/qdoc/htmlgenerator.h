@@ -169,16 +169,6 @@ argument_list|)
 block|;
 specifier|static
 name|QString
-name|cleanRef
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|ref
-argument_list|)
-block|;
-specifier|static
-name|QString
 name|sinceTitle
 argument_list|(
 argument|int i
