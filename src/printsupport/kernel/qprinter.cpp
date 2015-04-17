@@ -3488,7 +3488,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete Use pageLayout().paintRect() instead.      Returns the page's rectangle; this is usually smaller than the     paperRect() since the page normally has margins between its     borders and the paper.      The unit of the returned rectangle is DevicePixel.      \sa pageLayout() */
+comment|/*!     \obsolete Use pageLayout().paintRectPixels(resolution()) instead.      Returns the page's rectangle; this is usually smaller than the     paperRect() since the page normally has margins between its     borders and the paper.      The unit of the returned rectangle is DevicePixel.      \sa pageLayout() */
 end_comment
 begin_function
 DECL|function|pageRect
@@ -3523,7 +3523,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete Use pageLayout().fullPageRect() instead.      Returns the paper's rectangle; this is usually larger than the     pageRect().      The unit of the returned rectangle is DevicePixel.      \sa pageLayout() */
+comment|/*!     \obsolete Use pageLayout().fullRectPixels(resolution()) instead.      Returns the paper's rectangle; this is usually larger than the     pageRect().      The unit of the returned rectangle is DevicePixel.      \sa pageLayout() */
 end_comment
 begin_function
 DECL|function|paperRect
