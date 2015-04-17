@@ -1351,6 +1351,7 @@ name|const_iterator
 name|begin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1366,6 +1367,7 @@ name|const_iterator
 name|cbegin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1381,6 +1383,7 @@ name|const_iterator
 name|constBegin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1413,6 +1416,7 @@ name|const_iterator
 name|end
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1428,6 +1432,7 @@ name|const_iterator
 name|cend
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1443,6 +1448,7 @@ name|const_iterator
 name|constEnd
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1489,6 +1495,7 @@ name|const_iterator
 argument_list|()
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1509,6 +1516,7 @@ name|const_iterator
 argument_list|()
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1529,6 +1537,7 @@ name|const_iterator
 argument_list|()
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1571,6 +1580,7 @@ name|const_iterator
 argument_list|()
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1591,6 +1601,7 @@ name|const_iterator
 argument_list|()
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1611,6 +1622,7 @@ name|const_iterator
 argument_list|()
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1657,6 +1669,7 @@ name|const_reverse_iterator
 name|rbegin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_reverse_iterator
@@ -1672,6 +1685,7 @@ name|const_reverse_iterator
 name|rend
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_reverse_iterator
@@ -1687,6 +1701,7 @@ name|const_reverse_iterator
 name|crbegin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_reverse_iterator
@@ -1702,6 +1717,7 @@ name|const_reverse_iterator
 name|crend
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_reverse_iterator
