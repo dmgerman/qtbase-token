@@ -411,12 +411,12 @@ name|int
 name|to
 parameter_list|)
 function_decl|;
-DECL|function|size
 specifier|inline
 name|int
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -428,12 +428,12 @@ operator|->
 name|begin
 return|;
 block|}
-DECL|function|isEmpty
 specifier|inline
 name|bool
 name|isEmpty
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -445,7 +445,6 @@ operator|->
 name|begin
 return|;
 block|}
-DECL|function|at
 specifier|inline
 name|void
 modifier|*
@@ -456,6 +455,7 @@ name|int
 name|i
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -469,7 +469,6 @@ operator|+
 name|i
 return|;
 block|}
-DECL|function|begin
 specifier|inline
 name|void
 operator|*
@@ -477,6 +476,7 @@ operator|*
 name|begin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -488,7 +488,6 @@ operator|->
 name|begin
 return|;
 block|}
-DECL|function|end
 specifier|inline
 name|void
 operator|*
@@ -496,6 +495,7 @@ operator|*
 name|end
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -921,12 +921,12 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|size
 specifier|inline
 name|int
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|p
@@ -1083,6 +1083,7 @@ operator|&
 name|other
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|d
@@ -1094,12 +1095,12 @@ return|;
 block|}
 end_decl_stmt
 begin_expr_stmt
-DECL|function|isEmpty
 specifier|inline
 name|bool
 name|isEmpty
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|p
@@ -1402,19 +1403,19 @@ typedef|;
 specifier|inline
 name|iterator
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 specifier|inline
 name|iterator
 argument_list|(
-name|Node
-operator|*
-name|n
+argument|Node *n
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -1438,11 +1439,9 @@ comment|// which changes the way it's passed to functions by value.
 specifier|inline
 name|iterator
 argument_list|(
-specifier|const
-name|iterator
-operator|&
-name|o
+argument|const iterator&o
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -1520,6 +1519,7 @@ operator|&
 name|o
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1542,6 +1542,7 @@ operator|&
 name|o
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1564,6 +1565,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1586,6 +1588,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1608,6 +1611,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1630,6 +1634,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1657,6 +1662,7 @@ operator|&
 name|o
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1679,6 +1685,7 @@ operator|&
 name|o
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1701,6 +1708,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1723,6 +1731,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1745,6 +1754,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -1767,6 +1777,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -2017,19 +2028,19 @@ typedef|;
 specifier|inline
 name|const_iterator
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 specifier|inline
 name|const_iterator
 argument_list|(
-name|Node
-operator|*
-name|n
+argument|Node *n
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -2053,11 +2064,9 @@ comment|// which changes the way it's passed to functions by value.
 specifier|inline
 name|const_iterator
 argument_list|(
-specifier|const
-name|const_iterator
-operator|&
-name|o
+argument|const const_iterator&o
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -2073,11 +2082,9 @@ specifier|inline
 name|explicit
 name|const_iterator
 argument_list|(
-specifier|const
-name|iterator
-operator|&
-name|o
+argument|const iterator&o
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -2089,11 +2096,9 @@ directive|else
 specifier|inline
 name|const_iterator
 argument_list|(
-specifier|const
-name|iterator
-operator|&
-name|o
+argument|const iterator&o
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|i
 argument_list|(
@@ -2174,6 +2179,7 @@ operator|&
 name|o
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -2196,6 +2202,7 @@ operator|&
 name|o
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -2218,6 +2225,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -2240,6 +2248,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -2262,6 +2271,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -2284,6 +2294,7 @@ operator|&
 name|other
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|i
@@ -2545,6 +2556,7 @@ name|const_iterator
 name|begin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|reinterpret_cast
@@ -2567,6 +2579,7 @@ name|const_iterator
 name|cbegin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|reinterpret_cast
@@ -2589,6 +2602,7 @@ name|const_iterator
 name|constBegin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|reinterpret_cast
@@ -2635,6 +2649,7 @@ name|const_iterator
 name|end
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|reinterpret_cast
@@ -2657,6 +2672,7 @@ name|const_iterator
 name|cend
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|reinterpret_cast
@@ -2679,6 +2695,7 @@ name|const_iterator
 name|constEnd
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|reinterpret_cast
@@ -2728,6 +2745,7 @@ name|const_reverse_iterator
 name|rbegin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_reverse_iterator
@@ -2743,6 +2761,7 @@ name|const_reverse_iterator
 name|rend
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_reverse_iterator
@@ -2758,6 +2777,7 @@ name|const_reverse_iterator
 name|crbegin
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_reverse_iterator
@@ -2773,6 +2793,7 @@ name|const_reverse_iterator
 name|crend
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|const_reverse_iterator
@@ -3697,6 +3718,7 @@ operator|&
 name|i
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
