@@ -649,16 +649,7 @@ operator|:
 name|void
 name|aboutToQuit
 argument_list|(
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_QDOC
-argument_list|)
 name|QPrivateSignal
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|void

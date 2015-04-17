@@ -642,16 +642,7 @@ begin_function_decl
 name|void
 name|timeout
 parameter_list|(
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_QDOC
-argument_list|)
 name|QPrivateSignal
-endif|#
-directive|endif
 parameter_list|)
 function_decl|;
 end_function_decl

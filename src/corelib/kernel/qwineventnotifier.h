@@ -127,17 +127,8 @@ name|activated
 parameter_list|(
 name|HANDLE
 name|hEvent
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_QDOC
-argument_list|)
 parameter_list|,
 name|QPrivateSignal
-endif|#
-directive|endif
 parameter_list|)
 function_decl|;
 end_function_decl
