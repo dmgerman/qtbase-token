@@ -153,6 +153,10 @@ block|,
 name|SslOptionDisableSessionPersistence
 init|=
 literal|0x40
+block|,
+name|SslOptionDisableServerCipherPreference
+init|=
+literal|0x80
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
