@@ -28,9 +28,8 @@ name|QT_BEGIN_NAMESPACE
 name|class
 name|QRgba64
 block|{
-union|union
-block|{
 struct|struct
+name|qrgba_t
 block|{
 name|quint16
 name|red
@@ -45,8 +44,13 @@ name|quint16
 name|alpha
 decl_stmt|;
 block|}
-name|c
 struct|;
+union|union
+block|{
+name|struct
+name|qrgba_t
+name|c
+decl_stmt|;
 name|quint64
 name|rgba
 decl_stmt|;
