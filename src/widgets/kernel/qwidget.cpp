@@ -17455,10 +17455,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QFontMetrics QWidget::fontMetrics() const      Returns the font metrics for the widget's current font.     Equivalent to QFontMetrics(widget->font()).      \sa font(), fontInfo(), setFont() */
+comment|/*!     \fn QFontMetrics QWidget::fontMetrics() const      Returns the font metrics for the widget's current font.     Equivalent to \c QFontMetrics(widget->font()).      \sa font(), fontInfo(), setFont() */
 end_comment
 begin_comment
-comment|/*!     \fn QFontInfo QWidget::fontInfo() const      Returns the font info for the widget's current font.     Equivalent to QFontInto(widget->font()).      \sa font(), fontMetrics(), setFont() */
+comment|/*!     \fn QFontInfo QWidget::fontInfo() const      Returns the font info for the widget's current font.     Equivalent to \c QFontInfo(widget->font()).      \sa font(), fontMetrics(), setFont() */
 end_comment
 begin_comment
 comment|/*!     \property QWidget::cursor     \brief the cursor shape for this widget      The mouse cursor will assume this shape when it's over this     widget. See the \l{Qt::CursorShape}{list of predefined cursor objects} for a range of useful shapes.      An editor widget might use an I-beam cursor:     \snippet code/src_gui_kernel_qwidget.cpp 6      If no cursor has been set, or after a call to unsetCursor(), the     parent's cursor is used.      By default, this property contains a cursor with the Qt::ArrowCursor     shape.      Some underlying window implementations will reset the cursor if it     leaves a widget even if the mouse is grabbed. If you want to have     a cursor set for all widgets, even when outside the window, consider     QApplication::setOverrideCursor().      \sa QApplication::setOverrideCursor() */
