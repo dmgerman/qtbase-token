@@ -71,6 +71,16 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|QTcpSocket
+argument_list|(
+argument|QAbstractSocket::SocketType socketType
+argument_list|,
+argument|QTcpSocketPrivate&dd
+argument_list|,
+argument|QObject *parent =
+literal|0
+argument_list|)
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY
