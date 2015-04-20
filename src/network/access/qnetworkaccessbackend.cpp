@@ -1536,6 +1536,13 @@ argument_list|)
 operator|.
 name|isLoopback
 argument_list|()
+operator|||
+name|reply
+operator|->
+name|url
+operator|.
+name|isLocalFile
+argument_list|()
 condition|)
 block|{
 comment|// Don't need an open session for localhost access.
