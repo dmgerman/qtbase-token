@@ -27074,7 +27074,7 @@ control|(
 name|int
 name|i
 init|=
-literal|0
+literal|1
 init|;
 name|i
 operator|<
@@ -27092,6 +27092,8 @@ operator|.
 name|pixelColor
 argument_list|(
 name|i
+operator|-
+literal|1
 argument_list|,
 literal|0
 argument_list|)
@@ -27104,8 +27106,6 @@ operator|.
 name|pixelColor
 argument_list|(
 name|i
-operator|+
-literal|1
 argument_list|,
 literal|0
 argument_list|)
@@ -27243,7 +27243,7 @@ control|(
 name|int
 name|i
 init|=
-literal|0
+literal|1
 init|;
 name|i
 operator|<
@@ -27261,6 +27261,8 @@ operator|.
 name|pixelColor
 argument_list|(
 name|i
+operator|-
+literal|1
 argument_list|,
 literal|0
 argument_list|)
@@ -27273,8 +27275,6 @@ operator|.
 name|pixelColor
 argument_list|(
 name|i
-operator|+
-literal|1
 argument_list|,
 literal|0
 argument_list|)
