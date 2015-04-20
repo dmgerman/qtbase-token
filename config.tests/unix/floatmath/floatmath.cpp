@@ -13,12 +13,10 @@ name|int
 name|main
 parameter_list|(
 name|int
-name|argc
 parameter_list|,
 name|char
 modifier|*
 modifier|*
-name|argv
 parameter_list|)
 block|{
 name|float

@@ -788,7 +788,6 @@ name|appname
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|getLockInfo
 argument_list|(
 operator|&
@@ -801,9 +800,7 @@ operator|&
 name|appname
 argument_list|)
 condition|)
-return|return
-literal|false
-return|;
+block|{
 if|if
 condition|(
 name|hostname
@@ -843,6 +840,7 @@ return|return
 literal|true
 return|;
 comment|// PID doesn't exist anymore
+block|}
 block|}
 specifier|const
 name|qint64

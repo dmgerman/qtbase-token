@@ -361,9 +361,13 @@ name|hostname
 decl_stmt|,
 name|appname
 decl_stmt|;
+comment|// On WinRT there seems to be no way of obtaining information about other
+comment|// processes due to sandboxing
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 if|if
 condition|(
-operator|!
 name|getLockInfo
 argument_list|(
 operator|&
@@ -376,14 +380,7 @@ operator|&
 name|appname
 argument_list|)
 condition|)
-return|return
-literal|false
-return|;
-comment|// On WinRT there seems to be no way of obtaining information about other
-comment|// processes due to sandboxing
-ifndef|#
-directive|ifndef
-name|Q_OS_WINRT
+block|{
 if|if
 condition|(
 name|hostname
@@ -445,6 +442,7 @@ condition|)
 return|return
 literal|true
 return|;
+block|}
 block|}
 endif|#
 directive|endif

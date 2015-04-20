@@ -8883,7 +8883,7 @@ argument_list|(
 name|sljit_uw
 argument_list|)
 argument_list|,
-name|common
+name|compiler
 operator|->
 name|allocator_data
 argument_list|)
@@ -44052,6 +44052,11 @@ operator|*
 name|matchingpath
 operator|==
 name|OP_DNRREF
+operator|||
+operator|*
+name|matchingpath
+operator|==
+name|OP_FAIL
 operator|)
 condition|?
 name|FALSE
@@ -45879,6 +45884,11 @@ operator|*
 name|matchingpath
 operator|==
 name|OP_DNRREF
+operator|||
+operator|*
+name|matchingpath
+operator|==
+name|OP_FAIL
 condition|)
 block|{
 comment|/* Never has other case. */
@@ -45898,6 +45908,17 @@ argument_list|(
 operator|!
 name|has_alternatives
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|*
+name|matchingpath
+operator|==
+name|OP_FAIL
+condition|)
+name|stacksize
+operator|=
+literal|0
 expr_stmt|;
 if|if
 condition|(
