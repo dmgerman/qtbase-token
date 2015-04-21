@@ -323,6 +323,11 @@ name|m_virtualSizeMillimeters
 return|;
 block|}
 name|QDpi
+name|virtualDpi
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QDpi
 name|logicalDpi
 argument_list|()
 specifier|const
