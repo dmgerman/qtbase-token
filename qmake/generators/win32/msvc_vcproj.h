@@ -505,6 +505,22 @@ argument|const QString&suffix
 argument_list|)
 specifier|const
 block|;
+name|ProString
+name|firstInputFileName
+argument_list|(
+argument|const ProString&extraCompilerName
+argument_list|)
+specifier|const
+block|;
+name|QString
+name|firstExpandedOutputFileName
+argument_list|(
+specifier|const
+name|ProString
+operator|&
+name|extraCompilerName
+argument_list|)
+block|;
 name|friend
 name|class
 name|VCFilter
