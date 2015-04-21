@@ -2292,6 +2292,16 @@ name|xcb_timestamp_t
 name|timestamp
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|connection
+argument_list|()
+operator|->
+name|hasXRandr
+argument_list|()
+condition|)
+return|return;
 name|xcb_randr_get_crtc_info_cookie_t
 name|crtcCookie
 init|=
