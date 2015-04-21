@@ -8217,6 +8217,11 @@ decl_stmt|;
 name|QString
 name|propertyValue
 decl_stmt|;
+name|bool
+name|delayProperty
+init|=
+literal|false
+decl_stmt|;
 comment|// special case for the property `geometry': Do not use position
 if|if
 condition|(
@@ -8476,6 +8481,38 @@ condition|)
 block|{
 comment|// already done ;)
 continue|continue;
+block|}
+elseif|else
+if|if
+condition|(
+name|propertyName
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"default"
+argument_list|)
+operator|&&
+name|m_uic
+operator|->
+name|customWidgetsInfo
+argument_list|()
+operator|->
+name|extends
+argument_list|(
+name|className
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"QPushButton"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+comment|// QTBUG-44406: Setting of QPushButton::default needs to be delayed until the parent is set
+name|delayProperty
+operator|=
+literal|true
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -10242,6 +10279,10 @@ name|QTextStream
 modifier|&
 name|o
 init|=
+name|delayProperty
+condition|?
+name|m_delayedOut
+else|:
 name|autoTrOutput
 argument_list|(
 name|p
