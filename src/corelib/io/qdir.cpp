@@ -1190,16 +1190,6 @@ name|Size
 case|:
 name|r
 operator|=
-name|int
-argument_list|(
-name|qBound
-argument_list|<
-name|qint64
-argument_list|>
-argument_list|(
-operator|-
-literal|1
-argument_list|,
 name|f2
 operator|->
 name|item
@@ -1213,10 +1203,6 @@ name|item
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|1
-argument_list|)
-argument_list|)
 expr_stmt|;
 break|break;
 case|case
