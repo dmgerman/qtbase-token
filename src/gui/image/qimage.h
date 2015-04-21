@@ -386,6 +386,7 @@ block|}
 block|;
 name|QImage
 argument_list|()
+name|Q_DECL_NOEXCEPT
 block|;
 name|QImage
 argument_list|(
@@ -520,10 +521,9 @@ name|Q_COMPILER_RVALUE_REFS
 specifier|inline
 name|QImage
 argument_list|(
-name|QImage
-operator|&&
-name|other
+argument|QImage&&other
 argument_list|)
+name|Q_DECL_NOEXCEPT
 operator|:
 name|QPaintDevice
 argument_list|()
@@ -571,6 +571,7 @@ name|QImage
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(
@@ -594,6 +595,7 @@ name|swap
 argument_list|(
 argument|QImage&other
 argument_list|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(

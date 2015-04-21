@@ -1319,21 +1319,25 @@ begin_comment
 comment|/*!     Constructs a null image.      \sa isNull() */
 end_comment
 begin_constructor
-DECL|function|QImage
 name|QImage
 operator|::
 name|QImage
 parameter_list|()
-member_init_list|:
+name|Q_DECL_NOEXCEPT
+constructor|:
+DECL|function|QPaintDevice
 name|QPaintDevice
-argument_list|()
+constructor|(
+end_constructor
+begin_block
+unit|)
 block|{
 name|d
 operator|=
 literal|0
 expr_stmt|;
 block|}
-end_constructor
+end_block
 begin_comment
 comment|/*!     Constructs an image with the given \a width, \a height and \a     format.      A \l{isNull()}{null} image will be returned if memory cannot be allocated.      \warning This will create a QImage with uninitialized data. Call     fill() to fill the image with an appropriate pixel value before     drawing onto it with QPainter. */
 end_comment

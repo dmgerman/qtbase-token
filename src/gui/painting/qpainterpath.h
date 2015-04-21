@@ -239,6 +239,7 @@ block|}
 empty_stmt|;
 name|QPainterPath
 argument_list|()
+name|Q_DECL_NOEXCEPT
 expr_stmt|;
 name|explicit
 name|QPainterPath
@@ -281,6 +282,7 @@ name|QPainterPath
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(
@@ -310,6 +312,7 @@ name|QPainterPath
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOEXCEPT
 block|{
 name|d_ptr
 operator|.

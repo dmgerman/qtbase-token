@@ -3000,18 +3000,19 @@ begin_comment
 comment|/*!   Constructs a null icon. */
 end_comment
 begin_constructor
-DECL|function|QIcon
 name|QIcon
 operator|::
 name|QIcon
 parameter_list|()
-member_init_list|:
+name|Q_DECL_NOEXCEPT
+constructor|:
 name|d
-argument_list|(
-literal|0
-argument_list|)
-block|{ }
+constructor|(0
 end_constructor
+begin_block
+unit|)
+block|{ }
+end_block
 begin_comment
 comment|/*!   Constructs an icon from a \a pixmap.  */
 end_comment

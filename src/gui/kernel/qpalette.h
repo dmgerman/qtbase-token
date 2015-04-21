@@ -194,7 +194,7 @@ name|QPalette
 argument_list|(
 argument|QPalette&&other
 argument_list|)
-name|Q_DECL_NOTHROW
+name|Q_DECL_NOEXCEPT
 label|:
 name|d
 argument_list|(
@@ -224,6 +224,7 @@ name|QPalette
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|for_faster_swapping_dont_use
 operator|=
@@ -254,6 +255,7 @@ name|QPalette
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(

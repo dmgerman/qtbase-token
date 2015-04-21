@@ -843,18 +843,19 @@ begin_comment
 comment|/*!     Constructs an empty QPainterPath object. */
 end_comment
 begin_constructor
-DECL|function|QPainterPath
 name|QPainterPath
 operator|::
 name|QPainterPath
 parameter_list|()
-member_init_list|:
+name|Q_DECL_NOEXCEPT
+constructor|:
 name|d_ptr
-argument_list|(
-literal|0
-argument_list|)
-block|{ }
+constructor|(0
 end_constructor
+begin_block
+unit|)
+block|{ }
+end_block
 begin_comment
 comment|/*!     \fn QPainterPath::QPainterPath(const QPainterPath&path)      Creates a QPainterPath object that is a copy of the given \a path.      \sa operator=() */
 end_comment
