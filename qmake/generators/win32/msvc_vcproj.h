@@ -181,9 +181,9 @@ literal|"GENERATED_SOURCES"
 argument_list|)
 block|; }
 name|using
-name|MakefileGenerator
+name|Win32MakefileGenerator
 operator|::
-name|ReplaceFor
+name|replaceExtraCompilerVariables
 block|;
 name|virtual
 name|QString
@@ -204,34 +204,6 @@ argument_list|,
 name|ReplaceFor
 argument_list|)
 block|;
-specifier|inline
-name|QString
-name|replaceExtraCompilerVariables
-argument_list|(
-argument|const QString&val
-argument_list|,
-argument|const QString&in
-argument_list|,
-argument|const QString&out
-argument_list|,
-argument|ReplaceFor forShell
-argument_list|)
-block|{
-return|return
-name|MakefileGenerator
-operator|::
-name|replaceExtraCompilerVariables
-argument_list|(
-name|val
-argument_list|,
-name|in
-argument_list|,
-name|out
-argument_list|,
-name|forShell
-argument_list|)
-return|;
-block|}
 name|virtual
 name|bool
 name|supportsMetaBuild
