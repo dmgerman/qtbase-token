@@ -12820,12 +12820,13 @@ decl_stmt|;
 comment|//Titlebar gradient
 if|if
 condition|(
-name|widget
-operator|&&
-name|widget
+name|opt
 operator|->
-name|isWindow
-argument_list|()
+name|state
+operator|&
+name|QStyle
+operator|::
+name|State_Window
 condition|)
 block|{
 name|floating
