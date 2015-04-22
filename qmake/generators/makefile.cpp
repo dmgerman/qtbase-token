@@ -13850,17 +13850,30 @@ name|tmp_out
 expr_stmt|;
 name|QString
 name|tmp_clean
-init|=
-name|escapeFilePaths
-argument_list|(
-name|raw_clean
-argument_list|)
-operator|.
-name|join
-argument_list|(
-literal|' '
-argument_list|)
 decl_stmt|;
+foreach|foreach
+control|(
+specifier|const
+name|QString
+modifier|&
+name|rc
+decl|,
+name|raw_clean
+control|)
+name|tmp_clean
+operator|+=
+literal|' '
+operator|+
+name|escapeFilePath
+argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
+name|rc
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QString
 name|tmp_clean_cmds
 init|=
@@ -13977,7 +13990,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"\n\t-$(DEL_FILE) "
+literal|"\n\t-$(DEL_FILE)"
 operator|<<
 name|tmp_clean
 expr_stmt|;
