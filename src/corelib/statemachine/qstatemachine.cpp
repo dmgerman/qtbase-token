@@ -9770,6 +9770,9 @@ expr_stmt|;
 name|registerMultiThreadedSignalTransitions
 argument_list|()
 expr_stmt|;
+name|startupHook
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QSTATEMACHINE_DEBUG
@@ -11055,6 +11058,15 @@ name|emitFinished
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
+DECL|function|startupHook
+name|void
+name|QStateMachinePrivate
+operator|::
+name|startupHook
+parameter_list|()
+block|{ }
 end_function
 begin_comment
 comment|/*   This function is called when the state machine is performing no   microstep because no transition is enabled (i.e. an event is ignored).    The default implementation does nothing. */
@@ -13664,7 +13676,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \threadsafe    Posts the given \a event of the given \a priority for processing by this   state machine.    This function returns immediately. The event is added to the state machine's   event queue. Events are processed in the order posted. The state machine   takes ownership of the event and deletes it once it has been processed.    You can only post events when the state machine is running.    \sa postDelayedEvent() */
+comment|/*!   \threadsafe    Posts the given \a event of the given \a priority for processing by this   state machine.    This function returns immediately. The event is added to the state machine's   event queue. Events are processed in the order posted. The state machine   takes ownership of the event and deletes it once it has been processed.    You can only post events when the state machine is running or when it is starting up.    \sa postDelayedEvent() */
 end_comment
 begin_function
 DECL|function|postEvent
@@ -13686,17 +13698,25 @@ argument_list|(
 name|QStateMachine
 argument_list|)
 expr_stmt|;
-if|if
+switch|switch
 condition|(
 name|d
 operator|->
 name|state
-operator|!=
+condition|)
+block|{
+case|case
 name|QStateMachinePrivate
 operator|::
 name|Running
-condition|)
-block|{
+case|:
+case|case
+name|QStateMachinePrivate
+operator|::
+name|Starting
+case|:
+break|break;
+default|default:
 name|qWarning
 argument_list|(
 literal|"QStateMachine::postEvent: cannot post event when the state machine is not running"

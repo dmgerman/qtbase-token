@@ -993,6 +993,11 @@ operator|*
 name|guiltyState
 argument_list|)
 block|;
+name|virtual
+name|void
+name|startupHook
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_PROPERTIES
