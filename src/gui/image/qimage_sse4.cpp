@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qdrawingprimitive_sse2_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qimage_p.h>
 end_include
 begin_include
@@ -78,7 +83,7 @@ index|]
 operator|=
 literal|0xff000000
 operator||
-name|qUnpremultiply
+name|qUnpremultiply_sse4
 argument_list|(
 name|src
 index|[
