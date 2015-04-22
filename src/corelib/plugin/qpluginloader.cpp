@@ -93,7 +93,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a plugin loader with the given \a parent that will     load the plugin specified by \a fileName.      To be loadable, the file's suffix must be a valid suffix for a     loadable library in accordance with the platform, e.g. \c .so on     Unix, - \c .dylib on Mac OS X, and \c .dll on Windows. The suffix     can be verified with QLibrary::isLibrary().      \sa setFileName() */
+comment|/*!     Constructs a plugin loader with the given \a parent that will     load the plugin specified by \a fileName.      To be loadable, the file's suffix must be a valid suffix for a     loadable library in accordance with the platform, e.g. \c .so on     Unix, - \c .dylib on OS X and iOS, and \c .dll on Windows. The suffix     can be verified with QLibrary::isLibrary().      \sa setFileName() */
 end_comment
 begin_constructor
 DECL|function|QPluginLoader

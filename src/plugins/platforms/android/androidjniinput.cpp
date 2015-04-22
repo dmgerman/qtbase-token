@@ -2382,6 +2382,9 @@ name|unicode
 parameter_list|,
 name|jint
 name|modifier
+parameter_list|,
+name|jboolean
+name|autoRepeat
 parameter_list|)
 block|{
 name|QWindowSystemInterface
@@ -2409,7 +2412,7 @@ argument_list|(
 name|unicode
 argument_list|)
 argument_list|,
-literal|false
+name|autoRepeat
 argument_list|)
 expr_stmt|;
 block|}
@@ -2433,6 +2436,9 @@ name|unicode
 parameter_list|,
 name|jint
 name|modifier
+parameter_list|,
+name|jboolean
+name|autoRepeat
 parameter_list|)
 block|{
 name|QWindowSystemInterface
@@ -2460,7 +2466,7 @@ argument_list|(
 name|unicode
 argument_list|)
 argument_list|,
-literal|false
+name|autoRepeat
 argument_list|)
 expr_stmt|;
 block|}
@@ -2611,7 +2617,7 @@ block|,
 block|{
 literal|"keyDown"
 block|,
-literal|"(III)V"
+literal|"(IIIZ)V"
 block|,
 operator|(
 name|void
@@ -2623,7 +2629,7 @@ block|,
 block|{
 literal|"keyUp"
 block|,
-literal|"(III)V"
+literal|"(IIIZ)V"
 block|,
 operator|(
 name|void

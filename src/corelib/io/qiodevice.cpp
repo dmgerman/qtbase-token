@@ -1331,7 +1331,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the current read and write position is at the end     of the device (i.e. there is no more data available for reading on     the device); otherwise returns \c false.      For some devices, atEnd() can return true even though there is more data     to read. This special case only applies to devices that generate data in     direct response to you calling read() (e.g., \c /dev or \c /proc files on     Unix and Mac OS X, or console input / \c stdin on all platforms).      \sa bytesAvailable(), read(), isSequential() */
+comment|/*!     Returns \c true if the current read and write position is at the end     of the device (i.e. there is no more data available for reading on     the device); otherwise returns \c false.      For some devices, atEnd() can return true even though there is more data     to read. This special case only applies to devices that generate data in     direct response to you calling read() (e.g., \c /dev or \c /proc files on     Unix and OS X, or console input / \c stdin on all platforms).      \sa bytesAvailable(), read(), isSequential() */
 end_comment
 begin_function
 DECL|function|atEnd
@@ -2615,10 +2615,7 @@ name|result
 operator|.
 name|resize
 argument_list|(
-name|result
-operator|.
-name|size
-argument_list|()
+name|readBytes
 operator|+
 name|QIODEVICE_BUFFERSIZE
 argument_list|)
@@ -2634,12 +2631,7 @@ argument_list|()
 operator|+
 name|readBytes
 argument_list|,
-name|result
-operator|.
-name|size
-argument_list|()
-operator|-
-name|readBytes
+name|QIODEVICE_BUFFERSIZE
 argument_list|)
 expr_stmt|;
 if|if

@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_OUTPUTHLSL_H_
+name|COMPILER_TRANSLATOR_OUTPUTHLSL_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_OUTPUTHLSL_H_
+DECL|macro|COMPILER_TRANSLATOR_OUTPUTHLSL_H_
 define|#
 directive|define
-name|COMPILER_OUTPUTHLSL_H_
+name|COMPILER_TRANSLATOR_OUTPUTHLSL_H_
 end_define
 begin_include
 include|#
@@ -43,6 +43,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<stack>
+end_include
+begin_include
+include|#
+directive|include
 file|"angle_gl.h"
 end_include
 begin_include
@@ -55,6 +60,12 @@ include|#
 directive|include
 file|"compiler/translator/ParseContext.h"
 end_include
+begin_decl_stmt
+DECL|variable|BuiltInFunctionEmulator
+name|class
+name|BuiltInFunctionEmulator
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|namespace
 name|sh
@@ -90,13 +101,21 @@ name|public
 operator|:
 name|OutputHLSL
 argument_list|(
-name|TParseContext
-operator|&
-name|context
+argument|sh::GLenum shaderType
 argument_list|,
-name|TranslatorHLSL
-operator|*
-name|parentTranslator
+argument|int shaderVersion
+argument_list|,
+argument|const TExtensionBehavior&extensionBehavior
+argument_list|,
+argument|const char *sourcePath
+argument_list|,
+argument|ShShaderOutput outputType
+argument_list|,
+argument|int numRenderTargets
+argument_list|,
+argument|const std::vector<Uniform>&uniforms
+argument_list|,
+argument|int compileOptions
 argument_list|)
 block|;
 operator|~
@@ -105,12 +124,15 @@ argument_list|()
 block|;
 name|void
 name|output
-argument_list|()
-block|;
+argument_list|(
+name|TIntermNode
+operator|*
+name|treeRoot
+argument_list|,
 name|TInfoSinkBase
 operator|&
-name|getBodyStream
-argument_list|()
+name|objSink
+argument_list|)
 block|;
 specifier|const
 name|std
@@ -156,11 +178,38 @@ operator|&
 name|type
 argument_list|)
 block|;
+name|TInfoSinkBase
+operator|&
+name|getInfoSink
+argument_list|()
+block|{
+name|ASSERT
+argument_list|(
+operator|!
+name|mInfoSinkStack
+operator|.
+name|empty
+argument_list|()
+argument_list|)
+block|;
+return|return
+operator|*
+name|mInfoSinkStack
+operator|.
+name|top
+argument_list|()
+return|;
+block|}
 name|protected
 operator|:
 name|void
 name|header
-argument_list|()
+argument_list|(
+specifier|const
+name|BuiltInFunctionEmulator
+operator|*
+name|builtInFunctionEmulator
+argument_list|)
 block|;
 comment|// Visit AST nodes and output their code to the body stream
 name|void
@@ -206,6 +255,22 @@ argument_list|(
 argument|Visit visit
 argument_list|,
 argument|TIntermSelection*
+argument_list|)
+block|;
+name|bool
+name|visitSwitch
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|TIntermSwitch *
+argument_list|)
+block|;
+name|bool
+name|visitCase
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|TIntermCase *
 argument_list|)
 block|;
 name|bool
@@ -256,16 +321,31 @@ operator|*
 name|node
 argument_list|)
 block|;
+comment|// Emit one of three strings depending on traverse phase. Called with literal strings so using const char* instead of TString.
 name|void
 name|outputTriplet
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|const TString&preString
+argument|const char *preString
 argument_list|,
-argument|const TString&inString
+argument|const char *inString
 argument_list|,
-argument|const TString&postString
+argument|const char *postString
+argument_list|,
+argument|TInfoSinkBase&out
+argument_list|)
+block|;
+name|void
+name|outputTriplet
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|const char *preString
+argument_list|,
+argument|const char *inString
+argument_list|,
+argument|const char *postString
 argument_list|)
 block|;
 name|void
@@ -290,6 +370,7 @@ argument|const TType&type
 argument_list|)
 specifier|const
 block|;
+comment|// Emit constructor. Called with literal names so using const char* instead of TString.
 name|void
 name|outputConstructor
 argument_list|(
@@ -297,7 +378,7 @@ argument|Visit visit
 argument_list|,
 argument|const TType&type
 argument_list|,
-argument|const TString&name
+argument|const char *name
 argument_list|,
 argument|const TIntermSequence *parameters
 argument_list|)
@@ -318,13 +399,118 @@ operator|*
 name|constUnion
 argument_list|)
 block|;
-name|TParseContext
+name|void
+name|outputEqual
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|const TType&type
+argument_list|,
+argument|TOperator op
+argument_list|,
+argument|TInfoSinkBase&out
+argument_list|)
+block|;
+name|void
+name|writeEmulatedFunctionTriplet
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|const char *preStr
+argument_list|)
+block|;
+name|void
+name|makeFlaggedStructMaps
+argument_list|(
+specifier|const
+name|std
+operator|::
+name|vector
+operator|<
+name|TIntermTyped
+operator|*
+operator|>
 operator|&
-name|mContext
+name|flaggedStructs
+argument_list|)
+block|;
+comment|// Returns true if it found a 'same symbol' initializer (initializer that references the variable it's initting)
+name|bool
+name|writeSameSymbolInitializer
+argument_list|(
+name|TInfoSinkBase
+operator|&
+name|out
+argument_list|,
+name|TIntermSymbol
+operator|*
+name|symbolNode
+argument_list|,
+name|TIntermTyped
+operator|*
+name|expression
+argument_list|)
+block|;
+name|void
+name|writeDeferredGlobalInitializers
+argument_list|(
+name|TInfoSinkBase
+operator|&
+name|out
+argument_list|)
+block|;
+comment|// Returns the function name
+name|TString
+name|addStructEqualityFunction
+argument_list|(
+specifier|const
+name|TStructure
+operator|&
+name|structure
+argument_list|)
+block|;
+name|TString
+name|addArrayEqualityFunction
+argument_list|(
+specifier|const
+name|TType
+operator|&
+name|type
+argument_list|)
+block|;
+name|TString
+name|addArrayAssignmentFunction
+argument_list|(
+specifier|const
+name|TType
+operator|&
+name|type
+argument_list|)
+block|;
+name|sh
+operator|::
+name|GLenum
+name|mShaderType
+block|;
+name|int
+name|mShaderVersion
+block|;
+specifier|const
+name|TExtensionBehavior
+operator|&
+name|mExtensionBehavior
+block|;
+specifier|const
+name|char
+operator|*
+name|mSourcePath
 block|;
 specifier|const
 name|ShShaderOutput
 name|mOutputType
+block|;
+name|int
+name|mCompileOptions
 block|;
 name|UnfoldShortCircuit
 operator|*
@@ -342,6 +528,18 @@ name|mBody
 block|;
 name|TInfoSinkBase
 name|mFooter
+block|;
+comment|// A stack is useful when we want to traverse in the header, or in helper functions, but not always
+comment|// write to the body. Instead use an InfoSink stack to keep our current state intact.
+comment|// TODO (jmadill): Just passing an InfoSink in function parameters would be simpler.
+name|std
+operator|::
+name|stack
+operator|<
+name|TInfoSinkBase
+operator|*
+operator|>
+name|mInfoSinkStack
 block|;
 name|ReferencedSymbols
 name|mReferencedUniforms
@@ -456,61 +654,22 @@ name|bool
 name|mUsesPointSize
 decl_stmt|;
 name|bool
+name|mUsesInstanceID
+decl_stmt|;
+name|bool
 name|mUsesFragDepth
 decl_stmt|;
 name|bool
 name|mUsesXor
 decl_stmt|;
 name|bool
-name|mUsesMod1
-decl_stmt|;
-name|bool
-name|mUsesMod2v
-decl_stmt|;
-name|bool
-name|mUsesMod2f
-decl_stmt|;
-name|bool
-name|mUsesMod3v
-decl_stmt|;
-name|bool
-name|mUsesMod3f
-decl_stmt|;
-name|bool
-name|mUsesMod4v
-decl_stmt|;
-name|bool
-name|mUsesMod4f
-decl_stmt|;
-name|bool
-name|mUsesFaceforward1
-decl_stmt|;
-name|bool
-name|mUsesFaceforward2
-decl_stmt|;
-name|bool
-name|mUsesFaceforward3
-decl_stmt|;
-name|bool
-name|mUsesFaceforward4
-decl_stmt|;
-name|bool
-name|mUsesAtan2_1
-decl_stmt|;
-name|bool
-name|mUsesAtan2_2
-decl_stmt|;
-name|bool
-name|mUsesAtan2_3
-decl_stmt|;
-name|bool
-name|mUsesAtan2_4
-decl_stmt|;
-name|bool
 name|mUsesDiscardRewriting
 decl_stmt|;
 name|bool
 name|mUsesNestedBreak
+decl_stmt|;
+name|bool
+name|mRequiresIEEEStrictCompiling
 decl_stmt|;
 name|int
 name|mNumRenderTargets
@@ -577,21 +736,103 @@ name|TString
 operator|>
 name|mFlaggedStructOriginalNames
 expr_stmt|;
-name|void
-name|makeFlaggedStructMaps
-argument_list|(
-specifier|const
+comment|// Some initializers use varyings, uniforms or attributes, thus we can't evaluate some variables
+comment|// at global static scope in HLSL. These variables depend on values which we retrieve from the
+comment|// shader input structure, which we set in the D3D main function. Instead, we can initialize
+comment|// these static globals after we initialize our other globals.
 name|std
 operator|::
 name|vector
 operator|<
+name|std
+operator|::
+name|pair
+operator|<
+name|TIntermSymbol
+operator|*
+operator|,
 name|TIntermTyped
 operator|*
-operator|>
-operator|&
-name|flaggedStructs
-argument_list|)
+operator|>>
+name|mDeferredGlobalInitializers
+expr_stmt|;
+struct|struct
+name|HelperFunction
+block|{
+name|TString
+name|functionName
 decl_stmt|;
+name|TString
+name|functionDefinition
+decl_stmt|;
+name|virtual
+operator|~
+name|HelperFunction
+argument_list|()
+block|{}
+block|}
+struct|;
+comment|// A list of all equality comparison functions. It's important to preserve the order at
+comment|// which we add the functions, since nested structures call each other recursively, and
+comment|// structure equality functions may need to call array equality functions and vice versa.
+comment|// The ownership of the pointers is maintained by the type-specific arrays.
+name|std
+operator|::
+name|vector
+operator|<
+name|HelperFunction
+operator|*
+operator|>
+name|mEqualityFunctions
+expr_stmt|;
+name|struct
+name|StructEqualityFunction
+range|:
+name|public
+name|HelperFunction
+block|{
+specifier|const
+name|TStructure
+operator|*
+name|structure
+block|;     }
+decl_stmt|;
+name|std
+operator|::
+name|vector
+operator|<
+name|StructEqualityFunction
+operator|*
+operator|>
+name|mStructEqualityFunctions
+expr_stmt|;
+name|struct
+name|ArrayHelperFunction
+range|:
+name|public
+name|HelperFunction
+block|{
+name|TType
+name|type
+block|;     }
+decl_stmt|;
+name|std
+operator|::
+name|vector
+operator|<
+name|ArrayHelperFunction
+operator|*
+operator|>
+name|mArrayEqualityFunctions
+expr_stmt|;
+name|std
+operator|::
+name|vector
+operator|<
+name|ArrayHelperFunction
+operator|>
+name|mArrayAssignmentFunctions
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -603,6 +844,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_OUTPUTHLSL_H_
+comment|// COMPILER_TRANSLATOR_OUTPUTHLSL_H_
 end_comment
 end_unit

@@ -1748,7 +1748,7 @@ name|defined
 argument_list|(
 name|Q_OS_BSD4
 argument_list|)
-comment|// FreeBSD, OpenBSD, NetBSD, BSD/OS, Mac OS X
+comment|// FreeBSD, OpenBSD, NetBSD, BSD/OS, OS X, iOS
 name|size_t
 name|len
 init|=

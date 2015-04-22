@@ -7519,6 +7519,11 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|privateSignal_
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|reimplementedFrom_
 argument_list|(
 literal|0
@@ -7605,6 +7610,11 @@ member_init_list|,
 name|attached_
 argument_list|(
 name|attached
+argument_list|)
+member_init_list|,
+name|privateSignal_
+argument_list|(
+literal|false
 argument_list|)
 member_init_list|,
 name|reimplementedFrom_

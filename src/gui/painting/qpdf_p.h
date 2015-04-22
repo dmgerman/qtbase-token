@@ -93,9 +93,6 @@ include|#
 directive|include
 file|"qpagelayout.h"
 end_include
-begin_comment
-comment|// #define USE_NATIVE_GRADIENTS
-end_comment
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|const
@@ -367,30 +364,6 @@ modifier|&
 name|b
 parameter_list|)
 function_decl|;
-ifdef|#
-directive|ifdef
-name|USE_NATIVE_GRADIENTS
-name|QByteArray
-name|generateLinearGradientShader
-parameter_list|(
-specifier|const
-name|QLinearGradient
-modifier|*
-name|lg
-parameter_list|,
-specifier|const
-name|QPointF
-modifier|*
-name|page_rect
-parameter_list|,
-name|bool
-name|alpha
-init|=
-name|false
-parameter_list|)
-function_decl|;
-endif|#
-directive|endif
 struct|struct
 name|Stroker
 block|{
@@ -993,9 +966,6 @@ name|m_pageLayout
 block|;
 name|private
 operator|:
-ifdef|#
-directive|ifdef
-name|USE_NATIVE_GRADIENTS
 name|int
 name|gradientBrush
 argument_list|(
@@ -1005,7 +975,7 @@ operator|&
 name|b
 argument_list|,
 specifier|const
-name|QMatrix
+name|QTransform
 operator|&
 name|matrix
 argument_list|,
@@ -1014,8 +984,50 @@ operator|*
 name|gStateObject
 argument_list|)
 block|;
-endif|#
-directive|endif
+name|int
+name|generateGradientShader
+argument_list|(
+argument|const QGradient *gradient
+argument_list|,
+argument|const QTransform&matrix
+argument_list|,
+argument|bool alpha = false
+argument_list|)
+block|;
+name|int
+name|generateLinearGradientShader
+argument_list|(
+argument|const QLinearGradient *lg
+argument_list|,
+argument|const QTransform&matrix
+argument_list|,
+argument|bool alpha
+argument_list|)
+block|;
+name|int
+name|generateRadialGradientShader
+argument_list|(
+argument|const QRadialGradient *gradient
+argument_list|,
+argument|const QTransform&matrix
+argument_list|,
+argument|bool alpha
+argument_list|)
+block|;
+name|int
+name|createShadingFunction
+argument_list|(
+argument|const QGradient *gradient
+argument_list|,
+argument|int from
+argument_list|,
+argument|int to
+argument_list|,
+argument|bool reflect
+argument_list|,
+argument|bool alpha
+argument_list|)
+block|;
 name|void
 name|writeInfo
 argument_list|()

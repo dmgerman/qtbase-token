@@ -139,6 +139,9 @@ name|TableGenerator
 operator|::
 name|TableState
 name|m_tableState
+block|;
+name|bool
+name|m_compositionTableInitialized
 block|; }
 decl_stmt|;
 end_decl_stmt

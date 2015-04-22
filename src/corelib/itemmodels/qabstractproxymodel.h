@@ -335,16 +335,7 @@ operator|:
 name|void
 name|sourceModelChanged
 argument_list|(
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|qdoc
-argument_list|)
 name|QPrivateSignal
-endif|#
-directive|endif
 argument_list|)
 block|;
 name|protected

@@ -104,6 +104,17 @@ operator|>
 endif|#
 directive|endif
 block|{
+ifndef|#
+directive|ifndef
+name|Q_QDOC
+name|protected
+operator|:
+operator|~
+name|QListSpecialMethods
+argument_list|()
+block|{}
+endif|#
+directive|endif
 name|public
 operator|:
 specifier|inline

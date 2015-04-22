@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|CROSSCOMPILERGLSL_OUTPUTGLSL_H_
+name|COMPILER_TRANSLATOR_OUTPUTGLSL_H_
 end_ifndef
 begin_define
-DECL|macro|CROSSCOMPILERGLSL_OUTPUTGLSL_H_
+DECL|macro|COMPILER_TRANSLATOR_OUTPUTGLSL_H_
 define|#
 directive|define
-name|CROSSCOMPILERGLSL_OUTPUTGLSL_H_
+name|COMPILER_TRANSLATOR_OUTPUTGLSL_H_
 end_define
 begin_include
 include|#
@@ -52,6 +52,8 @@ argument_list|,
 argument|TSymbolTable& symbolTable
 argument_list|,
 argument|int shaderVersion
+argument_list|,
+argument|ShShaderOutput output
 argument_list|)
 block|;
 name|protected
@@ -88,6 +90,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// CROSSCOMPILERGLSL_OUTPUTGLSL_H_
+comment|// COMPILER_TRANSLATOR_OUTPUTGLSL_H_
 end_comment
 end_unit

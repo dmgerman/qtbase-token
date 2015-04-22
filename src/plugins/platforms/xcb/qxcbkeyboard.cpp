@@ -2231,6 +2231,12 @@ name|Qt
 operator|::
 name|Key_MediaRecord
 block|,
+name|XF86XK_AudioPause
+block|,
+name|Qt
+operator|::
+name|Key_MediaPause
+block|,
 name|XF86XK_Mail
 block|,
 name|Qt

@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|CROSSCOMPILERGLSL_OUTPUTGLSLBASE_H_
+name|COMPILER_TRANSLATOR_OUTPUTGLSLBASE_H_
 end_ifndef
 begin_define
-DECL|macro|CROSSCOMPILERGLSL_OUTPUTGLSLBASE_H_
+DECL|macro|COMPILER_TRANSLATOR_OUTPUTGLSLBASE_H_
 define|#
 directive|define
-name|CROSSCOMPILERGLSL_OUTPUTGLSLBASE_H_
+name|COMPILER_TRANSLATOR_OUTPUTGLSLBASE_H_
 end_define
 begin_include
 include|#
@@ -67,8 +67,19 @@ argument_list|,
 argument|TSymbolTable& symbolTable
 argument_list|,
 argument|int shaderVersion
+argument_list|,
+argument|ShShaderOutput output
 argument_list|)
 block|;
+name|ShShaderOutput
+name|getShaderOutput
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mOutput
+return|;
+block|}
 name|protected
 operator|:
 name|TInfoSinkBase
@@ -187,6 +198,24 @@ argument_list|(
 argument|Visit visit
 argument_list|,
 argument|TIntermSelection *node
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|visitSwitch
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|TIntermSwitch *node
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|visitCase
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|TIntermCase *node
 argument_list|)
 block|;
 name|virtual
@@ -333,6 +362,9 @@ block|;
 specifier|const
 name|int
 name|mShaderVersion
+block|;
+name|ShShaderOutput
+name|mOutput
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -341,6 +373,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// CROSSCOMPILERGLSL_OUTPUTGLSLBASE_H_
+comment|// COMPILER_TRANSLATOR_OUTPUTGLSLBASE_H_
 end_comment
 end_unit

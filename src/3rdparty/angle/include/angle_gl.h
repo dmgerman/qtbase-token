@@ -26,13 +26,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|ANGLE_GL_H_
+name|ANGLEGL_H_
 end_ifndef
 begin_define
-DECL|macro|ANGLE_GL_H_
+DECL|macro|ANGLEGL_H_
 define|#
 directive|define
-name|ANGLE_GL_H_
+name|ANGLEGL_H_
 end_define
 begin_include
 include|#
@@ -78,6 +78,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// ANGLE_GL_H_
+comment|// ANGLEGL_H_
 end_comment
 end_unit

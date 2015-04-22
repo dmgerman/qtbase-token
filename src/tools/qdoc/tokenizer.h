@@ -271,9 +271,12 @@ name|Tok_QT3_SUPPORT_CONSTRUCTOR
 decl_stmt|,
 DECL|enumerator|Tok_QT3_MOC_SUPPORT
 DECL|enumerator|Tok_QDOC_PROPERTY
+DECL|enumerator|Tok_QPrivateSignal
 name|Tok_QT3_MOC_SUPPORT
 decl_stmt|,
 name|Tok_QDOC_PROPERTY
+decl_stmt|,
+name|Tok_QPrivateSignal
 decl_stmt|,
 DECL|enumerator|Tok_FirstKeyword
 DECL|enumerator|Tok_LastKeyword
@@ -283,7 +286,7 @@ name|Tok_char
 decl_stmt|,
 name|Tok_LastKeyword
 init|=
-name|Tok_QDOC_PROPERTY
+name|Tok_QPrivateSignal
 end_decl_stmt
 begin_comment
 unit|};

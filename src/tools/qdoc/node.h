@@ -2484,15 +2484,12 @@ operator|*
 name|child
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setOutputSubdirectory
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|t
+argument|const QString& t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
@@ -5709,6 +5706,23 @@ name|logicalModuleIdentifier
 argument_list|()
 return|;
 block|}
+name|bool
+name|isPrivateSignal
+argument_list|()
+specifier|const
+block|{
+return|return
+name|privateSignal_
+return|;
+block|}
+name|void
+name|setPrivateSignal
+argument_list|()
+block|{
+name|privateSignal_
+operator|=
+name|true
+block|; }
 name|void
 name|debug
 argument_list|()
@@ -5766,6 +5780,11 @@ literal|1
 block|;
 name|bool
 name|attached_
+operator|:
+literal|1
+block|;
+name|bool
+name|privateSignal_
 operator|:
 literal|1
 block|;

@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_MMAP_INCLUDED_
+name|COMPILER_TRANSLATOR_MMAP_H_
 end_ifndef
 begin_define
-DECL|macro|_MMAP_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_MMAP_H_
 define|#
 directive|define
-name|_MMAP_INCLUDED_
+name|COMPILER_TRANSLATOR_MMAP_H_
 end_define
 begin_comment
 comment|//
@@ -259,6 +259,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _MMAP_INCLUDED_
+comment|// COMPILER_TRANSLATOR_MMAP_H_
 end_comment
 end_unit

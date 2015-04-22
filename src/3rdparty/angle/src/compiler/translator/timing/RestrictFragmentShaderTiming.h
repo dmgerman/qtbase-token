@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_TIMING_RESTRICT_FRAGMENT_SHADER_TIMING_H_
+name|COMPILER_TRANSLATOR_TIMING_RESTRICTFRAGMENTSHADERTIMING_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_TIMING_RESTRICT_FRAGMENT_SHADER_TIMING_H_
+DECL|macro|COMPILER_TRANSLATOR_TIMING_RESTRICTFRAGMENTSHADERTIMING_H_
 define|#
 directive|define
-name|COMPILER_TIMING_RESTRICT_FRAGMENT_SHADER_TIMING_H_
+name|COMPILER_TRANSLATOR_TIMING_RESTRICTFRAGMENTSHADERTIMING_H_
 end_define
 begin_include
 include|#
@@ -74,41 +74,33 @@ return|return
 name|mNumErrors
 return|;
 block|}
-name|virtual
 name|void
 name|visitArgument
 argument_list|(
-name|TGraphArgument
-operator|*
-name|parameter
+argument|TGraphArgument *parameter
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitSelection
 argument_list|(
-name|TGraphSelection
-operator|*
-name|selection
+argument|TGraphSelection *selection
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitLoop
 argument_list|(
-name|TGraphLoop
-operator|*
-name|loop
+argument|TGraphLoop *loop
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitLogicalOp
 argument_list|(
-name|TGraphLogicalOp
-operator|*
-name|logicalOp
+argument|TGraphLogicalOp *logicalOp
 argument_list|)
+name|override
 block|;
 name|private
 operator|:
@@ -133,7 +125,7 @@ block|;
 name|bool
 name|isSamplingOp
 argument_list|(
-argument|const TIntermAggregate* intermFunctionCall
+argument|const TIntermAggregate *intermFunctionCall
 argument_list|)
 specifier|const
 block|;
@@ -163,6 +155,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_TIMING_RESTRICT_FRAGMENT_SHADER_TIMING_H_
+comment|// COMPILER_TRANSLATOR_TIMING_RESTRICTFRAGMENTSHADERTIMING_H_
 end_comment
 end_unit

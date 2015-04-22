@@ -23,11 +23,11 @@ block|{
 endif|#
 directive|endif
 comment|/* ** Copyright (c) 2013-2014 The Khronos Group Inc. ** ** Permission is hereby granted, free of charge, to any person obtaining a ** copy of this software and/or associated documentation files (the ** "Materials"), to deal in the Materials without restriction, including ** without limitation the rights to use, copy, modify, merge, publish, ** distribute, sublicense, and/or sell copies of the Materials, and to ** permit persons to whom the Materials are furnished to do so, subject to ** the following conditions: ** ** The above copyright notice and this permission notice shall be included ** in all copies or substantial portions of the Materials. ** ** THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, ** EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF ** MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. ** IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY ** CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE ** MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS. */
-comment|/* ** This header is generated from the Khronos OpenGL / OpenGL ES XML ** API Registry. The current version of the Registry, generator scripts ** used to make the header, and the header can be found at **   http://www.opengl.org/registry/ ** ** Khronos $Revision: 27018 $ on $Date: 2014-06-10 08:06:12 -0700 (Tue, 10 Jun 2014) $ */
+comment|/* ** This header is generated from the Khronos OpenGL / OpenGL ES XML ** API Registry. The current version of the Registry, generator scripts ** used to make the header, and the header can be found at **   http://www.opengl.org/registry/ ** ** Khronos $Revision: 29318 $ on $Date: 2015-01-02 03:16:10 -0800 (Fri, 02 Jan 2015) $ */
 include|#
 directive|include
 file|<EGL/eglplatform.h>
-comment|/* Generated on date 20140610 */
+comment|/* Generated on date 20150102 */
 comment|/* Generated C header for:  * API: egl  * Versions considered: .*  * Versions emitted: .*  * Default extensions included: None  * Additional extensions included: _nomatch_^  * Extensions removed: _nomatch_^  */
 ifndef|#
 directive|ifndef
@@ -1251,6 +1251,12 @@ typedef|typedef
 name|khronos_utime_nanoseconds_t
 name|EGLTime
 typedef|;
+DECL|typedef|EGLImage
+typedef|typedef
+name|void
+modifier|*
+name|EGLImage
+typedef|;
 DECL|macro|EGL_CONTEXT_MAJOR_VERSION
 define|#
 directive|define
@@ -1456,6 +1462,16 @@ define|#
 directive|define
 name|EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z
 value|0x30B8
+DECL|macro|EGL_IMAGE_PRESERVED
+define|#
+directive|define
+name|EGL_IMAGE_PRESERVED
+value|0x30D2
+DECL|macro|EGL_NO_IMAGE
+define|#
+directive|define
+name|EGL_NO_IMAGE
+value|((EGLImage)0)
 name|EGLAPI
 name|EGLSync
 name|EGLAPIENTRY
@@ -1520,6 +1536,41 @@ parameter_list|,
 name|EGLAttrib
 modifier|*
 name|value
+parameter_list|)
+function_decl|;
+name|EGLAPI
+name|EGLImage
+name|EGLAPIENTRY
+name|eglCreateImage
+parameter_list|(
+name|EGLDisplay
+name|dpy
+parameter_list|,
+name|EGLContext
+name|ctx
+parameter_list|,
+name|EGLenum
+name|target
+parameter_list|,
+name|EGLClientBuffer
+name|buffer
+parameter_list|,
+specifier|const
+name|EGLAttrib
+modifier|*
+name|attrib_list
+parameter_list|)
+function_decl|;
+name|EGLAPI
+name|EGLBoolean
+name|EGLAPIENTRY
+name|eglDestroyImage
+parameter_list|(
+name|EGLDisplay
+name|dpy
+parameter_list|,
+name|EGLImage
+name|image
 parameter_list|)
 function_decl|;
 name|EGLAPI

@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_TRANSLATORHLSL_H_
+name|COMPILER_TRANSLATOR_TRANSLATORHLSL_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_TRANSLATORHLSL_H_
+DECL|macro|COMPILER_TRANSLATOR_TRANSLATORHLSL_H_
 define|#
 directive|define
-name|COMPILER_TRANSLATORHLSL_H_
+name|COMPILER_TRANSLATOR_TRANSLATORHLSL_H_
 end_define
 begin_include
 include|#
@@ -94,9 +94,9 @@ name|virtual
 name|void
 name|translate
 argument_list|(
-name|TIntermNode
-operator|*
-name|root
+argument|TIntermNode *root
+argument_list|,
+argument|int compileOptions
 argument_list|)
 block|;
 name|std
@@ -132,6 +132,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_TRANSLATORHLSL_H_
+comment|// COMPILER_TRANSLATOR_TRANSLATORHLSL_H_
 end_comment
 end_unit

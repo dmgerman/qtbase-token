@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_UTIL_H
+name|COMPILER_TRANSLATOR_UTIL_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_UTIL_H
+DECL|macro|COMPILER_TRANSLATOR_UTIL_H_
 define|#
 directive|define
-name|COMPILER_UTIL_H
+name|COMPILER_TRANSLATOR_UTIL_H_
 end_define
 begin_include
 include|#
@@ -162,9 +162,13 @@ parameter_list|)
 function_decl|;
 name|class
 name|GetVariableTraverser
+range|:
+name|angle
+operator|::
+name|NonCopyable
 block|{
 name|public
-label|:
+operator|:
 name|GetVariableTraverser
 argument_list|(
 specifier|const
@@ -172,7 +176,7 @@ name|TSymbolTable
 operator|&
 name|symbolTable
 argument_list|)
-expr_stmt|;
+block|;
 name|template
 operator|<
 name|typename
@@ -200,21 +204,19 @@ operator|>
 operator|*
 name|output
 argument_list|)
-expr_stmt|;
+block|;
 name|protected
-label|:
+operator|:
 comment|// May be overloaded
 name|virtual
 name|void
 name|visitVariable
-parameter_list|(
-name|ShaderVariable
-modifier|*
-name|newVar
-parameter_list|)
+argument_list|(
+argument|ShaderVariable *newVar
+argument_list|)
 block|{}
 name|private
-label|:
+operator|:
 comment|// Helper function called by traverse() to fill specific fields
 comment|// for attributes/varyings/uniforms.
 name|template
@@ -236,14 +238,8 @@ specifier|const
 name|TSymbolTable
 operator|&
 name|mSymbolTable
-expr_stmt|;
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|GetVariableTraverser
-argument_list|)
-expr_stmt|;
-block|}
-empty_stmt|;
+block|; }
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_endif
@@ -251,6 +247,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_UTIL_H
+comment|// COMPILER_TRANSLATOR_UTIL_H_
 end_comment
 end_unit

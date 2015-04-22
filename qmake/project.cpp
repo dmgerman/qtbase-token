@@ -202,6 +202,16 @@ name|project
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|m_projectDir
+operator|=
+name|QFileInfo
+argument_list|(
+name|absproj
+argument_list|)
+operator|.
+name|path
+argument_list|()
+expr_stmt|;
 return|return
 name|boolRet
 argument_list|(

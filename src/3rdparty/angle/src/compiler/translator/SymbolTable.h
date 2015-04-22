@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_SYMBOL_TABLE_INCLUDED_
+name|COMPILER_TRANSLATOR_SYMBOLTABLE_H_
 end_ifndef
 begin_define
-DECL|macro|_SYMBOL_TABLE_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_SYMBOLTABLE_H_
 define|#
 directive|define
-name|_SYMBOL_TABLE_INCLUDED_
+name|COMPILER_TRANSLATOR_SYMBOLTABLE_H_
 end_define
 begin_comment
 comment|//
@@ -122,12 +122,16 @@ end_comment
 begin_decl_stmt
 name|class
 name|TSymbol
+range|:
+name|angle
+operator|::
+name|NonCopyable
 block|{
 name|public
-label|:
+operator|:
 name|POOL_ALLOCATOR_NEW_DELETE
 argument_list|()
-expr_stmt|;
+block|;
 name|TSymbol
 argument_list|(
 specifier|const
@@ -140,7 +144,7 @@ name|uniqueId
 argument_list|(
 literal|0
 argument_list|)
-operator|,
+block|,
 name|name
 argument_list|(
 argument|n
@@ -200,16 +204,14 @@ return|;
 block|}
 name|void
 name|setUniqueId
-parameter_list|(
-name|int
-name|id
-parameter_list|)
+argument_list|(
+argument|int id
+argument_list|)
 block|{
 name|uniqueId
 operator|=
 name|id
-expr_stmt|;
-block|}
+block|;     }
 name|int
 name|getUniqueId
 argument_list|()
@@ -221,18 +223,14 @@ return|;
 block|}
 name|void
 name|relateToExtension
-parameter_list|(
-specifier|const
-name|TString
-modifier|&
-name|ext
-parameter_list|)
+argument_list|(
+argument|const TString&ext
+argument_list|)
 block|{
 name|extension
 operator|=
 name|ext
-expr_stmt|;
-block|}
+block|;     }
 specifier|const
 name|TString
 operator|&
@@ -245,29 +243,21 @@ name|extension
 return|;
 block|}
 name|private
-label|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|TSymbol
-argument_list|)
-expr_stmt|;
+operator|:
 name|int
 name|uniqueId
-decl_stmt|;
+block|;
 comment|// For real comparing during code generation
 specifier|const
 name|TString
-modifier|*
+operator|*
 name|name
-decl_stmt|;
+block|;
 name|TString
 name|extension
+block|; }
 decl_stmt|;
-block|}
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_comment
 comment|// Variable class, meaning a symbol that's not a function.
 end_comment
@@ -455,13 +445,6 @@ begin_label
 name|private
 label|:
 end_label
-begin_expr_stmt
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|TVariable
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 name|TType
 name|type
@@ -558,6 +541,9 @@ argument_list|,
 argument|const TType&retType
 argument_list|,
 argument|TOperator tOp = EOpNull
+argument_list|,
+argument|const char *ext =
+literal|""
 argument_list|)
 operator|:
 name|TSymbol
@@ -590,7 +576,12 @@ name|defined
 argument_list|(
 argument|false
 argument_list|)
-block|{     }
+block|{
+name|relateToExtension
+argument_list|(
+name|ext
+argument_list|)
+block|;     }
 name|virtual
 operator|~
 name|TFunction
@@ -689,16 +680,6 @@ return|return
 name|returnType
 return|;
 block|}
-name|void
-name|relateToOperator
-argument_list|(
-argument|TOperator o
-argument_list|)
-block|{
-name|op
-operator|=
-name|o
-block|;     }
 name|TOperator
 name|getBuiltInOp
 argument_list|()
@@ -754,11 +735,6 @@ return|;
 block|}
 name|private
 operator|:
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|TFunction
-argument_list|)
-block|;
 typedef|typedef
 name|TVector
 operator|<
@@ -881,6 +857,15 @@ modifier|*
 name|symbol
 parameter_list|)
 function_decl|;
+comment|// Insert a function using its unmangled name as the key.
+name|bool
+name|insertUnmangled
+parameter_list|(
+name|TFunction
+modifier|*
+name|function
+parameter_list|)
+function_decl|;
 name|TSymbol
 modifier|*
 name|find
@@ -892,32 +877,6 @@ name|name
 argument_list|)
 decl|const
 decl_stmt|;
-name|void
-name|relateToOperator
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|name
-parameter_list|,
-name|TOperator
-name|op
-parameter_list|)
-function_decl|;
-name|void
-name|relateToExtension
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|name
-parameter_list|,
-specifier|const
-name|TString
-modifier|&
-name|ext
-parameter_list|)
-function_decl|;
 name|protected
 label|:
 name|tLevel
@@ -992,9 +951,13 @@ end_decl_stmt
 begin_decl_stmt
 name|class
 name|TSymbolTable
+range|:
+name|angle
+operator|::
+name|NonCopyable
 block|{
 name|public
-label|:
+operator|:
 name|TSymbolTable
 argument_list|()
 operator|:
@@ -1010,7 +973,7 @@ block|}
 operator|~
 name|TSymbolTable
 argument_list|()
-expr_stmt|;
+block|;
 comment|// When the symbol table is initialized with the built-ins, there should
 comment|// 'push' calls, so that built-ins are at level 0 and the shader
 comment|// globals are at level 1.
@@ -1052,7 +1015,7 @@ return|;
 block|}
 name|void
 name|push
-parameter_list|()
+argument_list|()
 block|{
 name|table
 operator|.
@@ -1060,49 +1023,45 @@ name|push_back
 argument_list|(
 argument|new TSymbolTableLevel
 argument_list|)
-expr_stmt|;
+block|;
 name|precisionStack
 operator|.
 name|push_back
 argument_list|(
 argument|new PrecisionStackLevel
 argument_list|)
-expr_stmt|;
-block|}
+block|;     }
 name|void
 name|pop
-parameter_list|()
+argument_list|()
 block|{
 name|delete
 name|table
 operator|.
 name|back
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|table
 operator|.
 name|pop_back
 argument_list|()
-expr_stmt|;
+block|;
 name|delete
 name|precisionStack
 operator|.
 name|back
-parameter_list|()
-function_decl|;
+argument_list|()
+block|;
 name|precisionStack
 operator|.
 name|pop_back
 argument_list|()
-expr_stmt|;
-block|}
+block|;     }
 name|bool
 name|declare
-parameter_list|(
-name|TSymbol
-modifier|*
-name|symbol
-parameter_list|)
+argument_list|(
+argument|TSymbol *symbol
+argument_list|)
 block|{
 return|return
 name|insert
@@ -1116,14 +1075,11 @@ return|;
 block|}
 name|bool
 name|insert
-parameter_list|(
-name|ESymbolLevel
-name|level
-parameter_list|,
-name|TSymbol
-modifier|*
-name|symbol
-parameter_list|)
+argument_list|(
+argument|ESymbolLevel level
+argument_list|,
+argument|TSymbol *symbol
+argument_list|)
 block|{
 return|return
 name|table
@@ -1138,24 +1094,48 @@ argument_list|)
 return|;
 block|}
 name|bool
-name|insertConstInt
-parameter_list|(
-name|ESymbolLevel
+name|insert
+argument_list|(
+argument|ESymbolLevel level
+argument_list|,
+argument|const char *ext
+argument_list|,
+argument|TSymbol *symbol
+argument_list|)
+block|{
+name|symbol
+operator|->
+name|relateToExtension
+argument_list|(
+name|ext
+argument_list|)
+block|;
+return|return
+name|table
+index|[
 name|level
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|name
-parameter_list|,
-name|int
-name|value
-parameter_list|)
+index|]
+operator|->
+name|insert
+argument_list|(
+name|symbol
+argument_list|)
+return|;
+block|}
+name|bool
+name|insertConstInt
+argument_list|(
+argument|ESymbolLevel level
+argument_list|,
+argument|const char *name
+argument_list|,
+argument|int value
+argument_list|)
 block|{
 name|TVariable
-modifier|*
+operator|*
 name|constant
-init|=
+operator|=
 name|new
 name|TVariable
 argument_list|(
@@ -1175,7 +1155,7 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|)
-decl_stmt|;
+block|;
 name|constant
 operator|->
 name|getConstPointer
@@ -1185,7 +1165,7 @@ name|setIConst
 argument_list|(
 name|value
 argument_list|)
-expr_stmt|;
+block|;
 return|return
 name|insert
 argument_list|(
@@ -1197,92 +1177,205 @@ return|;
 block|}
 name|void
 name|insertBuiltIn
-parameter_list|(
-name|ESymbolLevel
+argument_list|(
+argument|ESymbolLevel level
+argument_list|,
+argument|TOperator op
+argument_list|,
+argument|const char *ext
+argument_list|,
+argument|TType *rvalue
+argument_list|,
+argument|const char *name
+argument_list|,
+argument|TType *ptype1
+argument_list|,
+argument|TType *ptype2 =
+literal|0
+argument_list|,
+argument|TType *ptype3 =
+literal|0
+argument_list|,
+argument|TType *ptype4 =
+literal|0
+argument_list|,
+argument|TType *ptype5 =
+literal|0
+argument_list|)
+block|;
+name|void
+name|insertBuiltIn
+argument_list|(
+argument|ESymbolLevel level
+argument_list|,
+argument|TType *rvalue
+argument_list|,
+argument|const char *name
+argument_list|,
+argument|TType *ptype1
+argument_list|,
+argument|TType *ptype2 =
+literal|0
+argument_list|,
+argument|TType *ptype3 =
+literal|0
+argument_list|,
+argument|TType *ptype4 =
+literal|0
+argument_list|,
+argument|TType *ptype5 =
+literal|0
+argument_list|)
+block|{
+name|insertBuiltIn
+argument_list|(
 name|level
-parameter_list|,
-name|TType
-modifier|*
+argument_list|,
+name|EOpNull
+argument_list|,
+literal|""
+argument_list|,
 name|rvalue
-parameter_list|,
-specifier|const
-name|char
-modifier|*
+argument_list|,
 name|name
-parameter_list|,
-name|TType
-modifier|*
+argument_list|,
 name|ptype1
-parameter_list|,
-name|TType
-modifier|*
+argument_list|,
 name|ptype2
-init|=
-literal|0
-parameter_list|,
-name|TType
-modifier|*
+argument_list|,
 name|ptype3
-init|=
-literal|0
-parameter_list|,
-name|TType
-modifier|*
+argument_list|,
 name|ptype4
-init|=
-literal|0
-parameter_list|,
-name|TType
-modifier|*
+argument_list|,
 name|ptype5
-init|=
+argument_list|)
+block|;     }
+name|void
+name|insertBuiltIn
+argument_list|(
+argument|ESymbolLevel level
+argument_list|,
+argument|const char *ext
+argument_list|,
+argument|TType *rvalue
+argument_list|,
+argument|const char *name
+argument_list|,
+argument|TType *ptype1
+argument_list|,
+argument|TType *ptype2 =
 literal|0
-parameter_list|)
-function_decl|;
+argument_list|,
+argument|TType *ptype3 =
+literal|0
+argument_list|,
+argument|TType *ptype4 =
+literal|0
+argument_list|,
+argument|TType *ptype5 =
+literal|0
+argument_list|)
+block|{
+name|insertBuiltIn
+argument_list|(
+name|level
+argument_list|,
+name|EOpNull
+argument_list|,
+name|ext
+argument_list|,
+name|rvalue
+argument_list|,
+name|name
+argument_list|,
+name|ptype1
+argument_list|,
+name|ptype2
+argument_list|,
+name|ptype3
+argument_list|,
+name|ptype4
+argument_list|,
+name|ptype5
+argument_list|)
+block|;     }
+name|void
+name|insertBuiltIn
+argument_list|(
+argument|ESymbolLevel level
+argument_list|,
+argument|TOperator op
+argument_list|,
+argument|TType *rvalue
+argument_list|,
+argument|const char *name
+argument_list|,
+argument|TType *ptype1
+argument_list|,
+argument|TType *ptype2 =
+literal|0
+argument_list|,
+argument|TType *ptype3 =
+literal|0
+argument_list|,
+argument|TType *ptype4 =
+literal|0
+argument_list|,
+argument|TType *ptype5 =
+literal|0
+argument_list|)
+block|{
+name|insertBuiltIn
+argument_list|(
+name|level
+argument_list|,
+name|op
+argument_list|,
+literal|""
+argument_list|,
+name|rvalue
+argument_list|,
+name|name
+argument_list|,
+name|ptype1
+argument_list|,
+name|ptype2
+argument_list|,
+name|ptype3
+argument_list|,
+name|ptype4
+argument_list|,
+name|ptype5
+argument_list|)
+block|;     }
 name|TSymbol
-modifier|*
+operator|*
 name|find
 argument_list|(
-specifier|const
-name|TString
-operator|&
-name|name
+argument|const TString&name
 argument_list|,
-name|int
-name|shaderVersion
+argument|int shaderVersion
 argument_list|,
-name|bool
-operator|*
-name|builtIn
-operator|=
-name|NULL
+argument|bool *builtIn = NULL
 argument_list|,
-name|bool
-operator|*
-name|sameScope
-operator|=
-name|NULL
+argument|bool *sameScope = NULL
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|TSymbol
-modifier|*
+operator|*
 name|findBuiltIn
 argument_list|(
-specifier|const
-name|TString
-operator|&
-name|name
+argument|const TString&name
 argument_list|,
-name|int
-name|shaderVersion
+argument|int shaderVersion
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|TSymbolTableLevel
-modifier|*
+operator|*
 name|getOuterLevel
-parameter_list|()
+argument_list|()
 block|{
 name|assert
 argument_list|(
@@ -1291,7 +1384,7 @@ argument_list|()
 operator|>=
 literal|1
 argument_list|)
-expr_stmt|;
+block|;
 return|return
 name|table
 index|[
@@ -1303,83 +1396,19 @@ index|]
 return|;
 block|}
 name|void
-name|relateToOperator
-parameter_list|(
-name|ESymbolLevel
-name|level
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|name
-parameter_list|,
-name|TOperator
-name|op
-parameter_list|)
-block|{
-name|table
-index|[
-name|level
-index|]
-operator|->
-name|relateToOperator
-argument_list|(
-name|name
-argument_list|,
-name|op
-argument_list|)
-expr_stmt|;
-block|}
-name|void
-name|relateToExtension
-parameter_list|(
-name|ESymbolLevel
-name|level
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|name
-parameter_list|,
-specifier|const
-name|TString
-modifier|&
-name|ext
-parameter_list|)
-block|{
-name|table
-index|[
-name|level
-index|]
-operator|->
-name|relateToExtension
-argument_list|(
-name|name
-argument_list|,
-name|ext
-argument_list|)
-expr_stmt|;
-block|}
-name|void
 name|dump
 argument_list|(
-name|TInfoSink
-operator|&
-name|infoSink
+argument|TInfoSink&infoSink
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+block|;
 name|bool
 name|setDefaultPrecision
-parameter_list|(
-specifier|const
-name|TPublicType
-modifier|&
-name|type
-parameter_list|,
-name|TPrecision
-name|prec
-parameter_list|)
+argument_list|(
+argument|const TPublicType&type
+argument_list|,
+argument|TPrecision prec
+argument_list|)
 block|{
 if|if
 condition|(
@@ -1407,7 +1436,7 @@ return|;
 comment|// Not allowed to set for aggregate types
 name|int
 name|indexOfLastElement
-init|=
+operator|=
 name|static_cast
 operator|<
 name|int
@@ -1421,7 +1450,11 @@ operator|)
 operator|-
 literal|1
 decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|// Uses map operator [], overwrites the current value
+end_comment
+begin_expr_stmt
 operator|(
 operator|*
 name|precisionStack
@@ -1437,30 +1470,47 @@ index|]
 operator|=
 name|prec
 expr_stmt|;
+end_expr_stmt
+begin_return
 return|return
 name|true
 return|;
-block|}
+end_return
+begin_comment
+unit|}
 comment|// Searches down the precisionStack for a precision qualifier
+end_comment
+begin_comment
 comment|// for the specified TBasicType
-name|TPrecision
+end_comment
+begin_macro
+unit|TPrecision
 name|getDefaultPrecision
 argument_list|(
-name|TBasicType
-name|type
+argument|TBasicType type
 argument_list|)
-decl|const
+end_macro
+begin_decl_stmt
+specifier|const
 decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|// This records invariant varyings declared through
+end_comment
+begin_comment
 comment|// "invariant varying_name;".
+end_comment
+begin_decl_stmt
 name|void
 name|addInvariantVarying
-parameter_list|(
+argument_list|(
 specifier|const
-name|TString
-modifier|&
+name|std
+operator|::
+name|string
+operator|&
 name|originalName
-parameter_list|)
+argument_list|)
 block|{
 name|mInvariantVaryings
 operator|.
@@ -1470,15 +1520,27 @@ name|originalName
 argument_list|)
 expr_stmt|;
 block|}
+end_decl_stmt
+begin_comment
 comment|// If this returns false, the varying could still be invariant
+end_comment
+begin_comment
 comment|// if it is set as invariant during the varying variable
+end_comment
+begin_comment
 comment|// declaration - this piece of information is stored in the
+end_comment
+begin_comment
 comment|// variable's type, not here.
+end_comment
+begin_decl_stmt
 name|bool
 name|isVaryingInvariant
 argument_list|(
 specifier|const
-name|TString
+name|std
+operator|::
+name|string
 operator|&
 name|originalName
 argument_list|)
@@ -1499,6 +1561,8 @@ literal|0
 operator|)
 return|;
 block|}
+end_decl_stmt
+begin_function
 name|void
 name|setGlobalInvariant
 parameter_list|()
@@ -1508,6 +1572,8 @@ operator|=
 name|true
 expr_stmt|;
 block|}
+end_function
+begin_expr_stmt
 name|bool
 name|getGlobalInvariant
 argument_list|()
@@ -1517,6 +1583,8 @@ return|return
 name|mGlobalInvariant
 return|;
 block|}
+end_expr_stmt
+begin_function
 specifier|static
 name|int
 name|nextUniqueId
@@ -1527,8 +1595,12 @@ operator|++
 name|uniqueIdCounter
 return|;
 block|}
+end_function
+begin_label
 name|private
 label|:
+end_label
+begin_expr_stmt
 name|ESymbolLevel
 name|currentLevel
 argument_list|()
@@ -1549,6 +1621,8 @@ literal|1
 operator|)
 return|;
 block|}
+end_expr_stmt
+begin_expr_stmt
 name|std
 operator|::
 name|vector
@@ -1558,6 +1632,8 @@ operator|*
 operator|>
 name|table
 expr_stmt|;
+end_expr_stmt
+begin_typedef
 typedef|typedef
 name|TMap
 operator|<
@@ -1567,6 +1643,8 @@ name|TPrecision
 operator|>
 name|PrecisionStackLevel
 expr_stmt|;
+end_typedef
+begin_expr_stmt
 name|std
 operator|::
 name|vector
@@ -1576,31 +1654,36 @@ operator|*
 operator|>
 name|precisionStack
 expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|std
 operator|::
 name|set
 operator|<
-name|TString
+name|std
+operator|::
+name|string
 operator|>
 name|mInvariantVaryings
 expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
 name|bool
 name|mGlobalInvariant
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 specifier|static
 name|int
 name|uniqueIdCounter
 decl_stmt|;
-block|}
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_endif
+unit|};
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _SYMBOL_TABLE_INCLUDED_
+comment|// COMPILER_TRANSLATOR_SYMBOLTABLE_H_
 end_comment
 end_unit

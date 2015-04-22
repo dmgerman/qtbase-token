@@ -151,7 +151,7 @@ name|detectCallDepth
 argument_list|)
 expr_stmt|;
 name|int
-name|maxDepth
+name|retMaxDepth
 init|=
 name|depth
 decl_stmt|;
@@ -264,7 +264,7 @@ return|return
 name|callDepth
 return|;
 block|}
-name|maxDepth
+name|retMaxDepth
 operator|=
 name|std
 operator|::
@@ -272,7 +272,7 @@ name|max
 argument_list|(
 name|callDepth
 argument_list|,
-name|maxDepth
+name|retMaxDepth
 argument_list|)
 expr_stmt|;
 break|break;
@@ -289,7 +289,7 @@ operator|=
 name|PostVisit
 expr_stmt|;
 return|return
-name|maxDepth
+name|retMaxDepth
 return|;
 block|}
 end_function

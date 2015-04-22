@@ -20,13 +20,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|LIBGLESV2_MATHUTIL_H_
+name|COMMON_MATHUTIL_H_
 end_ifndef
 begin_define
-DECL|macro|LIBGLESV2_MATHUTIL_H_
+DECL|macro|COMMON_MATHUTIL_H_
 define|#
 directive|define
-name|LIBGLESV2_MATHUTIL_H_
+name|COMMON_MATHUTIL_H_
 end_define
 begin_include
 include|#
@@ -52,6 +52,11 @@ begin_include
 include|#
 directive|include
 file|<string.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
 end_include
 begin_decl_stmt
 name|namespace
@@ -576,12 +581,27 @@ return|return
 name|supports
 return|;
 block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__GNUC__
+argument_list|)
+name|supports
+operator|=
+name|__builtin_cpu_supports
+argument_list|(
+literal|"sse2"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|int
 name|info
 index|[
 literal|4
 index|]
-decl_stmt|;
+expr_stmt|;
 name|__cpuid
 argument_list|(
 name|info
@@ -620,6 +640,8 @@ operator|&
 literal|1
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|checked
 operator|=
 name|true
@@ -1636,8 +1658,15 @@ comment|// The value is zero
 block|{
 name|exponent
 operator|=
+name|static_cast
+operator|<
+name|unsigned
+name|short
+operator|>
+operator|(
 operator|-
 literal|112
+operator|)
 expr_stmt|;
 block|}
 return|return
@@ -1777,8 +1806,15 @@ comment|// The value is zero
 block|{
 name|exponent
 operator|=
+name|static_cast
+operator|<
+name|unsigned
+name|short
+operator|>
+operator|(
 operator|-
 literal|112
+operator|)
 expr_stmt|;
 block|}
 return|return
@@ -1820,7 +1856,7 @@ argument_list|(
 argument|T input
 argument_list|)
 block|{
-name|META_ASSERT
+name|static_assert
 argument_list|(
 name|std
 operator|::
@@ -1830,6 +1866,8 @@ name|T
 operator|>
 operator|::
 name|is_integer
+argument_list|,
+literal|"T must be an integer."
 argument_list|)
 block|;
 specifier|const
@@ -1872,7 +1910,7 @@ argument_list|(
 argument|T input
 argument_list|)
 block|{
-name|META_ASSERT
+name|static_assert
 argument_list|(
 name|std
 operator|::
@@ -1882,9 +1920,11 @@ name|T
 operator|>
 operator|::
 name|is_integer
+argument_list|,
+literal|"T must be an integer."
 argument_list|)
 block|;
-name|META_ASSERT
+name|static_assert
 argument_list|(
 name|inputBitCount
 operator|<
@@ -1896,6 +1936,8 @@ argument_list|)
 operator|*
 literal|8
 operator|)
+argument_list|,
+literal|"T must have more bits than inputBitCount."
 argument_list|)
 block|;
 specifier|const
@@ -1968,7 +2010,7 @@ argument_list|(
 argument|float input
 argument_list|)
 block|{
-name|META_ASSERT
+name|static_assert
 argument_list|(
 name|outputBitCount
 operator|<
@@ -1980,6 +2022,8 @@ argument_list|)
 operator|*
 literal|8
 operator|)
+argument_list|,
+literal|"T must have more bits than outputBitCount."
 argument_list|)
 block|;
 return|return
@@ -2020,7 +2064,7 @@ argument_list|(
 argument|T input
 argument_list|)
 block|{
-name|META_ASSERT
+name|static_assert
 argument_list|(
 name|inputBitCount
 operator|+
@@ -2034,6 +2078,8 @@ argument_list|)
 operator|*
 literal|8
 operator|)
+argument_list|,
+literal|"T must have at least as many bits as inputBitCount + inputBitStart."
 argument_list|)
 block|;
 specifier|const
@@ -2080,7 +2126,7 @@ argument_list|(
 argument|T input
 argument_list|)
 block|{
-name|META_ASSERT
+name|static_assert
 argument_list|(
 name|inputBitCount
 operator|+
@@ -2094,6 +2140,8 @@ argument_list|)
 operator|*
 literal|8
 operator|)
+argument_list|,
+literal|"T must have at least as many bits as inputBitCount + inputBitStart."
 argument_list|)
 block|;
 specifier|const
@@ -2453,6 +2501,7 @@ name|rx
 end_macro
 begin_block
 block|{
+comment|// Represents intervals of the type [a, b)
 name|template
 operator|<
 name|typename
@@ -2505,12 +2554,43 @@ operator|-
 name|start
 return|;
 block|}
+name|bool
+name|intersects
+argument_list|(
+argument|Range<T> other
+argument_list|)
+block|{
+if|if
+condition|(
+name|start
+operator|<=
+name|other
+operator|.
+name|start
+condition|)
+block|{
+return|return
+name|other
+operator|.
+name|start
+operator|<
+name|end
+return|;
+block|}
+else|else
+block|{
+return|return
+name|start
+operator|<
+name|other
+operator|.
+name|end
+return|;
+block|}
 block|}
 end_block
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_typedef
+unit|};
 typedef|typedef
 name|Range
 operator|<
@@ -2619,7 +2699,7 @@ argument_list|,
 argument|T rhs
 argument_list|)
 block|{
-name|META_ASSERT
+name|static_assert
 argument_list|(
 operator|!
 name|std
@@ -2630,6 +2710,8 @@ name|T
 operator|>
 operator|::
 name|is_signed
+argument_list|,
+literal|"T must be unsigned."
 argument_list|)
 block|;
 return|return
@@ -2666,7 +2748,7 @@ argument_list|,
 argument|T rhs
 argument_list|)
 block|{
-name|META_ASSERT
+name|static_assert
 argument_list|(
 operator|!
 name|std
@@ -2677,6 +2759,8 @@ name|T
 operator|>
 operator|::
 name|is_signed
+argument_list|,
+literal|"T must be unsigned."
 argument_list|)
 block|;
 return|return
@@ -2751,12 +2835,85 @@ operator|)
 return|;
 block|}
 end_expr_stmt
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_MSC_VER
+argument_list|)
+end_if
+begin_define
+DECL|macro|ANGLE_ROTL
+define|#
+directive|define
+name|ANGLE_ROTL
+parameter_list|(
+name|x
+parameter_list|,
+name|y
+parameter_list|)
+value|_rotl(x,y)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_function
+specifier|inline
+name|uint32_t
+name|RotL
+parameter_list|(
+name|uint32_t
+name|x
+parameter_list|,
+name|int8_t
+name|r
+parameter_list|)
+block|{
+return|return
+operator|(
+name|x
+operator|<<
+name|r
+operator|)
+operator||
+operator|(
+name|x
+operator|>>
+operator|(
+literal|32
+operator|-
+name|r
+operator|)
+operator|)
+return|;
+block|}
+end_function
+begin_define
+define|#
+directive|define
+name|ANGLE_ROTL
+parameter_list|(
+name|x
+parameter_list|,
+name|y
+parameter_list|)
+value|RotL(x,y)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// namespace rx
+end_comment
 begin_endif
 unit|}
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// LIBGLESV2_MATHUTIL_H_
+comment|// COMMON_MATHUTIL_H_
 end_comment
 end_unit

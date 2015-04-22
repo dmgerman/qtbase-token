@@ -26,13 +26,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_REWRITE_ELSE_BLOCKS_H_
+name|COMPILER_TRANSLATOR_REWRITEELSEBLOCKS_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_REWRITE_ELSE_BLOCKS_H_
+DECL|macro|COMPILER_TRANSLATOR_REWRITEELSEBLOCKS_H_
 define|#
 directive|define
-name|COMPILER_REWRITE_ELSE_BLOCKS_H_
+name|COMPILER_TRANSLATOR_REWRITEELSEBLOCKS_H_
 end_define
 begin_include
 include|#
@@ -58,6 +58,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_REWRITE_ELSE_BLOCKS_H_
+comment|// COMPILER_TRANSLATOR_REWRITEELSEBLOCKS_H_
 end_comment
 end_unit

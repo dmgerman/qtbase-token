@@ -40,13 +40,14 @@ argument_list|)
 operator|:
 name|varRef
 argument_list|(
+name|var
+argument_list|)
+block|,
+name|oldValue
+argument_list|(
 argument|var
 argument_list|)
-block|{
-name|oldValue
-operator|=
-name|varRef
-block|;     }
+block|{     }
 name|explicit
 name|QScopedValueRollback
 argument_list|(
@@ -57,16 +58,20 @@ argument_list|)
 operator|:
 name|varRef
 argument_list|(
+name|var
+argument_list|)
+block|,
+name|oldValue
+argument_list|(
 argument|var
 argument_list|)
 block|{
-name|oldValue
-operator|=
-name|varRef
-block|;
 name|varRef
 operator|=
+name|qMove
+argument_list|(
 name|value
+argument_list|)
 block|;     }
 operator|~
 name|QScopedValueRollback
@@ -74,7 +79,10 @@ argument_list|()
 block|{
 name|varRef
 operator|=
+name|qMove
+argument_list|(
 name|oldValue
+argument_list|)
 block|;     }
 name|void
 name|commit

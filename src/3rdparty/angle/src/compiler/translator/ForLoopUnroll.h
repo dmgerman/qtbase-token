@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_FORLOOPUNROLL_H_
+name|COMPILER_TRANSLATOR_FORLOOPUNROLL_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_FORLOOPUNROLL_H_
+DECL|macro|COMPILER_TRANSLATOR_FORLOOPUNROLL_H_
 define|#
 directive|define
-name|COMPILER_FORLOOPUNROLL_H_
+name|COMPILER_TRANSLATOR_FORLOOPUNROLL_H_
 end_define
 begin_include
 include|#
@@ -145,4 +145,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// COMPILER_TRANSLATOR_FORLOOPUNROLL_H_
+end_comment
 end_unit

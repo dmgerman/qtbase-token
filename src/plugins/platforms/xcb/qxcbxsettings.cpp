@@ -98,7 +98,7 @@ DECL|function|updateValue
 name|void
 name|updateValue
 parameter_list|(
-name|QXcbScreen
+name|QXcbVirtualDesktop
 modifier|*
 name|screen
 parameter_list|,
@@ -245,7 +245,7 @@ public|public:
 DECL|function|QXcbXSettingsPrivate
 name|QXcbXSettingsPrivate
 parameter_list|(
-name|QXcbScreen
+name|QXcbVirtualDesktop
 modifier|*
 name|screen
 parameter_list|)
@@ -934,7 +934,7 @@ endif|#
 directive|endif
 comment|//XCB_USE_XLIB
 DECL|member|screen
-name|QXcbScreen
+name|QXcbVirtualDesktop
 modifier|*
 name|screen
 decl_stmt|;
@@ -964,7 +964,7 @@ name|QXcbXSettings
 operator|::
 name|QXcbXSettings
 parameter_list|(
-name|QXcbScreen
+name|QXcbVirtualDesktop
 modifier|*
 name|screen
 parameter_list|)
@@ -994,7 +994,7 @@ name|number
 argument_list|(
 name|screen
 operator|->
-name|screenNumber
+name|number
 argument_list|()
 argument_list|)
 argument_list|)

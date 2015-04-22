@@ -23,13 +23,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|TRANSLATOR_NODESEARCH_H_
+name|COMPILER_TRANSLATOR_NODESEARCH_H_
 end_ifndef
 begin_define
-DECL|macro|TRANSLATOR_NODESEARCH_H_
+DECL|macro|COMPILER_TRANSLATOR_NODESEARCH_H_
 define|#
 directive|define
-name|TRANSLATOR_NODESEARCH_H_
+name|COMPILER_TRANSLATOR_NODESEARCH_H_
 end_define
 begin_include
 include|#
@@ -215,6 +215,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// TRANSLATOR_NODESEARCH_H_
+comment|// COMPILER_TRANSLATOR_NODESEARCH_H_
 end_comment
 end_unit

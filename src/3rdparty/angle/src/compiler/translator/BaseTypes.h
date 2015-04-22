@@ -17,18 +17,18 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_BASICTYPES_INCLUDED_
+name|COMPILER_TRANSLATOR_BASETYPES_H_
 end_ifndef
 begin_define
-DECL|macro|_BASICTYPES_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_BASETYPES_H_
 define|#
 directive|define
-name|_BASICTYPES_INCLUDED_
+name|COMPILER_TRANSLATOR_BASETYPES_H_
 end_define
 begin_include
 include|#
 directive|include
-file|<assert.h>
+file|"compiler/translator/compilerdebug.h"
 end_include
 begin_comment
 comment|//
@@ -138,7 +138,39 @@ block|,
 DECL|enumerator|EbtGVec4
 name|EbtGVec4
 block|,
-comment|// non type: represents vec4, ivec4 and uvec4
+comment|// non type: represents vec4, ivec4, and uvec4
+DECL|enumerator|EbtGenType
+name|EbtGenType
+block|,
+comment|// non type: represents float, vec2, vec3, and vec4
+DECL|enumerator|EbtGenIType
+name|EbtGenIType
+block|,
+comment|// non type: represents int, ivec2, ivec3, and ivec4
+DECL|enumerator|EbtGenUType
+name|EbtGenUType
+block|,
+comment|// non type: represents uint, uvec2, uvec3, and uvec4
+DECL|enumerator|EbtGenBType
+name|EbtGenBType
+block|,
+comment|// non type: represents bool, bvec2, bvec3, and bvec4
+DECL|enumerator|EbtVec
+name|EbtVec
+block|,
+comment|// non type: represents vec2, vec3, and vec4
+DECL|enumerator|EbtIVec
+name|EbtIVec
+block|,
+comment|// non type: represents ivec2, ivec3, and ivec4
+DECL|enumerator|EbtUVec
+name|EbtUVec
+block|,
+comment|// non type: represents uvec2, uvec3, and uvec4
+DECL|enumerator|EbtBVec
+name|EbtBVec
+block|,
+comment|// non type: represents bvec2, bvec3, and bvec4
 DECL|enumerator|EbtGuardSamplerBegin
 name|EbtGuardSamplerBegin
 block|,
@@ -203,19 +235,19 @@ comment|// non type: see implementation of IsSampler()
 DECL|enumerator|EbtGSampler2D
 name|EbtGSampler2D
 block|,
-comment|// non type: represents sampler2D, isampler2D and usampler2D
+comment|// non type: represents sampler2D, isampler2D, and usampler2D
 DECL|enumerator|EbtGSampler3D
 name|EbtGSampler3D
 block|,
-comment|// non type: represents sampler3D, isampler3D and usampler3D
+comment|// non type: represents sampler3D, isampler3D, and usampler3D
 DECL|enumerator|EbtGSamplerCube
 name|EbtGSamplerCube
 block|,
-comment|// non type: represents samplerCube, isamplerCube and usamplerCube
+comment|// non type: represents samplerCube, isamplerCube, and usamplerCube
 DECL|enumerator|EbtGSampler2DArray
 name|EbtGSampler2DArray
 block|,
-comment|// non type: represents sampler2DArray, isampler2DArray and usampler2DArray
+comment|// non type: represents sampler2DArray, isampler2DArray, and usampler2DArray
 DECL|enumerator|EbtStruct
 name|EbtStruct
 block|,
@@ -790,6 +822,27 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|IsInteger
+specifier|inline
+name|bool
+name|IsInteger
+parameter_list|(
+name|TBasicType
+name|type
+parameter_list|)
+block|{
+return|return
+name|type
+operator|==
+name|EbtInt
+operator|||
+name|type
+operator|==
+name|EbtUInt
+return|;
+block|}
+end_function
+begin_function
 DECL|function|SupportsPrecision
 specifier|inline
 name|bool
@@ -911,6 +964,10 @@ block|,
 DECL|enumerator|EvqConstReadOnly
 name|EvqConstReadOnly
 block|,
+comment|// built-ins read by vertex shader
+DECL|enumerator|EvqInstanceID
+name|EvqInstanceID
+block|,
 comment|// built-ins written by vertex shader
 DECL|enumerator|EvqPosition
 name|EvqPosition
@@ -937,6 +994,13 @@ name|EvqFragData
 block|,
 DECL|enumerator|EvqFragDepth
 name|EvqFragDepth
+block|,
+comment|// built-ins written by the shader_framebuffer_fetch extension(s)
+DECL|enumerator|EvqLastFragColor
+name|EvqLastFragColor
+block|,
+DECL|enumerator|EvqLastFragData
+name|EvqLastFragData
 block|,
 comment|// GLSL ES 3.0 vertex output and fragment input
 DECL|enumerator|EvqSmooth
@@ -1231,6 +1295,13 @@ literal|"inout"
 return|;
 break|break;
 case|case
+name|EvqInstanceID
+case|:
+return|return
+literal|"InstanceID"
+return|;
+break|break;
+case|case
 name|EvqPosition
 case|:
 return|return
@@ -1321,7 +1392,24 @@ return|return
 literal|"flat in"
 return|;
 break|break;
+case|case
+name|EvqLastFragColor
+case|:
+return|return
+literal|"LastFragColor"
+return|;
+break|break;
+case|case
+name|EvqLastFragData
+case|:
+return|return
+literal|"LastFragData"
+return|;
+break|break;
 default|default:
+name|UNREACHABLE
+argument_list|()
+expr_stmt|;
 return|return
 literal|"unknown qualifier"
 return|;
@@ -1364,6 +1452,9 @@ return|return
 literal|"column_major"
 return|;
 default|default:
+name|UNREACHABLE
+argument_list|()
+expr_stmt|;
 return|return
 literal|"unknown matrix packing"
 return|;
@@ -1412,6 +1503,9 @@ return|return
 literal|"std140"
 return|;
 default|default:
+name|UNREACHABLE
+argument_list|()
+expr_stmt|;
 return|return
 literal|"unknown block storage"
 return|;
@@ -1478,6 +1572,9 @@ literal|"flat"
 return|;
 break|break;
 default|default:
+name|UNREACHABLE
+argument_list|()
+expr_stmt|;
 return|return
 literal|"unknown interpolation"
 return|;
@@ -1489,6 +1586,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _BASICTYPES_INCLUDED_
+comment|// COMPILER_TRANSLATOR_BASETYPES_H_
 end_comment
 end_unit

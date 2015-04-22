@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
+name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPHBUILDER_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
+DECL|macro|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPHBUILDER_H_
 define|#
 directive|define
-name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
+name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPHBUILDER_H_
 end_define
 begin_include
 include|#
@@ -396,9 +396,13 @@ end_comment
 begin_decl_stmt
 name|class
 name|TNodeSetMaintainer
+range|:
+name|angle
+operator|::
+name|NonCopyable
 block|{
 name|public
-label|:
+operator|:
 name|TNodeSetMaintainer
 argument_list|(
 name|TDependencyGraphBuilder
@@ -430,12 +434,9 @@ operator|:
 name|TNodeSetStack
 operator|&
 name|mSets
-expr_stmt|;
-block|}
+block|;     }
+decl_stmt|;
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_comment
 comment|//
 end_comment
@@ -454,9 +455,13 @@ end_comment
 begin_decl_stmt
 name|class
 name|TNodeSetPropagatingMaintainer
+range|:
+name|angle
+operator|::
+name|NonCopyable
 block|{
 name|public
-label|:
+operator|:
 name|TNodeSetPropagatingMaintainer
 argument_list|(
 name|TDependencyGraphBuilder
@@ -488,12 +493,9 @@ operator|:
 name|TNodeSetStack
 operator|&
 name|mSets
-expr_stmt|;
-block|}
+block|;     }
+decl_stmt|;
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_comment
 comment|//
 end_comment
@@ -533,9 +535,13 @@ end_comment
 begin_decl_stmt
 name|class
 name|TLeftmostSymbolMaintainer
+range|:
+name|angle
+operator|::
+name|NonCopyable
 block|{
 name|public
-label|:
+operator|:
 name|TLeftmostSymbolMaintainer
 argument_list|(
 name|TDependencyGraphBuilder
@@ -595,19 +601,16 @@ argument_list|()
 expr_stmt|;
 block|}
 name|protected
-label|:
+operator|:
 name|TSymbolStack
-modifier|&
+operator|&
 name|mLeftmostSymbols
-decl_stmt|;
+block|;
 name|bool
 name|mNeedsPlaceholderSymbol
+block|;     }
 decl_stmt|;
-block|}
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_expr_stmt
 name|TDependencyGraphBuilder
 argument_list|(
@@ -750,6 +753,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCY_GRAPH_BUILDER_H
+comment|// COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPHBUILDER_H_
 end_comment
 end_unit

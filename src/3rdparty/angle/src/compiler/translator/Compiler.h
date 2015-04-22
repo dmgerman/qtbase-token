@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_SHHANDLE_INCLUDED_
+name|COMPILER_TRANSLATOR_COMPILER_H_
 end_ifndef
 begin_define
-DECL|macro|_SHHANDLE_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_COMPILER_H_
 define|#
 directive|define
-name|_SHHANDLE_INCLUDED_
+name|COMPILER_TRANSLATOR_COMPILER_H_
 end_define
 begin_comment
 comment|//
@@ -95,12 +95,24 @@ name|class
 name|TDependencyGraph
 decl_stmt|;
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_HLSL
+end_ifdef
 begin_decl_stmt
 DECL|variable|TranslatorHLSL
 name|class
 name|TranslatorHLSL
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// ANGLE_ENABLE_HLSL
+end_comment
 begin_comment
 comment|//
 end_comment
@@ -155,6 +167,9 @@ return|return
 literal|0
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_HLSL
 name|virtual
 name|TranslatorHLSL
 modifier|*
@@ -165,6 +180,9 @@ return|return
 literal|0
 return|;
 block|}
+endif|#
+directive|endif
+comment|// ANGLE_ENABLE_HLSL
 name|protected
 label|:
 comment|// Memory allocator. Allocates and tracks memory required by the compiler.
@@ -229,6 +247,20 @@ specifier|const
 name|ShBuiltInResources
 operator|&
 name|resources
+argument_list|)
+block|;
+comment|// compileTreeForTesting should be used only when tests require access to
+comment|// the AST. Users of this function need to manually manage the global pool
+comment|// allocator. Returns NULL whenever there are compilation errors.
+name|TIntermNode
+operator|*
+name|compileTreeForTesting
+argument_list|(
+argument|const char* const shaderStrings[]
+argument_list|,
+argument|size_t numStrings
+argument_list|,
+argument|int compileOptions
 argument_list|)
 block|;
 name|bool
@@ -497,14 +529,25 @@ operator|*
 name|root
 argument_list|)
 block|;
+comment|// Add emulated functions to the built-in function emulator.
+name|virtual
+name|void
+name|initBuiltInFunctionEmulator
+argument_list|(
+argument|BuiltInFunctionEmulator *emu
+argument_list|,
+argument|int compileOptions
+argument_list|)
+block|{}
+block|;
 comment|// Translate to object code.
 name|virtual
 name|void
 name|translate
 argument_list|(
-name|TIntermNode
-operator|*
-name|root
+argument|TIntermNode *root
+argument_list|,
+argument|int compileOptions
 argument_list|)
 operator|=
 literal|0
@@ -582,6 +625,13 @@ specifier|const
 name|TExtensionBehavior
 operator|&
 name|getExtensionBehavior
+argument_list|()
+specifier|const
+block|;
+specifier|const
+name|char
+operator|*
+name|getSourcePath
 argument_list|()
 specifier|const
 block|;
@@ -681,6 +731,17 @@ name|interfaceBlocks
 block|;
 name|private
 operator|:
+name|TIntermNode
+operator|*
+name|compileTreeImpl
+argument_list|(
+argument|const char* const shaderStrings[]
+argument_list|,
+argument|size_t numStrings
+argument_list|,
+argument|int compileOptions
+argument_list|)
+block|;
 name|sh
 operator|::
 name|GLenum
@@ -738,6 +799,12 @@ name|TInfoSink
 name|infoSink
 block|;
 comment|// Output sink.
+specifier|const
+name|char
+operator|*
+name|mSourcePath
+block|;
+comment|// Path of source file or NULL
 comment|// name hashing.
 name|ShHashFunction64
 name|hashFunction
@@ -809,6 +876,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _SHHANDLE_INCLUDED_
+comment|// COMPILER_TRANSLATOR_COMPILER_H_
 end_comment
 end_unit

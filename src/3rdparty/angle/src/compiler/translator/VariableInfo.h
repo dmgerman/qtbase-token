@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_VARIABLE_INFO_H_
+name|COMPILER_TRANSLATOR_VARIABLEINFO_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_VARIABLE_INFO_H_
+DECL|macro|COMPILER_TRANSLATOR_VARIABLEINFO_H_
 define|#
 directive|define
-name|COMPILER_VARIABLE_INFO_H_
+name|COMPILER_TRANSLATOR_VARIABLEINFO_H_
 end_define
 begin_include
 include|#
@@ -198,10 +198,16 @@ name|bool
 name|mFragCoordAdded
 block|;
 name|bool
+name|mInstanceIDAdded
+block|;
+name|bool
 name|mPositionAdded
 block|;
 name|bool
 name|mPointSizeAdded
+block|;
+name|bool
+name|mLastFragDataAdded
 block|;
 name|ShHashFunction64
 name|mHashFunction
@@ -243,6 +249,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_VARIABLE_INFO_H_
+comment|// COMPILER_TRANSLATOR_VARIABLEINFO_H_
 end_comment
 end_unit

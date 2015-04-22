@@ -26,13 +26,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_COMPILER_INTERFACE_VARIABLES_
+name|GLSLANG_SHADERVARS_H_
 end_ifndef
 begin_define
-DECL|macro|_COMPILER_INTERFACE_VARIABLES_
+DECL|macro|GLSLANG_SHADERVARS_H_
 define|#
 directive|define
-name|_COMPILER_INTERFACE_VARIABLES_
+name|GLSLANG_SHADERVARS_H_
 end_define
 begin_include
 include|#
@@ -70,6 +70,18 @@ block|,
 name|INTERPOLATION_FLAT
 block|}
 enum|;
+comment|// Validate link& SSO consistency of interpolation qualifiers
+name|COMPILER_EXPORT
+name|bool
+name|InterpolationTypesMatch
+parameter_list|(
+name|InterpolationType
+name|a
+parameter_list|,
+name|InterpolationType
+name|b
+parameter_list|)
+function_decl|;
 comment|// Uniform block layout qualifier, see section 4.3.8.3 of the ESSL 3.00.4 spec
 enum|enum
 name|BlockLayoutType
@@ -660,6 +672,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _COMPILER_INTERFACE_VARIABLES_
+comment|// GLSLANG_SHADERVARS_H_
 end_comment
 end_unit

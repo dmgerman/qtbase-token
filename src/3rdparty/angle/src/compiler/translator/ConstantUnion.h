@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_CONSTANT_UNION_INCLUDED_
+name|COMPILER_TRANSLATOR_CONSTANTUNION_H_
 end_ifndef
 begin_define
-DECL|macro|_CONSTANT_UNION_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_CONSTANTUNION_H_
 define|#
 directive|define
-name|_CONSTANT_UNION_INCLUDED_
+name|COMPILER_TRANSLATOR_CONSTANTUNION_H_
 end_define
 begin_include
 include|#
@@ -1346,13 +1346,22 @@ block|{
 name|ConstantUnion
 name|returnValue
 block|;
+comment|// The signedness of the second parameter might be different, but we
+comment|// don't care, since the result is undefined if the second parameter is
+comment|// negative, and aliasing should not be a problem with unions.
 name|assert
 argument_list|(
-name|type
-operator|==
 name|constant
 operator|.
 name|type
+operator|==
+name|EbtInt
+operator|||
+name|constant
+operator|.
+name|type
+operator|==
+name|EbtUInt
 argument_list|)
 block|;
 switch|switch
@@ -1422,11 +1431,17 @@ name|returnValue
 decl_stmt|;
 name|assert
 argument_list|(
-name|type
-operator|==
 name|constant
 operator|.
 name|type
+operator|==
+name|EbtInt
+operator|||
+name|constant
+operator|.
+name|type
+operator|==
+name|EbtUInt
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -1797,6 +1812,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _CONSTANT_UNION_INCLUDED_
+comment|// COMPILER_TRANSLATOR_CONSTANTUNION_H_
 end_comment
 end_unit

@@ -67,10 +67,9 @@ include|#
 directive|include
 file|<sys/pps.h>
 end_include
-begin_comment
-comment|///////////////////////////////////////////////////////////////////////////////
-end_comment
 begin_function
+name|QT_BEGIN_NAMESPACE
+comment|///////////////////////////////////////////////////////////////////////////////
 DECL|function|safeAssign
 specifier|static
 specifier|inline
@@ -4183,4 +4182,7 @@ name|EOK
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

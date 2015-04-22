@@ -40,7 +40,7 @@ name|public
 operator|:
 name|QXcbXSettings
 argument_list|(
-name|QXcbScreen
+name|QXcbVirtualDesktop
 operator|*
 name|screen
 argument_list|)
@@ -68,7 +68,7 @@ modifier|*
 name|PropertyChangeFunc
 function_decl|)
 parameter_list|(
-name|QXcbScreen
+name|QXcbVirtualDesktop
 modifier|*
 name|screen
 parameter_list|,
