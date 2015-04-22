@@ -394,9 +394,21 @@ name|getpid
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|system
 argument_list|(
 name|cmd
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"calling gdb failed\n"
 argument_list|)
 expr_stmt|;
 name|fprintf
