@@ -420,6 +420,25 @@ argument_list|,
 argument|Qt::KeyboardModifiers modifiers
 argument_list|)
 block|;
+name|QMouseEvent
+argument_list|(
+argument|Type type
+argument_list|,
+argument|const QPointF&localPos
+argument_list|,
+argument|const QPointF&windowPos
+argument_list|,
+argument|const QPointF&screenPos
+argument_list|,
+argument|Qt::MouseButton button
+argument_list|,
+argument|Qt::MouseButtons buttons
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers
+argument_list|,
+argument|Qt::MouseEventSource source
+argument_list|)
+block|;
 operator|~
 name|QMouseEvent
 argument_list|()
