@@ -475,7 +475,7 @@ operator|*
 name|dd
 argument_list|)
 expr_stmt|;
-name|QSharedDataPointer
+name|QSharedPointer
 operator|<
 name|QPlatformPrintDevice
 operator|>

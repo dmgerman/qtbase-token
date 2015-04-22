@@ -166,30 +166,6 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_function
-DECL|function|operator ==
-name|bool
-name|QPlatformPrintDevice
-operator|::
-name|operator
-name|==
-parameter_list|(
-specifier|const
-name|QPlatformPrintDevice
-modifier|&
-name|other
-parameter_list|)
-specifier|const
-block|{
-return|return
-name|m_id
-operator|==
-name|other
-operator|.
-name|m_id
-return|;
-block|}
-end_function
-begin_function
 DECL|function|id
 name|QString
 name|QPlatformPrintDevice
