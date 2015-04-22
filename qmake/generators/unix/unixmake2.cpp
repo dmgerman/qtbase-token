@@ -8764,7 +8764,10 @@ argument_list|)
 operator|==
 literal|"aux"
 condition|)
-return|return;
+block|{
+comment|// nothing
+block|}
+elseif|else
 if|if
 condition|(
 operator|!
@@ -10603,6 +10606,15 @@ argument_list|)
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"TEMPLATE"
+argument_list|)
+operator|==
+literal|"aux"
 condition|)
 block|{
 name|project
