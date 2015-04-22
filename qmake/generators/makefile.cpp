@@ -19111,6 +19111,8 @@ literal|"make_first"
 condition|)
 name|t
 operator|<<
+literal|' '
+operator|<<
 name|depVar
 argument_list|(
 literal|"ALL_DEPS"
@@ -19123,6 +19125,8 @@ operator|==
 literal|"clean"
 condition|)
 name|t
+operator|<<
+literal|' '
 operator|<<
 name|depVar
 argument_list|(
@@ -19137,6 +19141,8 @@ operator|==
 literal|"distclean"
 condition|)
 name|t
+operator|<<
+literal|' '
 operator|<<
 name|depVar
 argument_list|(
