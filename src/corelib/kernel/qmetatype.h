@@ -1820,6 +1820,14 @@ name|metaObject
 argument_list|)
 decl_stmt|;
 specifier|static
+name|bool
+name|unregisterType
+parameter_list|(
+name|int
+name|type
+parameter_list|)
+function_decl|;
+specifier|static
 name|int
 name|registerNormalizedType
 argument_list|(

@@ -2780,8 +2780,7 @@ name|fileFixify
 argument_list|(
 name|file
 argument_list|,
-name|qmake_getpwd
-argument_list|()
+name|FileFixifyToIndir
 argument_list|)
 expr_stmt|;
 name|QString

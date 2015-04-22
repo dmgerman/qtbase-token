@@ -2031,7 +2031,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if \a fileName has a valid suffix for a loadable     library; otherwise returns \c false.      \table     \header \li Platform \li Valid suffixes     \row \li Windows     \li \c .dll, \c .DLL     \row \li Unix/Linux  \li \c .so     \row \li AIX  \li \c .a     \row \li HP-UX       \li \c .sl, \c .so (HP-UXi)     \row \li Mac OS X    \li \c .dylib, \c .bundle, \c .so     \endtable      Trailing versioning numbers on Unix are ignored.  */
+comment|/*!     Returns \c true if \a fileName has a valid suffix for a loadable     library; otherwise returns \c false.      \table     \header \li Platform \li Valid suffixes     \row \li Windows     \li \c .dll, \c .DLL     \row \li Unix/Linux  \li \c .so     \row \li AIX  \li \c .a     \row \li HP-UX       \li \c .sl, \c .so (HP-UXi)     \row \li OS X and iOS   \li \c .dylib, \c .bundle, \c .so     \endtable      Trailing versioning numbers on Unix are ignored.  */
 end_comment
 begin_function
 DECL|function|isLibrary
@@ -2962,7 +2962,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.)  */
+comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on OS X and iOS, and ".dll" on Windows. (See \l{fileName}.)  */
 end_comment
 begin_constructor
 DECL|function|QLibrary
@@ -3003,7 +3003,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName and major version number \a verNum.     Currently, the version number is ignored on Windows.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.) */
+comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName and major version number \a verNum.     Currently, the version number is ignored on Windows.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on OS X and iOS, and ".dll" on Windows. (See \l{fileName}.) */
 end_comment
 begin_constructor
 DECL|function|QLibrary
@@ -3049,7 +3049,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName and full version number \a version.     Currently, the version number is ignored on Windows.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.)  */
+comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName and full version number \a version.     Currently, the version number is ignored on Windows.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on OS X and iOS, and ".dll" on Windows. (See \l{fileName}.)  */
 end_comment
 begin_constructor
 DECL|function|QLibrary

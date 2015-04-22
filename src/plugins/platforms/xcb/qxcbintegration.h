@@ -28,6 +28,11 @@ include|#
 directive|include
 file|"qxcbexport.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<xcb/xcb.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QXcbConnection
@@ -378,6 +383,9 @@ name|m_instanceName
 block|;
 name|bool
 name|m_canGrab
+block|;
+name|xcb_visualid_t
+name|m_defaultVisualId
 block|;
 specifier|static
 name|QXcbIntegration

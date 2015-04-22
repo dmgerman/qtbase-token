@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_EXTENSION_BEHAVIOR_INCLUDED_
+name|COMPILER_TRANSLATOR_EXTENSIONBEHAVIOR_H_
 end_ifndef
 begin_define
-DECL|macro|_EXTENSION_BEHAVIOR_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_EXTENSIONBEHAVIOR_H_
 define|#
 directive|define
-name|_EXTENSION_BEHAVIOR_INCLUDED_
+name|COMPILER_TRANSLATOR_EXTENSIONBEHAVIOR_H_
 end_define
 begin_include
 include|#
@@ -131,6 +131,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _EXTENSION_TABLE_INCLUDED_
+comment|// COMPILER_TRANSLATOR_EXTENSIONBEHAVIOR_H_
 end_comment
 end_unit

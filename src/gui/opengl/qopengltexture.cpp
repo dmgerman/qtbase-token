@@ -441,9 +441,19 @@ index|[
 literal|2
 index|]
 operator|=
+name|target
+operator|==
+name|QOpenGLTexture
+operator|::
+name|TargetRectangle
+condition|?
 name|QOpenGLTexture
 operator|::
 name|ClampToEdge
+else|:
+name|QOpenGLTexture
+operator|::
+name|Repeat
 expr_stmt|;
 block|}
 end_constructor
@@ -822,9 +832,19 @@ index|[
 literal|2
 index|]
 operator|=
+name|target
+operator|==
+name|QOpenGLTexture
+operator|::
+name|TargetRectangle
+condition|?
 name|QOpenGLTexture
 operator|::
 name|ClampToEdge
+else|:
+name|QOpenGLTexture
+operator|::
+name|Repeat
 expr_stmt|;
 block|}
 end_function
@@ -6361,7 +6381,7 @@ name|DirectionR
 case|:
 name|qWarning
 argument_list|(
-literal|"QOpenGLTexture::setWrapMode() direction not valid for this texture target"
+literal|"QOpenGLTexture::wrapMode() direction not valid for this texture target"
 argument_list|)
 expr_stmt|;
 return|return
@@ -6440,7 +6460,7 @@ name|DirectionR
 case|:
 name|qWarning
 argument_list|(
-literal|"QOpenGLTexture::setWrapMode() direction not valid for this texture target"
+literal|"QOpenGLTexture::wrapMode() direction not valid for this texture target"
 argument_list|)
 expr_stmt|;
 return|return

@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_VARIABLEPACKER_INCLUDED_
+name|COMPILER_TRANSLATOR_VARIABLEPACKER_H_
 end_ifndef
 begin_define
-DECL|macro|_VARIABLEPACKER_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_VARIABLEPACKER_H_
 define|#
 directive|define
-name|_VARIABLEPACKER_INCLUDED_
+name|COMPILER_TRANSLATOR_VARIABLEPACKER_H_
 end_define
 begin_include
 include|#
@@ -171,6 +171,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _VARIABLEPACKER_INCLUDED_
+comment|// COMPILER_TRANSLATOR_VARIABLEPACKER_H_
 end_comment
 end_unit

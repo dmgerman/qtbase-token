@@ -149,11 +149,19 @@ name|T
 operator|>
 expr|struct
 name|QListSpecialMethods
-block|{ }
+block|{
+DECL|member|protected
+name|protected
+operator|:
+operator|~
+name|QListSpecialMethods
+argument_list|()
+block|{}
+block|}
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|QByteArray
+DECL|member|QByteArray
 name|template
 operator|<
 operator|>
@@ -161,6 +169,18 @@ expr|struct
 name|QListSpecialMethods
 operator|<
 name|QByteArray
+operator|>
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+DECL|member|QString
+name|template
+operator|<
+operator|>
+expr|struct
+name|QListSpecialMethods
+operator|<
+name|QString
 operator|>
 expr_stmt|;
 end_expr_stmt
@@ -496,6 +516,7 @@ operator|<
 name|typename
 name|T
 operator|>
+DECL|member|QList
 name|class
 name|QList
 operator|:
@@ -528,6 +549,7 @@ operator|>
 operator|::
 name|isLarge
 block|,
+DECL|member|IndirectLayout
 name|QListData
 operator|::
 name|IndirectLayout
@@ -548,6 +570,7 @@ name|void
 operator|*
 argument_list|)
 block|,
+DECL|member|ArrayCompatibleLayout
 name|QListData
 operator|::
 name|ArrayCompatibleLayout
@@ -563,6 +586,7 @@ operator|::
 name|type
 block|{}
 block|;
+DECL|member|private
 name|private
 operator|:
 expr|struct
@@ -586,6 +610,7 @@ argument_list|()
 block|;
 else|#
 directive|else
+DECL|function|t
 name|Q_INLINE_TEMPLATE
 name|T
 operator|&
@@ -626,6 +651,8 @@ block|}
 expr_stmt|;
 end_expr_stmt
 begin_union
+DECL|member|p
+DECL|member|d
 union|union
 block|{
 name|QListData
@@ -674,6 +701,7 @@ argument_list|()
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|variable|operator
 name|QList
 operator|<
 name|T
@@ -698,6 +726,7 @@ directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 end_ifdef
 begin_expr_stmt
+DECL|function|d
 specifier|inline
 name|QList
 argument_list|(
@@ -732,6 +761,7 @@ operator|::
 name|shared_null
 operator|)
 block|; }
+DECL|variable|operator
 specifier|inline
 name|QList
 operator|&
@@ -891,6 +921,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|size
 specifier|inline
 name|int
 name|size
@@ -906,6 +937,7 @@ return|;
 block|}
 end_expr_stmt
 begin_function
+DECL|function|detach
 specifier|inline
 name|void
 name|detach
@@ -926,6 +958,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|detachShared
 specifier|inline
 name|void
 name|detachShared
@@ -956,6 +989,7 @@ expr_stmt|;
 block|}
 end_function
 begin_expr_stmt
+DECL|function|isDetached
 specifier|inline
 name|bool
 name|isDetached
@@ -982,6 +1016,7 @@ name|UNSHARABLE_CONTAINERS
 argument_list|)
 end_if
 begin_function
+DECL|function|setSharable
 specifier|inline
 name|void
 name|setSharable
@@ -1059,6 +1094,7 @@ return|;
 block|}
 end_decl_stmt
 begin_expr_stmt
+DECL|function|isEmpty
 specifier|inline
 name|bool
 name|isEmpty
@@ -1323,6 +1359,7 @@ parameter_list|)
 function|const;
 end_function
 begin_decl_stmt
+DECL|variable|const_iterator
 name|class
 name|const_iterator
 decl_stmt|;

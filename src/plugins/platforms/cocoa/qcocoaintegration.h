@@ -501,6 +501,13 @@ operator|*
 name|popupWindowStack
 argument_list|()
 block|;
+name|void
+name|setApplicationIcon
+argument_list|(
+argument|const QIcon&icon
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 specifier|static

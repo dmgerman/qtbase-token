@@ -166,6 +166,8 @@ block|,
 literal|"QT3_MOC_SUPPORT"
 block|,
 literal|"QDOC_PROPERTY"
+block|,
+literal|"QPrivateSignal"
 block|}
 decl_stmt|;
 end_decl_stmt

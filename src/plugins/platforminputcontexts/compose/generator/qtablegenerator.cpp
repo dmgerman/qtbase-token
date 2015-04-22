@@ -2676,6 +2676,19 @@ operator|!
 name|composeValueEnd
 condition|)
 return|return;
+comment|// if composed value is a quotation mark adjust the end pointer
+if|if
+condition|(
+name|composeValueEnd
+index|[
+literal|1
+index|]
+operator|==
+literal|'"'
+condition|)
+operator|++
+name|composeValueEnd
+expr_stmt|;
 if|if
 condition|(
 operator|*
@@ -2774,6 +2787,10 @@ name|QString
 operator|::
 name|fromLocal8Bit
 argument_list|(
+name|composeValue
+argument_list|,
+name|composeValueEnd
+operator|-
 name|composeValue
 argument_list|)
 operator|.

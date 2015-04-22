@@ -1134,7 +1134,15 @@ name|mSymbolTable
 operator|.
 name|isVaryingInvariant
 argument_list|(
+name|std
+operator|::
+name|string
+argument_list|(
 name|name
+operator|.
+name|c_str
+argument_list|()
+argument_list|)
 argument_list|)
 condition|)
 block|{

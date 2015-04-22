@@ -673,6 +673,26 @@ return|return
 literal|""
 return|;
 block|}
+comment|// For structures at global scope we use a consistent
+comment|// translation so that we can link between shader stages.
+if|if
+condition|(
+name|structure
+operator|.
+name|atGlobalScope
+argument_list|()
+condition|)
+block|{
+return|return
+name|Decorate
+argument_list|(
+name|structure
+operator|.
+name|name
+argument_list|()
+argument_list|)
+return|;
+block|}
 return|return
 literal|"ss"
 operator|+

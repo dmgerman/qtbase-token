@@ -1074,12 +1074,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* Sets the compiler error code to SLJIT_ERR_ALLOC_FAILED. After    the error code is set, the compiler behaves as if itself detected    an allocation failure. This can greatly simplify error management,    since only the compiler needs to be checked after compilation. */
+comment|/* Sets the compiler error code to SLJIT_ERR_ALLOC_FAILED except    if an error was detected before. After the error code is set    the compiler behaves as if the allocation failure happened    during an sljit function call. This can greatly simplify error    checking, since only the compiler status needs to be checked    after the compilation. */
 end_comment
-begin_function
-DECL|function|sljit_set_compiler_memory_error
-specifier|static
-name|SLJIT_INLINE
+begin_function_decl
+name|SLJIT_API_FUNC_ATTRIBUTE
 name|void
 name|sljit_set_compiler_memory_error
 parameter_list|(
@@ -1088,15 +1086,8 @@ name|sljit_compiler
 modifier|*
 name|compiler
 parameter_list|)
-block|{
-name|compiler
-operator|->
-name|error
-operator|=
-name|SLJIT_ERR_ALLOC_FAILED
-expr_stmt|;
-block|}
-end_function
+function_decl|;
+end_function_decl
 begin_comment
 comment|/*    Allocate a small amount of memory. The size must be<= 64 bytes on 32 bit,    and<= 128 bytes on 64 bit architectures. The memory area is owned by the    compiler, and freed by sljit_free_compiler. The returned pointer is    sizeof(sljit_sw) aligned. Excellent for allocating small blocks during    the compiling, and no need to worry about freeing them. The size is    enough to contain at most 16 pointers. If the size is outside of the range,    the function will return with NULL. However, this return value does not    indicate that there is no more memory (does not set the current error code    of the compiler to out-of-memory status). */
 end_comment

@@ -14,6 +14,17 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|COMPILER_TRANSLATOR_QUALIFIERALIVE_H_
+end_ifndef
+begin_define
+DECL|macro|COMPILER_TRANSLATOR_QUALIFIERALIVE_H_
+define|#
+directive|define
+name|COMPILER_TRANSLATOR_QUALIFIERALIVE_H_
+end_define
 begin_function_decl
 name|bool
 name|QualifierWritten
@@ -26,4 +37,11 @@ name|TQualifier
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// COMPILER_TRANSLATOR_QUALIFIERALIVE_H_
+end_comment
 end_unit

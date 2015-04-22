@@ -194,11 +194,9 @@ operator|::
 name|visitSelection
 parameter_list|(
 name|Visit
-name|preVisit
 parameter_list|,
 name|TIntermSelection
 modifier|*
-name|node
 parameter_list|)
 block|{
 if|if

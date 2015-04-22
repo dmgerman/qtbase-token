@@ -14,6 +14,17 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|COMPILER_TRANSLATOR_VALIDATELIMITATIONS_H_
+end_ifndef
+begin_define
+DECL|macro|COMPILER_TRANSLATOR_VALIDATELIMITATIONS_H_
+define|#
+directive|define
+name|COMPILER_TRANSLATOR_VALIDATELIMITATIONS_H_
+end_define
 begin_include
 include|#
 directive|include
@@ -232,4 +243,11 @@ name|mLoopStack
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// COMPILER_TRANSLATOR_VALIDATELIMITATIONS_H_
+end_comment
 end_unit

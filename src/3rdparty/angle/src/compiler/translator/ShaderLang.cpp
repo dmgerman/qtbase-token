@@ -46,11 +46,23 @@ include|#
 directive|include
 file|"compiler/translator/length_limits.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_HLSL
+end_ifdef
 begin_include
 include|#
 directive|include
 file|"compiler/translator/TranslatorHLSL.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// ANGLE_ENABLE_HLSL
+end_comment
 begin_include
 include|#
 directive|include
@@ -370,6 +382,9 @@ name|getAsCompiler
 argument_list|()
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_HLSL
 DECL|function|GetTranslatorHLSLFromHandle
 name|TranslatorHLSL
 modifier|*
@@ -407,6 +422,9 @@ name|getAsTranslatorHLSL
 argument_list|()
 return|;
 block|}
+endif|#
+directive|endif
+comment|// ANGLE_ENABLE_HLSL
 block|}
 end_namespace
 begin_comment
@@ -596,6 +614,30 @@ expr_stmt|;
 name|resources
 operator|->
 name|EXT_shader_texture_lod
+operator|=
+literal|0
+expr_stmt|;
+name|resources
+operator|->
+name|WEBGL_debug_shader_precision
+operator|=
+literal|0
+expr_stmt|;
+name|resources
+operator|->
+name|EXT_shader_framebuffer_fetch
+operator|=
+literal|0
+expr_stmt|;
+name|resources
+operator|->
+name|NV_shader_framebuffer_fetch
+operator|=
+literal|0
+expr_stmt|;
+name|resources
+operator|->
+name|ARM_shader_framebuffer_fetch
 operator|=
 literal|0
 expr_stmt|;
@@ -1436,6 +1478,9 @@ modifier|*
 name|indexOut
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_HLSL
 name|ASSERT
 argument_list|(
 name|indexOut
@@ -1483,6 +1528,14 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+else|#
+directive|else
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
+comment|// ANGLE_ENABLE_HLSL
 block|}
 end_function
 begin_function
@@ -1507,6 +1560,9 @@ modifier|*
 name|indexOut
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_HLSL
 name|ASSERT
 argument_list|(
 name|indexOut
@@ -1554,6 +1610,14 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+else|#
+directive|else
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
+comment|// ANGLE_ENABLE_HLSL
 block|}
 end_function
 end_unit

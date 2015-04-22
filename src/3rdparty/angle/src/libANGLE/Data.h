@@ -1,0 +1,123 @@
+begin_unit
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Copyright (c) 2014 The ANGLE Project Authors. All rights reserved.
+end_comment
+begin_comment
+comment|// Use of this source code is governed by a BSD-style license that can be
+end_comment
+begin_comment
+comment|// found in the LICENSE file.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Data.h: Container class for all GL relevant state, caps and objects
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|LIBANGLE_DATA_H_
+end_ifndef
+begin_define
+DECL|macro|LIBANGLE_DATA_H_
+define|#
+directive|define
+name|LIBANGLE_DATA_H_
+end_define
+begin_include
+include|#
+directive|include
+file|"libANGLE/State.h"
+end_include
+begin_decl_stmt
+name|namespace
+name|gl
+block|{
+struct|struct
+name|Data
+name|final
+block|{
+name|public
+label|:
+name|Data
+argument_list|(
+argument|GLint clientVersion
+argument_list|,
+argument|const State&state
+argument_list|,
+argument|const Caps&caps
+argument_list|,
+argument|const TextureCapsMap&textureCaps
+argument_list|,
+argument|const Extensions&extensions
+argument_list|,
+argument|const ResourceManager *resourceManager
+argument_list|)
+empty_stmt|;
+operator|~
+name|Data
+argument_list|()
+expr_stmt|;
+name|Data
+argument_list|(
+specifier|const
+name|Data
+operator|&
+name|other
+argument_list|)
+expr_stmt|;
+name|Data
+modifier|&
+name|operator
+init|=
+operator|(
+specifier|const
+name|Data
+operator|&
+name|other
+operator|)
+decl_stmt|;
+name|GLint
+name|clientVersion
+decl_stmt|;
+specifier|const
+name|State
+modifier|*
+name|state
+decl_stmt|;
+specifier|const
+name|Caps
+modifier|*
+name|caps
+decl_stmt|;
+specifier|const
+name|TextureCapsMap
+modifier|*
+name|textureCaps
+decl_stmt|;
+specifier|const
+name|Extensions
+modifier|*
+name|extensions
+decl_stmt|;
+specifier|const
+name|ResourceManager
+modifier|*
+name|resourceManager
+decl_stmt|;
+block|}
+struct|;
+block|}
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// LIBANGLE_DATA_H_
+end_comment
+end_unit

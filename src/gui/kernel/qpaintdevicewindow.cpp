@@ -20,7 +20,7 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QPaintDeviceWindow     \inmodule QtGui     \since 5.4     \brief Convenience subclass of QWindow that is also a QPaintDevice.      QPaintDeviceWindow is like a regular QWindow, with the added functionality     of being a paint device too. Whenever the content needs to be updated,     the virtual paintEvent() function is called. Subclasses, that reimplement     this function, can then simply open a QPainter on the window.      \note This class cannot directly be used in applications. It rather serves     as a base for subclasses like QOpenGLWindow.      \sa QOpenGLWindow */
-comment|/*!     Marks the entire window as dirty and schedules a repaint.      \note Subsequent calls to this function before the next paint     event will get ignored. */
+comment|/*!     Marks the entire window as dirty and schedules a repaint.      \note Subsequent calls to this function before the next paint     event will get ignored.      \note For non-exposed windows the update is deferred until the     window becomes exposed again. */
 DECL|function|update
 name|void
 name|QPaintDeviceWindow
@@ -47,7 +47,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Marks the \a rect of the window as dirty and schedules a repaint.      \note Subsequent calls to this function before the next paint     event will get ignored. */
+comment|/*!     Marks the \a rect of the window as dirty and schedules a repaint.      \note Subsequent calls to this function before the next paint     event will get ignored, but \a rect is added to the region to update.      \note For non-exposed windows the update is deferred until the     window becomes exposed again. */
 end_comment
 begin_function
 DECL|function|update
@@ -73,13 +73,18 @@ name|dirtyRegion
 operator|+=
 name|rect
 expr_stmt|;
+if|if
+condition|(
+name|isExposed
+argument_list|()
+condition|)
 name|requestUpdate
 argument_list|()
 expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Marks the \a region of the window as dirty and schedules a repaint.      \note Subsequent calls to this function before the next paint     event will get ignored. */
+comment|/*!     Marks the \a region of the window as dirty and schedules a repaint.      \note Subsequent calls to this function before the next paint     event will get ignored, but \a region is added to the region to update.      \note For non-exposed windows the update is deferred until the     window becomes exposed again. */
 end_comment
 begin_function
 DECL|function|update
@@ -105,6 +110,11 @@ name|dirtyRegion
 operator|+=
 name|region
 expr_stmt|;
+if|if
+condition|(
+name|isExposed
+argument_list|()
+condition|)
 name|requestUpdate
 argument_list|()
 expr_stmt|;
@@ -401,6 +411,23 @@ name|size
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|dirtyRegion
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// Updates while non-exposed were ignored. Schedule an update now.
+name|requestUpdate
+argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -34524,10 +34524,7 @@ name|debug
 operator|<<
 literal|", z="
 operator|<<
-name|item
-operator|->
-name|zValue
-argument_list|()
+name|z
 expr_stmt|;
 if|if
 condition|(

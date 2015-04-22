@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pnginfo.h - header file for PNG reference library  *  * Copyright (c) 1998-2011 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * Last changed in libpng 1.5.0 [January 6, 2011]  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pnginfo.h - header file for PNG reference library  *  * Last changed in libpng 1.6.1 [March 28, 2013]  * Copyright (c) 1998-2013 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_comment
 comment|/* png_info is a structure that holds the information in a PNG file so  * that the application can find out the characteristics of the image.  * If you are reading the file, this structure will tell you what is  * in the PNG file.  If you are writing the file, fill in the information  * you want to put into the PNG file, using png_set_*() functions, then  * call png_write_info().  *  * The names chosen should be very close to the PNG specification, so  * consult that document for information about the meaning of each field.  *  * With libpng< 0.95, it was only possible to directly set and read the  * the values in the png_info_struct, which meant that the contents and  * order of the values had to remain fixed.  With libpng 0.95 and later,  * however, there are now functions that abstract the contents of  * png_info_struct from the application, so this makes it easier to use  * libpng with dynamic libraries, and even makes it possible to use  * libraries that don't have all of the libpng ancillary chunk-handing  * functionality.  In libpng-1.5.0 this was moved into a separate private  * file that is not visible to applications.  *  * The following members may have allocated storage attached that should be  * cleaned up before the structure is discarded: palette, trans, text,  * pcal_purpose, pcal_units, pcal_params, hist, iccp_name, iccp_profile,  * splt_palettes, scal_unit, row_pointers, and unknowns.   By default, these  * are automatically freed when the info structure is deallocated, if they were  * allocated internally by libpng.  This behavior can be changed by means  * of the png_data_freer() function.  *  * More allocation details: all the chunk-reading functions that  * change these members go through the corresponding png_set_*  * functions.  A function to clear these members is available: see  * png_free_data().  The png_set_* functions do not depend on being  * able to point info structure members to any of the storage they are  * passed (they make their own copies), EXCEPT that the png_set_text  * functions use the same storage passed to them in the text_ptr or  * itxt_ptr structure argument, and the png_set_rows and png_set_unknowns  * functions do not make their own copies.  */
@@ -21,7 +21,7 @@ DECL|struct|png_info_def
 struct|struct
 name|png_info_def
 block|{
-comment|/* the following are necessary for every PNG file */
+comment|/* The following are necessary for every PNG file */
 DECL|member|width
 name|png_uint_32
 name|width
@@ -83,7 +83,7 @@ name|png_byte
 name|interlace_type
 decl_stmt|;
 comment|/* One of PNG_INTERLACE_NONE, PNG_INTERLACE_ADAM7 */
-comment|/* The following is informational only on read, and not used on writes. */
+comment|/* The following are set by png_set_IHDR, called from the application on     * write, but the are never actually used by the write code.     */
 DECL|member|channels
 name|png_byte
 name|channels
@@ -99,6 +99,10 @@ name|png_byte
 name|spare_byte
 decl_stmt|;
 comment|/* to align the data, and for future use */
+ifdef|#
+directive|ifdef
+name|PNG_READ_SUPPORTED
+comment|/* This is never set during write */
 DECL|member|signature
 name|png_byte
 name|signature
@@ -107,30 +111,46 @@ literal|8
 index|]
 decl_stmt|;
 comment|/* magic bytes read by libpng from start of file */
+endif|#
+directive|endif
 comment|/* The rest of the data is optional.  If you are reading, check the     * valid field to see if the information in these are valid.  If you     * are writing, set the valid field to those chunks you want written,     * and initialize the appropriate fields below.     */
 if|#
 directive|if
 name|defined
 argument_list|(
-name|PNG_gAMA_SUPPORTED
+name|PNG_COLORSPACE_SUPPORTED
 argument_list|)
-comment|/* The gAMA chunk describes the gamma characteristics of the system     * on which the image was created, normally in the range [1.0, 2.5].     * Data is valid if (valid& PNG_INFO_gAMA) is non-zero.     */
-DECL|member|gamma
-name|png_fixed_point
-name|gamma
+operator|||
+name|defined
+argument_list|(
+name|PNG_GAMMA_SUPPORTED
+argument_list|)
+comment|/* png_colorspace only contains 'flags' if neither GAMMA or COLORSPACE are     * defined.  When COLORSPACE is switched on all the colorspace-defining     * chunks should be enabled, when GAMMA is switched on all the gamma-defining     * chunks should be enabled.  If this is not done it becomes possible to read     * inconsistent PNG files and assign a probably incorrect interpretation to     * the information.  (In other words, by carefully choosing which chunks to     * recognize the system configuration can select an interpretation for PNG     * files containing ambiguous data and this will result in inconsistent     * behavior between different libpng builds!)     */
+DECL|member|colorspace
+name|png_colorspace
+name|colorspace
 decl_stmt|;
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|PNG_sRGB_SUPPORTED
-comment|/* GR-P, 0.96a */
-comment|/* Data valid if (valid& PNG_INFO_sRGB) non-zero. */
-DECL|member|srgb_intent
-name|png_byte
-name|srgb_intent
+name|PNG_iCCP_SUPPORTED
+comment|/* iCCP chunk data. */
+DECL|member|iccp_name
+name|png_charp
+name|iccp_name
 decl_stmt|;
-comment|/* sRGB rendering intent [0, 1, 2, or 3] */
+comment|/* profile name */
+DECL|member|iccp_profile
+name|png_bytep
+name|iccp_profile
+decl_stmt|;
+comment|/* International Color Consortium profile data */
+DECL|member|iccp_proflen
+name|png_uint_32
+name|iccp_proflen
+decl_stmt|;
+comment|/* ICC profile data length */
 endif|#
 directive|endif
 ifdef|#
@@ -154,7 +174,7 @@ decl_stmt|;
 comment|/* array of comments read or comments to write */
 endif|#
 directive|endif
-comment|/* PNG_TEXT_SUPPORTED */
+comment|/* TEXT */
 ifdef|#
 directive|ifdef
 name|PNG_tIME_SUPPORTED
@@ -278,44 +298,6 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|PNG_cHRM_SUPPORTED
-comment|/* The cHRM chunk describes the CIE color characteristics of the monitor     * on which the PNG was created.  This data allows the viewer to do gamut     * mapping of the input image to ensure that the viewer sees the same     * colors in the image as the creator.  Values are in the range     * [0.0, 0.8].  Data valid if (valid& PNG_INFO_cHRM) non-zero.     */
-DECL|member|x_white
-name|png_fixed_point
-name|x_white
-decl_stmt|;
-DECL|member|y_white
-name|png_fixed_point
-name|y_white
-decl_stmt|;
-DECL|member|x_red
-name|png_fixed_point
-name|x_red
-decl_stmt|;
-DECL|member|y_red
-name|png_fixed_point
-name|y_red
-decl_stmt|;
-DECL|member|x_green
-name|png_fixed_point
-name|x_green
-decl_stmt|;
-DECL|member|y_green
-name|png_fixed_point
-name|y_green
-decl_stmt|;
-DECL|member|x_blue
-name|png_fixed_point
-name|x_blue
-decl_stmt|;
-DECL|member|y_blue
-name|png_fixed_point
-name|y_blue
-decl_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
 name|PNG_pCAL_SUPPORTED
 comment|/* The pCAL chunk describes a transformation between the stored pixel     * values and original physical data values used to create the image.     * The integer range [0, 2^bit_depth - 1] maps to the floating-point     * range given by [pcal_X0, pcal_X1], and are further transformed by a     * (possibly non-linear) transformation function given by "pcal_type"     * and "pcal_params" into "pcal_units".  Please see the PNG_EQUATION_     * defines below, and the PNG-Group's PNG extensions document for a     * complete description of the transformations and how they should be     * implemented, and for a description of the ASCII parameter strings.     * Data values are valid if (valid& PNG_INFO_pCAL) non-zero.     */
 DECL|member|pcal_purpose
@@ -361,53 +343,19 @@ name|png_uint_32
 name|free_me
 decl_stmt|;
 comment|/* flags items libpng is responsible for freeing */
-if|#
-directive|if
-name|defined
-argument_list|(
-name|PNG_UNKNOWN_CHUNKS_SUPPORTED
-argument_list|)
-operator|||
-expr|\
-name|defined
-argument_list|(
-name|PNG_HANDLE_AS_UNKNOWN_SUPPORTED
-argument_list|)
+ifdef|#
+directive|ifdef
+name|PNG_STORE_UNKNOWN_CHUNKS_SUPPORTED
 comment|/* Storage for unknown chunks that the library doesn't recognize. */
 DECL|member|unknown_chunks
 name|png_unknown_chunkp
 name|unknown_chunks
 decl_stmt|;
+comment|/* The type of this field is limited by the type of      * png_struct::user_chunk_cache_max, else overflow can occur.     */
 DECL|member|unknown_chunks_num
 name|int
 name|unknown_chunks_num
 decl_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|PNG_iCCP_SUPPORTED
-comment|/* iCCP chunk data. */
-DECL|member|iccp_name
-name|png_charp
-name|iccp_name
-decl_stmt|;
-comment|/* profile name */
-DECL|member|iccp_profile
-name|png_bytep
-name|iccp_profile
-decl_stmt|;
-comment|/* International Color Consortium profile data */
-DECL|member|iccp_proflen
-name|png_uint_32
-name|iccp_proflen
-decl_stmt|;
-comment|/* ICC profile data length */
-DECL|member|iccp_compression
-name|png_byte
-name|iccp_compression
-decl_stmt|;
-comment|/* Always zero */
 endif|#
 directive|endif
 ifdef|#
@@ -419,9 +367,10 @@ name|png_sPLT_tp
 name|splt_palettes
 decl_stmt|;
 DECL|member|splt_palettes_num
-name|png_uint_32
+name|int
 name|splt_palettes_num
 decl_stmt|;
+comment|/* Match type returned by png_get API */
 endif|#
 directive|endif
 ifdef|#

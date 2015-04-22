@@ -11969,12 +11969,9 @@ name|fileFixify
 argument_list|(
 name|dd
 argument_list|,
-name|QString
-argument_list|()
-argument_list|,
-name|Option
+name|MakefileGenerator
 operator|::
-name|output_dir
+name|FileFixifyFromOutdir
 argument_list|)
 expr_stmt|;
 block|}

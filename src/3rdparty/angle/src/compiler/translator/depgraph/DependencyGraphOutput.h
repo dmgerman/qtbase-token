@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_OUTPUT_H
+name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPHOUTPUT_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_OUTPUT_H
+DECL|macro|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPHOUTPUT_H_
 define|#
 directive|define
-name|COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_OUTPUT_H
+name|COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPHOUTPUT_H_
 end_define
 begin_include
 include|#
@@ -56,59 +56,47 @@ argument_list|(
 argument|sink
 argument_list|)
 block|{}
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TGraphSymbol
-operator|*
-name|symbol
+argument|TGraphSymbol* symbol
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitArgument
 argument_list|(
-name|TGraphArgument
-operator|*
-name|parameter
+argument|TGraphArgument* parameter
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitFunctionCall
 argument_list|(
-name|TGraphFunctionCall
-operator|*
-name|functionCall
+argument|TGraphFunctionCall* functionCall
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitSelection
 argument_list|(
-name|TGraphSelection
-operator|*
-name|selection
+argument|TGraphSelection* selection
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitLoop
 argument_list|(
-name|TGraphLoop
-operator|*
-name|loop
+argument|TGraphLoop* loop
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitLogicalOp
 argument_list|(
-name|TGraphLogicalOp
-operator|*
-name|logicalOp
+argument|TGraphLogicalOp* logicalOp
 argument_list|)
+name|override
 block|;
 name|void
 name|outputAllSpanningTrees
@@ -135,6 +123,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_DEPGRAPH_DEPENDENCY_GRAPH_OUTPUT_H
+comment|// COMPILER_TRANSLATOR_DEPGRAPH_DEPENDENCYGRAPHOUTPUT_H_
 end_comment
 end_unit

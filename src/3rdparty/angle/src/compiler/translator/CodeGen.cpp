@@ -24,11 +24,23 @@ include|#
 directive|include
 file|"compiler/translator/TranslatorGLSL.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_HLSL
+end_ifdef
 begin_include
 include|#
 directive|include
 file|"compiler/translator/TranslatorHLSL.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// ANGLE_ENABLE_HLSL
+end_comment
 begin_comment
 comment|//
 end_comment
@@ -80,7 +92,10 @@ name|spec
 argument_list|)
 return|;
 case|case
-name|SH_GLSL_OUTPUT
+name|SH_GLSL_CORE_OUTPUT
+case|:
+case|case
+name|SH_GLSL_COMPATIBILITY_OUTPUT
 case|:
 return|return
 operator|new
@@ -89,6 +104,8 @@ argument_list|(
 name|type
 argument_list|,
 name|spec
+argument_list|,
+name|output
 argument_list|)
 return|;
 case|case
@@ -97,6 +114,9 @@ case|:
 case|case
 name|SH_HLSL11_OUTPUT
 case|:
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_HLSL
 return|return
 operator|new
 name|TranslatorHLSL
@@ -108,7 +128,18 @@ argument_list|,
 name|output
 argument_list|)
 return|;
+else|#
+directive|else
+comment|// This compiler is not supported in this
+comment|// configuration. Return NULL per the ShConstructCompiler API.
+return|return
+name|NULL
+return|;
+endif|#
+directive|endif
+comment|// ANGLE_ENABLE_HLSL
 default|default:
+comment|// Unknown format. Return NULL per the ShConstructCompiler API.
 return|return
 name|NULL
 return|;

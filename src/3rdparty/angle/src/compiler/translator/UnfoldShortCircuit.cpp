@@ -56,20 +56,11 @@ name|UnfoldShortCircuit
 operator|::
 name|UnfoldShortCircuit
 parameter_list|(
-name|TParseContext
-modifier|&
-name|context
-parameter_list|,
 name|OutputHLSL
 modifier|*
 name|outputHLSL
 parameter_list|)
 member_init_list|:
-name|mContext
-argument_list|(
-name|context
-argument_list|)
-member_init_list|,
 name|mOutputHLSL
 argument_list|(
 name|outputHLSL
@@ -128,7 +119,7 @@ name|out
 init|=
 name|mOutputHLSL
 operator|->
-name|getBodyStream
+name|getInfoSink
 argument_list|()
 decl_stmt|;
 comment|// If our right node doesn't have side effects, we know we don't need to unfold this
@@ -454,7 +445,7 @@ name|out
 init|=
 name|mOutputHLSL
 operator|->
-name|getBodyStream
+name|getInfoSink
 argument_list|()
 decl_stmt|;
 comment|// Unfold "b ? x : y" into "type s; if(b) s = x; else s = y;"

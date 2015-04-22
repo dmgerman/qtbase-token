@@ -45,6 +45,9 @@ name|symbolTable
 parameter_list|,
 name|int
 name|shaderVersion
+parameter_list|,
+name|bool
+name|forceHighp
 parameter_list|)
 member_init_list|:
 name|TOutputGLSLBase
@@ -60,6 +63,13 @@ argument_list|,
 name|symbolTable
 argument_list|,
 name|shaderVersion
+argument_list|,
+name|SH_ESSL_OUTPUT
+argument_list|)
+member_init_list|,
+name|mForceHighp
+argument_list|(
+name|forceHighp
 argument_list|)
 block|{ }
 end_constructor
@@ -90,6 +100,18 @@ init|=
 name|objSink
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|mForceHighp
+condition|)
+name|out
+operator|<<
+name|getPrecisionString
+argument_list|(
+name|EbpHigh
+argument_list|)
+expr_stmt|;
+else|else
 name|out
 operator|<<
 name|getPrecisionString

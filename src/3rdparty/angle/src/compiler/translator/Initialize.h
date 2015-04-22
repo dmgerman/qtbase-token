@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_INITIALIZE_INCLUDED_
+name|COMPILER_TRANSLATOR_INITIALIZE_H_
 end_ifndef
 begin_define
-DECL|macro|_INITIALIZE_INCLUDED_
+DECL|macro|COMPILER_TRANSLATOR_INITIALIZE_H_
 define|#
 directive|define
-name|_INITIALIZE_INCLUDED_
+name|COMPILER_TRANSLATOR_INITIALIZE_H_
 end_define
 begin_include
 include|#
@@ -101,11 +101,33 @@ name|extensionBehavior
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|// Resets the behavior of the extensions listed in |extensionBehavior| to the
+end_comment
+begin_comment
+comment|// undefined state. These extensions will only be those initially supported in
+end_comment
+begin_comment
+comment|// the ShBuiltInResources object for this compiler instance. All other
+end_comment
+begin_comment
+comment|// extensions will remain unsupported.
+end_comment
+begin_function_decl
+name|void
+name|ResetExtensionBehavior
+parameter_list|(
+name|TExtensionBehavior
+modifier|&
+name|extensionBehavior
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// _INITIALIZE_INCLUDED_
+comment|// COMPILER_TRANSLATOR_INITIALIZE_H_
 end_comment
 end_unit

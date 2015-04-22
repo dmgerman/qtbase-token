@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|THIRD_PARTY_COMPILER_ARRAY_BOUNDS_CLAMPER_H_
+name|THIRD_PARTY_COMPILER_ARRAYBOUNDSCLAMPER_H_
 end_ifndef
 begin_define
-DECL|macro|THIRD_PARTY_COMPILER_ARRAY_BOUNDS_CLAMPER_H_
+DECL|macro|THIRD_PARTY_COMPILER_ARRAYBOUNDSCLAMPER_H_
 define|#
 directive|define
-name|THIRD_PARTY_COMPILER_ARRAY_BOUNDS_CLAMPER_H_
+name|THIRD_PARTY_COMPILER_ARRAYBOUNDSCLAMPER_H_
 end_define
 begin_include
 include|#
@@ -106,6 +106,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// THIRD_PARTY_COMPILER_ARRAY_BOUNDS_CLAMPER_H_
+comment|// THIRD_PARTY_COMPILER_ARRAYBOUNDSCLAMPER_H_
 end_comment
 end_unit

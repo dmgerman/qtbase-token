@@ -8212,6 +8212,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"        Q_UNUSED(_t)\n"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|needTempVarForGet
@@ -8580,6 +8587,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"        Q_UNUSED(_t)\n"
+argument_list|)
+expr_stmt|;
 name|fprintf
 argument_list|(
 name|out
@@ -9053,6 +9067,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"        Q_UNUSED(_t)\n"
+argument_list|)
+expr_stmt|;
 name|fprintf
 argument_list|(
 name|out

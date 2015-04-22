@@ -112,6 +112,10 @@ name|QCocoaWindow
 operator|*
 name|m_platformWindow
 block|;
+name|NSTrackingArea
+operator|*
+name|m_trackingArea
+block|;
 name|Qt
 operator|::
 name|MouseButtons

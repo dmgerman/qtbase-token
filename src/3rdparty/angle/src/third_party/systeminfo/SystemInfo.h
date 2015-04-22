@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|SystemInfo_h
+name|THIRD_PARTY_SYSTEMINFO_SYSTEMINFO_H_
 end_ifndef
 begin_define
-DECL|macro|SystemInfo_h
+DECL|macro|THIRD_PARTY_SYSTEMINFO_SYSTEMINFO_H_
 define|#
 directive|define
-name|SystemInfo_h
+name|THIRD_PARTY_SYSTEMINFO_SYSTEMINFO_H_
 end_define
 begin_decl_stmt
 name|namespace
@@ -31,6 +31,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// SystemInfo_h
+comment|// THIRD_PARTY_SYSTEMINFO_SYSTEMINFO_H_
 end_comment
 end_unit

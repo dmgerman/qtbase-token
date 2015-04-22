@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_TRANSLATORESSL_H_
+name|COMPILER_TRANSLATOR_TRANSLATORESSL_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_TRANSLATORESSL_H_
+DECL|macro|COMPILER_TRANSLATOR_TRANSLATORESSL_H_
 define|#
 directive|define
-name|COMPILER_TRANSLATORESSL_H_
+name|COMPILER_TRANSLATOR_TRANSLATORESSL_H_
 end_define
 begin_include
 include|#
@@ -48,13 +48,22 @@ argument_list|)
 block|;
 name|protected
 operator|:
+name|void
+name|initBuiltInFunctionEmulator
+argument_list|(
+argument|BuiltInFunctionEmulator *emu
+argument_list|,
+argument|int compileOptions
+argument_list|)
+name|override
+block|;
 name|virtual
 name|void
 name|translate
 argument_list|(
-name|TIntermNode
-operator|*
-name|root
+argument|TIntermNode *root
+argument_list|,
+argument|int compileOptions
 argument_list|)
 block|;
 name|private
@@ -70,6 +79,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_TRANSLATORESSL_H_
+comment|// COMPILER_TRANSLATOR_TRANSLATORESSL_H_
 end_comment
 end_unit

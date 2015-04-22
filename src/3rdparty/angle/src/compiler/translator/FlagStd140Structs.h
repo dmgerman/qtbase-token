@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_FLAGSTD140STRUCTS_H_
+name|COMPILER_TRANSLATOR_FLAGSTD140STRUCTS_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_FLAGSTD140STRUCTS_H_
+DECL|macro|COMPILER_TRANSLATOR_FLAGSTD140STRUCTS_H_
 define|#
 directive|define
-name|COMPILER_FLAGSTD140STRUCTS_H_
+name|COMPILER_TRANSLATOR_FLAGSTD140STRUCTS_H_
 end_define
 begin_include
 include|#
@@ -121,6 +121,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_FLAGSTD140STRUCTS_H_
+comment|// COMPILER_TRANSLATOR_FLAGSTD140STRUCTS_H_
 end_comment
 end_unit

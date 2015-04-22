@@ -1544,6 +1544,13 @@ return|return
 literal|false
 return|;
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|cd
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 comment|// NO_BOM

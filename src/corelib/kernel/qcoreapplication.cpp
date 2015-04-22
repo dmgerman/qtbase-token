@@ -2811,7 +2811,7 @@ directive|ifndef
 name|QT_NO_QOBJECT
 end_ifndef
 begin_comment
-comment|/*!     Flushes the platform specific event queues.      If you are doing graphical changes inside a loop that does not     return to the event loop on asynchronous window systems like X11     or double buffered window systems like Mac OS X, and you want to     visualize these changes immediately (e.g. Splash Screens), call     this function.      \sa sendPostedEvents() */
+comment|/*!     Flushes the platform specific event queues.      If you are doing graphical changes inside a loop that does not     return to the event loop on asynchronous window systems like X11     or double buffered window systems like Quartz (OS X and iOS), and you want to     visualize these changes immediately (e.g. Splash Screens), call     this function.      \sa sendPostedEvents() */
 end_comment
 begin_function
 DECL|function|flush
@@ -7164,7 +7164,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the directory that contains the application executable.      For example, if you have installed Qt in the \c{C:\Qt}     directory, and you run the \c{regexp} example, this function will     return "C:/Qt/examples/tools/regexp".      On Mac OS X this will point to the directory actually containing the     executable, which may be inside of an application bundle (if the     application is bundled).      \warning On Linux, this function will try to get the path from the     \c {/proc} file system. If that fails, it assumes that \c     {argv[0]} contains the absolute file name of the executable. The     function also assumes that the current directory has not been     changed by the application.      \sa applicationFilePath() */
+comment|/*!     Returns the directory that contains the application executable.      For example, if you have installed Qt in the \c{C:\Qt}     directory, and you run the \c{regexp} example, this function will     return "C:/Qt/examples/tools/regexp".      On OS X and iOS this will point to the directory actually containing the     executable, which may be inside of an application bundle (if the     application is bundled).      \warning On Linux, this function will try to get the path from the     \c {/proc} file system. If that fails, it assumes that \c     {argv[0]} contains the absolute file name of the executable. The     function also assumes that the current directory has not been     changed by the application.      \sa applicationFilePath() */
 end_comment
 begin_function
 DECL|function|applicationDirPath

@@ -17,13 +17,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|CROSSCOMPILERGLSL_OUTPUTESSL_H_
+name|COMPILER_TRANSLATOR_OUTPUTESSL_H_
 end_ifndef
 begin_define
-DECL|macro|CROSSCOMPILERGLSL_OUTPUTESSL_H_
+DECL|macro|COMPILER_TRANSLATOR_OUTPUTESSL_H_
 define|#
 directive|define
-name|CROSSCOMPILERGLSL_OUTPUTESSL_H_
+name|COMPILER_TRANSLATOR_OUTPUTESSL_H_
 end_define
 begin_include
 include|#
@@ -52,6 +52,8 @@ argument_list|,
 argument|TSymbolTable& symbolTable
 argument_list|,
 argument|int shaderVersion
+argument_list|,
+argument|bool forceHighp
 argument_list|)
 block|;
 name|protected
@@ -62,6 +64,11 @@ name|writeVariablePrecision
 argument_list|(
 argument|TPrecision precision
 argument_list|)
+block|;
+name|private
+operator|:
+name|bool
+name|mForceHighp
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -70,6 +77,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// CROSSCOMPILERGLSL_OUTPUTESSL_H_
+comment|// COMPILER_TRANSLATOR_OUTPUTESSL_H_
 end_comment
 end_unit

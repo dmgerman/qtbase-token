@@ -98,6 +98,17 @@ end_else
 begin_comment
 comment|// defined(_MSC_VER)
 end_comment
+begin_comment
+comment|// Ignore GCC force inline warnings
+end_comment
+begin_pragma
+pragma|#
+directive|pragma
+name|GCC
+name|diagnostic
+name|ignored
+literal|"-Wattributes"
+end_pragma
 begin_define
 DECL|macro|FORCE_INLINE
 define|#

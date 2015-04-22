@@ -17,14 +17,19 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_DIRECTIVE_HANDLER_H_
+name|COMPILER_TRANSLATOR_DIRECTIVEHANDLER_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_DIRECTIVE_HANDLER_H_
+DECL|macro|COMPILER_TRANSLATOR_DIRECTIVEHANDLER_H_
 define|#
 directive|define
-name|COMPILER_DIRECTIVE_HANDLER_H_
+name|COMPILER_TRANSLATOR_DIRECTIVEHANDLER_H_
 end_define
+begin_include
+include|#
+directive|include
+file|"common/angleutils.h"
+end_include
 begin_include
 include|#
 directive|include
@@ -47,6 +52,7 @@ name|TDiagnostics
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|DirectiveHandler
 name|class
 name|TDirectiveHandler
 range|:
@@ -54,29 +60,29 @@ name|public
 name|pp
 operator|::
 name|DirectiveHandler
+decl_stmt|,
+name|angle
+decl|::
+name|NonCopyable
 block|{
 name|public
-operator|:
+label|:
 name|TDirectiveHandler
 argument_list|(
-name|TExtensionBehavior
-operator|&
-name|extBehavior
+argument|TExtensionBehavior& extBehavior
 argument_list|,
-name|TDiagnostics
-operator|&
-name|diagnostics
+argument|TDiagnostics& diagnostics
 argument_list|,
-name|int
-operator|&
-name|shaderVersion
+argument|int& shaderVersion
+argument_list|,
+argument|bool debugShaderPrecisionSupported
 argument_list|)
-block|;
+empty_stmt|;
 name|virtual
 operator|~
 name|TDirectiveHandler
 argument_list|()
-block|;
+expr_stmt|;
 specifier|const
 name|TPragma
 operator|&
@@ -117,20 +123,36 @@ name|string
 operator|&
 name|msg
 argument_list|)
-block|;
+decl_stmt|;
 name|virtual
 name|void
 name|handlePragma
 argument_list|(
-argument|const pp::SourceLocation& loc
+specifier|const
+name|pp
+operator|::
+name|SourceLocation
+operator|&
+name|loc
 argument_list|,
-argument|const std::string& name
+specifier|const
+name|std
+operator|::
+name|string
+operator|&
+name|name
 argument_list|,
-argument|const std::string& value
+specifier|const
+name|std
+operator|::
+name|string
+operator|&
+name|value
 argument_list|,
-argument|bool stdgl
+name|bool
+name|stdgl
 argument_list|)
-block|;
+decl_stmt|;
 name|virtual
 name|void
 name|handleExtension
@@ -156,40 +178,52 @@ name|string
 operator|&
 name|behavior
 argument_list|)
-block|;
+decl_stmt|;
 name|virtual
 name|void
 name|handleVersion
 argument_list|(
-argument|const pp::SourceLocation& loc
+specifier|const
+name|pp
+operator|::
+name|SourceLocation
+operator|&
+name|loc
 argument_list|,
-argument|int version
+name|int
+name|version
 argument_list|)
-block|;
+decl_stmt|;
 name|private
-operator|:
+label|:
 name|TPragma
 name|mPragma
-block|;
-name|TExtensionBehavior
-operator|&
-name|mExtensionBehavior
-block|;
-name|TDiagnostics
-operator|&
-name|mDiagnostics
-block|;
-name|int
-operator|&
-name|mShaderVersion
-block|; }
 decl_stmt|;
+name|TExtensionBehavior
+modifier|&
+name|mExtensionBehavior
+decl_stmt|;
+name|TDiagnostics
+modifier|&
+name|mDiagnostics
+decl_stmt|;
+name|int
+modifier|&
+name|mShaderVersion
+decl_stmt|;
+name|bool
+name|mDebugShaderPrecisionSupported
+decl_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_DIRECTIVE_HANDLER_H_
+comment|// COMPILER_TRANSLATOR_DIRECTIVEHANDLER_H_
 end_comment
 end_unit

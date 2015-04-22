@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qevdevtouch_p.h>
+file|<QtPlatformSupport/private/qevdevtouchmanager_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -102,8 +102,10 @@ argument_list|)
 condition|)
 return|return
 operator|new
-name|QEvdevTouchScreenHandlerThread
+name|QEvdevTouchManager
 argument_list|(
+name|key
+argument_list|,
 name|spec
 argument_list|)
 return|;

@@ -26,13 +26,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_UNFOLD_SHORT_CIRCUIT_AST_H_
+name|COMPILER_TRANSLATOR_UNFOLDSHORTCIRCUITAST_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_UNFOLD_SHORT_CIRCUIT_AST_H_
+DECL|macro|COMPILER_TRANSLATOR_UNFOLDSHORTCIRCUITAST_H_
 define|#
 directive|define
-name|COMPILER_UNFOLD_SHORT_CIRCUIT_AST_H_
+name|COMPILER_TRANSLATOR_UNFOLDSHORTCIRCUITAST_H_
 end_define
 begin_include
 include|#
@@ -73,73 +73,6 @@ argument|Visit visit
 argument_list|,
 argument|TIntermBinary *
 argument_list|)
-block|;
-name|void
-name|updateTree
-argument_list|()
-block|;
-name|private
-operator|:
-expr|struct
-name|NodeUpdateEntry
-block|{
-name|NodeUpdateEntry
-argument_list|(
-name|TIntermNode
-operator|*
-name|_parent
-argument_list|,
-name|TIntermNode
-operator|*
-name|_original
-argument_list|,
-name|TIntermNode
-operator|*
-name|_replacement
-argument_list|)
-operator|:
-name|parent
-argument_list|(
-name|_parent
-argument_list|)
-block|,
-name|original
-argument_list|(
-name|_original
-argument_list|)
-block|,
-name|replacement
-argument_list|(
-argument|_replacement
-argument_list|)
-block|{}
-name|TIntermNode
-operator|*
-name|parent
-block|;
-name|TIntermNode
-operator|*
-name|original
-block|;
-name|TIntermNode
-operator|*
-name|replacement
-block|;     }
-block|;
-comment|// During traversing, save all the replacements that need to happen;
-comment|// then replace them by calling updateNodes().
-name|std
-operator|::
-name|vector
-operator|<
-name|NodeUpdateEntry
-operator|>
-name|replacements
-block|;
-name|DISALLOW_COPY_AND_ASSIGN
-argument_list|(
-name|UnfoldShortCircuitAST
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -148,6 +81,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_UNFOLD_SHORT_CIRCUIT_AST_H_
+comment|// COMPILER_TRANSLATOR_UNFOLDSHORTCIRCUITAST_H_
 end_comment
 end_unit

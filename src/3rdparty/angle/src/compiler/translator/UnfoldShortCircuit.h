@@ -23,13 +23,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|COMPILER_UNFOLDSHORTCIRCUIT_H_
+name|COMPILER_TRANSLATOR_UNFOLDSHORTCIRCUIT_H_
 end_ifndef
 begin_define
-DECL|macro|COMPILER_UNFOLDSHORTCIRCUIT_H_
+DECL|macro|COMPILER_TRANSLATOR_UNFOLDSHORTCIRCUIT_H_
 define|#
 directive|define
-name|COMPILER_UNFOLDSHORTCIRCUIT_H_
+name|COMPILER_TRANSLATOR_UNFOLDSHORTCIRCUIT_H_
 end_define
 begin_include
 include|#
@@ -58,10 +58,6 @@ name|public
 operator|:
 name|UnfoldShortCircuit
 argument_list|(
-name|TParseContext
-operator|&
-name|context
-argument_list|,
 name|OutputHLSL
 operator|*
 name|outputHLSL
@@ -105,10 +101,6 @@ argument_list|()
 block|;
 name|protected
 operator|:
-name|TParseContext
-operator|&
-name|mContext
-block|;
 name|OutputHLSL
 operator|*
 specifier|const
@@ -125,6 +117,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// COMPILER_UNFOLDSHORTCIRCUIT_H_
+comment|// COMPILER_TRANSLATOR_UNFOLDSHORTCIRCUIT_H_
 end_comment
 end_unit
