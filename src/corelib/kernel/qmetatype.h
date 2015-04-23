@@ -9246,7 +9246,14 @@ block|{
 DECL|enumerator|Defined
 name|Defined
 operator|=
-literal|1
+name|QtPrivate
+operator|::
+name|is_default_constructible
+operator|<
+name|T
+operator|>
+operator|::
+name|value
 block|}
 block|;
 DECL|function|qt_metatype_id
