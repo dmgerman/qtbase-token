@@ -65,7 +65,10 @@ file|<QtGui/qscreen.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QPixmap
+name|Q_DECLARE_LOGGING_CATEGORY
+argument_list|(
+name|lcQpaCocoaWindow
+argument_list|)
 name|class
 name|QPixmap
 decl_stmt|;

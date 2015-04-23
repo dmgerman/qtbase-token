@@ -95,6 +95,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qloggingcategory.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qcore_mac_p.h"
 end_include
 begin_include
