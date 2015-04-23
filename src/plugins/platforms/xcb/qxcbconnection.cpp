@@ -1488,11 +1488,6 @@ name|outputCount
 init|=
 literal|0
 decl_stmt|;
-name|int
-name|connectedOutputCount
-init|=
-literal|0
-decl_stmt|;
 if|if
 condition|(
 name|has_randr_extension
@@ -1918,9 +1913,6 @@ decl_stmt|;
 name|siblings
 operator|<<
 name|screen
-expr_stmt|;
-operator|++
-name|connectedOutputCount
 expr_stmt|;
 name|hasOutputs
 operator|=
