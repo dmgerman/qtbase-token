@@ -626,17 +626,6 @@ end_decl_stmt
 begin_comment
 comment|// Column-major order to match OpenGL.
 end_comment
-begin_function
-name|explicit
-name|QGenericMatrix
-parameter_list|(
-name|int
-parameter_list|)
-block|{}
-end_function
-begin_comment
-comment|// Construct without initializing identity matrix.
-end_comment
 begin_if
 if|#
 directive|if
@@ -1246,7 +1235,9 @@ name|T
 operator|>
 name|result
 argument_list|(
-literal|1
+name|Qt
+operator|::
+name|Uninitialized
 argument_list|)
 block|;
 for|for
@@ -1962,7 +1953,9 @@ name|T
 operator|>
 name|result
 argument_list|(
-literal|1
+name|Qt
+operator|::
+name|Uninitialized
 argument_list|)
 block|;
 for|for
@@ -2093,7 +2086,9 @@ name|T
 operator|>
 name|result
 argument_list|(
-literal|1
+name|Qt
+operator|::
+name|Uninitialized
 argument_list|)
 block|;
 for|for
@@ -2227,7 +2222,9 @@ name|T
 operator|>
 name|result
 argument_list|(
-literal|1
+name|Qt
+operator|::
+name|Uninitialized
 argument_list|)
 block|;
 for|for
@@ -2373,7 +2370,9 @@ name|T
 operator|>
 name|result
 argument_list|(
-literal|1
+name|Qt
+operator|::
+name|Uninitialized
 argument_list|)
 block|;
 for|for
@@ -2485,7 +2484,9 @@ name|T
 operator|>
 name|result
 argument_list|(
-literal|1
+name|Qt
+operator|::
+name|Uninitialized
 argument_list|)
 block|;
 for|for
@@ -2598,7 +2599,9 @@ name|T
 operator|>
 name|result
 argument_list|(
-literal|1
+name|Qt
+operator|::
+name|Uninitialized
 argument_list|)
 block|;
 for|for
@@ -2712,7 +2715,9 @@ name|T
 operator|>
 name|result
 argument_list|(
-literal|1
+name|Qt
+operator|::
+name|Uninitialized
 argument_list|)
 block|;
 for|for
