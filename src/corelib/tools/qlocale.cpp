@@ -2563,6 +2563,8 @@ sizeof|sizeof
 argument_list|(
 name|script_code_list
 argument_list|)
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 if|if
