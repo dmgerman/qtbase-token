@@ -1522,7 +1522,7 @@ block|{
 name|QByteArray
 name|display
 argument_list|(
-name|getenv
+name|qgetenv
 argument_list|(
 literal|"DISPLAY"
 argument_list|)

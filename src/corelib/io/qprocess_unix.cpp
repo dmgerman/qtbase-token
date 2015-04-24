@@ -1980,8 +1980,7 @@ name|QString
 operator|::
 name|fromLocal8Bit
 argument_list|(
-operator|::
-name|getenv
+name|qgetenv
 argument_list|(
 literal|"PATH"
 argument_list|)
@@ -6721,8 +6720,7 @@ name|QString
 operator|::
 name|fromLocal8Bit
 argument_list|(
-operator|::
-name|getenv
+name|qgetenv
 argument_list|(
 literal|"PATH"
 argument_list|)

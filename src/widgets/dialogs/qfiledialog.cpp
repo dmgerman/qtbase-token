@@ -17205,7 +17205,7 @@ name|QString
 operator|::
 name|fromLocal8Bit
 argument_list|(
-name|getenv
+name|qgetenv
 argument_list|(
 name|string
 operator|.

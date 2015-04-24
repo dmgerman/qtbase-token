@@ -47,6 +47,11 @@ include|#
 directive|include
 file|<private/qsystemlibrary_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qmutex.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -5462,6 +5467,19 @@ return|;
 block|}
 end_function
 begin_comment
+comment|// In the C runtime on all platforms access to the environment is not thread-safe. We
+end_comment
+begin_comment
+comment|// add thread-safety for the Qt wrappers.
+end_comment
+begin_decl_stmt
+DECL|variable|environmentMutex
+specifier|static
+name|QBasicMutex
+name|environmentMutex
+decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|// getenv is declared as deprecated in VS2005. This function
 end_comment
 begin_comment
@@ -5481,6 +5499,13 @@ modifier|*
 name|varName
 parameter_list|)
 block|{
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|environmentMutex
+argument_list|)
+decl_stmt|;
 if|#
 directive|if
 name|defined
@@ -5596,6 +5621,13 @@ name|varName
 parameter_list|)
 name|Q_DECL_NOEXCEPT
 block|{
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|environmentMutex
+argument_list|)
+decl_stmt|;
 if|#
 directive|if
 name|defined
@@ -5677,6 +5709,13 @@ name|ok
 parameter_list|)
 name|Q_DECL_NOEXCEPT
 block|{
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|environmentMutex
+argument_list|)
+decl_stmt|;
 if|#
 directive|if
 name|defined
@@ -5878,6 +5917,13 @@ name|varName
 parameter_list|)
 name|Q_DECL_NOEXCEPT
 block|{
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|environmentMutex
+argument_list|)
+decl_stmt|;
 if|#
 directive|if
 name|defined
@@ -5947,6 +5993,13 @@ modifier|&
 name|value
 parameter_list|)
 block|{
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|environmentMutex
+argument_list|)
+decl_stmt|;
 if|#
 directive|if
 name|defined
@@ -6077,6 +6130,13 @@ modifier|*
 name|varName
 parameter_list|)
 block|{
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
+name|environmentMutex
+argument_list|)
+decl_stmt|;
 if|#
 directive|if
 name|defined
