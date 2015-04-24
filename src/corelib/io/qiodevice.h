@@ -201,6 +201,38 @@ name|isSequential
 argument_list|()
 specifier|const
 block|;
+name|int
+name|readChannelCount
+argument_list|()
+specifier|const
+block|;
+name|int
+name|writeChannelCount
+argument_list|()
+specifier|const
+block|;
+name|int
+name|currentReadChannel
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setCurrentReadChannel
+argument_list|(
+argument|int channel
+argument_list|)
+block|;
+name|int
+name|currentWriteChannel
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setCurrentWriteChannel
+argument_list|(
+argument|int channel
+argument_list|)
+block|;
 name|virtual
 name|bool
 name|open
@@ -415,8 +447,22 @@ name|readyRead
 argument_list|()
 block|;
 name|void
+name|channelReadyRead
+argument_list|(
+argument|int channel
+argument_list|)
+block|;
+name|void
 name|bytesWritten
 argument_list|(
+argument|qint64 bytes
+argument_list|)
+block|;
+name|void
+name|channelBytesWritten
+argument_list|(
+argument|int channel
+argument_list|,
 argument|qint64 bytes
 argument_list|)
 block|;
