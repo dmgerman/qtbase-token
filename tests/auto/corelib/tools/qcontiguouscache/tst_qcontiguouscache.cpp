@@ -45,6 +45,10 @@ private|private
 name|slots
 private|:
 name|void
+name|assignment
+parameter_list|()
+function_decl|;
+name|void
 name|empty
 parameter_list|()
 function_decl|;
@@ -97,6 +101,38 @@ argument_list|(
 argument|tst_QContiguousCache
 argument_list|)
 end_macro
+begin_function
+DECL|function|assignment
+name|void
+name|tst_QContiguousCache
+operator|::
+name|assignment
+parameter_list|()
+block|{
+comment|// compile-only test: QTBUG-45783
+name|QContiguousCache
+argument_list|<
+name|int
+argument_list|>
+name|cc1
+decl_stmt|,
+name|cc2
+decl_stmt|;
+comment|// copy:
+name|cc1
+operator|=
+name|cc2
+expr_stmt|;
+comment|// move:
+name|cc1
+operator|=
+name|qMove
+argument_list|(
+name|cc2
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_function
 DECL|function|empty
 name|void
