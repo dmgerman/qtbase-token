@@ -6601,24 +6601,6 @@ operator|->
 name|ensurePopulated
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|family_name
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|load
-argument_list|(
-name|test
-operator|.
-name|family
-operator|->
-name|name
-argument_list|,
-name|script
-argument_list|)
-expr_stmt|;
 comment|// Check if family is supported in the script we want
 if|if
 condition|(
