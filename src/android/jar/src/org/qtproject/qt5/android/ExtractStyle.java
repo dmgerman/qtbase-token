@@ -8924,6 +8924,7 @@ name|InsetDrawable
 operator|)
 name|drawable
 decl_stmt|;
+comment|// mInsetState changed to mState in Android 5.1 (22)
 name|Object
 name|mInsetStateObject
 init|=
@@ -8933,6 +8934,18 @@ name|InsetDrawable
 operator|.
 name|class
 argument_list|,
+operator|(
+name|Build
+operator|.
+name|VERSION
+operator|.
+name|SDK_INT
+operator|>
+literal|21
+operator|)
+condition|?
+literal|"mState"
+else|:
 literal|"mInsetState"
 argument_list|)
 operator|.
