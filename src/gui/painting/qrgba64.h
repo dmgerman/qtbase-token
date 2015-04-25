@@ -928,6 +928,15 @@ begin_empty_stmt
 unit|} }
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QRgba64
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_function
 DECL|function|qRgba64
 name|Q_DECL_RELAXED_CONSTEXPR
