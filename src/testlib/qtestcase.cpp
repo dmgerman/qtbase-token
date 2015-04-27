@@ -418,6 +418,67 @@ argument_list|,
 literal|"========= End of stack trace ==============\n"
 argument_list|)
 expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"\n========= Received signal, dumping stack ==============\n"
+argument_list|)
+expr_stmt|;
+name|char
+name|cmd
+index|[
+literal|512
+index|]
+decl_stmt|;
+name|qsnprintf
+argument_list|(
+name|cmd
+argument_list|,
+literal|512
+argument_list|,
+literal|"lldb -p %d 2>/dev/null<<EOF\n"
+literal|"bt all\n"
+literal|"quit\n"
+literal|"EOF\n"
+argument_list|,
+operator|(
+name|int
+operator|)
+name|getpid
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|system
+argument_list|(
+name|cmd
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"calling lldb failed\n"
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"========= End of stack trace ==============\n"
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 block|}
