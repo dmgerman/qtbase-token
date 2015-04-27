@@ -597,6 +597,14 @@ condition|)
 do|;
 if|if
 condition|(
+operator|!
+name|def
+operator|->
+name|superclassList
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|knownGadgets
 operator|.
 name|contains

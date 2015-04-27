@@ -67360,7 +67360,7 @@ name|context
 operator|->
 name|getProcAddress
 argument_list|(
-literal|"glEGLImageTargetRenderbufferStorageOESs"
+literal|"glEGLImageTargetRenderbufferStorageOES"
 argument_list|)
 expr_stmt|;
 return|return

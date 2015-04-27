@@ -5934,13 +5934,6 @@ argument_list|(
 name|true
 argument_list|)
 expr_stmt|;
-name|buttonOk
-operator|->
-name|setDefault
-argument_list|(
-name|true
-argument_list|)
-expr_stmt|;
 name|hboxLayout3
 operator|->
 name|addWidget
@@ -6036,6 +6029,13 @@ argument_list|(
 name|click
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|buttonOk
+operator|->
+name|setDefault
+argument_list|(
+name|true
 argument_list|)
 expr_stmt|;
 name|QMetaObject

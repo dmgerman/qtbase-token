@@ -398,13 +398,6 @@ argument_list|(
 name|true
 argument_list|)
 expr_stmt|;
-name|buttonDisplay
-operator|->
-name|setDefault
-argument_list|(
-name|true
-argument_list|)
-expr_stmt|;
 name|hboxLayout
 operator|->
 name|addWidget
@@ -467,6 +460,13 @@ comment|// QT_NO_SHORTCUT
 name|retranslateUi
 argument_list|(
 name|TopicChooser
+argument_list|)
+expr_stmt|;
+name|buttonDisplay
+operator|->
+name|setDefault
+argument_list|(
+name|true
 argument_list|)
 expr_stmt|;
 name|QMetaObject
