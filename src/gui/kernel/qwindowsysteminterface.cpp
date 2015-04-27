@@ -2721,6 +2721,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Handles a window system event.      By default this function posts the event on the window system event queue and     wakes the Gui event dispatcher. Qt Gui will then handle the event asynchonously     at a later point. The return value is not used in asynchronous mode and will     always be true.      In synchronous mode Qt Gui will process the event immediately. The return value     indicates if Qt accepted the event.      \sa flushWindowSystemEvents(), setSynchronousWindowSystemEvents() */
+end_comment
 begin_function
 DECL|function|handleWindowSystemEvent
 name|bool
