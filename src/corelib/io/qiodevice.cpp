@@ -2611,6 +2611,23 @@ name|readResult
 decl_stmt|;
 do|do
 block|{
+if|if
+condition|(
+name|quint64
+argument_list|(
+name|readBytes
+argument_list|)
+operator|+
+name|QIODEVICE_BUFFERSIZE
+operator|>
+name|QByteArray
+operator|::
+name|MaxSize
+condition|)
+block|{
+comment|// If resize would fail, don't read more, return what we have.
+break|break;
+block|}
 name|result
 operator|.
 name|resize
