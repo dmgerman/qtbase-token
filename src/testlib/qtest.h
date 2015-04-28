@@ -1590,9 +1590,35 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
+begin_ifdef
+unit|} QT_END_NAMESPACE
+ifdef|#
+directive|ifdef
+name|QT_TESTCASE_BUILDDIR
+end_ifdef
+begin_define
+DECL|macro|QTEST_SET_MAIN_SOURCE_PATH
+define|#
+directive|define
+name|QTEST_SET_MAIN_SOURCE_PATH
+value|QTest::setMainSourcePath(__FILE__, QT_TESTCASE_BUILDDIR);
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+define|#
+directive|define
+name|QTEST_SET_MAIN_SOURCE_PATH
+value|QTest::setMainSourcePath(__FILE__);
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|QTEST_APPLESS_MAIN
-unit|} QT_END_NAMESPACE
 define|#
 directive|define
 name|QTEST_APPLESS_MAIN
@@ -1600,7 +1626,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_include
 include|#
@@ -1654,7 +1680,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     QTEST_DISABLE_KEYPAD_NAVIGATION \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     QTEST_DISABLE_KEYPAD_NAVIGATION \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_elif
 elif|#
@@ -1677,7 +1703,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QGuiApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QGuiApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_else
 else|#
@@ -1691,7 +1717,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_endif
 endif|#
@@ -1709,7 +1735,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     QTEST_SET_MAIN_SOURCE_PATH \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_endif
 endif|#
