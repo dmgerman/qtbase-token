@@ -1465,6 +1465,11 @@ case|:
 case|case
 literal|'\''
 case|:
+if|if
+condition|(
+operator|!
+name|quote
+condition|)
 name|quote
 operator|=
 name|unicode
