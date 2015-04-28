@@ -8527,6 +8527,26 @@ name|tf
 expr_stmt|;
 block|}
 block|}
+name|result
+operator|.
+name|append
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"Segoe UI Emoji"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|append
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"Segoe UI Symbol"
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|result
 return|;

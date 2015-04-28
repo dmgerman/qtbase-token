@@ -237,6 +237,11 @@ end_elif
 begin_if
 if|#
 directive|if
+name|defined
+argument_list|(
+name|WINAPI_FAMILY_PHONE_APP
+argument_list|)
+operator|&&
 name|WINAPI_FAMILY
 operator|==
 name|WINAPI_FAMILY_PHONE_APP

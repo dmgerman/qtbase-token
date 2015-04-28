@@ -502,13 +502,6 @@ literal|"browseTorrents"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|browseTorrents
-operator|->
-name|setDefault
-argument_list|(
-name|true
-argument_list|)
-expr_stmt|;
 name|gridLayout
 operator|->
 name|addWidget
@@ -1214,6 +1207,13 @@ argument_list|(
 name|reject
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|browseTorrents
+operator|->
+name|setDefault
+argument_list|(
+name|true
 argument_list|)
 expr_stmt|;
 name|QMetaObject

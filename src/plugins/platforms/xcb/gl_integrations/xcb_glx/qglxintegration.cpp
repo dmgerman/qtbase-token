@@ -2474,6 +2474,12 @@ block|}
 if|if
 condition|(
 name|success
+operator|&&
+name|surfaceClass
+operator|==
+name|QSurface
+operator|::
+name|Window
 condition|)
 block|{
 name|int

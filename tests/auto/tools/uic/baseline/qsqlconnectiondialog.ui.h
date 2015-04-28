@@ -951,13 +951,6 @@ literal|"okButton"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|okButton
-operator|->
-name|setDefault
-argument_list|(
-name|true
-argument_list|)
-expr_stmt|;
 name|hboxLayout1
 operator|->
 name|addWidget
@@ -1120,6 +1113,13 @@ expr_stmt|;
 name|retranslateUi
 argument_list|(
 name|QSqlConnectionDialogUi
+argument_list|)
+expr_stmt|;
+name|okButton
+operator|->
+name|setDefault
+argument_list|(
+name|true
 argument_list|)
 expr_stmt|;
 name|QMetaObject

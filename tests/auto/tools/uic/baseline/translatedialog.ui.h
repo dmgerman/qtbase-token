@@ -730,13 +730,6 @@ argument_list|)
 expr_stmt|;
 name|findNxt
 operator|->
-name|setDefault
-argument_list|(
-name|true
-argument_list|)
-expr_stmt|;
-name|findNxt
-operator|->
 name|setFlat
 argument_list|(
 name|false
@@ -963,6 +956,13 @@ argument_list|(
 name|reject
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|findNxt
+operator|->
+name|setDefault
+argument_list|(
+name|true
 argument_list|)
 expr_stmt|;
 name|QMetaObject

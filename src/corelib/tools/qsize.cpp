@@ -513,7 +513,7 @@ begin_comment
 comment|/*!     \fn QSizeF::QSizeF(qreal width, qreal height)      Constructs a size with the given \a width and \a height. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QSizeF::isNull() const      Returns \c true if both the width and height are +0.0; otherwise returns     false.      \note Since this function treats +0.0 and -0.0 differently, sizes with     zero width and height where either or both values have a negative     sign are not defined to be null sizes.      \sa isValid(), isEmpty() */
+comment|/*!     \fn bool QSizeF::isNull() const      Returns \c true if both the width and height are 0.0 (ignoring the sign);     otherwise returns \c false.      \sa isValid(), isEmpty() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QSizeF::isEmpty() const      Returns \c true if either of the width and height is less than or     equal to 0; otherwise returns \c false.      \sa isNull(), isValid() */
