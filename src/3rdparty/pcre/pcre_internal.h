@@ -9357,6 +9357,32 @@ name|branch_chain
 typedef|;
 end_typedef
 begin_comment
+comment|/* Structure for mutual recursion detection. */
+end_comment
+begin_typedef
+DECL|struct|recurse_check
+typedef|typedef
+struct|struct
+name|recurse_check
+block|{
+DECL|member|prev
+name|struct
+name|recurse_check
+modifier|*
+name|prev
+decl_stmt|;
+DECL|member|group
+specifier|const
+name|pcre_uchar
+modifier|*
+name|group
+decl_stmt|;
+block|}
+DECL|typedef|recurse_check
+name|recurse_check
+typedef|;
+end_typedef
+begin_comment
 comment|/* Structure for items in a linked list that represents an explicit recursive call within the pattern; used by pcre_exec(). */
 end_comment
 begin_typedef
