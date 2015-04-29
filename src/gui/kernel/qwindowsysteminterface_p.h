@@ -2489,6 +2489,15 @@ name|event
 parameter_list|)
 function_decl|;
 specifier|static
+name|void
+name|postWindowSystemEvent
+parameter_list|(
+name|WindowSystemEvent
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+specifier|static
 name|bool
 name|handleWindowSystemEvent
 parameter_list|(
