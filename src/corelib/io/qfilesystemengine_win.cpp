@@ -2238,8 +2238,13 @@ return|;
 endif|#
 directive|endif
 comment|// QT_NO_LIBRARY
-else|#
-directive|else
+elif|#
+directive|elif
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_WINCE_SHELLSDK
+argument_list|)
 name|wchar_t
 name|target
 index|[
@@ -2349,6 +2354,18 @@ expr_stmt|;
 block|}
 return|return
 name|result
+return|;
+else|#
+directive|else
+comment|// QT_NO_WINCE_SHELLSDK
+name|Q_UNUSED
+argument_list|(
+name|link
+argument_list|)
+expr_stmt|;
+return|return
+name|QString
+argument_list|()
 return|;
 endif|#
 directive|endif

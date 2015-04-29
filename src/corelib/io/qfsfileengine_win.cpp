@@ -3288,6 +3288,12 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_WINCE_SHELLSDK
+argument_list|)
 name|QString
 name|linkName
 init|=
@@ -3417,7 +3423,7 @@ name|ret
 return|;
 else|#
 directive|else
-comment|// Q_OS_WINCE
+comment|// Q_OS_WINCE&& !QT_NO_WINCE_SHELLSDK
 name|Q_UNUSED
 argument_list|(
 name|newName

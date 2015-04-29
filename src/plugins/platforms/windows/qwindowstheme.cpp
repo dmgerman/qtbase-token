@@ -4578,6 +4578,13 @@ name|val
 init|=
 literal|0
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_WINCE_SHELLSDK
+argument_list|)
 if|if
 condition|(
 name|cacheableDirIcon
@@ -4642,6 +4649,9 @@ name|flags
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_WINCE_SHELLSDK
 comment|// Even if GetFileInfo returns a valid result, hIcon can be empty in some cases
 if|if
 condition|(
