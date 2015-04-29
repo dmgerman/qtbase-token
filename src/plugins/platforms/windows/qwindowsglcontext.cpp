@@ -2412,15 +2412,18 @@ modifier|&
 name|pd
 parameter_list|)
 block|{
-name|QDebug
-name|nsp
-init|=
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
 name|nospace
 argument_list|()
-decl_stmt|;
-name|nsp
+expr_stmt|;
+name|d
 operator|<<
 literal|"PIXELFORMATDESCRIPTOR "
 operator|<<
@@ -2446,7 +2449,7 @@ name|dwFlags
 operator|&
 name|PFD_DRAW_TO_WINDOW
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_DRAW_TO_WINDOW"
 expr_stmt|;
@@ -2458,7 +2461,7 @@ name|dwFlags
 operator|&
 name|PFD_DRAW_TO_BITMAP
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_DRAW_TO_BITMAP"
 expr_stmt|;
@@ -2470,7 +2473,7 @@ name|dwFlags
 operator|&
 name|PFD_SUPPORT_GDI
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_SUPPORT_GDI"
 expr_stmt|;
@@ -2482,7 +2485,7 @@ name|dwFlags
 operator|&
 name|PFD_SUPPORT_OPENGL
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_SUPPORT_OPENGL"
 expr_stmt|;
@@ -2494,7 +2497,7 @@ name|dwFlags
 operator|&
 name|PFD_GENERIC_ACCELERATED
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_GENERIC_ACCELERATED"
 expr_stmt|;
@@ -2506,7 +2509,7 @@ name|dwFlags
 operator|&
 name|PFD_SUPPORT_DIRECTDRAW
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_SUPPORT_DIRECTDRAW"
 expr_stmt|;
@@ -2518,7 +2521,7 @@ name|dwFlags
 operator|&
 name|PFD_DIRECT3D_ACCELERATED
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_DIRECT3D_ACCELERATED"
 expr_stmt|;
@@ -2530,7 +2533,7 @@ name|dwFlags
 operator|&
 name|PFD_SUPPORT_COMPOSITION
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_SUPPORT_COMPOSITION"
 expr_stmt|;
@@ -2542,7 +2545,7 @@ name|dwFlags
 operator|&
 name|PFD_GENERIC_FORMAT
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_GENERIC_FORMAT"
 expr_stmt|;
@@ -2554,7 +2557,7 @@ name|dwFlags
 operator|&
 name|PFD_NEED_PALETTE
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_NEED_PALETTE"
 expr_stmt|;
@@ -2566,7 +2569,7 @@ name|dwFlags
 operator|&
 name|PFD_NEED_SYSTEM_PALETTE
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_NEED_SYSTEM_PALETTE"
 expr_stmt|;
@@ -2578,7 +2581,7 @@ name|dwFlags
 operator|&
 name|PFD_DOUBLEBUFFER
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_DOUBLEBUFFER"
 expr_stmt|;
@@ -2590,7 +2593,7 @@ name|dwFlags
 operator|&
 name|PFD_STEREO
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_STEREO"
 expr_stmt|;
@@ -2602,7 +2605,7 @@ name|dwFlags
 operator|&
 name|PFD_SWAP_LAYER_BUFFERS
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" PFD_SWAP_LAYER_BUFFERS"
 expr_stmt|;
@@ -2613,11 +2616,11 @@ argument_list|(
 name|pd
 argument_list|)
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" overlay"
 expr_stmt|;
-name|nsp
+name|d
 operator|<<
 literal|" iPixelType="
 operator|<<
@@ -2667,7 +2670,7 @@ name|pd
 operator|.
 name|cBlueShift
 expr_stmt|;
-name|nsp
+name|d
 operator|<<
 literal|" cDepthBits="
 operator|<<
@@ -2681,7 +2684,7 @@ name|pd
 operator|.
 name|cStencilBits
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" cStencilBits="
 operator|<<
@@ -2695,7 +2698,7 @@ name|pd
 operator|.
 name|cAuxBuffers
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" cAuxBuffers="
 operator|<<
@@ -2703,7 +2706,7 @@ name|pd
 operator|.
 name|cAuxBuffers
 expr_stmt|;
-name|nsp
+name|d
 operator|<<
 literal|" iLayerType="
 operator|<<
@@ -2717,7 +2720,7 @@ name|pd
 operator|.
 name|dwVisibleMask
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" dwVisibleMask="
 operator|<<
@@ -2731,7 +2734,7 @@ name|pd
 operator|.
 name|cAlphaBits
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" cAlphaBits="
 operator|<<
@@ -2751,7 +2754,7 @@ name|pd
 operator|.
 name|cAccumBits
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|" cAccumBits="
 operator|<<
@@ -6304,10 +6307,18 @@ modifier|&
 name|f
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|d
 operator|<<
 literal|"ContextFormat: v"
 operator|<<
@@ -6776,15 +6787,18 @@ modifier|&
 name|s
 parameter_list|)
 block|{
-name|QDebug
-name|nsp
-init|=
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
 name|nospace
 argument_list|()
-decl_stmt|;
-name|nsp
+expr_stmt|;
+name|d
 operator|<<
 literal|"OpenGL: "
 operator|<<
@@ -6814,7 +6828,7 @@ name|QOpenGLStaticContext
 operator|::
 name|SampleBuffers
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|",SampleBuffers"
 expr_stmt|;
@@ -6825,11 +6839,11 @@ operator|.
 name|hasExtensions
 argument_list|()
 condition|)
-name|nsp
+name|d
 operator|<<
 literal|", Extension-API present"
 expr_stmt|;
-name|nsp
+name|d
 operator|<<
 literal|"\nExtensions: "
 operator|<<
@@ -6854,7 +6868,7 @@ name|verbose
 operator|>
 literal|1
 condition|)
-name|nsp
+name|d
 operator|<<
 name|s
 operator|.

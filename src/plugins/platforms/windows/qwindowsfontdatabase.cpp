@@ -2801,10 +2801,18 @@ modifier|&
 name|def
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|d
 operator|<<
 literal|"Family="
 operator|<<
@@ -2853,8 +2861,6 @@ operator|<<
 name|def
 operator|.
 name|hintingPreference
-operator|<<
-literal|' '
 expr_stmt|;
 return|return
 name|d
