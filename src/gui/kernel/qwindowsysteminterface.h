@@ -1885,7 +1885,7 @@ name|enable
 parameter_list|)
 function_decl|;
 specifier|static
-name|void
+name|bool
 name|flushWindowSystemEvents
 argument_list|(
 name|QEventLoop

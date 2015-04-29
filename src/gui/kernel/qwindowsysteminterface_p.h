@@ -73,6 +73,11 @@ include|#
 directive|include
 file|<QWaitCondition>
 end_include
+begin_include
+include|#
+directive|include
+file|<QAtomicInt>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWindowSystemEventHandler
@@ -2507,6 +2512,10 @@ decl_stmt|;
 specifier|static
 name|QMutex
 name|flushEventMutex
+decl_stmt|;
+specifier|static
+name|QAtomicInt
+name|eventAccepted
 decl_stmt|;
 specifier|static
 name|QList

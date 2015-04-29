@@ -93,6 +93,14 @@ name|flushEventMutex
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|eventAccepted
+name|QAtomicInt
+name|QWindowSystemInterfacePrivate
+operator|::
+name|eventAccepted
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|eventHandler
 name|QWindowSystemEventHandler
 modifier|*
@@ -3833,9 +3841,12 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Make Qt Gui process all events on the event queue immediately. Return the     accepted state for the last event on the queue. */
+end_comment
 begin_function
 DECL|function|flushWindowSystemEvents
-name|void
+name|bool
 name|QWindowSystemInterface
 operator|::
 name|flushWindowSystemEvents
@@ -3862,7 +3873,9 @@ condition|(
 operator|!
 name|count
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 if|if
 condition|(
 operator|!
@@ -3892,7 +3905,9 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 if|if
 condition|(
@@ -3961,6 +3976,16 @@ name|flags
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|QWindowSystemInterfacePrivate
+operator|::
+name|eventAccepted
+operator|.
+name|load
+argument_list|()
+operator|>
+literal|0
+return|;
 block|}
 end_function
 begin_function
@@ -4054,6 +4079,30 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Record the accepted state for the processed event
+comment|// (excluding flush events). This state can then be
+comment|// returned by flushWindowSystemEvents().
+if|if
+condition|(
+name|event
+operator|->
+name|type
+operator|!=
+name|QWindowSystemInterfacePrivate
+operator|::
+name|FlushEvents
+condition|)
+name|QWindowSystemInterfacePrivate
+operator|::
+name|eventAccepted
+operator|.
+name|store
+argument_list|(
+name|event
+operator|->
+name|eventAccepted
+argument_list|)
+expr_stmt|;
 operator|delete
 name|event
 expr_stmt|;
