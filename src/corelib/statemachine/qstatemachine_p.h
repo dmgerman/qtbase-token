@@ -1028,7 +1028,7 @@ argument|uint seed
 argument_list|)
 name|Q_DECL_NOEXCEPT_EXPR
 argument_list|(
-argument|noexcept(std::declval<QByteArray>())
+argument|noexcept(qHash(std::declval<QByteArray>()))
 argument_list|)
 block|{
 return|return
