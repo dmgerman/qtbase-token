@@ -59,11 +59,6 @@ include|#
 directive|include
 file|"qwindowsfontdatabase.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"qwindowsscaling.h"
-end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -3501,11 +3496,9 @@ specifier|const
 name|int
 name|scaleFactor
 init|=
-name|QWindowsScaling
-operator|::
-name|factor
-argument_list|()
+literal|1
 decl_stmt|;
+comment|// HIGDPI Fixme: ?
 specifier|const
 name|QSizeF
 name|pixmapSize
