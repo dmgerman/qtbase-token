@@ -72,6 +72,10 @@ operator||
 name|Qt
 operator|::
 name|WindowTransparentForInput
+operator||
+name|Qt
+operator|::
+name|WindowDoesNotAcceptFocus
 argument_list|)
 expr_stmt|;
 name|create
