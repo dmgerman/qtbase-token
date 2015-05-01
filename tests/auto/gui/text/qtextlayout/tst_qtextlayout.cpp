@@ -90,6 +90,9 @@ name|void
 name|lineBreaking
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|simpleBoundingRect
 parameter_list|()
@@ -150,6 +153,8 @@ name|void
 name|horizontalAlignmentMultiline
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|defaultWordSeparators_data
 parameter_list|()
@@ -170,10 +175,15 @@ name|void
 name|charWordStopOnLineSeparator
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|xToCursorAtEndOfLine
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|boundingRectTopLeft
 parameter_list|()
@@ -190,6 +200,9 @@ name|void
 name|integerOverflow
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|testDefaultTabs
 parameter_list|()
@@ -230,6 +243,8 @@ name|void
 name|tabsForRtl
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|tabHeight
 parameter_list|()
@@ -287,6 +302,9 @@ name|layoutWithCustomTabStops
 parameter_list|()
 function_decl|;
 comment|// QTextLine stuff
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|setNumColumnsWrapAtWordBoundaryOrAnywhere
 parameter_list|()
@@ -311,6 +329,8 @@ name|void
 name|testLineBreakingAllSpaces
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|lineWidthFromBOM
 parameter_list|()
@@ -376,8 +396,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|str
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
@@ -551,9 +569,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
-specifier|extern
+comment|// qfontdatabase.cpp
+name|Q_AUTOTEST_EXPORT
 name|void
 name|qt_setQtEnableTestFont
 parameter_list|(
@@ -564,17 +588,24 @@ function_decl|;
 end_function_decl
 begin_function
 name|QT_END_NAMESPACE
+endif|#
+directive|endif
 DECL|function|tst_QTextLayout
 name|tst_QTextLayout
 operator|::
 name|tst_QTextLayout
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|qt_setQtEnableTestFont
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_destructor
@@ -599,6 +630,9 @@ operator|=
 name|QFont
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|testFont
 operator|.
 name|setFamily
@@ -606,6 +640,8 @@ argument_list|(
 literal|"__Qt__Box__Engine__"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|testFont
 operator|.
 name|setPixelSize
@@ -622,6 +658,9 @@ operator|::
 name|Normal
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|QCOMPARE
 argument_list|(
 name|QFontMetrics
@@ -640,6 +679,8 @@ name|pixelSize
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -673,6 +714,11 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|simpleBoundingRect
 name|void
@@ -4418,6 +4464,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|defaultWordSeparators_data
 name|void
@@ -4676,8 +4726,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|text
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -4731,8 +4779,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 literal|"ABC"
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -4817,8 +4863,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 literal|"ABC            DEF"
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -4857,8 +4901,6 @@ name|QTextLayout
 name|layout2
 argument_list|(
 literal|"ABC\t\t\t\t\t\t\t\t\t\t\t\tDEF"
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -4933,8 +4975,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|txt
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|QTextEngine
@@ -4973,6 +5013,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|xToCursorAtEndOfLine
 name|void
@@ -5129,6 +5174,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|boundingRectTopLeft
 name|void
@@ -5157,8 +5206,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|text
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
@@ -5295,8 +5342,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|txt
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|QTextEngine
@@ -5384,8 +5429,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|txt
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
@@ -5423,7 +5466,7 @@ operator|.
 name|textLength
 argument_list|()
 argument_list|,
-name|TESTFONT_SIZE
+literal|12
 argument_list|)
 expr_stmt|;
 name|line
@@ -5501,8 +5544,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|txt
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
@@ -5565,6 +5606,11 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|setNumColumnsWrapAtWordBoundaryOrAnywhere
 name|void
@@ -8738,6 +8784,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|tabHeight
 name|void
@@ -8750,8 +8800,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 literal|"\t"
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
@@ -8791,7 +8839,10 @@ argument_list|)
 argument_list|,
 name|QFontMetrics
 argument_list|(
-name|testFont
+name|layout
+operator|.
+name|font
+argument_list|()
 argument_list|)
 operator|.
 name|ascent
@@ -8810,7 +8861,10 @@ argument_list|)
 argument_list|,
 name|QFontMetrics
 argument_list|(
-name|testFont
+name|layout
+operator|.
+name|font
+argument_list|()
 argument_list|)
 operator|.
 name|descent
@@ -8829,9 +8883,6 @@ parameter_list|()
 block|{
 name|QFont
 name|font
-argument_list|(
-name|testFont
-argument_list|)
 decl_stmt|;
 name|font
 operator|.
@@ -8934,9 +8985,6 @@ parameter_list|()
 block|{
 name|QFont
 name|font
-argument_list|(
-name|testFont
-argument_list|)
 decl_stmt|;
 name|font
 operator|.
@@ -9102,9 +9150,6 @@ parameter_list|()
 block|{
 name|QFont
 name|font
-argument_list|(
-name|testFont
-argument_list|)
 decl_stmt|;
 name|font
 operator|.
@@ -9207,9 +9252,6 @@ parameter_list|()
 block|{
 name|QFont
 name|font
-argument_list|(
-name|testFont
-argument_list|)
 decl_stmt|;
 name|font
 operator|.
@@ -9334,9 +9376,6 @@ parameter_list|()
 block|{
 name|QFont
 name|font
-argument_list|(
-name|testFont
-argument_list|)
 decl_stmt|;
 name|font
 operator|.
@@ -9538,8 +9577,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|longText
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
@@ -9616,9 +9653,6 @@ control|)
 block|{
 name|QFont
 name|f
-argument_list|(
-name|testFont
-argument_list|)
 decl_stmt|;
 name|f
 operator|.
@@ -9696,8 +9730,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|longText
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
@@ -9765,8 +9797,6 @@ name|QTextLayout
 name|layout
 argument_list|(
 name|longText
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
@@ -9841,12 +9871,13 @@ parameter_list|()
 block|{
 name|QTextEngine
 name|engine
-argument_list|(
-literal|"ddd\t\t"
-argument_list|,
-name|testFont
-argument_list|)
 decl_stmt|;
+name|engine
+operator|.
+name|text
+operator|=
+literal|"ddd\t\t"
+expr_stmt|;
 name|engine
 operator|.
 name|ignoreBidi
@@ -11110,8 +11141,6 @@ name|QStringLiteral
 argument_list|(
 literal|"     t"
 argument_list|)
-argument_list|,
-name|testFont
 argument_list|)
 decl_stmt|;
 name|layout
