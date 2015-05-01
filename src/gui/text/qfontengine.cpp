@@ -9878,15 +9878,9 @@ name|QFontDatabase
 operator|::
 name|findFont
 argument_list|(
-name|m_script
-argument_list|,
-comment|/*fontprivate = */
-literal|0
-argument_list|,
 name|request
 argument_list|,
-comment|/*multi = */
-literal|false
+name|m_script
 argument_list|)
 condition|)
 block|{
