@@ -1155,6 +1155,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|zoneOffsets
 specifier|static
+specifier|const
 name|int
 name|zoneOffsets
 index|[]

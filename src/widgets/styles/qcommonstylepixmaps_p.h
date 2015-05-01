@@ -762,6 +762,7 @@ specifier|static
 specifier|const
 name|char
 modifier|*
+specifier|const
 name|dock_widget_close_xpm
 index|[]
 init|=

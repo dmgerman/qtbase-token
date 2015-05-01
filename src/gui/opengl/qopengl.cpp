@@ -412,9 +412,11 @@ DECL|variable|operators
 specifier|static
 specifier|const
 name|char
-modifier|*
 name|operators
 index|[]
+index|[
+literal|3
+index|]
 init|=
 block|{
 literal|"!="
