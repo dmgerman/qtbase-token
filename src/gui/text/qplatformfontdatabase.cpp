@@ -2559,7 +2559,7 @@ literal|0
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 name|SymbolCsbBit
 operator|)
