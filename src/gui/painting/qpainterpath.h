@@ -847,6 +847,7 @@ name|qreal
 name|dy
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 specifier|inline
 name|QPainterPath
@@ -858,6 +859,7 @@ operator|&
 name|offset
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QRectF
 name|boundingRect
@@ -894,6 +896,7 @@ name|QPainterPath
 name|toReversed
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|QList
 operator|<
@@ -1051,6 +1054,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QPainterPath
 name|intersected
@@ -1061,6 +1065,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QPainterPath
 name|subtracted
@@ -1071,6 +1076,7 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QPainterPath
 name|subtractedInverted
@@ -1081,11 +1087,13 @@ operator|&
 name|r
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QPainterPath
 name|simplified
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|bool
 name|operator

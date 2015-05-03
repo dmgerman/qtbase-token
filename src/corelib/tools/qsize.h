@@ -114,6 +114,7 @@ name|transposed
 argument_list|()
 specifier|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 specifier|inline
 name|void

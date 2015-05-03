@@ -220,6 +220,7 @@ name|QQuaternion
 name|normalized
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|void
 name|normalize
@@ -235,6 +236,7 @@ name|QQuaternion
 name|conjugate
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|QVector3D
 name|rotatedVector

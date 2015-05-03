@@ -118,6 +118,7 @@ operator|>
 name|transposed
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 block|;
 name|QGenericMatrix
 operator|<
