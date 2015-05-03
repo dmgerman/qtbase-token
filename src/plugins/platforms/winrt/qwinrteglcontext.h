@@ -42,6 +42,13 @@ argument_list|,
 argument|EGLConfig config
 argument_list|)
 block|;
+name|void
+name|swapBuffers
+argument_list|(
+argument|QPlatformSurface *surface
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QFunctionPointer
 name|getProcAddress
 argument_list|(
