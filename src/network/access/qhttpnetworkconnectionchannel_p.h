@@ -193,6 +193,8 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+comment|// TODO: Refactor this to add an EncryptingState (and remove pendingEncrypt).
+comment|// Also add an Unconnected state so IdleState does not have double meaning.
 expr|enum
 name|ChannelState
 block|{
