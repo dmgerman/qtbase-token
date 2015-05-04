@@ -2955,8 +2955,8 @@ argument_list|(
 name|newDirectory
 argument_list|)
 decl_stmt|;
-name|d
-operator|->
+name|QFileDialogPrivate
+operator|::
 name|setLastVisitedDirectory
 argument_list|(
 name|newDirUrl
@@ -3216,8 +3216,8 @@ name|isValid
 argument_list|()
 condition|)
 return|return;
-name|d
-operator|->
+name|QFileDialogPrivate
+operator|::
 name|setLastVisitedDirectory
 argument_list|(
 name|directory

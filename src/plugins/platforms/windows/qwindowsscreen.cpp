@@ -945,23 +945,31 @@ modifier|&
 name|d
 parameter_list|)
 block|{
-name|QDebug
-name|nospace
-init|=
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+decl_stmt|;
 name|dbg
 operator|.
 name|nospace
 argument_list|()
-decl_stmt|;
-name|nospace
+expr_stmt|;
+name|dbg
+operator|.
+name|noquote
+argument_list|()
+expr_stmt|;
+name|dbg
 operator|<<
-literal|"Screen "
+literal|"Screen \""
 operator|<<
 name|d
 operator|.
 name|name
 operator|<<
-literal|' '
+literal|"\" "
 operator|<<
 name|d
 operator|.
@@ -1089,7 +1097,7 @@ name|QWindowsScreenData
 operator|::
 name|PrimaryScreen
 condition|)
-name|nospace
+name|dbg
 operator|<<
 literal|" primary"
 expr_stmt|;
@@ -1103,7 +1111,7 @@ name|QWindowsScreenData
 operator|::
 name|VirtualDesktop
 condition|)
-name|nospace
+name|dbg
 operator|<<
 literal|" virtual desktop"
 expr_stmt|;
@@ -1117,7 +1125,7 @@ name|QWindowsScreenData
 operator|::
 name|LockScreen
 condition|)
-name|nospace
+name|dbg
 operator|<<
 literal|" lock screen"
 expr_stmt|;

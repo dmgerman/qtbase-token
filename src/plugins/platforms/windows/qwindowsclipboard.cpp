@@ -113,14 +113,17 @@ modifier|&
 name|m
 parameter_list|)
 block|{
-name|QDebug
-name|nospace
-init|=
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
 name|nospace
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 specifier|const
 name|QStringList
 name|formats
@@ -130,7 +133,7 @@ operator|.
 name|formats
 argument_list|()
 decl_stmt|;
-name|nospace
+name|d
 operator|<<
 literal|"QMimeData: "
 operator|<<
@@ -190,7 +193,7 @@ operator|.
 name|hasText
 argument_list|()
 condition|)
-name|nospace
+name|d
 operator|<<
 literal|"  Text: '"
 operator|<<
@@ -208,7 +211,7 @@ operator|.
 name|hasHtml
 argument_list|()
 condition|)
-name|nospace
+name|d
 operator|<<
 literal|"  HTML: '"
 operator|<<
@@ -226,7 +229,7 @@ operator|.
 name|hasColor
 argument_list|()
 condition|)
-name|nospace
+name|d
 operator|<<
 literal|"  Color: "
 operator|<<
@@ -250,7 +253,7 @@ operator|.
 name|hasImage
 argument_list|()
 condition|)
-name|nospace
+name|d
 operator|<<
 literal|"  Image: "
 operator|<<
@@ -277,7 +280,7 @@ operator|.
 name|hasUrls
 argument_list|()
 condition|)
-name|nospace
+name|d
 operator|<<
 literal|"  URLs: "
 operator|<<

@@ -9348,6 +9348,13 @@ operator|==
 name|QAbstractItemView
 operator|::
 name|DragSelectingState
+operator|||
+name|state
+argument_list|()
+operator|==
+name|QAbstractItemView
+operator|::
+name|DraggingState
 condition|)
 name|setState
 argument_list|(

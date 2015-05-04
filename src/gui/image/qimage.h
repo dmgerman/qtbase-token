@@ -1778,6 +1778,15 @@ argument_list|,
 argument|Qt::ImageConversionFlags flags
 argument_list|)
 block|;
+name|QImage
+name|smoothScaled
+argument_list|(
+argument|int w
+argument_list|,
+argument|int h
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|friend

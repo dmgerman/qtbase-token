@@ -1781,7 +1781,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* The function as described in http://www.w3.org/TR/2014/WD-scxml-20140529/ :  function removeConflictingTransitions(enabledTransitions):     filteredTransitions = new OrderedSet()  // toList sorts the transitions in the order of the states that selected them     for t1 in enabledTransitions.toList():         t1Preempted = false;         transitionsToRemove = new OrderedSet()         for t2 in filteredTransitions.toList():             if computeExitSet([t1]).hasIntersection(computeExitSet([t2])):                 if isDescendant(t1.source, t2.source):                     transitionsToRemove.add(t2)                 else:                     t1Preempted = true                     break         if not t1Preempted:             for t3 in transitionsToRemove.toList():                 filteredTransitions.delete(t3)             filteredTransitions.add(t1)      return filteredTransitions */
+comment|/* The function as described in http://www.w3.org/TR/2014/WD-scxml-20140529/ :  function removeConflictingTransitions(enabledTransitions):     filteredTransitions = new OrderedSet()  // toList sorts the transitions in the order of the states that selected them     for t1 in enabledTransitions.toList():         t1Preempted = false;         transitionsToRemove = new OrderedSet()         for t2 in filteredTransitions.toList():             if computeExitSet([t1]).hasIntersection(computeExitSet([t2])):                 if isDescendant(t1.source, t2.source):                     transitionsToRemove.add(t2)                 else:                     t1Preempted = true                     break         if not t1Preempted:             for t3 in transitionsToRemove.toList():                 filteredTransitions.delete(t3)             filteredTransitions.add(t1)      return filteredTransitions  Note: the implementation below does not build the transitionsToRemove, but removes them in-place. */
 end_comment
 begin_function
 DECL|function|removeConflictingTransitions
@@ -1847,13 +1847,6 @@ name|t1Preempted
 init|=
 literal|false
 decl_stmt|;
-name|QVarLengthArray
-argument_list|<
-name|QAbstractTransition
-modifier|*
-argument_list|>
-name|transitionsToRemove
-decl_stmt|;
 name|QSet
 argument_list|<
 name|QAbstractState
@@ -1873,15 +1866,52 @@ operator|<<
 name|t1
 argument_list|)
 decl_stmt|;
-foreach|foreach
-control|(
+name|QList
+argument_list|<
+name|QAbstractTransition
+modifier|*
+argument_list|>
+operator|::
+name|iterator
+name|t2It
+init|=
+name|filteredTransitions
+operator|.
+name|begin
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|t2It
+operator|!=
+name|filteredTransitions
+operator|.
+name|end
+argument_list|()
+condition|)
+block|{
 name|QAbstractTransition
 modifier|*
 name|t2
-decl|,
-name|filteredTransitions
-control|)
+init|=
+operator|*
+name|t2It
+decl_stmt|;
+if|if
+condition|(
+name|t1
+operator|==
+name|t2
+condition|)
 block|{
+comment|// Special case: someone added the same transition object to a state twice. In this
+comment|// case, t2 (which is already in the list) "preempts" t1.
+name|t1Preempted
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
 name|QSet
 argument_list|<
 name|QAbstractState
@@ -1903,7 +1933,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|exitSetT1
 operator|.
 name|intersect
@@ -1915,6 +1944,14 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// No conflict, no cry. Next patient please.
+operator|++
+name|t2It
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Houston, we have a conflict. Check which transition can be removed.
 if|if
 condition|(
 name|isDescendant
@@ -1931,16 +1968,21 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|transitionsToRemove
+comment|// t1 preempts t2, so we can remove t2
+name|t2It
+operator|=
+name|filteredTransitions
 operator|.
-name|append
+name|erase
 argument_list|(
-name|t2
+name|t2It
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
+comment|// t2 preempts t1, so there's no use in looking further and we don't need to add
+comment|// t1 to the list.
 name|t1Preempted
 operator|=
 literal|true
@@ -1954,22 +1996,6 @@ condition|(
 operator|!
 name|t1Preempted
 condition|)
-block|{
-foreach|foreach
-control|(
-name|QAbstractTransition
-modifier|*
-name|t3
-decl|,
-name|transitionsToRemove
-control|)
-name|filteredTransitions
-operator|.
-name|removeAll
-argument_list|(
-name|t3
-argument_list|)
-expr_stmt|;
 name|filteredTransitions
 operator|.
 name|append
@@ -1977,7 +2003,6 @@ argument_list|(
 name|t1
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|enabledTransitions
 operator|=
