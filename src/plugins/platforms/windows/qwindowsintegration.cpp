@@ -1301,7 +1301,7 @@ argument_list|()
 operator|<<
 name|__FUNCTION__
 operator|<<
-literal|'<'
+literal|' '
 operator|<<
 name|window
 operator|<<
@@ -1311,7 +1311,7 @@ name|requested
 operator|.
 name|geometry
 operator|<<
-literal|"frame incl.: "
+literal|" frame incl.="
 operator|<<
 name|QWindowsGeometryHint
 operator|::
@@ -1320,7 +1320,7 @@ argument_list|(
 name|window
 argument_list|)
 operator|<<
-literal|" Flags="
+literal|' '
 operator|<<
 name|requested
 operator|.
@@ -1332,23 +1332,23 @@ name|obtained
 operator|.
 name|geometry
 operator|<<
-literal|" Margins "
+literal|" margins="
 operator|<<
 name|obtained
 operator|.
 name|frame
 operator|<<
-literal|" Flags="
-operator|<<
-name|obtained
-operator|.
-name|flags
-operator|<<
-literal|" Handle="
+literal|" handle="
 operator|<<
 name|obtained
 operator|.
 name|hwnd
+operator|<<
+literal|' '
+operator|<<
+name|obtained
+operator|.
+name|flags
 operator|<<
 literal|'\n'
 expr_stmt|;

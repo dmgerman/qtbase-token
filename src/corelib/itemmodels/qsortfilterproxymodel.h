@@ -322,9 +322,9 @@ name|virtual
 name|bool
 name|lessThan
 argument_list|(
-argument|const QModelIndex&left
+argument|const QModelIndex&source_left
 argument_list|,
-argument|const QModelIndex&right
+argument|const QModelIndex&source_right
 argument_list|)
 specifier|const
 block|;

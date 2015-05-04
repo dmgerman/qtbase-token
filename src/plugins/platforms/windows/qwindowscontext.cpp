@@ -2771,14 +2771,11 @@ name|cname
 operator|<<
 literal|" style=0x"
 operator|<<
-name|QString
-operator|::
-name|number
-argument_list|(
+name|hex
+operator|<<
 name|style
-argument_list|,
-literal|16
-argument_list|)
+operator|<<
+name|dec
 operator|<<
 literal|" brush="
 operator|<<

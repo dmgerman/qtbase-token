@@ -4558,24 +4558,7 @@ literal|"QMAKE_BUNDLE"
 argument_list|)
 condition|)
 block|{
-name|QString
-name|currentLink
-init|=
-name|destdir_r
-operator|+
-literal|"Versions/Current"
-decl_stmt|;
-name|QString
-name|currentLink_f
-init|=
-name|escapeDependencyPath
-argument_list|(
-name|currentLink
-argument_list|)
-decl_stmt|;
 name|bundledFiles
-operator|<<
-name|currentLink
 operator|<<
 name|destdir_r
 operator|+
@@ -4623,36 +4606,6 @@ argument_list|,
 literal|" "
 argument_list|,
 literal|" Versions/Current/$(TARGET) $(DESTDIR)$(TARGET0)"
-argument_list|)
-operator|<<
-literal|"\n\t"
-operator|<<
-literal|"-$(DEL_FILE) "
-operator|<<
-name|currentLink_f
-operator|<<
-literal|"\n\t"
-operator|<<
-name|varGlue
-argument_list|(
-literal|"QMAKE_LN_SHLIB"
-argument_list|,
-literal|"-"
-argument_list|,
-literal|" "
-argument_list|,
-literal|" "
-operator|+
-name|project
-operator|->
-name|first
-argument_list|(
-literal|"QMAKE_FRAMEWORK_VERSION"
-argument_list|)
-operator|+
-literal|' '
-operator|+
-name|currentLink_f
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -7118,6 +7071,80 @@ operator|<<
 literal|' '
 operator|<<
 name|bundle_dir_f
+operator|<<
+name|endl
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"QMAKE_FRAMEWORK_VERSION"
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|QString
+name|currentLink
+init|=
+name|bundle_dir
+operator|+
+literal|"Versions/Current"
+decl_stmt|;
+name|QString
+name|currentLink_f
+init|=
+name|escapeDependencyPath
+argument_list|(
+name|currentLink
+argument_list|)
+decl_stmt|;
+name|bundledFiles
+operator|<<
+name|currentLink
+expr_stmt|;
+name|alldeps
+operator|<<
+name|currentLink
+expr_stmt|;
+name|t
+operator|<<
+name|currentLink_f
+operator|<<
+literal|": $(MAKEFILE)\n\t"
+operator|<<
+name|mkdir_p_asstring
+argument_list|(
+name|bundle_dir
+operator|+
+literal|"Versions"
+argument_list|)
+operator|<<
+literal|"\n\t"
+operator|<<
+literal|"@-$(DEL_FILE) "
+operator|<<
+name|currentLink_f
+operator|<<
+literal|"\n\t"
+operator|<<
+literal|"@$(SYMLINK) "
+operator|<<
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"QMAKE_FRAMEWORK_VERSION"
+argument_list|)
+operator|<<
+literal|' '
+operator|<<
+name|currentLink_f
 operator|<<
 name|endl
 expr_stmt|;

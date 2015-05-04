@@ -364,10 +364,18 @@ modifier|&
 name|i
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|d
 operator|<<
 literal|"MINMAXINFO maxSize="
 operator|<<
@@ -589,10 +597,18 @@ modifier|&
 name|r
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
 name|d
 operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|d
 operator|<<
 literal|"RECT: left/top="
 operator|<<
@@ -646,11 +662,18 @@ modifier|&
 name|p
 parameter_list|)
 block|{
-name|qDebug
-argument_list|()
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
+name|d
 operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|d
 operator|<<
 literal|"NCCALCSIZE_PARAMS "
 operator|<<
@@ -2148,20 +2171,51 @@ modifier|&
 name|d
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|debug
+argument_list|)
+decl_stmt|;
 name|debug
 operator|.
 name|nospace
 argument_list|()
+expr_stmt|;
+name|debug
+operator|.
+name|noquote
+argument_list|()
+expr_stmt|;
+name|debug
+operator|<<
+literal|"WindowCreationData: "
 operator|<<
 name|d
 operator|.
 name|flags
 operator|<<
-literal|" topLevel="
+literal|"\n  topLevel="
 operator|<<
 name|d
 operator|.
 name|topLevel
+expr_stmt|;
+if|if
+condition|(
+name|d
+operator|.
+name|parentHandle
+condition|)
+name|debug
+operator|<<
+literal|" parent="
+operator|<<
+name|d
+operator|.
+name|parentHandle
+expr_stmt|;
+name|debug
 operator|<<
 literal|" popup="
 operator|<<
@@ -2193,7 +2247,7 @@ name|d
 operator|.
 name|tool
 operator|<<
-literal|" style="
+literal|"\n  style="
 operator|<<
 name|debugWinStyle
 argument_list|(
@@ -2201,8 +2255,16 @@ name|d
 operator|.
 name|style
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|d
+operator|.
+name|exStyle
+condition|)
+name|debug
 operator|<<
-literal|" exStyle="
+literal|"\n  exStyle="
 operator|<<
 name|debugWinExStyle
 argument_list|(
@@ -2210,12 +2272,6 @@ name|d
 operator|.
 name|exStyle
 argument_list|)
-operator|<<
-literal|" parent="
-operator|<<
-name|d
-operator|.
-name|parentHandle
 expr_stmt|;
 return|return
 name|debug
@@ -3286,9 +3342,6 @@ literal|"CreateWindowEx: "
 operator|<<
 name|w
 operator|<<
-operator|*
-name|this
-operator|<<
 literal|" class="
 operator|<<
 name|windowClassName
@@ -3296,6 +3349,11 @@ operator|<<
 literal|" title="
 operator|<<
 name|title
+operator|<<
+literal|'\n'
+operator|<<
+operator|*
+name|this
 operator|<<
 literal|"\nrequested: "
 operator|<<
@@ -3422,6 +3480,8 @@ operator|<<
 name|context
 operator|->
 name|obtainedGeometry
+operator|<<
+literal|' '
 operator|<<
 name|context
 operator|->
@@ -4083,27 +4143,21 @@ argument_list|()
 operator|<<
 name|__FUNCTION__
 operator|<<
-literal|" style= 0x"
+literal|" style="
 operator|<<
-name|QString
-operator|::
-name|number
-argument_list|(
+name|showbase
+operator|<<
+name|hex
+operator|<<
 name|style
-argument_list|,
-literal|16
-argument_list|)
 operator|<<
-literal|" exStyle=0x"
+literal|" exStyle="
 operator|<<
-name|QString
-operator|::
-name|number
-argument_list|(
 name|exStyle
-argument_list|,
-literal|16
-argument_list|)
+operator|<<
+name|dec
+operator|<<
+name|noshowbase
 operator|<<
 literal|' '
 operator|<<
@@ -4929,9 +4983,11 @@ literal|' '
 operator|<<
 name|w
 operator|<<
+literal|' '
+operator|<<
 name|geometry
 operator|<<
-literal|" pos incl. frame"
+literal|" pos incl. frame="
 operator|<<
 name|QWindowsGeometryHint
 operator|::
@@ -4940,7 +4996,7 @@ argument_list|(
 name|w
 argument_list|)
 operator|<<
-literal|" frame: "
+literal|" frame="
 operator|<<
 name|frameWidth
 operator|<<
@@ -4956,19 +5012,19 @@ literal|'+'
 operator|<<
 name|frameY
 operator|<<
-literal|" min"
+literal|" min="
 operator|<<
 name|geometryHint
 operator|.
 name|minimumSize
 operator|<<
-literal|" max"
+literal|" max="
 operator|<<
 name|geometryHint
 operator|.
 name|maximumSize
 operator|<<
-literal|" custom margins "
+literal|" custom margins="
 operator|<<
 name|customMargins
 expr_stmt|;
@@ -8019,12 +8075,10 @@ literal|'>'
 operator|<<
 name|__FUNCTION__
 operator|<<
-name|this
-operator|<<
 name|window
 argument_list|()
 operator|<<
-literal|"    \n from "
+literal|"\n from "
 operator|<<
 name|geometry_sys
 argument_list|()
@@ -8196,12 +8250,10 @@ literal|'<'
 operator|<<
 name|__FUNCTION__
 operator|<<
-name|this
-operator|<<
 name|window
 argument_list|()
 operator|<<
-literal|"    \n resulting "
+literal|"\n resulting "
 operator|<<
 name|result
 operator|<<
@@ -12024,8 +12076,6 @@ name|window
 argument_list|()
 operator|<<
 name|__FUNCTION__
-operator|<<
-literal|"Shape="
 operator|<<
 name|c
 operator|.
