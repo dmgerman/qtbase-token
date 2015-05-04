@@ -194,7 +194,7 @@ name|QPalette
 argument_list|(
 argument|QPalette&&other
 argument_list|)
-name|Q_DECL_NOEXCEPT
+name|Q_DECL_NOTHROW
 label|:
 name|d
 argument_list|(
