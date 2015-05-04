@@ -405,6 +405,8 @@ name|_KDE_NET_WM_WINDOW_TYPE_OVERRIDE
 operator|,
 name|_KDE_NET_WM_FRAME_STRUT
 operator|,
+name|_NET_FRAME_EXTENTS
+operator|,
 name|_NET_STARTUP_INFO
 operator|,
 name|_NET_STARTUP_INFO_BEGIN
