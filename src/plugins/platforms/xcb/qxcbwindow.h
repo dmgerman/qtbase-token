@@ -627,6 +627,11 @@ name|QXcbWindowFunctions
 operator|::
 name|WmWindowTypes
 name|types
+argument_list|,
+name|Qt
+operator|::
+name|WindowFlags
+name|flags
 argument_list|)
 decl_stmt|;
 name|uint
@@ -830,15 +835,6 @@ parameter_list|(
 name|NetWmStates
 parameter_list|)
 function_decl|;
-name|void
-name|setNetWmWindowFlags
-argument_list|(
-name|Qt
-operator|::
-name|WindowFlags
-name|flags
-argument_list|)
-decl_stmt|;
 name|void
 name|setMotifWindowFlags
 argument_list|(
