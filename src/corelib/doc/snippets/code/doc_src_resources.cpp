@@ -38,7 +38,7 @@ expr_stmt|;
 name|QFile
 name|file
 argument_list|(
-literal|"qrc:/myfile.dat"
+literal|":/myfile.dat"
 argument_list|)
 decl_stmt|;
 operator|...
@@ -80,7 +80,7 @@ expr_stmt|;
 name|QFile
 name|file
 argument_list|(
-literal|"qrc:/graph.png"
+literal|":/graph.png"
 argument_list|)
 decl_stmt|;
 operator|...
