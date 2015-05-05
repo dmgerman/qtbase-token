@@ -5475,6 +5475,20 @@ name|bundle
 init|=
 name|NoBundle
 enum|;
+name|bool
+name|isAux
+init|=
+operator|(
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"TEMPLATE"
+argument_list|)
+operator|==
+literal|"aux"
+operator|)
+decl_stmt|;
 specifier|const
 name|QString
 name|root
@@ -6091,23 +6105,8 @@ argument_list|(
 name|dst_targ
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|ret
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|ret
-operator|+=
-literal|"\n\t"
-expr_stmt|;
 name|QString
 name|copy_cmd
-argument_list|(
-literal|"-"
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -6118,7 +6117,7 @@ condition|)
 block|{
 name|copy_cmd
 operator|+=
-literal|"$(INSTALL_DIR) "
+literal|"-$(INSTALL_DIR) "
 operator|+
 name|src_targ
 operator|+
@@ -6149,7 +6148,7 @@ condition|)
 block|{
 name|copy_cmd
 operator|+=
-literal|"$(INSTALL_FILE) "
+literal|"-$(INSTALL_FILE) "
 operator|+
 name|src_targ
 operator|+
@@ -6158,7 +6157,12 @@ operator|+
 name|dst_targ
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|isAux
+condition|)
 block|{
 if|if
 condition|(
@@ -6183,7 +6187,7 @@ literal|"\n\t"
 expr_stmt|;
 name|copy_cmd
 operator|+=
-literal|"$(INSTALL_PROGRAM) "
+literal|"-$(INSTALL_PROGRAM) "
 operator|+
 name|src_targ
 operator|+
@@ -6232,6 +6236,18 @@ operator|-
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|ret
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|ret
+operator|+=
+literal|"\n\t"
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -6303,13 +6319,39 @@ name|copy_cmd
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|copy_cmd
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|ret
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|ret
+operator|+=
+literal|"\n\t"
+expr_stmt|;
 name|ret
 operator|+=
 name|copy_cmd
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|isAux
+condition|)
+block|{         }
+elseif|else
 if|if
 condition|(
 name|project
@@ -6483,7 +6525,12 @@ operator|+
 name|plain_targ
 argument_list|)
 expr_stmt|;
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|isAux
+condition|)
 name|uninst
 operator|.
 name|append

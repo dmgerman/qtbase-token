@@ -5977,6 +5977,15 @@ literal|"TEMPLATE"
 argument_list|)
 operator|==
 literal|"subdirs"
+operator|||
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"TEMPLATE"
+argument_list|)
+operator|==
+literal|"aux"
 condition|)
 return|return
 name|QString
