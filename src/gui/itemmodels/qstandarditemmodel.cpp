@@ -4206,7 +4206,7 @@ begin_comment
 comment|/*!   \fn bool QStandardItem::isSelectable() const    Returns whether the item is selectable by the user.    The default value is true.    \sa setSelectable(), flags() */
 end_comment
 begin_comment
-comment|/*!   Sets whether the item is user-checkable. If \a checkable is true, the   item can be checked by the user; otherwise, the user cannot check   the item.    The item delegate will render a checkable item with a check box next to the   item's text.    \sa isCheckable(), setCheckState(), setTristate() */
+comment|/*!   Sets whether the item is user-checkable. If \a checkable is true, the   item can be checked by the user; otherwise, the user cannot check   the item.    The item delegate will render a checkable item with a check box next to the   item's text.    \sa isCheckable(), setCheckState(), setUserTristate(), setAutoTristate() */
 end_comment
 begin_function
 DECL|function|setCheckable
@@ -4273,17 +4273,23 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn bool QStandardItem::isCheckable() const    Returns whether the item is user-checkable.    The default value is false.    \sa setCheckable(), checkState(), isTristate() */
+comment|/*!   \fn bool QStandardItem::isCheckable() const    Returns whether the item is user-checkable.    The default value is false.    \sa setCheckable(), checkState(), isUserTristate(), isAutoTristate() */
 end_comment
 begin_comment
-comment|/*!   Sets whether the item is tristate. If \a tristate is true, the   item is checkable with three separate states; otherwise, the item   is checkable with two states. (Note that this also requires that   the item is checkable; see isCheckable().)    \sa isTristate(), setCheckable(), setCheckState() */
+comment|/*!   \fn void QStandardItem::setTristate(bool tristate)   \obsolete    Use QStandardItem::setAutoTristate(bool tristate) instead.   For a tristate checkbox that the user can change between all three   states, use QStandardItem::setUserTristate(bool tristate) instead. */
+end_comment
+begin_comment
+comment|/*!   \fn void QStandardItem::isTristate() const   \obsolete    Use QStandardItem::isAutoTristate() instead.   For a tristate checkbox that the user can change between all three   states, use QStandardItem::isUserTristate() instead. */
+end_comment
+begin_comment
+comment|/*!   Sets whether the item is tristate and controlled by QTreeWidget.   This enables automatic management of the state of parent items in QTreeWidget   (checked if all children are checked, unchecked if all children are unchecked,   or partially checked if only some children are checked).    \since 5.6   \sa isAutoTristate(), setCheckable(), setCheckState() */
 end_comment
 begin_function
-DECL|function|setTristate
+DECL|function|setAutoTristate
 name|void
 name|QStandardItem
 operator|::
-name|setTristate
+name|setAutoTristate
 parameter_list|(
 name|bool
 name|tristate
@@ -4308,8 +4314,75 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn bool QStandardItem::isTristate() const    Returns whether the item is tristate; that is, if it's checkable with three   separate states.    The default value is false.    \sa setTristate(), isCheckable(), checkState() */
+comment|/*!   \fn bool QStandardItem::isAutoTristate() const    Returns whether the item is tristate and is controlled by QTreeWidget.    The default value is false.    \since 5.6   \sa setAutoTristate(), isCheckable(), checkState() */
 end_comment
+begin_comment
+comment|/*!   Sets whether the item is tristate and controlled by the user.   If \a tristate is true, the user can cycle through three separate states;   otherwise, the item is checkable with two states.   (Note that this also requires that the item is checkable; see isCheckable().)    \since 5.6   \sa isUserTristate(), setCheckable(), setCheckState() */
+end_comment
+begin_function
+DECL|function|setUserTristate
+name|void
+name|QStandardItem
+operator|::
+name|setUserTristate
+parameter_list|(
+name|bool
+name|tristate
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QStandardItem
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|changeFlags
+argument_list|(
+name|tristate
+argument_list|,
+name|Qt
+operator|::
+name|ItemIsUserTristate
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!   \fn bool QStandardItem::isUserTristate() const   \since 5.6    Returns whether the item is tristate; that is, if it's checkable with three   separate states and the user can cycle through all three states.    The default value is false.    \sa setUserTristate(), isCheckable(), checkState() */
+end_comment
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|6
+argument_list|)
+end_if
+begin_function
+DECL|function|setTristate
+name|void
+name|QStandardItem
+operator|::
+name|setTristate
+parameter_list|(
+name|bool
+name|tristate
+parameter_list|)
+block|{
+name|setAutoTristate
+argument_list|(
+name|tristate
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
