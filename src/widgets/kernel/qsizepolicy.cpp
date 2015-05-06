@@ -143,10 +143,10 @@ begin_comment
 comment|/*!     \fn void QSizePolicy::transpose()      Swaps the horizontal and vertical policies and stretches. */
 end_comment
 begin_comment
-comment|/*!     \fn void QSizePolicy::retainSizeWhenHidden() const     \since 5.2      Returns if the layout should retain the widgets size when it is hidden. This is by default false.      \sa setRetainSizeWhenHidden() */
+comment|/*!     \fn void QSizePolicy::retainSizeWhenHidden() const     \since 5.2      Returns whether the layout should retain the widget's size when it is hidden.     This is \c false by default.      \sa setRetainSizeWhenHidden() */
 end_comment
 begin_comment
-comment|/*!    \fn void QSizePolicy::setRetainSizeWhenHidden(bool retainSize)    \since 5.2      Set if a layout should retain the widgets size when it is hidden.     If \a retainSize is true the layout will not be changed by hiding the widget.      \sa retainSizeWhenHidden() */
+comment|/*!    \fn void QSizePolicy::setRetainSizeWhenHidden(bool retainSize)    \since 5.2      Sets whether a layout should retain the widget's size when it is hidden.     If \a retainSize is \c true, the layout will not be changed by hiding the widget.      \sa retainSizeWhenHidden() */
 end_comment
 begin_comment
 comment|/*!     \enum QSizePolicy::ControlType     \since 4.3      This enum specifies the different types of widgets in terms of     layout interaction:      \value DefaultType  The default type, when none is specified.     \value ButtonBox  A QDialogButtonBox instance.     \value CheckBox  A QCheckBox instance.     \value ComboBox  A QComboBox instance.     \value Frame  A QFrame instance.     \value GroupBox  A QGroupBox instance.     \value Label  A QLabel instance.     \value Line  A QFrame instance with QFrame::HLine or QFrame::VLine.     \value LineEdit  A QLineEdit instance.     \value PushButton  A QPushButton instance.     \value RadioButton  A QRadioButton instance.     \value Slider  A QAbstractSlider instance.     \value SpinBox  A QAbstractSpinBox instance.     \value TabWidget  A QTabWidget instance.     \value ToolButton  A QToolButton instance.      \sa setControlType(), controlType() */
