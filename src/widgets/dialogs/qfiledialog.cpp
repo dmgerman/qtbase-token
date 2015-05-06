@@ -2888,7 +2888,7 @@ begin_comment
 comment|/*!     \fn void QFileDialog::setDirectory(const QDir&directory)      \overload */
 end_comment
 begin_comment
-comment|/*!     Sets the file dialog's current \a directory. */
+comment|/*!     Sets the file dialog's current \a directory.      \note On iOS, if you set \a directory to \l{QStandardPaths::standardLocations()}         {QStandardPaths::standardLocations(QStandardPaths::PicturesLocation).last()},         a native image picker dialog will be used for accessing the user's photo album.         The filename returned can be loaded using QFile and related APIs.         This feature was added in Qt 5.5. */
 end_comment
 begin_function
 DECL|function|setDirectory
