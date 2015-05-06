@@ -307,7 +307,7 @@ operator|=
 operator|::
 name|SysAllocString
 argument_list|(
-name|QT_UNICODE_LITERAL
+name|TEXT
 argument_list|(
 name|QT_VERSION_STR
 argument_list|)
