@@ -6279,7 +6279,7 @@ name|itemFlags
 operator|&
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 operator|)
 operator|&&
 name|value
@@ -6347,7 +6347,7 @@ operator|&=
 operator|~
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 expr_stmt|;
 name|child
 operator|->
@@ -6574,7 +6574,7 @@ name|itemFlags
 operator|&
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 operator|)
 condition|;
 name|p
@@ -6673,7 +6673,7 @@ name|itemFlags
 operator|&
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 operator|)
 condition|)
 return|return

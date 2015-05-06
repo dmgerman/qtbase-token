@@ -6579,7 +6579,7 @@ name|defaultFlags
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 operator|<<
 literal|true
@@ -6637,7 +6637,7 @@ name|defaultFlags
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 operator|<<
 literal|true
@@ -6695,7 +6695,7 @@ name|defaultFlags
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 operator|<<
 literal|true

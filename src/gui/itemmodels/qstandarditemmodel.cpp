@@ -4302,7 +4302,7 @@ name|tristate
 argument_list|,
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 expr_stmt|;
 block|}

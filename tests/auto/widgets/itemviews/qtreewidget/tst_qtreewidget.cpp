@@ -6393,7 +6393,7 @@ argument_list|()
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -23166,7 +23166,7 @@ argument_list|()
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 expr_stmt|;
 name|QTreeWidgetItem
@@ -23183,7 +23183,7 @@ argument_list|()
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 expr_stmt|;
 name|QTreeWidgetItem
@@ -23200,7 +23200,7 @@ argument_list|()
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 expr_stmt|;
 name|item
@@ -23363,7 +23363,7 @@ argument_list|()
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 argument_list|)
 expr_stmt|;
 name|item

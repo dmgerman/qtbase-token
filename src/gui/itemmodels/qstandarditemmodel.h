@@ -722,7 +722,7 @@ argument_list|()
 operator|&
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsAutoTristate
 operator|)
 operator|!=
 literal|0
