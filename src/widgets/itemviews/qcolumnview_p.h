@@ -265,11 +265,60 @@ argument_list|(
 name|event
 argument_list|)
 block|;     }
-name|QRect
+name|void
+name|scrollContentsBy
+argument_list|(
+argument|int dx
+argument_list|,
+argument|int dy
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|{
+if|if
+condition|(
+operator|!
+name|previewWidget
+condition|)
+return|return;
+name|scrollDirtyRegion
+argument_list|(
+name|dx
+argument_list|,
+name|dy
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+name|viewport
+argument_list|()
+operator|->
+name|scroll
+argument_list|(
+name|dx
+argument_list|,
+name|dy
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|QAbstractItemView
+operator|::
+name|scrollContentsBy
+argument_list|(
+name|dx
+argument_list|,
+name|dy
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_macro
+unit|}      QRect
 name|visualRect
 argument_list|(
 argument|const QModelIndex&
 argument_list|)
+end_macro
+begin_expr_stmt
 specifier|const
 name|Q_DECL_OVERRIDE
 block|{
@@ -278,7 +327,7 @@ name|QRect
 argument_list|()
 return|;
 block|}
-end_decl_stmt
+end_expr_stmt
 begin_function
 name|void
 name|scrollTo
