@@ -40,38 +40,51 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|PropertyWatcher
 argument_list|(
-argument|QObject* subject
+argument|QObject* subject = Q_NULLPTR
 argument_list|,
 argument|QString annotation = QString()
 argument_list|,
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|)
-block|;
-operator|~
-name|PropertyWatcher
-argument_list|()
 block|;
 name|QFormLayout
 operator|*
-name|layout
+name|formLayout
 argument_list|()
 block|{
 return|return
-name|m_layout
+name|m_formLayout
 return|;
 block|}
 name|QObject
 operator|*
 name|subject
 argument_list|()
+specifier|const
 block|{
 return|return
 name|m_subject
 return|;
 block|}
+name|void
+name|setSubject
+argument_list|(
+name|QObject
+operator|*
+name|s
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|annotation
+operator|=
+name|QString
+argument_list|()
+argument_list|)
+block|;
 name|public
 name|slots
 operator|:
@@ -93,7 +106,7 @@ operator|*
 name|sender
 argument_list|)
 block|;
-name|protected
+name|private
 operator|:
 name|QObject
 operator|*
@@ -101,7 +114,7 @@ name|m_subject
 block|;
 name|QFormLayout
 operator|*
-name|m_layout
+name|m_formLayout
 block|; }
 decl_stmt|;
 end_decl_stmt
