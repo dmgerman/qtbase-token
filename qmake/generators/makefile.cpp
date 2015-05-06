@@ -15186,7 +15186,7 @@ name|inpf
 argument_list|,
 name|out
 argument_list|,
-name|LocalShell
+name|TargetShell
 argument_list|)
 decl_stmt|;
 comment|// NOTE: The var -> QMAKE_COMP_var replace feature is unsupported, do not use!
