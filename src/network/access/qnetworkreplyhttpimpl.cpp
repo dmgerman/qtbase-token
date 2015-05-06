@@ -6074,7 +6074,8 @@ name|QNetworkReply
 operator|::
 name|UnknownNetworkError
 argument_list|,
-literal|""
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return;
