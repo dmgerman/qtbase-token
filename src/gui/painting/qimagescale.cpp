@@ -29,7 +29,7 @@ begin_comment
 comment|/*  * Copyright (C) 2004, 2005 Daniel M. Duley  *  * Redistribution and use in source and binary forms, with or without  * modification, are permitted provided that the following conditions  * are met:  *  * 1. Redistributions of source code must retain the above copyright  *    notice, this list of conditions and the following disclaimer.  * 2. Redistributions in binary form must reproduce the above copyright  *    notice, this list of conditions and the following disclaimer in the  *    documentation and/or other materials provided with the distribution.  *  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  *  */
 end_comment
 begin_comment
-comment|/* OTHER CREDITS:  *  * This is the normal smoothscale method, based on Imlib2's smoothscale.  *  * Originally I took the algorithm used in NetPBM and Qt and added MMX/3dnow  * optimizations. It ran in about 1/2 the time as Qt. Then I ported Imlib's  * C algorithm and it ran at about the same speed as my MMX optimized one...  * Finally I ported Imlib's MMX version and it ran in less than half the  * time as my MMX algorithm, (taking only a quarter of the time Qt does).  * After further optimization it seems to run at around 1/6th.  *  * Changes include formatting, namespaces and other C++'ings, removal of old  * #ifdef'ed code, and removal of unneeded border calculation code.  *  * Imlib2 is (C) Carsten Haitzler and various contributors. The MMX code  * is by Willem Monsuwe<willem@stack.nl>. All other modifications are  * (C) Daniel M. Duley.  */
+comment|/* OTHER CREDITS:  *  * This is the normal smoothscale method, based on Imlib2's smoothscale.  *  * Originally I took the algorithm used in NetPBM and Qt and added MMX/3dnow  * optimizations. It ran in about 1/2 the time as Qt. Then I ported Imlib's  * C algorithm and it ran at about the same speed as my MMX optimized one...  * Finally I ported Imlib's MMX version and it ran in less than half the  * time as my MMX algorithm, (taking only a quarter of the time Qt does).  * After further optimization it seems to run at around 1/6th.  *  * Changes include formatting, namespaces and other C++'ings, removal of old  * #ifdef'ed code, and removal of unneeded border calculation code.  * Later the code has been refactored and an SSE4.1 optimizated path have been  * added instead of the removed MMX assembler.  *  * Imlib2 is (C) Carsten Haitzler and various contributors. The MMX code  * is by Willem Monsuwe<willem@stack.nl>. All other modifications are  * (C) Daniel M. Duley.  */
 end_comment
 begin_namespace
 DECL|namespace|QImageScale
@@ -547,9 +547,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-operator|(
 name|p
-operator|)
 return|;
 block|}
 end_function
@@ -608,19 +606,15 @@ index|[
 name|d
 index|]
 expr_stmt|;
-comment|/* scaling up */
 if|if
 condition|(
 name|up
 condition|)
 block|{
+comment|/* scaling up */
 name|qint64
 name|val
-decl_stmt|,
-name|inc
-decl_stmt|;
-name|val
-operator|=
+init|=
 literal|0x8000
 operator|*
 name|s
@@ -628,9 +622,10 @@ operator|/
 name|d
 operator|-
 literal|0x8000
-expr_stmt|;
+decl_stmt|;
+name|qint64
 name|inc
-operator|=
+init|=
 operator|(
 operator|(
 operator|(
@@ -643,7 +638,7 @@ literal|16
 operator|)
 operator|/
 name|d
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -728,9 +723,9 @@ name|inc
 expr_stmt|;
 block|}
 block|}
-comment|/* scaling down */
 else|else
 block|{
+comment|/* scaling down */
 name|qint64
 name|val
 init|=
@@ -1080,12 +1075,10 @@ operator|->
 name|xpoints
 condition|)
 return|return
-operator|(
 name|qimageFreeScaleInfo
 argument_list|(
 name|isi
 argument_list|)
-operator|)
 return|;
 name|isi
 operator|->
@@ -1129,12 +1122,10 @@ operator|->
 name|ypoints
 condition|)
 return|return
-operator|(
 name|qimageFreeScaleInfo
 argument_list|(
 name|isi
 argument_list|)
-operator|)
 return|;
 if|if
 condition|(
@@ -1169,12 +1160,10 @@ operator|->
 name|xapoints
 condition|)
 return|return
-operator|(
 name|qimageFreeScaleInfo
 argument_list|(
 name|isi
 argument_list|)
-operator|)
 return|;
 name|isi
 operator|->
@@ -1204,18 +1193,14 @@ operator|->
 name|yapoints
 condition|)
 return|return
-operator|(
 name|qimageFreeScaleInfo
 argument_list|(
 name|isi
 argument_list|)
-operator|)
 return|;
 block|}
 return|return
-operator|(
 name|isi
-operator|)
 return|;
 block|}
 end_function
