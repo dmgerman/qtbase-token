@@ -948,11 +948,16 @@ operator|<<
 literal|"   it's a keyboard"
 expr_stmt|;
 break|break;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XINPUT22
 case|case
 name|XITouchClass
 case|:
 comment|// will be handled in deviceForId()
 break|break;
+endif|#
+directive|endif
 default|default:
 name|qCDebug
 argument_list|(
