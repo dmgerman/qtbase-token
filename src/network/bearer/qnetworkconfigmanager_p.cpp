@@ -178,6 +178,11 @@ name|qDeleteAll
 argument_list|(
 name|sessionEngines
 argument_list|)
+argument_list|;
+name|sessionEngines
+operator|.
+name|clear
+argument_list|()
 argument_list|;     if
 operator|(
 name|bearerThread
