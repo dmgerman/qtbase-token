@@ -94,7 +94,7 @@ constructor_decl|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Destroys the collator.  */
+comment|/*!    Destructor for QCollator.  */
 end_comment
 begin_destructor
 DECL|function|~QCollator
@@ -187,10 +187,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     \fn void QCollator::QCollator(QCollator&&other)      Move constructor. Moves from \a other into this collator.      Note that a moved-from QCollator can only be destroyed or assigned     to. The effect of calling other functions than the destructor or     one of the assignment operators is undefined. */
+comment|/*!     \fn QCollator::QCollator(QCollator&&other)      Move constructor. Moves from \a other into this collator.      Note that a moved-from QCollator can only be destroyed or assigned     to. The effect of calling other functions than the destructor or     one of the assignment operators is undefined. */
 end_comment
 begin_comment
-comment|/*     \fn QCollator&QCollator::operator=(QCollator&&other)      Move-assigns from \a other to this collator.      Note that a moved-from QCollator can only be destroyed or assigned     to. The effect of calling other functions than the destructor or     one of the assignment operators is undefined. */
+comment|/*!     \fn QCollator& QCollator::operator=(QCollator&& other)      Move-assigns from \a other to this collator.      Note that a moved-from QCollator can only be destroyed or assigned     to. The effect of calling other functions than the destructor or     one of the assignment operators is undefined. */
 end_comment
 begin_comment
 comment|/*!     \fn void QCollator::swap(QCollator&other)      Swaps this collator with \a other. This function is very fast and     never fails. */
@@ -628,7 +628,13 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QCollatorSortKey&QCollatorSortKey::operator=(QCollatorSortKey&& other)      Move-assigns \a other to this collator key. */
+end_comment
+begin_comment
 comment|/*!     \fn bool operator<(const QCollatorSortKey&lhs, const QCollatorSortKey&rhs)     \relates QCollatorSortKey      According to the QCollator that created the keys, returns \c true if \a lhs     should be sorted before \a rhs; otherwise returns \c false.      \sa QCollatorSortKey::compare()  */
+end_comment
+begin_comment
+comment|/*!     \fn void QCollatorSortKey::swap(QCollatorSortKey& other)      Swaps this collator key with \a other. */
 end_comment
 begin_comment
 comment|/*!     \fn int QCollatorSortKey::compare(const QCollatorSortKey&otherKey) const      Compares the key to \a otherKey. Returns a negative value if the key     is less than \a otherKey, 0 if the key is equal to \a otherKey or a     positive value if the key is greater than \a otherKey.      \sa operator<()  */
