@@ -287,6 +287,10 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|// We want all signals (except the interactive ones) be connected as QueuedConnection
+comment|// because else we're falling into cases where we recurse back into the socket code
+comment|// and mess up the state. Always going to the event loop (and expecting that when reading/writing)
+comment|// is safer.
 name|QObject
 operator|::
 name|connect
@@ -313,7 +317,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|DirectConnection
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -338,7 +342,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|DirectConnection
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -363,7 +367,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|DirectConnection
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 comment|// The disconnected() and error() signals may already come
@@ -522,7 +526,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|DirectConnection
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -617,7 +621,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|DirectConnection
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 if|if
@@ -764,11 +768,15 @@ if|if
 condition|(
 name|socket
 condition|)
+block|{
+comment|// socket can be 0 since the host lookup is done from qhttpnetworkconnection.cpp while
+comment|// there is no socket yet.
 name|socket
 operator|->
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -1577,6 +1585,18 @@ block|}
 endif|#
 directive|endif
 block|}
+return|return
+literal|false
+return|;
+block|}
+comment|// This code path for ConnectedState
+if|if
+condition|(
+name|pendingEncrypt
+condition|)
+block|{
+comment|// Let's only be really connected when we have received the encrypted() signal. Else the state machine seems to mess up
+comment|// and corrupt the things sent to the server.
 return|return
 literal|false
 return|;
@@ -2912,6 +2932,15 @@ argument_list|(
 name|bytes
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ssl
+condition|)
+block|{
+comment|// In the SSL case we want to send data from encryptedBytesWritten signal since that one
+comment|// is the one going down to the actual network, not only into some SSL buffer.
+return|return;
+block|}
 comment|// bytes have been written to the socket. write even more of them :)
 if|if
 condition|(
@@ -3277,9 +3306,12 @@ comment|// ### FIXME: if the server closes the connection unexpectedly, we shoul
 comment|//channels[i].reconnectAttempts = 2;
 if|if
 condition|(
+name|ssl
+operator|||
 name|pendingEncrypt
 condition|)
 block|{
+comment|// FIXME: Didn't work properly with pendingEncrypt only, we should refactor this into an EncrypingState
 ifndef|#
 directive|ifndef
 name|QT_NO_SSL
