@@ -11067,7 +11067,7 @@ index|[
 literal|"REDUCE_RELOCATIONS"
 index|]
 operator|=
-literal|"no"
+literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
