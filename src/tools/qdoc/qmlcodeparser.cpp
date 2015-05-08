@@ -114,6 +114,13 @@ name|COMMAND_WRAPPER
 value|Doc::alias("wrapper")
 end_define
 begin_define
+DECL|macro|COMMAND_ABSTRACT
+define|#
+directive|define
+name|COMMAND_ABSTRACT
+value|Doc::alias("abstract")
+end_define
+begin_define
 DECL|macro|COMMAND_QMLABSTRACT
 define|#
 directive|define
@@ -859,6 +866,8 @@ operator|<<
 name|COMMAND_PRELIMINARY
 operator|<<
 name|COMMAND_SINCE
+operator|<<
+name|COMMAND_ABSTRACT
 operator|<<
 name|COMMAND_QMLABSTRACT
 operator|<<

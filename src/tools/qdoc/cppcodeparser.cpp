@@ -4042,6 +4042,8 @@ operator|<<
 name|COMMAND_QMLREADONLY
 operator|<<
 name|COMMAND_QMLABSTRACT
+operator|<<
+name|COMMAND_ABSTRACT
 expr_stmt|;
 block|}
 return|return
@@ -5004,9 +5006,17 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|(
 name|command
 operator|==
 name|COMMAND_QMLABSTRACT
+operator|)
+operator|||
+operator|(
+name|command
+operator|==
+name|COMMAND_ABSTRACT
+operator|)
 condition|)
 block|{
 if|if

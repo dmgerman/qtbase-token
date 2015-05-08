@@ -50,10 +50,6 @@ label|:
 enum|enum
 name|AtomType
 block|{
-name|AbstractLeft
-block|,
-name|AbstractRight
-block|,
 name|AnnotatedList
 block|,
 name|AutoLink

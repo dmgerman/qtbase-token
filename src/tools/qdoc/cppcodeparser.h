@@ -771,6 +771,13 @@ block|; }
 decl_stmt|;
 end_decl_stmt
 begin_define
+DECL|macro|COMMAND_ABSTRACT
+define|#
+directive|define
+name|COMMAND_ABSTRACT
+value|Doc::alias("abstract")
+end_define
+begin_define
 DECL|macro|COMMAND_CLASS
 define|#
 directive|define
