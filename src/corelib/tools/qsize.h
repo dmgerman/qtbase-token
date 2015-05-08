@@ -165,6 +165,7 @@ name|mode
 argument_list|)
 decl|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QSize
 name|scaled
@@ -181,6 +182,7 @@ name|mode
 argument_list|)
 decl|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -193,6 +195,7 @@ operator|&
 argument_list|)
 decl|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -205,6 +208,7 @@ operator|&
 argument_list|)
 decl|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
@@ -1407,6 +1411,7 @@ name|transposed
 argument_list|()
 specifier|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 specifier|inline
 name|void
@@ -1457,6 +1462,7 @@ name|mode
 argument_list|)
 decl|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QSizeF
 name|scaled
@@ -1473,6 +1479,7 @@ name|mode
 argument_list|)
 decl|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1485,6 +1492,7 @@ operator|&
 argument_list|)
 decl|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
@@ -1497,6 +1505,7 @@ operator|&
 argument_list|)
 decl|const
 name|Q_DECL_NOTHROW
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
