@@ -2619,7 +2619,7 @@ name|readBytes
 argument_list|)
 operator|+
 name|QIODEVICE_BUFFERSIZE
-operator|>
+operator|>=
 name|QByteArray
 operator|::
 name|MaxSize
@@ -2690,7 +2690,7 @@ name|d
 operator|->
 name|pos
 argument_list|)
-operator|>
+operator|>=
 name|QByteArray
 operator|::
 name|MaxSize
