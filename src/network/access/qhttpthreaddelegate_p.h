@@ -627,6 +627,10 @@ block|;
 name|qint64
 name|m_size
 block|;
+name|qint64
+name|m_pos
+block|;
+comment|// to match calls of haveDataSlot with the expected position
 name|public
 operator|:
 name|QNonContiguousByteDeviceThreadForwardImpl
@@ -661,13 +665,27 @@ argument_list|)
 block|,
 name|m_size
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|m_pos
+argument_list|(
+literal|0
 argument_list|)
 block|{     }
 operator|~
 name|QNonContiguousByteDeviceThreadForwardImpl
 argument_list|()
 block|{     }
+name|qint64
+name|pos
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|{
+return|return
+name|m_pos
+return|;
+block|}
 specifier|const
 name|char
 operator|*
@@ -763,14 +781,19 @@ name|m_data
 operator|+=
 name|a
 block|;
-comment|// To main thread to inform about our state
+name|m_pos
+operator|+=
+name|a
+block|;
+comment|// To main thread to inform about our state. The m_pos will be sent as a sanity check.
 name|emit
 name|processedData
 argument_list|(
+name|m_pos
+argument_list|,
 name|a
 argument_list|)
 block|;
-comment|// FIXME possible optimization, already ask user thread for some data
 return|return
 name|true
 return|;
@@ -811,6 +834,22 @@ name|m_data
 operator|=
 literal|0
 expr_stmt|;
+name|m_dataArray
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|wantDataPending
+condition|)
+block|{
+comment|// had requested the user thread to send some data (only 1 in-flight at any moment)
+name|wantDataPending
+operator|=
+name|false
+expr_stmt|;
+block|}
 comment|// Communicate as BlockingQueuedConnection
 name|bool
 name|b
@@ -824,6 +863,18 @@ operator|&
 name|b
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|b
+condition|)
+block|{
+comment|// the reset succeeded, we're at pos 0 again
+name|m_pos
+operator|=
+literal|0
+expr_stmt|;
+comment|// the HTTP code will anyway abort the request if !b.
+block|}
 return|return
 name|b
 return|;
@@ -848,6 +899,8 @@ comment|// From user thread:
 name|void
 name|haveDataSlot
 argument_list|(
+argument|qint64 pos
+argument_list|,
 argument|QByteArray dataArray
 argument_list|,
 argument|bool dataAtEnd
@@ -855,14 +908,27 @@ argument_list|,
 argument|qint64 dataSize
 argument_list|)
 block|{
+if|if
+condition|(
+name|pos
+operator|!=
+name|m_pos
+condition|)
+block|{
+comment|// Sometimes when re-sending a request in the qhttpnetwork* layer there is a pending haveData from the
+comment|// user thread on the way to us. We need to ignore it since it is the data for the wrong(later) chunk.
+return|return;
+block|}
 name|wantDataPending
 operator|=
 name|false
-block|;
+expr_stmt|;
 name|m_dataArray
 operator|=
 name|dataArray
-block|;
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 name|m_data
 operator|=
 name|const_cast
@@ -876,44 +942,65 @@ operator|.
 name|constData
 argument_list|()
 operator|)
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|m_amount
 operator|=
 name|dataArray
 operator|.
 name|size
 argument_list|()
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|m_atEnd
 operator|=
 name|dataAtEnd
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|m_size
 operator|=
 name|dataSize
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|// This will tell the HTTP code (QHttpNetworkConnectionChannel) that we have data available now
+end_comment
+begin_function_decl
 name|emit
 name|readyRead
-argument_list|()
-block|;     }
-name|signals
-operator|:
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_comment
+unit|}  signals:
 comment|// void readyRead(); in parent class
+end_comment
+begin_comment
 comment|// void readProgress(qint64 current, qint64 total); happens in the main thread with the real bytedevice
+end_comment
+begin_comment
 comment|// to main thread:
+end_comment
+begin_function_decl
 name|void
 name|wantData
-argument_list|(
+parameter_list|(
 name|qint64
-argument_list|)
-decl_stmt|;
-end_decl_stmt
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function_decl
 name|void
 name|processedData
 parameter_list|(
 name|qint64
+name|pos
+parameter_list|,
+name|qint64
+name|amount
 parameter_list|)
 function_decl|;
 end_function_decl

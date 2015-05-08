@@ -981,7 +981,7 @@ operator|.
 name|VERSION
 operator|.
 name|SDK_INT
-operator|==
+operator|>=
 literal|21
 condition|)
 block|{

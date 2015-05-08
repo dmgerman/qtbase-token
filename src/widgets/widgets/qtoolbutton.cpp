@@ -3771,7 +3771,7 @@ name|setText
 argument_list|(
 name|action
 operator|->
-name|iconText
+name|text
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -2619,7 +2619,7 @@ literal|"-o"
 operator|<<
 literal|"/dev/null"
 operator|<<
-literal|"-fPIE"
+literal|"-fPIC"
 operator|<<
 literal|"-"
 expr_stmt|;
@@ -3073,7 +3073,7 @@ literal|"-o"
 operator|<<
 literal|"/dev/null"
 operator|<<
-literal|"-fPIE"
+literal|"-fPIC"
 operator|<<
 literal|"-"
 expr_stmt|;
@@ -5074,7 +5074,7 @@ literal|"-o"
 operator|<<
 literal|"/dev/null"
 operator|<<
-literal|"-fPIE"
+literal|"-fPIC"
 operator|<<
 literal|"-"
 expr_stmt|;

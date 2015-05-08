@@ -56,11 +56,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qtimer.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qringbuffer_p.h>
 end_include
 begin_include
@@ -216,14 +211,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|bool
-name|completeAsyncRead
-argument_list|(
-argument|DWORD bytesRead
-argument_list|,
-argument|DWORD errorCode
-argument_list|)
-block|;
 name|DWORD
 name|checkPipeState
 argument_list|()
@@ -250,11 +237,10 @@ name|int
 name|actualReadBufferSize
 block|;
 name|bool
-name|readSequenceStarted
+name|stopped
 block|;
-name|QTimer
-operator|*
-name|emitReadyReadTimer
+name|bool
+name|readSequenceStarted
 block|;
 name|bool
 name|pipeBroken
