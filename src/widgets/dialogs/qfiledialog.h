@@ -127,6 +127,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|Options options READ options WRITE setOptions
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QStringList supportedSchemes READ supportedSchemes WRITE setSupportedSchemes
+argument_list|)
 name|public
 operator|:
 expr|enum
@@ -602,6 +606,20 @@ name|labelText
 argument_list|(
 argument|DialogLabel label
 argument_list|)
+specifier|const
+block|;
+name|void
+name|setSupportedSchemes
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|schemes
+argument_list|)
+block|;
+name|QStringList
+name|supportedSchemes
+argument_list|()
 specifier|const
 block|;
 ifndef|#
