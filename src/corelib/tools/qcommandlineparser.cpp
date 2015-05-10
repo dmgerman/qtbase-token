@@ -308,7 +308,7 @@ name|it
 init|=
 name|nameHash
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|optionName
 argument_list|)
@@ -319,7 +319,7 @@ name|it
 operator|==
 name|nameHash
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{
@@ -2367,7 +2367,7 @@ name|d
 operator|->
 name|nameHash
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|optionName
 argument_list|)
@@ -2380,7 +2380,7 @@ name|d
 operator|->
 name|nameHash
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{

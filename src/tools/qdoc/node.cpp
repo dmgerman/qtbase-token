@@ -11714,7 +11714,7 @@ name|i
 init|=
 name|members_
 operator|.
-name|begin
+name|cbegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -11723,7 +11723,7 @@ name|i
 operator|!=
 name|members_
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{
@@ -11777,7 +11777,7 @@ name|i
 init|=
 name|members_
 operator|.
-name|begin
+name|cbegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -11786,7 +11786,7 @@ name|i
 operator|!=
 name|members_
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{
@@ -11851,7 +11851,7 @@ name|i
 init|=
 name|members_
 operator|.
-name|begin
+name|cbegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -11860,7 +11860,7 @@ name|i
 operator|!=
 name|members_
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{

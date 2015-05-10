@@ -720,7 +720,7 @@ name|a
 init|=
 name|args
 operator|.
-name|begin
+name|cbegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -729,7 +729,7 @@ name|a
 operator|!=
 name|args
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{

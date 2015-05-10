@@ -2060,7 +2060,7 @@ name|devIt
 init|=
 name|m_touchDevices
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|id
 argument_list|)
@@ -2071,7 +2071,7 @@ name|devIt
 operator|!=
 name|m_touchDevices
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{
