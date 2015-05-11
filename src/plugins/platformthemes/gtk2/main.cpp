@@ -27,7 +27,7 @@ name|Q_OBJECT
 name|Q_PLUGIN_METADATA
 argument_list|(
 name|IID
-literal|"org.qt-project.Qt.QPA.QPlatformThemeFactoryInterface.5.1"
+name|QPlatformThemeFactoryInterface_iid
 name|FILE
 literal|"gtk2.json"
 argument_list|)

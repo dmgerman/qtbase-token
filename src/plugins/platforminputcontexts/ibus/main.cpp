@@ -42,7 +42,7 @@ name|Q_OBJECT
 name|Q_PLUGIN_METADATA
 argument_list|(
 name|IID
-literal|"org.qt-project.Qt.QPlatformInputContextFactoryInterface"
+name|QPlatformInputContextFactoryInterface_iid
 name|FILE
 literal|"ibus.json"
 argument_list|)

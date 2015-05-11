@@ -27,7 +27,7 @@ name|Q_OBJECT
 name|Q_PLUGIN_METADATA
 argument_list|(
 name|IID
-literal|"org.qt-project.Qt.QGenericPluginFactoryInterface"
+name|QGenericPluginFactoryInterface_iid
 name|FILE
 literal|"evdevkeyboard.json"
 argument_list|)

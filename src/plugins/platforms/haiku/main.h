@@ -18,9 +18,7 @@ block|{
 name|Q_OBJECT
 name|Q_PLUGIN_METADATA
 argument_list|(
-argument|IID
-literal|"org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.2"
-argument|FILE
+argument|IID QPlatformIntegrationFactoryInterface_iid FILE
 literal|"haiku.json"
 argument_list|)
 name|public
