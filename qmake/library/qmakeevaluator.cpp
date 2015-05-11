@@ -4150,13 +4150,13 @@ operator|::
 name|number
 argument_list|(
 name|index
-operator|++
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|++
 name|index
 operator|>
 literal|1000
