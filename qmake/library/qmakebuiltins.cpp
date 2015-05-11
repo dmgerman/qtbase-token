@@ -8050,7 +8050,7 @@ name|evalError
 argument_list|(
 name|fL1S
 argument_list|(
-literal|"defined(function, [\"test\"|\"replace\"])"
+literal|"defined(function, [\"test\"|\"replace\"|\"var\"])"
 literal|" requires one or two arguments."
 argument_list|)
 argument_list|)
