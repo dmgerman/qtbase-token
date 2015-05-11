@@ -321,6 +321,12 @@ name|e
 parameter_list|)
 name|Q_DECL_OVERRIDE
 block|{
+if|if
+condition|(
+operator|!
+name|m_mouseDown
+condition|)
+block|{
 name|m_mouseDown
 operator|=
 literal|true
@@ -343,6 +349,7 @@ expr_stmt|;
 name|renderLater
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|void
 name|mouseMoveEvent
@@ -382,6 +389,11 @@ name|e
 parameter_list|)
 name|Q_DECL_OVERRIDE
 block|{
+if|if
+condition|(
+name|m_mouseDown
+condition|)
+block|{
 name|m_mouseDown
 operator|=
 literal|false
@@ -399,6 +411,7 @@ expr_stmt|;
 name|renderLater
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|void
 name|focusInEvent
