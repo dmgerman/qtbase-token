@@ -65,7 +65,7 @@ DECL|macro|QPlatformInputContextFactoryInterface_iid
 define|#
 directive|define
 name|QPlatformInputContextFactoryInterface_iid
-value|"org.qt-project.Qt.QPlatformInputContextFactoryInterface"
+value|"org.qt-project.Qt.QPlatformInputContextFactoryInterface.5.1"
 end_define
 begin_decl_stmt
 name|class
