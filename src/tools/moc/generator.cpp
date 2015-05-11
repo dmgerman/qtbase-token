@@ -2430,6 +2430,14 @@ name|propertyList
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+operator|!
+name|cdef
+operator|->
+name|constructorList
+operator|.
+name|isEmpty
+argument_list|()
 operator|)
 decl_stmt|;
 if|if
