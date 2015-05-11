@@ -5637,18 +5637,25 @@ argument_list|(
 name|__ELF__
 argument_list|)
 operator|&&
+operator|(
 operator|!
 name|defined
 argument_list|(
 name|__PIC__
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__PIE__
+argument_list|)
+operator|)
 end_if
 begin_error
 error|#
 directive|error
 literal|"You must build your code with position independent code if Qt was built with -reduce-relocations. "
 error|\
-literal|"Compile your code with -fPIC."
+literal|"Compile your code with -fPIC (-fPIE is not enough)."
 end_error
 begin_endif
 endif|#
