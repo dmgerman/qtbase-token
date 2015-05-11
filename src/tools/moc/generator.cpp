@@ -6834,7 +6834,15 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"            if (_a[0]) *reinterpret_cast<QObject**>(_a[0]) = _r; } break;\n"
+literal|"            if (_a[0]) *reinterpret_cast<%s**>(_a[0]) = _r; } break;\n"
+argument_list|,
+name|cdef
+operator|->
+name|hasQGadget
+condition|?
+literal|"void"
+else|:
+literal|"QObject"
 argument_list|)
 expr_stmt|;
 block|}
