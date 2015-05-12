@@ -19,7 +19,6 @@ directive|include
 file|<private/qabstractfileengine_p.h>
 end_include
 begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
 name|namespace
 name|ABI
 block|{
@@ -37,6 +36,7 @@ block|}
 block|}
 end_decl_stmt
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QWinRTFileEngineHandlerPrivate
 name|class
 name|QWinRTFileEngineHandlerPrivate

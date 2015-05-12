@@ -83,7 +83,7 @@ name|Foundation
 namespace|;
 end_using
 begin_macro
-name|QT_USE_NAMESPACE
+name|QT_BEGIN_NAMESPACE
 end_macro
 begin_class
 DECL|class|QWinRTCursorPrivate
@@ -539,4 +539,7 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
