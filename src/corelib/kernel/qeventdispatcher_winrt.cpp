@@ -2279,7 +2279,9 @@ argument_list|)
 expr_stmt|;
 name|HRESULT
 name|hr
-init|=
+decl_stmt|;
+name|hr
+operator|=
 name|GetActivationFactory
 argument_list|(
 name|HString
@@ -2295,7 +2297,7 @@ argument_list|,
 operator|&
 name|timerFactory
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Q_ASSERT_SUCCEEDED
 argument_list|(
 name|hr

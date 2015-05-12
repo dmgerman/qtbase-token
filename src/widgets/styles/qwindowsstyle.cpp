@@ -1313,11 +1313,6 @@ modifier|*
 name|widget
 parameter_list|)
 block|{
-switch|switch
-condition|(
-name|pm
-condition|)
-block|{
 if|#
 directive|if
 name|defined
@@ -1330,6 +1325,11 @@ name|defined
 argument_list|(
 name|Q_OS_WINRT
 argument_list|)
+switch|switch
+condition|(
+name|pm
+condition|)
+block|{
 case|case
 name|QStyle
 operator|::
@@ -1495,18 +1495,24 @@ argument_list|)
 return|;
 endif|#
 directive|endif
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-argument|widget
-argument_list|)
-endif|#
-directive|endif
-comment|// Q_OS_WIN
 default|default:
 break|break;
 block|}
+else|#
+directive|else
+comment|// Q_OS_WIN&& !Q_OS_WINRT
+name|Q_UNUSED
+argument_list|(
+name|pm
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|widget
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|QWindowsStylePrivate
 operator|::

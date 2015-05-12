@@ -501,9 +501,27 @@ literal|true
 return|;
 block|}
 block|}
+else|#
+directive|else
+comment|// !Q_OS_WINRT
+name|Q_UNUSED
+argument_list|(
+name|pid
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|hostname
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|appname
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
-comment|// !Q_OS_WINRT
+comment|// Q_OS_WINRT
 specifier|const
 name|qint64
 name|age

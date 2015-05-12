@@ -787,7 +787,7 @@ directive|else
 name|QString
 name|s
 decl_stmt|;
-name|int
+name|size_t
 name|size
 init|=
 name|mbstowcs
