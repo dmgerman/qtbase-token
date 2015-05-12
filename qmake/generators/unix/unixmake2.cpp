@@ -6014,9 +6014,8 @@ argument_list|)
 expr_stmt|;
 block|}
 name|bool
-name|isApp
+name|isFramework
 init|=
-operator|(
 name|project
 operator|->
 name|first
@@ -6024,8 +6023,14 @@ argument_list|(
 literal|"TEMPLATE"
 argument_list|)
 operator|==
-literal|"app"
-operator|)
+literal|"lib"
+operator|&&
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"lib_bundle"
+argument_list|)
 decl_stmt|;
 name|QString
 name|info_plist_out
@@ -6033,10 +6038,9 @@ init|=
 name|bundle_dir
 operator|+
 operator|(
-name|isApp
+name|isFramework
 condition|?
-literal|"Contents/Info.plist"
-else|:
+operator|(
 literal|"Versions/"
 operator|+
 name|project
@@ -6047,6 +6051,9 @@ literal|"QMAKE_FRAMEWORK_VERSION"
 argument_list|)
 operator|+
 literal|"/Resources/Info.plist"
+operator|)
+else|:
+literal|"Contents/Info.plist"
 operator|)
 decl_stmt|;
 name|bundledFiles
@@ -6308,7 +6315,8 @@ literal|",g\" "
 expr_stmt|;
 if|if
 condition|(
-name|isApp
+operator|!
+name|isFramework
 condition|)
 block|{
 name|QString
@@ -6364,6 +6372,15 @@ operator|<<
 literal|",g\" "
 operator|<<
 literal|"-e \"s,@EXECUTABLE@,"
+operator|<<
+name|var
+argument_list|(
+literal|"QMAKE_ORIG_TARGET"
+argument_list|)
+operator|<<
+literal|",g\" "
+operator|<<
+literal|"-e \"s,@LIBRARY@,"
 operator|<<
 name|var
 argument_list|(
