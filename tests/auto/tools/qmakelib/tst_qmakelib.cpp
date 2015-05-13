@@ -8023,6 +8023,118 @@ literal|"in:1: Unexpected 'else'."
 operator|<<
 literal|false
 argument_list|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"double-test-else"
+argument_list|)
+operator|<<
+literal|"foo bar\nelse"
+operator|<<
+name|TS
+argument_list|(
+comment|/*     0 */
+operator|<<
+name|H
+argument_list|(
+name|TokBranch
+argument_list|)
+comment|/*     1 */
+comment|/* then branch */
+operator|<<
+name|I
+argument_list|(
+literal|0
+argument_list|)
+comment|/*     3 */
+comment|/* else branch */
+operator|<<
+name|I
+argument_list|(
+literal|1
+argument_list|)
+comment|// This seems weird
+comment|/*     5 */
+operator|<<
+name|H
+argument_list|(
+name|TokTerminator
+argument_list|)
+argument_list|)
+operator|<<
+literal|"in:1: Extra characters after test expression."
+operator|<<
+literal|false
+argument_list|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"test-function-else"
+argument_list|)
+operator|<<
+literal|"foo bar()\nelse"
+operator|<<
+name|TS
+argument_list|(
+comment|/*     0 */
+operator|<<
+name|H
+argument_list|(
+name|TokLine
+argument_list|)
+operator|<<
+name|H
+argument_list|(
+literal|1
+argument_list|)
+comment|/*     2 */
+operator|<<
+name|H
+argument_list|(
+name|TokTestCall
+argument_list|)
+comment|// This seems pointless
+comment|/*     3 */
+operator|<<
+name|H
+argument_list|(
+name|TokFuncTerminator
+argument_list|)
+comment|/*     4 */
+operator|<<
+name|H
+argument_list|(
+name|TokBranch
+argument_list|)
+comment|/*     5 */
+comment|/* then branch */
+operator|<<
+name|I
+argument_list|(
+literal|0
+argument_list|)
+comment|/*     7 */
+comment|/* else branch */
+operator|<<
+name|I
+argument_list|(
+literal|1
+argument_list|)
+comment|// This seems weird
+comment|/*     9 */
+operator|<<
+name|H
+argument_list|(
+name|TokTerminator
+argument_list|)
+argument_list|)
+operator|<<
+literal|"in:1: Extra characters after test expression."
+operator|<<
+literal|false
+argument_list|;
 comment|// Braces
 name|QTest
 operator|::
