@@ -7401,6 +7401,8 @@ operator|=
 name|fileFixify
 argument_list|(
 name|library
+argument_list|,
+name|FileFixifyAbsolute
 argument_list|)
 expr_stmt|;
 name|QString
