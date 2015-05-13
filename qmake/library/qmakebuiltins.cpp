@@ -1191,6 +1191,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|ret
+operator|.
+name|trimmed
+argument_list|()
 return|;
 block|}
 end_function
