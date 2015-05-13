@@ -37,7 +37,14 @@ name|QInputDeviceManagerPrivate
 argument_list|,
 name|parent
 argument_list|)
-block|{ }
+block|{
+name|qRegisterMetaType
+argument_list|<
+name|DeviceType
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_function
 DECL|function|deviceCount
