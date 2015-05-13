@@ -1294,14 +1294,20 @@ name|s
 parameter_list|)
 value|ProKey(QString::fromWCharArray(s))
 end_define
-begin_function
+begin_decl_stmt
+name|QT_WARNING_PUSH
+name|QT_WARNING_DISABLE_MSVC
+argument_list|(
+literal|4003
+argument_list|)
+comment|// "not enough actual parameters for macro TS()"
 DECL|function|proParser_data
 name|void
 name|tst_qmakelib
 operator|::
 name|proParser_data
-parameter_list|()
-block|{
+argument_list|()
+argument_list|{
 name|QTest
 operator|::
 name|addColumn
@@ -1311,7 +1317,7 @@ argument_list|>
 argument_list|(
 literal|"in"
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|addColumn
@@ -1321,7 +1327,7 @@ argument_list|>
 argument_list|(
 literal|"out"
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|addColumn
@@ -1331,7 +1337,7 @@ argument_list|>
 argument_list|(
 literal|"msgs"
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|addColumn
@@ -1341,7 +1347,7 @@ argument_list|>
 argument_list|(
 literal|"ok"
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1357,7 +1363,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1373,7 +1379,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// Variable operators
 name|QTest
 operator|::
@@ -1430,7 +1436,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1486,7 +1492,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1542,7 +1548,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1598,7 +1604,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1654,7 +1660,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1699,7 +1705,7 @@ operator|<<
 literal|"in:1: Assignment needs exactly one word on the left hand side."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1744,7 +1750,7 @@ operator|<<
 literal|"in:1: Assignment needs exactly one word on the left hand side."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 comment|// Values
 DECL|macro|ASSIGN_VAR
 define|#
@@ -1796,7 +1802,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1838,7 +1844,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -1919,7 +1925,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2000,7 +2006,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2042,7 +2048,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2098,7 +2104,7 @@ operator|<<
 literal|"in:1: Missing closing \" quote"
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2166,7 +2172,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2234,7 +2240,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2276,7 +2282,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2331,7 +2337,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2425,7 +2431,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2519,7 +2525,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -2931,7 +2937,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3224,7 +3230,7 @@ operator|<<
 literal|"WARNING: in:12: Possible accidental line continuation"
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3266,7 +3272,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3308,7 +3314,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3350,7 +3356,7 @@ operator|<<
 literal|"WARNING: in:1: Missing name in expansion"
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3392,7 +3398,7 @@ operator|<<
 literal|"WARNING: in:1: Missing name in expansion"
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3461,7 +3467,7 @@ operator|<<
 literal|"in:1: Missing } terminator [found end-of-line]"
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3541,7 +3547,7 @@ operator|<<
 literal|"in:1: Missing } terminator [found +]"
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3583,7 +3589,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3625,7 +3631,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3673,7 +3679,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3721,7 +3727,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3782,7 +3788,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3894,7 +3900,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -3993,7 +3999,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// This is a rather questionable "feature"
 name|QTest
 operator|::
@@ -4113,7 +4119,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4168,7 +4174,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4223,7 +4229,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4276,7 +4282,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4329,7 +4335,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4382,7 +4388,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4424,7 +4430,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4479,7 +4485,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4546,7 +4552,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// Conditionals ("Tests")
 name|QTest
 operator|::
@@ -4592,7 +4598,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4637,7 +4643,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// This is a rather questionable "feature"
 name|QTest
 operator|::
@@ -4683,7 +4689,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4756,7 +4762,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4772,7 +4778,7 @@ operator|<<
 literal|"in:1: Extra characters after test expression."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4840,7 +4846,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4908,7 +4914,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -4959,7 +4965,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -5004,7 +5010,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// This is a rather questionable "feature"
 name|QTest
 operator|::
@@ -5056,7 +5062,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// This is a rather questionable "feature"
 name|QTest
 operator|::
@@ -5108,7 +5114,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -5182,7 +5188,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -5266,7 +5272,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -5365,7 +5371,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -5464,7 +5470,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -5569,7 +5575,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -5691,7 +5697,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -5901,7 +5907,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6045,7 +6051,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6198,7 +6204,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6249,7 +6255,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6300,7 +6306,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6316,7 +6322,7 @@ operator|<<
 literal|"in:1: Missing closing parenthesis in function call"
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6412,7 +6418,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6469,7 +6475,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6605,7 +6611,7 @@ literal|"WARNING: in:1: Unescaped backslashes are deprecated\n"
 literal|"WARNING: in:1: Unescaped backslashes are deprecated"
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6701,7 +6707,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6741,7 +6747,7 @@ operator|<<
 literal|"in:1: Opening parenthesis without prior test name."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6781,7 +6787,7 @@ operator|<<
 literal|"in:1: Extra characters after test expression."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 comment|// This is a rather questionable "feature"
 name|QTest
 operator|::
@@ -6856,7 +6862,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -6930,7 +6936,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7004,7 +7010,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7084,7 +7090,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7164,7 +7170,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// Control statements
 name|QTest
 operator|::
@@ -7243,7 +7249,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7319,7 +7325,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// This is a rather questionable "feature"
 name|QTest
 operator|::
@@ -7398,7 +7404,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7581,7 +7587,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7674,7 +7680,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7767,7 +7773,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7801,7 +7807,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7817,7 +7823,7 @@ operator|<<
 literal|"in:1: Unexpected 'else'."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7888,7 +7894,7 @@ operator|<<
 literal|"in:1: Unexpected 'else'."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -7940,7 +7946,7 @@ operator|<<
 literal|"in:1: Unexpected 'else'."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8016,7 +8022,7 @@ operator|<<
 literal|"in:1: Unexpected 'else'."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 comment|// Braces
 name|QTest
 operator|::
@@ -8033,7 +8039,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8049,7 +8055,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8065,7 +8071,7 @@ operator|<<
 literal|"in:2: Missing closing brace(s)."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8136,7 +8142,7 @@ operator|<<
 literal|"in:2: Missing closing brace(s)."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8152,7 +8158,7 @@ operator|<<
 literal|"in:1: Excess closing brace."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8197,7 +8203,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8242,7 +8248,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8367,7 +8373,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8475,7 +8481,7 @@ operator|<<
 literal|"WARNING: in:1: Possible braces mismatch"
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8546,7 +8552,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8617,7 +8623,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8705,7 +8711,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8793,7 +8799,7 @@ operator|<<
 literal|"WARNING: in:1: Excess colon in front of opening brace."
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8892,7 +8898,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -8991,7 +8997,7 @@ operator|<<
 literal|"WARNING: in:1: Excess colon in front of opening brace."
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -9103,7 +9109,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -9258,7 +9264,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -9381,7 +9387,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -9512,7 +9518,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -9643,7 +9649,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -9802,7 +9808,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -9895,7 +9901,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -9988,7 +9994,7 @@ operator|<<
 literal|"WARNING: in:1: Excess colon in front of opening brace."
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10191,7 +10197,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10394,7 +10400,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// Custom functions
 name|QTest
 operator|::
@@ -10447,7 +10453,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10527,7 +10533,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10607,7 +10613,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10676,7 +10682,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10771,7 +10777,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10846,7 +10852,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10921,7 +10927,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 comment|// Operator abuse
 name|QTest
 operator|::
@@ -10938,7 +10944,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10954,7 +10960,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10970,7 +10976,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -10986,7 +10992,7 @@ operator|<<
 literal|"in:1: Unexpected NOT operator in front of assignment."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11002,7 +11008,7 @@ operator|<<
 literal|"in:1: Unexpected NOT operator in front of opening brace."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11018,7 +11024,7 @@ operator|<<
 literal|"in:2: Unexpected NOT operator in front of else."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11034,7 +11040,7 @@ operator|<<
 literal|"in:1: Unexpected NOT operator in front of for()."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11050,7 +11056,7 @@ operator|<<
 literal|"in:1: Unexpected NOT operator in front of function definition."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11095,7 +11101,7 @@ operator|<<
 literal|"in:1: AND operator without prior condition."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11140,7 +11146,7 @@ operator|<<
 literal|"in:1: Unexpected AND operator in front of else."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11208,7 +11214,7 @@ operator|<<
 literal|"WARNING: in:1: Stray AND operator in front of AND operator."
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11276,7 +11282,7 @@ operator|<<
 literal|"WARNING: in:1: Stray AND operator in front of OR operator."
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11364,7 +11370,7 @@ operator|<<
 literal|"in:1: AND operator without prior condition."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11380,7 +11386,7 @@ operator|<<
 literal|"in:1: Unexpected OR operator in front of assignment."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11396,7 +11402,7 @@ operator|<<
 literal|"in:1: Unexpected OR operator in front of opening brace."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11412,7 +11418,7 @@ operator|<<
 literal|"in:1: Unexpected OR operator in front of for()."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11457,7 +11463,7 @@ operator|<<
 literal|"in:1: OR operator without prior condition."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11502,7 +11508,7 @@ operator|<<
 literal|"in:1: Unexpected OR operator in front of else."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11570,7 +11576,7 @@ operator|<<
 literal|"WARNING: in:1: Stray OR operator in front of OR operator."
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11638,7 +11644,7 @@ operator|<<
 literal|"WARNING: in:1: Stray OR operator in front of AND operator."
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11726,7 +11732,7 @@ operator|<<
 literal|"in:1: OR operator without prior condition."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 comment|// option() (these produce no tokens)
 name|QTest
 operator|::
@@ -11743,7 +11749,7 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11759,7 +11765,7 @@ operator|<<
 literal|"in:1: option() requires one literal argument."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11775,7 +11781,7 @@ operator|<<
 literal|"in:1: option() requires one literal argument."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11791,7 +11797,7 @@ operator|<<
 literal|"in:1: option() requires one literal argument."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11807,7 +11813,7 @@ operator|<<
 literal|"in:1: option() requires one literal argument."
 operator|<<
 literal|false
-expr_stmt|;
+argument_list|;
 name|QTest
 operator|::
 name|newRow
@@ -11823,53 +11829,51 @@ operator|<<
 literal|"in:1: option() must appear outside any control structures."
 operator|<<
 literal|false
-expr_stmt|;
-block|}
-end_function
-begin_function
+argument_list|; }
+name|QT_WARNING_POP
 DECL|function|proParser
 name|void
 name|tst_qmakelib
 operator|::
 name|proParser
-parameter_list|()
-block|{
+argument_list|()
+argument_list|{
 name|QFETCH
 argument_list|(
 name|QString
 argument_list|,
 name|in
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|QFETCH
 argument_list|(
 name|QString
 argument_list|,
 name|out
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|QFETCH
 argument_list|(
 name|QString
 argument_list|,
 name|msgs
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|QFETCH
 argument_list|(
 name|bool
 argument_list|,
 name|ok
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|bool
 name|verified
-init|=
+operator|=
 literal|true
-decl_stmt|;
+argument_list|;
 name|QMakeHandler
 name|handler
-decl_stmt|;
+argument_list|;
 name|handler
 operator|.
 name|setExpectedMessages
@@ -11885,10 +11889,10 @@ operator|::
 name|SkipEmptyParts
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|QMakeVfs
 name|vfs
-decl_stmt|;
+argument_list|;
 name|QMakeParser
 name|parser
 argument_list|(
@@ -11900,11 +11904,11 @@ argument_list|,
 operator|&
 name|handler
 argument_list|)
-decl_stmt|;
+argument_list|;
 name|ProFile
-modifier|*
+operator|*
 name|pro
-init|=
+operator|=
 name|parser
 operator|.
 name|parsedProBlock
@@ -11919,41 +11923,38 @@ name|QMakeParser
 operator|::
 name|FullGrammar
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
+argument_list|;     if
+operator|(
 name|handler
 operator|.
 name|printedMessages
 argument_list|()
-condition|)
+operator|)
 block|{
 name|qWarning
 argument_list|(
 literal|"Got unexpected message(s)"
 argument_list|)
-expr_stmt|;
+block|;
 name|verified
 operator|=
 literal|false
-expr_stmt|;
-block|}
+block|;     }
 name|QStringList
 name|missingMsgs
-init|=
+operator|=
 name|handler
 operator|.
 name|expectedMessages
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
+argument_list|;     if
+operator|(
 operator|!
 name|missingMsgs
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
+operator|)
 block|{
 foreach|foreach
 control|(
@@ -11977,32 +11978,31 @@ expr_stmt|;
 name|verified
 operator|=
 literal|false
-expr_stmt|;
-block|}
-if|if
-condition|(
+argument_list|;     }
+decl|if
+argument_list|(
 name|pro
 operator|->
 name|isOk
 argument_list|()
 operator|!=
 name|ok
-condition|)
-block|{
+argument_list|)
+argument_list|{
 specifier|static
 specifier|const
 name|char
-modifier|*
+operator|*
 specifier|const
 name|lbl
 index|[]
-init|=
+operator|=
 block|{
 literal|"failure"
 block|,
 literal|"success"
 block|}
-decl_stmt|;
+argument_list|;
 name|qWarning
 argument_list|(
 literal|"Expected %s, got %s"
@@ -12025,14 +12025,13 @@ name|ok
 argument_list|)
 index|]
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|verified
 operator|=
 literal|false
-expr_stmt|;
-block|}
-if|if
-condition|(
+argument_list|;     }
+decl|if
+argument_list|(
 name|pro
 operator|->
 name|items
@@ -12049,8 +12048,8 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|)
-condition|)
-block|{
+argument_list|)
+argument_list|{
 name|qWarning
 argument_list|(
 literal|"Bytecode mismatch.\nActual:%s\nExpected:%s"
@@ -12078,30 +12077,30 @@ name|out
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|;
 name|verified
 operator|=
 literal|false
-expr_stmt|;
-block|}
+argument_list|;     }
 name|pro
 operator|->
 name|deref
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 name|QVERIFY
 argument_list|(
 name|verified
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_macro
-name|QTEST_MAIN
-argument_list|(
-argument|tst_qmakelib
-argument_list|)
-end_macro
+end_expr_stmt
+begin_expr_stmt
+unit|}  QTEST_MAIN
+operator|(
+name|tst_qmakelib
+operator|)
+end_expr_stmt
 begin_include
 include|#
 directive|include
