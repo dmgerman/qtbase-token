@@ -8289,6 +8289,8 @@ operator|+=
 name|margin
 expr_stmt|;
 name|ret
+operator|=
+name|ret
 operator|.
 name|expandedTo
 argument_list|(
