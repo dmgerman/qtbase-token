@@ -2253,15 +2253,9 @@ name|QFileSystemNode
 modifier|*
 name|parentNode
 init|=
-operator|(
-name|indexNode
-condition|?
 name|indexNode
 operator|->
 name|parent
-else|:
-literal|0
-operator|)
 decl_stmt|;
 if|if
 condition|(
