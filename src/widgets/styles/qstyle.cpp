@@ -2230,11 +2230,11 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|debug
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif
