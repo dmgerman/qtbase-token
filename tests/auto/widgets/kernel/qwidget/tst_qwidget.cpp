@@ -23100,35 +23100,6 @@ expr_stmt|;
 comment|//See also task 147191
 endif|#
 directive|endif
-if|if
-condition|(
-operator|!
-name|QGuiApplication
-operator|::
-name|platformName
-argument_list|()
-operator|.
-name|compare
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"cocoa"
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|CaseInsensitive
-argument_list|)
-condition|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Window mask not implemented on Mac QTBUG-22326"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QTRY_VERIFY
 argument_list|(
 name|QApplication
