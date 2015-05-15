@@ -5719,7 +5719,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the native directory separator: "/" under Unix     and "\\" under Windows.      You do not need to use this function to build file paths. If you     always use "/", Qt will translate your paths to conform to the     underlying operating system. If you want to display paths to the     user using their operating system's separator use     toNativeSeparators(). */
+comment|/*!     Returns the native directory separator: "/" under Unix     and "\\" under Windows.      You do not need to use this function to build file paths. If you     always use "/", Qt will translate your paths to conform to the     underlying operating system. If you want to display paths to the     user using their operating system's separator use     toNativeSeparators().      \sa listSeparator() */
 end_comment
 begin_function
 DECL|function|separator
@@ -5753,6 +5753,9 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_comment
+comment|/*!     \fn QDir::listSeparator()     \since 5.6      Returns the native path list separator: ':' under Unix     and ';' under Windows.      \sa separator() */
+end_comment
 begin_comment
 comment|/*!     Sets the application's current working directory to \a path.     Returns \c true if the directory was successfully changed; otherwise     returns \c false.      \sa current(), currentPath(), home(), root(), temp() */
 end_comment
