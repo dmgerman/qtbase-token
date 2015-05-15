@@ -10988,7 +10988,7 @@ name|verified
 operator|=
 literal|true
 argument_list|;
-name|QMakeHandler
+name|QMakeTestHandler
 name|handler
 argument_list|;
 name|handler
