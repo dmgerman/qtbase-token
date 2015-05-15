@@ -19313,7 +19313,7 @@ ifdef|#
 directive|ifdef
 name|Q_OS_OSX
 comment|// Single-touch events are normally not sent unless WA_TouchPadAcceptSingleTouchEvents is set.
-comment|// In Qt 4 this check was in OS X-only coode. That behavior is preserved here by the #ifdef.
+comment|// In Qt 4 this check was in OS X-only code. That behavior is preserved here by the #ifdef.
 if|if
 condition|(
 name|touchPoints
@@ -19322,6 +19322,15 @@ name|count
 argument_list|()
 operator|==
 literal|1
+operator|&&
+name|device
+operator|->
+name|type
+argument_list|()
+operator|==
+name|QTouchDevice
+operator|::
+name|TouchPad
 operator|&&
 operator|!
 name|targetWidget
