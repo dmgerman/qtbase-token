@@ -240,86 +240,13 @@ argument_list|(
 literal|4003
 argument_list|)
 comment|// "not enough actual parameters for macro TS()"
-DECL|function|proParser_data
+DECL|function|addParseOperators
 name|void
 name|tst_qmakelib
 operator|::
-name|proParser_data
+name|addParseOperators
 argument_list|()
 argument_list|{
-name|QTest
-operator|::
-name|addColumn
-argument_list|<
-name|QString
-argument_list|>
-argument_list|(
-literal|"in"
-argument_list|)
-argument_list|;
-name|QTest
-operator|::
-name|addColumn
-argument_list|<
-name|QString
-argument_list|>
-argument_list|(
-literal|"out"
-argument_list|)
-argument_list|;
-name|QTest
-operator|::
-name|addColumn
-argument_list|<
-name|QString
-argument_list|>
-argument_list|(
-literal|"msgs"
-argument_list|)
-argument_list|;
-name|QTest
-operator|::
-name|addColumn
-argument_list|<
-name|bool
-argument_list|>
-argument_list|(
-literal|"ok"
-argument_list|)
-argument_list|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"empty"
-argument_list|)
-operator|<<
-literal|""
-operator|<<
-name|TS
-argument_list|()
-operator|<<
-literal|""
-operator|<<
-literal|true
-argument_list|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"empty (whitespace)"
-argument_list|)
-operator|<<
-literal|"  \t   \t"
-operator|<<
-name|TS
-argument_list|()
-operator|<<
-literal|""
-operator|<<
-literal|true
-argument_list|;
-comment|// Variable operators
 name|QTest
 operator|::
 name|newRow
@@ -689,8 +616,14 @@ operator|<<
 literal|"in:1: Assignment needs exactly one word on the left hand side."
 operator|<<
 literal|false
-argument_list|;
-comment|// Values
+argument_list|; }
+DECL|function|addParseValues
+name|void
+name|tst_qmakelib
+operator|::
+name|addParseValues
+argument_list|()
+argument_list|{
 DECL|macro|ASSIGN_VAR
 define|#
 directive|define
@@ -3491,8 +3424,14 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-argument_list|;
-comment|// Conditionals ("Tests")
+argument_list|; }
+DECL|function|addParseConditions
+name|void
+name|tst_qmakelib
+operator|::
+name|addParseConditions
+argument_list|()
+argument_list|{
 name|QTest
 operator|::
 name|newRow
@@ -6109,8 +6048,14 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-argument_list|;
-comment|// Control statements
+argument_list|; }
+DECL|function|addParseControlStatements
+name|void
+name|tst_qmakelib
+operator|::
+name|addParseControlStatements
+argument_list|()
+argument_list|{
 name|QTest
 operator|::
 name|newRow
@@ -7073,8 +7018,14 @@ operator|<<
 literal|"in:1: Extra characters after test expression."
 operator|<<
 literal|false
-argument_list|;
-comment|// Braces
+argument_list|; }
+DECL|function|addParseBraces
+name|void
+name|tst_qmakelib
+operator|::
+name|addParseBraces
+argument_list|()
+argument_list|{
 name|QTest
 operator|::
 name|newRow
@@ -9451,8 +9402,14 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-argument_list|;
-comment|// Custom functions
+argument_list|; }
+DECL|function|addParseCustomFunctions
+name|void
+name|tst_qmakelib
+operator|::
+name|addParseCustomFunctions
+argument_list|()
+argument_list|{
 name|QTest
 operator|::
 name|newRow
@@ -9978,8 +9935,14 @@ operator|<<
 literal|""
 operator|<<
 literal|true
-argument_list|;
-comment|// Operator abuse
+argument_list|; }
+DECL|function|addParseAbuse
+name|void
+name|tst_qmakelib
+operator|::
+name|addParseAbuse
+argument_list|()
+argument_list|{
 name|QTest
 operator|::
 name|newRow
@@ -10783,7 +10746,110 @@ operator|<<
 literal|"in:1: OR operator without prior condition."
 operator|<<
 literal|false
+argument_list|; }
+DECL|function|proParser_data
+name|void
+name|tst_qmakelib
+operator|::
+name|proParser_data
+argument_list|()
+argument_list|{
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
+name|QString
+argument_list|>
+argument_list|(
+literal|"in"
+argument_list|)
 argument_list|;
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
+name|QString
+argument_list|>
+argument_list|(
+literal|"out"
+argument_list|)
+argument_list|;
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
+name|QString
+argument_list|>
+argument_list|(
+literal|"msgs"
+argument_list|)
+argument_list|;
+name|QTest
+operator|::
+name|addColumn
+argument_list|<
+name|bool
+argument_list|>
+argument_list|(
+literal|"ok"
+argument_list|)
+argument_list|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"empty"
+argument_list|)
+operator|<<
+literal|""
+operator|<<
+name|TS
+argument_list|()
+operator|<<
+literal|""
+operator|<<
+literal|true
+argument_list|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"empty (whitespace)"
+argument_list|)
+operator|<<
+literal|"  \t   \t"
+operator|<<
+name|TS
+argument_list|()
+operator|<<
+literal|""
+operator|<<
+literal|true
+argument_list|;
+name|addParseOperators
+argument_list|()
+argument_list|;
+comment|// Variable operators
+name|addParseValues
+argument_list|()
+argument_list|;
+name|addParseConditions
+argument_list|()
+argument_list|;
+comment|// "Tests"
+name|addParseControlStatements
+argument_list|()
+argument_list|;
+name|addParseBraces
+argument_list|()
+argument_list|;
+name|addParseCustomFunctions
+argument_list|()
+argument_list|;
+name|addParseAbuse
+argument_list|()
+argument_list|;
+comment|// Mostly operator abuse
 comment|// option() (these produce no tokens)
 name|QTest
 operator|::
