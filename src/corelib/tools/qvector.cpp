@@ -240,16 +240,22 @@ begin_comment
 comment|/*! \fn QVector::iterator QVector::erase(iterator begin, iterator end)      \overload      Removes all the items from \a begin up to (but not including) \a     end. Returns an iterator to the same item that \a end referred to     before the call. */
 end_comment
 begin_comment
-comment|/*! \fn T& QVector::first()      Returns a reference to the first item in the vector. This     function assumes that the vector isn't empty.      \sa last(), isEmpty() */
+comment|/*! \fn T& QVector::first()      Returns a reference to the first item in the vector. This     function assumes that the vector isn't empty.      \sa last(), isEmpty(), constFirst() */
 end_comment
 begin_comment
 comment|/*! \fn const T& QVector::first() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn T& QVector::last()      Returns a reference to the last item in the vector. This function     assumes that the vector isn't empty.      \sa first(), isEmpty() */
+comment|/*! \fn const T& QVector::constFirst() const     \since 5.6      Returns a const reference to the first item in the vector. This     function assumes that the vector isn't empty.      \sa constLast(), isEmpty(), first() */
+end_comment
+begin_comment
+comment|/*! \fn T& QVector::last()      Returns a reference to the last item in the vector. This function     assumes that the vector isn't empty.      \sa first(), isEmpty(), constLast() */
 end_comment
 begin_comment
 comment|/*! \fn const T& QVector::last() const      \overload */
+end_comment
+begin_comment
+comment|/*! \fn const T& QVector::constLast() const     \since 5.6      Returns a const reference to the last item in the vector. This function     assumes that the vector isn't empty.      \sa constFirst(), isEmpty(), last() */
 end_comment
 begin_comment
 comment|/*! \fn T QVector::value(int i) const      Returns the value at index position \a i in the vector.      If the index \a i is out of bounds, the function returns     a \l{default-constructed value}. If you are certain that     \a i is within bounds, you can use at() instead, which is slightly     faster.      \sa at(), operator[]() */
