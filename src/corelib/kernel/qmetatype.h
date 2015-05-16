@@ -7123,6 +7123,24 @@ block|;     }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+name|template
+operator|<
+operator|>
+expr|struct
+name|IsQEnumHelper
+operator|<
+name|void
+operator|>
+block|{ enum
+block|{
+name|Value
+operator|=
+name|false
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|QT_WARNING_POP
 name|template
 operator|<
