@@ -15469,7 +15469,7 @@ begin_comment
 comment|/*! \fn const QChar QString::operator[](uint position) const     Equivalent to \c at(position). \overload operator[]() */
 end_comment
 begin_comment
-comment|/*!     \fn void QString::truncate(int position)      Truncates the string at the given \a position index.      If the specified \a position index is beyond the end of the     string, nothing happens.      Example:      \snippet qstring/main.cpp 83      If \a position is negative, it is equivalent to passing zero.      \sa chop(), resize(), left() */
+comment|/*!     \fn void QString::truncate(int position)      Truncates the string at the given \a position index.      If the specified \a position index is beyond the end of the     string, nothing happens.      Example:      \snippet qstring/main.cpp 83      If \a position is negative, it is equivalent to passing zero.      \sa chop(), resize(), left(), QStringRef::truncate() */
 end_comment
 begin_function
 DECL|function|truncate
@@ -26872,6 +26872,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QStringRef::truncate(int position)     \since 5.6      Truncates the string at the given \a position index.      If the specified \a position index is beyond the end of the     string, nothing happens.      If \a position is negative, it is equivalent to passing zero.      \sa QString::truncate() */
+end_comment
 begin_comment
 comment|/*!   \since 4.8    Returns the index position of the first occurrence of the string \a   str in this string reference, searching forward from index position   \a from. Returns -1 if \a str is not found.    If \a cs is Qt::CaseSensitive (default), the search is case   sensitive; otherwise the search is case insensitive.    If \a from is -1, the search starts at the last character; if it is   -2, at the next to last character and so on.    \sa QString::indexOf(), lastIndexOf(), contains(), count() */
 end_comment
