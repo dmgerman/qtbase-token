@@ -855,7 +855,7 @@ specifier|static
 name|void
 name|processChild
 argument_list|(
-argument|QString key
+argument|QStringRef key
 argument_list|,
 argument|ChildSpec spec
 argument_list|,

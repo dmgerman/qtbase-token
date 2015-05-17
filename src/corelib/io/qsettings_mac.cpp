@@ -2955,7 +2955,7 @@ name|processChild
 argument_list|(
 name|currentKey
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|startPos
 argument_list|)

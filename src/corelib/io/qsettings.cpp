@@ -1360,7 +1360,7 @@ name|QSettingsPrivate
 operator|::
 name|processChild
 parameter_list|(
-name|QString
+name|QStringRef
 name|key
 parameter_list|,
 name|ChildSpec
@@ -1435,6 +1435,9 @@ operator|.
 name|insert
 argument_list|(
 name|key
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|QString
 argument_list|()
@@ -7038,7 +7041,7 @@ operator|.
 name|originalCaseKey
 argument_list|()
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|startPos
 argument_list|)
@@ -7104,7 +7107,7 @@ operator|.
 name|originalCaseKey
 argument_list|()
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|startPos
 argument_list|)
