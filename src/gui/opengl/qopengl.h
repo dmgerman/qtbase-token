@@ -171,25 +171,19 @@ begin_comment
 comment|// include gl2.h even if gl31.h gets included here.
 end_comment
 begin_comment
-comment|// This compile time differentation is important inside Qt because,
+comment|// NB! This file contains the only usages of the ES_3 and ES_3_1
 end_comment
 begin_comment
-comment|// unlike desktop GL, GLES is different when it comes to versioning
+comment|// macros. They are useless for pretty much anything else. The fact
 end_comment
 begin_comment
-comment|// and extensions: Standard functions that are new in a given version
+comment|// that Qt was built against an SDK with f.ex. ES 2 only does not mean
 end_comment
 begin_comment
-comment|// are always available in a version-specific header and are not
+comment|// applications cannot target ES 3. Therefore QOpenGLFunctions and
 end_comment
 begin_comment
-comment|// guaranteed to be dynamically resolvable via eglGetProcAddress (and
-end_comment
-begin_comment
-comment|// are typically not available as extensions even if they were part of
-end_comment
-begin_comment
-comment|// an extension for a previous version).
+comment|// friends do everything dynamically and never rely on these macros.
 end_comment
 begin_if
 if|#

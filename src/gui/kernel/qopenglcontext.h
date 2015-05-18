@@ -138,6 +138,12 @@ name|QOpenGLFunctions
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QOpenGLExtraFunctions
+name|class
+name|QOpenGLExtraFunctions
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPlatformOpenGLContext
 name|class
 name|QPlatformOpenGLContext
@@ -633,6 +639,12 @@ block|;
 name|QOpenGLFunctions
 operator|*
 name|functions
+argument_list|()
+specifier|const
+block|;
+name|QOpenGLExtraFunctions
+operator|*
+name|extraFunctions
 argument_list|()
 specifier|const
 block|;
