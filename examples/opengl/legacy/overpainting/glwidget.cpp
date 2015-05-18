@@ -356,6 +356,9 @@ operator|::
 name|initializeGL
 parameter_list|()
 block|{
+name|initializeOpenGLFunctions
+argument_list|()
+expr_stmt|;
 name|glEnable
 argument_list|(
 name|GL_MULTISAMPLE
@@ -688,7 +691,16 @@ expr_stmt|;
 name|logo
 operator|->
 name|draw
-argument_list|()
+argument_list|(
+cast|static_cast
+argument_list|<
+name|QOpenGLFunctions_1_1
+operator|*
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+argument_list|)
 expr_stmt|;
 comment|//! [7]
 comment|//! [8]
