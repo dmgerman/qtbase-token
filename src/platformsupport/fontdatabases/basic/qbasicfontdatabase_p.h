@@ -114,20 +114,6 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
-name|fallbacksForFamily
-argument_list|(
-argument|const QString&family
-argument_list|,
-argument|QFont::Style style
-argument_list|,
-argument|QFont::StyleHint styleHint
-argument_list|,
-argument|QChar::Script script
-argument_list|)
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
-name|QStringList
 name|addApplicationFont
 argument_list|(
 argument|const QByteArray&fontData
