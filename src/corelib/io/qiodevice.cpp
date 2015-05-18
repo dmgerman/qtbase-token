@@ -33,6 +33,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdir.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<algorithm>
 end_include
 begin_include
@@ -288,6 +293,141 @@ define|#
 directive|define
 name|Q_VOID
 end_define
+begin_function
+DECL|function|checkWarnMessage
+specifier|static
+name|void
+name|checkWarnMessage
+parameter_list|(
+specifier|const
+name|QIODevice
+modifier|*
+name|device
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|function
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|what
+parameter_list|)
+block|{
+name|QDebug
+name|d
+init|=
+name|qWarning
+argument_list|()
+decl_stmt|;
+name|d
+operator|.
+name|noquote
+argument_list|()
+expr_stmt|;
+name|d
+operator|.
+name|nospace
+argument_list|()
+expr_stmt|;
+name|d
+operator|<<
+literal|"QIODevice::"
+operator|<<
+name|function
+expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+name|d
+operator|<<
+literal|" ("
+operator|<<
+name|device
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|className
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|device
+operator|->
+name|objectName
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|d
+operator|<<
+literal|", \""
+operator|<<
+name|device
+operator|->
+name|objectName
+argument_list|()
+operator|<<
+literal|'"'
+expr_stmt|;
+if|if
+condition|(
+specifier|const
+name|QFile
+modifier|*
+name|f
+init|=
+name|qobject_cast
+argument_list|<
+specifier|const
+name|QFile
+operator|*
+argument_list|>
+argument_list|(
+name|device
+argument_list|)
+condition|)
+name|d
+operator|<<
+literal|", \""
+operator|<<
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|f
+operator|->
+name|fileName
+argument_list|()
+argument_list|)
+operator|<<
+literal|'"'
+expr_stmt|;
+name|d
+operator|<<
+literal|')'
+expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|device
+argument_list|)
+endif|#
+directive|endif
+comment|// !QT_NO_QOBJECT
+name|d
+operator|<<
+literal|": "
+operator|<<
+name|what
+expr_stmt|;
+block|}
+end_function
 begin_define
 DECL|macro|CHECK_MAXLEN
 define|#
@@ -299,7 +439,7 @@ parameter_list|,
 name|returnType
 parameter_list|)
 define|\
-value|do { \         if (maxSize< 0) { \             qWarning("QIODevice::"#function": Called with maxSize< 0"); \             return returnType; \         } \     } while (0)
+value|do { \         if (maxSize< 0) { \             checkWarnMessage(this, #function, "Called with maxSize< 0"); \             return returnType; \         } \     } while (0)
 end_define
 begin_define
 DECL|macro|CHECK_WRITABLE
@@ -312,7 +452,7 @@ parameter_list|,
 name|returnType
 parameter_list|)
 define|\
-value|do { \        if ((d->openMode& WriteOnly) == 0) { \            if (d->openMode == NotOpen) { \                qWarning("QIODevice::"#function": device not open"); \                return returnType; \            } \            qWarning("QIODevice::"#function": ReadOnly device"); \            return returnType; \        } \    } while (0)
+value|do { \        if ((d->openMode& WriteOnly) == 0) { \            if (d->openMode == NotOpen) { \                checkWarnMessage(this, #function, "device not open"); \                return returnType; \            } \            checkWarnMessage(this, #function, "ReadOnly device"); \            return returnType; \        } \    } while (0)
 end_define
 begin_define
 DECL|macro|CHECK_READABLE
@@ -325,7 +465,7 @@ parameter_list|,
 name|returnType
 parameter_list|)
 define|\
-value|do { \        if ((d->openMode& ReadOnly) == 0) { \            if (d->openMode == NotOpen) { \                qWarning("QIODevice::"#function": device not open"); \                return returnType; \            } \            qWarning("QIODevice::"#function": WriteOnly device"); \            return returnType; \        } \    } while (0)
+value|do { \        if ((d->openMode& ReadOnly) == 0) { \            if (d->openMode == NotOpen) { \                checkWarnMessage(this, #function, "device not open"); \                return returnType; \            } \            checkWarnMessage(this, #function, "WriteOnly device"); \            return returnType; \        } \    } while (0)
 end_define
 begin_comment
 comment|/*!     \internal  */
@@ -778,9 +918,13 @@ name|isOpen
 argument_list|()
 condition|)
 block|{
-name|qWarning
+name|checkWarnMessage
 argument_list|(
-literal|"QIODevice::setTextModeEnabled: The device is not open"
+name|this
+argument_list|,
+literal|"setTextModeEnabled"
+argument_list|,
+literal|"The device is not open"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1163,9 +1307,13 @@ name|isSequential
 argument_list|()
 condition|)
 block|{
-name|qWarning
+name|checkWarnMessage
 argument_list|(
-literal|"QIODevice::seek: Cannot call seek on a sequential device"
+name|this
+argument_list|,
+literal|"seek"
+argument_list|,
+literal|"Cannot call seek on a sequential device"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1181,9 +1329,13 @@ operator|==
 name|NotOpen
 condition|)
 block|{
-name|qWarning
+name|checkWarnMessage
 argument_list|(
-literal|"QIODevice::seek: The device is not open"
+name|this
+argument_list|,
+literal|"seek"
+argument_list|,
+literal|"The device is not open"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2314,9 +2466,13 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|qWarning
+name|checkWarnMessage
 argument_list|(
-literal|"QIODevice::read: maxSize argument exceeds QByteArray size limit"
+name|this
+argument_list|,
+literal|"read"
+argument_list|,
+literal|"maxSize argument exceeds QByteArray size limit"
 argument_list|)
 expr_stmt|;
 name|maxSize
@@ -2792,9 +2948,13 @@ operator|<
 literal|2
 condition|)
 block|{
-name|qWarning
+name|checkWarnMessage
 argument_list|(
-literal|"QIODevice::readLine: Called with maxSize< 2"
+name|this
+argument_list|,
+literal|"readLine"
+argument_list|,
+literal|"Called with maxSize< 2"
 argument_list|)
 expr_stmt|;
 return|return
