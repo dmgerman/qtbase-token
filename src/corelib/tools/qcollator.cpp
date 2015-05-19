@@ -94,7 +94,7 @@ constructor_decl|;
 block|}
 end_constructor
 begin_comment
-comment|/*!    Destructor for QCollator.  */
+comment|/*!     Destroys the collator.  */
 end_comment
 begin_destructor
 DECL|function|~QCollator

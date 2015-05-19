@@ -8004,6 +8004,9 @@ begin_comment
 comment|/*!     \since 5.5      \property QItemSelectionModel::selectedIndexes */
 end_comment
 begin_comment
+comment|/*!     \since 5.5      \property QItemSelectionModel::selection     \internal */
+end_comment
+begin_comment
 comment|/*!     \since 5.5      \property QItemSelectionModel::model     \internal */
 end_comment
 begin_comment

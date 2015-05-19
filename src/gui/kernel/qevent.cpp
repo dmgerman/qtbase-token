@@ -129,6 +129,33 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!    \fn QPoint QEnterEvent::globalPos() const     Returns the global position of the widget \e{at the time of the event}. */
+end_comment
+begin_comment
+comment|/*!    \fn int QEnterEvent::globalX() const     Returns the global position on the X-axis of the mouse cursor relative to the the widget. */
+end_comment
+begin_comment
+comment|/*!    \fn int QEnterEvent::globalY() const     Returns the global position on the Y-axis of the mouse cursor relative to the the widget. */
+end_comment
+begin_comment
+comment|/*!    \fn QPoint QEnterEvent::localPos() const     Returns the mouse cursor's position relative to the receiving widget. */
+end_comment
+begin_comment
+comment|/*!    \fn QPoint QEnterEvent::pos() const     Returns the position of the mouse cursor in global screen coordinates. */
+end_comment
+begin_comment
+comment|/*!    \fn QPoint QEnterEvent::screenPos() const     Returns the position of the mouse cursor relative to the receiving screen. */
+end_comment
+begin_comment
+comment|/*!    \fn QPoint QEnterEvent::windowPos() const     Returns the position of the mouse cursor relative to the receiving window. */
+end_comment
+begin_comment
+comment|/*!    \fn int QEnterEvent::x() const     Returns the x position of the mouse cursor relative to the receiving widget. */
+end_comment
+begin_comment
+comment|/*!    \fn int QEnterEvent::y() const     Returns the y position of the mouse cursor relative to the receiving widget. */
+end_comment
+begin_comment
 comment|/*!     \class QInputEvent     \ingroup events     \inmodule QtGui      \brief The QInputEvent class is the base class for events that     describe user input. */
 end_comment
 begin_comment
@@ -7012,6 +7039,9 @@ begin_comment
 comment|/*! \fn QTouchEvent::DeviceType QTouchEvent::deviceType() const     \obsolete      Returns the touch device Type, which is of type \l {QTouchEvent::DeviceType} {DeviceType}.      This function has been deprecated. Use QTouchDevice::type() instead.      \sa QTouchDevice::type(), QTouchEvent::device() */
 end_comment
 begin_comment
+comment|/*! \fn QTouchEvent::TouchPoint::TouchPoint(TouchPoint&&other)      Move-constructs a TouchPoint instance, making it point to the same     object that \a other was pointing to. */
+end_comment
+begin_comment
 comment|/*! \fn Qt::TouchPointStates QTouchEvent::touchPointStates() const      Returns a bitwise OR of all the touch point states for this event. */
 end_comment
 begin_comment
@@ -8530,6 +8560,9 @@ block|}
 end_function
 begin_comment
 comment|/*!     \fn TouchPoint&TouchPoint::operator=(const TouchPoint&other)     \internal  */
+end_comment
+begin_comment
+comment|/*!     \fn TouchPoint&TouchPoint::operator=(TouchPoint&&other)     \internal  */
 end_comment
 begin_comment
 comment|/*!     \fn void QTouchEvent::TouchPoint::swap(TouchPoint&other);     \internal */

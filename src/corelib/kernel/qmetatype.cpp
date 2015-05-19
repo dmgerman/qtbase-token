@@ -273,6 +273,9 @@ begin_comment
 comment|/*!     \fn void QMetaType::destroy(void *data) const     \since 5.0      Destroys the \a data, assuming it is of the type that this     QMetaType instance was created for.      \sa QMetaType::create() */
 end_comment
 begin_comment
+comment|/*!     \fn void *QMetaType::construct(int type, const void *copy)     \deprecated      Constructs a value of the given type which is a copy of \a copy.     The default value for \a copy is 0.      Deprecated, use the static function QMetaType::create(int type,     const void *copy) instead. */
+end_comment
+begin_comment
 comment|/*!     \fn void *QMetaType::construct(void *where, const void *copy = 0) const     \since 5.0      Constructs a value of the type that this QMetaType instance     was constructed for in the existing memory addressed by \a where,     that is a copy of \a copy, and returns \a where. If \a copy is     zero, the value is default constructed.      This is a low-level function for explicitly managing the memory     used to store the type. Consider calling create() if you don't     need this level of control (that is, use "new" rather than     "placement new").      You must ensure that \a where points to a location where the new     value can be stored and that \a where is suitably aligned.     The type's size can be queried by calling sizeOf().      The rule of thumb for alignment is that a type is aligned to its     natural boundary, which is the smallest power of 2 that is bigger     than the type, unless that alignment is larger than the maximum     useful alignment for the platform. For practical purposes,     alignment larger than 2 * sizeof(void*) is only necessary for     special hardware instructions (e.g., aligned SSE loads and stores     on x86). */
 end_comment
 begin_comment
@@ -3238,7 +3241,7 @@ return|;
 end_return
 begin_comment
 unit|}
-comment|/*!     \fn int qMetaTypeTypeImpl(const char *typeName, int length)     \internal      Implementation of QMetaType::type(). */
+comment|/*!     \internal */
 end_comment
 begin_expr_stmt
 unit|template

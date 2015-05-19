@@ -454,6 +454,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!    Set \a region as the static contents of this window. */
+end_comment
 begin_function
 DECL|function|setStaticContents
 name|void
@@ -475,6 +478,9 @@ name|region
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!    Returns a pointer to the QRegion that has the static contents    of this window. */
+end_comment
 begin_function
 DECL|function|staticContents
 name|QRegion
@@ -491,6 +497,9 @@ name|staticContents
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!    Returns a boolean indicating if this window    has static contents or not. */
+end_comment
 begin_function
 DECL|function|hasStaticContents
 name|bool
@@ -847,6 +856,9 @@ do|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!    Returns a pointer to the QPlatformBackingStore implementation */
+end_comment
 begin_function
 DECL|function|handle
 name|QPlatformBackingStore

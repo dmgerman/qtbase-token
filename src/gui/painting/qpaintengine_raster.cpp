@@ -20063,6 +20063,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!    Indicates whether glyph caching is supported by the font engine    \a fontEngine with the given transform \a m applied. */
+end_comment
 begin_function
 DECL|function|shouldDrawCachedGlyphs
 name|bool

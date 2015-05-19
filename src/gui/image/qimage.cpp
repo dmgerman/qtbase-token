@@ -15700,6 +15700,9 @@ name|bpc
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!    Returns a smoothly scaled copy of the image. The returned image has a size    of width \a w by height \a h pixels. */
+end_comment
 begin_function
 DECL|function|smoothScaled
 name|QImage
