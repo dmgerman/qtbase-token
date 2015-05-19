@@ -857,7 +857,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0
