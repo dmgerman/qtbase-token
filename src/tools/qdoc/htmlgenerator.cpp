@@ -11270,6 +11270,11 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|refMap
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|node
