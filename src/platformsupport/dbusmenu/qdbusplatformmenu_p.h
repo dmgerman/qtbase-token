@@ -478,6 +478,7 @@ specifier|const
 name|QString
 name|text
 argument_list|()
+specifier|const
 block|{
 return|return
 name|m_text
@@ -628,6 +629,13 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QPlatformMenu
+operator|*
+name|createSubMenu
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|bool
 name|operator
 operator|==
@@ -739,6 +747,10 @@ name|QDBusPlatformMenuItem
 operator|*
 operator|>
 name|m_items
+block|;
+name|QDBusPlatformMenuItem
+operator|*
+name|m_containingMenuItem
 block|;
 specifier|static
 name|QList
