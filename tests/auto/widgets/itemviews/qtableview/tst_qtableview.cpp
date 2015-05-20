@@ -13134,7 +13134,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"10x10 grid shown 40x40"
+literal|"10x10 grid not shown 60x60"
 argument_list|)
 operator|<<
 literal|10
@@ -13143,19 +13143,19 @@ literal|10
 operator|<<
 literal|false
 operator|<<
-literal|40
+literal|60
 operator|<<
-literal|40
+literal|60
 operator|<<
-literal|40
+literal|60
 operator|<<
-literal|40
+literal|60
 expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"10x10 grid not shown 40x40"
+literal|"10x10 grid shown 60x60"
 argument_list|)
 operator|<<
 literal|10
@@ -13164,13 +13164,13 @@ literal|10
 operator|<<
 literal|true
 operator|<<
-literal|40
+literal|60
 operator|<<
-literal|40
+literal|60
 operator|<<
-literal|41
+literal|61
 operator|<<
-literal|41
+literal|61
 expr_stmt|;
 block|}
 end_function
