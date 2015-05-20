@@ -7078,12 +7078,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|project
-operator|->
-name|first
-argument_list|(
-literal|"QMAKE_FRAMEWORK_VERSION"
-argument_list|)
+name|symlinks
 operator|.
 name|isEmpty
 argument_list|()
