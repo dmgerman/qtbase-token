@@ -87,13 +87,13 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isTlsNamedCurve
 name|bool
 name|QSslEllipticCurve
 operator|::
 name|isTlsNamedCurve
 parameter_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 literal|false
