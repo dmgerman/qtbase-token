@@ -859,9 +859,7 @@ argument|QStringRef key
 argument_list|,
 argument|ChildSpec spec
 argument_list|,
-argument|QMap<QString
-argument_list|,
-argument|QString>&result
+argument|QStringList&result
 argument_list|)
 block|;
 comment|// Variant streaming functions
