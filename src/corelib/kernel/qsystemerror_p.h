@@ -80,18 +80,21 @@ argument_list|()
 expr_stmt|;
 name|QString
 name|toString
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|inline
 name|ErrorScope
 name|scope
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|inline
 name|int
 name|error
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 comment|//data members
 name|int
 name|errorCode
@@ -149,6 +152,7 @@ name|QSystemError
 operator|::
 name|scope
 argument_list|()
+specifier|const
 block|{
 return|return
 name|errorScope
@@ -162,6 +166,7 @@ name|QSystemError
 operator|::
 name|error
 argument_list|()
+specifier|const
 block|{
 return|return
 name|errorCode

@@ -552,6 +552,7 @@ name|QSystemError
 operator|::
 name|toString
 parameter_list|()
+specifier|const
 block|{
 switch|switch
 condition|(
