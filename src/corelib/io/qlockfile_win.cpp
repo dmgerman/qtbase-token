@@ -384,6 +384,11 @@ block|{
 if|if
 condition|(
 name|hostname
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|hostname
 operator|==
 name|QString
 operator|::
