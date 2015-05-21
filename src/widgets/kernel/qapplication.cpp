@@ -19432,8 +19432,11 @@ operator|++
 name|it
 control|)
 block|{
+specifier|const
+name|QPointer
+argument_list|<
 name|QWidget
-modifier|*
+argument_list|>
 name|widget
 init|=
 name|it
@@ -19622,6 +19625,14 @@ name|accepted
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|widget
+operator|.
+name|isNull
+argument_list|()
+condition|)
 name|widget
 operator|->
 name|setAttribute
