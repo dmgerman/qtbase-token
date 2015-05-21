@@ -686,6 +686,20 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
+name|drawHyperlink
+argument_list|(
+specifier|const
+name|QRectF
+operator|&
+name|r
+argument_list|,
+specifier|const
+name|QUrl
+operator|&
+name|url
+argument_list|)
+block|;
+name|void
 name|updateState
 argument_list|(
 argument|const QPaintEngineState&state
