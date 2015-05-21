@@ -22302,6 +22302,19 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
+name|configStream
+operator|<<
+name|endl
+operator|<<
+literal|"QT_EDITION = "
+operator|<<
+name|dictionary
+index|[
+literal|"EDITION"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
 if|if
 condition|(
 operator|!
