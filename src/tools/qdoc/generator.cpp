@@ -3142,7 +3142,7 @@ operator|->
 name|overloadNumber
 argument_list|()
 operator|>
-literal|1
+literal|0
 condition|)
 name|anchorRef
 operator|=
@@ -4894,7 +4894,7 @@ operator|->
 name|overloadNumber
 argument_list|()
 operator|>
-literal|1
+literal|0
 condition|)
 block|{
 name|FunctionNode
@@ -11281,7 +11281,7 @@ operator|->
 name|overloadNumber
 argument_list|()
 operator|==
-literal|1
+literal|0
 condition|)
 block|{
 name|QString

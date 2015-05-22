@@ -3939,7 +3939,7 @@ decl_stmt|;
 name|NodeList
 operator|::
 name|ConstIterator
-name|overloadIterator
+name|i
 init|=
 name|current
 operator|->
@@ -3951,7 +3951,7 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
-name|overloadIterator
+name|i
 operator|!=
 name|current
 operator|->
@@ -3966,7 +3966,7 @@ if|if
 condition|(
 operator|(
 operator|*
-name|overloadIterator
+name|i
 operator|)
 operator|->
 name|name
@@ -3977,7 +3977,7 @@ condition|)
 name|overloads
 operator|++
 expr_stmt|;
-name|overloadIterator
+name|i
 operator|++
 expr_stmt|;
 block|}
@@ -3989,7 +3989,7 @@ literal|1
 condition|)
 name|qmlMethod
 operator|->
-name|setOverload
+name|setOverloadFlag
 argument_list|(
 literal|true
 argument_list|)

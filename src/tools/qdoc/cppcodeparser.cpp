@@ -863,7 +863,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   This is called after all the source files (i.e., not the   header files) have been parsed. It traverses the tree to   resolve property links, normalize overload signatures, and   do other housekeeping of the database.  */
+comment|/*!   This is called after all the source files (i.e., not the   header files) have been parsed. Currently nothing to do.  */
 end_comment
 begin_function
 DECL|function|doneParsingSourceFiles
@@ -873,32 +873,7 @@ operator|::
 name|doneParsingSourceFiles
 parameter_list|()
 block|{
-name|qdb_
-operator|->
-name|primaryTreeRoot
-argument_list|()
-operator|->
-name|normalizeOverloads
-argument_list|()
-expr_stmt|;
-name|qdb_
-operator|->
-name|fixInheritance
-argument_list|()
-expr_stmt|;
-name|qdb_
-operator|->
-name|resolveProperties
-argument_list|()
-expr_stmt|;
-name|qdb_
-operator|->
-name|primaryTreeRoot
-argument_list|()
-operator|->
-name|makeUndocumentedChildrenInternal
-argument_list|()
-expr_stmt|;
+comment|// contents moved to QdocDatabase::resolveIssues()
 block|}
 end_function
 begin_decl_stmt
@@ -4148,19 +4123,12 @@ block|{
 if|if
 condition|(
 name|node
-operator|!=
-literal|0
 operator|&&
 name|node
 operator|->
-name|type
+name|isFunction
 argument_list|()
-operator|==
-name|Node
-operator|::
-name|Function
 condition|)
-block|{
 operator|(
 operator|(
 name|FunctionNode
@@ -4169,14 +4137,12 @@ operator|)
 name|node
 operator|)
 operator|->
-name|setOverload
+name|setOverloadFlag
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 else|else
-block|{
 name|doc
 operator|.
 name|location
@@ -4195,7 +4161,6 @@ name|COMMAND_OVERLOAD
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if

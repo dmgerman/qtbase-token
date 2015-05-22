@@ -2260,14 +2260,6 @@ name|includes
 argument_list|)
 block|;
 name|void
-name|setOverload
-argument_list|(
-argument|FunctionNode* func
-argument_list|,
-argument|bool overlode
-argument_list|)
-block|;
-name|void
 name|normalizeOverloads
 argument_list|()
 block|;
@@ -2348,13 +2340,6 @@ name|size
 argument_list|()
 return|;
 block|}
-name|int
-name|overloadNumber
-argument_list|(
-argument|const FunctionNode* func
-argument_list|)
-specifier|const
-block|;
 name|NodeList
 name|overloads
 argument_list|(
@@ -2520,6 +2505,31 @@ argument|const QString& t
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+specifier|const
+name|NodeMap
+operator|&
+name|primaryFunctionMap
+argument_list|()
+block|{
+return|return
+name|primaryFunctionMap_
+return|;
+block|}
+specifier|const
+name|QMap
+operator|<
+name|QString
+block|,
+name|NodeList
+operator|>
+operator|&
+name|secondaryFunctionMap
+argument_list|()
+block|{
+return|return
+name|secondaryFunctionMap_
+return|;
+block|}
 name|protected
 operator|:
 name|Aggregate
@@ -2581,23 +2591,11 @@ block|;
 name|NodeList
 name|related_
 block|;
-name|QMap
-operator|<
-name|QString
-block|,
-name|Node
-operator|*
-operator|>
-name|childMap
+name|NodeMap
+name|childMap_
 block|;
-name|QMap
-operator|<
-name|QString
-block|,
-name|Node
-operator|*
-operator|>
-name|primaryFunctionMap
+name|NodeMap
+name|primaryFunctionMap_
 block|;
 name|QMap
 operator|<
@@ -2605,7 +2603,7 @@ name|QString
 block|,
 name|NodeList
 operator|>
-name|secondaryFunctionMap
+name|secondaryFunctionMap_
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -5226,12 +5224,36 @@ name|static_
 operator|=
 name|b
 block|; }
+name|unsigned
+name|char
+name|overloadNumber
+argument_list|()
+specifier|const
+block|{
+return|return
+name|overloadNumber_
+return|;
+block|}
 name|void
-name|setOverload
+name|setOverloadFlag
 argument_list|(
 argument|bool b
 argument_list|)
-block|;
+block|{
+name|overload_
+operator|=
+name|b
+block|; }
+name|void
+name|setOverloadNumber
+argument_list|(
+argument|unsigned char n
+argument_list|)
+block|{
+name|overloadNumber_
+operator|=
+name|n
+block|; }
 name|void
 name|setReimplemented
 argument_list|(
@@ -5530,11 +5552,6 @@ name|JS
 operator|)
 return|;
 block|}
-name|int
-name|overloadNumber
-argument_list|()
-specifier|const
-block|;
 specifier|const
 name|QList
 operator|<
@@ -5798,11 +5815,6 @@ operator|:
 literal|1
 block|;
 name|bool
-name|overload_
-operator|:
-literal|1
-block|;
-name|bool
 name|reimplemented_
 operator|:
 literal|1
@@ -5816,6 +5828,15 @@ name|bool
 name|privateSignal_
 operator|:
 literal|1
+block|;
+name|bool
+name|overload_
+operator|:
+literal|1
+block|;
+name|unsigned
+name|char
+name|overloadNumber_
 block|;
 name|QList
 operator|<

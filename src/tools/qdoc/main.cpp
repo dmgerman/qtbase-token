@@ -2647,6 +2647,7 @@ literal|"Parsing done."
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|/*           Currently these doneParsingSourceFiles() calls do nothing.          */
 foreach|foreach
 control|(
 name|CodeParser
