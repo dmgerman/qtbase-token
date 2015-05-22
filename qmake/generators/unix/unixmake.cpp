@@ -3450,9 +3450,6 @@ operator|*
 name|it
 operator|)
 operator|.
-name|trimmed
-argument_list|()
-operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
@@ -4308,9 +4305,6 @@ argument_list|(
 name|lit
 argument_list|)
 operator|.
-name|trimmed
-argument_list|()
-operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
@@ -4697,6 +4691,9 @@ name|mid
 argument_list|(
 literal|11
 argument_list|)
+operator|.
+name|trimmed
+argument_list|()
 expr_stmt|;
 else|else
 name|opt
@@ -4710,13 +4707,6 @@ name|lit
 argument_list|)
 operator|.
 name|toQString
-argument_list|()
-expr_stmt|;
-name|opt
-operator|=
-name|opt
-operator|.
-name|trimmed
 argument_list|()
 expr_stmt|;
 foreach|foreach
@@ -4954,9 +4944,6 @@ name|at
 argument_list|(
 name|lit
 argument_list|)
-operator|.
-name|trimmed
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

@@ -596,9 +596,6 @@ operator|*
 name|it
 operator|)
 operator|.
-name|trimmed
-argument_list|()
-operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
@@ -1389,9 +1386,6 @@ argument_list|(
 name|lit
 argument_list|)
 operator|.
-name|trimmed
-argument_list|()
-operator|.
 name|toQString
 argument_list|()
 decl_stmt|;
@@ -1641,9 +1635,6 @@ name|at
 argument_list|(
 name|lit
 argument_list|)
-operator|.
-name|trimmed
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

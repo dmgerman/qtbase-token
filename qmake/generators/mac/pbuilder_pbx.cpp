@@ -6187,9 +6187,6 @@ name|tmp
 index|[
 name|x
 index|]
-operator|.
-name|trimmed
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
