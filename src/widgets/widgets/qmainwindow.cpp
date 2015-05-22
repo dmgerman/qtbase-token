@@ -3019,7 +3019,7 @@ ifdef|#
 directive|ifdef
 name|Q_DEAD_CODE_FROM_QT4_MAC
 comment|//drawer support
-name|QMacCocoaAutoReleasePool
+name|QMacAutoReleasePool
 name|pool
 decl_stmt|;
 specifier|extern

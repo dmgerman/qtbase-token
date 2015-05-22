@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qcocoaautoreleasepool.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qcocoacursor.h"
 end_include
 begin_include
