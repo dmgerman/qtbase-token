@@ -12,20 +12,11 @@ include|#
 directive|include
 file|"environment.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|COMMERCIAL_VERSION
-end_ifdef
 begin_include
 include|#
 directive|include
 file|"tools.h"
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -29295,9 +29286,6 @@ operator|=
 literal|"error"
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|COMMERCIAL_VERSION
 else|else
 block|{
 name|Tools
@@ -29312,43 +29300,6 @@ name|buildPath
 argument_list|)
 expr_stmt|;
 block|}
-else|#
-directive|else
-comment|// !COMMERCIAL_VERSION
-else|else
-block|{
-name|cout
-operator|<<
-name|endl
-operator|<<
-literal|"Error: This is the Open Source version of Qt."
-operator|<<
-name|endl
-operator|<<
-literal|"If you want to use Enterprise features of Qt,"
-operator|<<
-name|endl
-operator|<<
-literal|"information use the contact form at http://www.qt.io/contact-us"
-operator|<<
-name|endl
-operator|<<
-literal|"to purchase a license."
-operator|<<
-name|endl
-operator|<<
-name|endl
-expr_stmt|;
-name|dictionary
-index|[
-literal|"DONE"
-index|]
-operator|=
-literal|"error"
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
