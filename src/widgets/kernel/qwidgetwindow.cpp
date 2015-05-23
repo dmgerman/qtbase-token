@@ -88,18 +88,6 @@ begin_comment
 DECL|variable|qt_button_down
 comment|// widget got last button-down
 end_comment
-begin_decl_stmt
-DECL|variable|qt_tablet_target
-specifier|static
-name|QPointer
-argument_list|<
-name|QWidget
-argument_list|>
-name|qt_tablet_target
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|// popup control
 end_comment
@@ -4932,6 +4920,15 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+specifier|static
+name|QPointer
+argument_list|<
+name|QWidget
+argument_list|>
+name|qt_tablet_target
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|event
