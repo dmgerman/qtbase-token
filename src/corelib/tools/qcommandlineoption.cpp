@@ -24,6 +24,7 @@ specifier|public
 name|QSharedData
 block|{
 public|public:
+name|Q_NEVER_INLINE
 DECL|function|QCommandLineOptionPrivate
 specifier|explicit
 name|QCommandLineOptionPrivate
@@ -50,6 +51,7 @@ argument_list|(
 literal|false
 argument_list|)
 block|{ }
+name|Q_NEVER_INLINE
 DECL|function|QCommandLineOptionPrivate
 specifier|explicit
 name|QCommandLineOptionPrivate
