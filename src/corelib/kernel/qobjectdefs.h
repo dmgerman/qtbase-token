@@ -506,7 +506,7 @@ define|#
 directive|define
 name|Q_GADGET
 define|\
-value|public: \     static const QMetaObject staticMetaObject; \     typedef void QtGadgetHelper; \ private: \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
+value|public: \     static const QMetaObject staticMetaObject; \     void qt_check_for_QGADGET_macro(); \     typedef void QtGadgetHelper; \ private: \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
 endif|#
 directive|endif
 comment|// QT_NO_META_MACROS
