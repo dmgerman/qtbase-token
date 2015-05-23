@@ -512,11 +512,6 @@ name|QStringLiteral
 argument_list|(
 literal|"b"
 argument_list|)
-argument_list|,
-name|QStringLiteral
-argument_list|(
-literal|"a boolean option"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
