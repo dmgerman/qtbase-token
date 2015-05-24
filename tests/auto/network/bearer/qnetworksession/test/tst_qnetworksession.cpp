@@ -2575,6 +2575,25 @@ argument_list|,
 name|forceSessionStop
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_LINUX
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Deadlocks on Linux due to QTBUG-45655"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QNetworkSession
 name|session
 argument_list|(

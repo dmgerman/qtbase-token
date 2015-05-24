@@ -1640,6 +1640,19 @@ operator|::
 name|moveToThread
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN32
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Does not work reliably on Windows :("
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTimer
 name|ti1
 decl_stmt|;

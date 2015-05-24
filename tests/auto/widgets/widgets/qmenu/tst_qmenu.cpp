@@ -2242,6 +2242,22 @@ literal|true
 operator|<<
 literal|false
 expr_stmt|;
+if|if
+condition|(
+name|qApp
+operator|->
+name|platformName
+argument_list|()
+operator|.
+name|toLower
+argument_list|()
+operator|!=
+name|QStringLiteral
+argument_list|(
+literal|"xcb"
+argument_list|)
+condition|)
+block|{
 comment|// Test shortcuts.
 name|QTest
 operator|::
@@ -2278,6 +2294,7 @@ literal|true
 operator|<<
 literal|false
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
