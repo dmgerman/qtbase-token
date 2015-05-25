@@ -2027,6 +2027,13 @@ name|friend
 name|class
 name|iterator
 decl_stmt|;
+name|friend
+name|class
+name|QSet
+operator|<
+name|Key
+operator|>
+expr_stmt|;
 name|QHashData
 operator|::
 name|Node
