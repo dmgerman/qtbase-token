@@ -1138,6 +1138,10 @@ name|xcb_window_t
 name|rootWindow
 argument_list|()
 block|;
+name|xcb_window_t
+name|clientLeader
+argument_list|()
+block|;
 name|bool
 name|hasDefaultVisualId
 argument_list|()
@@ -2631,6 +2635,11 @@ begin_decl_stmt
 name|QXcbWindow
 modifier|*
 name|m_focusWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|xcb_window_t
+name|m_clientLeader
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

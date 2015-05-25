@@ -3268,7 +3268,8 @@ expr_stmt|;
 name|xcb_window_t
 name|leader
 init|=
-name|platformScreen
+name|connection
+argument_list|()
 operator|->
 name|clientLeader
 argument_list|()
@@ -4693,7 +4694,7 @@ name|transientXcbParent
 condition|)
 name|transientXcbParent
 operator|=
-name|xcbScreen
+name|connection
 argument_list|()
 operator|->
 name|clientLeader
