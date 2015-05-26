@@ -60,7 +60,9 @@ file|<QtGui/qcolor.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+comment|// ### Qt 6: Unexport again, if QOpenGLStaticTextUserData (the one from QtOpenGL) is gone by then
 name|class
+name|Q_GUI_EXPORT
 name|QStaticTextUserData
 block|{
 name|public
@@ -92,10 +94,10 @@ name|virtual
 operator|~
 name|QStaticTextUserData
 argument_list|()
-block|{}
+expr_stmt|;
 name|QAtomicInt
 name|ref
-expr_stmt|;
+decl_stmt|;
 name|Type
 name|type
 decl_stmt|;
