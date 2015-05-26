@@ -794,6 +794,12 @@ literal|"IN_PWD"
 block|,
 literal|"PWD"
 block|}
+block|,
+block|{
+literal|"DEPLOYMENT"
+block|,
+literal|"INSTALLS"
+block|}
 block|}
 struct|;
 for|for

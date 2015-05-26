@@ -8913,7 +8913,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// foreach item in DEPLOYMENT
 foreach|foreach
 control|(
 specifier|const
@@ -8925,7 +8924,7 @@ name|project
 operator|->
 name|values
 argument_list|(
-literal|"DEPLOYMENT"
+literal|"INSTALLS"
 argument_list|)
 control|)
 block|{
