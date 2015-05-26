@@ -114,7 +114,7 @@ name|public
 operator|:
 name|QLabelPrivate
 argument_list|()
-block|{}
+block|;
 operator|~
 name|QLabelPrivate
 argument_list|()
