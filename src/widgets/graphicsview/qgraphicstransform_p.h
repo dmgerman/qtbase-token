@@ -60,8 +60,12 @@ name|class
 name|QGraphicsItem
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// ### Qt 6: unexport again, if QtQuick1's QDeclarativeTranslatePrivate is gone by then
+end_comment
 begin_decl_stmt
 name|class
+name|Q_WIDGETS_EXPORT
 name|QGraphicsTransformPrivate
 range|:
 name|public
@@ -84,6 +88,10 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
+operator|~
+name|QGraphicsTransformPrivate
+argument_list|()
+block|;
 name|QGraphicsItem
 operator|*
 name|item
