@@ -410,9 +410,6 @@ decl_stmt|;
 name|bool
 name|isBuffered
 decl_stmt|;
-name|int
-name|blockingTimeout
-decl_stmt|;
 name|QTimer
 modifier|*
 name|connectTimer

@@ -496,11 +496,6 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
-name|blockingTimeout
-argument_list|(
-literal|30000
-argument_list|)
-member_init_list|,
 name|connectTimer
 argument_list|(
 literal|0
