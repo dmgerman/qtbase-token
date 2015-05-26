@@ -55,7 +55,9 @@ file|"qframe.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+comment|// ### unexport this class when and if QAbstractScrollAreaPrivate is unexported
 name|class
+name|Q_WIDGETS_EXPORT
 name|QFramePrivate
 range|:
 name|public
@@ -67,6 +69,10 @@ argument|QFrame
 argument_list|)
 name|public
 operator|:
+name|QFramePrivate
+argument_list|()
+block|;
+operator|~
 name|QFramePrivate
 argument_list|()
 block|;

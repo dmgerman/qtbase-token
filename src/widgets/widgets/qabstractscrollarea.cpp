@@ -235,6 +235,15 @@ endif|#
 directive|endif
 block|{ }
 end_constructor
+begin_destructor
+DECL|function|~QAbstractScrollAreaPrivate
+name|QAbstractScrollAreaPrivate
+operator|::
+name|~
+name|QAbstractScrollAreaPrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_constructor
 DECL|function|QAbstractScrollAreaScrollBarContainer
 name|QAbstractScrollAreaScrollBarContainer

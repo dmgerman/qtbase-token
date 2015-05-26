@@ -115,6 +115,15 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
+begin_destructor
+DECL|function|~QFramePrivate
+name|QFramePrivate
+operator|::
+name|~
+name|QFramePrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|init
 specifier|inline

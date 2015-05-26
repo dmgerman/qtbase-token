@@ -241,6 +241,10 @@ argument_list|(
 argument|false
 argument_list|)
 block|{}
+operator|~
+name|QSplitterPrivate
+argument_list|()
+block|;
 name|QPointer
 operator|<
 name|QRubberBand

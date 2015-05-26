@@ -115,6 +115,10 @@ operator|:
 name|QLabelPrivate
 argument_list|()
 block|{}
+operator|~
+name|QLabelPrivate
+argument_list|()
+block|;
 name|void
 name|init
 argument_list|()

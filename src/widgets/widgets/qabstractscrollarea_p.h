@@ -69,6 +69,9 @@ name|class
 name|QAbstractScrollAreaScrollBarContainer
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// ### Qt 6: is the export still needed? If not, unexport QFramePrivate, too.
+end_comment
 begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
@@ -83,6 +86,10 @@ argument|QAbstractScrollArea
 argument_list|)
 name|public
 operator|:
+name|QAbstractScrollAreaPrivate
+argument_list|()
+block|;
+operator|~
 name|QAbstractScrollAreaPrivate
 argument_list|()
 block|;
