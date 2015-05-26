@@ -59,8 +59,6 @@ parameter_list|()
 member_init_list|:
 name|frect
 argument_list|(
-name|QRect
-argument_list|(
 literal|0
 argument_list|,
 literal|0
@@ -68,7 +66,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
-argument_list|)
 argument_list|)
 member_init_list|,
 name|frameStyle
