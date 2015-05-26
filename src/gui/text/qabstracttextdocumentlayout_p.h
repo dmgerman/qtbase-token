@@ -99,6 +99,7 @@ expr_stmt|;
 end_typedef
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QAbstractTextDocumentLayoutPrivate
 range|:
 name|public
@@ -119,6 +120,10 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
+operator|~
+name|QAbstractTextDocumentLayoutPrivate
+argument_list|()
+block|;
 specifier|inline
 name|void
 name|setDocument
