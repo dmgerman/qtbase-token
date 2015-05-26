@@ -21,6 +21,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
+name|Q_CORE_EXPORT
 name|QRunnable
 block|{
 name|int
@@ -59,7 +60,7 @@ name|virtual
 operator|~
 name|QRunnable
 argument_list|()
-block|{ }
+expr_stmt|;
 name|bool
 name|autoDelete
 argument_list|()
