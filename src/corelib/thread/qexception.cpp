@@ -22,7 +22,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_EXCEPTIONS
 end_ifndef
-begin_function
+begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QException     \inmodule QtCore     \brief The QException class provides a base class for exceptions that can transferred across threads.     \since 5.0      Qt Concurrent supports throwing and catching exceptions across thread     boundaries, provided that the exception inherit from QException     and implement two helper functions:      \snippet code/src_corelib_thread_qexception.cpp 0      QException subclasses must be thrown by value and     caught by reference:      \snippet code/src_corelib_thread_qexception.cpp 1      If you throw an exception that is not a subclass of QException,     the Qt functions will throw a QUnhandledException     in the receiver thread.      When using QFuture, transferred exceptions will be thrown when calling the following functions:     \list     \li QFuture::waitForFinished()     \li QFuture::result()     \li QFuture::resultAt()     \li QFuture::results()     \endlist */
 comment|/*!     \fn QException::raise() const     In your QException subclass, reimplement raise() like this:      \snippet code/src_corelib_thread_qexception.cpp 2 */
@@ -30,33 +30,42 @@ comment|/*!     \fn QException::clone() const     In your QException subclass, r
 comment|/*!     \class QUnhandledException     \inmodule QtCore      \brief The UnhandledException class represents an unhandled exception in a worker thread.     \since 5.0      If a worker thread throws an exception that is not a subclass of QException,     the Qt functions will throw a QUnhandledException     on the receiver thread side.      Inheriting from this class is not supported. */
 comment|/*!     \fn QUnhandledException::raise() const     \internal */
 comment|/*!     \fn QUnhandledException::clone() const     \internal */
+DECL|function|~QException
+name|QException
+operator|::
+name|~
+name|QException
+operator|(
+operator|)
+block|{
+comment|// must stay empty until ### Qt 6
+block|}
 DECL|function|raise
 name|void
 name|QException
 operator|::
 name|raise
-parameter_list|()
+operator|(
+operator|)
 specifier|const
 block|{
 name|QException
 name|e
-init|=
+operator|=
 operator|*
 name|this
-decl_stmt|;
+block|;
 throw|throw
-name|e
-throw|;
-block|}
-end_function
-begin_function
+argument_list|e
+block|; }
 DECL|function|clone
 name|QException
-modifier|*
+operator|*
 name|QException
 operator|::
 name|clone
-parameter_list|()
+operator|(
+operator|)
 specifier|const
 block|{
 return|return
@@ -68,7 +77,18 @@ name|this
 argument_list|)
 return|;
 block|}
-end_function
+end_expr_stmt
+begin_destructor
+DECL|function|~QUnhandledException
+name|QUnhandledException
+operator|::
+name|~
+name|QUnhandledException
+parameter_list|()
+block|{
+comment|// must stay empty until ### Qt 6
+block|}
+end_destructor
 begin_function
 DECL|function|raise
 name|void
