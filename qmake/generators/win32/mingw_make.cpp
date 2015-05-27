@@ -2783,6 +2783,34 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|ProString
+name|defines
+init|=
+name|varGlue
+argument_list|(
+literal|"RC_DEFINES"
+argument_list|,
+literal|" -D"
+argument_list|,
+literal|" -D"
+argument_list|,
+literal|""
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|defines
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|defines
+operator|=
+name|ProString
+argument_list|(
+literal|" $(DEFINES)"
+argument_list|)
+expr_stmt|;
 name|t
 operator|<<
 name|escapeDependencyPath
@@ -2823,7 +2851,9 @@ argument_list|)
 operator|<<
 name|incPathStr
 operator|<<
-literal|" $(DEFINES)\n\n"
+name|defines
+operator|<<
+literal|"\n\n"
 expr_stmt|;
 block|}
 block|}

@@ -5757,10 +5757,6 @@ name|toQString
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// The resource tool needs to have the same defines passed in as the compiler, since you may
-comment|// use these defines in the .rc file itself. Also, we need to add the _DEBUG define manually
-comment|// since the compiler defines this symbol by itself, and we use it in the automatically
-comment|// created rc file when VERSION is define the .pro file.
 specifier|const
 name|ProStringList
 name|rcIncPaths
@@ -5828,6 +5824,41 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+comment|// The resource tool may use defines. This might be the same defines passed in as the
+comment|// compiler, since you may use these defines in the .rc file itself.
+comment|// As the escape syntax for the command line defines for RC is different from that for CL,
+comment|// we might have to set specific defines for RC.
+name|ProString
+name|defines
+init|=
+name|varGlue
+argument_list|(
+literal|"RC_DEFINES"
+argument_list|,
+literal|" -D"
+argument_list|,
+literal|" -D"
+argument_list|,
+literal|""
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|defines
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|defines
+operator|=
+name|ProString
+argument_list|(
+literal|" $(DEFINES)"
+argument_list|)
+expr_stmt|;
+comment|// Also, we need to add the _DEBUG define manually since the compiler defines this symbol
+comment|// by itself, and we use it in the automatically created rc file when VERSION is defined
+comment|// in the .pro file.
 name|t
 operator|<<
 name|escapeDependencyPath
@@ -5862,7 +5893,7 @@ else|:
 literal|""
 operator|)
 operator|<<
-literal|" $(DEFINES)"
+name|defines
 operator|<<
 name|incPathStr
 operator|<<
