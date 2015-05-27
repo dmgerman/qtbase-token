@@ -574,10 +574,10 @@ begin_comment
 comment|/*! \fn bool Location::isEmpty() const    Returns \c true if there is no file name set yet; returns \c false   otherwise. The functions filePath(), lineNo() and columnNo()   must not be called on an empty Location object.  */
 end_comment
 begin_comment
-comment|/*! \fn const QString& Location::filePath() const   Returns the current path and file name.   Must not be called on an empty Location object.    \sa lineNo(), columnNo()  */
+comment|/*! \fn const QString& Location::filePath() const   Returns the current path and file name. If the Location is   empty, the returned string is null.    \sa lineNo(), columnNo()  */
 end_comment
 begin_comment
-comment|/*!   Returns the file name part of the file path, ie the   current file.  Must not be called on an empty Location   object.  */
+comment|/*!   Returns the file name part of the file path, ie the current   file. Returns an empty string if the file path is empty.  */
 end_comment
 begin_function
 DECL|function|fileName
@@ -595,6 +595,14 @@ name|filePath
 argument_list|()
 decl_stmt|;
 return|return
+operator|(
+name|fp
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+name|fp
+else|:
 name|fp
 operator|.
 name|mid
@@ -608,6 +616,51 @@ argument_list|)
 operator|+
 literal|1
 argument_list|)
+operator|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   Returns the suffix of the file name. Returns an empty string   if the file path is empty.  */
+end_comment
+begin_function
+DECL|function|fileSuffix
+name|QString
+name|Location
+operator|::
+name|fileSuffix
+parameter_list|()
+specifier|const
+block|{
+name|QString
+name|fp
+init|=
+name|filePath
+argument_list|()
+decl_stmt|;
+return|return
+operator|(
+name|fp
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+name|fp
+else|:
+name|fp
+operator|.
+name|mid
+argument_list|(
+name|fp
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'.'
+argument_list|)
+operator|+
+literal|1
+argument_list|)
+operator|)
 return|;
 block|}
 end_function

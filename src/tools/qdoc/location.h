@@ -208,6 +208,11 @@ name|fileName
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QString
+name|fileSuffix
+argument_list|()
+specifier|const
+expr_stmt|;
 name|int
 name|lineNo
 argument_list|()
