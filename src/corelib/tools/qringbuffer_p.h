@@ -363,7 +363,7 @@ name|void
 name|clear
 parameter_list|()
 function_decl|;
-name|Q_CORE_EXPORT
+specifier|inline
 name|qint64
 name|indexOf
 argument_list|(
@@ -371,7 +371,17 @@ name|char
 name|c
 argument_list|)
 decl|const
-decl_stmt|;
+block|{
+return|return
+name|indexOf
+argument_list|(
+name|c
+argument_list|,
+name|size
+argument_list|()
+argument_list|)
+return|;
+block|}
 name|Q_CORE_EXPORT
 name|qint64
 name|indexOf
