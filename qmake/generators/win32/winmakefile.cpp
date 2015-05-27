@@ -1599,11 +1599,8 @@ name|l
 operator|.
 name|insert
 argument_list|(
+operator|++
 name|lit
-operator|+
-name|prl
-operator|+
-literal|1
 argument_list|,
 name|prl_libs
 operator|.
