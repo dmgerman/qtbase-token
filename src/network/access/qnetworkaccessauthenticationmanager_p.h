@@ -110,7 +110,8 @@ name|password
 decl_stmt|;
 name|bool
 name|isNull
-parameter_list|()
+argument_list|()
+specifier|const
 block|{
 return|return
 name|domain

@@ -186,6 +186,7 @@ block|;
 name|bool
 name|isReallyOpen
 argument_list|()
+specifier|const
 block|;
 name|void
 name|setFileName

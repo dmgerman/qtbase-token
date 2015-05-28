@@ -780,9 +780,11 @@ name|QTemporaryFileEngine
 operator|::
 name|isReallyOpen
 parameter_list|()
+specifier|const
 block|{
 name|Q_D
 argument_list|(
+specifier|const
 name|QFSFileEngine
 argument_list|)
 expr_stmt|;
