@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtGui/qfont.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qpa/qplatformnativeinterface.h>
 end_include
 begin_decl_stmt
@@ -125,6 +130,15 @@ specifier|const
 name|QString
 operator|&
 name|mimeType
+argument_list|)
+block|;
+name|Q_INVOKABLE
+name|QFont
+name|logFontToQFont
+argument_list|(
+argument|const void *logFont
+argument_list|,
+argument|int verticalDpi
 argument_list|)
 block|;
 name|bool
