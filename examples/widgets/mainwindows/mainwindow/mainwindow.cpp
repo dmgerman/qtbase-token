@@ -131,7 +131,7 @@ literal|"(right-click) menu.</p>"
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-literal|"<p>On Mac OS X, the \"Black\" dock widget has been created as a "
+literal|"<p>On OS X, the \"Black\" dock widget has been created as a "
 literal|"<em>Drawer</em>, which is a special kind of QDockWidget.</p>"
 endif|#
 directive|endif

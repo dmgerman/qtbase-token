@@ -9673,7 +9673,7 @@ literal|0
 return|;
 block|}
 comment|/*!     \fn WId QWidget::internalWinId() const     \internal     Returns the window system identifier of the widget, or 0 if the widget is not created yet.  */
-comment|/*!     \fn WId QWidget::winId() const      Returns the window system identifier of the widget.      Portable in principle, but if you use it you are probably about to     do something non-portable. Be careful.      If a widget is non-native (alien) and winId() is invoked on it, that widget     will be provided a native handle.      On Mac OS X, the type returned depends on which framework Qt was linked     against. If Qt is using Carbon, the {WId} is actually an HIViewRef. If Qt     is using Cocoa, {WId} is a pointer to an NSView.      This value may change at run-time. An event with type QEvent::WinIdChange     will be sent to the widget following a change in window system identifier.      \sa find() */
+comment|/*!     \fn WId QWidget::winId() const      Returns the window system identifier of the widget.      Portable in principle, but if you use it you are probably about to     do something non-portable. Be careful.      If a widget is non-native (alien) and winId() is invoked on it, that widget     will be provided a native handle.      On OS X, the type returned depends on which framework Qt was linked     against. If Qt is using Carbon, the {WId} is actually an HIViewRef. If Qt     is using Cocoa, {WId} is a pointer to an NSView.      This value may change at run-time. An event with type QEvent::WinIdChange     will be sent to the widget following a change in window system identifier.      \sa find() */
 DECL|function|winId
 name|WId
 name|QWidget
@@ -10134,7 +10134,7 @@ block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_STYLE_STYLESHEET
-comment|/*!     \property QWidget::styleSheet     \brief the widget's style sheet     \since 4.2      The style sheet contains a textual description of customizations to the     widget's style, as described in the \l{Qt Style Sheets} document.      Since Qt 4.5, Qt style sheets fully supports Mac OS X.      \warning Qt style sheets are currently not supported for custom QStyle     subclasses. We plan to address this in some future release.      \sa setStyle(), QApplication::styleSheet, {Qt Style Sheets} */
+comment|/*!     \property QWidget::styleSheet     \brief the widget's style sheet     \since 4.2      The style sheet contains a textual description of customizations to the     widget's style, as described in the \l{Qt Style Sheets} document.      Since Qt 4.5, Qt style sheets fully supports OS X.      \warning Qt style sheets are currently not supported for custom QStyle     subclasses. We plan to address this in some future release.      \sa setStyle(), QApplication::styleSheet, {Qt Style Sheets} */
 DECL|function|styleSheet
 name|QString
 name|QWidget
@@ -18130,7 +18130,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Renders the widget into the \a painter's QPainter::device().      Transformations and settings applied to the \a painter will be used     when rendering.      \note The \a painter must be active. On Mac OS X the widget will be     rendered into a QPixmap and then drawn by the \a painter.      \sa QPainter::device() */
+comment|/*!     \overload      Renders the widget into the \a painter's QPainter::device().      Transformations and settings applied to the \a painter will be used     when rendering.      \note The \a painter must be active. On OS X the widget will be     rendered into a QPixmap and then drawn by the \a painter.      \sa QPainter::device() */
 end_comment
 begin_function
 DECL|function|render
@@ -23498,7 +23498,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWidget::windowFilePath     \since 4.4     \brief the file path associated with a widget      This property only makes sense for windows. It associates a file path with     a window. If you set the file path, but have not set the window title, Qt     sets the window title to the file name of the specified path, obtained using     QFileInfo::fileName().      If the window title is set at any point, then the window title takes precedence and     will be shown instead of the file path string.      Additionally, on Mac OS X, this has an added benefit that it sets the     \l{http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/XHIGWindows/chapter_17_section_3.html}{proxy icon}     for the window, assuming that the file path exists.      If no file path is set, this property contains an empty string.      By default, this property contains an empty string.      \sa windowTitle, windowIcon */
+comment|/*!     \property QWidget::windowFilePath     \since 4.4     \brief the file path associated with a widget      This property only makes sense for windows. It associates a file path with     a window. If you set the file path, but have not set the window title, Qt     sets the window title to the file name of the specified path, obtained using     QFileInfo::fileName().      If the window title is set at any point, then the window title takes precedence and     will be shown instead of the file path string.      Additionally, on OS X, this has an added benefit that it sets the     \l{http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/XHIGWindows/chapter_17_section_3.html}{proxy icon}     for the window, assuming that the file path exists.      If no file path is set, this property contains an empty string.      By default, this property contains an empty string.      \sa windowTitle, windowIcon */
 end_comment
 begin_function
 DECL|function|windowFilePath
@@ -42966,7 +42966,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QWidget::windowOpacity    \brief The level of opacity for the window.    The valid range of opacity is from 1.0 (completely opaque) to   0.0 (completely transparent).    By default the value of this property is 1.0.    This feature is available on Embedded Linux, Mac OS X, Windows,   and X11 platforms that support the Composite extension.    This feature is not available on Windows CE.    Note that under X11 you need to have a composite manager running,   and the X11 specific _NET_WM_WINDOW_OPACITY atom needs to be   supported by the window manager you are using.    \warning Changing this property from opaque to transparent might issue a   paint event that needs to be processed before the window is displayed   correctly. This affects mainly the use of QPixmap::grabWindow(). Also note   that semi-transparent windows update and resize significantly slower than   opaque windows.    \sa setMask() */
+comment|/*!   \property QWidget::windowOpacity    \brief The level of opacity for the window.    The valid range of opacity is from 1.0 (completely opaque) to   0.0 (completely transparent).    By default the value of this property is 1.0.    This feature is available on Embedded Linux, OS X, Windows,   and X11 platforms that support the Composite extension.    This feature is not available on Windows CE.    Note that under X11 you need to have a composite manager running,   and the X11 specific _NET_WM_WINDOW_OPACITY atom needs to be   supported by the window manager you are using.    \warning Changing this property from opaque to transparent might issue a   paint event that needs to be processed before the window is displayed   correctly. This affects mainly the use of QPixmap::grabWindow(). Also note   that semi-transparent windows update and resize significantly slower than   opaque windows.    \sa setMask() */
 end_comment
 begin_function
 DECL|function|windowOpacity
@@ -43186,7 +43186,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWidget::windowModified     \brief whether the document shown in the window has unsaved changes      A modified window is a window whose content has changed but has     not been saved to disk. This flag will have different effects     varied by the platform. On Mac OS X the close button will have a     modified look; on other platforms, the window title will have an     '*' (asterisk).      The window title must contain a "[*]" placeholder, which     indicates where the '*' should appear. Normally, it should appear     right after the file name (e.g., "document1.txt[*] - Text     Editor"). If the window isn't modified, the placeholder is simply     removed.      Note that if a widget is set as modified, all its ancestors will     also be set as modified. However, if you call \c     {setWindowModified(false)} on a widget, this will not propagate to     its parent because other children of the parent might have been     modified.      \sa windowTitle, {Application Example}, {SDI Example}, {MDI Example} */
+comment|/*!     \property QWidget::windowModified     \brief whether the document shown in the window has unsaved changes      A modified window is a window whose content has changed but has     not been saved to disk. This flag will have different effects     varied by the platform. On OS X the close button will have a     modified look; on other platforms, the window title will have an     '*' (asterisk).      The window title must contain a "[*]" placeholder, which     indicates where the '*' should appear. Normally, it should appear     right after the file name (e.g., "document1.txt[*] - Text     Editor"). If the window isn't modified, the placeholder is simply     removed.      Note that if a widget is set as modified, all its ancestors will     also be set as modified. However, if you call \c     {setWindowModified(false)} on a widget, this will not propagate to     its parent because other children of the parent might have been     modified.      \sa windowTitle, {Application Example}, {SDI Example}, {MDI Example} */
 end_comment
 begin_function
 DECL|function|isWindowModified

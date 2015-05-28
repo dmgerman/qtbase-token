@@ -595,7 +595,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// Set buddy doesn't make much sense on Mac OS X
+comment|// Set buddy doesn't make much sense on OS X
 end_comment
 begin_ifndef
 ifndef|#

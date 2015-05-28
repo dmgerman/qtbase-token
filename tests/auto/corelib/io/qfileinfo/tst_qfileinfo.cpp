@@ -7754,7 +7754,7 @@ name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
-comment|// /bin has the hidden attribute on Mac OS X
+comment|// /bin has the hidden attribute on OS X
 name|QTest
 operator|::
 name|newRow

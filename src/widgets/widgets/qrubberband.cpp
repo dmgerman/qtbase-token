@@ -194,7 +194,7 @@ begin_comment
 comment|//QRubberBand::QRubberBand(QRubberBand::Type t, int x, int y, int w, int h, QWidget *p)
 end_comment
 begin_comment
-comment|/*!     Constructs a rubber band of shape \a s, with parent \a p.      By default a rectangular rubber band (\a s is \c Rectangle) will     use a mask, so that a small border of the rectangle is all     that is visible. Some styles (e.g., native Mac OS X) will     change this and call QWidget::setWindowOpacity() to make a     semi-transparent filled selection rectangle. */
+comment|/*!     Constructs a rubber band of shape \a s, with parent \a p.      By default a rectangular rubber band (\a s is \c Rectangle) will     use a mask, so that a small border of the rectangle is all     that is visible. Some styles (e.g., native OS X) will     change this and call QWidget::setWindowOpacity() to make a     semi-transparent filled selection rectangle. */
 end_comment
 begin_constructor
 DECL|function|QRubberBand

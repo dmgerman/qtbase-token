@@ -12915,7 +12915,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Don't disable updates on Mac OS X. Windows are displayed immediately on this platform,
+comment|// Don't disable updates on OS X. Windows are displayed immediately on this platform,
 comment|// which means that the window will be visible before the call to container->show() returns.
 comment|// If updates are disabled at this point we'll miss our chance at painting the popup
 comment|// menu before it's shown, causing flicker since the window then displays the standard gray

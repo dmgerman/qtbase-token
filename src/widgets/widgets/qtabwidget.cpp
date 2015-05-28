@@ -4777,7 +4777,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabWidget::documentMode     \brief Whether or not the tab widget is rendered in a mode suitable for document      pages. This is the same as document mode on Mac OS X.     \since 4.5      When this property is set the tab widget frame is not rendered. This mode is useful     for showing document-type pages where the page covers most of the tab widget     area.      \sa elideMode, QTabBar::documentMode, QTabBar::usesScrollButtons, QStyle::SH_TabBar_PreferNoArrows */
+comment|/*!     \property QTabWidget::documentMode     \brief Whether or not the tab widget is rendered in a mode suitable for document      pages. This is the same as document mode on OS X.     \since 4.5      When this property is set the tab widget frame is not rendered. This mode is useful     for showing document-type pages where the page covers most of the tab widget     area.      \sa elideMode, QTabBar::documentMode, QTabBar::usesScrollButtons, QStyle::SH_TabBar_PreferNoArrows */
 end_comment
 begin_function
 DECL|function|documentMode

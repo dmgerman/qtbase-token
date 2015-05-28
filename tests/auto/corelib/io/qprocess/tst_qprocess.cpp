@@ -8843,7 +8843,7 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Mac OS X and HP-UX have a really low default process limit (~100), so spawning
+comment|// OS X and HP-UX have a really low default process limit (~100), so spawning
 comment|// to many processes here will cause test failures later on.
 if|#
 directive|if

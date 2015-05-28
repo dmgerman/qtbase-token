@@ -2005,7 +2005,7 @@ literal|"QFileDialog"
 argument_list|,
 literal|"Alias"
 argument_list|,
-literal|"Mac OS X Finder"
+literal|"OS X Finder"
 argument_list|)
 return|;
 else|#

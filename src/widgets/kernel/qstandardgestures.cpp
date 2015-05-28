@@ -112,7 +112,7 @@ name|defined
 argument_list|(
 name|QT_NO_NATIVE_GESTURES
 argument_list|)
-comment|// for scroll areas on Windows and Mac OS X we want to use native gestures instead
+comment|// for scroll areas on Windows and OS X we want to use native gestures instead
 if|if
 condition|(
 operator|!

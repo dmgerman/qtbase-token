@@ -5841,7 +5841,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Changes the default application palette to \a palette.      If \a className is passed, the change applies only to widgets that inherit     \a className (as reported by QObject::inherits()). If \a className is left     0, the change affects all widgets, thus overriding any previously set class     specific palettes.      The palette may be changed according to the current GUI style in     QStyle::polish().      \warning Do not use this function in conjunction with \l{Qt Style Sheets}.     When using style sheets, the palette of a widget can be customized using     the "color", "background-color", "selection-color",     "selection-background-color" and "alternate-background-color".      \note Some styles do not use the palette for all drawing, for instance, if     they make use of native theme engines. This is the case for the Windows XP,     Windows Vista, and Mac OS X styles.      \sa QWidget::setPalette(), palette(), QStyle::polish() */
+comment|/*!     Changes the default application palette to \a palette.      If \a className is passed, the change applies only to widgets that inherit     \a className (as reported by QObject::inherits()). If \a className is left     0, the change affects all widgets, thus overriding any previously set class     specific palettes.      The palette may be changed according to the current GUI style in     QStyle::polish().      \warning Do not use this function in conjunction with \l{Qt Style Sheets}.     When using style sheets, the palette of a widget can be customized using     the "color", "background-color", "selection-color",     "selection-background-color" and "alternate-background-color".      \note Some styles do not use the palette for all drawing, for instance, if     they make use of native theme engines. This is the case for the Windows XP,     Windows Vista, and OS X styles.      \sa QWidget::setPalette(), palette(), QStyle::polish() */
 end_comment
 begin_function
 DECL|function|setPalette
@@ -13611,7 +13611,7 @@ name|relpos
 argument_list|)
 expr_stmt|;
 comment|// ### Qt 5 These dynamic tool tips should be an OPT-IN feature. Some platforms
-comment|// like Mac OS X (probably others too), can optimize their views by not
+comment|// like OS X (probably others too), can optimize their views by not
 comment|// dispatching mouse move events. We have attributes to control hover,
 comment|// and mouse tracking, but as long as we are deciding to implement this
 comment|// feature without choice of opting-in or out, you ALWAYS have to have
@@ -17615,7 +17615,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn void QApplication::alert(QWidget *widget, int msec)     \since 4.3      Causes an alert to be shown for \a widget if the window is not the active     window. The alert is shown for \a msec miliseconds. If \a msec is zero (the     default), then the alert is shown indefinitely until the window becomes     active again.      Currently this function does nothing on Qt for Embedded Linux.      On Mac OS X, this works more at the application level and will cause the     application icon to bounce in the dock.      On Windows, this causes the window's taskbar entry to flash for a time. If     \a msec is zero, the flashing will stop and the taskbar entry will turn a     different color (currently orange).      On X11, this will cause the window to be marked as "demands attention", the     window must not be hidden (i.e. not have hide() called on it, but be     visible in some sort of way) in order for this to work. */
+comment|/*!     \fn void QApplication::alert(QWidget *widget, int msec)     \since 4.3      Causes an alert to be shown for \a widget if the window is not the active     window. The alert is shown for \a msec miliseconds. If \a msec is zero (the     default), then the alert is shown indefinitely until the window becomes     active again.      Currently this function does nothing on Qt for Embedded Linux.      On OS X, this works more at the application level and will cause the     application icon to bounce in the dock.      On Windows, this causes the window's taskbar entry to flash for a time. If     \a msec is zero, the flashing will stop and the taskbar entry will turn a     different color (currently orange).      On X11, this will cause the window to be marked as "demands attention", the     window must not be hidden (i.e. not have hide() called on it, but be     visible in some sort of way) in order for this to work. */
 end_comment
 begin_function
 DECL|function|alert

@@ -4677,7 +4677,7 @@ directive|ifndef
 name|QT_NO_TOOLBAR
 end_ifndef
 begin_comment
-comment|/*!     \property QMainWindow::unifiedTitleAndToolBarOnMac     \brief whether the window uses the unified title and toolbar look on Mac OS X      Note that the Qt 5 implementation has several limitations compared to Qt 4:     \list         \li Use in windows with OpenGL content is not supported. This includes QGLWidget and QOpenGLWidget.         \li Using dockable or movable toolbars may result in painting errors and is not recommended     \endlist      \since 5.2 */
+comment|/*!     \property QMainWindow::unifiedTitleAndToolBarOnMac     \brief whether the window uses the unified title and toolbar look on OS X      Note that the Qt 5 implementation has several limitations compared to Qt 4:     \list         \li Use in windows with OpenGL content is not supported. This includes QGLWidget and QOpenGLWidget.         \li Using dockable or movable toolbars may result in painting errors and is not recommended     \endlist      \since 5.2 */
 end_comment
 begin_function
 DECL|function|setUnifiedTitleAndToolBarOnMac

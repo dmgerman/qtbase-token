@@ -22616,7 +22616,7 @@ operator|::
 name|SquareCap
 argument_list|)
 expr_stmt|;
-comment|// This is to protect against making the line too fat, as happens on Mac OS X
+comment|// This is to protect against making the line too fat, as happens on OS X
 comment|// due to it having a rather thick width for the regular underline.
 specifier|const
 name|qreal

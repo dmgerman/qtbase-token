@@ -1097,7 +1097,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|// Except for pageup and pagedown, Mac OS X has very different behavior, we don't do it all, but
+comment|// Except for pageup and pagedown, OS X has very different behavior, we don't do it all, but
 comment|// here's the breakdown:
 comment|// Shift still works as an anchor, but only one of the other keys can be down Ctrl (Command),
 comment|// Alt (Option), or Meta (Control).

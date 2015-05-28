@@ -57,7 +57,7 @@ name|cxx_generalized_initializers
 argument_list|)
 end_if
 begin_comment
-comment|//   On Mac OS X, the libstdc++ headers don't include<initializer_list>
+comment|//   On OS X, the libstdc++ headers don't include<initializer_list>
 end_comment
 begin_comment
 comment|//   This #include here forces a failure unless we're using libc++
