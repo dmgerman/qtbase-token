@@ -2714,8 +2714,11 @@ operator|::
 name|sslLibraryBuildVersionString
 parameter_list|()
 block|{
+comment|// Using QStringLiteral to store the version string as unicode and
+comment|// avoid false positives from Google searching the playstore for old
+comment|// SSL versions. See QTBUG-46265
 return|return
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 name|OPENSSL_VERSION_TEXT
 argument_list|)
