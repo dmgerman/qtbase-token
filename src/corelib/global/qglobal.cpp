@@ -5085,6 +5085,9 @@ operator|::
 name|fromLocal8Bit
 argument_list|(
 name|buf
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 return|;
 block|}
