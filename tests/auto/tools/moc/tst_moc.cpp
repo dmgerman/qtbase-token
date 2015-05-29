@@ -10749,6 +10749,33 @@ argument_list|(
 literal|"standard input:5: Error: Class declaration lacks Q_OBJECT macro."
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"QTBUG-46210: crash on invalid macro"
+argument_list|)
+operator|<<
+name|QByteArray
+argument_list|(
+literal|"#define Foo(a, b, c) a b c #a #b #c a##b##c #d\n Foo(45);"
+argument_list|)
+operator|<<
+name|QStringList
+argument_list|()
+operator|<<
+literal|1
+operator|<<
+name|QString
+argument_list|(
+literal|"IGNORE_ALL_STDOUT"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|":2: Error: '#' is not followed by a macro parameter"
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
