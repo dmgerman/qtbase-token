@@ -28682,6 +28682,17 @@ condition|(
 name|platform
 argument_list|()
 operator|!=
+name|WINDOWS_RT
+operator|&&
+name|platform
+argument_list|()
+operator|!=
+name|WINDOWS_CE
+operator|&&
+operator|(
+name|platform
+argument_list|()
+operator|!=
 name|ANDROID
 operator|||
 name|dictionary
@@ -28690,6 +28701,7 @@ literal|"ANDROID_STYLE_ASSETS"
 index|]
 operator|==
 literal|"no"
+operator|)
 condition|)
 block|{
 name|theLicense
