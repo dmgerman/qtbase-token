@@ -202,9 +202,11 @@ argument|QByteArray *macroName
 argument_list|)
 block|;
 specifier|static
-name|Symbols
+name|void
 name|macroExpand
 argument_list|(
+argument|Symbols *into
+argument_list|,
 argument|Preprocessor *that
 argument_list|,
 argument|Symbols&toExpand
