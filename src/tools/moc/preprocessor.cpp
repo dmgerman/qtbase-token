@@ -2782,9 +2782,11 @@ return|return
 name|syms
 return|;
 block|}
-name|QList
+name|QVarLengthArray
 argument_list|<
 name|Symbols
+argument_list|,
+literal|5
 argument_list|>
 name|arguments
 decl_stmt|;
