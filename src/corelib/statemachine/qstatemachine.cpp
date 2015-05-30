@@ -1933,15 +1933,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|exitSetT1
 operator|.
-name|intersect
+name|intersects
 argument_list|(
 name|exitSetT2
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 comment|// No conflict, no cry. Next patient please.
