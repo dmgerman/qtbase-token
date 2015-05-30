@@ -580,6 +580,22 @@ block|{
 name|Symbols
 name|symbols
 decl_stmt|;
+comment|// Preallocate some space to speed up the code below.
+comment|// The magic divisor value was found by calculating the average ratio between
+comment|// input size and the final size of symbols.
+comment|// This yielded a value of 16.x when compiling Qt Base.
+name|symbols
+operator|.
+name|reserve
+argument_list|(
+name|input
+operator|.
+name|size
+argument_list|()
+operator|/
+literal|16
+argument_list|)
+expr_stmt|;
 specifier|const
 name|char
 modifier|*
