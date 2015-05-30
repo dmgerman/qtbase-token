@@ -5897,6 +5897,21 @@ comment|// phase 3: preprocess conditions and substitute macros
 name|Symbols
 name|result
 decl_stmt|;
+comment|// Preallocate some space to speed up the code below.
+comment|// The magic value was found by logging the final size
+comment|// and calculating an average when running moc over FOSS projects.
+name|result
+operator|.
+name|reserve
+argument_list|(
+name|file
+operator|->
+name|size
+argument_list|()
+operator|/
+literal|300000
+argument_list|)
+expr_stmt|;
 name|preprocess
 argument_list|(
 name|filename
