@@ -209,7 +209,7 @@ argument|Symbols *into
 argument_list|,
 argument|Preprocessor *that
 argument_list|,
-argument|Symbols&toExpand
+argument|const Symbols&toExpand
 argument_list|,
 argument|int&index
 argument_list|,

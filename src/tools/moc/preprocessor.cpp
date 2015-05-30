@@ -2406,6 +2406,7 @@ name|Preprocessor
 modifier|*
 name|that
 parameter_list|,
+specifier|const
 name|Symbols
 modifier|&
 name|toExpand
