@@ -80,14 +80,16 @@ name|virtual
 operator|~
 name|QOpenGLPaintDevicePrivate
 argument_list|()
-block|{ }
+expr_stmt|;
 specifier|static
 name|QOpenGLPaintDevicePrivate
-operator|*
+modifier|*
 name|get
-argument_list|(
-argument|QOpenGLPaintDevice *dev
-argument_list|)
+parameter_list|(
+name|QOpenGLPaintDevice
+modifier|*
+name|dev
+parameter_list|)
 block|{
 return|return
 name|dev

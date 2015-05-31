@@ -3030,6 +3030,15 @@ name|systemRect
 return|;
 block|}
 end_function
+begin_destructor
+DECL|function|~QPaintEnginePrivate
+name|QPaintEnginePrivate
+operator|::
+name|~
+name|QPaintEnginePrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|drawBoxTextItem
 name|void

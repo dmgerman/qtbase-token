@@ -72,6 +72,10 @@ operator|:
 name|QEventTransitionPrivate
 argument_list|()
 block|;
+operator|~
+name|QEventTransitionPrivate
+argument_list|()
+block|;
 specifier|static
 name|QEventTransitionPrivate
 operator|*

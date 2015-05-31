@@ -166,6 +166,10 @@ argument_list|(
 argument|defaultRoleNames()
 argument_list|)
 block|{}
+operator|~
+name|QAbstractItemModelPrivate
+argument_list|()
+block|;
 name|void
 name|removePersistentIndexData
 argument_list|(

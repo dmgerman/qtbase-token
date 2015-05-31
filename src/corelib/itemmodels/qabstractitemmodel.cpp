@@ -1355,6 +1355,15 @@ argument_list|,
 argument|qEmptyModel
 argument_list|)
 end_macro
+begin_destructor
+DECL|function|~QAbstractItemModelPrivate
+name|QAbstractItemModelPrivate
+operator|::
+name|~
+name|QAbstractItemModelPrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|staticEmptyModel
 name|QAbstractItemModel

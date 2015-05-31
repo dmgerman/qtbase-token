@@ -600,6 +600,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_destructor
+DECL|function|~QGraphicsViewPrivate
+name|QGraphicsViewPrivate
+operator|::
+name|~
+name|QGraphicsViewPrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_comment
 comment|/*!     \internal */
 end_comment

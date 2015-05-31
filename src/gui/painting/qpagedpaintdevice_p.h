@@ -108,19 +108,22 @@ name|virtual
 operator|~
 name|QPagedPaintDevicePrivate
 argument_list|()
-block|{     }
+expr_stmt|;
 comment|// ### Qt6 Remove these and make public class methods virtual
 name|virtual
 name|bool
 name|setPageLayout
-argument_list|(
-argument|const QPageLayout&newPageLayout
-argument_list|)
+parameter_list|(
+specifier|const
+name|QPageLayout
+modifier|&
+name|newPageLayout
+parameter_list|)
 block|{
 name|m_pageLayout
 operator|=
 name|newPageLayout
-block|;
+expr_stmt|;
 return|return
 name|m_pageLayout
 operator|.
@@ -129,10 +132,8 @@ argument_list|(
 name|newPageLayout
 argument_list|)
 return|;
-expr_stmt|;
+empty_stmt|;
 block|}
-end_decl_stmt
-begin_function
 name|virtual
 name|bool
 name|setPageSize
@@ -162,8 +163,6 @@ name|pageSize
 argument_list|)
 return|;
 block|}
-end_function
-begin_decl_stmt
 name|virtual
 name|bool
 name|setPageOrientation
@@ -190,8 +189,6 @@ operator|==
 name|orientation
 return|;
 block|}
-end_decl_stmt
-begin_function
 name|virtual
 name|bool
 name|setPageMargins
@@ -214,8 +211,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_function
-begin_decl_stmt
 name|virtual
 name|bool
 name|setPageMargins
@@ -261,8 +256,6 @@ operator|==
 name|units
 return|;
 block|}
-end_decl_stmt
-begin_expr_stmt
 name|virtual
 name|QPageLayout
 name|pageLayout
@@ -273,8 +266,6 @@ return|return
 name|m_pageLayout
 return|;
 block|}
-end_expr_stmt
-begin_function
 specifier|static
 specifier|inline
 name|QPagedPaintDevicePrivate
@@ -292,37 +283,28 @@ operator|->
 name|d
 return|;
 block|}
-end_function
-begin_decl_stmt
 name|QPageLayout
 name|m_pageLayout
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// These are currently required to keep QPrinter functionality working in QTextDocument::print()
-end_comment
-begin_decl_stmt
 name|int
 name|fromPage
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|int
 name|toPage
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|bool
 name|pageOrderAscending
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|bool
 name|printSelectionOnly
 decl_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_macro
-unit|};
 name|QT_END_NAMESPACE
 end_macro
 begin_endif

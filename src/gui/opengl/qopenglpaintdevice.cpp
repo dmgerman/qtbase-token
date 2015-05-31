@@ -241,6 +241,15 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
+begin_destructor
+DECL|function|~QOpenGLPaintDevicePrivate
+name|QOpenGLPaintDevicePrivate
+operator|::
+name|~
+name|QOpenGLPaintDevicePrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_class
 DECL|class|QOpenGLEngineThreadStorage
 class|class

@@ -132,6 +132,24 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_destructor
+DECL|function|~QDynamicMetaObjectData
+name|QDynamicMetaObjectData
+operator|::
+name|~
+name|QDynamicMetaObjectData
+parameter_list|()
+block|{ }
+end_destructor
+begin_destructor
+DECL|function|~QAbstractDynamicMetaObject
+name|QAbstractDynamicMetaObject
+operator|::
+name|~
+name|QAbstractDynamicMetaObject
+parameter_list|()
+block|{ }
+end_destructor
 begin_struct
 DECL|struct|QSlotObjectBaseDeleter
 struct|struct

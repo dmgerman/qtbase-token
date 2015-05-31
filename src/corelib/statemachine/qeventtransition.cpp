@@ -69,6 +69,15 @@ literal|false
 expr_stmt|;
 block|}
 end_function
+begin_destructor
+DECL|function|~QEventTransitionPrivate
+name|QEventTransitionPrivate
+operator|::
+name|~
+name|QEventTransitionPrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|get
 name|QEventTransitionPrivate

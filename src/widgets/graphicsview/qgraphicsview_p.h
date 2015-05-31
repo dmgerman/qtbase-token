@@ -105,6 +105,10 @@ operator|:
 name|QGraphicsViewPrivate
 argument_list|()
 block|;
+operator|~
+name|QGraphicsViewPrivate
+argument_list|()
+block|;
 name|void
 name|recalculateContentSize
 argument_list|()

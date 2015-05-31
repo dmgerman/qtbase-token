@@ -113,11 +113,11 @@ name|virtual
 operator|~
 name|QPaintEnginePrivate
 argument_list|()
-block|{ }
-name|QPaintDevice
-operator|*
-name|pdev
 expr_stmt|;
+name|QPaintDevice
+modifier|*
+name|pdev
+decl_stmt|;
 name|QPaintEngine
 modifier|*
 name|q_ptr

@@ -459,6 +459,10 @@ argument_list|(
 literal|1
 argument_list|)
 block|{}
+operator|~
+name|QGraphicsEffectPrivate
+argument_list|()
+block|;
 specifier|inline
 name|void
 name|setGraphicsEffectSource
