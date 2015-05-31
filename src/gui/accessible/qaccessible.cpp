@@ -425,6 +425,19 @@ end_function
 begin_comment
 comment|/*!     \class QAccessible::ActivationObserver     \internal      Interface to listen to activation or deactivation of the accessibility framework.     \sa installActivationObserver() */
 end_comment
+begin_destructor
+DECL|function|~ActivationObserver
+name|QAccessible
+operator|::
+name|ActivationObserver
+operator|::
+name|~
+name|ActivationObserver
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \internal      Install \a observer to get notified of activation or deactivation (global accessibility has been enabled or disabled). */
 end_comment
@@ -1880,8 +1893,19 @@ begin_comment
 comment|/*! \fn QAccessibleEvent::QAccessibleEvent(QAccessibleInterface *interface, QAccessible::Event type)      Constructs a QAccessibleEvent to notify that \a interface has changed.     The event \a type describes what changed.     Use this function if you already have a QAccessibleInterface or no QObject, otherwise consider     the overload taking a \l QObject parameter as it might be cheaper. */
 end_comment
 begin_comment
-comment|/*! \fn QAccessibleEvent::~QAccessibleEvent()   Destroys the event. */
+comment|/*!   Destroys the event. */
 end_comment
+begin_destructor
+DECL|function|~QAccessibleEvent
+name|QAccessibleEvent
+operator|::
+name|~
+name|QAccessibleEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*! \fn QAccessible::Event QAccessibleEvent::type() const   Returns the event type. */
 end_comment
@@ -1974,6 +1998,20 @@ begin_comment
 comment|/*!     \fn QVariant QAccessibleValueChangeEvent::value() const      Returns the new value of the accessible object of this event. */
 end_comment
 begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleValueChangeEvent
+name|QAccessibleValueChangeEvent
+operator|::
+name|~
+name|QAccessibleValueChangeEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
+begin_comment
 comment|/*!     \class QAccessibleStateChangeEvent     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleStateChangeEvent notfies the accessibility framework     that the state of an object has changed.      This class is used with \l QAccessible::updateAccessibility().      \sa QAccessibleInterface::state() */
 end_comment
 begin_comment
@@ -1982,6 +2020,20 @@ end_comment
 begin_comment
 comment|/*!     \fn QAccessible::State QAccessibleStateChangeEvent::changedStates() const     \brief Returns the states that have been changed.      Be aware that the returned states are the ones that have changed,     to find out about the state of an object, use QAccessibleInterface::state().      For example, if an object used to have the focus but loses it,     the object's state will have focused set to \c false. This event on the     other hand tells about the change and has focused set to \c true since     the focus state is changed from \c true to \c false. */
 end_comment
+begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleStateChangeEvent
+name|QAccessibleStateChangeEvent
+operator|::
+name|~
+name|QAccessibleStateChangeEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \class QAccessibleTableModelChangeEvent     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleTableModelChangeEvent signifies a change in a table, list, or tree where cells     are added or removed.     If the change affected a number of rows, firstColumn and lastColumn will return -1.     Likewise for columns, the row functions may return -1.      This class is used with \l QAccessible::updateAccessibility(). */
 end_comment
@@ -2022,6 +2074,20 @@ begin_comment
 comment|/*! \fn void QAccessibleTableModelChangeEvent::setModelChangeType(ModelChangeType changeType)     Sets the type of change to \a changeType. */
 end_comment
 begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleTableModelChangeEvent
+name|QAccessibleTableModelChangeEvent
+operator|::
+name|~
+name|QAccessibleTableModelChangeEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
+begin_comment
 comment|/*!     \class QAccessibleTextCursorEvent     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleTextCursorEvent class notifies of cursor movements.      This class is used with \l QAccessible::updateAccessibility(). */
 end_comment
 begin_comment
@@ -2033,6 +2099,20 @@ end_comment
 begin_comment
 comment|/*! \fn void QAccessibleTextCursorEvent::setCursorPosition(int position)     Sets the cursor \a position for this event. */
 end_comment
+begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleTextCursorEvent
+name|QAccessibleTextCursorEvent
+operator|::
+name|~
+name|QAccessibleTextCursorEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \class QAccessibleTextInsertEvent     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleTextInsertEvent class notifies of text being inserted.      This class is used with \l QAccessible::updateAccessibility(). */
 end_comment
@@ -2046,6 +2126,20 @@ begin_comment
 comment|/*! \fn QString QAccessibleTextInsertEvent::textInserted() const     Returns the text that has been inserted. */
 end_comment
 begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleTextInsertEvent
+name|QAccessibleTextInsertEvent
+operator|::
+name|~
+name|QAccessibleTextInsertEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
+begin_comment
 comment|/*!     \class QAccessibleTextRemoveEvent     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleTextRemoveEvent class notifies of text being deleted.      This class is used with \l QAccessible::updateAccessibility(). */
 end_comment
 begin_comment
@@ -2057,6 +2151,20 @@ end_comment
 begin_comment
 comment|/*! \fn QString QAccessibleTextRemoveEvent::textRemoved() const     Returns the text that has been removed. */
 end_comment
+begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleTextRemoveEvent
+name|QAccessibleTextRemoveEvent
+operator|::
+name|~
+name|QAccessibleTextRemoveEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \class QAccessibleTextUpdateEvent     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleTextUpdateEvent class notifies about text changes.     This is for accessibles that support editable text such as line edits.     This event occurs for example when a portion of selected text     gets replaced by pasting a new text or in override mode of editors.      This class is used with \l QAccessible::updateAccessibility(). */
 end_comment
@@ -2073,6 +2181,20 @@ begin_comment
 comment|/*! \fn QString QAccessibleTextUpdateEvent::textRemoved() const     Returns the removed text. */
 end_comment
 begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleTextUpdateEvent
+name|QAccessibleTextUpdateEvent
+operator|::
+name|~
+name|QAccessibleTextUpdateEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
+begin_comment
 comment|/*!     \class QAccessibleTextSelectionEvent     \ingroup accessibility     \inmodule QtGui      \brief QAccessibleTextSelectionEvent signals a change in the text selection of an object.      This class is used with \l QAccessible::updateAccessibility(). */
 end_comment
 begin_comment
@@ -2087,6 +2209,20 @@ end_comment
 begin_comment
 comment|/*! \fn void QAccessibleTextSelectionEvent::setSelection(int start, int end)     Sets the selection for this event from position \a start to \a end. */
 end_comment
+begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleTextSelectionEvent
+name|QAccessibleTextSelectionEvent
+operator|::
+name|~
+name|QAccessibleTextSelectionEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     Returns the QAccessibleInterface associated with the event.     The caller of this function takes ownership of the returned interface. */
 end_comment
@@ -3181,8 +3317,19 @@ begin_comment
 comment|/*!     \class QAccessibleTextInterface     \inmodule QtGui      \ingroup accessibility      \brief The QAccessibleTextInterface class implements support for text handling.      This interface corresponds to the IAccessibleText interface.     It should be implemented for widgets that display more text than a plain label.     Labels should be represented by only \l QAccessibleInterface     and return their text as name (\l QAccessibleInterface::text() with \l QAccessible::Name as type).     The QAccessibleTextInterface is typically for text that a screen reader     might want to read line by line, and for widgets that support text selection and input.     This interface is, for example, implemented for QLineEdit.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \fn QAccessibleTextInterface::~QAccessibleTextInterface()     Destroys the QAccessibleTextInterface. */
+comment|/*!     Destroys the QAccessibleTextInterface. */
 end_comment
+begin_destructor
+DECL|function|~QAccessibleTextInterface
+name|QAccessibleTextInterface
+operator|::
+name|~
+name|QAccessibleTextInterface
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \fn void QAccessibleTextInterface::addSelection(int startOffset, int endOffset)     Select the text from \a startOffset to \a endOffset.     The \a startOffset is the first character that will be selected.     The \a endOffset is the first character that will not be selected.      When the object supports multiple selections (e.g. in a word processor),     this adds a new selection, otherwise it replaces the previous selection.      The selection will be \a endOffset - \a startOffset characters long. */
 end_comment
@@ -4516,8 +4663,19 @@ begin_comment
 comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility     \inmodule QtGui      \brief The QAccessibleEditableTextInterface class implements support for objects with editable text.      When implementing this interface you will almost certainly also want to implement \l QAccessibleTextInterface.      \sa QAccessibleInterface      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \fn QAccessibleEditableTextInterface::~QAccessibleEditableTextInterface()     Destroys the QAccessibleEditableTextInterface. */
+comment|/*!     Destroys the QAccessibleEditableTextInterface. */
 end_comment
+begin_destructor
+DECL|function|~QAccessibleEditableTextInterface
+name|QAccessibleEditableTextInterface
+operator|::
+name|~
+name|QAccessibleEditableTextInterface
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \fn void QAccessibleEditableTextInterface::deleteText(int startOffset, int endOffset)      Deletes the text from \a startOffset to \a endOffset. */
 end_comment
@@ -4531,8 +4689,19 @@ begin_comment
 comment|/*!     \class QAccessibleValueInterface     \inmodule QtGui     \ingroup accessibility      \brief The QAccessibleValueInterface class implements support for objects that manipulate a value.      This interface should be implemented by accessible objects that represent a value.     Examples are spinner, slider, dial and scroll bar.      Instead of forcing the user to deal with the individual parts of the widgets, this interface     gives an easier approach to the kind of widget it represents.      Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \fn QAccessibleValueInterface::~QAccessibleValueInterface()     Destructor. */
+comment|/*!     Destroys the QAccessibleValueInterface. */
 end_comment
+begin_destructor
+DECL|function|~QAccessibleValueInterface
+name|QAccessibleValueInterface
+operator|::
+name|~
+name|QAccessibleValueInterface
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \fn QVariant QAccessibleValueInterface::currentValue() const      Returns the current value of the widget. This is usually a double or int.     \sa setCurrentValue() */
 end_comment
@@ -4552,11 +4721,36 @@ begin_comment
 comment|/*!     \class QAccessibleImageInterface     \inmodule QtGui     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleImageInterface class implements support for     the IAccessibleImage interface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
+comment|/*!     Destroys the QAccessibleImageInterface. */
+end_comment
+begin_destructor
+DECL|function|~QAccessibleImageInterface
+name|QAccessibleImageInterface
+operator|::
+name|~
+name|QAccessibleImageInterface
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
+begin_comment
 comment|/*!     \class QAccessibleTableCellInterface     \inmodule QtGui     \ingroup accessibility      \brief The QAccessibleTableCellInterface class implements support for     the IAccessibleTable2 Cell interface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \fn virtual QAccessibleTableCellInterface::~QAccessibleTableCellInterface()     Destroys the QAccessibleTableCellInterface. */
+comment|/*!     Destroys the QAccessibleTableCellInterface. */
 end_comment
+begin_destructor
+DECL|function|~QAccessibleTableCellInterface
+name|QAccessibleTableCellInterface
+operator|::
+name|~
+name|QAccessibleTableCellInterface
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \fn virtual int QAccessibleTableCellInterface::columnExtent() const     Returns the number of columns occupied by this cell accessible. */
 end_comment
@@ -4585,8 +4779,19 @@ begin_comment
 comment|/*!     \class QAccessibleTableInterface     \ingroup accessibility      \brief The QAccessibleTableInterface class implements support for     the IAccessibleTable2 interface.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \fn virtual QAccessibleTableInterface::~QAccessibleTableInterface()     Destroys the QAccessibleTableInterface. */
+comment|/*!     Destroys the QAccessibleTableInterface. */
 end_comment
+begin_destructor
+DECL|function|~QAccessibleTableInterface
+name|QAccessibleTableInterface
+operator|::
+name|~
+name|QAccessibleTableInterface
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \fn virtual QAccessibleInterface *QAccessibleTableInterface::cellAt(int row, int column) const     Returns the cell at the specified \a row and \a column in the table. */
 end_comment
@@ -4651,8 +4856,19 @@ begin_comment
 comment|/*!     \class QAccessibleActionInterface     \ingroup accessibility      \brief The QAccessibleActionInterface class implements support for     invocable actions in the interface.      Accessible objects should implement the action interface if they support user interaction.     Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      The supported actions should use the predefined actions offered in this class unless they do not     fit a predefined action. In that case a custom action can be added.      When subclassing QAccessibleActionInterface you need to provide a list of actionNames which     is the primary means to discover the available actions. Action names are never localized.     In order to present actions to the user there are two functions that need to return localized versions     of the name and give a description of the action. For the predefined action names use     \l QAccessibleActionInterface::localizedActionName() and \l QAccessibleActionInterface::localizedActionDescription()     to return their localized counterparts.      In general you should use one of the predefined action names, unless describing an action that does not fit these:     \table     \header \li Action name         \li Description     \row    \li \l toggleAction()   \li toggles the item (checkbox, radio button, switch, ...)     \row    \li \l decreaseAction() \li decrease the value of the accessible (e.g. spinbox)     \row    \li \l increaseAction() \li increase the value of the accessible (e.g. spinbox)     \row    \li \l pressAction()    \li press or click or activate the accessible (should correspont to clicking the object with the mouse)     \row    \li \l setFocusAction() \li set the focus to this accessible     \row    \li \l showMenuAction() \li show a context menu, corresponds to right-clicks     \endtable      In order to invoke the action, \l doAction() is called with an action name.      Most widgets will simply implement \l pressAction(). This is what happens when the widget is activated by     being clicked, space pressed or similar.      \l{IAccessible2 Specification} */
 end_comment
 begin_comment
-comment|/*!     \fn QAccessibleActionInterface::~QAccessibleActionInterface()     Destroys the QAccessibleActionInterface. */
+comment|/*!     Destroys the QAccessibleActionInterface. */
 end_comment
+begin_destructor
+DECL|function|~QAccessibleActionInterface
+name|QAccessibleActionInterface
+operator|::
+name|~
+name|QAccessibleActionInterface
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     \fn QStringList QAccessibleActionInterface::actionNames() const      Returns the list of actions supported by this accessible object.     The actions returned should be in preferred order,     i.e. the action that the user most likely wants to trigger should be returned first,     while the least likely action should be returned last.      The list does only contain actions that can be invoked.     It won't return disabled actions, or actions associated with disabled UI controls.      The list can be empty.      Note that this list is not localized. For a localized representation re-implement \l localizedActionName()     and \l localizedActionDescription()      \sa doAction(), localizedActionName(), localizedActionDescription() */
 end_comment

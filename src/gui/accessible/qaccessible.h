@@ -1160,16 +1160,17 @@ name|virtual
 operator|~
 name|ActivationObserver
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|void
 name|accessibilityActiveChanged
-argument_list|(
-argument|bool active
-argument_list|)
-operator|=
+parameter_list|(
+name|bool
+name|active
+parameter_list|)
+init|=
 literal|0
-expr_stmt|;
+function_decl|;
 block|}
 empty_stmt|;
 specifier|static
@@ -1809,22 +1810,27 @@ name|virtual
 operator|~
 name|QAccessibleTextInterface
 argument_list|()
-block|{}
+expr_stmt|;
 comment|// selection
 name|virtual
 name|void
 name|selection
 argument_list|(
-argument|int selectionIndex
+name|int
+name|selectionIndex
 argument_list|,
-argument|int *startOffset
+name|int
+operator|*
+name|startOffset
 argument_list|,
-argument|int *endOffset
+name|int
+operator|*
+name|endOffset
 argument_list|)
-specifier|const
-operator|=
+decl|const
+init|=
 literal|0
-expr_stmt|;
+decl_stmt|;
 name|virtual
 name|int
 name|selectionCount
@@ -2053,18 +2059,20 @@ name|virtual
 operator|~
 name|QAccessibleEditableTextInterface
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|void
 name|deleteText
-argument_list|(
-argument|int startOffset
-argument_list|,
-argument|int endOffset
-argument_list|)
-operator|=
+parameter_list|(
+name|int
+name|startOffset
+parameter_list|,
+name|int
+name|endOffset
+parameter_list|)
+init|=
 literal|0
-expr_stmt|;
+function_decl|;
 name|virtual
 name|void
 name|insertText
@@ -2114,7 +2122,7 @@ name|virtual
 operator|~
 name|QAccessibleValueInterface
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|QVariant
 name|currentValue
@@ -2175,7 +2183,7 @@ name|virtual
 operator|~
 name|QAccessibleTableCellInterface
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|bool
 name|isSelected
@@ -2265,7 +2273,7 @@ name|virtual
 operator|~
 name|QAccessibleTableInterface
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|QAccessibleInterface
 operator|*
@@ -2498,7 +2506,7 @@ name|virtual
 operator|~
 name|QAccessibleActionInterface
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|QStringList
 name|actionNames
@@ -2654,7 +2662,7 @@ name|virtual
 operator|~
 name|QAccessibleImageInterface
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|QString
 name|imageDescription
@@ -2906,7 +2914,7 @@ name|virtual
 operator|~
 name|QAccessibleEvent
 argument_list|()
-block|{}
+expr_stmt|;
 name|QAccessible
 operator|::
 name|Event
@@ -3057,6 +3065,10 @@ name|QAccessible
 operator|::
 name|StateChanged
 block|;     }
+operator|~
+name|QAccessibleStateChangeEvent
+argument_list|()
+block|;
 name|QAccessible
 operator|::
 name|State
@@ -3146,6 +3158,10 @@ name|QAccessible
 operator|::
 name|TextCaretMoved
 block|;     }
+operator|~
+name|QAccessibleTextCursorEvent
+argument_list|()
+block|;
 name|void
 name|setCursorPosition
 argument_list|(
@@ -3269,6 +3285,10 @@ name|QAccessible
 operator|::
 name|TextSelectionChanged
 block|;     }
+operator|~
+name|QAccessibleTextSelectionEvent
+argument_list|()
+block|;
 name|void
 name|setSelection
 argument_list|(
@@ -3399,6 +3419,10 @@ name|QAccessible
 operator|::
 name|TextInserted
 block|;     }
+operator|~
+name|QAccessibleTextInsertEvent
+argument_list|()
+block|;
 name|QString
 name|textInserted
 argument_list|()
@@ -3503,6 +3527,10 @@ name|QAccessible
 operator|::
 name|TextRemoved
 block|;     }
+operator|~
+name|QAccessibleTextRemoveEvent
+argument_list|()
+block|;
 name|QString
 name|textRemoved
 argument_list|()
@@ -3631,6 +3659,10 @@ name|QAccessible
 operator|::
 name|TextUpdated
 block|;     }
+operator|~
+name|QAccessibleTextUpdateEvent
+argument_list|()
+block|;
 name|QString
 name|textRemoved
 argument_list|()
@@ -3747,6 +3779,10 @@ name|QAccessible
 operator|::
 name|ValueChanged
 block|;     }
+operator|~
+name|QAccessibleValueChangeEvent
+argument_list|()
+block|;
 name|void
 name|setValue
 argument_list|(
@@ -3903,6 +3939,10 @@ name|QAccessible
 operator|::
 name|TableModelChanged
 block|;     }
+operator|~
+name|QAccessibleTableModelChangeEvent
+argument_list|()
+block|;
 name|void
 name|setModelChangeType
 argument_list|(
