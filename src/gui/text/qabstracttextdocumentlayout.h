@@ -418,20 +418,26 @@ name|virtual
 operator|~
 name|QTextObjectInterface
 argument_list|()
-block|{}
+expr_stmt|;
 name|virtual
 name|QSizeF
 name|intrinsicSize
-argument_list|(
-argument|QTextDocument *doc
-argument_list|,
-argument|int posInDocument
-argument_list|,
-argument|const QTextFormat&format
-argument_list|)
-operator|=
+parameter_list|(
+name|QTextDocument
+modifier|*
+name|doc
+parameter_list|,
+name|int
+name|posInDocument
+parameter_list|,
+specifier|const
+name|QTextFormat
+modifier|&
+name|format
+parameter_list|)
+init|=
 literal|0
-expr_stmt|;
+function_decl|;
 name|virtual
 name|void
 name|drawObject

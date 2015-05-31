@@ -2630,6 +2630,10 @@ operator|&
 name|attributes
 argument_list|)
 block|;
+operator|~
+name|QInputMethodEvent
+argument_list|()
+block|;
 name|void
 name|setCommitString
 argument_list|(

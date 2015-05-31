@@ -2465,6 +2465,17 @@ name|replace_length
 argument_list|)
 block|{ }
 end_constructor
+begin_destructor
+DECL|function|~QInputMethodEvent
+name|QInputMethodEvent
+operator|::
+name|~
+name|QInputMethodEvent
+parameter_list|()
+block|{
+comment|// must be empty until ### Qt 6
+block|}
+end_destructor
 begin_comment
 comment|/*!     Sets the commit string to \a commitString.      The commit string is the text that should get added to (or     replace parts of) the text of the editor widget. It usually is a     result of the input operations and has to be inserted to the     widgets text directly before the preedit string.      If the commit string should replace parts of the of the text in     the editor, \a replaceLength specifies the number of     characters to be replaced. \a replaceFrom specifies the position     at which characters are to be replaced relative from the start of     the preedit string.      \sa commitString(), replacementStart(), replacementLength() */
 end_comment
