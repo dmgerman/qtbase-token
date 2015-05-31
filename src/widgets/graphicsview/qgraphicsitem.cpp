@@ -424,6 +424,18 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QGraphicsItemPrivate
+name|QGraphicsItemPrivate
+operator|::
+name|~
+name|QGraphicsItemPrivate
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!     \internal      Propagates the ancestor flag \a flag with value \a enabled to all this     item's children. If \a root is false, the flag is also set on this item     (default is true). */
 end_comment
 begin_function

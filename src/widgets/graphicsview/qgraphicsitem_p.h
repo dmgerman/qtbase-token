@@ -1047,20 +1047,22 @@ argument_list|(
 literal|0
 argument_list|)
 block|{     }
-specifier|inline
 name|virtual
 operator|~
 name|QGraphicsItemPrivate
 argument_list|()
-block|{ }
+expr_stmt|;
 specifier|static
 specifier|const
 name|QGraphicsItemPrivate
-operator|*
+modifier|*
 name|get
-argument_list|(
-argument|const QGraphicsItem *item
-argument_list|)
+parameter_list|(
+specifier|const
+name|QGraphicsItem
+modifier|*
+name|item
+parameter_list|)
 block|{
 return|return
 name|item
