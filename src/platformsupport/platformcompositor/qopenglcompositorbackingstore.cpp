@@ -656,6 +656,13 @@ argument_list|)
 argument_list|,
 name|textures
 operator|->
+name|clipRect
+argument_list|(
+name|i
+argument_list|)
+argument_list|,
+name|textures
+operator|->
 name|flags
 argument_list|(
 name|i

@@ -202,6 +202,13 @@ argument|int index
 argument_list|)
 specifier|const
 block|;
+name|QRect
+name|clipRect
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|;
 name|QWidget
 operator|*
 name|widget
@@ -235,6 +242,8 @@ argument_list|,
 argument|GLuint textureId
 argument_list|,
 argument|const QRect&geometry
+argument_list|,
+argument|const QRect&clipRect = QRect()
 argument_list|,
 argument|Flags flags =
 literal|0
