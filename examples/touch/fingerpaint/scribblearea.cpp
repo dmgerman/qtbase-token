@@ -797,7 +797,12 @@ name|Qt
 operator|::
 name|TouchPointStationary
 case|:
-comment|// don't do anything if this touch point hasn't moved
+case|case
+name|Qt
+operator|::
+name|TouchPointReleased
+case|:
+comment|// don't do anything if this touch point hasn't moved or has been released
 continue|continue;
 default|default:
 block|{
@@ -820,7 +825,7 @@ block|{
 name|qreal
 name|diameter
 init|=
-name|MinimumDiameter
+name|MaximumDiameter
 decl_stmt|;
 if|if
 condition|(

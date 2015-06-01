@@ -364,13 +364,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-specifier|static
-name|HFONT
-name|getCaptionFont
-argument_list|(
-argument|HANDLE hTheme
-argument_list|)
-block|;
 name|HWND
 name|wizardHWND
 argument_list|()

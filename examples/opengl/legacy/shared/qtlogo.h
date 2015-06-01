@@ -24,6 +24,12 @@ directive|include
 file|<QColor>
 end_include
 begin_decl_stmt
+DECL|variable|QOpenGLFunctions_1_1
+name|class
+name|QOpenGLFunctions_1_1
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|Patch
 name|class
 name|Patch
@@ -70,7 +76,9 @@ argument_list|)
 block|;
 name|void
 name|draw
-argument_list|()
+argument_list|(
+argument|QOpenGLFunctions_1_1 *functions
+argument_list|)
 specifier|const
 block|;
 name|private

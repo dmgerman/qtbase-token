@@ -1377,28 +1377,39 @@ name|D2D_RECT_F
 name|rect
 init|=
 block|{
+name|FLOAT
+argument_list|(
 name|points
 index|[
 literal|0
 index|]
+argument_list|)
 block|,
 comment|// left
+name|FLOAT
+argument_list|(
 name|points
 index|[
 literal|1
 index|]
+argument_list|)
 block|,
 comment|// top
+name|FLOAT
+argument_list|(
 name|points
 index|[
 literal|2
 index|]
+argument_list|)
 block|,
 comment|// right,
-name|points
-index|[
+name|FLOAT
+argument_list|(
+argument|points[
 literal|5
-index|]
+argument|]
+argument_list|)
 comment|// bottom
 block|}
 decl_stmt|;
@@ -4391,12 +4402,18 @@ block|{
 name|fontFace
 block|,
 comment|//    IDWriteFontFace           *fontFace;
+name|FLOAT
+argument_list|(
 name|fontDef
 operator|.
 name|pixelSize
+argument_list|)
 block|,
-comment|//    FLOAT                     fontEmSize;
+comment|// FLOAT                 fontEmSize;
+name|UINT32
+argument_list|(
 name|numGlyphs
+argument_list|)
 block|,
 comment|//    UINT32                    glyphCount;
 name|glyphIndices
@@ -4413,9 +4430,9 @@ block|,
 comment|//    BOOL                      isSideways;
 name|rtl
 operator|?
-literal|1
+literal|1u
 operator|:
-literal|0
+literal|0u
 comment|//    UINT32                    bidiLevel;
 block|}
 decl_stmt|;
@@ -7163,19 +7180,21 @@ argument_list|(
 name|p
 argument_list|)
 block|,
+name|FLOAT
+argument_list|(
 name|r
 operator|.
 name|width
 argument_list|()
 operator|/
 literal|2.0
+argument_list|)
 block|,
-name|r
-operator|.
-name|height
-argument_list|()
-operator|/
+name|FLOAT
+argument_list|(
+argument|r.height() /
 literal|2.0
+argument_list|)
 block|}
 decl_stmt|;
 if|if
@@ -7328,19 +7347,21 @@ argument_list|(
 name|p
 argument_list|)
 block|,
+name|FLOAT
+argument_list|(
 name|r
 operator|.
 name|width
 argument_list|()
 operator|/
 literal|2.0
+argument_list|)
 block|,
-name|r
-operator|.
-name|height
-argument_list|()
-operator|/
+name|FLOAT
+argument_list|(
+argument|r.height() /
 literal|2.0
+argument_list|)
 block|}
 decl_stmt|;
 if|if

@@ -635,7 +635,7 @@ name|appendTexture
 argument_list|(
 name|textures
 operator|->
-name|widget
+name|source
 argument_list|(
 name|i
 argument_list|)
@@ -650,6 +650,13 @@ argument_list|,
 name|textures
 operator|->
 name|geometry
+argument_list|(
+name|i
+argument_list|)
+argument_list|,
+name|textures
+operator|->
+name|clipRect
 argument_list|(
 name|i
 argument_list|)

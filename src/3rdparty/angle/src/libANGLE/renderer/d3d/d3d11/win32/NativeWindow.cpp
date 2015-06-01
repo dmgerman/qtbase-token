@@ -113,6 +113,12 @@ operator|==
 name|TRUE
 return|;
 block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|ANGLE_ENABLE_D3D11
+argument_list|)
 DECL|function|createSwapChain
 name|HRESULT
 name|NativeWindow
@@ -306,6 +312,8 @@ name|swapChain
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 block|}
 end_namespace
 end_unit

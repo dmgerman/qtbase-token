@@ -124,6 +124,13 @@ name|tpLicense
 expr_stmt|;
 return|return;
 block|}
+name|dictionary
+index|[
+literal|"LICHECK"
+index|]
+operator|=
+literal|"licheck.exe"
+expr_stmt|;
 specifier|const
 name|QString
 name|licenseChecker

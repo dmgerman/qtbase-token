@@ -16696,7 +16696,7 @@ name|ret
 operator|+=
 literal|" "
 operator|+
-name|escapeFilePath
+name|shellQuote
 argument_list|(
 name|arg
 argument_list|)

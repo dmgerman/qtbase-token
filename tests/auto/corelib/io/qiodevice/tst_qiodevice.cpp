@@ -1130,7 +1130,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::readLine: Called with maxSize< 2"
+literal|"QIODevice::readLine (QBuffer): Called with maxSize< 2"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

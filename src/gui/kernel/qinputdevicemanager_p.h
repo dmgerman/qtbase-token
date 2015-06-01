@@ -126,9 +126,15 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_macro
+begin_decl_stmt
 name|QT_END_NAMESPACE
-end_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QInputDeviceManager
+operator|::
+name|DeviceType
+argument_list|)
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
