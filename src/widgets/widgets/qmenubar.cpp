@@ -1000,6 +1000,22 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// faster than clear
+specifier|const
+name|int
+name|actionsCount
+init|=
+name|actions
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
+name|shortcutIndexMap
+operator|.
+name|reserve
+argument_list|(
+name|actionsCount
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -1009,10 +1025,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|actions
-operator|.
-name|count
-argument_list|()
+name|actionsCount
 condition|;
 name|i
 operator|++

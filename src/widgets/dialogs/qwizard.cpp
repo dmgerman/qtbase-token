@@ -4014,6 +4014,13 @@ expr_stmt|;
 name|updateButtonLayout
 argument_list|()
 expr_stmt|;
+name|defaultPropertyTable
+operator|.
+name|reserve
+argument_list|(
+name|NFallbackDefaultProperties
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|uint

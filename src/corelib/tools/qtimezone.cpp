@@ -1338,6 +1338,16 @@ name|toMSecsSinceEpoch
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|list
+operator|.
+name|reserve
+argument_list|(
+name|plist
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 specifier|const

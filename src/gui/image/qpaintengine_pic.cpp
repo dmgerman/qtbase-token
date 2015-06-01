@@ -2285,6 +2285,13 @@ decl_stmt|;
 name|QPolygonF
 name|polygon
 decl_stmt|;
+name|polygon
+operator|.
+name|reserve
+argument_list|(
+name|numPoints
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

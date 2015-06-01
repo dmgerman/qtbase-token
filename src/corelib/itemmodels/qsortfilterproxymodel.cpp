@@ -11822,6 +11822,13 @@ name|int
 argument_list|>
 name|rows
 decl_stmt|;
+name|rows
+operator|.
+name|reserve
+argument_list|(
+name|count
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -12119,6 +12126,13 @@ name|int
 argument_list|>
 name|columns
 decl_stmt|;
+name|columns
+operator|.
+name|reserve
+argument_list|(
+name|count
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

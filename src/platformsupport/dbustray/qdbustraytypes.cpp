@@ -272,6 +272,16 @@ name|dpr
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ret
+operator|.
+name|reserve
+argument_list|(
+name|sizes
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 name|QSize

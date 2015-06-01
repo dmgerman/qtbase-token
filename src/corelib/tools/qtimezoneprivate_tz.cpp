@@ -3568,6 +3568,16 @@ break|break;
 block|}
 block|}
 comment|// Now for each transition time calculate our rule and save them
+name|m_tranTimes
+operator|.
+name|reserve
+argument_list|(
+name|tranList
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 specifier|const

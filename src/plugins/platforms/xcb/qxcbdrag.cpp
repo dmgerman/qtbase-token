@@ -3328,6 +3328,13 @@ argument_list|(
 name|reply
 argument_list|)
 decl_stmt|;
+name|xdnd_types
+operator|.
+name|reserve
+argument_list|(
+name|length
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

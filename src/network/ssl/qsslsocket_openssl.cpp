@@ -3148,6 +3148,16 @@ operator|==
 name|curveCount
 condition|)
 block|{
+name|curves
+operator|.
+name|reserve
+argument_list|(
+name|int
+argument_list|(
+name|curveCount
+argument_list|)
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|size_t
