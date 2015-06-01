@@ -3390,7 +3390,7 @@ name|QVERIFY
 argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowExposed
+name|qWaitForWindowActive
 argument_list|(
 operator|&
 name|touchWidget
@@ -4713,7 +4713,7 @@ name|QVERIFY
 argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowExposed
+name|qWaitForWindowActive
 argument_list|(
 operator|&
 name|touchWidget
@@ -7220,7 +7220,7 @@ name|QVERIFY
 argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowExposed
+name|qWaitForWindowActive
 argument_list|(
 operator|&
 name|touchWidget
@@ -11932,7 +11932,7 @@ name|viewport
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|root
 operator|->
