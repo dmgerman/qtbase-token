@@ -7130,7 +7130,7 @@ name|lv
 operator|.
 name|setFixedSize
 argument_list|(
-literal|100
+literal|110
 argument_list|,
 literal|200
 argument_list|)
