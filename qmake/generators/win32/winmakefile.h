@@ -153,16 +153,6 @@ specifier|const
 name|QString
 operator|&
 name|stem
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|ext
-operator|=
-name|QLatin1String
-argument_list|(
-literal|"lib"
-argument_list|)
 argument_list|)
 block|;
 name|virtual
