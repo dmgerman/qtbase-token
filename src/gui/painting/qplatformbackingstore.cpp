@@ -179,10 +179,10 @@ DECL|struct|QBackingstoreTextureInfo
 struct|struct
 name|QBackingstoreTextureInfo
 block|{
-DECL|member|widget
-name|QWidget
+DECL|member|source
+name|void
 modifier|*
-name|widget
+name|source
 decl_stmt|;
 comment|// may be null
 DECL|member|textureId
@@ -335,12 +335,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|widget
-name|QWidget
+DECL|function|source
+name|void
 modifier|*
 name|QPlatformTextureList
 operator|::
-name|widget
+name|source
 parameter_list|(
 name|int
 name|index
@@ -362,7 +362,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|widget
+name|source
 return|;
 block|}
 end_function
@@ -533,9 +533,9 @@ name|QPlatformTextureList
 operator|::
 name|appendTexture
 parameter_list|(
-name|QWidget
+name|void
 modifier|*
-name|widget
+name|source
 parameter_list|,
 name|GLuint
 name|textureId
@@ -564,9 +564,9 @@ name|bi
 decl_stmt|;
 name|bi
 operator|.
-name|widget
+name|source
 operator|=
-name|widget
+name|source
 expr_stmt|;
 name|bi
 operator|.

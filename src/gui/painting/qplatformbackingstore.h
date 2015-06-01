@@ -209,9 +209,9 @@ argument|int index
 argument_list|)
 specifier|const
 block|;
-name|QWidget
+name|void
 operator|*
-name|widget
+name|source
 argument_list|(
 argument|int index
 argument_list|)
@@ -237,7 +237,7 @@ block|;
 name|void
 name|appendTexture
 argument_list|(
-argument|QWidget *widget
+argument|void *source
 argument_list|,
 argument|GLuint textureId
 argument_list|,
