@@ -152,6 +152,12 @@ block|,
 name|MouseMove
 block|}
 enum|;
+extern|extern Q_TESTLIB_EXPORT Qt::MouseButton lastMouseButton;
+specifier|extern
+name|Q_TESTLIB_EXPORT
+name|int
+name|lastMouseTimestamp
+decl_stmt|;
 specifier|static
 name|void
 name|waitForEvents
@@ -257,22 +263,6 @@ literal|"Mouse event occurs outside of target window."
 argument_list|)
 expr_stmt|;
 block|}
-specifier|static
-name|Qt
-operator|::
-name|MouseButton
-name|lastButton
-operator|=
-name|Qt
-operator|::
-name|NoButton
-expr_stmt|;
-specifier|static
-name|int
-name|timestamp
-init|=
-literal|0
-decl_stmt|;
 if|if
 condition|(
 name|delay
@@ -388,7 +378,7 @@ name|button
 argument_list|,
 name|stateKey
 argument_list|,
-name|timestamp
+name|lastMouseTimestamp
 argument_list|)
 expr_stmt|;
 name|qt_handleMouseEvent
@@ -406,7 +396,7 @@ argument_list|,
 name|stateKey
 argument_list|,
 operator|++
-name|timestamp
+name|lastMouseTimestamp
 argument_list|)
 expr_stmt|;
 comment|// fall through
@@ -429,10 +419,10 @@ argument_list|,
 name|stateKey
 argument_list|,
 operator|++
-name|timestamp
+name|lastMouseTimestamp
 argument_list|)
 expr_stmt|;
-name|lastButton
+name|lastMouseButton
 operator|=
 name|button
 expr_stmt|;
@@ -462,15 +452,15 @@ argument_list|,
 name|stateKey
 argument_list|,
 operator|++
-name|timestamp
+name|lastMouseTimestamp
 argument_list|)
 expr_stmt|;
-name|timestamp
+name|lastMouseTimestamp
 operator|+=
 literal|500
 expr_stmt|;
 comment|// avoid double clicks being generated
-name|lastButton
+name|lastMouseButton
 operator|=
 name|Qt
 operator|::
@@ -488,12 +478,12 @@ name|pos
 argument_list|,
 name|global
 argument_list|,
-name|lastButton
+name|lastMouseButton
 argument_list|,
 name|stateKey
 argument_list|,
 operator|++
-name|timestamp
+name|lastMouseTimestamp
 argument_list|)
 expr_stmt|;
 comment|// No QCursor::setPos() call here. That could potentially result in mouse events sent by the windowing system
