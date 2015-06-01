@@ -2758,6 +2758,16 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QTest
+operator|::
+name|qWaitForWindowActive
+argument_list|(
+name|view
+argument_list|)
+argument_list|)
+expr_stmt|;
 if|#
 directive|if
 name|defined
