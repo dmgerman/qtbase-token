@@ -6052,6 +6052,14 @@ operator|::
 name|State
 name|st
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|view
+condition|)
+return|return
+name|st
+return|;
 name|QRect
 name|globalRect
 init|=
