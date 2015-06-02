@@ -53,14 +53,18 @@ name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QTestPrivate
 block|{
+comment|// Export functions so they can also be used by QQuickTest
+name|Q_TESTLIB_EXPORT
 name|void
 name|parseBlackList
 parameter_list|()
 function_decl|;
+name|Q_TESTLIB_EXPORT
 name|void
 name|parseGpuBlackList
 parameter_list|()
 function_decl|;
+name|Q_TESTLIB_EXPORT
 name|void
 name|checkBlackLists
 parameter_list|(
