@@ -81,6 +81,17 @@ name|QTouchDevice
 modifier|*
 name|qtTouchDevice
 decl_stmt|;
+DECL|member|touchPoints
+name|QHash
+argument_list|<
+name|int
+argument_list|,
+name|QWindowSystemInterface
+operator|::
+name|TouchPoint
+argument_list|>
+name|touchPoints
+decl_stmt|;
 comment|// Stuff that is relevant only for touchpads
 DECL|member|pointPressedPosition
 name|QHash
@@ -3299,7 +3310,9 @@ specifier|const
 name|bool
 name|firstTouch
 init|=
-name|m_touchPoints
+name|dev
+operator|->
+name|touchPoints
 operator|.
 name|isEmpty
 argument_list|()
@@ -3343,7 +3356,9 @@ operator|=
 operator|-
 literal|1.0
 expr_stmt|;
-name|m_touchPoints
+name|dev
+operator|->
+name|touchPoints
 index|[
 name|tp
 operator|.
@@ -3359,7 +3374,9 @@ name|TouchPoint
 modifier|&
 name|touchPoint
 init|=
-name|m_touchPoints
+name|dev
+operator|->
+name|touchPoints
 index|[
 name|xiDeviceEvent
 operator|->
@@ -4450,7 +4467,9 @@ name|dev
 operator|->
 name|qtTouchDevice
 argument_list|,
-name|m_touchPoints
+name|dev
+operator|->
+name|touchPoints
 operator|.
 name|values
 argument_list|()
@@ -4467,7 +4486,9 @@ operator|::
 name|TouchPointReleased
 condition|)
 comment|// If a touchpoint was released, we can forget it, because the ID won't be reused.
-name|m_touchPoints
+name|dev
+operator|->
+name|touchPoints
 operator|.
 name|remove
 argument_list|(
