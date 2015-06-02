@@ -1843,6 +1843,10 @@ parameter_list|,
 specifier|final
 name|int
 name|inputHints
+parameter_list|,
+specifier|final
+name|int
+name|enterKeyType
 parameter_list|)
 block|{
 name|runAction
@@ -1871,6 +1875,8 @@ argument_list|,
 name|height
 argument_list|,
 name|inputHints
+argument_list|,
+name|enterKeyType
 argument_list|)
 expr_stmt|;
 block|}

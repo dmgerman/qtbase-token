@@ -46,6 +46,9 @@ name|height
 parameter_list|,
 name|int
 name|inputHints
+parameter_list|,
+name|int
+name|enterKeyType
 parameter_list|)
 function_decl|;
 name|void
