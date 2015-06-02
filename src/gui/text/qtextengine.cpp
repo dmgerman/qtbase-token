@@ -7088,11 +7088,14 @@ name|stretch
 init|=
 name|QFixed
 argument_list|(
+name|int
+argument_list|(
 name|actualFontEngine
 operator|->
 name|fontDef
 operator|.
 name|stretch
+argument_list|)
 argument_list|)
 operator|/
 name|QFixed
