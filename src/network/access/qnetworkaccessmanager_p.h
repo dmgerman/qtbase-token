@@ -218,6 +218,11 @@ argument_list|(
 name|false
 argument_list|)
 block|,
+name|defaultAccessControl
+argument_list|(
+name|true
+argument_list|)
+block|,
 name|authenticationManager
 argument_list|(
 argument|QSharedPointer<QNetworkAccessAuthenticationManager>::create()
@@ -532,6 +537,9 @@ endif|#
 directive|endif
 name|bool
 name|cookieJarCreated
+block|;
+name|bool
+name|defaultAccessControl
 block|;
 comment|// The cache with authorization data:
 name|QSharedPointer
