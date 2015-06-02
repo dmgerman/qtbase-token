@@ -82,7 +82,7 @@ include|#
 directive|include
 file|<private/qfactoryloader_p.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QAccessible     \brief The QAccessible class provides enums and static functions     related to accessibility.      \ingroup accessibility     \inmodule QtGui      This class is part of \l {Accessibility for QWidget Applications}.      Accessible applications can be used by people who are not able to     use applications by conventional means.      The functions in this class are used for communication between     accessible applications (also called AT Servers) and     accessibility tools (AT Clients), such as screen readers and     braille displays. Clients and servers communicate in the following way:      \list     \li  \e{AT Servers} notify the clients about events through calls to the         updateAccessibility() function.      \li  \e{AT Clients} request information about the objects in the server.         The QAccessibleInterface class is the core interface, and encapsulates         this information in a pure virtual API. Implementations of the interface         are provided by Qt through the queryAccessibleInterface() API.     \endlist      The communication between servers and clients is initialized by     the setRootObject() function. Function pointers can be installed     to replace or extend the default behavior of the static functions     in QAccessible.      Qt supports Microsoft Active Accessibility (MSAA), Mac OS X     Accessibility, and the Unix/X11 AT-SPI standard. Other backends     can be supported using QAccessibleBridge.      In the Unix/X11 AT-SPI implementation, applications become accessible     when two conditions are met:     \list     \li org.a11y.Status.IsEnabled DBus property is true     \li org.a11y.Status.ScreenReaderEnabled DBus property is true     \endlist     An alternative to setting the DBus AT-SPI properties is to set     the QT_LINUX_ACCESSIBILITY_ALWAYS_ON environment variable.      In addition to QAccessible's static functions, Qt offers one     generic interface, QAccessibleInterface, that can be used to wrap     all widgets and objects (e.g., QPushButton). This single     interface provides all the metadata necessary for the assistive     technologies. Qt provides implementations of this interface for     its built-in widgets as plugins.      When you develop custom widgets, you can create custom subclasses     of QAccessibleInterface and distribute them as plugins (using     QAccessiblePlugin) or compile them into the application.     Likewise, Qt's predefined accessibility support can be built as     plugin (the default) or directly into the Qt library. The main     advantage of using plugins is that the accessibility classes are     only loaded into memory if they are actually used; they don't     slow down the common case where no assistive technology is being     used.      Qt also includes two convenience classes, QAccessibleObject and     QAccessibleWidget, that inherit from QAccessibleInterface and     provide the lowest common denominator of metadata (e.g., widget     geometry, window title, basic help text). You can use them as     base classes when wrapping your custom QObject or QWidget     subclasses.      \sa QAccessibleInterface */
 comment|/*!     \class QAccessible::State      \inmodule QtGui      This structure defines bit flags that indicate     the state of an accessible object. The values are:      \value active                  The object is the active window or the active sub-element in a container (that would get focus when focusing the container).     \value adjustable              The object represents an adjustable value, e.g. sliders.     \value animated                The object's appearance changes frequently.     \value busy                    The object cannot accept input at the moment.     \value checkable               The object is checkable.     \value checked                 The object's check box is checked.     \value checkStateMixed         The third state of checkboxes (half checked in tri-state check boxes).     \value collapsed               The object is collapsed, e.g. a closed listview item, or an iconified window.     \value defaultButton           The object represents the default button in a dialog.     \value defunct                 The object no longer exists.     \value editable                The object has a text carret (and often implements the text interface).     \value expandable              The object is expandable, mostly used for cells in a tree view.     \value expanded                The object is expanded, currently its children are visible.     \value extSelectable           The object supports extended selection.     \value focusable               The object can receive focus. Only objects in the active window can receive focus.     \value focused                 The object has keyboard focus.     \value hasPopup                The object opens a popup.     \value hotTracked              The object's appearance is sensitive to the mouse cursor position.     \value invalid                 The object is no longer valid (because it has been deleted).     \value invalidEntry            Input validation current input invalid.     \value invisible               The object is not visible to the user.     \value linked                  The object is linked to another object, e.g. a hyperlink.     \value marqueed                The object displays scrolling contents, e.g. a log view.     \value modal                   The object blocks input from other objects.     \value movable                 The object can be moved.     \value multiLine               The object has multiple lines of text (word wrap), as opposed to a single line.     \value multiSelectable         The object supports multiple selected items.     \value offscreen               The object is clipped by the visible area. Objects that are off screen are also invisible.     \value passwordEdit            The object is a password field, e.g. a line edit for entering a Password.     \value playsSound              The object produces sound when interacted with.     \value pressed                 The object is pressed.     \value readOnly                The object can usually be edited, but is explicitly set to read-only.     \value searchEdit              The object is a line edit that is the input for search queries.     \value selectable              The object is selectable.     \value selectableText          The object has text which can be selected. This is different from selectable which refers to the object's children.     \value selected                The object is selected, this is independent of text selection.     \value selfVoicing             The object describes itself through speech or sound.     \value sizeable                The object can be resized, e.g. top-level windows.     \value summaryElement          The object summarizes the state of the window and should be treated with priority.     \value supportsAutoCompletion  The object has auto-completion, for example in line edits or combo boxes.     \value traversed               The object is linked and has been visited.     \value updatesFrequently       The object changes frequently and needs to be refreshed when accessing it.     \value disabled                The object is unavailable to the user, e.g. a disabled widget.      Implementations of QAccessibleInterface::state() return a combination     of these flags. */
@@ -93,7 +93,15 @@ comment|/*!     \enum QAccessible::RelationFlag      This enum type defines bit 
 comment|/*!     \enum QAccessible::Text      This enum specifies string information that an accessible object     returns.      \value Name         The name of the object. This can be used both                         as an identifier or a short description by                         accessible clients.     \value Description  A short text describing the object.     \value Value        The value of the object.     \value Help         A longer text giving information about how to use the object.     \value Accelerator  The keyboard shortcut that executes the object's default action.     \value UserText     The first value to be used for user defined text.     \omitvalue DebugDescription */
 comment|/*! \enum QAccessible::TextBoundaryType     This enum describes different types of text boundaries. It follows the IAccessible2 API and is used in the \l QAccessibleTextInterface.      \value CharBoundary         Use individual characters as boundary.     \value WordBoundary         Use words as boundaries.     \value SentenceBoundary     Use sentences as boundary.     \value ParagraphBoundary    Use paragraphs as boundary.     \value LineBoundary         Use newlines as boundary.     \value NoBoundary           No boundary (use the whole text).      \sa QAccessibleTextInterface */
 comment|/*!     \enum QAccessible::InterfaceType      \l QAccessibleInterface supports several sub interfaces.     In order to provide more information about some objects, their accessible     representation should implement one or more of these interfaces.      \note When subclassing one of these interfaces, \l QAccessibleInterface::interface_cast() needs to be implemented.      \value TextInterface            For text that supports selections or is more than one line. Simple labels do not need to implement this interface.     \omitvalue EditableTextInterface    For text that can be edited by the user.     \value ValueInterface           For objects that are used to manipulate a value, for example slider or scroll bar.     \value ActionInterface          For interactive objects that allow the user to trigger an action. Basically everything that allows for example mouse interaction.     \omitvalue ImageInterface       For objects that represent an image. This interface is generally less important.     \value TableInterface           For lists, tables and trees.     \value TableCellInterface       For cells in a TableInterface object.      \sa QAccessibleInterface::interface_cast(), QAccessibleTextInterface, QAccessibleValueInterface, QAccessibleActionInterface, QAccessibleTableInterface, QAccessibleTableCellInterface */
-comment|/*!     \fn QAccessibleInterface::~QAccessibleInterface()      Destroys the object. */
+comment|/*!     Destroys the QAccessibleInterface. */
+DECL|function|~QAccessibleInterface
+name|QAccessibleInterface
+operator|::
+name|~
+name|QAccessibleInterface
+operator|(
+operator|)
+block|{ }
 comment|/*!     \typedef QAccessible::Id     \relates QAccessible      Synonym for unsigned, used by the QAccessibleInterface cache. */
 ifndef|#
 directive|ifndef
@@ -104,35 +112,27 @@ directive|ifndef
 name|QT_NO_LIBRARY
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
-name|QFactoryLoader
+argument|QFactoryLoader
 argument_list|,
-name|loader
+argument|loader
 argument_list|,
-operator|(
-name|QAccessibleFactoryInterface_iid
-operator|,
-name|QLatin1String
-argument_list|(
+argument|(QAccessibleFactoryInterface_iid, QLatin1String(
 literal|"/accessible"
-argument_list|)
-operator|)
+argument|))
 argument_list|)
 endif|#
 directive|endif
 comment|// FIXME turn this into one global static struct
 name|Q_GLOBAL_STATIC
 argument_list|(
-name|QList
-argument_list|<
-name|QAccessible
-operator|::
-name|InterfaceFactory
-argument_list|>
+argument|QList<QAccessible::InterfaceFactory>
 argument_list|,
-name|qAccessibleFactories
+argument|qAccessibleFactories
 argument_list|)
-decl|typedef
+end_expr_stmt
+begin_typedef
 DECL|typedef|QAccessiblePluginsHash
+typedef|typedef
 name|QHash
 argument_list|<
 name|QString
@@ -141,8 +141,8 @@ name|QAccessiblePlugin
 modifier|*
 argument_list|>
 name|QAccessiblePluginsHash
-decl_stmt|;
-end_decl_stmt
+typedef|;
+end_typedef
 begin_macro
 name|Q_GLOBAL_STATIC
 argument_list|(
@@ -1849,15 +1849,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_destructor
-DECL|function|~QAccessibleInterface
-name|QAccessibleInterface
-operator|::
-name|~
-name|QAccessibleInterface
-parameter_list|()
-block|{ }
-end_destructor
 begin_comment
 comment|/*!     \fn QAccessibleTextInterface *QAccessibleInterface::textInterface() */
 end_comment
