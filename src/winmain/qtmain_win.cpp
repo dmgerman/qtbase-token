@@ -393,6 +393,11 @@ init|;
 name|i
 operator|<
 name|argc
+operator|&&
+name|argv
+index|[
+name|i
+index|]
 condition|;
 operator|++
 name|i
