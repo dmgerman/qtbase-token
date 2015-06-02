@@ -6016,6 +6016,11 @@ include|#
 directive|include
 file|<QtCore/qnumeric.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qversiontagging.h>
+end_include
 begin_endif
 endif|#
 directive|endif
