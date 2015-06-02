@@ -1485,8 +1485,6 @@ decl_stmt|;
 name|bool
 name|mergeLflags
 init|=
-name|linkPrl
-operator|&&
 operator|!
 name|project
 operator|->
