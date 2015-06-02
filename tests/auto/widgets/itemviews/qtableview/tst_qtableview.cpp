@@ -24587,7 +24587,7 @@ operator|-
 name|horizontalPositon
 argument_list|)
 operator|<
-literal|10
+literal|15
 argument_list|)
 expr_stmt|;
 name|QApplication
@@ -24618,7 +24618,7 @@ operator|-
 name|verticalPosition
 argument_list|)
 operator|<
-literal|10
+literal|15
 argument_list|)
 expr_stmt|;
 block|}
