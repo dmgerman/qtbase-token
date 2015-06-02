@@ -4908,7 +4908,7 @@ block|{
 name|QString
 name|line
 decl_stmt|;
-name|readLine
+name|readLineInto
 argument_list|(
 operator|&
 name|line
@@ -4925,11 +4925,11 @@ begin_comment
 comment|/*!     \since 5.5      Reads one line of text from the stream into \a line.     If \a line is 0, the read line is not stored.      The maximum allowed line length is set to \a maxlen. If     the stream contains lines longer than this, then the lines will be     split after \a maxlen characters and returned in parts.      If \a maxlen is 0, the lines can be of any length.      The resulting line has no trailing end-of-line characters ("\\n"     or "\\r\\n"), so calling QString::trimmed() can be unnecessary.      If \a line has sufficient capacity for the data that is about to be     read, this function may not need to allocate new memory. Because of     this, it can be faster than the other readLine() overload.      Returns \c false if the stream has read to the end of the file or     an error has occurred; otherwise returns \c true. The contents in     \a line before the call are discarded in any case.      \sa readAll(), QIODevice::readLine() */
 end_comment
 begin_function
-DECL|function|readLine
+DECL|function|readLineInto
 name|bool
 name|QTextStream
 operator|::
-name|readLine
+name|readLineInto
 parameter_list|(
 name|QString
 modifier|*
