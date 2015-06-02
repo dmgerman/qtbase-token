@@ -183,6 +183,13 @@ return|return
 name|m_enterKeyType
 return|;
 block|}
+specifier|static
+name|EnterKeyType
+name|qtEnterKeyTypeToQnx
+argument_list|(
+argument|Qt::EnterKeyType type
+argument_list|)
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
