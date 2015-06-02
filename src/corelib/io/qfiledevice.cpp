@@ -810,9 +810,7 @@ condition|(
 operator|!
 name|d
 operator|->
-name|buffer
-operator|.
-name|isEmpty
+name|isBufferEmpty
 argument_list|()
 condition|)
 return|return

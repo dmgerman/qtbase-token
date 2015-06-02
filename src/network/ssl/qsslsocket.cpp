@@ -6834,6 +6834,8 @@ argument_list|(
 name|data
 argument_list|,
 name|maxSize
+argument_list|,
+name|transactionPos
 argument_list|)
 decl_stmt|;
 if|if
@@ -6968,6 +6970,8 @@ name|data
 argument_list|()
 argument_list|,
 name|maxSize
+argument_list|,
+name|transactionPos
 argument_list|)
 argument_list|)
 expr_stmt|;

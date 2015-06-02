@@ -47,7 +47,7 @@ comment|//
 comment|// The required sizes and offsets are tested in tests/auto/other/toolsupport.
 comment|// When this fails and the change was intentional, adjust the test and
 comment|// adjust this value here.
-literal|0
+literal|1
 block|}
 decl_stmt|;
 end_decl_stmt
