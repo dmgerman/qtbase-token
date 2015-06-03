@@ -944,6 +944,10 @@ name|friend
 name|class
 name|QCocoaNativeInterface
 block|;
+name|void
+name|removeMonitor
+argument_list|()
+block|;
 name|NSView
 operator|*
 name|m_contentView
