@@ -2653,6 +2653,47 @@ argument_list|)
 operator|.
 name|flags
 expr_stmt|;
+comment|// Set new/additional flags in case of old library/app.
+comment|// Ensures that older code works in conjunction with new Qt releases
+comment|// requiring the new flags.
+if|if
+condition|(
+name|flags
+operator|!=
+name|previousFlags
+condition|)
+block|{
+name|QCustomTypeInfo
+modifier|&
+name|inf
+init|=
+name|ct
+operator|->
+name|data
+argument_list|()
+index|[
+name|idx
+operator|-
+name|User
+index|]
+decl_stmt|;
+name|inf
+operator|.
+name|flags
+operator||=
+name|flags
+expr_stmt|;
+if|if
+condition|(
+name|metaObject
+condition|)
+name|inf
+operator|.
+name|metaObject
+operator|=
+name|metaObject
+expr_stmt|;
+block|}
 block|}
 block|}
 end_if
@@ -2713,26 +2754,27 @@ expr_stmt|;
 block|}
 end_if
 begin_comment
+comment|// Do not compare types higher than 0x100:
+end_comment
+begin_comment
 comment|// Ignore WasDeclaredAsMetaType inconsitency, to many users were hitting the problem
 end_comment
-begin_expr_stmt
-name|previousFlags
-operator||=
-name|WasDeclaredAsMetaType
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|flags
-operator||=
-name|WasDeclaredAsMetaType
-expr_stmt|;
-end_expr_stmt
+begin_comment
+comment|// Ignore IsGadget as it was added in Qt 5.5
+end_comment
+begin_comment
+comment|// Ignore all the future flags as well
+end_comment
 begin_if
 if|if
 condition|(
+operator|(
 name|previousFlags
-operator|!=
+operator|^
 name|flags
+operator|)
+operator|&
+literal|0xff
 condition|)
 block|{
 specifier|const
