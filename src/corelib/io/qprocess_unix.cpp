@@ -6133,6 +6133,13 @@ name|si_code
 operator|!=
 name|CLD_EXITED
 expr_stmt|;
+operator|delete
+name|deathNotifier
+expr_stmt|;
+name|deathNotifier
+operator|=
+literal|0
+expr_stmt|;
 name|qt_safe_close
 argument_list|(
 name|forkfd
