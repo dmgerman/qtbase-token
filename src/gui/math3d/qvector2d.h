@@ -188,6 +188,7 @@ name|QVector2D
 name|normalized
 argument_list|()
 specifier|const
+name|Q_REQUIRED_RESULT
 expr_stmt|;
 name|void
 name|normalize

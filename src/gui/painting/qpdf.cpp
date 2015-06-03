@@ -1901,6 +1901,7 @@ specifier|static
 specifier|const
 name|char
 modifier|*
+specifier|const
 name|pattern_for_brush
 index|[]
 init|=

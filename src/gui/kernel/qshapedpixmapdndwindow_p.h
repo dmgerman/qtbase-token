@@ -100,7 +100,12 @@ argument_list|)
 block|;
 name|void
 name|updateGeometry
-argument_list|()
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pos
+argument_list|)
 block|;
 name|protected
 operator|:

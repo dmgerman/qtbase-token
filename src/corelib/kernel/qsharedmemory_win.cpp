@@ -689,6 +689,10 @@ name|Q_UNUSED
 argument_list|(
 argument|mode
 argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|permissions
+argument_list|)
 name|memory
 operator|=
 literal|0

@@ -3787,13 +3787,13 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|QLOGGING_HAVE_BACKTRACE
-DECL|member|backtraceDepth
-name|int
-name|backtraceDepth
-decl_stmt|;
 DECL|member|backtraceSeparator
 name|QString
 name|backtraceSeparator
+decl_stmt|;
+DECL|member|backtraceDepth
+name|int
+name|backtraceDepth
 decl_stmt|;
 endif|#
 directive|endif
@@ -3837,17 +3837,17 @@ ifdef|#
 directive|ifdef
 name|QLOGGING_HAVE_BACKTRACE
 member_init_list|,
-name|backtraceDepth
-argument_list|(
-literal|5
-argument_list|)
-member_init_list|,
 name|backtraceSeparator
 argument_list|(
 name|QLatin1Char
 argument_list|(
 literal|'|'
 argument_list|)
+argument_list|)
+member_init_list|,
+name|backtraceDepth
+argument_list|(
+literal|5
 argument_list|)
 endif|#
 directive|endif
@@ -7558,7 +7558,7 @@ begin_comment
 comment|/*!     \fn QtMsgHandler qInstallMsgHandler(QtMsgHandler handler)     \relates<QtGlobal>     \deprecated      Installs a Qt message \a handler which has been defined     previously. This method is deprecated, use qInstallMessageHandler     instead.     \sa QtMsgHandler, qInstallMessageHandler() */
 end_comment
 begin_comment
-comment|/*!     \fn void qSetMessagePattern(const QString&pattern)     \relates<QtGlobal>     \since 5.0      \brief Changes the output of the default message handler.      Allows to tweak the output of qDebug(), qWarning(), qCritical() and qFatal().      Following placeholders are supported:      \table     \header \li Placeholder \li Description     \row \li \c %{appname} \li QCoreApplication::applicationName()     \row \li \c %{category} \li Logging category     \row \li \c %{file} \li Path to source file     \row \li \c %{function} \li Function     \row \li \c %{line} \li Line in source file     \row \li \c %{message} \li The actual message     \row \li \c %{pid} \li QCoreApplication::applicationPid()     \row \li \c %{threadid} \li The system-wide ID of current thread (if it can be obtained)     \row \li \c %{qthreadptr} \li A pointer to the current QThread (result of QThread::currentThread())     \row \li \c %{type} \li "debug", "warning", "critical" or "fatal"     \row \li \c %{time process} \li time of the message, in seconds since the process started (the token "process" is literal)     \row \li \c %{time boot} \li the time of the message, in seconds since the system boot if that         can be determined (the token "boot" is literal). If the time since boot could not be obtained,         the output is indeterminate (see QElapsedTimer::msecsSinceReference()).     \row \li \c %{time [format]} \li system time when the message occurred, formatted by         passing the \c format to \l QDateTime::toString(). If the format is         not specified, the format of Qt::ISODate is used.     \row \li \c{%{backtrace [depth=N] [separator="..."]}} \li A backtrace with the number of frames         specified by the optional \c depth parameter (defaults to 5), and separated by the optional         \c separator parameter (defaults to "|").         This expansion is available only on some platforms (currently only platfoms using glibc).         Names are only known for exported functions. If you want to see the name of every function         in your application, use \c{QMAKE_LFLAGS += -rdynamic}.         When reading backtraces, take into account that frames might be missing due to inlining or         tail call optimization.     \endtable      You can also use conditionals on the type of the message using \c %{if-debug}, \c %{if-info}     \c %{if-warning}, \c %{if-critical} or \c %{if-fatal} followed by an \c %{endif}.     What is inside the \c %{if-*} and \c %{endif} will only be printed if the type matches.      Finally, text inside \c %{if-category} ... \c %{endif} is only printed if the category     is not the default one.      Example:     \code     QT_MESSAGE_PATTERN="[%{time yyyyMMdd h:mm:ss.zzz t} %{if-debug}D{%endif}%{if-info}I%{endif}%{if-warning}W%{endif}%{if-critical}C%{endif}%{if-fatal}F%{endif}] %{file}:%{line} - %{message}"     \endcode      The default \a pattern is "%{if-category}%{category}: %{endif}%{message}".      The \a pattern can also be changed at runtime by setting the QT_MESSAGE_PATTERN     environment variable; if both \l qSetMessagePattern() is called and QT_MESSAGE_PATTERN is     set, the environment variable takes precedence.      Custom message handlers can use qFormatLogMessage() to take \a pattern into account.      \sa qInstallMessageHandler(), {Debugging Techniques}  */
+comment|/*!     \fn void qSetMessagePattern(const QString&pattern)     \relates<QtGlobal>     \since 5.0      \brief Changes the output of the default message handler.      Allows to tweak the output of qDebug(), qWarning(), qCritical() and qFatal().      Following placeholders are supported:      \table     \header \li Placeholder \li Description     \row \li \c %{appname} \li QCoreApplication::applicationName()     \row \li \c %{category} \li Logging category     \row \li \c %{file} \li Path to source file     \row \li \c %{function} \li Function     \row \li \c %{line} \li Line in source file     \row \li \c %{message} \li The actual message     \row \li \c %{pid} \li QCoreApplication::applicationPid()     \row \li \c %{threadid} \li The system-wide ID of current thread (if it can be obtained)     \row \li \c %{qthreadptr} \li A pointer to the current QThread (result of QThread::currentThread())     \row \li \c %{type} \li "debug", "warning", "critical" or "fatal"     \row \li \c %{time process} \li time of the message, in seconds since the process started (the token "process" is literal)     \row \li \c %{time boot} \li the time of the message, in seconds since the system boot if that         can be determined (the token "boot" is literal). If the time since boot could not be obtained,         the output is indeterminate (see QElapsedTimer::msecsSinceReference()).     \row \li \c %{time [format]} \li system time when the message occurred, formatted by         passing the \c format to \l QDateTime::toString(). If the format is         not specified, the format of Qt::ISODate is used.     \row \li \c{%{backtrace [depth=N] [separator="..."]}} \li A backtrace with the number of frames         specified by the optional \c depth parameter (defaults to 5), and separated by the optional         \c separator parameter (defaults to "|").         This expansion is available only on some platforms (currently only platfoms using glibc).         Names are only known for exported functions. If you want to see the name of every function         in your application, use \c{QMAKE_LFLAGS += -rdynamic}.         When reading backtraces, take into account that frames might be missing due to inlining or         tail call optimization.     \endtable      You can also use conditionals on the type of the message using \c %{if-debug}, \c %{if-info}     \c %{if-warning}, \c %{if-critical} or \c %{if-fatal} followed by an \c %{endif}.     What is inside the \c %{if-*} and \c %{endif} will only be printed if the type matches.      Finally, text inside \c %{if-category} ... \c %{endif} is only printed if the category     is not the default one.      Example:     \code     QT_MESSAGE_PATTERN="[%{time yyyyMMdd h:mm:ss.zzz t} %{if-debug}D%{endif}%{if-info}I%{endif}%{if-warning}W%{endif}%{if-critical}C%{endif}%{if-fatal}F%{endif}] %{file}:%{line} - %{message}"     \endcode      The default \a pattern is "%{if-category}%{category}: %{endif}%{message}".      The \a pattern can also be changed at runtime by setting the QT_MESSAGE_PATTERN     environment variable; if both \l qSetMessagePattern() is called and QT_MESSAGE_PATTERN is     set, the environment variable takes precedence.      Custom message handlers can use qFormatLogMessage() to take \a pattern into account.      \sa qInstallMessageHandler(), {Debugging Techniques}  */
 end_comment
 begin_function
 DECL|function|qInstallMessageHandler

@@ -118,6 +118,11 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_decl_stmt
 name|virtual
 name|QPlatformOpenGLContext
@@ -133,6 +138,10 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|virtual
 name|QPlatformOffscreenSurface

@@ -202,9 +202,16 @@ argument|int index
 argument_list|)
 specifier|const
 block|;
-name|QWidget
+name|QRect
+name|clipRect
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|;
+name|void
 operator|*
-name|widget
+name|source
 argument_list|(
 argument|int index
 argument_list|)
@@ -230,11 +237,13 @@ block|;
 name|void
 name|appendTexture
 argument_list|(
-argument|QWidget *widget
+argument|void *source
 argument_list|,
 argument|GLuint textureId
 argument_list|,
 argument|const QRect&geometry
+argument_list|,
+argument|const QRect&clipRect = QRect()
 argument_list|,
 argument|Flags flags =
 literal|0
@@ -360,6 +369,24 @@ name|toImage
 argument_list|()
 specifier|const
 expr_stmt|;
+enum|enum
+name|TextureFlag
+block|{
+name|TextureSwizzle
+init|=
+literal|0x01
+block|,
+name|TextureFlip
+init|=
+literal|0x02
+block|}
+enum|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|TextureFlags
+argument_list|,
+argument|TextureFlag
+argument_list|)
 name|virtual
 name|GLuint
 name|toTexture
@@ -373,9 +400,9 @@ name|QSize
 operator|*
 name|textureSize
 argument_list|,
-name|bool
+name|TextureFlags
 operator|*
-name|needsSwizzle
+name|flags
 argument_list|)
 decl|const
 decl_stmt|;
@@ -446,6 +473,21 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QPlatformBackingStore::TextureFlags
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

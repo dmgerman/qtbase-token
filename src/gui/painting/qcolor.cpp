@@ -1446,7 +1446,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Sets the contents pointed to by \a h, \a s, \a l, and \a a, to the hue,     saturation, lightness, and alpha-channel (transparency) components of the     color's HSL value.      These components can be retrieved individually using the hueHslF(),     saturationHslF(), lightnessF() and alphaF() functions.      \sa setHsl() */
+comment|/*!     \since 4.6      Sets the contents pointed to by \a h, \a s, \a l, and \a a, to the hue,     saturation, lightness, and alpha-channel (transparency) components of the     color's HSL value.      These components can be retrieved individually using the hslHueF(),     hslSaturationF(), lightnessF() and alphaF() functions.      \sa setHsl() */
 end_comment
 begin_function
 DECL|function|getHslF
@@ -1589,7 +1589,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Sets the contents pointed to by \a h, \a s, \a l, and \a a, to the hue,     saturation, lightness, and alpha-channel (transparency) components of the     color's HSL value.      These components can be retrieved individually using the hueHsl(),     saturationHsl(), lightness() and alpha() functions.      \sa setHsl() */
+comment|/*!     \since 4.6      Sets the contents pointed to by \a h, \a s, \a l, and \a a, to the hue,     saturation, lightness, and alpha-channel (transparency) components of the     color's HSL value.      These components can be retrieved individually using the hslHue(),     hslSaturation(), lightness() and alpha() functions.      \sa setHsl() */
 end_comment
 begin_function
 DECL|function|getHsl

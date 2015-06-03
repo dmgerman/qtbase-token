@@ -58,6 +58,7 @@ comment|//#define DEBUG_HEADER
 comment|//#define DEBUG_FONTENGINE
 DECL|variable|tagTypes
 specifier|static
+specifier|const
 name|QFontEngineQPF2
 operator|::
 name|TagType

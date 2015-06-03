@@ -1720,6 +1720,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|uploadByteDevicePosition
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|uploadDeviceChoking
 argument_list|(
 literal|false
@@ -4188,7 +4193,7 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
-comment|// From main thread to user thread:
+comment|// From user thread to http thread:
 name|QObject
 operator|::
 name|connect
@@ -4199,6 +4204,8 @@ name|SIGNAL
 argument_list|(
 name|haveUploadData
 argument_list|(
+name|qint64
+argument_list|,
 name|QByteArray
 argument_list|,
 name|bool
@@ -4213,6 +4220,8 @@ name|SLOT
 argument_list|(
 name|haveDataSlot
 argument_list|(
+name|qint64
+argument_list|,
 name|QByteArray
 argument_list|,
 name|bool
@@ -4291,6 +4300,8 @@ argument_list|(
 name|processedData
 argument_list|(
 name|qint64
+argument_list|,
+name|qint64
 argument_list|)
 argument_list|)
 argument_list|,
@@ -4300,6 +4311,8 @@ name|SLOT
 argument_list|(
 name|sentUploadDataSlot
 argument_list|(
+name|qint64
+argument_list|,
 name|qint64
 argument_list|)
 argument_list|)
@@ -6442,6 +6455,18 @@ operator|->
 name|reset
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|*
+name|r
+condition|)
+block|{
+comment|// reset our own position which is used for the inter-thread communication
+name|uploadByteDevicePosition
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
@@ -6455,15 +6480,44 @@ operator|::
 name|sentUploadDataSlot
 parameter_list|(
 name|qint64
+name|pos
+parameter_list|,
+name|qint64
 name|amount
 parameter_list|)
 block|{
+if|if
+condition|(
+name|uploadByteDevicePosition
+operator|+
+name|amount
+operator|!=
+name|pos
+condition|)
+block|{
+comment|// Sanity check, should not happen.
+name|error
+argument_list|(
+name|QNetworkReply
+operator|::
+name|UnknownNetworkError
+argument_list|,
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|uploadByteDevice
 operator|->
 name|advanceReadPointer
 argument_list|(
 name|amount
 argument_list|)
+expr_stmt|;
+name|uploadByteDevicePosition
+operator|+=
+name|amount
 expr_stmt|;
 block|}
 end_function
@@ -6549,6 +6603,8 @@ name|q
 operator|->
 name|haveUploadData
 argument_list|(
+name|uploadByteDevicePosition
+argument_list|,
 name|dataArray
 argument_list|,
 name|uploadByteDevice

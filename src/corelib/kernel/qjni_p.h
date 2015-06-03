@@ -189,6 +189,9 @@ decl_stmt|;
 name|bool
 name|m_own_jclass
 decl_stmt|;
+name|QByteArray
+name|m_className
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

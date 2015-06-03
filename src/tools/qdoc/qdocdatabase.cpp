@@ -7254,7 +7254,7 @@ name|i
 init|=
 name|m
 operator|->
-name|begin
+name|cbegin
 argument_list|()
 decl_stmt|;
 while|while
@@ -7263,7 +7263,7 @@ name|i
 operator|!=
 name|m
 operator|->
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{

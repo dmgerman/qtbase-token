@@ -925,17 +925,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Dispatch accumulated user events
-if|if
-condition|(
+comment|// Additional user events have to be handled before timer events, but the function may not
+comment|// return yet.
+specifier|const
+name|bool
+name|userEventsSent
+init|=
 name|sendPostedEvents
 argument_list|(
 name|flags
 argument_list|)
-condition|)
-return|return
-literal|true
-return|;
+decl_stmt|;
 emit|emit
 name|aboutToBlock
 argument_list|()
@@ -1091,6 +1091,13 @@ emit|emit
 name|awake
 argument_list|()
 emit|;
+if|if
+condition|(
+name|userEventsSent
+condition|)
+return|return
+literal|true
+return|;
 block|}
 do|while
 condition|(
@@ -2279,7 +2286,9 @@ argument_list|)
 expr_stmt|;
 name|HRESULT
 name|hr
-init|=
+decl_stmt|;
+name|hr
+operator|=
 name|GetActivationFactory
 argument_list|(
 name|HString
@@ -2295,7 +2304,7 @@ argument_list|,
 operator|&
 name|timerFactory
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Q_ASSERT_SUCCEEDED
 argument_list|(
 name|hr

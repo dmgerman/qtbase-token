@@ -203,6 +203,14 @@ ifdef|#
 directive|ifdef
 name|Q_OS_WIN64
 block|{
+name|NET2015
+block|,
+literal|"MSVC.NET 2015 (14.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\14.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
+block|{
 name|NET2013
 block|,
 literal|"MSVC.NET 2013 (12.0)"
@@ -300,6 +308,14 @@ block|}
 block|,
 else|#
 directive|else
+block|{
+name|NET2015
+block|,
+literal|"MSVC.NET 2015 (14.0)"
+block|,
+literal|"Software\\Microsoft\\VisualStudio\\14.0\\Setup\\VC\\ProductDir"
+block|}
+block|,
 block|{
 name|NET2013
 block|,
@@ -802,6 +818,17 @@ index|[]
 init|=
 literal|"Microsoft Visual Studio Solution File, Format Version 12.00"
 literal|"\n# Visual Studio 2013"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|_slnHeader140
+specifier|const
+name|char
+name|_slnHeader140
+index|[]
+init|=
+literal|"Microsoft Visual Studio Solution File, Format Version 12.00"
+literal|"\n# Visual Studio 2015"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -2257,6 +2284,17 @@ return|return
 name|QStringLiteral
 argument_list|(
 literal|"v120"
+argument_list|)
+operator|+
+name|suffix
+return|;
+case|case
+name|NET2015
+case|:
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"v140"
 argument_list|)
 operator|+
 name|suffix
@@ -4118,6 +4156,13 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+case|case
+name|NET2015
+case|:
+name|t
+operator|<<
+name|_slnHeader140
+expr_stmt|;
 case|case
 name|NET2013
 case|:
@@ -6274,6 +6319,16 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+case|case
+name|NET2015
+case|:
+name|vcProject
+operator|.
+name|Version
+operator|=
+literal|"14.00"
+expr_stmt|;
+break|break;
 case|case
 name|NET2013
 case|:

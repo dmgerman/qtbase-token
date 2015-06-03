@@ -93,8 +93,24 @@ name|Q_PROPERTY
 argument_list|(
 argument|QList<QAbstractState*> targetStates READ targetStates WRITE setTargetStates NOTIFY targetStatesChanged
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|TransitionType transitionType READ transitionType WRITE setTransitionType
+argument_list|)
 name|public
 operator|:
+expr|enum
+name|TransitionType
+block|{
+name|ExternalTransition
+block|,
+name|InternalTransition
+block|}
+block|;
+name|Q_ENUM
+argument_list|(
+argument|TransitionType
+argument_list|)
 name|QAbstractTransition
 argument_list|(
 name|QState
@@ -149,6 +165,17 @@ operator|*
 operator|>
 operator|&
 name|targets
+argument_list|)
+block|;
+name|TransitionType
+name|transitionType
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setTransitionType
+argument_list|(
+argument|TransitionType type
 argument_list|)
 block|;
 name|QStateMachine

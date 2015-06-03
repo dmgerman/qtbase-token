@@ -2056,7 +2056,7 @@ argument_list|()
 condition|)
 name|freeData
 argument_list|(
-name|d
+name|p
 argument_list|)
 expr_stmt|;
 name|d

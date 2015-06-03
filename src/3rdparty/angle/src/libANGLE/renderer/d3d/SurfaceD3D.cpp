@@ -863,6 +863,25 @@ name|EGL_SUCCESS
 argument_list|)
 return|;
 block|}
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_ENABLE_WINDOWS_STORE
+argument_list|)
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|ANGLE_ENABLE_WINDOWS_STORE
+argument_list|)
+operator|&&
+name|WINAPI_FAMILY
+operator|==
+name|WINAPI_FAMILY_PC_APP
+operator|)
+comment|// Qt WP: eglPostSubBufferNV comes here
 if|if
 condition|(
 name|x
@@ -895,6 +914,8 @@ operator|-
 name|y
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|width

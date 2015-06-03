@@ -1061,6 +1061,7 @@ decl|static const
 DECL|variable|certificate_blacklist
 name|char
 modifier|*
+decl|const
 name|certificate_blacklist
 index|[]
 init|=

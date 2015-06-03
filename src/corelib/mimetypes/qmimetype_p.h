@@ -116,6 +116,14 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_decl_stmt
+name|bool
+name|loaded
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// QSharedData leaves a 4 byte gap, so don't put 8 byte members first
+end_comment
+begin_decl_stmt
 name|QString
 name|name
 decl_stmt|;
@@ -138,11 +146,6 @@ end_decl_stmt
 begin_decl_stmt
 name|QStringList
 name|globPatterns
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|bool
-name|loaded
 decl_stmt|;
 end_decl_stmt
 begin_macro

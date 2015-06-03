@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ppltasks.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<wrl.h>
 end_include
 begin_include

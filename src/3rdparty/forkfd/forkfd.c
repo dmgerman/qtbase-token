@@ -222,10 +222,10 @@ operator|<=
 literal|1070
 end_if
 begin_define
-DECL|macro|HAVE_BROKEN_WAITID_ALL
+DECL|macro|HAVE_BROKEN_WAITID
 define|#
 directive|define
-name|HAVE_BROKEN_WAITID_ALL
+name|HAVE_BROKEN_WAITID
 value|1
 end_define
 begin_endif
@@ -416,13 +416,13 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|HAVE_BROKEN_WAITID_ALL
+name|HAVE_BROKEN_WAITID
 end_ifdef
 begin_decl_stmt
-DECL|variable|waitid_p_all_works
+DECL|variable|waitid_works
 specifier|static
 name|int
-name|waitid_p_all_works
+name|waitid_works
 init|=
 literal|0
 decl_stmt|;
@@ -432,11 +432,11 @@ else|#
 directive|else
 end_else
 begin_decl_stmt
-DECL|variable|waitid_p_all_works
+DECL|variable|waitid_works
 specifier|static
 specifier|const
 name|int
-name|waitid_p_all_works
+name|waitid_works
 init|=
 literal|1
 decl_stmt|;
@@ -807,6 +807,11 @@ comment|/* reap the child */
 ifdef|#
 directive|ifdef
 name|HAVE_WAITID
+if|if
+condition|(
+name|waitid_works
+condition|)
+block|{
 comment|// we have waitid(2), which fills in siginfo_t for us
 name|info
 operator|->
@@ -836,8 +841,9 @@ name|si_pid
 operator|==
 name|pid
 return|;
-else|#
-directive|else
+block|}
+endif|#
+directive|endif
 name|int
 name|status
 decl_stmt|;
@@ -941,8 +947,6 @@ block|}
 return|return
 literal|1
 return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -1112,7 +1116,7 @@ name|HAVE_WAITID
 if|if
 condition|(
 operator|!
-name|waitid_p_all_works
+name|waitid_works
 condition|)
 goto|goto
 name|search_arrays
@@ -1432,7 +1436,12 @@ continue|continue;
 ifdef|#
 directive|ifdef
 name|HAVE_WAITID
-comment|/* The child might have been reaped by the block above in another thread,              * so first check if it's ready and, if it is, lock it */
+if|if
+condition|(
+name|waitid_works
+condition|)
+block|{
+comment|/* The child might have been reaped by the block above in another thread,                  * so first check if it's ready and, if it is, lock it */
 if|if
 condition|(
 operator|!
@@ -1469,6 +1478,7 @@ name|FFD_ATOMIC_RELAXED
 argument_list|)
 condition|)
 continue|continue;
+block|}
 endif|#
 directive|endif
 if|if
@@ -1576,7 +1586,12 @@ continue|continue;
 ifdef|#
 directive|ifdef
 name|HAVE_WAITID
-comment|/* The child might have been reaped by the block above in another thread,                  * so first check if it's ready and, if it is, lock it */
+if|if
+condition|(
+name|waitid_works
+condition|)
+block|{
+comment|/* The child might have been reaped by the block above in another thread,                      * so first check if it's ready and, if it is, lock it */
 if|if
 condition|(
 operator|!
@@ -1613,6 +1628,7 @@ name|FFD_ATOMIC_RELAXED
 argument_list|)
 condition|)
 continue|continue;
+block|}
 endif|#
 directive|endif
 if|if
@@ -1705,7 +1721,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|HAVE_BROKEN_WAITID_ALL
+name|HAVE_BROKEN_WAITID
 argument_list|)
 name|pid_t
 name|pid
@@ -1751,7 +1767,7 @@ operator||
 name|WEXITED
 argument_list|)
 expr_stmt|;
-name|waitid_p_all_works
+name|waitid_works
 operator|=
 operator|(
 name|info
@@ -1760,6 +1776,12 @@ name|si_pid
 operator|!=
 literal|0
 operator|)
+expr_stmt|;
+name|info
+operator|.
+name|si_pid
+operator|=
+literal|0
 expr_stmt|;
 comment|// now really reap the child
 name|waitid
@@ -1773,6 +1795,18 @@ name|info
 argument_list|,
 name|WEXITED
 argument_list|)
+expr_stmt|;
+name|waitid_works
+operator|=
+name|waitid_works
+operator|&&
+operator|(
+name|info
+operator|.
+name|si_pid
+operator|!=
+literal|0
+operator|)
 expr_stmt|;
 block|}
 endif|#

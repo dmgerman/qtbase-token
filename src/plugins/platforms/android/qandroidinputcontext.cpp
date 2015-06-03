@@ -785,6 +785,16 @@ name|text
 expr_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+name|text
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 return|return
 name|env
 operator|->

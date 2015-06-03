@@ -178,6 +178,7 @@ name|QPixmap
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(
@@ -201,6 +202,7 @@ name|swap
 argument_list|(
 argument|QPixmap&other
 argument_list|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(

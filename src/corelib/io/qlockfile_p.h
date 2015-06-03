@@ -159,6 +159,14 @@ name|isApparentlyStale
 argument_list|()
 specifier|const
 expr_stmt|;
+specifier|static
+name|QString
+name|processNameByPid
+parameter_list|(
+name|qint64
+name|pid
+parameter_list|)
+function_decl|;
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX

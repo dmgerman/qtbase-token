@@ -1211,6 +1211,7 @@ name|FormattingOptions
 name|options
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|QByteArray
 name|toEncoded
@@ -1570,6 +1571,7 @@ operator|&
 name|relative
 argument_list|)
 decl|const
+name|Q_REQUIRED_RESULT
 decl_stmt|;
 name|bool
 name|isRelative

@@ -339,7 +339,7 @@ argument_list|()
 else|:
 name|picturesLocations
 operator|.
-name|first
+name|last
 argument_list|()
 argument_list|)
 decl_stmt|;

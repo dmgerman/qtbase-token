@@ -8484,7 +8484,7 @@ begin_comment
 comment|/*! \fn bool QString::operator<(const char *other) const      Returns \c true if this string is lexically less than string \a other.     Otherwise returns \c false.      \overload operator<()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator<=(const QString&s1, const QString&s2)      Returns \c true if string \a s1 is lexically less than or equal to     string \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool QString::operator<=(const QString&s1, const QString&s2)      \relates Qstring      Returns \c true if string \a s1 is lexically less than or equal to     string \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator<=(QLatin1String other) const      Returns \c true if this string is lexically less than or equal to     parameter string \a other. Otherwise returns \c false.      \overload operator<=() */
@@ -8496,7 +8496,7 @@ begin_comment
 comment|/*! \fn bool QString::operator<=(const char *other) const      \overload operator<=()      The \a other const char pointer is converted to a QString using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator>(const QString&s1, const QString&s2)      Returns \c true if string \a s1 is lexically greater than string \a     s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool QString::operator>(const QString&s1, const QString&s2)     \relates QString      Returns \c true if string \a s1 is lexically greater than string \a s2;     otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!    \overload operator>()    \relates QString     Returns \c true if this string is lexically greater than the parameter     string \a other; otherwise returns \c false. */
@@ -26273,6 +26273,24 @@ comment|/*!     \fn QStringRef&QStringRef::operator=(const QStringRef&other)    
 end_comment
 begin_comment
 comment|/*!     \fn QStringRef&QStringRef::operator=(const QString *string)      Constructs a string reference to the given \a string and assigns it to     this string reference, returning the result. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QStringRef::operator==(const char * s) const      \overload operator==()      The \a s byte array is converted to a QStringRef using the     fromUtf8() function. This function stops conversion at the     first NUL character found, or the end of the byte array.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example.      Returns \c true if this string is lexically equal to the parameter     string \a s. Otherwise returns \c false.  */
+end_comment
+begin_comment
+comment|/*!     \fn bool QStringRef::operator!=(const char * s) const      \overload operator!=()      The \a s const char pointer is converted to a QStringRef using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example.      Returns \c true if this string is not lexically equal to the parameter     string \a s. Otherwise returns \c false. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QStringRef::operator<(const char * s) const      \overload operator<()      The \a s const char pointer is converted to a QStringRef using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example.      Returns \c true if this string is lexically smaller than the parameter     string \a s. Otherwise returns \c false. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QStringRef::operator<=(const char * s) const      \overload operator<=()      The \a s const char pointer is converted to a QStringRef using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example.      Returns \c true if this string is lexically smaller than or equal to the parameter     string \a s. Otherwise returns \c false. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QStringRef::operator>(const char * s) const       \overload operator>()      The \a s const char pointer is converted to a QStringRef using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example.      Returns \c true if this string is lexically greater than the parameter     string \a s. Otherwise returns \c false. */
+end_comment
+begin_comment
+comment|/*!     \fn bool QStringRef::operator>= (const char * s) const      \overload operator>=()      The \a s const char pointer is converted to a QStringRef using     the fromUtf8() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example.      Returns \c true if this string is lexically greater than or equal to the     parameter string \a s. Otherwise returns \c false. */
 end_comment
 begin_comment
 comment|/*!     \typedef QString::Data     \internal */

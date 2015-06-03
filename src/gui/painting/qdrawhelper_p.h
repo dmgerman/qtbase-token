@@ -7605,6 +7605,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|extern
+specifier|const
 name|FetchPixelsFunc
 name|qFetchPixels
 index|[
@@ -7616,6 +7617,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|extern
+specifier|const
 name|StorePixelsFunc
 name|qStorePixels
 index|[

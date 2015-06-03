@@ -58,7 +58,11 @@ name|parseBlackList
 parameter_list|()
 function_decl|;
 name|void
-name|checkBlackList
+name|parseGpuBlackList
+parameter_list|()
+function_decl|;
+name|void
+name|checkBlackLists
 parameter_list|(
 specifier|const
 name|char

@@ -411,14 +411,14 @@ name|iter
 init|=
 name|faces
 operator|.
-name|begin
+name|cbegin
 argument_list|()
 init|;
 name|iter
 operator|!=
 name|faces
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|;
 operator|++

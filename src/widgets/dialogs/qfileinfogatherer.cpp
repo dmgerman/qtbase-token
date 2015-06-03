@@ -645,6 +645,13 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 block|}

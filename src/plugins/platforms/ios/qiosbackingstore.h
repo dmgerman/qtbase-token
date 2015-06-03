@@ -26,6 +26,18 @@ name|QOpenGLPaintDevice
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QOpenGLFramebufferObject
+name|class
+name|QOpenGLFramebufferObject
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QOffscreenSurface
+name|class
+name|QOffscreenSurface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QIOSBackingStore
 range|:
@@ -59,6 +71,10 @@ operator|&
 argument_list|)
 block|;
 name|void
+name|endPaint
+argument_list|()
+block|;
+name|void
 name|flush
 argument_list|(
 name|QWindow
@@ -90,6 +106,21 @@ operator|&
 name|staticContents
 argument_list|)
 block|;
+name|GLuint
+name|toTexture
+argument_list|(
+argument|const QRegion&dirtyRegion
+argument_list|,
+argument|QSize *textureSize
+argument_list|,
+argument|TextureFlags *flags
+argument_list|)
+specifier|const
+block|;
+name|void
+name|makeCurrent
+argument_list|()
+block|;
 name|private
 operator|:
 name|QOpenGLContext
@@ -99,6 +130,14 @@ block|;
 name|QOpenGLPaintDevice
 operator|*
 name|m_device
+block|;
+name|QOpenGLFramebufferObject
+operator|*
+name|m_fbo
+block|;
+name|QOffscreenSurface
+operator|*
+name|m_surface
 block|; }
 decl_stmt|;
 end_decl_stmt

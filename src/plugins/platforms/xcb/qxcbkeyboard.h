@@ -141,6 +141,18 @@ argument_list|(
 argument|quint16 state
 argument_list|)
 block|;
+name|void
+name|updateXKBStateFromXI
+argument_list|(
+name|void
+operator|*
+name|modInfo
+argument_list|,
+name|void
+operator|*
+name|groupInfo
+argument_list|)
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_XKB

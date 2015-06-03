@@ -426,7 +426,7 @@ operator|::
 name|PrinterState
 name|state
 block|;
-name|QSharedDataPointer
+name|QSharedPointer
 operator|<
 name|QCocoaPrintDevice
 operator|>

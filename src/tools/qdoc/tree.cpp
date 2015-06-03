@@ -6076,7 +6076,7 @@ name|i
 init|=
 name|m
 operator|->
-name|find
+name|constFind
 argument_list|(
 name|name
 argument_list|)
@@ -6087,7 +6087,7 @@ name|i
 operator|!=
 name|m
 operator|->
-name|end
+name|cend
 argument_list|()
 condition|)
 return|return
@@ -6149,7 +6149,7 @@ name|i
 init|=
 name|m
 operator|->
-name|find
+name|constFind
 argument_list|(
 name|name
 argument_list|)
@@ -6160,7 +6160,7 @@ name|i
 operator|!=
 name|m
 operator|->
-name|end
+name|cend
 argument_list|()
 condition|)
 return|return

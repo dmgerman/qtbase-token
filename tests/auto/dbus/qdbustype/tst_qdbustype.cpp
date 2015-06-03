@@ -318,6 +318,34 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|DBUS_TYPE_UNIX_FD_AS_STRING
+ifndef|#
+directive|ifndef
+name|QT_LINKED_LIBDBUS
+comment|// We have got the macro from dbus_minimal_p.h, so we need to check if
+comment|// the library recognizes this as valid type first.
+comment|// The following function was added for Unix FD support, so if it is
+comment|// present, so is support for Unix FDs.
+name|bool
+name|supportsUnixFds
+init|=
+name|qdbus_resolve_conditionally
+argument_list|(
+literal|"dbus_connection_can_send_type"
+argument_list|)
+decl_stmt|;
+else|#
+directive|else
+name|bool
+name|supportsUnixFds
+init|=
+literal|true
+decl_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|supportsUnixFds
+condition|)
 name|QTest
 operator|::
 name|newRow

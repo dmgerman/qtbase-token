@@ -3683,7 +3683,7 @@ argument_list|()
 operator||
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsUserTristate
 argument_list|)
 expr_stmt|;
 name|QListWidgetItem
@@ -3722,7 +3722,7 @@ argument_list|()
 operator|&
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsUserTristate
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -3758,7 +3758,7 @@ argument_list|()
 operator|&
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsUserTristate
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3797,7 +3797,7 @@ argument_list|()
 operator|&
 name|Qt
 operator|::
-name|ItemIsTristate
+name|ItemIsUserTristate
 argument_list|)
 expr_stmt|;
 block|}

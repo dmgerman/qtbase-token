@@ -1703,6 +1703,8 @@ literal|"benchlibeventcounter"
 operator|<<
 literal|"benchliboptions"
 operator|<<
+literal|"blacklisted"
+operator|<<
 literal|"cmptest"
 operator|<<
 literal|"commandlinedata"
@@ -2094,6 +2096,15 @@ if|if
 condition|(
 name|subtest
 operator|==
+literal|"blacklisted"
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+name|subtest
+operator|==
 literal|"printdatatags"
 condition|)
 block|{
@@ -2244,6 +2255,13 @@ operator|==
 name|QLatin1String
 argument_list|(
 literal|"silent"
+argument_list|)
+operator|||
+name|subtest
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"blacklisted"
 argument_list|)
 decl_stmt|;
 name|QTest
@@ -2940,6 +2958,14 @@ argument_list|)
 ifdef|#
 directive|ifdef
 name|Q_CC_MINGW
+operator|&&
+name|subdir
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"blacklisted"
+argument_list|)
+comment|// calls qFatal()
 operator|&&
 name|subdir
 operator|!=

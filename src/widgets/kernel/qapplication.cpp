@@ -18740,11 +18740,22 @@ modifier|*
 name|device
 parameter_list|,
 specifier|const
-name|QPointF
+name|QTouchEvent
+operator|::
+name|TouchPoint
 modifier|&
-name|screenPos
+name|touchPoint
 parameter_list|)
 block|{
+specifier|const
+name|QPointF
+name|screenPos
+init|=
+name|touchPoint
+operator|.
+name|screenPos
+argument_list|()
+decl_stmt|;
 name|int
 name|closestTouchPointId
 init|=
@@ -18804,6 +18815,18 @@ operator|.
 name|device
 operator|==
 name|device
+operator|&&
+name|it
+operator|.
+name|key
+argument_list|()
+operator|.
+name|touchPointId
+operator|!=
+name|touchPoint
+operator|.
+name|id
+argument_list|()
 condition|)
 block|{
 specifier|const
@@ -19185,9 +19208,6 @@ argument_list|(
 name|device
 argument_list|,
 name|touchPoint
-operator|.
-name|screenPos
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|QWidget
@@ -19285,7 +19305,7 @@ ifdef|#
 directive|ifdef
 name|Q_OS_OSX
 comment|// Single-touch events are normally not sent unless WA_TouchPadAcceptSingleTouchEvents is set.
-comment|// In Qt 4 this check was in OS X-only coode. That behavior is preserved here by the #ifdef.
+comment|// In Qt 4 this check was in OS X-only code. That behavior is preserved here by the #ifdef.
 if|if
 condition|(
 name|touchPoints
@@ -19294,6 +19314,15 @@ name|count
 argument_list|()
 operator|==
 literal|1
+operator|&&
+name|device
+operator|->
+name|type
+argument_list|()
+operator|==
+name|QTouchDevice
+operator|::
+name|TouchPad
 operator|&&
 operator|!
 name|targetWidget
@@ -19395,8 +19424,11 @@ operator|++
 name|it
 control|)
 block|{
+specifier|const
+name|QPointer
+argument_list|<
 name|QWidget
-modifier|*
+argument_list|>
 name|widget
 init|=
 name|it
@@ -19585,6 +19617,14 @@ name|accepted
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|widget
+operator|.
+name|isNull
+argument_list|()
+condition|)
 name|widget
 operator|->
 name|setAttribute

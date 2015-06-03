@@ -442,7 +442,6 @@ argument|void
 argument_list|)
 end_macro
 begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
 name|namespace
 name|Microsoft
 block|{
@@ -461,6 +460,7 @@ block|}
 block|}
 end_decl_stmt
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QWinRTFunctions
 block|{

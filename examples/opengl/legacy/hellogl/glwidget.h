@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QGLWidget>
 end_include
+begin_include
+include|#
+directive|include
+file|<QOpenGLFunctions_1_1>
+end_include
 begin_decl_stmt
 DECL|variable|QtLogo
 name|class
@@ -28,15 +33,19 @@ begin_comment
 comment|//! [0]
 end_comment
 begin_decl_stmt
+DECL|variable|QGLWidget
 name|class
 name|GLWidget
 range|:
 name|public
 name|QGLWidget
+decl_stmt|,
+name|public
+name|QOpenGLFunctions_1_1
 block|{
 name|Q_OBJECT
 name|public
-operator|:
+range|:
 name|GLWidget
 argument_list|(
 name|QWidget
@@ -45,131 +54,145 @@ name|parent
 operator|=
 literal|0
 argument_list|)
-block|;
+decl_stmt|;
 operator|~
 name|GLWidget
 argument_list|()
-block|;
+expr_stmt|;
 name|QSize
 name|minimumSizeHint
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
-block|;
+expr_stmt|;
 name|QSize
 name|sizeHint
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
-block|;
+expr_stmt|;
 comment|//! [0]
 comment|//! [1]
 name|public
 name|slots
-operator|:
+range|:
 name|void
 name|setXRotation
 argument_list|(
 argument|int angle
 argument_list|)
-block|;
+decl_stmt|;
 name|void
 name|setYRotation
-argument_list|(
-argument|int angle
-argument_list|)
-block|;
+parameter_list|(
+name|int
+name|angle
+parameter_list|)
+function_decl|;
 name|void
 name|setZRotation
-argument_list|(
-argument|int angle
-argument_list|)
-block|;
+parameter_list|(
+name|int
+name|angle
+parameter_list|)
+function_decl|;
 name|signals
-operator|:
+label|:
 name|void
 name|xRotationChanged
-argument_list|(
-argument|int angle
-argument_list|)
-block|;
+parameter_list|(
+name|int
+name|angle
+parameter_list|)
+function_decl|;
 name|void
 name|yRotationChanged
-argument_list|(
-argument|int angle
-argument_list|)
-block|;
+parameter_list|(
+name|int
+name|angle
+parameter_list|)
+function_decl|;
 name|void
 name|zRotationChanged
-argument_list|(
-argument|int angle
-argument_list|)
-block|;
+parameter_list|(
+name|int
+name|angle
+parameter_list|)
+function_decl|;
 comment|//! [1]
 comment|//! [2]
 name|protected
-operator|:
+label|:
 name|void
 name|initializeGL
 argument_list|()
 name|Q_DECL_OVERRIDE
-block|;
+expr_stmt|;
 name|void
 name|paintGL
 argument_list|()
 name|Q_DECL_OVERRIDE
-block|;
+expr_stmt|;
 name|void
 name|resizeGL
 argument_list|(
-argument|int width
+name|int
+name|width
 argument_list|,
-argument|int height
+name|int
+name|height
 argument_list|)
 name|Q_DECL_OVERRIDE
-block|;
+decl_stmt|;
 name|void
 name|mousePressEvent
 argument_list|(
-argument|QMouseEvent *event
+name|QMouseEvent
+operator|*
+name|event
 argument_list|)
 name|Q_DECL_OVERRIDE
-block|;
+decl_stmt|;
 name|void
 name|mouseMoveEvent
 argument_list|(
-argument|QMouseEvent *event
+name|QMouseEvent
+operator|*
+name|event
 argument_list|)
 name|Q_DECL_OVERRIDE
-block|;
+decl_stmt|;
 comment|//! [2]
 comment|//! [3]
 name|private
-operator|:
+label|:
 name|QtLogo
-operator|*
+modifier|*
 name|logo
-block|;
+decl_stmt|;
 name|int
 name|xRot
-block|;
+decl_stmt|;
 name|int
 name|yRot
-block|;
+decl_stmt|;
 name|int
 name|zRot
-block|;
+decl_stmt|;
 name|QPoint
 name|lastPos
-block|;
+decl_stmt|;
 name|QColor
 name|qtGreen
-block|;
+decl_stmt|;
 name|QColor
 name|qtPurple
-block|; }
 decl_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
 comment|//! [3]
 end_comment

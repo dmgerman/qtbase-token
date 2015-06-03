@@ -56,6 +56,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QMutex>
+end_include
+begin_include
+include|#
+directive|include
 file|"QtNetwork/qhostaddress.h"
 end_include
 begin_include

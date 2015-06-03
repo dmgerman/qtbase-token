@@ -787,7 +787,7 @@ directive|else
 name|QString
 name|s
 decl_stmt|;
-name|int
+name|size_t
 name|size
 init|=
 name|mbstowcs
@@ -857,7 +857,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0

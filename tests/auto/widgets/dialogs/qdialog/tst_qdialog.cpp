@@ -2874,6 +2874,20 @@ argument_list|(
 name|startingPos
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_OSX
+comment|// On OS X we use CGEventPost to move the cursor, it needs at least
+comment|// some time before the event handled and the position really set.
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|QCursor

@@ -2946,6 +2946,32 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// Can't fetch this *after* emitting clicked, as clicked may destroy the button
+comment|// or change its role. Now changing the role is not possible yet, but arguably
+comment|// both clicked and accepted/rejected/etc. should be emitted "atomically"
+comment|// depending on whatever role the button had at the time of the click.
+specifier|const
+name|QDialogButtonBox
+operator|::
+name|ButtonRole
+name|buttonRole
+init|=
+name|q
+operator|->
+name|buttonRole
+argument_list|(
+name|button
+argument_list|)
+decl_stmt|;
+name|QPointer
+argument_list|<
+name|QDialogButtonBox
+argument_list|>
+name|guard
+argument_list|(
+name|q
+argument_list|)
+decl_stmt|;
 emit|emit
 name|q
 operator|->
@@ -2954,14 +2980,15 @@ argument_list|(
 name|button
 argument_list|)
 emit|;
+if|if
+condition|(
+operator|!
+name|guard
+condition|)
+return|return;
 switch|switch
 condition|(
-name|q
-operator|->
 name|buttonRole
-argument_list|(
-name|button
-argument_list|)
 condition|)
 block|{
 case|case

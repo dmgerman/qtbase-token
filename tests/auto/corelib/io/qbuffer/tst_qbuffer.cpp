@@ -661,7 +661,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::read: WriteOnly device"
+literal|"QIODevice::read (QBuffer): WriteOnly device"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

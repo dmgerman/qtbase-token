@@ -1059,6 +1059,7 @@ end_comment
 begin_decl_stmt
 DECL|variable|qpaintengineex_ellipse_types
 specifier|static
+specifier|const
 name|QPainterPath
 operator|::
 name|ElementType
@@ -1123,6 +1124,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|qpaintengineex_line_types_16
 specifier|static
+specifier|const
 name|QPainterPath
 operator|::
 name|ElementType
@@ -1263,6 +1265,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|qpaintengineex_rect4_types_32
 specifier|static
+specifier|const
 name|QPainterPath
 operator|::
 name|ElementType
@@ -1820,6 +1823,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|qpaintengineex_roundedrect_types
 specifier|static
+specifier|const
 name|QPainterPath
 operator|::
 name|ElementType

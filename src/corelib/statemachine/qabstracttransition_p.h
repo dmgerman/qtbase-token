@@ -152,6 +152,11 @@ operator|>
 expr|>
 name|targetStates
 block|;
+name|QAbstractTransition
+operator|::
+name|TransitionType
+name|transitionType
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ANIMATION

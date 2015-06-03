@@ -42,7 +42,7 @@ name|Q_OBJECT
 name|Q_PLUGIN_METADATA
 argument_list|(
 name|IID
-literal|"org.qt-project.QPlatformPrinterSupportFactoryInterface"
+name|QPlatformPrinterSupportFactoryInterface_iid
 name|FILE
 literal|"cocoa.json"
 argument_list|)

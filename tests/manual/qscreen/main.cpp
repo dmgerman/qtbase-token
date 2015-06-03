@@ -67,6 +67,11 @@ include|#
 directive|include
 file|<QLineEdit>
 end_include
+begin_include
+include|#
+directive|include
+file|<QDesktopWidget>
+end_include
 begin_class
 DECL|class|ScreenPropertyWatcher
 class|class
@@ -823,22 +828,59 @@ argument_list|(
 name|screen
 argument_list|)
 decl_stmt|;
-comment|// This doesn't work.  If the multiple screens are part of
-comment|// a virtual desktop (i.e. they are virtual siblings), then
-comment|// setScreen has no effect, and we need the code below to
-comment|// change the window geometry.  If on the other hand the
-comment|// screens are really separate, so that windows are not
-comment|// portable between them, XCreateWindow needs to have not just
-comment|// a different root Window but also a different Display, in order to
-comment|// put the window on the other screen.  That would require a
-comment|// different QXcbConnection.  So this setScreen call doesn't seem useful.
-comment|//w->windowHandle()->setScreen(screen);
-comment|// But this works as long as the screens are all virtual siblings
+comment|// Set the screen via QDesktopWidget. This corresponds to setScreen() for the underlying
+comment|// QWindow. This is essential when having separate X screens since the the positioning below is
+comment|// not sufficient to get the windows show up on the desired screen.
+name|QList
+argument_list|<
+name|QScreen
+modifier|*
+argument_list|>
+name|screens
+init|=
+name|QGuiApplication
+operator|::
+name|screens
+argument_list|()
+decl_stmt|;
+name|int
+name|screenNumber
+init|=
+name|screens
+operator|.
+name|indexOf
+argument_list|(
+name|screen
+argument_list|)
+decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|screenNumber
+operator|>=
+literal|0
+argument_list|)
+expr_stmt|;
+name|w
+operator|->
+name|setParent
+argument_list|(
+name|qApp
+operator|->
+name|desktop
+argument_list|()
+operator|->
+name|screen
+argument_list|(
+name|screenNumber
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|w
 operator|->
 name|show
 argument_list|()
 expr_stmt|;
+comment|// Position the windows so that they end up at the center of the corresponding screen.
 name|QRect
 name|geom
 init|=

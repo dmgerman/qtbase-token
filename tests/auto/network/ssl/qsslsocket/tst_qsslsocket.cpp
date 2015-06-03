@@ -1585,14 +1585,14 @@ name|char
 name|readNotOpenMessage
 index|[]
 init|=
-literal|"QIODevice::read: device not open"
+literal|"QIODevice::read (QSslSocket): device not open"
 decl_stmt|;
 specifier|const
 name|char
 name|writeNotOpenMessage
 index|[]
 init|=
-literal|"QIODevice::write: device not open"
+literal|"QIODevice::write (QSslSocket): device not open"
 decl_stmt|;
 if|if
 condition|(
@@ -1938,7 +1938,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::readLine: Called with maxSize< 2"
+literal|"QIODevice::readLine (QSslSocket): Called with maxSize< 2"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1992,7 +1992,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::seek: Cannot call seek on a sequential device"
+literal|"QIODevice::seek (QSslSocket): Cannot call seek on a sequential device"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -2010,7 +2010,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::seek: Cannot call seek on a sequential device"
+literal|"QIODevice::seek (QSslSocket): Cannot call seek on a sequential device"
 argument_list|)
 expr_stmt|;
 name|QVERIFY

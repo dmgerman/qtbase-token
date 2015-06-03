@@ -1835,6 +1835,10 @@ name|false
 decl_stmt|;
 name|cell_length
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 name|th_next_cell
 argument_list|(
 operator|(
@@ -1855,6 +1859,7 @@ operator|&
 name|tis_cell
 argument_list|,
 name|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/* !item->fixedPitch); */
@@ -2890,6 +2895,10 @@ condition|)
 block|{
 name|cell_length
 operator|=
+call|(
+name|hb_uint32
+call|)
+argument_list|(
 name|th_next_cell
 argument_list|(
 operator|(
@@ -2910,6 +2919,7 @@ operator|&
 name|tis_cell
 argument_list|,
 name|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|attributes

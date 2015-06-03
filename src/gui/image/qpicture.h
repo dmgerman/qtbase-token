@@ -215,6 +215,7 @@ name|QPicture
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(
@@ -238,6 +239,7 @@ name|swap
 argument_list|(
 argument|QPicture&other
 argument_list|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|d_ptr
 operator|.

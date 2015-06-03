@@ -64,6 +64,13 @@ name|isActive
 argument_list|()
 return|;
 block|}
+name|void
+name|resizeEvent
+argument_list|(
+name|QResizeEvent
+operator|*
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
