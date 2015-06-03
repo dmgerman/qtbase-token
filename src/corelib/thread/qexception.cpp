@@ -37,6 +37,13 @@ name|~
 name|QException
 operator|(
 operator|)
+ifndef|#
+directive|ifndef
+name|Q_COMPILER_NOEXCEPT
+throw|throw
+argument_list|()
+endif|#
+directive|endif
 block|{
 comment|// must stay empty until ### Qt 6
 block|}
@@ -85,6 +92,13 @@ operator|::
 name|~
 name|QUnhandledException
 parameter_list|()
+ifndef|#
+directive|ifndef
+name|Q_COMPILER_NOEXCEPT
+throw|throw
+argument_list|()
+endif|#
+directive|endif
 block|{
 comment|// must stay empty until ### Qt 6
 block|}
