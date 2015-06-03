@@ -3147,6 +3147,15 @@ name|xi2MouseEvents
 argument_list|()
 operator|&&
 name|eventListener
+operator|&&
+operator|!
+operator|(
+name|xiDeviceEvent
+operator|->
+name|flags
+operator|&
+name|XIPointerEmulated
+operator|)
 condition|)
 name|eventListener
 operator|->
