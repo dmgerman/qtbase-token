@@ -391,6 +391,11 @@ name|c
 argument_list|,
 name|qint64
 name|maxLength
+argument_list|,
+name|qint64
+name|pos
+operator|=
+literal|0
 argument_list|)
 decl|const
 decl_stmt|;
