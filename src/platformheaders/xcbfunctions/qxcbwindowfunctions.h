@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qxcbfunctionshelper.h"
+file|<QtPlatformHeaders/QPlatformHeaderHelper>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -143,7 +143,7 @@ name|type
 parameter_list|)
 block|{
 return|return
-name|QXcbFunctionsHelper
+name|QPlatformHeaderHelper
 operator|::
 name|callPlatformFunction
 operator|<
@@ -211,7 +211,7 @@ name|text
 parameter_list|)
 block|{
 return|return
-name|QXcbFunctionsHelper
+name|QPlatformHeaderHelper
 operator|::
 name|callPlatformFunction
 operator|<
@@ -273,7 +273,7 @@ name|window
 parameter_list|)
 block|{
 return|return
-name|QXcbFunctionsHelper
+name|QPlatformHeaderHelper
 operator|::
 name|callPlatformFunction
 operator|<
@@ -330,7 +330,7 @@ name|window
 parameter_list|)
 block|{
 return|return
-name|QXcbFunctionsHelper
+name|QPlatformHeaderHelper
 operator|::
 name|callPlatformFunction
 operator|<
@@ -387,7 +387,7 @@ name|window
 parameter_list|)
 block|{
 return|return
-name|QXcbFunctionsHelper
+name|QPlatformHeaderHelper
 operator|::
 name|callPlatformFunction
 operator|<

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qxcbfunctionshelper.h"
+file|<QtPlatformHeaders/QPlatformHeaderHelper>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -52,7 +52,7 @@ name|xEmbedSystemTrayVisualHasAlphaChannel
 parameter_list|()
 block|{
 return|return
-name|QXcbFunctionsHelper
+name|QPlatformHeaderHelper
 operator|::
 name|callPlatformFunction
 operator|<
