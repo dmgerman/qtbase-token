@@ -142,6 +142,14 @@ argument_list|)
 block|;
 endif|#
 directive|endif
+name|QFunctionPointer
+name|platformFunction
+argument_list|(
+argument|const QByteArray&function
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|public
 name|Q_SLOTS
 operator|:
