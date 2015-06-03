@@ -340,6 +340,15 @@ operator|*
 name|node
 argument_list|)
 block|;
+name|void
+name|generateAssociatedPropertyNotes
+argument_list|(
+specifier|const
+name|FunctionNode
+operator|*
+name|fn
+argument_list|)
+block|;
 name|private
 operator|:
 expr|enum

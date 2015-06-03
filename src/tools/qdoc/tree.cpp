@@ -1294,7 +1294,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   Inserts function name \a funcName and function role \a funcRole into   the property function map for the specified \a property.  */
 end_comment
 begin_function
 DECL|function|addPropertyFunction
