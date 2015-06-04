@@ -286,6 +286,7 @@ name|delay
 operator|>
 literal|0
 condition|)
+block|{
 name|QTest
 operator|::
 name|qWait
@@ -293,6 +294,11 @@ argument_list|(
 name|delay
 argument_list|)
 expr_stmt|;
+name|lastMouseTimestamp
+operator|+=
+name|delay
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|pos
@@ -378,6 +384,7 @@ name|button
 argument_list|,
 name|stateKey
 argument_list|,
+operator|++
 name|lastMouseTimestamp
 argument_list|)
 expr_stmt|;
