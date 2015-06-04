@@ -9745,6 +9745,32 @@ literal|""
 operator|<<
 literal|""
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"same path 1"
+argument_list|)
+operator|<<
+literal|"/tmp"
+operator|<<
+literal|"/tmp"
+operator|<<
+literal|"."
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"same path 2"
+argument_list|)
+operator|<<
+literal|"//tmp"
+operator|<<
+literal|"/tmp/"
+operator|<<
+literal|"."
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -9848,7 +9874,7 @@ literal|"C:"
 operator|<<
 literal|"C:"
 operator|<<
-literal|""
+literal|"."
 expr_stmt|;
 name|QTest
 operator|::
@@ -9861,7 +9887,7 @@ literal|"C:/"
 operator|<<
 literal|"C:"
 operator|<<
-literal|""
+literal|"."
 expr_stmt|;
 name|QTest
 operator|::
@@ -9874,7 +9900,7 @@ literal|"C:"
 operator|<<
 literal|"C:/"
 operator|<<
-literal|""
+literal|"."
 expr_stmt|;
 name|QTest
 operator|::
@@ -9887,7 +9913,7 @@ literal|"C:/"
 operator|<<
 literal|"C:/"
 operator|<<
-literal|""
+literal|"."
 expr_stmt|;
 name|QTest
 operator|::
