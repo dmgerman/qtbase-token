@@ -75,6 +75,7 @@ block|}
 enum|;
 name|QIcon
 argument_list|()
+name|Q_DECL_NOEXCEPT
 expr_stmt|;
 name|QIcon
 argument_list|(
@@ -97,11 +98,10 @@ directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 name|QIcon
 argument_list|(
-name|QIcon
-operator|&&
-name|other
+argument|QIcon&&other
 argument_list|)
-operator|:
+name|Q_DECL_NOEXCEPT
+label|:
 name|d
 argument_list|(
 literal|0
@@ -115,18 +115,19 @@ name|other
 operator|.
 name|d
 argument_list|)
-block|; }
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 name|explicit
 name|QIcon
-argument_list|(
+parameter_list|(
 specifier|const
 name|QString
-operator|&
+modifier|&
 name|fileName
-argument_list|)
-expr_stmt|;
+parameter_list|)
+function_decl|;
 comment|// file or resource name
 name|explicit
 name|QIcon
@@ -164,6 +165,7 @@ name|QIcon
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(
@@ -189,6 +191,7 @@ name|QIcon
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(

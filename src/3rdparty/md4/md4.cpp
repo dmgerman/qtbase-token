@@ -1415,9 +1415,14 @@ name|ctx
 operator|->
 name|hi
 operator|+=
+call|(
+name|quint32
+call|)
+argument_list|(
 name|size
 operator|>>
 literal|29
+argument_list|)
 expr_stmt|;
 name|used
 operator|=

@@ -744,10 +744,13 @@ name|AC_SRC_OVER
 block|,
 literal|0
 block|,
+name|BYTE
+argument_list|(
 literal|255.0
 operator|*
 name|opacity
 argument_list|()
+argument_list|)
 block|,
 name|AC_SRC_ALPHA
 block|}

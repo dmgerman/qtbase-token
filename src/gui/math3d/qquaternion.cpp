@@ -337,10 +337,13 @@ begin_comment
 comment|/*!     \fn QQuaternion QQuaternion::inverted() const     \since 5.5      Returns the inverse of this quaternion.     If this quaternion is null, then a null quaternion is returned.      \sa isNull(), length() */
 end_comment
 begin_comment
-comment|/*!     \fn QQuaternion QQuaternion::conjugate() const      Returns the conjugate of this quaternion, which is     (-x, -y, -z, scalar). */
+comment|/*!     \fn QQuaternion QQuaternion::conjugated() const     \since 5.5      Returns the conjugate of this quaternion, which is     (-x, -y, -z, scalar). */
 end_comment
 begin_comment
-comment|/*!     Rotates \a vector with this quaternion to produce a new vector     in 3D space.  The following code:      \code     QVector3D result = q.rotatedVector(vector);     \endcode      is equivalent to the following:      \code     QVector3D result = (q * QQuaternion(0, vector) * q.conjugate()).vector();     \endcode */
+comment|/*!     \fn QQuaternion QQuaternion::conjugate() const     \obsolete      Use conjugated() instead. */
+end_comment
+begin_comment
+comment|/*!     Rotates \a vector with this quaternion to produce a new vector     in 3D space.  The following code:      \code     QVector3D result = q.rotatedVector(vector);     \endcode      is equivalent to the following:      \code     QVector3D result = (q * QQuaternion(0, vector) * q.conjugated()).vector();     \endcode */
 end_comment
 begin_function
 DECL|function|rotatedVector
@@ -368,7 +371,7 @@ argument_list|,
 name|vector
 argument_list|)
 operator|*
-name|conjugate
+name|conjugated
 argument_list|()
 operator|)
 operator|.

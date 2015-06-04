@@ -696,6 +696,11 @@ name|Generator
 operator|::
 name|preparing
 argument_list|()
+operator|||
+name|Generator
+operator|::
+name|singleExec
+argument_list|()
 condition|)
 name|emitMessage
 argument_list|(
@@ -736,6 +741,11 @@ operator|!
 name|Generator
 operator|::
 name|preparing
+argument_list|()
+operator|||
+name|Generator
+operator|::
+name|singleExec
 argument_list|()
 condition|)
 name|emitMessage

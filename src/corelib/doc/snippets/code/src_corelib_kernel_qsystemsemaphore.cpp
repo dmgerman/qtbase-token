@@ -94,18 +94,28 @@ name|Create
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
+begin_for
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|5
+condition|;
+operator|++
+name|i
+control|)
+comment|// acquire all 5 resources
 name|sem
 operator|.
 name|acquire
-argument_list|(
-literal|5
-argument_list|)
+argument_list|()
 expr_stmt|;
-end_expr_stmt
-begin_comment
-comment|// acquire all 5 resources
-end_comment
+end_for
 begin_expr_stmt
 name|sem
 operator|.

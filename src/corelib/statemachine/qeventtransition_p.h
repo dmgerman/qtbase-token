@@ -94,12 +94,12 @@ name|void
 name|maybeRegister
 argument_list|()
 block|;
-name|bool
-name|registered
-block|;
 name|QObject
 operator|*
 name|object
+block|;
+name|bool
+name|registered
 block|;
 name|QEvent
 operator|::

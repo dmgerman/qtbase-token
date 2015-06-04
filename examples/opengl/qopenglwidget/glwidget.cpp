@@ -3168,10 +3168,8 @@ operator|::
 name|resizeGL
 parameter_list|(
 name|int
-name|w
 parameter_list|,
 name|int
-name|h
 parameter_list|)
 block|{
 if|if
@@ -3190,7 +3188,7 @@ operator|=
 operator|new
 name|QPushButton
 argument_list|(
-literal|"A widget on top.\nPress me!"
+literal|"A widget on top.\nPress for more widgets."
 argument_list|,
 name|this
 argument_list|)
@@ -3217,13 +3215,9 @@ name|m_btn
 operator|->
 name|move
 argument_list|(
-name|w
-operator|/
-literal|2
+literal|20
 argument_list|,
-name|h
-operator|/
-literal|2
+literal|80
 argument_list|)
 expr_stmt|;
 block|}

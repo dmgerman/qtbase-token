@@ -13429,7 +13429,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::read: WriteOnly device"
+literal|"QIODevice::read (QFile, \"writeonlyfile\"): WriteOnly device"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13490,7 +13490,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"QIODevice::write: ReadOnly device"
+literal|"QIODevice::write (QFile, \"readonlyfile\"): ReadOnly device"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

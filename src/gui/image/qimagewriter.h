@@ -234,6 +234,22 @@ name|progressiveScanWrite
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QImageIOHandler
+operator|::
+name|Transformations
+name|transformation
+argument_list|()
+specifier|const
+expr_stmt|;
+name|void
+name|setTransformation
+argument_list|(
+name|QImageIOHandler
+operator|::
+name|Transformations
+name|orientation
+argument_list|)
+decl_stmt|;
 comment|// Obsolete as of 4.1
 name|void
 name|setDescription

@@ -9,11 +9,11 @@ file|"qpaintdevice.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-DECL|function|QPaintDevice
 name|QPaintDevice
 operator|::
 name|QPaintDevice
 parameter_list|()
+name|Q_DECL_NOEXCEPT
 block|{
 name|reserved
 operator|=

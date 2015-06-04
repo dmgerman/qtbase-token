@@ -110,6 +110,7 @@ name|QFontMetrics
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(
@@ -134,6 +135,7 @@ name|QFontMetrics
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(

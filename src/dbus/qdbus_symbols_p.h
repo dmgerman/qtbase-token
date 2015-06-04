@@ -704,20 +704,6 @@ end_macro
 begin_macro
 name|DEFINEFUNC
 argument_list|(
-argument|dbus_bool_t
-argument_list|,
-argument|dbus_connection_can_send_type
-argument_list|,
-argument|(DBusConnection             *connection,                                                                 int                         type)
-argument_list|,
-argument|(connection, type)
-argument_list|,
-argument|return
-argument_list|)
-end_macro
-begin_macro
-name|DEFINEFUNC
-argument_list|(
 argument|void
 argument_list|,
 argument|dbus_connection_close

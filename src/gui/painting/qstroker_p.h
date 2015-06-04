@@ -965,7 +965,19 @@ block|{
 name|m_strokeWidth
 operator|=
 name|width
-block|; }
+block|;
+name|m_curveThreshold
+operator|=
+name|width
+operator|>=
+literal|1
+condition|?
+literal|1.0
+operator|/
+name|width
+else|:
+literal|0.5
+block|;}
 name|qfixed
 name|strokeWidth
 argument_list|()

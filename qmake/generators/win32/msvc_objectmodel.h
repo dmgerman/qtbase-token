@@ -103,6 +103,11 @@ DECL|enumerator|NET2013
 name|NET2013
 operator|=
 literal|0xc0
+operator|,
+DECL|enumerator|NET2015
+name|NET2015
+operator|=
+literal|0xd0
 block|}
 end_decl_stmt
 begin_empty_stmt

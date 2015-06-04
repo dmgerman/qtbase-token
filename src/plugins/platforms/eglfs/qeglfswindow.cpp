@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qopenglcontext_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QOpenGLContext>
 end_include
 begin_include
@@ -333,6 +338,14 @@ name|instance
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|context
+operator|->
+name|setShareContext
+argument_list|(
+name|qt_gl_global_share_context
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|context
 operator|->
 name|setFormat

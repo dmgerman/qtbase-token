@@ -3638,6 +3638,7 @@ specifier|static
 specifier|const
 name|char
 modifier|*
+specifier|const
 name|BRUSH_STYLES
 index|[]
 init|=

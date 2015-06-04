@@ -425,7 +425,6 @@ name|QVariant
 argument_list|()
 specifier|const
 expr_stmt|;
-comment|// implemented in qlayoutitem.cpp
 name|int
 name|horizontalStretch
 argument_list|()
@@ -690,9 +689,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
-begin_comment
-comment|// implemented in qlayout.cpp
-end_comment
 begin_expr_stmt
 name|Q_WIDGETS_EXPORT
 name|QDataStream

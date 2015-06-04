@@ -2635,6 +2635,9 @@ name|executedQuery
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Resets the number of bind parameters. */
+end_comment
 begin_function
 DECL|function|resetBindCount
 name|void

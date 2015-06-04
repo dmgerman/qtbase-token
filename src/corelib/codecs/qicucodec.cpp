@@ -164,6 +164,7 @@ end_struct
 begin_decl_stmt
 DECL|variable|mibToName
 specifier|static
+specifier|const
 name|MibToName
 name|mibToName
 index|[]

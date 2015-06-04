@@ -5726,32 +5726,6 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/* Structure for mutual recursion detection. */
-end_comment
-begin_typedef
-DECL|struct|recurse_check
-typedef|typedef
-struct|struct
-name|recurse_check
-block|{
-DECL|member|prev
-name|struct
-name|recurse_check
-modifier|*
-name|prev
-decl_stmt|;
-DECL|member|group
-specifier|const
-name|pcre_uchar
-modifier|*
-name|group
-decl_stmt|;
-block|}
-DECL|typedef|recurse_check
-name|recurse_check
-typedef|;
-end_typedef
-begin_comment
 comment|/************************************************* *            Find an error text                  * *************************************************/
 end_comment
 begin_comment
@@ -21707,8 +21681,6 @@ expr_stmt|;
 break|break;
 comment|/* End of class handling */
 block|}
-endif|#
-directive|endif
 comment|/* Even though any XCLASS list is now discarded, we must allow for     its memory. */
 if|if
 condition|(
@@ -21728,6 +21700,8 @@ operator|-
 name|class_uchardata_base
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|/* If there are no characters> 255, or they are all to be included or     excluded, set the opcode to OP_CLASS or OP_NCLASS, depending on whether the     whole class was negated and whether there were negative specials such as \S     (non-UCP) in the class. Then copy the 32-byte map into the code vector,     negating it if necessary. */
 operator|*
 name|code

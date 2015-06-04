@@ -683,6 +683,7 @@ argument_list|(
 argument|const QPointF&offset
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|;
 name|QPolygon
 name|toPolygon
@@ -726,6 +727,7 @@ argument_list|(
 argument|const QPolygonF&r
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|;
 name|QPolygonF
 name|intersected
@@ -733,6 +735,7 @@ argument_list|(
 argument|const QPolygonF&r
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|;
 name|QPolygonF
 name|subtracted
@@ -740,6 +743,7 @@ argument_list|(
 argument|const QPolygonF&r
 argument_list|)
 specifier|const
+name|Q_REQUIRED_RESULT
 block|; }
 decl_stmt|;
 end_decl_stmt

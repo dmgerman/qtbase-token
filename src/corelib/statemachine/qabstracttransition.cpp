@@ -32,19 +32,42 @@ include|#
 directive|include
 file|"qstatemachine.h"
 end_include
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_comment
 comment|/*!   \class QAbstractTransition   \inmodule QtCore    \brief The QAbstractTransition class is the base class of transitions between QAbstractState objects.    \since 4.6   \ingroup statemachine    The QAbstractTransition class is the abstract base class of transitions   between states (QAbstractState objects) of a   QStateMachine. QAbstractTransition is part of \l{The State Machine   Framework}.    The sourceState() function returns the source of the transition. The   targetStates() function returns the targets of the transition. The machine()   function returns the state machine that the transition is part of.    The triggered() signal is emitted when the transition has been triggered.    Transitions can cause animations to be played. Use the addAnimation()   function to add an animation to the transition.    \section1 Subclassing    The eventTest() function is called by the state machine to determine whether   an event should trigger the transition. In your reimplementation you   typically check the event type and cast the event object to the proper type,   and check that one or more properties of the event meet your criteria.    The onTransition() function is called when the transition is triggered;   reimplement this function to perform custom processing for the transition. */
+end_comment
+begin_comment
 comment|/*!     \property QAbstractTransition::sourceState      \brief the source state (parent) of this transition */
+end_comment
+begin_comment
 comment|/*!     \property QAbstractTransition::targetState      \brief the target state of this transition      If a transition has no target state, the transition may still be     triggered, but this will not cause the state machine's configuration to     change (i.e. the current state will not be exited and re-entered). */
+end_comment
+begin_comment
 comment|/*!     \property QAbstractTransition::targetStates      \brief the target states of this transition      If multiple states are specified, all must be descendants of the same     parallel group state. */
+end_comment
+begin_comment
+comment|/*!     \property QAbstractTransition::transitionType      \brief indicates whether this transition is an internal transition, or an external transition.      Internal and external transitions behave the same, except for the case of a transition whose     source state is a compound state and whose target(s) is a descendant of the source. In such a     case, an internal transition will not exit and re-enter its source state, while an external one     will.      By default, the type is an external transition. */
+end_comment
+begin_comment
+comment|/*!   \enum QAbstractTransition::TransitionType    This enum specifies the kind of transition. By default, the type is an external transition.    \value ExternalTransition Any state that is the source state of a transition (which is not a                             target-less transition) is left, and re-entered when necessary.   \value InternalTransition If the target state of a transition is a sub-state of a compound state,                             and that compound state is the source state, an internal transition will                             not leave the source state.    \sa QAbstractTransition::transitionType */
+end_comment
+begin_constructor
 DECL|function|QAbstractTransitionPrivate
 name|QAbstractTransitionPrivate
 operator|::
 name|QAbstractTransitionPrivate
 parameter_list|()
+member_init_list|:
+name|transitionType
+argument_list|(
+name|QAbstractTransition
+operator|::
+name|ExternalTransition
+argument_list|)
 block|{ }
-end_function
+end_constructor
 begin_function
 DECL|function|get
 name|QAbstractTransitionPrivate
@@ -668,6 +691,60 @@ name|QPrivateSignal
 argument_list|()
 argument_list|)
 emit|;
+block|}
+end_function
+begin_comment
+comment|/*!   Returns the type of the transition. */
+end_comment
+begin_function
+DECL|function|transitionType
+name|QAbstractTransition
+operator|::
+name|TransitionType
+name|QAbstractTransition
+operator|::
+name|transitionType
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QAbstractTransition
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|transitionType
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   Sets the type of the transition to \a type. */
+end_comment
+begin_function
+DECL|function|setTransitionType
+name|void
+name|QAbstractTransition
+operator|::
+name|setTransitionType
+parameter_list|(
+name|TransitionType
+name|type
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QAbstractTransition
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|transitionType
+operator|=
+name|type
+expr_stmt|;
 block|}
 end_function
 begin_comment

@@ -112,6 +112,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|// QLineEditIconButton: This is a simple helper class that represents clickable icons that fade in with text
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QLineEditIconButton
 range|:
 name|public

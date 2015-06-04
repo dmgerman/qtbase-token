@@ -2018,6 +2018,9 @@ begin_comment
 comment|/*! \fn QAccessibleStateChangeEvent::QAccessibleStateChangeEvent(QObject *object, QAccessible::State state)     Constructs a new QAccessibleStateChangeEvent for \a object.     The difference to the object's previous state is in \a state. */
 end_comment
 begin_comment
+comment|/*!     \fn QAccessibleStateChangeEvent::QAccessibleStateChangeEvent(QAccessibleInterface *iface, QAccessible::State state)     Constructs a new QAccessibleStateChangeEvent.     \a iface is the interface associated with the event     \a state is the state of the accessible object. */
+end_comment
+begin_comment
 comment|/*!     \fn QAccessible::State QAccessibleStateChangeEvent::changedStates() const     \brief Returns the states that have been changed.      Be aware that the returned states are the ones that have changed,     to find out about the state of an object, use QAccessibleInterface::state().      For example, if an object used to have the focus but loses it,     the object's state will have focused set to \c false. This event on the     other hand tells about the change and has focused set to \c true since     the focus state is changed from \c true to \c false. */
 end_comment
 begin_comment

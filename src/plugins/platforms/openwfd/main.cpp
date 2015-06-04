@@ -24,11 +24,12 @@ specifier|public
 name|QPlatformIntegrationPlugin
 block|{
 name|Q_PLUGIN_METADATA
-argument_list|(
-argument|IID
-literal|"org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.2"
-argument_list|)
-public|public:
+parameter_list|(
+name|IID
+name|QPlatformIntegrationFactoryInterface_iid
+parameter_list|)
+specifier|public
+private|:
 name|QPlatformIntegration
 modifier|*
 name|create

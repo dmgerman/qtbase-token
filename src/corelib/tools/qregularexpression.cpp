@@ -3515,6 +3515,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QRegularExpression& QRegularExpression::operator=(QRegularExpression&& re)      Move-assigns the regular expression \a re to this object, and returns a reference     to the copy.  Both the pattern and the pattern options are copied. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QRegularExpression::operator!=(const QRegularExpression&re) const      Returns \c true if the regular expression is different from \a re, or     false otherwise.      \sa operator==() */
 end_comment
 begin_comment
@@ -3902,6 +3905,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn QRegularExpressionMatch&QRegularExpressionMatch::operator=(QRegularExpressionMatch&&match)      Move-assigns the match result \a match to this object, and returns a reference     to the copy. */
+end_comment
 begin_comment
 comment|/*!     \fn void QRegularExpressionMatch::swap(QRegularExpressionMatch&other)      Swaps the match result \a other with this match result. This     operation is very fast and never fails. */
 end_comment
@@ -4816,6 +4822,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn QRegularExpressionMatchIterator&QRegularExpressionMatchIterator::operator=(QRegularExpressionMatchIterator&&iterator)      Move-assigns the \a iterator to this object. */
+end_comment
 begin_comment
 comment|/*!     \fn void QRegularExpressionMatchIterator::swap(QRegularExpressionMatchIterator&other)      Swaps the iterator \a other with this iterator object. This operation is     very fast and never fails. */
 end_comment

@@ -4879,6 +4879,9 @@ name|ItemIsEditable
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     This is an overloaded function.      It returns an empty record, having only the field names. This function can be used to     retrieve the field names of a record.      \sa QSqlRecord::isEmpty() */
+end_comment
 begin_function
 DECL|function|record
 name|QSqlRecord

@@ -3180,7 +3180,15 @@ condition|(
 name|index
 operator|<
 literal|0
+operator|||
+name|index
+operator|>=
+name|arguments
+operator|.
+name|size
+argument_list|()
 condition|)
+block|{
 name|that
 operator|->
 name|error
@@ -3188,6 +3196,8 @@ argument_list|(
 literal|"'#' is not followed by a macro parameter"
 argument_list|)
 expr_stmt|;
+continue|continue;
+block|}
 specifier|const
 name|Symbols
 modifier|&
@@ -3317,6 +3327,13 @@ condition|(
 name|index
 operator|>=
 literal|0
+operator|&&
+name|index
+operator|<
+name|arguments
+operator|.
+name|size
+argument_list|()
 condition|)
 block|{
 specifier|const
@@ -3450,6 +3467,13 @@ condition|(
 name|index
 operator|>=
 literal|0
+operator|&&
+name|index
+operator|<
+name|arguments
+operator|.
+name|size
+argument_list|()
 condition|)
 block|{
 specifier|const

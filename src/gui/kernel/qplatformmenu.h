@@ -514,6 +514,13 @@ name|createMenuItem
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|QPlatformMenu
+operator|*
+name|createSubMenu
+argument_list|()
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

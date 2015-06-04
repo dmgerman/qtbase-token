@@ -421,6 +421,25 @@ return|return
 name|EGL_FALSE
 return|;
 block|}
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_ENABLE_WINDOWS_STORE
+argument_list|)
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|ANGLE_ENABLE_WINDOWS_STORE
+argument_list|)
+operator|&&
+name|WINAPI_FAMILY
+operator|==
+name|WINAPI_FAMILY_PC_APP
+operator|)
+comment|// Qt WP: Allow this entry point as a workaround
 if|if
 condition|(
 operator|!
@@ -445,6 +464,8 @@ return|return
 name|EGL_TRUE
 return|;
 block|}
+endif|#
+directive|endif
 name|error
 operator|=
 name|eglSurface

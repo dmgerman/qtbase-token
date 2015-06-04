@@ -64,7 +64,7 @@ DECL|macro|QPlatformPrinterSupportFactoryInterface_iid
 define|#
 directive|define
 name|QPlatformPrinterSupportFactoryInterface_iid
-value|"org.qt-project.QPlatformPrinterSupportFactoryInterface"
+value|"org.qt-project.QPlatformPrinterSupportFactoryInterface.5.1"
 end_define
 begin_decl_stmt
 name|class

@@ -172,6 +172,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_struct_decl
+struct_decl|struct
+name|CalculationCache
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 DECL|variable|QStateMachine
 name|class
@@ -369,6 +374,10 @@ operator|*
 operator|>
 operator|&
 name|enabledTransitions
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|void
@@ -386,6 +395,26 @@ operator|*
 operator|>
 operator|&
 name|transitionList
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
+argument_list|)
+block|;
+name|QList
+operator|<
+name|QAbstractTransition
+operator|*
+operator|>
+name|selectTransitions
+argument_list|(
+name|QEvent
+operator|*
+name|event
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|virtual
@@ -410,18 +439,6 @@ name|void
 name|endMacrostep
 argument_list|(
 argument|bool didChange
-argument_list|)
-block|;
-name|QList
-operator|<
-name|QAbstractTransition
-operator|*
-operator|>
-name|selectTransitions
-argument_list|(
-name|QEvent
-operator|*
-name|event
 argument_list|)
 block|;
 name|void
@@ -470,6 +487,10 @@ operator|*
 operator|>
 operator|&
 name|enabledTransitions
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|QSet
@@ -487,6 +508,26 @@ operator|*
 operator|>
 operator|&
 name|enabledTransitions
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
+argument_list|)
+block|;
+name|QSet
+operator|<
+name|QAbstractState
+operator|*
+operator|>
+name|computeExitSet_Unordered
+argument_list|(
+name|QAbstractTransition
+operator|*
+name|t
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|void
@@ -591,6 +632,10 @@ operator|*
 operator|>
 operator|&
 name|statesForDefaultEntry
+argument_list|,
+name|CalculationCache
+operator|*
+name|cache
 argument_list|)
 block|;
 name|QAbstractState
@@ -600,6 +645,8 @@ argument_list|(
 argument|QAbstractTransition *t
 argument_list|,
 argument|const QList<QAbstractState *>&effectiveTargetStates
+argument_list|,
+argument|CalculationCache *cache
 argument_list|)
 specifier|const
 block|;
@@ -946,6 +993,11 @@ operator|*
 name|guiltyState
 argument_list|)
 block|;
+name|virtual
+name|void
+name|startupHook
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_PROPERTIES
@@ -976,7 +1028,7 @@ argument|uint seed
 argument_list|)
 name|Q_DECL_NOEXCEPT_EXPR
 argument_list|(
-argument|noexcept(std::declval<QByteArray>())
+argument|noexcept(qHash(std::declval<QByteArray>()))
 argument_list|)
 block|{
 return|return

@@ -8977,6 +8977,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|qFetchPixels
+specifier|const
 name|FetchPixelsFunc
 name|qFetchPixels
 index|[
@@ -9041,6 +9042,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|qStorePixels
+specifier|const
 name|StorePixelsFunc
 name|qStorePixels
 index|[
@@ -9125,6 +9127,8 @@ function_decl|;
 end_typedef
 begin_decl_stmt
 DECL|variable|qFetchPixel
+specifier|static
+specifier|const
 name|FetchPixelFunc
 name|qFetchPixel
 index|[

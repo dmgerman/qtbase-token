@@ -233,6 +233,7 @@ name|protected
 label|:
 name|QPaintDevice
 argument_list|()
+name|Q_DECL_NOEXCEPT
 expr_stmt|;
 name|virtual
 name|int

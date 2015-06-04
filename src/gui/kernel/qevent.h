@@ -3820,21 +3820,23 @@ directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 name|TouchPoint
 argument_list|(
-name|TouchPoint
-operator|&&
-name|other
+argument|TouchPoint&&other
 argument_list|)
+name|Q_DECL_NOEXCEPT
 operator|:
 name|d
 argument_list|(
-argument|other.d
+literal|0
 argument_list|)
 block|{
+name|qSwap
+argument_list|(
+name|d
+argument_list|,
 name|other
 operator|.
 name|d
-operator|=
-literal|0
+argument_list|)
 block|; }
 name|TouchPoint
 operator|&
@@ -3845,6 +3847,7 @@ name|TouchPoint
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(
@@ -3908,6 +3911,7 @@ name|swap
 argument_list|(
 argument|TouchPoint&other
 argument_list|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qSwap
 argument_list|(

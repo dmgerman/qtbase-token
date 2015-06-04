@@ -973,12 +973,16 @@ argument_list|(
 literal|"QTextStreamPrivate::fillReadBuffer(), using %s codec"
 argument_list|,
 name|codec
+condition|?
+name|codec
 operator|->
 name|name
 argument_list|()
 operator|.
 name|constData
 argument_list|()
+else|:
+literal|"no"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1048,6 +1052,11 @@ name|QT_NO_TEXTCODEC
 comment|// convert to unicode
 name|readBuffer
 operator|+=
+name|Q_LIKELY
+argument_list|(
+name|codec
+argument_list|)
+condition|?
 name|codec
 operator|->
 name|toUnicode
@@ -1059,6 +1068,15 @@ argument_list|,
 operator|&
 name|readConverterState
 argument_list|)
+else|:
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|buf
+argument_list|,
+name|bytesRead
+argument_list|)
 expr_stmt|;
 else|#
 directive|else
@@ -1068,15 +1086,9 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-name|QByteArray
-argument_list|(
 name|buf
 argument_list|,
 name|bytesRead
-argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1435,13 +1447,21 @@ argument_list|(
 literal|"QTextStreamPrivate::flushWriteBuffer(), using %s codec (%s generating BOM)"
 argument_list|,
 name|codec
+condition|?
+name|codec
 operator|->
 name|name
 argument_list|()
 operator|.
 name|constData
 argument_list|()
+else|:
+literal|"no"
 argument_list|,
+operator|!
+name|codec
+operator|||
+operator|(
 name|writeConverterState
 operator|.
 name|flags
@@ -1449,6 +1469,7 @@ operator|&
 name|QTextCodec
 operator|::
 name|IgnoreHeader
+operator|)
 condition|?
 literal|"not"
 else|:
@@ -1497,7 +1518,7 @@ name|data
 init|=
 name|writeBuffer
 operator|.
-name|toLocal8Bit
+name|toLatin1
 argument_list|()
 decl_stmt|;
 endif|#

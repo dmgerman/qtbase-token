@@ -70,14 +70,6 @@ specifier|const
 block|;
 name|protected
 operator|:
-name|void
-name|init
-argument_list|(
-name|NSView
-operator|*
-name|parentView
-argument_list|)
-block|;
 name|bool
 name|event
 argument_list|(

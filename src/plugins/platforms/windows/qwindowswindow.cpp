@@ -2295,6 +2295,14 @@ modifier|&
 name|flags
 parameter_list|)
 block|{
+comment|// Not supported on Windows, also do correction when it is set.
+name|flags
+operator|&=
+operator|~
+name|Qt
+operator|::
+name|WindowFullscreenButtonHint
+expr_stmt|;
 switch|switch
 condition|(
 name|flags

@@ -872,14 +872,6 @@ name|BypassGraphicsProxyWidget
 init|=
 literal|0x20000000
 block|,
-name|WindowOkButtonHint
-init|=
-literal|0x00080000
-block|,
-name|WindowCancelButtonHint
-init|=
-literal|0x00100000
-block|,
 name|NoDropShadowWindowHint
 init|=
 literal|0x40000000
@@ -887,6 +879,18 @@ block|,
 name|WindowFullscreenButtonHint
 init|=
 literal|0x80000000
+block|,
+comment|// The following enums have overlapping values with other enums.
+comment|// This was not intentional, but it's too late to change now.
+name|WindowOkButtonHint
+init|=
+literal|0x00080000
+block|,
+comment|// WindowTransparentForInput
+name|WindowCancelButtonHint
+init|=
+literal|0x00100000
+comment|// WindowOverridesSystemGestures
 block|}
 enum|;
 name|Q_DECLARE_FLAGS

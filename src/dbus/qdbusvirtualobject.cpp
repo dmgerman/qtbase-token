@@ -15,6 +15,9 @@ end_ifndef
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!     Constructs a QDBusVirtualObject with \a parent. */
+end_comment
 begin_constructor
 DECL|function|QDBusVirtualObject
 name|QDBusVirtualObject
@@ -32,6 +35,9 @@ name|parent
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     Destroys the object, deleting all of its child objects. */
+end_comment
 begin_destructor
 DECL|function|~QDBusVirtualObject
 name|QDBusVirtualObject

@@ -1191,6 +1191,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|ret
+operator|.
+name|trimmed
+argument_list|()
 return|;
 block|}
 end_function
@@ -2073,7 +2076,7 @@ name|evalError
 argument_list|(
 name|fL1S
 argument_list|(
-literal|"Cannot write %1file %2: %3."
+literal|"Cannot write %1file %2: %3"
 argument_list|)
 operator|.
 name|arg
@@ -8050,7 +8053,7 @@ name|evalError
 argument_list|(
 name|fL1S
 argument_list|(
-literal|"defined(function, [\"test\"|\"replace\"])"
+literal|"defined(function, [\"test\"|\"replace\"|\"var\"])"
 literal|" requires one or two arguments."
 argument_list|)
 argument_list|)
@@ -11610,7 +11613,7 @@ name|evalError
 argument_list|(
 name|fL1S
 argument_list|(
-literal|"Cannot open() reference file %1: %2."
+literal|"Cannot open reference file %1: %2"
 argument_list|)
 operator|.
 name|arg
@@ -11684,7 +11687,7 @@ name|evalError
 argument_list|(
 name|fL1S
 argument_list|(
-literal|"Cannot open() %1: %2."
+literal|"Cannot open %1: %2"
 argument_list|)
 operator|.
 name|arg

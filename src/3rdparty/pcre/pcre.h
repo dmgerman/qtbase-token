@@ -38,14 +38,13 @@ DECL|macro|PCRE_PRERELEASE
 define|#
 directive|define
 name|PCRE_PRERELEASE
-value|-RC1
 end_define
 begin_define
 DECL|macro|PCRE_DATE
 define|#
 directive|define
 name|PCRE_DATE
-value|2015-02-03
+value|2015-04-28
 end_define
 begin_comment
 comment|/* When an application links to a PCRE DLL in Windows, the symbols that are imported have to be identified as such. When building PCRE, the appropriate export setting is defined in pcre_internal.h, which includes this file. So we don't change existing definitions of PCRE_EXP_DECL and PCRECPP_EXP_DECL. */

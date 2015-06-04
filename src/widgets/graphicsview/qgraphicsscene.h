@@ -1733,6 +1733,22 @@ block|;
 name|protected
 name|Q_SLOTS
 operator|:
+comment|// ### Qt 6: make unconditional
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+name|virtual
+endif|#
+directive|endif
 name|bool
 name|focusNextPrevChild
 argument_list|(

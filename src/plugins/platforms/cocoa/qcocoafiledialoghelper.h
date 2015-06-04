@@ -67,6 +67,14 @@ name|void
 name|exec
 argument_list|()
 block|;
+name|void
+name|execModalForWindow
+argument_list|(
+name|QWindow
+operator|*
+name|parent
+argument_list|)
+block|;
 name|bool
 name|defaultNameFilterDisables
 argument_list|()

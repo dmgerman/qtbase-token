@@ -119,6 +119,11 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
+name|Q_OS_NETBSD
+argument_list|)
+operator|||
+name|defined
+argument_list|(
 name|Q_OS_IOS
 argument_list|)
 end_elif
@@ -192,6 +197,11 @@ directive|elif
 name|defined
 argument_list|(
 name|Q_OS_FREEBSD
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_NETBSD
 argument_list|)
 operator|||
 name|defined

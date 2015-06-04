@@ -3492,7 +3492,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     \since 4.3     Determines whether the decoder encountered a failure while decoding the input. If     an error was encountered, the produced result is undefined, and gets converted as according     to the conversion flags.  */
+comment|/*!     \fn QTextCodec * QTextCodec::codecForTr ()     \obsolete      Returns the codec used by QObject::tr() on its argument. If this     function returns 0 (the default), tr() assumes Latin-1.      \sa  setCodecForTr() */
+end_comment
+begin_comment
+comment|/*!     \fn QTextCodec::setCodecForTr ( QTextCodec * c )     \obsolete      Sets the codec used by QObject::tr() on its argument to c. If c     is 0 (the default), tr() assumes Latin-1. */
+end_comment
+begin_comment
+comment|/*!     \internal     \since 4.3     Determines whether the decoder encountered a failure while decoding the     input. If an error was encountered, the produced result is undefined, and     gets converted as according to the conversion flags.  */
 end_comment
 begin_function
 DECL|function|hasFailure
