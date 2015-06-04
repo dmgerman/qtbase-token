@@ -311,7 +311,12 @@ name|WriteError
 block|,
 name|UnknownError
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ProcessError
+argument_list|)
+expr|enum
 name|ProcessState
 block|{
 name|NotRunning
@@ -320,14 +325,24 @@ name|Starting
 block|,
 name|Running
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ProcessState
+argument_list|)
+expr|enum
 name|ProcessChannel
 block|{
 name|StandardOutput
 block|,
 name|StandardError
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ProcessChannel
+argument_list|)
+expr|enum
 name|ProcessChannelMode
 block|{
 name|SeparateChannels
@@ -340,14 +355,24 @@ name|ForwardedOutputChannel
 block|,
 name|ForwardedErrorChannel
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ProcessChannelMode
+argument_list|)
+expr|enum
 name|InputChannelMode
 block|{
 name|ManagedInputChannel
 block|,
 name|ForwardedInputChannel
 block|}
-block|;     enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|InputChannelMode
+argument_list|)
+expr|enum
 name|ExitStatus
 block|{
 name|NormalExit
@@ -355,6 +380,10 @@ block|,
 name|CrashExit
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|ExitStatus
+argument_list|)
 name|explicit
 name|QProcess
 argument_list|(
