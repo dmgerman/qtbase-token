@@ -1653,7 +1653,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     \returns the currently active QDockWidget  */
+comment|/*! \internal     Returns the currently active QDockWidget.  */
 end_comment
 begin_function
 DECL|function|topDockWidget
@@ -11101,7 +11101,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Unplug \a widget (QDockWidget or QToolBar) from it's parent container.      If \a group is true we might actually unplug the group of tabs this     widget is part if QMainWindow::GroupedDragging is set. When \a group     is false, the widget itself is always unplugged alone      \returns the QLayoutItem of the dragged element.     The layout item is kept in the layout but set as a gap item.  */
+comment|/*! \internal     Unplug \a widget (QDockWidget or QToolBar) from it's parent container.      If \a group is true we might actually unplug the group of tabs this     widget is part if QMainWindow::GroupedDragging is set. When \a group     is false, the widget itself is always unplugged alone      Returns the QLayoutItem of the dragged element.     The layout item is kept in the layout but set as a gap item.  */
 end_comment
 begin_function
 DECL|function|unplug
