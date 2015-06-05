@@ -10263,12 +10263,14 @@ else|#
 directive|else
 name|m_gl
 operator|.
-name|setFileName
+name|setFileNameAndVersion
 argument_list|(
 name|QStringLiteral
 argument_list|(
 literal|"GLESv2"
 argument_list|)
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 endif|#
