@@ -1307,6 +1307,12 @@ begin_comment
 comment|/*!     \enum QProcess::ExitStatus      This enum describes the different exit statuses of QProcess.      \value NormalExit The process exited normally.      \value CrashExit The process crashed.      \sa exitStatus() */
 end_comment
 begin_comment
+comment|/*!     \typedef QProcess::CreateProcessArgumentModifier     \note This typedef is only available on desktop Windows and Windows CE.      On Windows, QProcess uses the Win32 API function \c CreateProcess to     start child processes. While QProcess provides a comfortable way to start     processes without worrying about platform     details, it is in some cases desirable to fine-tune the parameters that are     passed to \c CreateProcess. This is done by defining a     \c CreateProcessArgumentModifier function and passing it to     \c setCreateProcessArgumentsModifier.      A \c CreateProcessArgumentModifier function takes one parameter: a pointer     to a \c CreateProcessArguments struct. The members of this struct will be     passed to \c CreateProcess after the \c CreateProcessArgumentModifier     function is called.      The following example demonstrates how to pass custom flags to     \c CreateProcess.     When starting a console process B from a console process A, QProcess will     reuse the console window of process A for process B by default. In this     example, a new console window with a custom color scheme is created for the     child process B instead.      \snippet qprocess/qprocess-createprocessargumentsmodifier.cpp 0      \sa QProcess::CreateProcessArguments     \sa setCreateProcessArgumentsModifier() */
+end_comment
+begin_comment
+comment|/*!     \class QProcess::CreateProcessArguments     \note This struct is only available on the Windows platform.      This struct is a representation of all parameters of the Windows API     function \c CreateProcess. It is used as parameter for     \c CreateProcessArgumentModifier functions.      \sa QProcess::CreateProcessArgumentModifier */
+end_comment
+begin_comment
 comment|/*!     \fn void QProcess::error(QProcess::ProcessError error)     \obsolete      Use errorOccurred() instead. */
 end_comment
 begin_comment
@@ -3642,6 +3648,60 @@ operator|->
 name|nativeArguments
 operator|=
 name|arguments
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.7      Returns a previously set \c CreateProcess modifier function.      \note This function is available only on the Windows platform.      \sa setCreateProcessArgumentsModifier()     \sa QProcess::CreateProcessArgumentModifier */
+end_comment
+begin_function
+DECL|function|createProcessArgumentsModifier
+name|QProcess
+operator|::
+name|CreateProcessArgumentModifier
+name|QProcess
+operator|::
+name|createProcessArgumentsModifier
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QProcess
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|modifyCreateProcessArgs
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.7      Sets the \a modifier for the \c CreateProcess Win32 API call.     Pass \c QProcess::CreateProcessArgumentModifier() to remove a previously set one.      \note This function is available only on the Windows platform and requires     C++11.      \sa QProcess::CreateProcessArgumentModifier */
+end_comment
+begin_function
+DECL|function|setCreateProcessArgumentsModifier
+name|void
+name|QProcess
+operator|::
+name|setCreateProcessArgumentsModifier
+parameter_list|(
+name|CreateProcessArgumentModifier
+name|modifier
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QProcess
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|modifyCreateProcessArgs
+operator|=
+name|modifier
 expr_stmt|;
 block|}
 end_function

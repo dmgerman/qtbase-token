@@ -1427,6 +1427,11 @@ argument_list|)
 name|QString
 name|nativeArguments
 decl_stmt|;
+name|QProcess
+operator|::
+name|CreateProcessArgumentModifier
+name|modifyCreateProcessArgs
+expr_stmt|;
 endif|#
 directive|endif
 name|QProcessEnvironment
