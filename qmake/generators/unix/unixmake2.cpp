@@ -10559,14 +10559,6 @@ name|startsWith
 argument_list|(
 literal|'@'
 argument_list|)
-operator|&&
-operator|!
-name|sonameprefix
-operator|.
-name|startsWith
-argument_list|(
-literal|'$'
-argument_list|)
 condition|)
 name|sonameprefix
 operator|=
