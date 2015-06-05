@@ -2330,11 +2330,21 @@ argument_list|()
 operator|<<
 name|Q_FUNC_INFO
 expr_stmt|;
-name|qDeleteAll
+name|Q_FOREACH
 argument_list|(
-name|m_screens
+argument|QQnxScreen *screen
+argument_list|,
+argument|m_screens
+argument_list|)
+block|{
+name|QPlatformIntegration
+operator|::
+name|destroyScreen
+argument_list|(
+name|screen
 argument_list|)
 expr_stmt|;
+block|}
 name|m_screens
 operator|.
 name|clear
