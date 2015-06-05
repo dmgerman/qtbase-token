@@ -467,6 +467,16 @@ condition|)
 return|return
 name|sizes
 return|;
+name|sizes
+operator|.
+name|reserve
+argument_list|(
+name|themeSizes
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 name|int
