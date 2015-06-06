@@ -778,7 +778,7 @@ name|DIMM_META
 condition|)
 block|{
 name|modifiers
-operator||
+operator||=
 name|Qt
 operator|::
 name|MetaModifier
