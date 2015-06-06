@@ -1901,12 +1901,6 @@ operator|::
 name|Qt_4_3
 argument_list|)
 expr_stmt|;
-name|contacts
-operator|.
-name|empty
-argument_list|()
-expr_stmt|;
-comment|// empty existing contacts
 name|in
 operator|>>
 name|contacts
