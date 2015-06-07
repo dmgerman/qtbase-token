@@ -7840,21 +7840,6 @@ argument_list|,
 name|code
 argument_list|)
 decl_stmt|;
-name|int
-name|count
-init|=
-name|string
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
-name|string
-operator|.
-name|truncate
-argument_list|(
-name|count
-argument_list|)
-expr_stmt|;
 comment|// Îf control modifier is set we should prefer latin character, this is
 comment|// used for standard shortcuts in checks like "key == QKeySequence::Copy",
 comment|// users can still see the actual X11 keysym with QKeyEvent::nativeVirtualKey
@@ -8028,7 +8013,10 @@ name|string
 argument_list|,
 name|isAutoRepeat
 argument_list|,
-name|count
+name|string
+operator|.
+name|length
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|event
@@ -8250,7 +8238,10 @@ name|string
 argument_list|,
 name|isAutoRepeat
 argument_list|,
-name|count
+name|string
+operator|.
+name|length
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|event
