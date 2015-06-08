@@ -1252,6 +1252,16 @@ expr_stmt|;
 name|QModelIndexList
 name|list
 decl_stmt|;
+name|list
+operator|.
+name|reserve
+argument_list|(
+name|indexes
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 specifier|const

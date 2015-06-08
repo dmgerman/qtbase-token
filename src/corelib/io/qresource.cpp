@@ -3735,6 +3735,13 @@ operator|<<
 literal|0
 operator|)
 decl_stmt|;
+name|ret
+operator|.
+name|reserve
+argument_list|(
+name|child_count
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

@@ -3116,6 +3116,16 @@ decl_stmt|;
 name|loadMimeTypeList
 argument_list|()
 expr_stmt|;
+name|result
+operator|.
+name|reserve
+argument_list|(
+name|m_mimetypeNames
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|QSet

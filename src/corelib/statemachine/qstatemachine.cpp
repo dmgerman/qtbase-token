@@ -12946,6 +12946,13 @@ name|QVariant
 argument_list|>
 name|vargs
 decl_stmt|;
+name|vargs
+operator|.
+name|reserve
+argument_list|(
+name|argc
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

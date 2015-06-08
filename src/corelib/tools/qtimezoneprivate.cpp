@@ -3392,6 +3392,13 @@ name|QByteArray
 argument_list|>
 name|result
 decl_stmt|;
+name|result
+operator|.
+name|reserve
+argument_list|(
+name|utcDataTableSize
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

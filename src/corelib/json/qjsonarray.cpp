@@ -456,6 +456,15 @@ condition|(
 name|a
 condition|)
 block|{
+name|list
+operator|.
+name|reserve
+argument_list|(
+name|a
+operator|->
+name|length
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

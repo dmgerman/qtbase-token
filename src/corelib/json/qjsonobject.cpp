@@ -619,6 +619,15 @@ return|;
 name|QStringList
 name|keys
 decl_stmt|;
+name|keys
+operator|.
+name|reserve
+argument_list|(
+name|o
+operator|->
+name|length
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|uint

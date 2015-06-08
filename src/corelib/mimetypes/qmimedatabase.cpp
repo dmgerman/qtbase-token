@@ -1450,6 +1450,16 @@ name|sort
 argument_list|()
 expr_stmt|;
 comment|// Make it deterministic
+name|mimes
+operator|.
+name|reserve
+argument_list|(
+name|matches
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 specifier|const
