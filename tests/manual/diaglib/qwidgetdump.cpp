@@ -182,6 +182,33 @@ name|str
 operator|<<
 literal|"[NoNativeAncestors] "
 expr_stmt|;
+if|if
+condition|(
+specifier|const
+name|int
+name|states
+init|=
+name|w
+operator|->
+name|windowState
+argument_list|()
+condition|)
+name|str
+operator|<<
+literal|"windowState="
+operator|<<
+name|hex
+operator|<<
+name|showbase
+operator|<<
+name|states
+operator|<<
+name|dec
+operator|<<
+name|noshowbase
+operator|<<
+literal|' '
+expr_stmt|;
 name|formatRect
 argument_list|(
 name|str
