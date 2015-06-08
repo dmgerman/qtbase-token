@@ -1044,9 +1044,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|QString
+name|QFile
 operator|::
-name|fromUtf8
+name|decodeName
 argument_list|(
 name|name
 argument_list|)
@@ -1143,9 +1143,9 @@ expr_stmt|;
 return|return
 name|QFileInfo
 argument_list|(
-name|QString
+name|QFile
 operator|::
-name|fromUtf8
+name|decodeName
 argument_list|(
 name|buf
 argument_list|)
@@ -1187,9 +1187,9 @@ return|;
 name|QString
 name|name
 init|=
-name|QString
+name|QFile
 operator|::
-name|fromUtf8
+name|decodeName
 argument_list|(
 name|proc
 operator|->
