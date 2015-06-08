@@ -175,7 +175,7 @@ name|db
 operator|.
 name|setConnectOptions
 argument_list|(
-literal|"CLIENT_SSL=1;CLIENT_IGNORE_SPACE=1"
+literal|"SSL_KEY=client-key.pem;SSL_CERT=client-cert.pem;SSL_CA=ca-cert.pem;CLIENT_IGNORE_SPACE=1"
 argument_list|)
 expr_stmt|;
 end_expr_stmt

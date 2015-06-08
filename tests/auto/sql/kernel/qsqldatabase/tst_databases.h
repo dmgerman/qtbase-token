@@ -1294,8 +1294,8 @@ comment|//         addDb( "QODBC", "silencetestdb", "troll", "trond", "silence" 
 comment|//         addDb( "QODBC", "horseheadtestdb", "troll", "trondk", "horsehead" );
 comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.qt-project.org" );
 comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.qt-project.org", 3307 );
-comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.qt-project.org", 3308, "CLIENT_COMPRESS=1;CLIENT_SSL=1" ); // MySQL 4.1.1
-comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.qt-project.org", 3309, "CLIENT_COMPRESS=1;CLIENT_SSL=1" ); // MySQL 5.0.18 Linux
+comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.qt-project.org", 3308, "CLIENT_COMPRESS=1" ); // MySQL 4.1.1
+comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.qt-project.org", 3309, "CLIENT_COMPRESS=1" ); // MySQL 5.0.18 Linux
 comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "silence.qt-project.org" ); // MySQL 5.1.36 Windows
 comment|//         addDb( "QMYSQL3", "testdb", "testuser", "Ee4Gabf6_", "bq-mysql41.qt-project.org" ); // MySQL 4.1.22-2.el4  linux
 comment|//         addDb( "QMYSQL3", "testdb", "testuser", "Ee4Gabf6_", "bq-mysql50.qt-project.org" ); // MySQL 5.0.45-7.el5 linux
