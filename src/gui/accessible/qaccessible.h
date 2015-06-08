@@ -1152,6 +1152,7 @@ name|RootObjectHandler
 parameter_list|)
 function_decl|;
 name|class
+name|Q_GUI_EXPORT
 name|ActivationObserver
 block|{
 name|public
