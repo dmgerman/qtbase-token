@@ -107,6 +107,9 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+operator|delete
+name|d_ptr
+expr_stmt|;
 block|}
 end_destructor
 begin_function
