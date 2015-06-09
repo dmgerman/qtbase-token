@@ -1300,6 +1300,11 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+name|it
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|h
@@ -1369,11 +1374,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// h is now invalid
-name|it
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|thread
