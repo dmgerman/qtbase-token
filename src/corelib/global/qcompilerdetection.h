@@ -2687,7 +2687,14 @@ name|__has_feature
 argument_list|(
 name|cxx_constexpr
 argument_list|)
+operator|&&
+name|Q_CC_CLANG
+operator|>
+literal|302
 end_if
+begin_comment
+comment|/* CLANG 3.2 has bad/partial support */
+end_comment
 begin_define
 DECL|macro|Q_COMPILER_CONSTEXPR
 define|#
