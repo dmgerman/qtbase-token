@@ -1824,6 +1824,12 @@ operator|.
 name|object
 operator|==
 name|object
+operator|&&
+name|info
+operator|.
+name|timerId
+operator|!=
+name|INVALID_TIMER_ID
 condition|)
 name|timerInfos
 operator|.
