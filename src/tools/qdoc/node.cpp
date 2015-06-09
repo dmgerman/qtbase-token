@@ -10734,6 +10734,7 @@ name|NodeMap
 modifier|&
 name|out
 parameter_list|)
+specifier|const
 block|{
 name|out
 operator|.

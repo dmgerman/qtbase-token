@@ -1289,10 +1289,11 @@ block|{ }
 name|virtual
 name|void
 name|getMemberClasses
-parameter_list|(
+argument_list|(
 name|NodeMap
-modifier|&
-parameter_list|)
+operator|&
+argument_list|)
+decl|const
 block|{ }
 name|virtual
 name|bool
@@ -6985,6 +6986,7 @@ name|getMemberClasses
 argument_list|(
 argument|NodeMap& out
 argument_list|)
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|virtual
