@@ -3183,6 +3183,28 @@ operator|::
 name|painterOnGLWidgetInThread
 parameter_list|()
 block|{
+comment|//QTBUG-46446 tst_qglthreads is unstable on windows 7
+if|if
+condition|(
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|.
+name|compare
+argument_list|(
+literal|"windows 7"
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Doesn't work on this platform. QTBUG-46446"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -3394,6 +3416,28 @@ operator|::
 name|painterOnPboInThread
 parameter_list|()
 block|{
+comment|//QTBUG-46446 tst_qglthreads is unstable on windows 7
+if|if
+condition|(
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|.
+name|compare
+argument_list|(
+literal|"windows 7"
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Doesn't work on this platform. QTBUG-46446"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -3520,6 +3564,28 @@ operator|::
 name|painterOnFboInThread
 parameter_list|()
 block|{
+comment|//QTBUG-46446 tst_qglthreads is unstable on windows 7
+if|if
+condition|(
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|.
+name|compare
+argument_list|(
+literal|"windows 7"
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Doesn't work on this platform. QTBUG-46446"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
