@@ -10261,6 +10261,21 @@ endif|#
 directive|endif
 else|#
 directive|else
+ifdef|#
+directive|ifdef
+name|Q_OS_ANDROID
+name|m_gl
+operator|.
+name|setFileName
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"GLESv2"
+argument_list|)
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|m_gl
 operator|.
 name|setFileNameAndVersion
@@ -10273,6 +10288,8 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 comment|// Q_OS_WIN
