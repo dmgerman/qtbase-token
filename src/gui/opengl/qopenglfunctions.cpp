@@ -86,7 +86,7 @@ argument_list|,
 literal|"qt.opengl.es3"
 argument_list|)
 comment|/*!     \class QOpenGLFunctions     \brief The QOpenGLFunctions class provides cross-platform access to the OpenGL ES 2.0 API.     \since 5.0     \ingroup painting-3D     \inmodule QtGui      OpenGL ES 2.0 defines a subset of the OpenGL specification that is     common across many desktop and embedded OpenGL implementations.     However, it can be difficult to use the functions from that subset     because they need to be resolved manually on desktop systems.      QOpenGLFunctions provides a guaranteed API that is available on all     OpenGL systems and takes care of function resolution on systems     that need it.  The recommended way to use QOpenGLFunctions is by     direct inheritance:      \code     class MyGLWindow : public QWindow, protected QOpenGLFunctions     {         Q_OBJECT     public:         MyGLWindow(QScreen *screen = 0);      protected:         void initializeGL();         void paintGL();          QOpenGLContext *m_context;     };      MyGLWindow(QScreen *screen)       : QWindow(screen), QOpenGLWidget(parent)     {         setSurfaceType(OpenGLSurface);         create();          // Create an OpenGL context         m_context = new QOpenGLContext;         m_context->create();          // Setup scene and render it         initializeGL();         paintGL()     }      void MyGLWindow::initializeGL()     {         m_context->makeCurrent(this);         initializeOpenGLFunctions();     }     \endcode      The \c{paintGL()} function can then use any of the OpenGL ES 2.0     functions without explicit resolution, such as glActiveTexture()     in the following example:      \code     void MyGLWindow::paintGL()     {         m_context->makeCurrent(this);         glActiveTexture(GL_TEXTURE1);         glBindTexture(GL_TEXTURE_2D, textureId);         ...         m_context->swapBuffers(this);         m_context->doneCurrent();     }     \endcode      QOpenGLFunctions can also be used directly for ad-hoc invocation     of OpenGL ES 2.0 functions on all platforms:      \code     QOpenGLFunctions glFuncs(QOpenGLContext::currentContext());     glFuncs.glActiveTexture(GL_TEXTURE1);     \endcode      An alternative approach is to query the context's associated     QOpenGLFunctions instance. This is somewhat faster than the previous     approach due to avoiding the creation of a new instance, but the difference     is fairly small since the internal data structures are shared, and function     resolving happens only once for a given context, regardless of the number of     QOpenGLFunctions instances initialized for it.      \code     QOpenGLFunctions *glFuncs = QOpenGLContext::currentContext()->functions();     glFuncs->glActiveTexture(GL_TEXTURE1);     \endcode      QOpenGLFunctions provides wrappers for all OpenGL ES 2.0     functions, including the common subset of OpenGL 1.x and ES     2.0. While such functions, for example glClear() or     glDrawArrays(), can be called also directly, as long as the     application links to the platform-specific OpenGL library, calling     them via QOpenGLFunctions enables the possibility of dynamically     loading the OpenGL implementation.      The hasOpenGLFeature() and openGLFeatures() functions can be used     to determine if the OpenGL implementation has a major OpenGL ES 2.0     feature.  For example, the following checks if non power of two     textures are available:      \code     QOpenGLFunctions funcs(QOpenGLContext::currentContext());     bool npot = funcs.hasOpenGLFeature(QOpenGLFunctions::NPOTTextures);     \endcode      \sa QOpenGLContext, QSurfaceFormat */
-comment|/*!     \enum QOpenGLFunctions::OpenGLFeature     This enum defines OpenGL and OpenGL ES features whose presence     may depend on the implementation.      \value Multitexture glActiveTexture() function is available.     \value Shaders Shader functions are available.     \value Buffers Vertex and index buffer functions are available.     \value Framebuffers Framebuffer object functions are available.     \value BlendColor glBlendColor() is available.     \value BlendEquation glBlendEquation() is available.     \value BlendEquationSeparate glBlendEquationSeparate() is available.     \value BlendFuncSeparate glBlendFuncSeparate() is available.     \value BlendSubtract Blend subtract mode is available.     \value CompressedTextures Compressed texture functions are available.     \value Multisample glSampleCoverage() function is available.     \value StencilSeparate Separate stencil functions are available.     \value NPOTTextures Non power of two textures are available.     \value NPOTTextureRepeat Non power of two textures can use GL_REPEAT as wrap parameter.     \value FixedFunctionPipeline The fixed function pipeline is available.     \value TextureRGFormats The GL_RED and GL_RG texture formats are available. */
+comment|/*!     \enum QOpenGLFunctions::OpenGLFeature     This enum defines OpenGL and OpenGL ES features whose presence     may depend on the implementation.      \value Multitexture glActiveTexture() function is available.     \value Shaders Shader functions are available.     \value Buffers Vertex and index buffer functions are available.     \value Framebuffers Framebuffer object functions are available.     \value BlendColor glBlendColor() is available.     \value BlendEquation glBlendEquation() is available.     \value BlendEquationSeparate glBlendEquationSeparate() is available.     \value BlendFuncSeparate glBlendFuncSeparate() is available.     \value BlendSubtract Blend subtract mode is available.     \value CompressedTextures Compressed texture functions are available.     \value Multisample glSampleCoverage() function is available.     \value StencilSeparate Separate stencil functions are available.     \value NPOTTextures Non power of two textures are available.     \value NPOTTextureRepeat Non power of two textures can use GL_REPEAT as wrap parameter.     \value FixedFunctionPipeline The fixed function pipeline is available.     \value TextureRGFormats The GL_RED and GL_RG texture formats are available.     \value MultipleRenderTargets Multiple color attachments to framebuffer objects are available. */
 comment|// Hidden private fields for additional extension data.
 decl|struct
 DECL|struct|QOpenGLFunctionsPrivateEx
@@ -339,7 +339,7 @@ name|isOpenGLES
 argument_list|()
 condition|)
 block|{
-comment|// OpenGL ES 2
+comment|// OpenGL ES
 name|int
 name|features
 init|=
@@ -493,6 +493,24 @@ operator|::
 name|TextureRGFormats
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|format
+argument_list|()
+operator|.
+name|majorVersion
+argument_list|()
+operator|>=
+literal|3
+condition|)
+name|features
+operator||=
+name|QOpenGLFunctions
+operator|::
+name|MultipleRenderTargets
+expr_stmt|;
 return|return
 name|features
 return|;
@@ -535,6 +553,10 @@ operator||=
 name|QOpenGLFunctions
 operator|::
 name|Framebuffers
+operator||
+name|QOpenGLFunctions
+operator|::
+name|MultipleRenderTargets
 expr_stmt|;
 elseif|else
 if|if
@@ -558,6 +580,10 @@ operator||=
 name|QOpenGLFunctions
 operator|::
 name|Framebuffers
+operator||
+name|QOpenGLFunctions
+operator|::
+name|MultipleRenderTargets
 expr_stmt|;
 if|if
 condition|(

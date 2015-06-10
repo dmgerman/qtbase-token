@@ -272,22 +272,12 @@ argument_list|(
 literal|0
 argument_list|)
 operator|,
-name|texture_guard
-argument_list|(
-literal|0
-argument_list|)
-operator|,
 name|depth_buffer_guard
 argument_list|(
 literal|0
 argument_list|)
 operator|,
 name|stencil_buffer_guard
-argument_list|(
-literal|0
-argument_list|)
-operator|,
-name|color_buffer_guard
 argument_list|(
 literal|0
 argument_list|)
@@ -306,13 +296,13 @@ name|init
 argument_list|(
 argument|QOpenGLFramebufferObject *q
 argument_list|,
-argument|const QSize& sz
+argument|const QSize&size
 argument_list|,
 argument|QOpenGLFramebufferObject::Attachment attachment
 argument_list|,
-argument|GLenum internal_format
-argument_list|,
 argument|GLenum texture_target
+argument_list|,
+argument|GLenum internal_format
 argument_list|,
 argument|GLint samples =
 literal|0
@@ -323,23 +313,23 @@ expr_stmt|;
 name|void
 name|initTexture
 parameter_list|(
-name|GLenum
-name|target
-parameter_list|,
-name|GLenum
-name|internal_format
-parameter_list|,
-specifier|const
-name|QSize
-modifier|&
-name|size
-parameter_list|,
-name|bool
-name|mipmap
+name|int
+name|idx
 parameter_list|)
 function_decl|;
 name|void
-name|initAttachments
+name|initColorBuffer
+parameter_list|(
+name|int
+name|idx
+parameter_list|,
+name|GLint
+modifier|*
+name|samples
+parameter_list|)
+function_decl|;
+name|void
+name|initDepthStencilAttachments
 argument_list|(
 name|QOpenGLContext
 operator|*
@@ -366,25 +356,17 @@ name|fbo_guard
 decl_stmt|;
 name|QOpenGLSharedResourceGuard
 modifier|*
-name|texture_guard
-decl_stmt|;
-name|QOpenGLSharedResourceGuard
-modifier|*
 name|depth_buffer_guard
 decl_stmt|;
 name|QOpenGLSharedResourceGuard
 modifier|*
 name|stencil_buffer_guard
 decl_stmt|;
-name|QOpenGLSharedResourceGuard
-modifier|*
-name|color_buffer_guard
-decl_stmt|;
 name|GLenum
 name|target
 decl_stmt|;
 name|QSize
-name|size
+name|dsSize
 decl_stmt|;
 name|QOpenGLFramebufferObjectFormat
 name|format
@@ -405,6 +387,62 @@ expr_stmt|;
 name|QOpenGLExtensions
 name|funcs
 decl_stmt|;
+struct|struct
+name|ColorAttachment
+block|{
+name|ColorAttachment
+argument_list|()
+operator|:
+name|internalFormat
+argument_list|(
+literal|0
+argument_list|)
+operator|,
+name|guard
+argument_list|(
+literal|0
+argument_list|)
+block|{ }
+name|ColorAttachment
+argument_list|(
+argument|const QSize&size
+argument_list|,
+argument|GLenum internalFormat
+argument_list|)
+operator|:
+name|size
+argument_list|(
+name|size
+argument_list|)
+operator|,
+name|internalFormat
+argument_list|(
+name|internalFormat
+argument_list|)
+operator|,
+name|guard
+argument_list|(
+literal|0
+argument_list|)
+block|{ }
+name|QSize
+name|size
+expr_stmt|;
+name|GLenum
+name|internalFormat
+decl_stmt|;
+name|QOpenGLSharedResourceGuard
+modifier|*
+name|guard
+decl_stmt|;
+block|}
+struct|;
+name|QVector
+operator|<
+name|ColorAttachment
+operator|>
+name|colorAttachments
+expr_stmt|;
 specifier|inline
 name|GLuint
 name|fbo

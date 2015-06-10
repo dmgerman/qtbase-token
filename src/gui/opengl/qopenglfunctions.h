@@ -1059,6 +1059,10 @@ block|,
 name|TextureRGFormats
 operator|=
 literal|0x8000
+block|,
+name|MultipleRenderTargets
+operator|=
+literal|0x10000
 block|}
 expr_stmt|;
 name|Q_DECLARE_FLAGS
