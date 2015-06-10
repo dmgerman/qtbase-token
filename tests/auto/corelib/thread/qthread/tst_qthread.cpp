@@ -3390,14 +3390,12 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_WINRT
+name|Q_OS_WINCE
 argument_list|)
-comment|// creating a new worker from within the GUI thread is not supported
-elif|#
-directive|elif
+operator|||
 name|defined
 argument_list|(
-name|Q_OS_WINCE
+name|Q_OS_WINRT
 argument_list|)
 name|nativeThreadHandle
 operator|=
@@ -3522,12 +3520,21 @@ expr_stmt|;
 elif|#
 directive|elif
 name|defined
-name|Q_OS_WINRT
-comment|// not supported
-elif|#
-directive|elif
-name|defined
 name|Q_OS_WIN
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+name|WaitForSingleObjectEx
+argument_list|(
+name|nativeThreadHandle
+argument_list|,
+name|INFINITE
+argument_list|,
+name|FALSE
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|WaitForSingleObject
 argument_list|(
 name|nativeThreadHandle
@@ -3535,6 +3542,8 @@ argument_list|,
 name|INFINITE
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|CloseHandle
 argument_list|(
 name|nativeThreadHandle
@@ -3752,16 +3761,6 @@ operator|::
 name|nativeThreadAdoption
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|threadAdoptedOk
 operator|=
 literal|false
@@ -3873,16 +3872,6 @@ operator|::
 name|adoptedThreadAffinity
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QThread
 modifier|*
 name|affinity
@@ -3937,16 +3926,6 @@ operator|::
 name|adoptedThreadSetPriority
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|NativeThreadWrapper
 name|nativeThread
 decl_stmt|;
@@ -4170,16 +4149,6 @@ operator|::
 name|adoptedThreadExit
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|NativeThreadWrapper
 name|nativeThread
 decl_stmt|;
@@ -4321,16 +4290,6 @@ operator|::
 name|adoptedThreadExec
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|NativeThreadWrapper
 name|nativeThread
 decl_stmt|;
@@ -4359,16 +4318,6 @@ operator|::
 name|adoptedThreadFinished
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|NativeThreadWrapper
 name|nativeThread
 decl_stmt|;
@@ -4429,23 +4378,6 @@ argument_list|(
 literal|5
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINRT
-argument_list|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-31397: Known not to work on WinRT"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 operator|!
@@ -4468,16 +4400,6 @@ operator|::
 name|adoptedThreadExecFinished
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|NativeThreadWrapper
 name|nativeThread
 decl_stmt|;
@@ -4562,16 +4484,6 @@ operator|::
 name|adoptMultipleThreads
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
@@ -4784,23 +4696,6 @@ argument_list|(
 literal|5
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINRT
-argument_list|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-31397: Known not to work on WinRT"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 operator|!
@@ -4835,16 +4730,6 @@ operator|::
 name|adoptMultipleThreadsOverlap
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINRT
-name|QSKIP
-argument_list|(
-literal|"Native thread adoption is not supported on WinRT."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
@@ -5119,23 +5004,6 @@ argument_list|(
 literal|5
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINRT
-argument_list|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-31397: Known not to work on WinRT"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 operator|!
