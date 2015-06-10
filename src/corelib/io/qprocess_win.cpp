@@ -3473,13 +3473,15 @@ literal|false
 return|;
 if|if
 condition|(
-name|WaitForSingleObject
+name|WaitForSingleObjectEx
 argument_list|(
 name|pid
 operator|->
 name|hProcess
 argument_list|,
 literal|0
+argument_list|,
+literal|false
 argument_list|)
 operator|==
 name|WAIT_OBJECT_0
@@ -3711,13 +3713,15 @@ comment|// Wait for the process to signal any change in its state,
 comment|// such as incoming data, or if the process died.
 if|if
 condition|(
-name|WaitForSingleObject
+name|WaitForSingleObjectEx
 argument_list|(
 name|pid
 operator|->
 name|hProcess
 argument_list|,
 literal|0
+argument_list|,
+literal|false
 argument_list|)
 operator|==
 name|WAIT_OBJECT_0

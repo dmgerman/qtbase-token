@@ -405,9 +405,10 @@ else|else
 block|{
 if|#
 directive|if
+operator|!
 name|defined
 argument_list|(
-name|Q_OS_WINRT
+name|Q_OS_WINCE
 argument_list|)
 if|if
 condition|(
