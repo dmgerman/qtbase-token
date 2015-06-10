@@ -2341,12 +2341,24 @@ define|#
 directive|define
 name|Q_COMPILER_INHERITING_CONSTRUCTORS
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_OSX
+end_ifndef
+begin_comment
+comment|//       C++11 thread_local is broken on OS X (Clang doesn't support it either)
+end_comment
 begin_define
 DECL|macro|Q_COMPILER_THREAD_LOCAL
 define|#
 directive|define
 name|Q_COMPILER_THREAD_LOCAL
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|Q_COMPILER_UDL
 define|#
