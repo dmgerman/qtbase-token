@@ -28057,6 +28057,13 @@ name|qreal
 argument_list|>
 name|tabs
 decl_stmt|;
+name|tabs
+operator|.
+name|reserve
+argument_list|(
+name|tabarraylen
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

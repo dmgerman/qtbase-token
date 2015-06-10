@@ -4500,6 +4500,13 @@ name|s
 operator|>>
 name|numStops
 expr_stmt|;
+name|stops
+operator|.
+name|reserve
+argument_list|(
+name|numStops
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|quint32

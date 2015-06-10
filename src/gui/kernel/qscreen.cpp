@@ -700,6 +700,16 @@ modifier|*
 argument_list|>
 name|screens
 decl_stmt|;
+name|screens
+operator|.
+name|reserve
+argument_list|(
+name|platformScreens
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 name|QPlatformScreen

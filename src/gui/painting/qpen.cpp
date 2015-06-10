@@ -2341,6 +2341,13 @@ expr_stmt|;
 name|double
 name|dash
 decl_stmt|;
+name|dashPattern
+operator|.
+name|reserve
+argument_list|(
+name|numDashes
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|quint32

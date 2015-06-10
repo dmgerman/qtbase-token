@@ -2781,6 +2781,13 @@ name|QVariant
 argument_list|>
 name|v
 decl_stmt|;
+name|v
+operator|.
+name|reserve
+argument_list|(
+literal|4
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|i

@@ -17006,6 +17006,16 @@ name|Tab
 argument_list|>
 name|newTabs
 decl_stmt|;
+name|newTabs
+operator|.
+name|reserve
+argument_list|(
+name|tabArray
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QList
 argument_list|<
 name|QTextOption

@@ -2669,6 +2669,16 @@ operator|::
 name|TouchPoint
 name|p
 decl_stmt|;
+name|touchPoints
+operator|.
+name|reserve
+argument_list|(
+name|points
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QList
 argument_list|<
 name|QWindowSystemInterface
