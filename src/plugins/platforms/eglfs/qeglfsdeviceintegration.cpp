@@ -379,6 +379,11 @@ name|list
 return|;
 else|#
 directive|else
+name|Q_UNUSED
+argument_list|(
+name|pluginPath
+argument_list|)
+expr_stmt|;
 return|return
 name|QStringList
 argument_list|()
@@ -479,6 +484,18 @@ operator|<<
 literal|"Failed to load EGL device integration"
 operator|<<
 name|key
+expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|pluginPath
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

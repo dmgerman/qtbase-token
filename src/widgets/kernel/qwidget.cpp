@@ -37112,6 +37112,13 @@ operator|::
 name|ImHints
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|hints
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 comment|//QT_NO_IM

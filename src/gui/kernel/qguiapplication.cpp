@@ -5076,6 +5076,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|loadTestability
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_NO_LIBRARY
