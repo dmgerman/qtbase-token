@@ -503,6 +503,8 @@ name|AbsMTTouchMajor
 operator|,
 name|AbsMTTouchMinor
 operator|,
+name|AbsMTOrientation
+operator|,
 name|AbsMTPressure
 operator|,
 name|AbsMTTrackingID
