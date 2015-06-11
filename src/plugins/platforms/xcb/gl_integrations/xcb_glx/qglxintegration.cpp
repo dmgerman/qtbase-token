@@ -2961,6 +2961,9 @@ condition|)
 endif|#
 directive|endif
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 specifier|extern
 specifier|const
 name|QString
@@ -2989,6 +2992,8 @@ argument_list|(
 literal|"glXGetProcAddressARB"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 name|resolved
