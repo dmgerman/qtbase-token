@@ -1828,6 +1828,9 @@ name|resolveGtk
 parameter_list|()
 specifier|const
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 comment|// enforce the "0" suffix, so we'll open libgtk-x11-2.0.so.0
 name|QLibrary
 name|libgtk
@@ -2948,6 +2951,9 @@ argument_list|,
 literal|"gnome_vfs_init"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_LIBRARY
 block|}
 end_function
 begin_comment
@@ -3886,6 +3892,9 @@ name|bool
 name|resolveGConf
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 if|if
 condition|(
 operator|!
@@ -3958,6 +3967,9 @@ literal|"gconf_client_get_bool"
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_LIBRARY
 return|return
 operator|(
 name|QGtkStylePrivate

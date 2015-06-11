@@ -900,6 +900,9 @@ name|void
 name|initGtk
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 specifier|static
 name|bool
 name|initialized
@@ -1225,6 +1228,9 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !QT_NO_LIBRARY
 block|}
 end_function
 begin_comment
