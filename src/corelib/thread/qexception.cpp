@@ -30,16 +30,17 @@ comment|/*!     \fn QException::clone() const     In your QException subclass, r
 comment|/*!     \class QUnhandledException     \inmodule QtCore      \brief The UnhandledException class represents an unhandled exception in a worker thread.     \since 5.0      If a worker thread throws an exception that is not a subclass of QException,     the Qt functions will throw a QUnhandledException     on the receiver thread side.      Inheriting from this class is not supported. */
 comment|/*!     \fn QUnhandledException::raise() const     \internal */
 comment|/*!     \fn QUnhandledException::clone() const     \internal */
-DECL|function|~QException
 name|QException
 operator|::
 name|~
 name|QException
-operator|(
-operator|)
-ifndef|#
-directive|ifndef
+argument_list|()
+ifdef|#
+directive|ifdef
 name|Q_COMPILER_NOEXCEPT
+noexcept|noexcept
+else|#
+directive|else
 throw|throw
 argument_list|()
 endif|#
@@ -86,15 +87,17 @@ return|;
 block|}
 end_expr_stmt
 begin_destructor
-DECL|function|~QUnhandledException
 name|QUnhandledException
 operator|::
 name|~
 name|QUnhandledException
 parameter_list|()
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|Q_COMPILER_NOEXCEPT
+noexcept|noexcept
+else|#
+directive|else
 throw|throw
 argument_list|()
 endif|#
