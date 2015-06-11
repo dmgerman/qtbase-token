@@ -428,9 +428,14 @@ modifier|*
 name|name
 parameter_list|)
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 name|QLibrary
 name|m_gl
 decl_stmt|;
+endif|#
+directive|endif
 block|}
 end_decl_stmt
 begin_empty_stmt
