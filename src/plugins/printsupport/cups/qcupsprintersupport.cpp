@@ -7,11 +7,21 @@ include|#
 directive|include
 file|"qcupsprintersupport_p.h"
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_PRINTER
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_CUPS
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
@@ -386,6 +396,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_PRINTER
+comment|// !defined(QT_NO_PRINTER)&& !defined(QT_NO_CUPS)
 end_comment
 end_unit
