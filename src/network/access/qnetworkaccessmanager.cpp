@@ -631,11 +631,6 @@ argument_list|,
 name|parent
 argument_list|)
 block|{
-name|Q_D
-argument_list|(
-name|QNetworkAccessManager
-argument_list|)
-expr_stmt|;
 name|ensureInitialized
 argument_list|()
 expr_stmt|;
@@ -730,6 +725,11 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
+name|Q_D
+argument_list|(
+name|QNetworkAccessManager
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!

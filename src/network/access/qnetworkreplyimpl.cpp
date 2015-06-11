@@ -181,11 +181,6 @@ operator|::
 name|_q_startOperation
 parameter_list|()
 block|{
-name|Q_Q
-argument_list|(
-name|QNetworkReplyImpl
-argument_list|)
-expr_stmt|;
 comment|// ensure this function is only being called once
 if|if
 condition|(
@@ -251,6 +246,11 @@ block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
+name|Q_Q
+argument_list|(
+name|QNetworkReplyImpl
+argument_list|)
+expr_stmt|;
 comment|// Do not start background requests if they are not allowed by session policy
 name|QSharedPointer
 argument_list|<
