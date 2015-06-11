@@ -146,6 +146,9 @@ name|functionName
 argument_list|)
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 DECL|function|qsslSocketCannotResolveSymbolWarning
 name|void
 name|qsslSocketCannotResolveSymbolWarning
@@ -166,6 +169,8 @@ name|functionName
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_namespace
 begin_endif
