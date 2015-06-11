@@ -7281,7 +7281,15 @@ operator|->
 name|d_func
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|argc
+condition|)
+block|{
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|procName
@@ -7325,6 +7333,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
