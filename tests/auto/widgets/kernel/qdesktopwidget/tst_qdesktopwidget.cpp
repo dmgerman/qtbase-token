@@ -118,7 +118,19 @@ name|tst_QDesktopWidget
 operator|::
 name|cleanup
 parameter_list|()
-block|{ }
+block|{
+name|QVERIFY
+argument_list|(
+name|QApplication
+operator|::
+name|topLevelWidgets
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|numScreens
