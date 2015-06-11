@@ -120,15 +120,6 @@ argument|(QAccessibleFactoryInterface_iid, QLatin1String(
 literal|"/accessible"
 argument|))
 argument_list|)
-endif|#
-directive|endif
-comment|// FIXME turn this into one global static struct
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|QList<QAccessible::InterfaceFactory>
-argument_list|,
-argument|qAccessibleFactories
-argument_list|)
 end_expr_stmt
 begin_typedef
 DECL|typedef|QAccessiblePluginsHash
@@ -149,6 +140,21 @@ argument_list|(
 argument|QAccessiblePluginsHash
 argument_list|,
 argument|qAccessiblePlugins
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// FIXME turn this into one global static struct
+end_comment
+begin_macro
+name|Q_GLOBAL_STATIC
+argument_list|(
+argument|QList<QAccessible::InterfaceFactory>
+argument_list|,
+argument|qAccessibleFactories
 argument_list|)
 end_macro
 begin_macro
