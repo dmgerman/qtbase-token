@@ -79,15 +79,11 @@ name|void
 operator|*
 name|nativeResourceForContext
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|resourceString
+argument|const QByteArray&resourceString
 argument_list|,
-name|QOpenGLContext
-operator|*
-name|context
+argument|QOpenGLContext *context
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -95,15 +91,11 @@ name|void
 operator|*
 name|nativeResourceForWindow
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|resourceString
+argument|const QByteArray&resourceString
 argument_list|,
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|NativeResourceForIntegrationFunction
 name|nativeResourceFunctionForIntegration

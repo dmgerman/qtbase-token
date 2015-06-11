@@ -109,15 +109,14 @@ operator|~
 name|QCoreTextFontEngine
 argument_list|()
 block|;
-name|virtual
 name|glyph_t
 name|glyphIndex
 argument_list|(
 argument|uint ucs4
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|stringToCMap
 argument_list|(
@@ -132,8 +131,8 @@ argument_list|,
 argument|ShaperFlags flags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|recalcAdvances
 argument_list|(
@@ -142,61 +141,58 @@ argument_list|,
 argument|ShaperFlags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
-specifier|const
-name|QGlyphLayout
-operator|&
-name|glyphs
+argument|const QGlyphLayout&glyphs
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
 argument|glyph_t glyph
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|ascent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|descent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|leading
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|xHeight
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|qreal
 name|maxCharWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|averageCharWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|addGlyphsToPath
 argument_list|(
@@ -210,8 +206,8 @@ argument|QPainterPath *path
 argument_list|,
 argument|QTextItem::RenderFlags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|canRender
 argument_list|(
@@ -220,22 +216,23 @@ argument_list|,
 argument|int len
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|int
 name|synthesized
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|synthesisFlags
 return|;
 block|}
-name|virtual
 name|bool
 name|supportsSubPixelPositions
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|true
@@ -255,13 +252,12 @@ argument_list|,
 argument|int paintDeviceHeight
 argument_list|)
 block|;
-name|virtual
 name|FaceId
 name|faceId
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|getSfntTableData
 argument_list|(
@@ -275,8 +271,8 @@ argument|uint *
 comment|/*length*/
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|getUnscaledGlyph
 argument_list|(
@@ -286,8 +282,8 @@ argument|QPainterPath *path
 argument_list|,
 argument|glyph_metrics_t *metrics
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 name|alphaMapForGlyph
 argument_list|(
@@ -295,8 +291,8 @@ argument|glyph_t
 argument_list|,
 argument|QFixed subPixelPosition
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 name|alphaMapForGlyph
 argument_list|(
@@ -306,8 +302,8 @@ argument|QFixed subPixelPosition
 argument_list|,
 argument|const QTransform&t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 name|alphaRGBMapForGlyph
 argument_list|(
@@ -317,6 +313,7 @@ argument|QFixed subPixelPosition
 argument_list|,
 argument|const QTransform&t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|glyph_metrics_t
 name|alphaMapBoundingBox
@@ -329,8 +326,8 @@ argument|const QTransform&matrix
 argument_list|,
 argument|GlyphFormat
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 name|bitmapForGlyph
 argument_list|(
@@ -340,24 +337,25 @@ argument|QFixed subPixelPosition
 argument_list|,
 argument|const QTransform&t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|qreal
 name|minRightBearing
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|qreal
 name|minLeftBearing
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|emSquareSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|supportsTransformation
@@ -365,8 +363,8 @@ argument_list|(
 argument|const QTransform&transform
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFontEngine
 operator|*
 name|cloneWithSize
@@ -374,13 +372,14 @@ argument_list|(
 argument|qreal pixelSize
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|int
 name|glyphMargin
 argument_list|(
 argument|QFontEngine::GlyphFormat format
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -391,13 +390,13 @@ return|return
 literal|0
 return|;
 block|}
-name|virtual
 name|QFontEngine
 operator|::
 name|Properties
 name|properties
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|bool

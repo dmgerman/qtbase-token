@@ -118,11 +118,13 @@ argument_list|,
 argument|int height
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|geometry
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_geometry
@@ -132,6 +134,7 @@ name|QRect
 name|availableGeometry
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_availableGeometry
@@ -141,6 +144,7 @@ name|int
 name|depth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_depth
@@ -152,6 +156,7 @@ name|Format
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_format
@@ -161,11 +166,13 @@ name|qreal
 name|devicePixelRatio
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSizeF
 name|physicalSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_physicalSize
@@ -175,6 +182,7 @@ name|QDpi
 name|logicalDpi
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_logicalDpi
@@ -184,6 +192,7 @@ name|qreal
 name|refreshRate
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_refreshRate
@@ -193,6 +202,7 @@ name|QString
 name|name
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_name
@@ -203,6 +213,7 @@ operator|*
 name|cursor
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_cursor
@@ -215,6 +226,7 @@ argument_list|(
 argument|const QPoint&point
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<
@@ -224,6 +236,7 @@ operator|>
 name|virtualSiblings
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_siblings
