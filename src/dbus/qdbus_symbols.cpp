@@ -70,7 +70,7 @@ end_if
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
+name|QT_NO_LIBRARY
 end_ifndef
 begin_decl_stmt
 DECL|variable|qdbus_libdbus
@@ -135,7 +135,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
+name|QT_NO_LIBRARY
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
@@ -418,7 +418,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
+name|QT_NO_LIBRARY
 end_ifndef
 begin_macro
 DECL|function|qdbus_resolve_conditionally
@@ -474,7 +474,7 @@ operator|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
+name|QT_NO_LIBRARY
 if|if
 condition|(
 operator|!
@@ -575,7 +575,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_BOOTSTRAPPED
+name|QT_NO_LIBRARY
 end_ifndef
 begin_macro
 name|Q_DESTRUCTOR_FUNCTION
