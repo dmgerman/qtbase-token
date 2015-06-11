@@ -46,11 +46,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore/qobject.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/qtouchdevice.h>
 end_include
 begin_decl_stmt
@@ -102,6 +97,7 @@ specifier|static
 name|void
 name|registerDevice
 parameter_list|(
+specifier|const
 name|QTouchDevice
 modifier|*
 name|dev
@@ -111,6 +107,7 @@ specifier|static
 name|bool
 name|isRegistered
 parameter_list|(
+specifier|const
 name|QTouchDevice
 modifier|*
 name|dev
