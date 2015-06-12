@@ -2989,18 +2989,17 @@ parameter_list|)
 define|\
 value|QT_MAC_DEPLOYMENT_TARGET_BELOW(osx, __IPHONE_NA)
 end_define
-begin_expr_stmt
-DECL|variable|NSAutoreleasePool
+begin_function_decl
+name|QT_END_NAMESPACE
 name|Q_FORWARD_DECLARE_OBJC_CLASS
-argument_list|(
+parameter_list|(
 name|NSAutoreleasePool
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_comment
-comment|// Implemented in qcore_mac_objc.mm
-end_comment
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+comment|// Implemented in qcore_mac_objc.mm
 name|class
 name|Q_CORE_EXPORT
 name|QMacAutoReleasePool
