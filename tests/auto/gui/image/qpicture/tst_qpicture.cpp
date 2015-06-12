@@ -439,7 +439,7 @@ argument_list|)
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
-name|p1
+name|p2
 operator|.
 name|boundingRect
 argument_list|()
@@ -456,7 +456,7 @@ name|p1
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|p1
+name|p3
 operator|.
 name|boundingRect
 argument_list|()
