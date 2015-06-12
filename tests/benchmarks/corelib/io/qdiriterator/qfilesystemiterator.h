@@ -20,12 +20,12 @@ file|<QtCore/qdir.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QFileSystemIteratorPrivate
+name|namespace
+name|QDirIteratorTest
+block|{
 name|class
 name|QFileSystemIteratorPrivate
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 comment|//Q_CORE_EXPORT
 name|QFileSystemIterator
@@ -137,16 +137,16 @@ name|class
 name|QDir
 decl_stmt|;
 block|}
-end_decl_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|QFileSystemIterator::IteratorFlags
 argument_list|)
-end_macro
+block|}
+end_decl_stmt
+begin_comment
+comment|// namespace QDirIteratorTest
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

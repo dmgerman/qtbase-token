@@ -74,7 +74,11 @@ end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_class
+begin_namespace
+DECL|namespace|QDirIteratorTest
+namespace|namespace
+name|QDirIteratorTest
+block|{
 DECL|class|QFileSystemIteratorPrivate
 class|class
 name|QFileSystemIteratorPrivate
@@ -259,11 +263,7 @@ function_decl|;
 comment|// returns true if we know we have something suitable
 block|}
 class|;
-end_class
-begin_comment
 comment|/*!     \internal */
-end_comment
-begin_constructor
 DECL|function|QFileSystemIteratorPrivate
 name|QFileSystemIteratorPrivate
 operator|::
@@ -377,11 +377,7 @@ condition|)
 return|return;
 block|}
 block|}
-end_constructor
-begin_comment
 comment|/*!     \internal */
-end_comment
-begin_destructor
 DECL|function|~QFileSystemIteratorPrivate
 name|QFileSystemIteratorPrivate
 operator|::
@@ -431,13 +427,9 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_destructor
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-end_ifdef
-begin_function
 DECL|function|isDotOrDotDot
 specifier|static
 name|bool
@@ -501,12 +493,8 @@ return|return
 literal|false
 return|;
 block|}
-end_function
-begin_else
 else|#
 directive|else
-end_else
-begin_function
 DECL|function|isDotOrDotDot
 specifier|static
 name|bool
@@ -567,15 +555,9 @@ return|return
 literal|false
 return|;
 block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|/*!     \internal */
-end_comment
-begin_function
 DECL|function|pushSubDirectory
 name|void
 name|QFileSystemIteratorPrivate
@@ -718,11 +700,7 @@ operator|=
 name|DontShowDir
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/*!     \internal */
-end_comment
-begin_function
 DECL|function|isAcceptable
 name|bool
 name|QFileSystemIteratorPrivate
@@ -743,11 +721,7 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-begin_comment
 comment|/*!     \internal */
-end_comment
-begin_function
 DECL|function|advance
 name|void
 name|QFileSystemIteratorPrivate
@@ -780,8 +754,6 @@ condition|)
 return|return;
 block|}
 block|}
-end_function
-begin_function
 DECL|function|advanceHelper
 name|bool
 name|QFileSystemIteratorPrivate
@@ -1158,11 +1130,7 @@ literal|false
 return|;
 comment|// further iteration possiblye needed
 block|}
-end_function
-begin_comment
 comment|/*!     \internal  */
-end_comment
-begin_function
 DECL|function|shouldFollowDirectory
 name|bool
 name|QFileSystemIteratorPrivate
@@ -1271,63 +1239,35 @@ return|return
 literal|true
 return|;
 block|}
-end_function
-begin_comment
 comment|/*!     \internal      This convenience function implements the iterator's filtering logics and     applies then to the current directory entry.      It returns true if the current entry matches the filters (i.e., the     current entry will be returned as part of the directory iteration);     otherwise, false is returned. */
-end_comment
-begin_if
 if|#
 directive|if
 literal|0
-end_if
-begin_ifndef
-unit|bool QFileSystemIteratorPrivate::matchesFilters(const QAbstractFileEngineIterator *it) const {     const bool filterPermissions = ((filters& QDir::PermissionMask)&& (filters& QDir::PermissionMask) != QDir::PermissionMask);     const bool skipDirs     = !(filters& (QDir::Dirs | QDir::AllDirs));     const bool skipFiles    = !(filters& QDir::Files);     const bool skipSymlinks = (filters& QDir::NoSymLinks);     const bool doReadable   = !filterPermissions || (filters& QDir::Readable);     const bool doWritable   = !filterPermissions || (filters& QDir::Writable);     const bool doExecutable = !filterPermissions || (filters& QDir::Executable);     const bool includeHidden = (filters& QDir::Hidden);     const bool includeSystem = (filters& QDir::System);
+block|bool QFileSystemIteratorPrivate::matchesFilters(const QAbstractFileEngineIterator *it) const {     const bool filterPermissions = ((filters& QDir::PermissionMask)&& (filters& QDir::PermissionMask) != QDir::PermissionMask);     const bool skipDirs     = !(filters& (QDir::Dirs | QDir::AllDirs));     const bool skipFiles    = !(filters& QDir::Files);     const bool skipSymlinks = (filters& QDir::NoSymLinks);     const bool doReadable   = !filterPermissions || (filters& QDir::Readable);     const bool doWritable   = !filterPermissions || (filters& QDir::Writable);     const bool doExecutable = !filterPermissions || (filters& QDir::Executable);     const bool includeHidden = (filters& QDir::Hidden);     const bool includeSystem = (filters& QDir::System);
 ifndef|#
 directive|ifndef
 name|QT_NO_REGEXP
-end_ifndef
-begin_comment
 comment|// Prepare name filters
-end_comment
-begin_endif
-unit|QList<QRegExp> regexps;     bool hasNameFilters = !nameFilters.isEmpty()&& !(nameFilters.contains(QLatin1String("*")));     if (hasNameFilters) {         for (int i = 0; i< nameFilters.size(); ++i) {             regexps<< QRegExp(nameFilters.at(i),                                (filters& QDir::CaseSensitive) ? Qt::CaseSensitive : Qt::CaseInsensitive,                                QRegExp::Wildcard);         }     }
+block|QList<QRegExp> regexps;     bool hasNameFilters = !nameFilters.isEmpty()&& !(nameFilters.contains(QLatin1String("*")));     if (hasNameFilters) {         for (int i = 0; i< nameFilters.size(); ++i) {             regexps<< QRegExp(nameFilters.at(i),                                (filters& QDir::CaseSensitive) ? Qt::CaseSensitive : Qt::CaseInsensitive,                                QRegExp::Wildcard);         }     }
 endif|#
 directive|endif
-end_endif
-begin_comment
-unit|QString fileName = it->currentFileName();     if (fileName.isEmpty()) {
+block|QString fileName = it->currentFileName();     if (fileName.isEmpty()) {
 comment|// invalid entry
-end_comment
-begin_ifndef
-unit|return false;     }      QFileInfo fi = it->currentFileInfo();     QString filePath = it->currentFilePath();
+block|return false;     }      QFileInfo fi = it->currentFileInfo();     QString filePath = it->currentFilePath();
 ifndef|#
 directive|ifndef
 name|QT_NO_REGEXP
-end_ifndef
-begin_comment
 comment|// Pass all entries through name filters, except dirs if the AllDirs
-end_comment
-begin_comment
 comment|// filter is passed.
-end_comment
-begin_endif
-unit|if (hasNameFilters&& !((filters& QDir::AllDirs)&& fi.isDir())) {         bool matched = false;         for (int i = 0; i< regexps.size(); ++i) {             if (regexps.at(i).exactMatch(fileName)) {                 matched = true;                 break;             }         }         if (!matched)             return false;     }
+block|if (hasNameFilters&& !((filters& QDir::AllDirs)&& fi.isDir())) {         bool matched = false;         for (int i = 0; i< regexps.size(); ++i) {             if (regexps.at(i).exactMatch(fileName)) {                 matched = true;                 break;             }         }         if (!matched)             return false;     }
 endif|#
 directive|endif
-end_endif
-begin_comment
-unit|bool dotOrDotDot = (fileName == QLatin1String(".") || fileName == QLatin1String(".."));     if ((filters& QDir::NoDotAndDotDot)&& dotOrDotDot)         return false;      bool isHidden = !dotOrDotDot&& fi.isHidden();     if (!includeHidden&& isHidden)         return false;      bool isSystem = (!fi.isFile()&& !fi.isDir()&& !fi.isSymLink())                     || (!fi.exists()&& fi.isSymLink());     if (!includeSystem&& isSystem)         return false;      bool alwaysShow = (filters& QDir::TypeMask) == 0&& ((isHidden&& includeHidden)             || (includeSystem&& isSystem));
+block|bool dotOrDotDot = (fileName == QLatin1String(".") || fileName == QLatin1String(".."));     if ((filters& QDir::NoDotAndDotDot)&& dotOrDotDot)         return false;      bool isHidden = !dotOrDotDot&& fi.isHidden();     if (!includeHidden&& isHidden)         return false;      bool isSystem = (!fi.isFile()&& !fi.isDir()&& !fi.isSymLink())                     || (!fi.exists()&& fi.isSymLink());     if (!includeSystem&& isSystem)         return false;      bool alwaysShow = (filters& QDir::TypeMask) == 0&& ((isHidden&& includeHidden)             || (includeSystem&& isSystem));
 comment|// Skip files and directories
-end_comment
-begin_endif
-unit|if ((filters& QDir::AllDirs) == 0&& skipDirs&& fi.isDir()) {         if (!alwaysShow)             return false;     }      if ((skipFiles&& (fi.isFile() || !fi.exists()))         || (skipSymlinks&& fi.isSymLink())) {         if (!alwaysShow)             return false;     }      if (filterPermissions&& ((doReadable&& !fi.isReadable())             || (doWritable&& !fi.isWritable())             || (doExecutable&& !fi.isExecutable()))) {         return false;     }      if (!includeSystem&& !dotOrDotDot&& ((fi.exists()&& !fi.isFile()&& !fi.isDir()&& !fi.isSymLink())                                            || (!fi.exists()&& fi.isSymLink()))) {         return false;     }      return true; }
+block|if ((filters& QDir::AllDirs) == 0&& skipDirs&& fi.isDir()) {         if (!alwaysShow)             return false;     }      if ((skipFiles&& (fi.isFile() || !fi.exists()))         || (skipSymlinks&& fi.isSymLink())) {         if (!alwaysShow)             return false;     }      if (filterPermissions&& ((doReadable&& !fi.isReadable())             || (doWritable&& !fi.isWritable())             || (doExecutable&& !fi.isExecutable()))) {         return false;     }      if (!includeSystem&& !dotOrDotDot&& ((fi.exists()&& !fi.isFile()&& !fi.isDir()&& !fi.isSymLink())                                            || (!fi.exists()&& fi.isSymLink()))) {         return false;     }      return true; }
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|/*!     Constructs a QFileSystemIterator that can iterate over \a dir's entrylist, using     \a dir's name filters and regular filters. You can pass options via \a     flags to decide how the directory should be iterated.      By default, \a flags is NoIteratorFlags, which provides the same behavior     as in QDir::entryList().      The sorting in \a dir is ignored.      \sa atEnd(), next(), IteratorFlags */
-end_comment
-begin_constructor
 DECL|function|QFileSystemIterator
 name|QFileSystemIterator
 operator|::
@@ -1373,11 +1313,7 @@ operator|=
 name|this
 expr_stmt|;
 block|}
-end_constructor
-begin_comment
 comment|/*!     Constructs a QFileSystemIterator that can iterate over \a path, with no name     filtering and \a filters for entry filtering. You can pass options via \a     flags to decide how the directory should be iterated.      By default, \a filters is QDir::NoFilter, and \a flags is NoIteratorFlags,     which provides the same behavior as in QDir::entryList().      \sa atEnd(), next(), IteratorFlags */
-end_comment
-begin_constructor
 DECL|function|QFileSystemIterator
 name|QFileSystemIterator
 operator|::
@@ -1425,11 +1361,7 @@ operator|=
 name|this
 expr_stmt|;
 block|}
-end_constructor
-begin_comment
 comment|/*!     Constructs a QFileSystemIterator that can iterate over \a path. You can pass     options via \a flags to decide how the directory should be iterated.      By default, \a flags is NoIteratorFlags, which provides the same behavior     as in QDir::entryList().      \sa atEnd(), next(), IteratorFlags */
-end_comment
-begin_constructor
 DECL|function|QFileSystemIterator
 name|QFileSystemIterator
 operator|::
@@ -1474,11 +1406,7 @@ operator|=
 name|this
 expr_stmt|;
 block|}
-end_constructor
-begin_comment
 comment|/*!     Constructs a QFileSystemIterator that can iterate over \a path, using \a     nameFilters and \a filters. You can pass options via \a flags to decide     how the directory should be iterated.      By default, \a flags is NoIteratorFlags, which provides the same behavior     as QDir::entryList().      \sa atEnd(), next(), IteratorFlags */
-end_comment
-begin_constructor
 DECL|function|QFileSystemIterator
 name|QFileSystemIterator
 operator|::
@@ -1525,11 +1453,7 @@ operator|=
 name|this
 expr_stmt|;
 block|}
-end_constructor
-begin_comment
 comment|/*!     Destroys the QFileSystemIterator. */
-end_comment
-begin_destructor
 DECL|function|~QFileSystemIterator
 name|QFileSystemIterator
 operator|::
@@ -1541,11 +1465,7 @@ operator|delete
 name|d
 expr_stmt|;
 block|}
-end_destructor
-begin_comment
 comment|/*!     Advances the iterator to the next entry, and returns the file path of this     new entry. If atEnd() returns true, this function does nothing, and     returns a null QString.      You can call fileName() or filePath() to get the current entry file name     or path, or fileInfo() to get a QFileInfo for the current entry.      \sa hasNext(), fileName(), filePath(), fileInfo() */
-end_comment
-begin_function
 DECL|function|next
 name|void
 name|QFileSystemIterator
@@ -1559,11 +1479,7 @@ name|advance
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/*!     Returns true if there is at least one more entry in the directory;     otherwise, false is returned.      \sa next(), fileName(), filePath(), fileInfo() */
-end_comment
-begin_function
 DECL|function|atEnd
 name|bool
 name|QFileSystemIterator
@@ -1579,11 +1495,7 @@ name|atEnd
 argument_list|()
 return|;
 block|}
-end_function
-begin_comment
 comment|/*!     Returns the file name for the current directory entry, without the path     prepended. If the current entry is invalid (i.e., isValid() returns     false), a null QString is returned.      This function is provided for the convenience when iterating single     directories. For recursive iteration, you should call filePath() or     fileInfo() instead.      \sa filePath(), fileInfo() */
-end_comment
-begin_function
 DECL|function|fileName
 name|QString
 name|QFileSystemIterator
@@ -1686,11 +1598,7 @@ return|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_comment
 comment|/*!     Returns the full file path for the current directory entry. If the current     entry is invalid (i.e., isValid() returns false), a null QString is     returned.      \sa fileInfo(), fileName() */
-end_comment
-begin_function
 DECL|function|filePath
 name|QString
 name|QFileSystemIterator
@@ -1799,11 +1707,7 @@ name|ba
 argument_list|)
 return|;
 block|}
-end_function
-begin_comment
 comment|/*!     Returns a QFileInfo for the current directory entry. If the current entry     is invalid (i.e., isValid() returns false), a null QFileInfo is returned.      \sa filePath(), fileName() */
-end_comment
-begin_function
 DECL|function|fileInfo
 name|QFileInfo
 name|QFileSystemIterator
@@ -1820,11 +1724,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_function
-begin_comment
 comment|/*!     Returns the base directory of the iterator. */
-end_comment
-begin_function
 DECL|function|path
 name|QString
 name|QFileSystemIterator
@@ -1847,7 +1747,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_function
+block|}
+end_namespace
+begin_comment
+comment|// QDirIteratorTest::
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

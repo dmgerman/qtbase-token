@@ -855,6 +855,8 @@ argument_list|(
 literal|"\n\n\n\n"
 argument_list|)
 decl_stmt|;
+name|QDirIteratorTest
+operator|::
 name|QFileSystemIterator
 name|dir
 argument_list|(
@@ -867,6 +869,8 @@ name|QDir
 operator|::
 name|Files
 argument_list|,
+name|QDirIteratorTest
+operator|::
 name|QFileSystemIterator
 operator|::
 name|Subdirectories
