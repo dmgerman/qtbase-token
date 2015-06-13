@@ -2859,7 +2859,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -3360,7 +3360,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -4251,7 +4251,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -4357,7 +4357,7 @@ endif|#
 directive|endif
 comment|// Immediately set the properties that are not animated.
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -7052,7 +7052,7 @@ block|}
 end_function
 begin_function
 DECL|function|restorablesToPropertyList
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -7072,7 +7072,7 @@ name|restorables
 parameter_list|)
 specifier|const
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -7355,7 +7355,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -7389,7 +7389,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -7434,7 +7434,7 @@ operator|!
 name|s
 condition|)
 continue|continue;
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -8476,7 +8476,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -8654,7 +8654,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -8684,7 +8684,7 @@ name|it
 control|)
 block|{
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -8819,7 +8819,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -8844,7 +8844,7 @@ name|state
 argument_list|)
 condition|)
 return|return;
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -8885,7 +8885,7 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>
@@ -9826,7 +9826,7 @@ argument_list|<
 name|QAbstractState
 modifier|*
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPropertyAssignment
 argument_list|>

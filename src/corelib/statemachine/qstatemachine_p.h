@@ -472,7 +472,7 @@ operator|<
 name|QAbstractState
 operator|*
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QPropertyAssignment
 operator|>
@@ -595,7 +595,7 @@ operator|<
 name|QAbstractState
 operator|*
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QPropertyAssignment
 operator|>
@@ -1272,7 +1272,7 @@ operator|&
 name|propertyName
 argument_list|)
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPropertyAssignment
 operator|>
@@ -1301,7 +1301,7 @@ operator|<
 name|QAbstractState
 operator|*
 block|,
-name|QList
+name|QVector
 operator|<
 name|QPropertyAssignment
 operator|>
@@ -1509,7 +1509,7 @@ operator|<
 name|QAbstractState
 operator|*
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QPropertyAssignment
 operator|>
@@ -1548,7 +1548,7 @@ operator|<
 name|QAbstractState
 operator|*
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QPropertyAssignment
 operator|>

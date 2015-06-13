@@ -203,6 +203,15 @@ comment|// false means the property is being restored to its old value
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QPropertyAssignment
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
@@ -363,7 +372,7 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_PROPERTIES
-name|QList
+name|QVector
 operator|<
 name|QPropertyAssignment
 operator|>
