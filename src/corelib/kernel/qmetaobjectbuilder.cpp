@@ -625,7 +625,7 @@ argument_list|>
 name|keys
 decl_stmt|;
 DECL|member|values
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
