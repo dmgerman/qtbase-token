@@ -175,7 +175,7 @@ name|currentAnimationIndex
 block|;
 comment|// this is the actual duration of uncontrolled animations
 comment|// it helps seeking and even going forward
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
