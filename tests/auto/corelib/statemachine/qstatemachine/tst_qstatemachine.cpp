@@ -790,7 +790,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|member|events
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -891,7 +891,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|member|triggers
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -33425,7 +33425,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|member|signalList
-name|QList
+name|QVector
 argument_list|<
 name|QMetaMethod
 argument_list|>
