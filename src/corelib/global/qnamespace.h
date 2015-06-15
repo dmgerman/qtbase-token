@@ -4938,6 +4938,8 @@ block|,
 name|MouseEventSynthesizedBySystem
 block|,
 name|MouseEventSynthesizedByQt
+block|,
+name|MouseEventSynthesizedByApplication
 block|}
 enum|;
 enum|enum
