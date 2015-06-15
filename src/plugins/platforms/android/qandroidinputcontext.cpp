@@ -4538,7 +4538,7 @@ name|QInputMethodQueryEvent
 argument_list|>
 name|query2
 init|=
-name|focusObjectInputMethodQuery
+name|focusObjectInputMethodQueryThreadSafe
 argument_list|()
 decl_stmt|;
 if|if
