@@ -17,9 +17,31 @@ include|#
 directive|include
 file|"qstringlist.h"
 end_include
-begin_macro
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-end_macro
+comment|// ### Qt 6: remove the static assertion, the 'sorts' field was changed from QList to QVector in Qt 5.6
+name|Q_STATIC_ASSERT
+argument_list|(
+operator|(
+sizeof|sizeof
+argument_list|(
+name|QList
+argument_list|<
+name|bool
+argument_list|>
+argument_list|)
+operator|==
+sizeof|sizeof
+argument_list|(
+name|QVector
+argument_list|<
+name|bool
+argument_list|>
+argument_list|)
+operator|)
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*!     \class QSqlIndex     \brief The QSqlIndex class provides functions to manipulate and     describe database indexes.      \ingroup database     \inmodule QtSql      An \e index refers to a single table or view in a database.     Information about the fields that comprise the index can be used     to generate SQL statements. */
 end_comment
