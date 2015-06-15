@@ -169,7 +169,7 @@ name|QT_NO_SHORTCUT
 name|int
 name|shortcutId
 block|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>

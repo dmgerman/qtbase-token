@@ -154,7 +154,7 @@ argument|int fragment
 argument_list|)
 specifier|const
 block|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>

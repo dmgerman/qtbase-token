@@ -794,13 +794,13 @@ block|;
 name|int
 name|rowResizeTimerID
 block|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
 name|columnsToUpdate
 block|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>

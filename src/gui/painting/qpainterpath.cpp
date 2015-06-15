@@ -5347,7 +5347,7 @@ endif|#
 directive|endif
 name|QVector
 argument_list|<
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -5532,7 +5532,7 @@ name|i
 control|)
 block|{
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -5742,7 +5742,7 @@ name|i
 control|)
 block|{
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
