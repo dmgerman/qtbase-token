@@ -6543,11 +6543,36 @@ directive|ifdef
 name|SA_ONSTACK
 comment|// Let the signal handlers use an alternate stack
 comment|// This is necessary if SIGSEGV is to catch a stack overflow
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_OF_ELF
+argument_list|)
+comment|// Put the alternate stack in the .lbss (large BSS) section so that it doesn't
+comment|// interfere with normal .bss symbols
+name|__attribute__
+argument_list|(
+argument|(section(
+literal|".lbss.altstack"
+argument|), aligned(
+literal|4096
+argument|))
+argument_list|)
+endif|#
+directive|endif
 specifier|static
 name|char
 name|alternate_stack
 index|[
-name|SIGSTKSZ
+literal|16
+operator|*
+literal|1024
 index|]
 decl_stmt|;
 name|stack_t
