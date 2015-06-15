@@ -300,6 +300,13 @@ name|int
 name|alloc
 parameter_list|)
 function_decl|;
+name|void
+name|realloc_grow
+parameter_list|(
+name|int
+name|growth
+parameter_list|)
+function_decl|;
 DECL|function|dispose
 specifier|inline
 name|void
