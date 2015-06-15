@@ -170,6 +170,15 @@ begin_comment
 comment|/*!     \fn bool QPixmapCache::Key::operator !=(const Key&key) const     \internal */
 end_comment
 begin_comment
+comment|/*!     \fn QPixmapCache::Key::Key(Key&&)     \internal     \since 5.6 */
+end_comment
+begin_comment
+comment|/*!     \fn QPixmapCache::Key&QPixmapCache::Key::operator=(Key&&)     \internal     \since 5.6 */
+end_comment
+begin_comment
+comment|/*!     \fn void QPixmapCache::Key::swap(Key&)     \internal     \since 5.6 */
+end_comment
+begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
