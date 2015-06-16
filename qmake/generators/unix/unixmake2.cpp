@@ -1933,7 +1933,23 @@ expr_stmt|;
 comment|/* rules */
 name|t
 operator|<<
-literal|"first: all\n"
+literal|"first:"
+operator|<<
+operator|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"no_default_goal_deps"
+argument_list|)
+condition|?
+literal|" all"
+else|:
+literal|""
+operator|)
+operator|<<
+literal|"\n"
 expr_stmt|;
 name|t
 operator|<<
