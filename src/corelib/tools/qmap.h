@@ -33,6 +33,11 @@ include|#
 directive|include
 file|<QtCore/qpair.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qtypetraits.h>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -357,6 +362,71 @@ name|pp
 argument_list|)
 expr_stmt|;
 block|}
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+specifier|static
+name|typename
+name|QtPrivate
+operator|::
+name|QEnableIf
+operator|<
+name|QTypeInfo
+operator|<
+name|T
+operator|>
+operator|::
+name|isComplex
+operator|>
+operator|::
+name|Type
+name|callDestructorIfNecessary
+argument_list|(
+argument|T&t
+argument_list|)
+name|Q_DECL_NOTHROW
+block|{
+name|Q_UNUSED
+argument_list|(
+name|t
+argument_list|)
+block|;
+name|t
+operator|.
+expr|~
+name|T
+argument_list|()
+block|; }
+comment|// Q_UNUSED: silence MSVC unused 't' warning
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+specifier|static
+name|typename
+name|QtPrivate
+operator|::
+name|QEnableIf
+operator|<
+operator|!
+name|QTypeInfo
+operator|<
+name|T
+operator|>
+operator|::
+name|isComplex
+operator|>
+operator|::
+name|Type
+name|callDestructorIfNecessary
+argument_list|(
+argument|T&
+argument_list|)
+name|Q_DECL_NOTHROW
+block|{}
 block|}
 struct|;
 end_struct
@@ -540,12 +610,50 @@ argument_list|)
 specifier|const
 expr_stmt|;
 end_expr_stmt
-begin_function_decl
+begin_function
+DECL|function|destroySubTree
 name|void
 name|destroySubTree
 parameter_list|()
-function_decl|;
-end_function_decl
+block|{
+name|callDestructorIfNecessary
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+name|callDestructorIfNecessary
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+name|doDestroySubTree
+argument_list|(
+name|QtPrivate
+operator|::
+name|integral_constant
+operator|<
+name|bool
+argument_list|,
+name|QTypeInfo
+operator|<
+name|T
+operator|>
+operator|::
+name|isComplex
+operator|||
+name|QTypeInfo
+operator|<
+name|Key
+operator|>
+operator|::
+name|isComplex
+operator|>
+operator|(
+operator|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_expr_stmt
 DECL|member|Key
 name|QMapNode
@@ -587,6 +695,47 @@ DECL|member|private
 name|private
 label|:
 end_label
+begin_decl_stmt
+name|void
+name|doDestroySubTree
+argument_list|(
+name|QtPrivate
+operator|::
+name|false_type
+argument_list|)
+block|{}
+end_decl_stmt
+begin_decl_stmt
+name|void
+name|doDestroySubTree
+argument_list|(
+name|QtPrivate
+operator|::
+name|true_type
+argument_list|)
+block|{
+if|if
+condition|(
+name|left
+condition|)
+name|leftNode
+argument_list|()
+operator|->
+name|destroySubTree
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|right
+condition|)
+name|rightNode
+argument_list|()
+operator|->
+name|destroySubTree
+argument_list|()
+expr_stmt|;
+block|}
+end_decl_stmt
 begin_macro
 name|QMapNode
 argument_list|()
@@ -603,7 +752,6 @@ argument_list|)
 end_macro
 begin_expr_stmt
 unit|};
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -612,9 +760,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|lowerBound
 specifier|inline
 name|QMapNode
 operator|<
@@ -707,7 +852,6 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -715,9 +859,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|upperBound
 specifier|inline
 name|QMapNode
 operator|<
@@ -809,25 +950,20 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 unit|}    struct
-DECL|struct|QMapDataBase
 name|Q_CORE_EXPORT
 name|QMapDataBase
 block|{
-DECL|member|ref
 name|QtPrivate
 operator|::
 name|RefCount
 name|ref
 expr_stmt|;
-DECL|member|size
 name|int
 name|size
 decl_stmt|;
-DECL|member|header
 name|QMapNodeBase
 name|header
 decl_stmt|;
-DECL|member|mostLeftNode
 name|QMapNodeBase
 modifier|*
 name|mostLeftNode
@@ -897,7 +1033,6 @@ name|int
 name|alignment
 parameter_list|)
 function_decl|;
-DECL|member|shared_null
 specifier|static
 specifier|const
 name|QMapDataBase
@@ -924,7 +1059,6 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -934,14 +1068,11 @@ name|class
 name|T
 operator|>
 expr|struct
-DECL|struct|QMapDataBase
 name|QMapData
 operator|:
 name|public
 name|QMapDataBase
 block|{
-DECL|typedef|Key
-DECL|typedef|Node
 typedef|typedef
 name|QMapNode
 operator|<
@@ -951,7 +1082,6 @@ name|T
 operator|>
 name|Node
 expr_stmt|;
-DECL|function|root
 name|Node
 operator|*
 name|root
@@ -971,7 +1101,6 @@ name|left
 operator|)
 return|;
 block|}
-DECL|function|end
 specifier|const
 name|Node
 operator|*
@@ -992,7 +1121,6 @@ name|header
 operator|)
 return|;
 block|}
-DECL|function|end
 name|Node
 operator|*
 name|end
@@ -1010,7 +1138,6 @@ name|header
 operator|)
 return|;
 block|}
-DECL|function|begin
 specifier|const
 name|Node
 operator|*
@@ -1036,16 +1163,13 @@ operator|)
 return|;
 end_expr_stmt
 begin_return
-DECL|function|begin
 return|return
 name|end
 argument_list|()
 return|;
 end_return
 begin_expr_stmt
-DECL|function|begin
 unit|}     Node
-DECL|function|begin
 operator|*
 name|begin
 argument_list|()
@@ -1067,14 +1191,12 @@ operator|)
 return|;
 end_expr_stmt
 begin_return
-DECL|function|begin
 return|return
 name|end
 argument_list|()
 return|;
 end_return
 begin_expr_stmt
-DECL|function|begin
 unit|}      void
 name|deleteNode
 argument_list|(
@@ -1119,7 +1241,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function
-DECL|function|createNode
 name|Node
 modifier|*
 name|createNode
@@ -1237,7 +1358,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|create
 specifier|static
 name|QMapData
 modifier|*
@@ -1258,7 +1378,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|destroy
 name|void
 name|destroy
 parameter_list|()
@@ -1297,7 +1416,6 @@ block|}
 end_function
 begin_expr_stmt
 unit|};
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -1306,9 +1424,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|copy
 name|QMapNode
 operator|<
 name|Key
@@ -1439,43 +1554,8 @@ return|return
 name|n
 return|;
 end_return
-begin_if
-unit|}
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-end_if
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|push
-name|)
-end_pragma
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4127
-name|)
-end_pragma
-begin_comment
-comment|// conditional expression is constant
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
-unit|template
-DECL|variable|Key
+unit|}  template
 operator|<
 name|class
 name|Key
@@ -1483,125 +1563,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|destroySubTree
-name|void
-name|QMapNode
-operator|<
-name|Key
-operator|,
-name|T
-operator|>
-operator|::
-name|destroySubTree
-argument_list|()
-block|{
-if|if
-condition|(
-name|QTypeInfo
-operator|<
-name|Key
-operator|>
-operator|::
-name|isComplex
-condition|)
-name|key
-operator|.
-expr|~
-name|Key
-argument_list|()
-expr_stmt|;
-end_expr_stmt
-begin_if
-if|if
-condition|(
-name|QTypeInfo
-operator|<
-name|T
-operator|>
-operator|::
-name|isComplex
-condition|)
-name|value
-operator|.
-expr|~
-name|T
-argument_list|()
-expr_stmt|;
-end_if
-begin_if
-if|if
-condition|(
-name|QTypeInfo
-operator|<
-name|Key
-operator|>
-operator|::
-name|isComplex
-operator|||
-name|QTypeInfo
-operator|<
-name|T
-operator|>
-operator|::
-name|isComplex
-condition|)
-block|{
-if|if
-condition|(
-name|left
-condition|)
-name|leftNode
-argument_list|()
-operator|->
-name|destroySubTree
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|right
-condition|)
-name|rightNode
-argument_list|()
-operator|->
-name|destroySubTree
-argument_list|()
-expr_stmt|;
-block|}
-end_if
-begin_if
-unit|}
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-end_if
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|pop
-name|)
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_expr_stmt
-unit|template
-DECL|variable|Key
-operator|<
-name|class
-name|Key
-operator|,
-name|class
-name|T
-operator|>
-DECL|variable|Key
-DECL|function|deleteNode
 name|void
 name|QMapData
 operator|<
@@ -1617,53 +1578,30 @@ argument_list|,
 argument|T> *z
 argument_list|)
 block|{
-if|if
-condition|(
-name|QTypeInfo
-operator|<
-name|Key
-operator|>
+name|QMapNodeBase
 operator|::
-name|isComplex
-condition|)
+name|callDestructorIfNecessary
+argument_list|(
 name|z
 operator|->
 name|key
-operator|.
-expr|~
-name|Key
-argument_list|()
-expr_stmt|;
-end_expr_stmt
-begin_if
-if|if
-condition|(
-name|QTypeInfo
-operator|<
-name|T
-operator|>
+argument_list|)
+block|;
+name|QMapNodeBase
 operator|::
-name|isComplex
-condition|)
+name|callDestructorIfNecessary
+argument_list|(
 name|z
 operator|->
 name|value
-operator|.
-expr|~
-name|T
-argument_list|()
-expr_stmt|;
-end_if
-begin_expr_stmt
+argument_list|)
+block|;
 name|freeNodeAndRebalance
 argument_list|(
 name|z
 argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-unit|}  template
-DECL|variable|Key
+block|; }
+name|template
 operator|<
 name|class
 name|Key
@@ -1671,9 +1609,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|findNode
 name|QMapNode
 operator|<
 name|Key
@@ -1741,7 +1676,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}   template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -1749,8 +1683,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|nodeRange
 name|void
 name|QMapData
 operator|<
@@ -1919,7 +1851,6 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}   template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -4244,7 +4175,6 @@ block|}
 end_decl_stmt
 begin_expr_stmt
 unit|};
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -4253,8 +4183,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|QMap
 specifier|inline
 name|QMap
 operator|<
@@ -4366,7 +4294,6 @@ block|}
 end_else
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -4374,9 +4301,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|member|operator
 name|Q_INLINE_TEMPLATE
 name|QMap
 operator|<
@@ -4451,8 +4375,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|clear
 name|Q_INLINE_TEMPLATE
 name|void
 name|QMap
@@ -4477,7 +4399,6 @@ operator|>
 operator|(
 operator|)
 block|; }
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -4486,8 +4407,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|value
 name|Q_INLINE_TEMPLATE
 specifier|const
 name|T
@@ -4529,7 +4448,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -4538,8 +4456,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|operator
 name|Q_INLINE_TEMPLATE
 specifier|const
 name|T
@@ -4569,7 +4485,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -4578,8 +4493,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|operator
 name|Q_INLINE_TEMPLATE
 name|T
 operator|&
@@ -4638,7 +4551,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -4646,8 +4558,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|count
 name|Q_INLINE_TEMPLATE
 name|int
 name|QMap
@@ -4724,7 +4634,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -4732,8 +4641,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|contains
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QMap
@@ -4762,7 +4669,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -4771,9 +4677,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|insert
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -4944,7 +4847,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -4952,9 +4854,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|insert
 name|typename
 name|QMap
 operator|<
@@ -5392,7 +5291,6 @@ block|}
 end_if
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -5400,9 +5298,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|insertMulti
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -5526,7 +5421,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -5534,9 +5428,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|insertMulti
 name|typename
 name|QMap
 operator|<
@@ -5912,7 +5803,6 @@ block|}
 end_if
 begin_expr_stmt
 unit|}   template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -5920,9 +5810,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|constFind
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -5973,7 +5860,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -5982,9 +5868,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|find
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -6017,7 +5900,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -6026,9 +5908,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|find
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -6081,7 +5960,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -6090,9 +5968,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|unite
 name|Q_INLINE_TEMPLATE
 name|QMap
 operator|<
@@ -6176,7 +6051,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -6184,11 +6058,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|member|iterator
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|equal_range
 name|QPair
 operator|<
 name|typename
@@ -6268,7 +6137,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -6277,9 +6145,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|member|const_iterator
-DECL|variable|Key
 name|QPair
 operator|<
 name|typename
@@ -6302,8 +6167,6 @@ operator|>
 operator|::
 name|const_iterator
 operator|>
-DECL|variable|Key
-DECL|function|equal_range
 name|QMap
 operator|<
 name|Key
@@ -6359,7 +6222,6 @@ directive|ifdef
 name|Q_MAP_DEBUG
 end_ifdef
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -6368,8 +6230,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|dump
 name|void
 name|QMap
 operator|<
@@ -6519,7 +6379,6 @@ directive|endif
 end_endif
 begin_expr_stmt
 unit|template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -6527,8 +6386,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|remove
 name|Q_OUTOFLINE_TEMPLATE
 name|int
 name|QMap
@@ -6584,7 +6441,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -6592,8 +6448,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|take
 name|Q_OUTOFLINE_TEMPLATE
 name|T
 name|QMap
@@ -6654,7 +6508,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -6662,9 +6515,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|erase
 name|Q_OUTOFLINE_TEMPLATE
 name|typename
 name|QMap
@@ -6853,7 +6703,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -6861,8 +6710,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|detach_helper
 name|Q_OUTOFLINE_TEMPLATE
 name|void
 name|QMap
@@ -6975,7 +6822,6 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -6983,8 +6829,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|uniqueKeys
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
 operator|<
@@ -7099,7 +6943,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7107,8 +6950,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|keys
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
 operator|<
@@ -7175,7 +7016,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7183,8 +7023,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|keys
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
 operator|<
@@ -7254,7 +7092,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7262,8 +7099,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|key
 name|Q_OUTOFLINE_TEMPLATE
 specifier|const
 name|Key
@@ -7323,7 +7158,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7331,8 +7165,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|values
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
 operator|<
@@ -7399,7 +7231,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7407,8 +7238,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|values
 name|Q_OUTOFLINE_TEMPLATE
 name|QList
 operator|<
@@ -7501,7 +7330,6 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7509,9 +7337,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|lowerBound
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -7579,7 +7404,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7587,9 +7411,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|lowerBound
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -7659,7 +7480,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7667,7 +7487,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -7678,8 +7497,6 @@ name|T
 operator|>
 operator|::
 name|const_iterator
-DECL|variable|Key
-DECL|function|upperBound
 name|QMap
 operator|<
 name|Key
@@ -7737,7 +7554,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7745,9 +7561,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|upperBound
 name|Q_INLINE_TEMPLATE
 name|typename
 name|QMap
@@ -7817,7 +7630,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7825,8 +7637,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|operator
 name|Q_OUTOFLINE_TEMPLATE
 name|bool
 name|QMap
@@ -7964,7 +7774,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -7972,8 +7781,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|QMap
 name|Q_OUTOFLINE_TEMPLATE
 name|QMap
 operator|<
@@ -8063,7 +7870,6 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -8071,9 +7877,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|variable|Key
-DECL|function|toStdMap
 name|Q_OUTOFLINE_TEMPLATE
 name|std
 operator|::
@@ -8160,7 +7963,6 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -8168,7 +7970,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
 name|class
 name|QMultiMap
 operator|:
@@ -8818,7 +8619,6 @@ decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
 unit|};
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -8827,8 +8627,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|contains
 name|Q_INLINE_TEMPLATE
 name|bool
 name|QMultiMap
@@ -8867,7 +8665,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|Key
 name|template
 operator|<
 name|class
@@ -8876,8 +8673,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|remove
 name|Q_INLINE_TEMPLATE
 name|int
 name|QMultiMap
@@ -8998,7 +8793,6 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 unit|}  template
-DECL|variable|Key
 operator|<
 name|class
 name|Key
@@ -9006,8 +8800,6 @@ operator|,
 name|class
 name|T
 operator|>
-DECL|variable|Key
-DECL|function|count
 name|Q_INLINE_TEMPLATE
 name|int
 name|QMultiMap
