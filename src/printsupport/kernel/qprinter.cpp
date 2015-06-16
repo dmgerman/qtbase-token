@@ -596,9 +596,6 @@ name|PrintEnginePropertyKey
 name|key
 decl|,
 name|m_properties
-operator|.
-name|values
-argument_list|()
 control|)
 block|{
 name|QVariant
