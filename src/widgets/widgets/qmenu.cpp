@@ -8630,6 +8630,24 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!\fn QAction *QMenu::addAction(const QString&text, const QObject *receiver, PointerToMemberFunction method, const QKeySequence&shortcut = 0)      \since 5.6      \overload      This convenience function creates a new action with the text \a     text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a method of the \a receiver. The function adds the newly created     action to the menu's list of actions and returns it.      QMenu takes ownership of the returned QAction. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QMenu::addAction(const QString&text, Functor functor, const QKeySequence&shortcut = 0)      \since 5.6      \overload      This convenience function creates a new action with the text \a     text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a functor. The function adds the newly created     action to the menu's list of actions and returns it.      QMenu takes ownership of the returned QAction. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QMenu::addAction(const QString&text, const QObject *context, Functor functor, const QKeySequence&shortcut = 0)      \since 5.6      \overload      This convenience function creates a new action with the text \a     text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a functor. The function adds the newly created     action to the menu's list of actions and returns it.      If \a context is destroyed, the functor will not be called.      QMenu takes ownership of the returned QAction. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QMenu::addAction(const QIcon&icon, const QString&text, const QObject *receiver, PointerToMemberFunction method, const QKeySequence&shortcut = 0)      \since 5.6      \overload      This convenience function creates a new action with an \a icon     and some \a text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a method of the \a receiver. The function adds the newly created     action to the menu's list of actions and returns it.      QMenu takes ownership of the returned QAction. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QMenu::addAction(const QIcon&icon, const QString&text, Functor functor, const QKeySequence&shortcut = 0)      \since 5.6      \overload      This convenience function creates a new action with an \a icon     and some \a text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a functor. The function adds the newly created     action to the menu's list of actions and returns it.      QMenu takes ownership of the returned QAction. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QMenu::addAction(const QIcon&icon, const QString&text, const QObject *context, Functor functor, const QKeySequence&shortcut = 0)      \since 5.6      \overload      This convenience function creates a new action with an \a icon     and some \a text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a functor. The function adds the newly created     action to the menu's list of actions and returns it.      If \a context is destroyed, the functor will not be called.      QMenu takes ownership of the returned QAction. */
+end_comment
+begin_comment
 comment|/*!     \overload      This convenience function creates a new action with an \a icon and     some \a text and an optional shortcut \a shortcut. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a member slot of the \a receiver object. The function adds the     newly created action to the menu's list of actions, and returns it.      QMenu takes ownership of the returned QAction.      \sa QWidget::addAction() */
 end_comment
 begin_function

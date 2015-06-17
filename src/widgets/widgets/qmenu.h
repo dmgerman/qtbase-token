@@ -244,6 +244,434 @@ operator|=
 literal|0
 argument_list|)
 block|;
+ifdef|#
+directive|ifdef
+name|Q_QDOC
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QString&text
+argument_list|,
+argument|const QObject *receiver
+argument_list|,
+argument|PointerToMemberFunction method
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|;
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QString&text
+argument_list|,
+argument|Functor functor
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|;
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QString&text
+argument_list|,
+argument|const QObject *context
+argument_list|,
+argument|Functor functor
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|;
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QIcon&icon
+argument_list|,
+argument|const QString&text
+argument_list|,
+argument|const QObject *receiver
+argument_list|,
+argument|PointerToMemberFunction method
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|;
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QIcon&icon
+argument_list|,
+argument|const QString&text
+argument_list|,
+argument|Functor functor
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|;
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QIcon&icon
+argument_list|,
+argument|const QString&text
+argument_list|,
+argument|const QObject *context
+argument_list|,
+argument|Functor functor
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|;
+else|#
+directive|else
+comment|// addAction(QString): Connect to a QObject slot / functor or function pointer (with context)
+name|template
+operator|<
+name|class
+name|Obj
+block|,
+name|typename
+name|Func1
+operator|>
+specifier|inline
+name|typename
+name|QtPrivate
+operator|::
+name|QEnableIf
+operator|<
+operator|!
+name|QtPrivate
+operator|::
+name|is_same
+operator|<
+specifier|const
+name|char
+operator|*
+block|,
+name|Func1
+operator|>
+operator|::
+name|value
+operator|&&
+name|QtPrivate
+operator|::
+name|IsPointerToTypeDerivedFromQObject
+operator|<
+name|Obj
+operator|*
+operator|>
+operator|::
+name|Value
+block|,
+name|QAction
+operator|*
+operator|>
+operator|::
+name|Type
+name|addAction
+argument_list|(
+argument|const QString&text
+argument_list|,
+argument|const Obj *object
+argument_list|,
+argument|Func1 slot
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|{
+name|QAction
+operator|*
+name|result
+operator|=
+name|addAction
+argument_list|(
+name|text
+argument_list|)
+block|;
+ifdef|#
+directive|ifdef
+name|QT_NO_SHORTCUT
+name|Q_UNUSED
+argument_list|(
+argument|shortcut
+argument_list|)
+else|#
+directive|else
+name|result
+operator|->
+name|setShortcut
+argument_list|(
+name|shortcut
+argument_list|)
+block|;
+endif|#
+directive|endif
+name|connect
+argument_list|(
+name|result
+argument_list|,
+operator|&
+name|QAction
+operator|::
+name|triggered
+argument_list|,
+name|object
+argument_list|,
+name|slot
+argument_list|)
+block|;
+return|return
+name|result
+return|;
+block|}
+comment|// addAction(QString): Connect to a functor or function pointer (without context)
+name|template
+operator|<
+name|typename
+name|Func1
+operator|>
+specifier|inline
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QString&text
+argument_list|,
+argument|Func1 slot
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|{
+name|QAction
+operator|*
+name|result
+operator|=
+name|addAction
+argument_list|(
+name|text
+argument_list|)
+block|;
+ifdef|#
+directive|ifdef
+name|QT_NO_SHORTCUT
+name|Q_UNUSED
+argument_list|(
+argument|shortcut
+argument_list|)
+else|#
+directive|else
+name|result
+operator|->
+name|setShortcut
+argument_list|(
+name|shortcut
+argument_list|)
+block|;
+endif|#
+directive|endif
+name|connect
+argument_list|(
+name|result
+argument_list|,
+operator|&
+name|QAction
+operator|::
+name|triggered
+argument_list|,
+name|slot
+argument_list|)
+block|;
+return|return
+name|result
+return|;
+block|}
+comment|// addAction(QIcon, QString): Connect to a QObject slot / functor or function pointer (with context)
+name|template
+operator|<
+name|class
+name|Obj
+block|,
+name|typename
+name|Func1
+operator|>
+specifier|inline
+name|typename
+name|QtPrivate
+operator|::
+name|QEnableIf
+operator|<
+operator|!
+name|QtPrivate
+operator|::
+name|is_same
+operator|<
+specifier|const
+name|char
+operator|*
+block|,
+name|Func1
+operator|>
+operator|::
+name|value
+operator|&&
+name|QtPrivate
+operator|::
+name|IsPointerToTypeDerivedFromQObject
+operator|<
+name|Obj
+operator|*
+operator|>
+operator|::
+name|Value
+block|,
+name|QAction
+operator|*
+operator|>
+operator|::
+name|Type
+name|addAction
+argument_list|(
+argument|const QIcon&actionIcon
+argument_list|,
+argument|const QString&text
+argument_list|,
+argument|const Obj *object
+argument_list|,
+argument|Func1 slot
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|{
+name|QAction
+operator|*
+name|result
+operator|=
+name|addAction
+argument_list|(
+name|actionIcon
+argument_list|,
+name|text
+argument_list|)
+block|;
+ifdef|#
+directive|ifdef
+name|QT_NO_SHORTCUT
+name|Q_UNUSED
+argument_list|(
+argument|shortcut
+argument_list|)
+else|#
+directive|else
+name|result
+operator|->
+name|setShortcut
+argument_list|(
+name|shortcut
+argument_list|)
+block|;
+endif|#
+directive|endif
+name|connect
+argument_list|(
+name|result
+argument_list|,
+operator|&
+name|QAction
+operator|::
+name|triggered
+argument_list|,
+name|object
+argument_list|,
+name|slot
+argument_list|)
+block|;
+return|return
+name|result
+return|;
+block|}
+comment|// addAction(QIcon, QString): Connect to a functor or function pointer (without context)
+name|template
+operator|<
+name|typename
+name|Func1
+operator|>
+specifier|inline
+name|QAction
+operator|*
+name|addAction
+argument_list|(
+argument|const QIcon&actionIcon
+argument_list|,
+argument|const QString&text
+argument_list|,
+argument|Func1 slot
+argument_list|,
+argument|const QKeySequence&shortcut =
+literal|0
+argument_list|)
+block|{
+name|QAction
+operator|*
+name|result
+operator|=
+name|addAction
+argument_list|(
+name|actionIcon
+argument_list|,
+name|text
+argument_list|)
+block|;
+ifdef|#
+directive|ifdef
+name|QT_NO_SHORTCUT
+name|Q_UNUSED
+argument_list|(
+argument|shortcut
+argument_list|)
+else|#
+directive|else
+name|result
+operator|->
+name|setShortcut
+argument_list|(
+name|shortcut
+argument_list|)
+block|;
+endif|#
+directive|endif
+name|connect
+argument_list|(
+name|result
+argument_list|,
+operator|&
+name|QAction
+operator|::
+name|triggered
+argument_list|,
+name|slot
+argument_list|)
+block|;
+return|return
+name|result
+return|;
+block|}
+endif|#
+directive|endif
+comment|// !Q_QDOC
 name|QAction
 operator|*
 name|addMenu

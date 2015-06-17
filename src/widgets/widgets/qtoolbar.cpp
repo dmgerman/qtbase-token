@@ -2823,6 +2823,24 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!\fn QAction *QToolBar::addAction(const QString&text, const QObject *receiver, PointerToMemberFunction method)      \since 5.6      \overload      Creates a new action with the given \a text. This action is added to     the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a method of the \a receiver. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QToolBar::addAction(const QString&text, Functor functor)      \since 5.6      \overload      Creates a new action with the given \a text. This action is added to     the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a functor. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QToolBar::addAction(const QString&text, const QObject *context, Functor functor)      \since 5.6      \overload      Creates a new action with the given \a text. This action is added to     the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a functor.      If \a context is destroyed, the functor will not be called. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QToolBar::addAction(const QIcon&icon, const QString&text, const QObject *receiver, PointerToMemberFunction method)      \since 5.6      \overload      Creates a new action with the given \a icon and \a text. This     action is added to the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a method of the \a receiver. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QToolBar::addAction(const QIcon&icon, const QString&text, Functor functor)      \since 5.6      \overload      Creates a new action with the given \a icon and \a text. This     action is added to the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a functor. */
+end_comment
+begin_comment
+comment|/*!\fn QAction *QToolBar::addAction(const QIcon&icon, const QString&text, const QObject *context, Functor functor)      \since 5.6      \overload      Creates a new action with the given \a icon and \a text. This     action is added to the end of the toolbar. The action's     \l{QAction::triggered()}{triggered()} signal is connected to the     \a functor.      If \a context is destroyed, the functor will not be called. */
+end_comment
+begin_comment
 comment|/*!      Adds a separator to the end of the toolbar.       \sa insertSeparator() */
 end_comment
 begin_function
