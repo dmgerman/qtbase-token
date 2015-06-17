@@ -37,6 +37,7 @@ name|program
 operator|.
 name|addShader
 argument_list|(
+operator|&
 name|shader
 argument_list|)
 expr_stmt|;
