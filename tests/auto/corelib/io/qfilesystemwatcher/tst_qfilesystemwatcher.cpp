@@ -2722,7 +2722,7 @@ argument_list|()
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN64
+name|Q_OS_WIN
 if|if
 condition|(
 name|fileChangedSpyCount
