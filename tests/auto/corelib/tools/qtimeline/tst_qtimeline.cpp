@@ -1178,7 +1178,7 @@ operator|::
 name|NotRunning
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|slowCount
 operator|<
@@ -1186,6 +1186,16 @@ name|spy
 operator|.
 name|count
 argument_list|()
+argument_list|,
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|spy
+operator|.
+name|count
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
