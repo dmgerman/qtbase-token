@@ -48,6 +48,11 @@ include|#
 directive|include
 file|<private/qobject_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qabstractstate.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QStateMachine
@@ -56,9 +61,9 @@ name|QStateMachine
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QAbstractState
+DECL|variable|QState
 name|class
-name|QAbstractState
+name|QState
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

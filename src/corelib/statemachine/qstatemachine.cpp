@@ -1055,22 +1055,28 @@ block|}
 elseif|else
 if|if
 condition|(
-name|QAbstractState
+name|QAbstractTransition
 modifier|*
-name|defaultState
+name|defaultTransition
 init|=
 name|historyState
 operator|->
-name|defaultState
+name|defaultTransition
 argument_list|()
 condition|)
 block|{
-comment|// Qt does not support initial transitions, but uses the default state of the history state for this.
+comment|// No saved history, take all default transition targets.
 name|targets
 operator|.
-name|insert
+name|unite
 argument_list|(
-name|defaultState
+name|defaultTransition
+operator|->
+name|targetStates
+argument_list|()
+operator|.
+name|toSet
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4528,18 +4534,42 @@ operator|->
 name|emitEntered
 argument_list|()
 expr_stmt|;
+comment|// FIXME:
+comment|// See the "initial transitions" comment in addDescendantStatesToEnter first, then implement:
+comment|//        if (statesForDefaultEntry.contains(s)) {
+comment|//            // ### executeContent(s.initial.transition.children())
+comment|//        }
+name|Q_UNUSED
+argument_list|(
+name|statesForDefaultEntry
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-name|statesForDefaultEntry
-operator|.
-name|contains
+name|QHistoryState
+modifier|*
+name|h
+init|=
+name|toHistoryState
 argument_list|(
 name|s
 argument_list|)
 condition|)
-block|{
-comment|// ### executeContent(s.initial.transition.children())
-block|}
+name|QAbstractTransitionPrivate
+operator|::
+name|get
+argument_list|(
+name|h
+operator|->
+name|defaultTransition
+argument_list|()
+argument_list|)
+operator|->
+name|callOnTransition
+argument_list|(
+name|event
+argument_list|)
+expr_stmt|;
 comment|// Emit propertiesAssigned signal if the state has no animated properties.
 block|{
 name|QState
@@ -5045,6 +5075,10 @@ name|defaultHistoryContent
 decl_stmt|;
 if|if
 condition|(
+name|QAbstractTransition
+modifier|*
+name|t
+init|=
 name|QHistoryStatePrivate
 operator|::
 name|get
@@ -5052,21 +5086,14 @@ argument_list|(
 name|h
 argument_list|)
 operator|->
-name|defaultState
+name|defaultTransition
 condition|)
 name|defaultHistoryContent
-operator|.
-name|append
-argument_list|(
-name|QHistoryStatePrivate
-operator|::
-name|get
-argument_list|(
-name|h
-argument_list|)
+operator|=
+name|t
 operator|->
-name|defaultState
-argument_list|)
+name|targetStates
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -5219,8 +5246,10 @@ name|q_func
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// FIXME:
 comment|// Qt does not support initial transitions (which is a problem for parallel states).
 comment|// The way it simulates this for other states, is by having a single initial state.
+comment|// See also the FIXME in enterStates.
 name|statesForDefaultEntry
 operator|.
 name|insert

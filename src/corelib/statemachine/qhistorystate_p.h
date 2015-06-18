@@ -51,16 +51,20 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qabstracttransition.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qhistorystate.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qlist.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QHistoryState
-name|class
-name|QHistoryState
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QHistoryStatePrivate
 range|:
@@ -91,9 +95,9 @@ name|d_func
 argument_list|()
 return|;
 block|}
-name|QAbstractState
+name|QAbstractTransition
 operator|*
-name|defaultState
+name|defaultTransition
 block|;
 name|QHistoryState
 operator|::
@@ -109,9 +113,66 @@ name|configuration
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_macro
+begin_decl_stmt
+name|class
+name|DefaultStateTransition
+range|:
+name|public
+name|QAbstractTransition
+block|{
+name|Q_OBJECT
+name|public
+operator|:
+name|DefaultStateTransition
+argument_list|(
+name|QHistoryState
+operator|*
+name|source
+argument_list|,
+name|QAbstractState
+operator|*
+name|target
+argument_list|)
+block|;
+name|protected
+operator|:
+comment|// It doesn't matter whether this transition matches any event or not. It is always associated
+comment|// with a QHistoryState, and as soon as the state-machine detects that it enters a history
+comment|// state, it will handle this transition as a special case. The history state itself is never
+comment|// entered either: either the stored configuration will be used, or the target(s) of this
+comment|// transition are used.
+name|virtual
+name|bool
+name|eventTest
+argument_list|(
+argument|QEvent *event
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|event
+argument_list|)
+block|;
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|void
+name|onTransition
+argument_list|(
+argument|QEvent *event
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|event
+argument_list|)
+block|; }
+expr|}
+block|;
 name|QT_END_NAMESPACE
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

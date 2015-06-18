@@ -23,6 +23,12 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_STATEMACHINE
+DECL|variable|QAbstractTransition
+name|class
+name|QAbstractTransition
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QHistoryStatePrivate
 name|class
 name|QHistoryStatePrivate
@@ -40,6 +46,10 @@ name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
 argument|QAbstractState* defaultState READ defaultState WRITE setDefaultState NOTIFY defaultStateChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QAbstractTransition* defaultTransition READ defaultTransition WRITE setDefaultTransition NOTIFY defaultTransitionChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -79,6 +89,20 @@ operator|~
 name|QHistoryState
 argument_list|()
 block|;
+name|QAbstractTransition
+operator|*
+name|defaultTransition
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setDefaultTransition
+argument_list|(
+name|QAbstractTransition
+operator|*
+name|transition
+argument_list|)
+block|;
 name|QAbstractState
 operator|*
 name|defaultState
@@ -106,6 +130,12 @@ argument_list|)
 block|;
 name|Q_SIGNALS
 operator|:
+name|void
+name|defaultTransitionChanged
+argument_list|(
+name|QPrivateSignal
+argument_list|)
+block|;
 name|void
 name|defaultStateChanged
 argument_list|(
