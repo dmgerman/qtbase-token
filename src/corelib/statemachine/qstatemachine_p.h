@@ -235,11 +235,20 @@ name|QStateMachinePrivate
 operator|*
 name|get
 argument_list|(
-name|QStateMachine
-operator|*
-name|q
+argument|QStateMachine *q
 argument_list|)
-block|;
+block|{
+return|return
+name|q
+operator|?
+name|q
+operator|->
+name|d_func
+argument_list|()
+operator|:
+literal|0
+return|;
+block|}
 name|QState
 operator|*
 name|findLCA

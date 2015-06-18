@@ -57,27 +57,6 @@ name|ShallowHistory
 argument_list|)
 block|{ }
 end_constructor
-begin_function
-DECL|function|get
-name|QHistoryStatePrivate
-modifier|*
-name|QHistoryStatePrivate
-operator|::
-name|get
-parameter_list|(
-name|QHistoryState
-modifier|*
-name|q
-parameter_list|)
-block|{
-return|return
-name|q
-operator|->
-name|d_func
-argument_list|()
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!   Constructs a new shallow history state with the given \a parent state. */
 end_comment

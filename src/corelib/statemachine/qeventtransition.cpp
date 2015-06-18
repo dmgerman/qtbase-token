@@ -79,27 +79,6 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_function
-DECL|function|get
-name|QEventTransitionPrivate
-modifier|*
-name|QEventTransitionPrivate
-operator|::
-name|get
-parameter_list|(
-name|QEventTransition
-modifier|*
-name|q
-parameter_list|)
-block|{
-return|return
-name|q
-operator|->
-name|d_func
-argument_list|()
-return|;
-block|}
-end_function
-begin_function
 DECL|function|unregister
 name|void
 name|QEventTransitionPrivate

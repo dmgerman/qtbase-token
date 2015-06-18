@@ -76,11 +76,16 @@ name|QSignalTransitionPrivate
 operator|*
 name|get
 argument_list|(
-name|QSignalTransition
-operator|*
-name|q
+argument|QSignalTransition *q
 argument_list|)
-block|;
+block|{
+return|return
+name|q
+operator|->
+name|d_func
+argument_list|()
+return|;
+block|}
 name|void
 name|unregister
 argument_list|()

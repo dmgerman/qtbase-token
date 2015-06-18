@@ -81,11 +81,16 @@ name|QHistoryStatePrivate
 operator|*
 name|get
 argument_list|(
-name|QHistoryState
-operator|*
-name|q
+argument|QHistoryState *q
 argument_list|)
-block|;
+block|{
+return|return
+name|q
+operator|->
+name|d_func
+argument_list|()
+return|;
+block|}
 name|QAbstractState
 operator|*
 name|defaultState

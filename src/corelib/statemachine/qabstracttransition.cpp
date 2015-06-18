@@ -69,27 +69,6 @@ argument_list|)
 block|{ }
 end_constructor
 begin_function
-DECL|function|get
-name|QAbstractTransitionPrivate
-modifier|*
-name|QAbstractTransitionPrivate
-operator|::
-name|get
-parameter_list|(
-name|QAbstractTransition
-modifier|*
-name|q
-parameter_list|)
-block|{
-return|return
-name|q
-operator|->
-name|d_func
-argument_list|()
-return|;
-block|}
-end_function
-begin_function
 DECL|function|machine
 name|QStateMachine
 modifier|*

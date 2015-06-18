@@ -110,11 +110,16 @@ name|QAbstractTransitionPrivate
 operator|*
 name|get
 argument_list|(
-name|QAbstractTransition
-operator|*
-name|q
+argument|QAbstractTransition *q
 argument_list|)
-block|;
+block|{
+return|return
+name|q
+operator|->
+name|d_func
+argument_list|()
+return|;
+block|}
 name|bool
 name|callEventTest
 argument_list|(
