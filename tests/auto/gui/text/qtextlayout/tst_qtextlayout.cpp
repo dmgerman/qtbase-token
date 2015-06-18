@@ -8447,6 +8447,11 @@ name|QPaintDevice
 operator|::
 name|PdmDevicePixelRatio
 case|:
+case|case
+name|QPaintDevice
+operator|::
+name|PdmDevicePixelRatioScaled
+case|:
 empty_stmt|;
 comment|// fall through
 block|}
