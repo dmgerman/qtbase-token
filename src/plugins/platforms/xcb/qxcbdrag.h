@@ -95,6 +95,12 @@ name|QWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformWindow
+name|class
+name|QPlatformWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QXcbConnection
 name|class
 name|QXcbConnection
