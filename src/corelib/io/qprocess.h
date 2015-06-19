@@ -887,8 +887,25 @@ argument_list|,
 argument|QProcess::ExitStatus exitStatus
 argument_list|)
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|6
+argument_list|)
+name|QT_MOC_COMPAT
 name|void
 name|error
+argument_list|(
+argument|QProcess::ProcessError error
+argument_list|)
+block|;
+endif|#
+directive|endif
+name|void
+name|errorOccurred
 argument_list|(
 argument|QProcess::ProcessError error
 argument_list|)
