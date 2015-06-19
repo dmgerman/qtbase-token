@@ -42,14 +42,14 @@ include|#
 directive|include
 file|"qdir.h"
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_LIBRARY
 end_ifndef
-begin_macro
-name|QT_BEGIN_NAMESPACE
-end_macro
 begin_comment
 comment|/*!     \class QPluginLoader     \inmodule QtCore     \reentrant     \brief The QPluginLoader class loads a plugin at run-time.       \ingroup plugins      QPluginLoader provides access to a \l{How to Create Qt     Plugins}{Qt plugin}. A Qt plugin is stored in a shared library (a     DLL) and offers these benefits over shared libraries accessed     using QLibrary:      \list     \li QPluginLoader checks that a plugin is linked against the same        version of Qt as the application.     \li QPluginLoader provides direct access to a root component object        (instance()), instead of forcing you to resolve a C function manually.     \endlist      An instance of a QPluginLoader object operates on a single shared     library file, which we call a plugin. It provides access to the     functionality in the plugin in a platform-independent way. To     specify which plugin to load, either pass a file name in     the constructor or set it with setFileName().      The most important functions are load() to dynamically load the     plugin file, isLoaded() to check whether loading was successful,     and instance() to access the root component in the plugin. The     instance() function implicitly tries to load the plugin if it has     not been loaded yet. Multiple instances of QPluginLoader can be     used to access the same physical plugin.      Once loaded, plugins remain in memory until all instances of     QPluginLoader has been unloaded, or until the application     terminates. You can attempt to unload a plugin using unload(),     but if other instances of QPluginLoader are using the same     library, the call will fail, and unloading will only happen when     every instance has called unload(). Right before the unloading     happen, the root component will also be deleted.      See \l{How to Create Qt Plugins} for more information about     how to make your application extensible through plugins.      Note that the QPluginLoader cannot be used if your application is     statically linked against Qt. In this case, you will also have to     link to plugins statically. You can use QLibrary if you need to     load dynamic libraries in a statically linked application.      \sa QLibrary, {Plug& Paint Example} */
 end_comment
@@ -839,24 +839,6 @@ name|errorString
 return|;
 block|}
 end_function
-begin_typedef
-DECL|typedef|StaticPluginList
-typedef|typedef
-name|QVector
-argument_list|<
-name|QStaticPlugin
-argument_list|>
-name|StaticPluginList
-typedef|;
-end_typedef
-begin_macro
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|StaticPluginList
-argument_list|,
-argument|staticPluginList
-argument_list|)
-end_macro
 begin_comment
 comment|/*! \since 4.4      \property QPluginLoader::loadHints     \brief Give the load() function some hints on how it should behave.      You can give hints on how the symbols in the plugin are     resolved. By default, none of the hints are set.      See the documentation of QLibrary::loadHints for a complete     description of how this property works.      \sa QLibrary::loadHints */
 end_comment
@@ -933,6 +915,31 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_LIBRARY
+end_comment
+begin_typedef
+DECL|typedef|StaticPluginList
+typedef|typedef
+name|QVector
+argument_list|<
+name|QStaticPlugin
+argument_list|>
+name|StaticPluginList
+typedef|;
+end_typedef
+begin_macro
+name|Q_GLOBAL_STATIC
+argument_list|(
+argument|StaticPluginList
+argument_list|,
+argument|staticPluginList
+argument_list|)
+end_macro
 begin_comment
 comment|/*!     \relates QPluginLoader     \since 5.0      Registers the \a plugin specified with the plugin loader, and is used     by Q_IMPORT_PLUGIN(). */
 end_comment
@@ -1082,9 +1089,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QLibraryPrivate
-operator|::
-name|fromRawMetaData
+name|qJsonFromRawLibraryMetaData
 argument_list|(
 name|rawMetaData
 argument_list|()
@@ -1098,11 +1103,4 @@ end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_LIBRARY
-end_comment
 end_unit

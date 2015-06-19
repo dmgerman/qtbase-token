@@ -32,6 +32,27 @@ include|#
 directive|include
 file|"plugin2/plugininterface2.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_LIBRARY
+end_ifdef
+begin_macro
+name|Q_IMPORT_PLUGIN
+argument_list|(
+argument|Plugin1
+argument_list|)
+end_macro
+begin_macro
+name|Q_IMPORT_PLUGIN
+argument_list|(
+argument|Plugin2
+argument_list|)
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|tst_QFactoryLoader
 class|class
@@ -97,6 +118,9 @@ argument_list|,
 literal|"Unable to locate 'bin' folder"
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 name|QCoreApplication
 operator|::
 name|setLibraryPaths
@@ -113,6 +137,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

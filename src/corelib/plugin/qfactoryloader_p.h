@@ -46,6 +46,16 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"QtCore/qglobal.h"
+end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_QOBJECT
+end_ifndef
+begin_include
+include|#
+directive|include
 file|"QtCore/qobject.h"
 end_include
 begin_include
@@ -68,11 +78,6 @@ include|#
 directive|include
 file|"private/qlibrary_p.h"
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
-end_ifndef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QFactoryLoaderPrivate
@@ -120,25 +125,21 @@ operator|::
 name|CaseSensitive
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 operator|~
 name|QFactoryLoader
 argument_list|()
 block|;
-name|QList
-operator|<
-name|QJsonObject
-operator|>
-name|metaData
+name|void
+name|update
 argument_list|()
-specifier|const
 block|;
-name|QObject
-operator|*
-name|instance
-argument_list|(
-argument|int index
-argument_list|)
-specifier|const
+specifier|static
+name|void
+name|refreshAll
+argument_list|()
 block|;
 if|#
 directive|if
@@ -162,6 +163,10 @@ specifier|const
 block|;
 endif|#
 directive|endif
+comment|// Q_OS_UNIX&& !Q_OS_MAC
+endif|#
+directive|endif
+comment|// !QT_NO_LIBRARY
 name|QMultiMap
 operator|<
 name|int
@@ -179,14 +184,21 @@ argument|const QString&needle
 argument_list|)
 specifier|const
 block|;
-name|void
-name|update
+name|QList
+operator|<
+name|QJsonObject
+operator|>
+name|metaData
 argument_list|()
+specifier|const
 block|;
-specifier|static
-name|void
-name|refreshAll
-argument_list|()
+name|QObject
+operator|*
+name|instance
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -380,7 +392,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_QOBJECT
 end_comment
 begin_endif
 endif|#

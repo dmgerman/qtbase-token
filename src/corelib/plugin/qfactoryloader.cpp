@@ -10,7 +10,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_LIBRARY
+name|QT_NO_QOBJECT
 end_ifndef
 begin_include
 include|#
@@ -160,6 +160,9 @@ DECL|member|iid
 name|QByteArray
 name|iid
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 name|~
 name|QFactoryLoaderPrivate
 parameter_list|()
@@ -201,9 +204,16 @@ DECL|member|loadedPaths
 name|QStringList
 name|loadedPaths
 decl_stmt|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
+end_ifndef
 begin_macro
 name|Q_GLOBAL_STATIC
 argument_list|(
@@ -1074,6 +1084,13 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_LIBRARY
+end_comment
 begin_constructor
 DECL|function|QFactoryLoader
 name|QFactoryLoader
@@ -1122,6 +1139,9 @@ name|iid
 operator|=
 name|iid
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 name|d
 operator|->
 name|cs
@@ -1152,6 +1172,20 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|suffix
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|cs
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_function
@@ -1178,6 +1212,9 @@ name|QJsonObject
 argument_list|>
 name|metaData
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 name|QMutexLocker
 name|locker
 argument_list|(
@@ -1222,6 +1259,8 @@ operator|->
 name|metaData
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 foreach|foreach
 control|(
 specifier|const
@@ -1313,6 +1352,9 @@ condition|)
 return|return
 literal|0
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 if|if
 condition|(
 name|index
@@ -1418,6 +1460,8 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 name|QVector
 argument_list|<
 name|QStaticPlugin
@@ -1812,6 +1856,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_LIBRARY
+comment|// QT_NO_QOBJECT
 end_comment
 end_unit

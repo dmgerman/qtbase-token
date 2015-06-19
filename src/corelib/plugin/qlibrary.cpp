@@ -781,9 +781,7 @@ decl_stmt|;
 name|QJsonDocument
 name|doc
 init|=
-name|QLibraryPrivate
-operator|::
-name|fromRawMetaData
+name|qJsonFromRawLibraryMetaData
 argument_list|(
 name|data
 argument_list|)
@@ -2397,9 +2395,7 @@ return|;
 name|QJsonDocument
 name|doc
 init|=
-name|QLibraryPrivate
-operator|::
-name|fromRawMetaData
+name|qJsonFromRawLibraryMetaData
 argument_list|(
 name|szData
 argument_list|)
