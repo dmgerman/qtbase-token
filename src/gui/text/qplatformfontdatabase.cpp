@@ -1711,7 +1711,7 @@ begin_decl_stmt
 DECL|variable|requiredUnicodeBits
 specifier|static
 specifier|const
-name|ushort
+name|quint8
 name|requiredUnicodeBits
 index|[
 name|QFontDatabase
