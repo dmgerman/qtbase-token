@@ -2019,6 +2019,10 @@ struct|struct
 name|ItemDecoration
 block|{
 name|ItemDecoration
+argument_list|()
+block|{}
+comment|// for QVector, don't use
+name|ItemDecoration
 argument_list|(
 argument|qreal x1
 argument_list|,
@@ -2064,7 +2068,7 @@ decl_stmt|;
 block|}
 struct|;
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|ItemDecoration
 operator|>
@@ -3588,6 +3592,17 @@ index|]
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QTextEngine
+operator|::
+name|ItemDecoration
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_struct
 DECL|struct|QTextLineItemIterator
 struct|struct
