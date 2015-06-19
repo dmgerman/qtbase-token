@@ -48,11 +48,6 @@ include|#
 directive|include
 file|<qpa/qplatformprintdevice.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -211,13 +206,6 @@ end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_PRINTER
-end_comment
 begin_endif
 endif|#
 directive|endif

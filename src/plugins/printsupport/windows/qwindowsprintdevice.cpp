@@ -30,9 +30,6 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
 name|QT_WARNING_DISABLE_GCC
 argument_list|(
 literal|"-Wsign-compare"
@@ -3098,13 +3095,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_PRINTER
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

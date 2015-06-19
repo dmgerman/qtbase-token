@@ -48,21 +48,6 @@ include|#
 directive|include
 file|"QtPrintSupport/qprintengine.h"
 end_include
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PRINTER
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_CUPS
-argument_list|)
-end_if
 begin_include
 include|#
 directive|include
@@ -220,13 +205,6 @@ end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !defined(QT_NO_PRINTER)&& !defined(QT_NO_CUPS)
-end_comment
 begin_endif
 endif|#
 directive|endif

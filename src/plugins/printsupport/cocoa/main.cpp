@@ -25,11 +25,6 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
-end_ifndef
 begin_class
 DECL|class|QCocoaPrinterSupportPlugin
 class|class
@@ -198,10 +193,6 @@ name|platformPrinterSupport
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
