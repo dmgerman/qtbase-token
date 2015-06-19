@@ -135,6 +135,17 @@ case|:
 return|return
 literal|1
 return|;
+case|case
+name|PdmDevicePixelRatioScaled
+case|:
+return|return
+literal|1
+operator|*
+name|QPaintDevice
+operator|::
+name|devicePixelRatioFScale
+argument_list|()
+return|;
 default|default:
 name|qWarning
 argument_list|(

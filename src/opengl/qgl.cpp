@@ -14035,7 +14035,7 @@ decl_stmt|;
 name|qreal
 name|pixelRatio
 init|=
-name|devicePixelRatio
+name|devicePixelRatioF
 argument_list|()
 decl_stmt|;
 name|int
@@ -15828,7 +15828,7 @@ operator|->
 name|device
 argument_list|()
 operator|->
-name|devicePixelRatio
+name|devicePixelRatioF
 argument_list|()
 decl_stmt|;
 name|win_x

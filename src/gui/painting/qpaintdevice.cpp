@@ -140,6 +140,25 @@ name|m
 parameter_list|)
 specifier|const
 block|{
+comment|// Fallback: A subclass has not implemented PdmDevicePixelRatioScaled but might
+comment|// have implemented PdmDevicePixelRatio.
+if|if
+condition|(
+name|m
+operator|==
+name|PdmDevicePixelRatioScaled
+condition|)
+return|return
+name|this
+operator|->
+name|metric
+argument_list|(
+name|PdmDevicePixelRatio
+argument_list|)
+operator|*
+name|devicePixelRatioFScale
+argument_list|()
+return|;
 name|qWarning
 argument_list|(
 literal|"QPaintDevice::metrics: Device has no metric information"

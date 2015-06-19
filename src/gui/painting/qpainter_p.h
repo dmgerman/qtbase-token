@@ -1207,7 +1207,7 @@ specifier|const
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|int
+name|qreal
 name|effectiveDevicePixelRatio
 argument_list|()
 specifier|const

@@ -1457,6 +1457,15 @@ operator|=
 literal|1
 expr_stmt|;
 break|break;
+case|case
+name|PdmDevicePixelRatioScaled
+case|:
+name|val
+operator|=
+name|devicePixelRatioFScale
+argument_list|()
+expr_stmt|;
+break|break;
 default|default:
 name|val
 operator|=

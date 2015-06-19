@@ -125,10 +125,13 @@ block|{
 return|return
 name|widget
 operator|?
+name|int
+argument_list|(
 name|widget
 operator|->
-name|devicePixelRatio
+name|devicePixelRatioF
 argument_list|()
+argument_list|)
 operator|:
 name|QWindowsStylePrivate
 operator|::

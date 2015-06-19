@@ -1327,7 +1327,7 @@ operator|->
 name|device
 argument_list|()
 operator|->
-name|devicePixelRatio
+name|devicePixelRatioF
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1363,7 +1363,7 @@ operator|->
 name|device
 argument_list|()
 operator|->
-name|devicePixelRatio
+name|devicePixelRatioF
 argument_list|()
 argument_list|)
 decl_stmt|;

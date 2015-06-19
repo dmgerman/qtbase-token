@@ -4159,7 +4159,7 @@ operator|.
 name|size
 argument_list|()
 operator|*
-name|devicePixelRatio
+name|devicePixelRatioF
 argument_list|()
 argument_list|,
 name|Qt
