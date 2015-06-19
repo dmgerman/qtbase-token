@@ -200,7 +200,7 @@ name|QFontEngine
 modifier|*
 name|fontEngine
 decl_stmt|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
