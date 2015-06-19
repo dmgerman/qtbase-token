@@ -4559,7 +4559,7 @@ name|client
 operator|->
 name|waitForBytesWritten
 argument_list|(
-literal|2000
+literal|10000
 argument_list|)
 condition|)
 block|{
@@ -4667,7 +4667,7 @@ name|client
 operator|->
 name|waitForBytesWritten
 argument_list|(
-literal|2000
+literal|10000
 argument_list|)
 condition|)
 block|{
@@ -49917,7 +49917,7 @@ argument_list|(
 name|qrand
 argument_list|()
 operator|%
-literal|10
+literal|60
 argument_list|,
 name|this
 argument_list|,
@@ -50516,6 +50516,18 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|QTestEventLoop
+operator|::
+name|instance
+argument_list|()
+operator|.
+name|timeout
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|//qDebug()<< "correct="<< server.m_correctUploads<< "corrupt="<< server.m_corruptUploads<< "expected="<<numUploads;
 comment|// Sanity check because ecause of 9c2ecf89 most replies will error out but we want to make sure at least some of them worked
 name|QVERIFY
@@ -50524,7 +50536,7 @@ name|server
 operator|.
 name|m_correctUploads
 operator|>
-literal|5
+literal|2
 argument_list|)
 expr_stmt|;
 comment|// Because actually important is that we don't get any corruption:

@@ -1370,6 +1370,7 @@ argument_list|(
 name|QAbstractSocket
 argument_list|)
 expr_stmt|;
+comment|// Note that this method is only called on Windows. Other platforms close in the canReadNotification()
 if|#
 directive|if
 name|defined
@@ -1401,11 +1402,30 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+name|qint64
+name|oldReadBufferMaxSize
+init|=
+name|readBufferMaxSize
+decl_stmt|;
+name|readBufferMaxSize
+operator|=
+literal|0
+expr_stmt|;
+comment|// temporarily disable max read buffer, we want to empty the OS buffer
+name|bool
+name|hadReadFromSocket
+init|=
+name|readFromSocket
+argument_list|()
+decl_stmt|;
+name|readBufferMaxSize
+operator|=
+name|oldReadBufferMaxSize
+expr_stmt|;
 if|if
 condition|(
 operator|!
-name|readFromSocket
-argument_list|()
+name|hadReadFromSocket
 condition|)
 block|{
 name|q

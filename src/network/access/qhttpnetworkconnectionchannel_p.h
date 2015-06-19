@@ -514,6 +514,10 @@ name|void
 name|closeAndResendCurrentRequest
 argument_list|()
 block|;
+name|void
+name|resendCurrentRequest
+argument_list|()
+block|;
 name|bool
 name|isSocketBusy
 argument_list|()
