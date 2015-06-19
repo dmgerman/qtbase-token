@@ -2802,7 +2802,13 @@ block|{
 comment|// On Windows XP SP2 and SP3 only connection and disconnection notifications are available.
 comment|// We need to poll for changes in available wireless networks.
 return|return
-literal|true
+name|QSysInfo
+operator|::
+name|WindowsVersion
+operator|<=
+name|QSysInfo
+operator|::
+name|WV_2003
 return|;
 block|}
 end_function
