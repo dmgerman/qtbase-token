@@ -325,6 +325,12 @@ name|QVector
 operator|<
 name|QLoggingRule
 operator|>
+name|qtConfigRules
+expr_stmt|;
+name|QVector
+operator|<
+name|QLoggingRule
+operator|>
 name|configRules
 expr_stmt|;
 name|QVector
