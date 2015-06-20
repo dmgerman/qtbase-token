@@ -1458,7 +1458,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Qt-specific
-name|qCWarning
+name|qCDebug
 argument_list|(
 name|lcQpaGl
 argument_list|)
@@ -1489,7 +1489,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Qt-specific keyword
-name|qCWarning
+name|qCDebug
 argument_list|(
 name|lcQpaGl
 argument_list|)
@@ -1522,7 +1522,7 @@ argument_list|)
 condition|)
 block|{
 comment|// standard keyword
-name|qCWarning
+name|qCDebug
 argument_list|(
 name|lcQpaGl
 argument_list|)
@@ -1553,7 +1553,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Qt-specific
-name|qCWarning
+name|qCDebug
 argument_list|(
 name|lcQpaGl
 argument_list|)
