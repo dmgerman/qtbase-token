@@ -45,7 +45,7 @@ modifier|&
 name|source
 parameter_list|,
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QQmlJS
 operator|::
@@ -95,7 +95,7 @@ init|=
 literal|0
 decl_stmt|;
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QQmlJS
 operator|::

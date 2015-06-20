@@ -543,7 +543,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|function|comments
-name|QList
+name|QVector
 argument_list|<
 name|QQmlJS
 operator|::

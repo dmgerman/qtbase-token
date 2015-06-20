@@ -63,7 +63,7 @@ operator|&
 name|code
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QQmlJS
 operator|::
@@ -814,7 +814,7 @@ name|extraTypes
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|QList
+name|QVector
 operator|<
 name|QQmlJS
 operator|::

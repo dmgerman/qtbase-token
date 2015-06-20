@@ -135,7 +135,7 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 comment|/* Copied from src/declarative/qml/qdeclarativescriptparser.cpp */
-name|QList
+name|QVector
 operator|<
 name|QQmlJS
 operator|::

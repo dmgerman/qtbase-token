@@ -122,7 +122,7 @@ name|newCode
 init|=
 name|code
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QQmlJS
 operator|::
@@ -310,7 +310,7 @@ name|newCode
 init|=
 name|code
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QQmlJS
 operator|::

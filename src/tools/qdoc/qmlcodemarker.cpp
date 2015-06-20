@@ -555,7 +555,7 @@ name|newCode
 init|=
 name|code
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QQmlJS
 operator|::
@@ -764,7 +764,7 @@ comment|/*   Copied and pasted from   src/declarative/qml/qqmlscriptparser.cpp t
 end_comment
 begin_function
 DECL|function|extractPragmas
-name|QList
+name|QVector
 argument_list|<
 name|QQmlJS
 operator|::
@@ -801,7 +801,7 @@ literal|"library"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QQmlJS
 operator|::

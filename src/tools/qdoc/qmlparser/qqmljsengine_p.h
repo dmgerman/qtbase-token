@@ -66,7 +66,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qset.h>
+file|<QtCore/qvector.h>
 end_include
 begin_decl_stmt
 name|QT_QML_BEGIN_NAMESPACE
@@ -178,7 +178,7 @@ decl_stmt|;
 name|MemoryPool
 name|_pool
 decl_stmt|;
-name|QList
+name|QVector
 operator|<
 name|AST
 operator|::
@@ -237,7 +237,7 @@ name|int
 name|col
 parameter_list|)
 function_decl|;
-name|QList
+name|QVector
 operator|<
 name|AST
 operator|::

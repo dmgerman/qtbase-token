@@ -460,7 +460,7 @@ name|offset
 parameter_list|)
 specifier|const
 block|{
-name|QListIterator
+name|QVectorIterator
 argument_list|<
 name|QQmlJS
 operator|::
