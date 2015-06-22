@@ -2994,6 +2994,16 @@ decl_stmt|;
 name|QStringList
 name|str_sizes
 decl_stmt|;
+name|str_sizes
+operator|.
+name|reserve
+argument_list|(
+name|sizes
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|QList

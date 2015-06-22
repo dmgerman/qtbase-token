@@ -10387,6 +10387,13 @@ modifier|*
 argument_list|>
 name|items
 decl_stmt|;
+name|items
+operator|.
+name|reserve
+argument_list|(
+name|insertCount
+argument_list|)
+expr_stmt|;
 name|QStandardItem
 modifier|*
 name|hiddenRoot
