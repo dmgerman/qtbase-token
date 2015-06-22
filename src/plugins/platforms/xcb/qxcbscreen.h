@@ -333,6 +333,12 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+name|qreal
+name|pixelDensity
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|QPlatformCursor
 operator|*
 name|cursor
@@ -782,6 +788,9 @@ name|m_refreshRate
 decl_stmt|;
 name|int
 name|m_forcedDpi
+decl_stmt|;
+name|int
+name|m_pixelDensity
 decl_stmt|;
 name|QFontEngine
 operator|::
