@@ -2430,6 +2430,13 @@ operator|->
 name|x509
 argument_list|)
 decl_stmt|;
+name|result
+operator|.
+name|reserve
+argument_list|(
+name|count
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

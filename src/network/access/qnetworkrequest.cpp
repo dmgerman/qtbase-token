@@ -2050,6 +2050,16 @@ name|QByteArray
 argument_list|>
 name|result
 decl_stmt|;
+name|result
+operator|.
+name|reserve
+argument_list|(
+name|rawHeaders
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|RawHeadersList
 operator|::
 name|ConstIterator
