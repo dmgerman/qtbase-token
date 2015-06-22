@@ -643,12 +643,25 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QToolBarAreaLayoutItem
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|QToolBarAreaLayoutLine
 block|{
 name|public
 label|:
+name|QToolBarAreaLayoutLine
+argument_list|()
+block|{}
+comment|// for QVector, don't use
 name|QToolBarAreaLayoutLine
 argument_list|(
 argument|Qt::Orientation orientation
@@ -681,7 +694,7 @@ operator|::
 name|Orientation
 name|o
 expr_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QToolBarAreaLayoutItem
 operator|>
@@ -692,6 +705,15 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QToolBarAreaLayoutLine
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|QToolBarAreaLayoutInfo
@@ -703,12 +725,6 @@ argument_list|(
 argument|QInternal::DockPosition pos = QInternal::TopDock
 argument_list|)
 empty_stmt|;
-name|QList
-operator|<
-name|QToolBarAreaLayoutLine
-operator|>
-name|lines
-expr_stmt|;
 name|QSize
 name|sizeHint
 argument_list|()
@@ -838,6 +854,12 @@ name|pos
 argument_list|)
 decl|const
 decl_stmt|;
+name|QVector
+operator|<
+name|QToolBarAreaLayoutLine
+operator|>
+name|lines
+expr_stmt|;
 name|QRect
 name|rect
 decl_stmt|;
@@ -859,6 +881,15 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QToolBarAreaLayoutInfo
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|QToolBarAreaLayout
