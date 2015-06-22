@@ -4833,6 +4833,13 @@ operator|.
 name|eglGetError
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|*
+name|err
+operator|!=
+name|EGL_CONTEXT_LOST
+condition|)
 name|qWarning
 argument_list|(
 literal|"%s: Could not create the EGL window surface: 0x%x\n"
