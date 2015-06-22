@@ -501,6 +501,10 @@ block|;
 name|friend
 name|class
 name|QPlatformScreen
+block|;
+name|friend
+name|class
+name|QHighDpiScaling
 block|; }
 decl_stmt|;
 end_decl_stmt

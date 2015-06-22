@@ -429,6 +429,40 @@ name|void
 name|requestUpdate
 argument_list|()
 block|;
+comment|// Window property accessors. Platform plugins should use these
+comment|// instead of accessing QWindow directly.
+name|QSize
+name|windowMinimumSize
+argument_list|()
+specifier|const
+block|;
+name|QSize
+name|windowMaximumSize
+argument_list|()
+specifier|const
+block|;
+name|QSize
+name|windowBaseSize
+argument_list|()
+specifier|const
+block|;
+name|QSize
+name|windowSizeIncrement
+argument_list|()
+specifier|const
+block|;
+name|QRect
+name|windowGeometry
+argument_list|()
+specifier|const
+block|;
+name|QRectF
+name|windowClosestAcceptableGeometry
+argument_list|(
+argument|const QRectF&nativeRect
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 specifier|static
@@ -453,6 +487,16 @@ argument_list|(
 argument|const QRect&newGeometry
 argument_list|)
 specifier|const
+block|;
+specifier|static
+name|QSize
+name|constrainWindowSize
+argument_list|(
+specifier|const
+name|QSize
+operator|&
+name|size
+argument_list|)
 block|;
 name|QScopedPointer
 operator|<

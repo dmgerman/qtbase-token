@@ -188,6 +188,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qhighdpiscaling_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qinputmethod.h>
 end_include
 begin_include
@@ -49037,7 +49042,14 @@ name|platformWindow
 operator|->
 name|setMask
 argument_list|(
+name|QHighDpi
+operator|::
+name|toNativeLocalRegion
+argument_list|(
 name|region
+argument_list|,
+name|window
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -267,6 +267,12 @@ specifier|const
 expr_stmt|;
 name|virtual
 name|qreal
+name|pixelDensity
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|qreal
 name|refreshRate
 argument_list|()
 specifier|const
@@ -319,6 +325,18 @@ name|virtualSiblings
 argument_list|()
 specifier|const
 expr_stmt|;
+specifier|const
+name|QPlatformScreen
+modifier|*
+name|screenForPosition
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|point
+argument_list|)
+decl|const
+decl_stmt|;
 name|QScreen
 operator|*
 name|screen
@@ -431,6 +449,12 @@ operator|&
 name|rect
 argument_list|)
 decl_stmt|;
+comment|// The platform screen's geometry in device independent coordinates
+name|QRect
+name|deviceIndependentGeometry
+argument_list|()
+specifier|const
+expr_stmt|;
 name|protected
 label|:
 name|void
@@ -451,7 +475,7 @@ argument|QPlatformScreen
 argument_list|)
 name|friend
 name|class
-name|QPlatformIntegration
+name|QScreenPrivate
 decl_stmt|;
 block|}
 end_decl_stmt
