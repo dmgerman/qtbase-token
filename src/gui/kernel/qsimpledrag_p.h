@@ -150,25 +150,38 @@ name|void
 name|move
 parameter_list|(
 specifier|const
-name|QMouseEvent
-modifier|*
-name|me
+name|QPoint
+modifier|&
+name|globalPos
 parameter_list|)
+init|=
+literal|0
 function_decl|;
 name|virtual
 name|void
 name|drop
 parameter_list|(
 specifier|const
-name|QMouseEvent
-modifier|*
-name|me
+name|QPoint
+modifier|&
+name|globalPos
 parameter_list|)
+init|=
+literal|0
 function_decl|;
 name|virtual
 name|void
 name|endDrag
 parameter_list|()
+function_decl|;
+name|void
+name|moveShapedPixmapWindow
+parameter_list|(
+specifier|const
+name|QPoint
+modifier|&
+name|deviceIndependentPosition
+parameter_list|)
 function_decl|;
 name|QShapedPixmapWindow
 operator|*
@@ -329,7 +342,7 @@ name|virtual
 name|void
 name|move
 argument_list|(
-argument|const QMouseEvent *me
+argument|const QPoint&globalPos
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -337,7 +350,7 @@ name|virtual
 name|void
 name|drop
 argument_list|(
-argument|const QMouseEvent *me
+argument|const QPoint&globalPos
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;

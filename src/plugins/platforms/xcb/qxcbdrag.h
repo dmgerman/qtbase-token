@@ -83,12 +83,6 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
-DECL|variable|QMouseEvent
-name|class
-name|QMouseEvent
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QWindow
 name|class
 name|QWindow
@@ -181,9 +175,9 @@ name|void
 name|move
 argument_list|(
 specifier|const
-name|QMouseEvent
-operator|*
-name|me
+name|QPoint
+operator|&
+name|globalPos
 argument_list|)
 name|Q_DECL_OVERRIDE
 decl_stmt|;
@@ -191,9 +185,9 @@ name|void
 name|drop
 argument_list|(
 specifier|const
-name|QMouseEvent
-operator|*
-name|me
+name|QPoint
+operator|&
+name|globalPos
 argument_list|)
 name|Q_DECL_OVERRIDE
 decl_stmt|;
@@ -205,7 +199,7 @@ expr_stmt|;
 name|void
 name|handleEnter
 parameter_list|(
-name|QWindow
+name|QPlatformWindow
 modifier|*
 name|window
 parameter_list|,
@@ -218,7 +212,7 @@ function_decl|;
 name|void
 name|handlePosition
 parameter_list|(
-name|QWindow
+name|QPlatformWindow
 modifier|*
 name|w
 parameter_list|,
@@ -231,7 +225,7 @@ function_decl|;
 name|void
 name|handleLeave
 parameter_list|(
-name|QWindow
+name|QPlatformWindow
 modifier|*
 name|w
 parameter_list|,
@@ -244,7 +238,7 @@ function_decl|;
 name|void
 name|handleDrop
 parameter_list|(
-name|QWindow
+name|QPlatformWindow
 modifier|*
 parameter_list|,
 specifier|const
@@ -333,7 +327,7 @@ function_decl|;
 name|void
 name|handle_xdnd_position
 parameter_list|(
-name|QWindow
+name|QPlatformWindow
 modifier|*
 name|w
 parameter_list|,
@@ -469,7 +463,7 @@ decl_stmt|;
 name|xcb_window_t
 name|proxy_target
 decl_stmt|;
-name|QWindow
+name|QPlatformWindow
 modifier|*
 name|targetWindow
 decl_stmt|;
