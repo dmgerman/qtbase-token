@@ -1786,6 +1786,7 @@ argument_list|(
 literal|"Process failed to start"
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|QProcess
 operator|::
