@@ -3234,6 +3234,9 @@ begin_comment
 comment|/*! \fn QHash::const_iterator QHash::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the hash.      \sa begin(), constEnd() */
 end_comment
 begin_comment
+comment|/*! \fn QHash::key_iterator QHash::keyBegin() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first key     in the hash.      \sa keyEnd() */
+end_comment
+begin_comment
 comment|/*! \fn QHash::iterator QHash::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the hash.      \sa begin(), constEnd() */
 end_comment
 begin_comment
@@ -3244,6 +3247,9 @@ comment|/*! \fn QHash::const_iterator QHash::constEnd() const      Returns a con
 end_comment
 begin_comment
 comment|/*! \fn QHash::const_iterator QHash::cend() const     \since 5.0      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the hash.      \sa cbegin(), end() */
+end_comment
+begin_comment
+comment|/*! \fn QHash::key_iterator QHash::keyEnd() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last key in the hash.      \sa keyBegin() */
 end_comment
 begin_comment
 comment|/*! \fn QHash::iterator QHash::erase(iterator pos)      Removes the (key, value) pair associated with the iterator \a pos     from the hash, and returns an iterator to the next item in the     hash.      Unlike remove() and take(), this function never causes QHash to     rehash its internal data structure. This means that it can safely     be called while iterating, and won't affect the order of items in     the hash. For example:      \snippet code/src_corelib_tools_qhash.cpp 15      \sa remove(), take(), find() */
@@ -3318,7 +3324,22 @@ begin_comment
 comment|/*! \typedef QHash::const_iterator::value_type     \internal */
 end_comment
 begin_comment
-comment|/*! \class QHash::iterator     \inmodule QtCore     \brief The QHash::iterator class provides an STL-style non-const iterator for QHash and QMultiHash.      QHash features both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style iterators are more low-level and more     cumbersome to use; on the other hand, they are slightly faster     and, for developers who already know STL, have the advantage of     familiarity.      QHash\<Key, T\>::iterator allows you to iterate over a QHash (or     QMultiHash) and to modify the value (but not the key) associated     with a particular key. If you want to iterate over a const QHash,     you should use QHash::const_iterator. It is generally good     practice to use QHash::const_iterator on a non-const QHash as     well, unless you need to change the QHash through the iterator.     Const iterators are slightly faster, and can improve code     readability.      The default QHash::iterator constructor creates an uninitialized     iterator. You must initialize it using a QHash function like     QHash::begin(), QHash::end(), or QHash::find() before you can     start iterating. Here's a typical loop that prints all the (key,     value) pairs stored in a hash:      \snippet code/src_corelib_tools_qhash.cpp 17      Unlike QMap, which orders its items by key, QHash stores its     items in an arbitrary order. The only guarantee is that items that     share the same key (because they were inserted using     QHash::insertMulti()) will appear consecutively, from the most     recently to the least recently inserted value.      Let's see a few examples of things we can do with a     QHash::iterator that we cannot do with a QHash::const_iterator.     Here's an example that increments every value stored in the QHash     by 2:      \snippet code/src_corelib_tools_qhash.cpp 18      Here's an example that removes all the items whose key is a     string that starts with an underscore character:      \snippet code/src_corelib_tools_qhash.cpp 19      The call to QHash::erase() removes the item pointed to by the     iterator from the hash, and returns an iterator to the next item.     Here's another way of removing an item while iterating:      \snippet code/src_corelib_tools_qhash.cpp 20      It might be tempting to write code like this:      \snippet code/src_corelib_tools_qhash.cpp 21      However, this will potentially crash in \c{++i}, because \c i is     a dangling iterator after the call to erase().      Multiple iterators can be used on the same hash. However, be     aware that any modification performed directly on the QHash has     the potential of dramatically changing the order in which the     items are stored in the hash, as they might cause QHash to rehash     its internal data structure. There is one notable exception:     QHash::erase(). This function can safely be called while     iterating, and won't affect the order of items in the hash. If you     need to keep iterators over a long period of time, we recommend     that you use QMap rather than QHash.      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QHash::const_iterator, QMutableHashIterator */
+comment|/*! \typedef QHash::key_iterator::difference_type     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QHash::key_iterator::iterator_category     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QHash::key_iterator::pointer     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QHash::key_iterator::reference     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QHash::key_iterator::value_type     \internal */
+end_comment
+begin_comment
+comment|/*! \class QHash::iterator     \inmodule QtCore     \brief The QHash::iterator class provides an STL-style non-const iterator for QHash and QMultiHash.      QHash features both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style iterators are more low-level and more     cumbersome to use; on the other hand, they are slightly faster     and, for developers who already know STL, have the advantage of     familiarity.      QHash\<Key, T\>::iterator allows you to iterate over a QHash (or     QMultiHash) and to modify the value (but not the key) associated     with a particular key. If you want to iterate over a const QHash,     you should use QHash::const_iterator. It is generally good     practice to use QHash::const_iterator on a non-const QHash as     well, unless you need to change the QHash through the iterator.     Const iterators are slightly faster, and can improve code     readability.      The default QHash::iterator constructor creates an uninitialized     iterator. You must initialize it using a QHash function like     QHash::begin(), QHash::end(), or QHash::find() before you can     start iterating. Here's a typical loop that prints all the (key,     value) pairs stored in a hash:      \snippet code/src_corelib_tools_qhash.cpp 17      Unlike QMap, which orders its items by key, QHash stores its     items in an arbitrary order. The only guarantee is that items that     share the same key (because they were inserted using     QHash::insertMulti()) will appear consecutively, from the most     recently to the least recently inserted value.      Let's see a few examples of things we can do with a     QHash::iterator that we cannot do with a QHash::const_iterator.     Here's an example that increments every value stored in the QHash     by 2:      \snippet code/src_corelib_tools_qhash.cpp 18      Here's an example that removes all the items whose key is a     string that starts with an underscore character:      \snippet code/src_corelib_tools_qhash.cpp 19      The call to QHash::erase() removes the item pointed to by the     iterator from the hash, and returns an iterator to the next item.     Here's another way of removing an item while iterating:      \snippet code/src_corelib_tools_qhash.cpp 20      It might be tempting to write code like this:      \snippet code/src_corelib_tools_qhash.cpp 21      However, this will potentially crash in \c{++i}, because \c i is     a dangling iterator after the call to erase().      Multiple iterators can be used on the same hash. However, be     aware that any modification performed directly on the QHash has     the potential of dramatically changing the order in which the     items are stored in the hash, as they might cause QHash to rehash     its internal data structure. There is one notable exception:     QHash::erase(). This function can safely be called while     iterating, and won't affect the order of items in the hash. If you     need to keep iterators over a long period of time, we recommend     that you use QMap rather than QHash.      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QHash::const_iterator, QHash::key_iterator, QMutableHashIterator */
 end_comment
 begin_comment
 comment|/*! \fn QHash::iterator::iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QHash::begin(), QHash::end() */
@@ -3421,6 +3442,36 @@ comment|/*! \fn QHash::const_iterator&QHash::const_iterator::operator+=(int j)  
 end_comment
 begin_comment
 comment|/*! \fn QHash::const_iterator&QHash::const_iterator::operator-=(int j)      Makes the iterator go back by \a j items. (If \a j is negative,     the iterator goes forward.)      This operation can be slow for large \a j values.      \sa operator+=(), operator-() */
+end_comment
+begin_comment
+comment|/*! \class QHash::key_iterator     \inmodule QtCore     \since 5.6     \brief The QHash::key_iterator class provides an STL-style const iterator for QHash and QMultiHash keys.      QHash::key_iterator is essentially the same as QHash::const_iterator     with the difference that operator*() and operator->() return a key     instead of a value.      For most uses QHash::iterator and QHash::const_iterator should be used,     you can easily access the key by calling QHash::iterator::key():      \snippet code/src_corelib_tools_qhash.cpp 27      However, to have interoperability between QHash's keys and STL-style     algorithms we need an iterator that dereferences to a key instead     of a value. With QHash::key_iterator we can apply an algorithm to a     range of keys without having to call QHash::keys(), which is inefficient     as it costs one QHash iteration and memory allocation to create a temporary     QList.      \snippet code/src_corelib_tools_qhash.cpp 28      QHash::key_iterator is const, it's not possible to modify the key.      The default QHash::key_iterator constructor creates an uninitialized     iterator. You must initialize it using a QHash function like     QHash::keyBegin() or QHash::keyEnd().      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QHash::const_iterator, QHash::iterator */
+end_comment
+begin_comment
+comment|/*! \fn const T&QHash::key_iterator::operator*() const      Returns the current item's key. */
+end_comment
+begin_comment
+comment|/*! \fn const T *QHash::key_iterator::operator->() const      Returns a pointer to the current item's key. */
+end_comment
+begin_comment
+comment|/*! \fn bool QHash::key_iterator::operator==(key_iterator other)      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
+end_comment
+begin_comment
+comment|/*! \fn bool QHash::key_iterator::operator!=(key_iterator other)      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
+end_comment
+begin_comment
+comment|/*!     \fn QHash::key_iterator&QHash::key_iterator::operator++()      The prefix ++ operator (\c{++i}) advances the iterator to the     next item in the hash and returns an iterator to the new current     item.      Calling this function on QHash::keyEnd() leads to undefined results.      \sa operator--() */
+end_comment
+begin_comment
+comment|/*! \fn QHash::key_iterator QHash::key_iterator::operator++(int)      \overload      The postfix ++ operator (\c{i++}) advances the iterator to the     next item in the hash and returns an iterator to the previous     item. */
+end_comment
+begin_comment
+comment|/*! \fn QHash::key_iterator&QHash::key_iterator::operator--()      The prefix -- operator (\c{--i}) makes the preceding item     current and returns an iterator pointing to the new current item.      Calling this function on QHash::keyBegin() leads to undefined     results.      \sa operator++() */
+end_comment
+begin_comment
+comment|/*! \fn QHash::key_iterator QHash::key_iterator::operator--(int)      \overload      The postfix -- operator (\c{i--}) makes the preceding item     current and returns an iterator pointing to the previous     item. */
+end_comment
+begin_comment
+comment|/*! \fn const_iterator QHash::key_iterator::base() const     Returns the underlying const_iterator this key_iterator is based on. */
 end_comment
 begin_comment
 comment|/*! \fn QDataStream&operator<<(QDataStream&out, const QHash<Key, T>& hash)     \relates QHash      Writes the hash \a hash to stream \a out.      This function requires the key and value types to implement \c     operator<<().      \sa {Serializing Qt Data Types} */
