@@ -1061,6 +1061,13 @@ comment|// we will assume that the input arguments were passed correctly
 name|QVariantList
 name|args
 decl_stmt|;
+name|args
+operator|.
+name|reserve
+argument_list|(
+name|inputTypesCount
+argument_list|)
+expr_stmt|;
 name|int
 name|i
 init|=
