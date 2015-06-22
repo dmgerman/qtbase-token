@@ -197,12 +197,6 @@ name|other
 operator|.
 name|driverVersion
 operator|&&
-name|driverDescription
-operator|==
-name|other
-operator|.
-name|driverDescription
-operator|&&
 name|glVendor
 operator|==
 name|other
@@ -220,9 +214,6 @@ name|QVersionNumber
 name|driverVersion
 decl_stmt|;
 name|QByteArray
-name|driverDescription
-decl_stmt|;
-name|QByteArray
 name|glVendor
 decl_stmt|;
 specifier|static
@@ -237,11 +228,6 @@ name|deviceId
 parameter_list|,
 name|QVersionNumber
 name|driverVersion
-parameter_list|,
-specifier|const
-name|QByteArray
-modifier|&
-name|driverDescription
 parameter_list|)
 block|{
 name|Gpu
@@ -264,12 +250,6 @@ operator|.
 name|driverVersion
 operator|=
 name|driverVersion
-expr_stmt|;
-name|gpu
-operator|.
-name|driverDescription
-operator|=
-name|driverDescription
 expr_stmt|;
 return|return
 name|gpu
