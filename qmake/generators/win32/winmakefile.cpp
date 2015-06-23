@@ -454,16 +454,6 @@ name|lib
 operator|.
 name|startsWith
 argument_list|(
-literal|'/'
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|lib
-operator|.
-name|startsWith
-argument_list|(
 literal|"/LIBPATH:"
 argument_list|)
 condition|)
@@ -493,11 +483,6 @@ literal|false
 argument_list|)
 argument_list|)
 return|;
-comment|// This appears to be a user-supplied flag. Assume sufficient quoting.
-return|return
-name|lib
-return|;
-block|}
 comment|// This must be a fully resolved library path.
 return|return
 name|escapeFilePath
@@ -1452,17 +1437,7 @@ name|l
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|opt
-operator|.
-name|startsWith
-argument_list|(
-literal|"/"
-argument_list|)
-condition|)
+else|else
 block|{
 if|if
 condition|(
