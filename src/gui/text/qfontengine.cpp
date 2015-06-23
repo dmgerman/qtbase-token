@@ -8270,7 +8270,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Some font engines like the windows font engine  * can not reliable create outline paths  */
+comment|// Allow font engines (e.g. Windows) that can not reliably create
+end_comment
+begin_comment
+comment|// outline paths for distance-field rendering to switch the scene
+end_comment
+begin_comment
+comment|// graph over to native text rendering.
 end_comment
 begin_function
 DECL|function|hasUnreliableGlyphOutline
@@ -8281,8 +8287,13 @@ name|hasUnreliableGlyphOutline
 parameter_list|()
 specifier|const
 block|{
+comment|// Color glyphs (Emoji) are generally not suited for outlining
 return|return
-literal|false
+name|glyphFormat
+operator|==
+name|QFontEngine
+operator|::
+name|Format_ARGB
 return|;
 block|}
 end_function

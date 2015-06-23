@@ -3464,6 +3464,11 @@ specifier|const
 block|{
 return|return
 name|hasUnreliableOutline
+operator|||
+name|QFontEngine
+operator|::
+name|hasUnreliableGlyphOutline
+argument_list|()
 return|;
 block|}
 DECL|function|minLeftBearing
