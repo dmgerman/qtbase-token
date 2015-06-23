@@ -731,6 +731,13 @@ expr_stmt|;
 name|QPolygonF
 name|poly
 decl_stmt|;
+name|poly
+operator|.
+name|reserve
+argument_list|(
+name|pointCount
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

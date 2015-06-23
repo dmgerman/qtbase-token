@@ -855,6 +855,15 @@ name|drmModeModeInfo
 argument_list|>
 name|modes
 decl_stmt|;
+name|modes
+operator|.
+name|reserve
+argument_list|(
+name|connector
+operator|->
+name|count_modes
+argument_list|)
+expr_stmt|;
 name|qCDebug
 argument_list|(
 name|qLcEglfsKmsDebug

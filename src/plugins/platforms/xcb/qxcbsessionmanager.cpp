@@ -637,6 +637,16 @@ name|QByteArray
 argument_list|>
 name|vl
 decl_stmt|;
+name|vl
+operator|.
+name|reserve
+argument_list|(
+name|value
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|QStringList

@@ -1040,6 +1040,16 @@ argument_list|(
 name|ids
 argument_list|)
 decl_stmt|;
+name|ret
+operator|.
+name|reserve
+argument_list|(
+name|items
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Q_FOREACH
 argument_list|(
 argument|const QDBusPlatformMenuItem *item

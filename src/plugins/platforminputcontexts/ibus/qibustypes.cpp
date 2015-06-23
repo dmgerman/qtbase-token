@@ -821,6 +821,15 @@ name|QTextCharFormat
 argument_list|>
 name|rangeAttrs
 decl_stmt|;
+specifier|const
+name|int
+name|numAttributes
+init|=
+name|attributes
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 comment|// Merge text fomats for identical ranges into a single QTextFormat.
 for|for
 control|(
@@ -831,10 +840,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|attributes
-operator|.
-name|size
-argument_list|()
+name|numAttributes
 condition|;
 operator|++
 name|i
@@ -909,6 +915,13 @@ name|Attribute
 argument_list|>
 name|imAttrs
 decl_stmt|;
+name|imAttrs
+operator|.
+name|reserve
+argument_list|(
+name|numAttributes
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -918,10 +931,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|attributes
-operator|.
-name|size
-argument_list|()
+name|numAttributes
 condition|;
 operator|++
 name|i
