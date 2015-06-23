@@ -51,7 +51,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qlist.h>
+file|<QtCore/qvector.h>
 end_include
 begin_include
 include|#
@@ -124,7 +124,7 @@ operator|>
 name|Annotations
 expr_stmt|;
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|Argument
 operator|>
@@ -511,6 +511,15 @@ name|QDBusIntrospection
 argument_list|()
 block|; }
 decl_stmt|;
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QDBusIntrospection
+operator|::
+name|Argument
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
 name|QT_END_NAMESPACE
 end_decl_stmt
 begin_endif

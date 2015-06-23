@@ -661,7 +661,7 @@ expr_stmt|;
 end_typedef
 begin_typedef
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<
