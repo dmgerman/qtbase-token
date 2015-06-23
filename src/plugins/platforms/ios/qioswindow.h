@@ -207,6 +207,12 @@ name|void
 name|clearAccessibleCache
 parameter_list|()
 function_decl|;
+name|QSurfaceFormat
+name|format
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|private
 label|:
 name|void
