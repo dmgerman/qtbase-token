@@ -1286,6 +1286,10 @@ argument_list|,
 name|gpu
 operator|.
 name|driverVersion
+argument_list|,
+name|gpu
+operator|.
+name|description
 argument_list|)
 decl_stmt|;
 name|SupportedRenderersCache
