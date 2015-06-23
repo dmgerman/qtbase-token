@@ -667,9 +667,6 @@ name|keyCount
 init|=
 name|keyMap
 operator|.
-name|keys
-argument_list|()
-operator|.
 name|size
 argument_list|()
 decl_stmt|;

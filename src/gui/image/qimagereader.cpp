@@ -517,9 +517,6 @@ literal|"),"
 operator|<<
 name|keyMap
 operator|.
-name|values
-argument_list|()
-operator|.
 name|size
 argument_list|()
 operator|<<
@@ -869,9 +866,6 @@ name|int
 name|keyCount
 init|=
 name|keyMap
-operator|.
-name|keys
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1353,9 +1347,6 @@ name|int
 name|keyCount
 init|=
 name|keyMap
-operator|.
-name|keys
-argument_list|()
 operator|.
 name|size
 argument_list|()
