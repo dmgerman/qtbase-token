@@ -1352,6 +1352,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+argument_list|(
+argument|QPainterPath
+argument_list|)
+end_macro
 begin_expr_stmt
 name|Q_DECLARE_TYPEINFO
 argument_list|(
@@ -1369,6 +1375,7 @@ directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_expr_stmt
+DECL|variable|operator
 name|Q_GUI_EXPORT
 name|QDataStream
 operator|&

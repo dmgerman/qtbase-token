@@ -422,8 +422,14 @@ name|Q_REQUIRED_RESULT
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+DECL|function|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+name|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+argument_list|(
+argument|QPolygon
+argument_list|)
+end_macro
 begin_expr_stmt
-DECL|function|QPolygon
 specifier|inline
 name|QPolygon
 operator|::
@@ -940,8 +946,14 @@ name|Q_REQUIRED_RESULT
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+DECL|function|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+name|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+argument_list|(
+argument|QPolygonF
+argument_list|)
+end_macro
 begin_expr_stmt
-DECL|function|QPolygonF
 specifier|inline
 name|QPolygonF
 operator|::
