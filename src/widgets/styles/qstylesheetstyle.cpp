@@ -2423,11 +2423,6 @@ name|QObject
 modifier|*
 parameter_list|)
 constructor_decl|;
-DECL|function|~QRenderRule
-name|~
-name|QRenderRule
-parameter_list|()
-block|{ }
 name|QRect
 name|borderRect
 parameter_list|(
