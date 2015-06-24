@@ -1445,13 +1445,25 @@ begin_comment
 comment|/*!     \fn QDebug operator<<(QDebug stream, const QList<T>&list)     \relates QDebug      Writes the contents of \a list to \a stream. \c T needs to     support streaming into QDebug. */
 end_comment
 begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const std::list<T, Alloc>&list)     \relates QDebug     \since 5.7      Writes the contents of \a list to \a stream. \c T needs to     support streaming into QDebug. */
+end_comment
+begin_comment
 comment|/*!     \fn QDebug operator<<(QDebug stream, const QVector<T>&vector)     \relates QDebug      Writes the contents of \a vector to \a stream. \c T needs to     support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const std::vector<T, Alloc>&vector)     \relates QDebug     \since 5.7      Writes the contents of \a vector to \a stream. \c T needs to     support streaming into QDebug. */
 end_comment
 begin_comment
 comment|/*!     \fn QDebug operator<<(QDebug stream, const QSet<T>&set)     \relates QDebug      Writes the contents of \a set to \a stream. \c T needs to     support streaming into QDebug. */
 end_comment
 begin_comment
 comment|/*!     \fn QDebug operator<<(QDebug stream, const QMap<Key, T>&map)     \relates QDebug      Writes the contents of \a map to \a stream. Both \c Key and     \c T need to support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const std::map<Key, T, Compare, Alloc>&map)     \relates QDebug     \since 5.7      Writes the contents of \a map to \a stream. Both \c Key and     \c T need to support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const std::multimap<Key, T, Compare, Alloc>&map)     \relates QDebug     \since 5.7      Writes the contents of \a map to \a stream. Both \c Key and     \c T need to support streaming into QDebug. */
 end_comment
 begin_comment
 comment|/*!     \fn QDebug operator<<(QDebug stream, const QHash<Key, T>&hash)     \relates QDebug      Writes the contents of \a hash to \a stream. Both \c Key and     \c T need to support streaming into QDebug. */
