@@ -31,17 +31,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public
-name|slots
-public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -64,24 +53,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_function
-DECL|function|init
-name|void
-name|tst_QZip
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QZip
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|basicUnpack
 name|void
