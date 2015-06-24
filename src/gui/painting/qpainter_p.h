@@ -492,6 +492,10 @@ name|QPainterClipInfo
 block|{
 name|public
 label|:
+name|QPainterClipInfo
+argument_list|()
+block|{}
+comment|// for QVector, don't use
 enum|enum
 name|ClipType
 block|{
@@ -659,6 +663,15 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QPainterClipInfo
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
@@ -728,7 +741,7 @@ operator|::
 name|RenderHints
 name|renderHints
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPainterClipInfo
 operator|>
