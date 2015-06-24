@@ -1427,6 +1427,27 @@ begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(QTextStreamManipulator m)     \internal */
 end_comment
 begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const QList<T>&list)     \relates QDebug      Writes the contents of \a list to \a stream. \c T needs to     support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const QVector<T>&vector)     \relates QDebug      Writes the contents of \a vector to \a stream. \c T needs to     support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const QSet<T>&set)     \relates QDebug      Writes the contents of \a set to \a stream. \c T needs to     support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const QMap<Key, T>&map)     \relates QDebug      Writes the contents of \a map to \a stream. Both \c Key and     \c T need to support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const QHash<Key, T>&hash)     \relates QDebug      Writes the contents of \a hash to \a stream. Both \c Key and     \c T need to support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const QPair<T1, T2>&pair)     \relates QDebug      Writes the contents of \a pair to \a stream. Both \c T1 and     \c T2 need to support streaming into QDebug. */
+end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug stream, const QFlags<T>&flag)     \relates QDebug     \since 4.7      Writes \a flag to \a stream. */
+end_comment
+begin_comment
 comment|/*!     \class QDebugStateSaver      \brief Convenience class for custom QDebug operators      Saves the settings used by QDebug, and restores them upon destruction,     then calls \l {QDebug::maybeSpace()}{maybeSpace()}, to separate arguments with a space if     \l {QDebug::autoInsertSpaces()}{autoInsertSpaces()} was true at the time of constructing the QDebugStateSaver.      The automatic insertion of spaces between writes is one of the settings     that QDebugStateSaver stores for the duration of the current block.      The settings of the internal QTextStream are also saved and restored,     so that using<< hex in a QDebug operator doesn't affect other QDebug     operators.      \since 5.1 */
 end_comment
 begin_class

@@ -1590,10 +1590,10 @@ begin_expr_stmt
 name|template
 operator|<
 name|class
-name|aKey
+name|Key
 operator|,
 name|class
-name|aT
+name|T
 operator|>
 DECL|function|operator
 specifier|inline
@@ -1607,9 +1607,9 @@ operator|,
 specifier|const
 name|QMap
 operator|<
-name|aKey
+name|Key
 operator|,
-name|aT
+name|T
 operator|>
 operator|&
 name|map
@@ -1636,9 +1636,9 @@ control|(
 name|typename
 name|QMap
 operator|<
-name|aKey
+name|Key
 operator|,
-name|aT
+name|T
 operator|>
 operator|::
 name|const_iterator
@@ -1703,13 +1703,13 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  template
-DECL|variable|aKey
+DECL|variable|Key
 operator|<
 name|class
-name|aKey
+name|Key
 operator|,
 name|class
-name|aT
+name|T
 operator|>
 DECL|function|operator
 specifier|inline
@@ -1723,9 +1723,9 @@ operator|,
 specifier|const
 name|QHash
 operator|<
-name|aKey
+name|Key
 operator|,
-name|aT
+name|T
 operator|>
 operator|&
 name|hash
@@ -1752,9 +1752,9 @@ control|(
 name|typename
 name|QHash
 operator|<
-name|aKey
+name|Key
 operator|,
-name|aT
+name|T
 operator|>
 operator|::
 name|const_iterator
@@ -2053,12 +2053,22 @@ name|maybeSpace
 argument_list|()
 return|;
 end_return
-begin_ifndef
+begin_if
 unit|}
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_QOBJECT
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_QDOC
+argument_list|)
+end_if
 begin_function_decl
 unit|Q_CORE_EXPORT
 name|QDebug
@@ -2310,7 +2320,7 @@ argument|const QFlags<T>&flags
 argument_list|)
 else|#
 directive|else
-comment|// !QT_NO_QOBJECT
+comment|// !QT_NO_QOBJECT&& !Q_QDOC
 name|template
 operator|<
 name|class
