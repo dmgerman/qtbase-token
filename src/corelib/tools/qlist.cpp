@@ -2084,16 +2084,22 @@ begin_comment
 comment|/*! \fn int QList::length() const     \since 4.5      This function is identical to count().      \sa count() */
 end_comment
 begin_comment
-comment|/*! \fn T& QList::first()      Returns a reference to the first item in the list. The list must     not be empty. If the list can be empty, call isEmpty() before     calling this function.      \sa last(), isEmpty() */
+comment|/*! \fn T& QList::first()      Returns a reference to the first item in the list. The list must     not be empty. If the list can be empty, call isEmpty() before     calling this function.      \sa constFirst(), last(), isEmpty() */
 end_comment
 begin_comment
 comment|/*! \fn const T& QList::first() const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn T& QList::last()      Returns a reference to the last item in the list.  The list must     not be empty. If the list can be empty, call isEmpty() before     calling this function.      \sa first(), isEmpty() */
+comment|/*! \fn const T& QList::constFirst() const     \since 5.6      Returns a const reference to the first item in the list. The list must     not be empty. If the list can be empty, call isEmpty() before     calling this function.      \sa constLast(), isEmpty(), first() */
+end_comment
+begin_comment
+comment|/*! \fn T& QList::last()      Returns a reference to the last item in the list.  The list must     not be empty. If the list can be empty, call isEmpty() before     calling this function.      \sa constLast(), first(), isEmpty() */
 end_comment
 begin_comment
 comment|/*! \fn const T& QList::last() const      \overload */
+end_comment
+begin_comment
+comment|/*! \fn const T& QList::constLast() const     \since 5.6      Returns a reference to the last item in the list. The list must     not be empty. If the list can be empty, call isEmpty() before     calling this function.      \sa constFirst(), isEmpty(), last() */
 end_comment
 begin_comment
 comment|/*! \fn void QList::removeFirst()      Removes the first item in the list. Calling this function is     equivalent to calling removeAt(0). The list must not be empty. If     the list can be empty, call isEmpty() before calling this     function.      \sa removeAt(), takeFirst() */
