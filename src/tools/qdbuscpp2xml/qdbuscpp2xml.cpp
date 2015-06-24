@@ -485,7 +485,7 @@ return|;
 comment|// wasn't a valid type
 block|}
 block|}
-name|QList
+name|QVector
 argument_list|<
 name|ArgumentDef
 argument_list|>
@@ -1989,7 +1989,7 @@ argument_list|(
 name|args
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|ClassDef
 argument_list|>

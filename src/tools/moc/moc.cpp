@@ -2766,7 +2766,7 @@ operator|::
 name|parse
 parameter_list|()
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|NamespaceDef
 argument_list|>
@@ -4136,7 +4136,7 @@ name|bool
 name|any_type_contains
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|PropertyDef
 argument_list|>
@@ -4186,7 +4186,7 @@ name|bool
 name|any_arg_contains
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>
@@ -4298,7 +4298,7 @@ name|QByteArrayList
 name|requiredQtContainers
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|ClassDef
 argument_list|>
@@ -6886,7 +6886,7 @@ name|IDENTIFIER
 argument_list|)
 condition|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|ClassDef
 operator|::

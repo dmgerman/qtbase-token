@@ -543,7 +543,7 @@ name|int
 name|aggregateParameterCount
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>
@@ -996,7 +996,7 @@ argument_list|()
 decl_stmt|;
 comment|// filter out undeclared enumerators and sets
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|EnumDef
 argument_list|>
@@ -3205,7 +3205,7 @@ name|i
 control|)
 block|{
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|ClassDef
 operator|::
@@ -3567,7 +3567,7 @@ operator|::
 name|registerFunctionStrings
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>
@@ -3711,7 +3711,7 @@ operator|::
 name|generateFunctions
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>
@@ -3997,7 +3997,7 @@ operator|::
 name|generateFunctionRevisions
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>
@@ -4078,7 +4078,7 @@ operator|::
 name|generateFunctionParameters
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>
@@ -5421,7 +5421,7 @@ name|needElse
 init|=
 literal|false
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>
@@ -6494,7 +6494,7 @@ operator|::
 name|methodsWithAutomaticTypesHelper
 parameter_list|(
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>
@@ -6888,7 +6888,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-name|QList
+name|QVector
 argument_list|<
 name|FunctionDef
 argument_list|>

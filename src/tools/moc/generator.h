@@ -107,7 +107,7 @@ name|void
 name|registerFunctionStrings
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|FunctionDef
 operator|>
@@ -119,7 +119,7 @@ name|void
 name|generateFunctions
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|FunctionDef
 operator|>
@@ -143,7 +143,7 @@ name|void
 name|generateFunctionRevisions
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|FunctionDef
 operator|>
@@ -160,7 +160,7 @@ name|void
 name|generateFunctionParameters
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|FunctionDef
 operator|>
@@ -252,7 +252,7 @@ expr|>
 name|methodsWithAutomaticTypesHelper
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|FunctionDef
 operator|>
