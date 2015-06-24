@@ -118,6 +118,9 @@ decl_stmt|;
 name|int
 name|detach_no
 decl_stmt|;
+name|bool
+name|is_mask
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
