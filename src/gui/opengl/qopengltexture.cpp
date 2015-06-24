@@ -4829,6 +4829,7 @@ argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|QOpenGLTexture
 operator|::
@@ -5389,6 +5390,7 @@ argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|QOpenGLTexture
 operator|::
