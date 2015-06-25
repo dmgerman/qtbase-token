@@ -532,7 +532,6 @@ directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 end_ifdef
 begin_decl_stmt
-specifier|inline
 name|QKeySequence
 modifier|&
 name|operator
@@ -542,14 +541,11 @@ name|QKeySequence
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
-name|qSwap
+name|swap
 argument_list|(
-name|d
-argument_list|,
 name|other
-operator|.
-name|d
 argument_list|)
 block|;
 return|return
@@ -563,7 +559,6 @@ endif|#
 directive|endif
 end_endif
 begin_function
-specifier|inline
 name|void
 name|swap
 parameter_list|(
@@ -571,6 +566,7 @@ name|QKeySequence
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
