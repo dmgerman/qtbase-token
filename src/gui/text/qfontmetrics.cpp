@@ -100,9 +100,6 @@ argument_list|(
 name|font
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 block|{ }
 end_constructor
@@ -194,9 +191,6 @@ operator|=
 name|font
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -221,9 +215,6 @@ argument_list|(
 name|fm
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 block|{ }
 end_constructor
@@ -262,9 +253,6 @@ operator|=
 name|fm
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 expr_stmt|;
 return|return
 operator|*
@@ -2681,9 +2669,6 @@ argument_list|(
 name|fontMetrics
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 block|{ }
 end_constructor
@@ -2710,9 +2695,6 @@ operator|=
 name|other
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 expr_stmt|;
 return|return
 operator|*
@@ -2743,9 +2725,6 @@ argument_list|(
 name|font
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 block|{ }
 end_constructor
@@ -2837,9 +2816,6 @@ operator|=
 name|font
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2864,9 +2840,6 @@ argument_list|(
 name|fm
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 block|{ }
 end_constructor
@@ -2905,9 +2878,6 @@ operator|=
 name|fm
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 expr_stmt|;
 return|return
 operator|*

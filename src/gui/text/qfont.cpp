@@ -1649,9 +1649,6 @@ operator|=
 name|font
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2045,9 +2042,6 @@ argument_list|(
 name|font
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 member_init_list|,
 name|resolve_mask
@@ -2093,9 +2087,6 @@ operator|=
 name|font
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 expr_stmt|;
 name|resolve_mask
 operator|=
@@ -4046,6 +4037,7 @@ return|return
 literal|false
 return|;
 comment|// the< operator for fontdefs ignores point sizes.
+specifier|const
 name|QFontDef
 modifier|&
 name|r1
@@ -4056,6 +4048,7 @@ name|d
 operator|->
 name|request
 decl_stmt|;
+specifier|const
 name|QFontDef
 modifier|&
 name|r2
@@ -7107,9 +7100,6 @@ argument_list|(
 name|font
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 block|{ }
 end_constructor
@@ -7133,9 +7123,6 @@ argument_list|(
 name|fi
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 block|{ }
 end_constructor
@@ -7174,9 +7161,6 @@ operator|=
 name|fi
 operator|.
 name|d
-operator|.
-name|data
-argument_list|()
 expr_stmt|;
 return|return
 operator|*

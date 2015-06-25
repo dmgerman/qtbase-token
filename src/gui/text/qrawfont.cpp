@@ -1841,6 +1841,7 @@ block|{
 name|QRawFont
 name|rawFont
 decl_stmt|;
+specifier|const
 name|QFontPrivate
 modifier|*
 name|font_d
