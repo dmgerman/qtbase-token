@@ -135,7 +135,6 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
-specifier|inline
 name|QFileInfo
 modifier|&
 name|operator
@@ -145,14 +144,11 @@ name|QFileInfo
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
-name|qSwap
+name|swap
 argument_list|(
-name|d_ptr
-argument_list|,
 name|other
-operator|.
-name|d_ptr
 argument_list|)
 block|;
 return|return
@@ -162,7 +158,6 @@ return|;
 block|}
 endif|#
 directive|endif
-specifier|inline
 name|void
 name|swap
 parameter_list|(
@@ -170,6 +165,7 @@ name|QFileInfo
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(

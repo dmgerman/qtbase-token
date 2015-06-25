@@ -131,14 +131,11 @@ name|QUrlQuery
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
-name|qSwap
+name|swap
 argument_list|(
-name|d
-argument_list|,
 name|other
-operator|.
-name|d
 argument_list|)
 block|;
 return|return
@@ -191,6 +188,7 @@ name|QUrlQuery
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
