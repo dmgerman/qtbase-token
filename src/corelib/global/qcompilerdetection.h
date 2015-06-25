@@ -557,7 +557,7 @@ if|#
 directive|if
 name|__apple_build_version__
 operator|>=
-literal|6020049
+literal|7000053
 end_if
 begin_define
 DECL|macro|Q_CC_CLANG
