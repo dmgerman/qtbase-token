@@ -16849,6 +16849,7 @@ decl_stmt|;
 name|QPoint
 name|offset
 decl_stmt|;
+specifier|const
 name|QImage
 modifier|*
 name|alphaMap
@@ -16890,7 +16891,7 @@ name|alphaPenBlt
 argument_list|(
 name|alphaMap
 operator|->
-name|bits
+name|constBits
 argument_list|()
 argument_list|,
 name|alphaMap
