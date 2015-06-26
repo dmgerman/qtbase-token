@@ -395,7 +395,7 @@ literal|0
 parameter_list|)
 function_decl|;
 name|bool
-name|readLine
+name|readLineInto
 parameter_list|(
 name|QString
 modifier|*

@@ -142,7 +142,8 @@ operator|.
 name|bytesTotal
 argument_list|()
 operator|==
-literal|0
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -152,7 +153,8 @@ operator|.
 name|bytesFree
 argument_list|()
 operator|==
-literal|0
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -162,7 +164,8 @@ operator|.
 name|bytesAvailable
 argument_list|()
 operator|==
-literal|0
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -364,7 +367,7 @@ name|storage
 operator|.
 name|bytesTotal
 argument_list|()
-operator|>
+operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
@@ -374,7 +377,7 @@ name|storage
 operator|.
 name|bytesFree
 argument_list|()
-operator|>
+operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
@@ -384,7 +387,7 @@ name|storage
 operator|.
 name|bytesAvailable
 argument_list|()
-operator|>
+operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
@@ -477,7 +480,7 @@ name|storage
 operator|.
 name|bytesTotal
 argument_list|()
-operator|>
+operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
@@ -487,7 +490,7 @@ name|storage
 operator|.
 name|bytesFree
 argument_list|()
-operator|>
+operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
@@ -497,7 +500,7 @@ name|storage
 operator|.
 name|bytesAvailable
 argument_list|()
-operator|>
+operator|>=
 literal|0
 argument_list|)
 expr_stmt|;

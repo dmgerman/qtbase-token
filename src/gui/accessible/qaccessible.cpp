@@ -5293,9 +5293,7 @@ comment|/*!     Returns the name of the scroll left default action.     \sa acti
 end_comment
 begin_function
 DECL|function|scrollLeftAction
-specifier|const
 name|QString
-modifier|&
 name|QAccessibleActionInterface
 operator|::
 name|scrollLeftAction
@@ -5314,9 +5312,7 @@ comment|/*!     Returns the name of the scroll right default action.     \sa act
 end_comment
 begin_function
 DECL|function|scrollRightAction
-specifier|const
 name|QString
-modifier|&
 name|QAccessibleActionInterface
 operator|::
 name|scrollRightAction
@@ -5335,9 +5331,7 @@ comment|/*!     Returns the name of the scroll up default action.     \sa action
 end_comment
 begin_function
 DECL|function|scrollUpAction
-specifier|const
 name|QString
-modifier|&
 name|QAccessibleActionInterface
 operator|::
 name|scrollUpAction
@@ -5356,9 +5350,7 @@ comment|/*!     Returns the name of the scroll down default action.     \sa acti
 end_comment
 begin_function
 DECL|function|scrollDownAction
-specifier|const
 name|QString
-modifier|&
 name|QAccessibleActionInterface
 operator|::
 name|scrollDownAction
@@ -5377,9 +5369,7 @@ comment|/*!     Returns the name of the previous page default action.     \sa ac
 end_comment
 begin_function
 DECL|function|previousPageAction
-specifier|const
 name|QString
-modifier|&
 name|QAccessibleActionInterface
 operator|::
 name|previousPageAction
@@ -5398,9 +5388,7 @@ comment|/*!     Returns the name of the next page default action.     \sa action
 end_comment
 begin_function
 DECL|function|nextPageAction
-specifier|const
 name|QString
-modifier|&
 name|QAccessibleActionInterface
 operator|::
 name|nextPageAction

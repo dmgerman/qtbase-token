@@ -190,7 +190,7 @@ name|readLinesFromBufferCRCR
 parameter_list|()
 function_decl|;
 name|void
-name|readLineOverload
+name|readLineInto
 parameter_list|()
 function_decl|;
 comment|// all
@@ -3229,11 +3229,11 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|readLineOverload
+DECL|function|readLineInto
 name|void
 name|tst_QTextStream
 operator|::
-name|readLineOverload
+name|readLineInto
 parameter_list|()
 block|{
 name|QByteArray
@@ -3253,7 +3253,7 @@ name|line
 decl_stmt|;
 name|ts
 operator|.
-name|readLine
+name|readLineInto
 argument_list|(
 operator|&
 name|line
@@ -3271,7 +3271,7 @@ argument_list|)
 expr_stmt|;
 name|ts
 operator|.
-name|readLine
+name|readLineInto
 argument_list|(
 name|Q_NULLPTR
 argument_list|,
@@ -3281,7 +3281,7 @@ expr_stmt|;
 comment|// read the second line, but don't store it
 name|ts
 operator|.
-name|readLine
+name|readLineInto
 argument_list|(
 operator|&
 name|line
@@ -3302,7 +3302,7 @@ argument_list|(
 operator|!
 name|ts
 operator|.
-name|readLine
+name|readLineInto
 argument_list|(
 operator|&
 name|line
@@ -3362,7 +3362,7 @@ while|while
 condition|(
 name|ts
 operator|.
-name|readLine
+name|readLineInto
 argument_list|(
 operator|&
 name|line
@@ -3419,7 +3419,7 @@ argument_list|(
 operator|!
 name|ts
 operator|.
-name|readLine
+name|readLineInto
 argument_list|(
 operator|&
 name|line
@@ -5520,7 +5520,7 @@ while|while
 condition|(
 name|stream2
 operator|.
-name|readLine
+name|readLineInto
 argument_list|(
 operator|&
 name|line
