@@ -240,6 +240,13 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
+name|lastSectionLogicalIdx
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+block|,
+comment|// Only trust when we stretch last section
 name|sectionIndicatorOffset
 argument_list|(
 literal|0
@@ -271,6 +278,20 @@ name|int
 name|lastVisibleVisualIndex
 argument_list|()
 specifier|const
+block|;
+name|void
+name|restoreSizeOnPrevLastSection
+argument_list|()
+block|;
+name|void
+name|setNewLastSection
+argument_list|(
+argument|int visualIndexForLastSection
+argument_list|)
+block|;
+name|void
+name|maybeRestorePrevLastSectionAndStretchLast
+argument_list|()
 block|;
 name|int
 name|sectionHandleAt
@@ -1188,7 +1209,10 @@ block|;
 name|int
 name|lastSectionSize
 block|;
-comment|// $$$
+name|int
+name|lastSectionLogicalIdx
+block|;
+comment|// Only trust if we stretch LastSection
 name|int
 name|sectionIndicatorOffset
 block|;
