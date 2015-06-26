@@ -142,11 +142,7 @@ argument|true
 argument_list|)
 block|{ }
 comment|// compiler-generated copy/move ctor/assignment operators are fine!
-specifier|inline
-operator|~
-name|QPointer
-argument_list|()
-block|{ }
+comment|// compiler-generated dtor is fine!
 specifier|inline
 name|void
 name|swap
