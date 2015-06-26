@@ -5183,16 +5183,6 @@ decl_stmt|;
 if|if
 condition|(
 name|exifOrientation
-operator|==
-operator|-
-literal|1
-condition|)
-return|return
-literal|false
-return|;
-if|if
-condition|(
-name|exifOrientation
 operator|>
 literal|0
 condition|)
