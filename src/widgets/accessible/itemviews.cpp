@@ -297,7 +297,7 @@ name|Q_FOREACH
 argument_list|(
 argument|QAccessible::Id id
 argument_list|,
-argument|childToId.values()
+argument|childToId
 argument_list|)
 name|QAccessible
 operator|::
@@ -3009,7 +3009,7 @@ name|Q_FOREACH
 argument_list|(
 argument|QAccessible::Id id
 argument_list|,
-argument|childToId.values()
+argument|childToId
 argument_list|)
 name|QAccessible
 operator|::

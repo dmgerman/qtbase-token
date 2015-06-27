@@ -681,9 +681,6 @@ name|Id
 name|id
 decl|,
 name|m_childInterfaces
-operator|.
-name|values
-argument_list|()
 control|)
 name|QAccessible
 operator|::
