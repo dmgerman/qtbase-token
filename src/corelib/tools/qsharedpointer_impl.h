@@ -2445,10 +2445,10 @@ argument_list|)
 block|{}
 end_decl_stmt
 begin_function
-specifier|inline
 name|void
 name|deref
 parameter_list|()
+function|Q_DECL_NOTHROW
 block|{
 name|deref
 argument_list|(
@@ -2459,7 +2459,6 @@ block|}
 end_function
 begin_function
 specifier|static
-specifier|inline
 name|void
 name|deref
 parameter_list|(
@@ -2467,6 +2466,7 @@ name|Data
 modifier|*
 name|d
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -2728,15 +2728,17 @@ name|o
 argument_list|)
 expr_stmt|;
 end_expr_stmt
-begin_function
-unit|}      inline
-name|void
+begin_macro
+unit|}      void
 name|internalSwap
-parameter_list|(
-name|QSharedPointer
-modifier|&
-name|other
-parameter_list|)
+argument_list|(
+argument|QSharedPointer&other
+argument_list|)
+end_macro
+begin_macro
+name|Q_DECL_NOTHROW
+end_macro
+begin_block
 block|{
 name|qSwap
 argument_list|(
@@ -2759,7 +2761,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-end_function
+end_block
 begin_if
 if|#
 directive|if
@@ -2835,11 +2837,11 @@ endif|#
 directive|endif
 end_endif
 begin_expr_stmt
-specifier|inline
 name|void
 name|ref
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 name|d
 operator|->
