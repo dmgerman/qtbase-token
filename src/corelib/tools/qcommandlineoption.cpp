@@ -394,7 +394,7 @@ modifier|&
 name|name
 parameter_list|)
 specifier|const
-name|Q_DECL_NOTHROW
+name|Q_DECL_NOEXCEPT
 block|{
 if|if
 condition|(
