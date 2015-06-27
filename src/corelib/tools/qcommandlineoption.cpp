@@ -384,6 +384,7 @@ typedef|typedef
 name|QString
 name|argument_type
 typedef|;
+name|Q_NEVER_INLINE
 name|result_type
 name|operator
 name|()
