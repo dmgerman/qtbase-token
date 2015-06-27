@@ -1397,10 +1397,15 @@ argument_list|()
 return|;
 block|}
 end_expr_stmt
-begin_expr_stmt
+begin_macro
 name|QSharedPointer
 argument_list|()
-operator|:
+end_macro
+begin_label
+name|Q_DECL_NOTHROW
+label|:
+end_label
+begin_expr_stmt
 name|value
 argument_list|(
 name|Q_NULLPTR
@@ -1410,7 +1415,7 @@ name|d
 argument_list|(
 argument|Q_NULLPTR
 argument_list|)
-block|{ }
+block|{}
 operator|~
 name|QSharedPointer
 argument_list|()
@@ -1469,14 +1474,11 @@ argument_list|,
 name|deleter
 argument_list|)
 block|; }
-specifier|inline
 name|QSharedPointer
 argument_list|(
-specifier|const
-name|QSharedPointer
-operator|&
-name|other
+argument|const QSharedPointer&other
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|value
 argument_list|(
@@ -1500,7 +1502,6 @@ expr_stmt|;
 block|}
 end_expr_stmt
 begin_decl_stmt
-specifier|inline
 name|QSharedPointer
 modifier|&
 name|operator
@@ -1511,6 +1512,7 @@ name|QSharedPointer
 operator|&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|QSharedPointer
 name|copy
@@ -1534,15 +1536,17 @@ ifdef|#
 directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 end_ifdef
-begin_expr_stmt
-specifier|inline
+begin_macro
 name|QSharedPointer
 argument_list|(
-name|QSharedPointer
-operator|&&
-name|other
+argument|QSharedPointer&&other
 argument_list|)
-operator|:
+end_macro
+begin_label
+name|Q_DECL_NOTHROW
+label|:
+end_label
+begin_expr_stmt
 name|value
 argument_list|(
 name|other
@@ -1567,7 +1571,6 @@ name|value
 operator|=
 name|Q_NULLPTR
 block|;     }
-specifier|inline
 name|QSharedPointer
 operator|&
 name|operator
@@ -1577,6 +1580,7 @@ name|QSharedPointer
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|QSharedPointer
 name|moved
