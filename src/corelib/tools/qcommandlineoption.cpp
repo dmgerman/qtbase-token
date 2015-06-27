@@ -403,18 +403,12 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QCommandLineOption: Option names cannot be empty"
-argument_list|)
-expr_stmt|;
 return|return
-literal|true
+name|warn
+argument_list|(
+literal|"be empty"
+argument_list|)
 return|;
-block|}
-else|else
-block|{
 specifier|const
 name|QChar
 name|c
@@ -435,17 +429,12 @@ argument_list|(
 literal|'-'
 argument_list|)
 condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QCommandLineOption: Option names cannot start with a '-'"
-argument_list|)
-expr_stmt|;
 return|return
-literal|true
+name|warn
+argument_list|(
+literal|"start with a '-'"
+argument_list|)
 return|;
-block|}
-elseif|else
 if|if
 condition|(
 name|c
@@ -455,17 +444,12 @@ argument_list|(
 literal|'/'
 argument_list|)
 condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QCommandLineOption: Option names cannot start with a '/'"
-argument_list|)
-expr_stmt|;
 return|return
-literal|true
+name|warn
+argument_list|(
+literal|"start with a '/'"
+argument_list|)
 return|;
-block|}
-elseif|else
 if|if
 condition|(
 name|name
@@ -478,19 +462,36 @@ literal|'='
 argument_list|)
 argument_list|)
 condition|)
+return|return
+name|warn
+argument_list|(
+literal|"contain a '='"
+argument_list|)
+return|;
+return|return
+literal|false
+return|;
+block|}
+specifier|static
+name|bool
+name|warn
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|what
+parameter_list|)
+name|Q_DECL_NOEXCEPT
 block|{
 name|qWarning
 argument_list|(
-literal|"QCommandLineOption: Option names cannot contain a '='"
+literal|"QCommandLineOption: Option names cannot %s"
+argument_list|,
+name|what
 argument_list|)
 expr_stmt|;
 return|return
 literal|true
-return|;
-block|}
-block|}
-return|return
-literal|false
 return|;
 block|}
 block|}
