@@ -7596,10 +7596,10 @@ name|chan
 operator|->
 name|spdyRequestsToSend
 operator|.
-name|values
+name|cbegin
 argument_list|()
 operator|.
-name|first
+name|value
 argument_list|()
 operator|.
 name|second
