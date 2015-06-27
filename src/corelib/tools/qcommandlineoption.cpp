@@ -484,6 +484,7 @@ return|return
 literal|false
 return|;
 block|}
+name|Q_NEVER_INLINE
 specifier|static
 name|bool
 name|warn
