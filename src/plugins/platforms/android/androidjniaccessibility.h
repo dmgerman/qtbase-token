@@ -28,6 +28,10 @@ name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QtAndroidAccessibility
 block|{
+name|void
+name|initialize
+parameter_list|()
+function_decl|;
 name|bool
 name|registerNatives
 parameter_list|(

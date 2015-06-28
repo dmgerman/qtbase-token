@@ -566,6 +566,18 @@ operator|=
 operator|new
 name|QAndroidSystemLocale
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+name|m_accessibility
+operator|=
+operator|new
+name|QAndroidPlatformAccessibility
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_ACCESSIBILITY
 name|QJNIObjectPrivate
 name|javaActivity
 argument_list|(
@@ -1592,17 +1604,6 @@ name|accessibility
 parameter_list|()
 specifier|const
 block|{
-if|if
-condition|(
-operator|!
-name|m_accessibility
-condition|)
-name|m_accessibility
-operator|=
-operator|new
-name|QAndroidPlatformAccessibility
-argument_list|()
-expr_stmt|;
 return|return
 name|m_accessibility
 return|;

@@ -95,7 +95,8 @@ argument|QList<QAbstractState*> targetStates READ targetStates WRITE setTargetSt
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|TransitionType transitionType READ transitionType WRITE setTransitionType
+argument|TransitionType transitionType READ transitionType WRITE setTransitionType REVISION
+literal|1
 argument_list|)
 name|public
 operator|:

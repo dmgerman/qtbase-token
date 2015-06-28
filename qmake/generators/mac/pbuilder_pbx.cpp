@@ -11269,6 +11269,18 @@ literal|"NO"
 operator|)
 argument_list|)
 expr_stmt|;
+comment|// Bitcode is only supported with a deployment target>= iOS 6.0.
+comment|// Disable it for now, and consider switching it on when later
+comment|// bumping the deployment target.
+name|settings
+operator|.
+name|insert
+argument_list|(
+literal|"ENABLE_BITCODE"
+argument_list|,
+literal|"NO"
+argument_list|)
+expr_stmt|;
 name|settings
 operator|.
 name|insert

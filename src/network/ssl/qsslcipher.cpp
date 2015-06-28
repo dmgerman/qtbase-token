@@ -20,6 +20,11 @@ include|#
 directive|include
 file|"qsslsocket.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qsslconfiguration.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -82,7 +87,7 @@ name|QSslCipher
 modifier|&
 name|cipher
 decl|,
-name|QSslSocket
+name|QSslConfiguration
 operator|::
 name|supportedCiphers
 argument_list|()
@@ -141,7 +146,7 @@ name|QSslCipher
 modifier|&
 name|cipher
 decl|,
-name|QSslSocket
+name|QSslConfiguration
 operator|::
 name|supportedCiphers
 argument_list|()

@@ -8398,9 +8398,12 @@ name|QSslCertificate
 modifier|&
 name|caCertificate
 decl|,
-name|QSslSocket
+name|QSslConfiguration
 operator|::
-name|defaultCaCertificates
+name|defaultConfiguration
+argument_list|()
+operator|.
+name|caCertificates
 argument_list|()
 control|)
 block|{

@@ -68,13 +68,6 @@ name|exec
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
-name|void
-name|execModalForWindow
-argument_list|(
-argument|QWindow *parent
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
 name|bool
 name|defaultNameFilterDisables
 argument_list|()
