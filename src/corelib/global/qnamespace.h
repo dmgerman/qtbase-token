@@ -1548,6 +1548,11 @@ name|AA_NoHighDpiScaling
 init|=
 literal|20
 block|,
+name|AA_UseStyleSheetPropagationInWidgetStyles
+init|=
+literal|21
+block|,
+comment|// ### Qt 6: remove me
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}

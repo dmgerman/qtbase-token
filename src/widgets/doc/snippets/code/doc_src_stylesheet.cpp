@@ -360,4 +360,23 @@ end_expr_stmt
 begin_comment
 comment|//! [95]
 end_comment
+begin_comment
+comment|//! [96]
+end_comment
+begin_expr_stmt
+name|qApp
+operator|->
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|AA_UseStyleSheetPropagationInWidgetStyles
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|//! [97]
+end_comment
 end_unit
