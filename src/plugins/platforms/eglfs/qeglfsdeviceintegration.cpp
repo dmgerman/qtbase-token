@@ -15,12 +15,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeglconvenience_p.h>
+file|"qeglfscursor.h"
 end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeglplatformcursor_p.h>
+file|<QtPlatformSupport/private/qeglconvenience_p.h>
 end_include
 begin_include
 include|#
@@ -1187,7 +1187,7 @@ specifier|const
 block|{
 return|return
 operator|new
-name|QEGLPlatformCursor
+name|QEglFSCursor
 argument_list|(
 name|screen
 argument_list|)

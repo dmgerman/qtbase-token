@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeglplatformcursor_p.h>
+file|"qeglfscursor.h"
 end_include
 begin_include
 include|#
@@ -634,7 +634,7 @@ return|;
 else|else
 return|return
 operator|new
-name|QEGLPlatformCursor
+name|QEglFSCursor
 argument_list|(
 name|screen
 argument_list|)

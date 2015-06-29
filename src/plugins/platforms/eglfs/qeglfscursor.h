@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEGLPLATFORMCURSOR_H
+name|QEGLFSCURSOR_H
 end_ifndef
 begin_define
-DECL|macro|QEGLPLATFORMCURSOR_H
+DECL|macro|QEGLFSCURSOR_H
 define|#
 directive|define
-name|QEGLPLATFORMCURSOR_H
+name|QEGLFSCURSOR_H
 end_define
 begin_comment
 comment|//
@@ -46,6 +46,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qeglfsglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformcursor.h>
 end_include
 begin_include
@@ -71,20 +76,20 @@ name|QOpenGLShaderProgram
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QEGLPlatformCursor
+DECL|variable|QEglFSCursor
 name|class
-name|QEGLPlatformCursor
+name|QEglFSCursor
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QEGLPlatformScreen
+DECL|variable|QEglFSScreen
 name|class
-name|QEGLPlatformScreen
+name|QEglFSScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QEGLPlatformCursorDeviceListener
+name|QEglFSCursorDeviceListener
 range|:
 name|public
 name|QObject
@@ -92,9 +97,9 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QEGLPlatformCursorDeviceListener
+name|QEglFSCursorDeviceListener
 argument_list|(
-name|QEGLPlatformCursor
+name|QEglFSCursor
 operator|*
 name|cursor
 argument_list|)
@@ -120,7 +125,7 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QEGLPlatformCursor
+name|QEglFSCursor
 operator|*
 name|m_cursor
 block|; }
@@ -129,7 +134,8 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|QPlatformCursor
 name|class
-name|QEGLPlatformCursor
+name|Q_EGLFS_EXPORT
+name|QEglFSCursor
 range|:
 name|public
 name|QPlatformCursor
@@ -140,7 +146,7 @@ block|{
 name|Q_OBJECT
 name|public
 range|:
-name|QEGLPlatformCursor
+name|QEglFSCursor
 argument_list|(
 name|QPlatformScreen
 operator|*
@@ -148,7 +154,7 @@ name|screen
 argument_list|)
 decl_stmt|;
 operator|~
-name|QEGLPlatformCursor
+name|QEglFSCursor
 argument_list|()
 expr_stmt|;
 ifndef|#
@@ -401,7 +407,7 @@ struct|;
 name|bool
 name|m_visible
 decl_stmt|;
-name|QEGLPlatformScreen
+name|QEglFSScreen
 modifier|*
 name|m_screen
 decl_stmt|;
@@ -418,7 +424,7 @@ decl_stmt|;
 name|int
 name|m_textureEntry
 decl_stmt|;
-name|QEGLPlatformCursorDeviceListener
+name|QEglFSCursorDeviceListener
 modifier|*
 name|m_deviceListener
 decl_stmt|;
@@ -438,6 +444,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEGLPLATFORMCURSOR_H
+comment|// QEGLFSCURSOR_H
 end_comment
 end_unit

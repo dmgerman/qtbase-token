@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeglplatformscreen_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<EGL/egl.h>
 end_include
 begin_decl_stmt
@@ -47,7 +42,7 @@ name|Q_EGLFS_EXPORT
 name|QEglFSScreen
 range|:
 name|public
-name|QEGLPlatformScreen
+name|QPlatformScreen
 block|{
 name|public
 operator|:
@@ -121,6 +116,22 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QPixmap
+name|grabWindow
+argument_list|(
+argument|WId wid
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int width
+argument_list|,
+argument|int height
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|EGLSurface
 name|primarySurface
 argument_list|()
@@ -130,7 +141,25 @@ return|return
 name|m_surface
 return|;
 block|}
-name|protected
+name|EGLDisplay
+name|display
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_dpy
+return|;
+block|}
+name|void
+name|handleCursorMove
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pos
+argument_list|)
+block|;
+name|private
 operator|:
 name|void
 name|setPrimarySurface
@@ -138,11 +167,12 @@ argument_list|(
 argument|EGLSurface surface
 argument_list|)
 block|;
-name|private
-operator|:
-name|friend
-name|class
-name|QEglFSWindow
+name|EGLDisplay
+name|m_dpy
+block|;
+name|QWindow
+operator|*
+name|m_pointerWindow
 block|;
 name|EGLSurface
 name|m_surface
@@ -150,6 +180,10 @@ block|;
 name|QPlatformCursor
 operator|*
 name|m_cursor
+block|;
+name|friend
+name|class
+name|QEglFSWindow
 block|; }
 decl_stmt|;
 end_decl_stmt
