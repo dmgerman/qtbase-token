@@ -37,7 +37,7 @@ DECL|macro|QT_VERSION_STR
 define|#
 directive|define
 name|QT_VERSION_STR
-value|"5.5.0"
+value|"5.5.1"
 end_define
 begin_comment
 comment|/*    QT_VERSION is (major<< 16) + (minor<< 8) + patch. */
@@ -47,7 +47,7 @@ DECL|macro|QT_VERSION
 define|#
 directive|define
 name|QT_VERSION
-value|0x050500
+value|0x050501
 end_define
 begin_comment
 comment|/*    can be used like #if (QT_VERSION>= QT_VERSION_CHECK(4, 4, 0)) */
