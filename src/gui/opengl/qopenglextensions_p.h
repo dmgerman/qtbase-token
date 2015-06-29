@@ -563,6 +563,10 @@ block|,
 name|DiscardFramebuffer
 operator|=
 literal|0x00400000
+block|,
+name|Sized16Formats
+operator|=
+literal|0x00800000
 block|}
 block|;
 name|Q_DECLARE_FLAGS
