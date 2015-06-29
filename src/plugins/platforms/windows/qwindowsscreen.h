@@ -270,6 +270,14 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 name|qreal
+name|pixelDensity
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|qreal
 name|devicePixelRatio
 argument_list|()
 specifier|const

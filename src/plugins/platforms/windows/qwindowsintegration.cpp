@@ -155,6 +155,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qhighdpiscaling_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qpa/qplatforminputcontextfactory_p.h>
 end_include
 begin_include
@@ -1202,10 +1207,17 @@ name|requested
 operator|.
 name|geometry
 operator|=
+name|QHighDpi
+operator|::
+name|toNativePixels
+argument_list|(
 name|window
 operator|->
 name|geometry
 argument_list|()
+argument_list|,
+name|window
+argument_list|)
 expr_stmt|;
 comment|// Apply custom margins (see  QWindowsWindow::setCustomMargins())).
 specifier|const
