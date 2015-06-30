@@ -538,8 +538,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|,
-argument|T *currentValue =
-literal|0
+argument|T *currentValue = Q_NULLPTR
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -590,8 +589,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|,
-argument|T *currentValue =
-literal|0
+argument|T *currentValue = Q_NULLPTR
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -642,8 +640,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|,
-argument|T *currentValue =
-literal|0
+argument|T *currentValue = Q_NULLPTR
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -694,8 +691,7 @@ argument|T expectedValue
 argument_list|,
 argument|T newValue
 argument_list|,
-argument|T *currentValue =
-literal|0
+argument|T *currentValue = Q_NULLPTR
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
