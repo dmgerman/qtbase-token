@@ -787,8 +787,7 @@ name|feature
 argument_list|(
 argument|const QString& name
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -836,7 +835,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 init|=
@@ -1043,8 +1042,7 @@ name|feature
 argument_list|(
 argument|const QString& name
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -1072,8 +1070,7 @@ name|property
 argument_list|(
 argument|const QString& name
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE

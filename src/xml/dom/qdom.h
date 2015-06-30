@@ -1477,14 +1477,11 @@ argument|const QByteArray& text
 argument_list|,
 argument|bool namespaceProcessing
 argument_list|,
-argument|QString *errorMsg=
-literal|0
+argument|QString *errorMsg=Q_NULLPTR
 argument_list|,
-argument|int *errorLine=
-literal|0
+argument|int *errorLine=Q_NULLPTR
 argument_list|,
-argument|int *errorColumn=
-literal|0
+argument|int *errorColumn=Q_NULLPTR
 argument_list|)
 block|;
 name|bool
@@ -1494,14 +1491,11 @@ argument|const QString& text
 argument_list|,
 argument|bool namespaceProcessing
 argument_list|,
-argument|QString *errorMsg=
-literal|0
+argument|QString *errorMsg=Q_NULLPTR
 argument_list|,
-argument|int *errorLine=
-literal|0
+argument|int *errorLine=Q_NULLPTR
 argument_list|,
-argument|int *errorColumn=
-literal|0
+argument|int *errorColumn=Q_NULLPTR
 argument_list|)
 block|;
 name|bool
@@ -1511,14 +1505,11 @@ argument|QIODevice* dev
 argument_list|,
 argument|bool namespaceProcessing
 argument_list|,
-argument|QString *errorMsg=
-literal|0
+argument|QString *errorMsg=Q_NULLPTR
 argument_list|,
-argument|int *errorLine=
-literal|0
+argument|int *errorLine=Q_NULLPTR
 argument_list|,
-argument|int *errorColumn=
-literal|0
+argument|int *errorColumn=Q_NULLPTR
 argument_list|)
 block|;
 name|bool
@@ -1528,14 +1519,11 @@ argument|QXmlInputSource *source
 argument_list|,
 argument|bool namespaceProcessing
 argument_list|,
-argument|QString *errorMsg=
-literal|0
+argument|QString *errorMsg=Q_NULLPTR
 argument_list|,
-argument|int *errorLine=
-literal|0
+argument|int *errorLine=Q_NULLPTR
 argument_list|,
-argument|int *errorColumn=
-literal|0
+argument|int *errorColumn=Q_NULLPTR
 argument_list|)
 block|;
 name|bool
@@ -1550,19 +1538,19 @@ name|QString
 operator|*
 name|errorMsg
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 operator|*
 name|errorLine
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 operator|*
 name|errorColumn
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|bool
@@ -1577,19 +1565,19 @@ name|QString
 operator|*
 name|errorMsg
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 operator|*
 name|errorLine
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 operator|*
 name|errorColumn
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|bool
@@ -1603,19 +1591,19 @@ name|QString
 operator|*
 name|errorMsg
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 operator|*
 name|errorLine
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 operator|*
 name|errorColumn
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|bool
@@ -1633,19 +1621,19 @@ name|QString
 operator|*
 name|errorMsg
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 operator|*
 name|errorLine
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 operator|*
 name|errorColumn
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 comment|// Qt extensions
