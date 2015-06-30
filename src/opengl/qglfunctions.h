@@ -146,7 +146,7 @@ name|QGLContext
 modifier|*
 name|context
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -1477,7 +1477,7 @@ block|{
 return|return
 name|d
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 block|}
@@ -1503,7 +1503,7 @@ name|QGLContext
 operator|*
 name|context
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 expr_stmt|;
 DECL|member|funcs

@@ -279,7 +279,7 @@ parameter_list|)
 block|{
 name|allocate
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|count
 argument_list|)

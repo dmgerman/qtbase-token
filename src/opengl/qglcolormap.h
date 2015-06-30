@@ -160,7 +160,7 @@ name|d
 operator|->
 name|cmapHandle
 operator|:
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|void

@@ -889,7 +889,7 @@ name|QGLContext
 modifier|*
 name|shareContext
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|bool
@@ -1221,7 +1221,7 @@ name|QGLContext
 modifier|*
 name|shareContext
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|bool
@@ -1529,8 +1529,7 @@ name|setContext
 argument_list|(
 argument|QGLContext* context
 argument_list|,
-argument|const QGLContext* shareContext =
-literal|0
+argument|const QGLContext* shareContext = Q_NULLPTR
 argument_list|,
 argument|bool deleteOldContext = true
 argument_list|)

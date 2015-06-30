@@ -65,7 +65,7 @@ name|QGLWidget
 operator|*
 name|shareWidget
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QGLPixelBuffer
@@ -76,8 +76,7 @@ argument|int height
 argument_list|,
 argument|const QGLFormat&format = QGLFormat::defaultFormat()
 argument_list|,
-argument|QGLWidget *shareWidget =
-literal|0
+argument|QGLWidget *shareWidget = Q_NULLPTR
 argument_list|)
 block|;
 name|virtual

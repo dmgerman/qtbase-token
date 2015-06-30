@@ -89,8 +89,7 @@ name|QGLShader
 argument_list|(
 argument|QGLShader::ShaderType type
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|QGLShader
@@ -99,8 +98,7 @@ argument|QGLShader::ShaderType type
 argument_list|,
 argument|const QGLContext *context
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -177,8 +175,7 @@ name|hasOpenGLShaders
 argument_list|(
 argument|ShaderType type
 argument_list|,
-argument|const QGLContext *context =
-literal|0
+argument|const QGLContext *context = Q_NULLPTR
 argument_list|)
 block|;
 name|private
@@ -228,7 +225,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -243,7 +240,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -1727,7 +1724,7 @@ name|QGLContext
 operator|*
 name|context
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|private
