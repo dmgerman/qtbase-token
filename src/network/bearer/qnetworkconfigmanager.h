@@ -117,8 +117,7 @@ name|QNetworkConfiguration
 operator|>
 name|allConfigurations
 argument_list|(
-argument|QNetworkConfiguration::StateFlags flags =
-literal|0
+argument|QNetworkConfiguration::StateFlags flags = QNetworkConfiguration::StateFlags()
 argument_list|)
 specifier|const
 block|;

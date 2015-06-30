@@ -2296,7 +2296,8 @@ parameter_list|,
 name|PixmapFragmentHints
 name|hints
 init|=
-literal|0
+name|PixmapFragmentHints
+argument_list|()
 parameter_list|)
 function_decl|;
 name|void

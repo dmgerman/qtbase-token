@@ -4262,8 +4262,7 @@ argument|QTouchDevice *device = Q_NULLPTR
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers = Qt::NoModifier
 argument_list|,
-argument|Qt::TouchPointStates touchPointStates =
-literal|0
+argument|Qt::TouchPointStates touchPointStates = Qt::TouchPointStates()
 argument_list|,
 argument|const QList<QTouchEvent::TouchPoint>&touchPoints = QList<QTouchEvent::TouchPoint>()
 argument_list|)

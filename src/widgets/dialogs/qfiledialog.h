@@ -794,8 +794,7 @@ argument|const QString&filter = QString()
 argument_list|,
 argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
-argument|Options options =
-literal|0
+argument|Options options = Options()
 argument_list|)
 block|;
 specifier|static
@@ -812,8 +811,7 @@ argument|const QString&filter = QString()
 argument_list|,
 argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
-argument|Options options =
-literal|0
+argument|Options options = Options()
 argument_list|,
 argument|const QStringList&supportedSchemes = QStringList()
 argument_list|)
@@ -832,8 +830,7 @@ argument|const QString&filter = QString()
 argument_list|,
 argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
-argument|Options options =
-literal|0
+argument|Options options = Options()
 argument_list|)
 block|;
 specifier|static
@@ -850,8 +847,7 @@ argument|const QString&filter = QString()
 argument_list|,
 argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
-argument|Options options =
-literal|0
+argument|Options options = Options()
 argument_list|,
 argument|const QStringList&supportedSchemes = QStringList()
 argument_list|)
@@ -898,8 +894,7 @@ argument|const QString&filter = QString()
 argument_list|,
 argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
-argument|Options options =
-literal|0
+argument|Options options = Options()
 argument_list|)
 block|;
 specifier|static
@@ -919,8 +914,7 @@ argument|const QString&filter = QString()
 argument_list|,
 argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
-argument|Options options =
-literal|0
+argument|Options options = Options()
 argument_list|,
 argument|const QStringList&supportedSchemes = QStringList()
 argument_list|)

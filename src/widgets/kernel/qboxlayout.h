@@ -135,8 +135,7 @@ argument_list|,
 argument|int stretch =
 literal|0
 argument_list|,
-argument|Qt::Alignment alignment =
-literal|0
+argument|Qt::Alignment alignment = Qt::Alignment()
 argument_list|)
 block|;
 name|void
@@ -196,8 +195,7 @@ argument_list|,
 argument|int stretch =
 literal|0
 argument_list|,
-argument|Qt::Alignment alignment =
-literal|0
+argument|Qt::Alignment alignment = Qt::Alignment()
 argument_list|)
 block|;
 name|void

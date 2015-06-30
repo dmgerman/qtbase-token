@@ -457,8 +457,7 @@ name|find
 argument_list|(
 argument|const QString&exp
 argument_list|,
-argument|QTextDocument::FindFlags options =
-literal|0
+argument|QTextDocument::FindFlags options = QTextDocument::FindFlags()
 argument_list|)
 block|;
 ifndef|#
@@ -469,8 +468,7 @@ name|find
 argument_list|(
 argument|const QRegExp&exp
 argument_list|,
-argument|QTextDocument::FindFlags options =
-literal|0
+argument|QTextDocument::FindFlags options = QTextDocument::FindFlags()
 argument_list|)
 block|;
 endif|#

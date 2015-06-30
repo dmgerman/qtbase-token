@@ -186,8 +186,7 @@ argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&title = QString()
 argument_list|,
-argument|ColorDialogOptions options =
-literal|0
+argument|ColorDialogOptions options = ColorDialogOptions()
 argument_list|)
 block|;
 comment|// obsolete

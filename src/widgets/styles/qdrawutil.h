@@ -761,7 +761,10 @@ operator|::
 name|DrawingHints
 name|hints
 operator|=
-literal|0
+name|QDrawBorderPixmap
+operator|::
+name|DrawingHints
+argument_list|()
 endif|#
 directive|endif
 argument_list|)

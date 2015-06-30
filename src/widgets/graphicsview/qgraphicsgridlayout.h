@@ -74,8 +74,7 @@ argument|int rowSpan
 argument_list|,
 argument|int columnSpan
 argument_list|,
-argument|Qt::Alignment alignment =
-literal|0
+argument|Qt::Alignment alignment = Qt::Alignment()
 argument_list|)
 block|;
 specifier|inline
@@ -88,8 +87,7 @@ argument|int row
 argument_list|,
 argument|int column
 argument_list|,
-argument|Qt::Alignment alignment =
-literal|0
+argument|Qt::Alignment alignment = Qt::Alignment()
 argument_list|)
 block|;
 name|void

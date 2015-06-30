@@ -506,8 +506,7 @@ argument_list|,
 argument|int from =
 literal|0
 argument_list|,
-argument|FindFlags options =
-literal|0
+argument|FindFlags options = FindFlags()
 argument_list|)
 specifier|const
 block|;
@@ -518,8 +517,7 @@ argument|const QString&subString
 argument_list|,
 argument|const QTextCursor&cursor
 argument_list|,
-argument|FindFlags options =
-literal|0
+argument|FindFlags options = FindFlags()
 argument_list|)
 specifier|const
 block|;
@@ -534,8 +532,7 @@ argument_list|,
 argument|int from =
 literal|0
 argument_list|,
-argument|FindFlags options =
-literal|0
+argument|FindFlags options = FindFlags()
 argument_list|)
 specifier|const
 block|;
@@ -546,8 +543,7 @@ argument|const QRegExp&expr
 argument_list|,
 argument|const QTextCursor&cursor
 argument_list|,
-argument|FindFlags options =
-literal|0
+argument|FindFlags options = FindFlags()
 argument_list|)
 specifier|const
 block|;
@@ -564,8 +560,7 @@ argument_list|,
 argument|int from =
 literal|0
 argument_list|,
-argument|FindFlags options =
-literal|0
+argument|FindFlags options = FindFlags()
 argument_list|)
 specifier|const
 block|;
@@ -576,8 +571,7 @@ argument|const QRegularExpression&expr
 argument_list|,
 argument|const QTextCursor&cursor
 argument_list|,
-argument|FindFlags options =
-literal|0
+argument|FindFlags options = FindFlags()
 argument_list|)
 specifier|const
 block|;

@@ -225,8 +225,7 @@ argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&title = QString()
 argument_list|,
-argument|FontDialogOptions options =
-literal|0
+argument|FontDialogOptions options = FontDialogOptions()
 argument_list|)
 block|;
 name|Q_SIGNALS

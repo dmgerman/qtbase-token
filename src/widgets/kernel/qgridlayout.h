@@ -270,8 +270,7 @@ argument|int row
 argument_list|,
 argument|int column
 argument_list|,
-argument|Qt::Alignment =
-literal|0
+argument|Qt::Alignment = Qt::Alignment()
 argument_list|)
 block|;
 name|void
@@ -287,8 +286,7 @@ argument|int rowSpan
 argument_list|,
 argument|int columnSpan
 argument_list|,
-argument|Qt::Alignment =
-literal|0
+argument|Qt::Alignment = Qt::Alignment()
 argument_list|)
 block|;
 name|void
@@ -300,8 +298,7 @@ argument|int row
 argument_list|,
 argument|int column
 argument_list|,
-argument|Qt::Alignment =
-literal|0
+argument|Qt::Alignment = Qt::Alignment()
 argument_list|)
 block|;
 name|void
@@ -317,8 +314,7 @@ argument|int rowSpan
 argument_list|,
 argument|int columnSpan
 argument_list|,
-argument|Qt::Alignment =
-literal|0
+argument|Qt::Alignment = Qt::Alignment()
 argument_list|)
 block|;
 name|void
@@ -391,8 +387,7 @@ argument_list|,
 argument|int columnSpan =
 literal|1
 argument_list|,
-argument|Qt::Alignment =
-literal|0
+argument|Qt::Alignment = Qt::Alignment()
 argument_list|)
 block|;
 name|void

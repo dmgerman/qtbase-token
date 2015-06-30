@@ -90,7 +90,10 @@ operator|::
 name|Alignment
 name|alignment
 operator|=
-literal|0
+name|Qt
+operator|::
+name|Alignment
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|virtual

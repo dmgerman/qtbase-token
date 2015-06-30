@@ -386,7 +386,8 @@ parameter_list|(
 name|PaintEngineFeatures
 name|features
 init|=
-literal|0
+name|PaintEngineFeatures
+argument_list|()
 parameter_list|)
 function_decl|;
 name|virtual
@@ -863,8 +864,7 @@ name|QPaintEngine
 argument_list|(
 argument|QPaintEnginePrivate&data
 argument_list|,
-argument|PaintEngineFeatures devcaps=
-literal|0
+argument|PaintEngineFeatures devcaps=PaintEngineFeatures()
 argument_list|)
 empty_stmt|;
 name|QPaintEngineState
