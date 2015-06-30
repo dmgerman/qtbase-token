@@ -345,7 +345,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_msectime
-name|int
+name|quint64
 name|qt_msectime
 parameter_list|()
 block|{

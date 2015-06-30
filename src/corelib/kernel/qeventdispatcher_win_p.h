@@ -99,7 +99,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|int
+name|quint64
 name|qt_msectime
 parameter_list|()
 function_decl|;
