@@ -753,14 +753,6 @@ if|if
 condition|(
 name|ret
 operator|!=
-name|Tok_explicit
-operator|&&
-name|ret
-operator|!=
-name|Tok_inline
-operator|&&
-name|ret
-operator|!=
 name|Tok_typename
 condition|)
 return|return

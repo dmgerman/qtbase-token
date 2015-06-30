@@ -413,6 +413,15 @@ return|return
 name|yyBracketDepth
 return|;
 block|}
+name|Location
+modifier|&
+name|tokenLocation
+parameter_list|()
+block|{
+return|return
+name|yyTokLoc
+return|;
+block|}
 specifier|static
 name|void
 name|initialize
