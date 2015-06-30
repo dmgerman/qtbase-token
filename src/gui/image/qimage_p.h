@@ -469,11 +469,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_WINRT
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
 name|_M_ARM
 argument_list|)
 end_if
@@ -683,11 +678,6 @@ end_decl_stmt
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINRT
-argument_list|)
-operator|&&
 name|defined
 argument_list|(
 name|_M_ARM
