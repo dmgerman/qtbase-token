@@ -1333,7 +1333,7 @@ return|return
 name|isNull
 argument_list|()
 operator|?
-literal|0
+name|Q_NULLPTR
 operator|:
 operator|&
 name|QSharedPointer
@@ -1398,12 +1398,12 @@ argument_list|()
 operator|:
 name|value
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|d
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{ }
 operator|~
@@ -1554,13 +1554,13 @@ name|other
 operator|.
 name|d
 operator|=
-literal|0
+name|Q_NULLPTR
 block|;
 name|other
 operator|.
 name|value
 operator|=
-literal|0
+name|Q_NULLPTR
 block|;     }
 specifier|inline
 name|QSharedPointer
@@ -1698,12 +1698,12 @@ argument_list|)
 operator|:
 name|value
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|d
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{
 operator|*
@@ -2556,7 +2556,7 @@ condition|)
 block|{
 name|d
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 return|return;
 block|}
@@ -2945,7 +2945,7 @@ argument_list|)
 expr_stmt|;
 name|o
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 end_if
@@ -2988,7 +2988,7 @@ name|this
 operator|->
 name|value
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 end_if
 begin_comment
@@ -3102,7 +3102,7 @@ block|{
 return|return
 name|d
 operator|==
-literal|0
+name|Q_NULLPTR
 operator|||
 name|d
 operator|->
@@ -3115,7 +3115,7 @@ literal|0
 operator|||
 name|value
 operator|==
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 end_expr_stmt
@@ -3130,7 +3130,7 @@ return|return
 name|isNull
 argument_list|()
 operator|?
-literal|0
+name|Q_NULLPTR
 operator|:
 operator|&
 name|QWeakPointer
@@ -3165,7 +3165,7 @@ block|{
 return|return
 name|d
 operator|==
-literal|0
+name|Q_NULLPTR
 operator|||
 name|d
 operator|->
@@ -3176,7 +3176,7 @@ argument_list|()
 operator|==
 literal|0
 operator|?
-literal|0
+name|Q_NULLPTR
 operator|:
 name|value
 return|;
@@ -3189,12 +3189,12 @@ argument_list|()
 operator|:
 name|d
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|value
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{ }
 specifier|inline
@@ -3263,7 +3263,7 @@ argument_list|(
 name|ptr
 argument_list|)
 else|:
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|value
@@ -3505,12 +3505,12 @@ argument_list|)
 operator|:
 name|d
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|value
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{
 operator|*
@@ -3650,12 +3650,12 @@ argument_list|)
 operator|:
 name|d
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|value
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{
 operator|*
@@ -3964,7 +3964,7 @@ argument_list|(
 name|ptr
 argument_list|)
 else|:
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|value

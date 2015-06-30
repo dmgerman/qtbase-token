@@ -248,7 +248,7 @@ name|T
 operator|*
 name|p
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|:
 name|d
@@ -352,7 +352,7 @@ return|return
 name|isNull
 argument_list|()
 operator|?
-literal|0
+name|Q_NULLPTR
 operator|:
 operator|&
 name|QScopedPointer
@@ -376,7 +376,7 @@ return|return
 name|isNull
 argument_list|()
 operator|?
-literal|0
+name|Q_NULLPTR
 operator|:
 operator|&
 name|QScopedPointer
@@ -424,7 +424,7 @@ name|T
 modifier|*
 name|other
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 if|if
@@ -468,7 +468,7 @@ name|d
 decl_stmt|;
 name|d
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 return|return
 name|oldD
@@ -794,7 +794,7 @@ block|,
 name|Cleanup
 operator|>
 operator|(
-literal|0
+name|Q_NULLPTR
 operator|)
 block|{}
 name|template
@@ -810,8 +810,7 @@ argument|D *p
 argument_list|,
 argument|typename QtPrivate::QScopedArrayEnsureSameType<T
 argument_list|,
-argument|D>::Type =
-literal|0
+argument|D>::Type = Q_NULLPTR
 argument_list|)
 operator|:
 name|QScopedPointer

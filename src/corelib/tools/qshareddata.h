@@ -358,7 +358,7 @@ argument_list|()
 block|{
 name|d
 operator|=
-literal|0
+name|Q_NULLPTR
 block|; }
 specifier|inline
 operator|~
@@ -844,7 +844,7 @@ name|d
 decl_stmt|;
 name|d
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 end_function
@@ -858,7 +858,7 @@ block|{
 return|return
 name|d
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 end_expr_stmt
@@ -959,7 +959,7 @@ argument_list|()
 block|{
 name|d
 operator|=
-literal|0
+name|Q_NULLPTR
 block|; }
 specifier|inline
 operator|~
