@@ -680,7 +680,7 @@ function_decl|;
 name|instance
 argument_list|()
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 specifier|static
@@ -869,14 +869,14 @@ name|QAccessible
 operator|::
 name|installUpdateHandler
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QAccessible
 operator|::
 name|installRootObjectHandler
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;     }
 specifier|static
@@ -1767,7 +1767,7 @@ name|QTestAccessibility
 modifier|*
 name|ta
 init|=
-literal|0
+name|Q_NULLPTR
 decl_stmt|;
 return|return
 name|ta

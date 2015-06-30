@@ -1173,9 +1173,9 @@ name|isOk
 argument_list|,
 name|msg
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|actual
 argument_list|,

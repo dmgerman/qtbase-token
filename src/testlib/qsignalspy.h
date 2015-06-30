@@ -249,7 +249,7 @@ name|Qt
 operator|::
 name|DirectConnection
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 condition|)
 block|{

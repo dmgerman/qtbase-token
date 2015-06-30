@@ -104,7 +104,7 @@ name|QCoreApplication
 operator|::
 name|sendPostedEvents
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|QEvent
 operator|::
@@ -200,7 +200,7 @@ name|QCoreApplication
 operator|::
 name|sendPostedEvents
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|QEvent
 operator|::
@@ -337,7 +337,7 @@ name|QCoreApplication
 operator|::
 name|sendPostedEvents
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|QEvent
 operator|::

@@ -151,7 +151,7 @@ name|QWindow
 modifier|*
 name|window
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 name|QTouchEvent
@@ -207,7 +207,7 @@ name|QWindow
 modifier|*
 name|window
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 name|QTouchEvent
@@ -263,7 +263,7 @@ name|QWindow
 modifier|*
 name|window
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 name|QTouchEvent
@@ -355,7 +355,7 @@ name|QWidget
 modifier|*
 name|widget
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 name|QTouchEvent
@@ -411,7 +411,7 @@ name|QWidget
 modifier|*
 name|widget
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 name|QTouchEvent
@@ -467,7 +467,7 @@ name|QWidget
 modifier|*
 name|widget
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 name|QTouchEvent
@@ -613,7 +613,7 @@ argument_list|)
 operator|,
 name|targetWindow
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|device
@@ -642,7 +642,7 @@ directive|ifdef
 name|QT_WIDGETS_LIB
 name|targetWidget
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 endif|#

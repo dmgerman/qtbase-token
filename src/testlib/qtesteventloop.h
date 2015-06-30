@@ -62,7 +62,7 @@ name|QObject
 operator|*
 name|aParent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|:
 name|QObject
@@ -88,7 +88,7 @@ argument_list|)
 block|,
 name|loop
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 specifier|inline
@@ -286,7 +286,7 @@ argument_list|()
 block|;
 name|loop
 operator|=
-literal|0
+name|Q_NULLPTR
 block|; }
 DECL|function|exitLoop
 specifier|inline

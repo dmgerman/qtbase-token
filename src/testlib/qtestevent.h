@@ -875,8 +875,7 @@ name|addMousePress
 argument_list|(
 argument|Qt::MouseButton button
 argument_list|,
-argument|Qt::KeyboardModifiers stateKey =
-literal|0
+argument|Qt::KeyboardModifiers stateKey = Qt::KeyboardModifiers()
 argument_list|,
 argument|QPoint pos = QPoint()
 argument_list|,
@@ -895,8 +894,7 @@ name|addMouseRelease
 argument_list|(
 argument|Qt::MouseButton button
 argument_list|,
-argument|Qt::KeyboardModifiers stateKey =
-literal|0
+argument|Qt::KeyboardModifiers stateKey = Qt::KeyboardModifiers()
 argument_list|,
 argument|QPoint pos = QPoint()
 argument_list|,
@@ -915,8 +913,7 @@ name|addMouseClick
 argument_list|(
 argument|Qt::MouseButton button
 argument_list|,
-argument|Qt::KeyboardModifiers stateKey =
-literal|0
+argument|Qt::KeyboardModifiers stateKey = Qt::KeyboardModifiers()
 argument_list|,
 argument|QPoint pos = QPoint()
 argument_list|,
@@ -935,8 +932,7 @@ name|addMouseDClick
 argument_list|(
 argument|Qt::MouseButton button
 argument_list|,
-argument|Qt::KeyboardModifiers stateKey =
-literal|0
+argument|Qt::KeyboardModifiers stateKey = Qt::KeyboardModifiers()
 argument_list|,
 argument|QPoint pos = QPoint()
 argument_list|,
@@ -961,9 +957,7 @@ argument_list|)
 block|{
 name|append
 argument_list|(
-argument|new QTestMouseEvent(QTest::MouseMove, Qt::NoButton,
-literal|0
-argument|, pos, delay)
+argument|new QTestMouseEvent(QTest::MouseMove, Qt::NoButton, Qt::KeyboardModifiers(), pos, delay)
 argument_list|)
 block|; }
 endif|#

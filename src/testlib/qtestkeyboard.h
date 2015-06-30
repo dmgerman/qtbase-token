@@ -394,7 +394,10 @@ name|Qt
 operator|::
 name|Key_Shift
 argument_list|,
-literal|0
+name|Qt
+operator|::
+name|KeyboardModifiers
+argument_list|()
 argument_list|,
 name|QString
 argument_list|()
@@ -1520,7 +1523,10 @@ name|Qt
 operator|::
 name|Key_Shift
 argument_list|,
-literal|0
+name|Qt
+operator|::
+name|KeyboardModifiers
+argument_list|()
 argument_list|,
 name|QString
 argument_list|()

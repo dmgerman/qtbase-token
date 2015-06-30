@@ -553,7 +553,7 @@ argument|const T&
 argument_list|)
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 block|}
@@ -660,7 +660,7 @@ modifier|*
 modifier|*
 name|argv
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|Q_TESTLIB_EXPORT
@@ -691,7 +691,7 @@ name|char
 modifier|*
 name|builddir
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|Q_TESTLIB_EXPORT
@@ -796,7 +796,7 @@ name|char
 modifier|*
 name|file
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 name|line
@@ -862,7 +862,7 @@ name|char
 modifier|*
 name|file
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 name|line
@@ -874,7 +874,7 @@ name|char
 modifier|*
 name|builddir
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|Q_TESTLIB_EXPORT
@@ -891,7 +891,7 @@ name|char
 modifier|*
 name|file
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 name|line
@@ -903,7 +903,7 @@ name|char
 modifier|*
 name|builddir
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|Q_TESTLIB_EXPORT
