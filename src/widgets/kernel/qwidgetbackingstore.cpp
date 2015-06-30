@@ -184,14 +184,7 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|||
-operator|(
 name|widgetTextures
-operator|&&
-name|widgetTextures
-operator|->
-name|count
-argument_list|()
-operator|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -6137,12 +6130,6 @@ operator|->
 name|compositing
 operator|=
 name|widgetTextures
-operator|&&
-operator|!
-name|widgetTextures
-operator|->
-name|isEmpty
-argument_list|()
 expr_stmt|;
 name|fullUpdatePending
 operator|=
