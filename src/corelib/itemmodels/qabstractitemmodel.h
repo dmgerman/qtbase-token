@@ -2627,9 +2627,7 @@ operator|:
 name|Qt
 operator|::
 name|ItemFlags
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 return|;
 block|}
 end_expr_stmt
