@@ -230,8 +230,7 @@ name|unregisterHandler
 argument_list|(
 argument|int objectType
 argument_list|,
-argument|QObject *component =
-literal|0
+argument|QObject *component = Q_NULLPTR
 argument_list|)
 block|;
 name|QTextObjectInterface

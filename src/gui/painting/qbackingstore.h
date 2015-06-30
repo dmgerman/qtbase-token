@@ -109,7 +109,7 @@ name|QWindow
 modifier|*
 name|window
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 specifier|const
 name|QPoint

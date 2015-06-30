@@ -737,7 +737,7 @@ argument_list|()
 operator|:
 name|p
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|n
@@ -1088,7 +1088,7 @@ argument_list|()
 operator|:
 name|p
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|b
@@ -1396,7 +1396,7 @@ argument_list|()
 operator|:
 name|p
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|n

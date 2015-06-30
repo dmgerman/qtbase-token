@@ -413,7 +413,7 @@ name|bool
 operator|*
 name|invertible
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 name|Q_REQUIRED_RESULT

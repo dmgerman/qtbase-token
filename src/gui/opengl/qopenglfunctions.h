@@ -3001,7 +3001,7 @@ block|{
 return|return
 name|d
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 block|}

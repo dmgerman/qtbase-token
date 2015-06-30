@@ -122,8 +122,7 @@ name|QPixmap
 argument_list|(
 argument|const QString& fileName
 argument_list|,
-argument|const char *format =
-literal|0
+argument|const char *format = Q_NULLPTR
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
@@ -585,8 +584,7 @@ name|load
 argument_list|(
 argument|const QString& fileName
 argument_list|,
-argument|const char *format =
-literal|0
+argument|const char *format = Q_NULLPTR
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
@@ -598,8 +596,7 @@ argument|const uchar *buf
 argument_list|,
 argument|uint len
 argument_list|,
-argument|const char* format =
-literal|0
+argument|const char* format = Q_NULLPTR
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
@@ -610,8 +607,7 @@ name|loadFromData
 argument_list|(
 argument|const QByteArray&data
 argument_list|,
-argument|const char* format =
-literal|0
+argument|const char* format = Q_NULLPTR
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
@@ -621,8 +617,7 @@ name|save
 argument_list|(
 argument|const QString& fileName
 argument_list|,
-argument|const char* format =
-literal|0
+argument|const char* format = Q_NULLPTR
 argument_list|,
 argument|int quality = -
 literal|1
@@ -634,8 +629,7 @@ name|save
 argument_list|(
 argument|QIODevice* device
 argument_list|,
-argument|const char* format =
-literal|0
+argument|const char* format = Q_NULLPTR
 argument_list|,
 argument|int quality = -
 literal|1
@@ -687,8 +681,7 @@ argument|int width
 argument_list|,
 argument|int height
 argument_list|,
-argument|QRegion *exposed =
-literal|0
+argument|QRegion *exposed = Q_NULLPTR
 argument_list|)
 block|;
 name|void
@@ -700,8 +693,7 @@ argument|int dy
 argument_list|,
 argument|const QRect&rect
 argument_list|,
-argument|QRegion *exposed =
-literal|0
+argument|QRegion *exposed = Q_NULLPTR
 argument_list|)
 block|;
 if|#

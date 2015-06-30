@@ -419,11 +419,9 @@ argument|int height
 argument_list|,
 argument|Format format
 argument_list|,
-argument|QImageCleanupFunction cleanupFunction =
-literal|0
+argument|QImageCleanupFunction cleanupFunction = Q_NULLPTR
 argument_list|,
-argument|void *cleanupInfo =
-literal|0
+argument|void *cleanupInfo = Q_NULLPTR
 argument_list|)
 block|;
 name|QImage
@@ -436,11 +434,9 @@ argument|int height
 argument_list|,
 argument|Format format
 argument_list|,
-argument|QImageCleanupFunction cleanupFunction =
-literal|0
+argument|QImageCleanupFunction cleanupFunction = Q_NULLPTR
 argument_list|,
-argument|void *cleanupInfo =
-literal|0
+argument|void *cleanupInfo = Q_NULLPTR
 argument_list|)
 block|;
 name|QImage
@@ -455,11 +451,9 @@ argument|int bytesPerLine
 argument_list|,
 argument|Format format
 argument_list|,
-argument|QImageCleanupFunction cleanupFunction =
-literal|0
+argument|QImageCleanupFunction cleanupFunction = Q_NULLPTR
 argument_list|,
-argument|void *cleanupInfo =
-literal|0
+argument|void *cleanupInfo = Q_NULLPTR
 argument_list|)
 block|;
 name|QImage
@@ -474,11 +468,9 @@ argument|int bytesPerLine
 argument_list|,
 argument|Format format
 argument_list|,
-argument|QImageCleanupFunction cleanupFunction =
-literal|0
+argument|QImageCleanupFunction cleanupFunction = Q_NULLPTR
 argument_list|,
-argument|void *cleanupInfo =
-literal|0
+argument|void *cleanupInfo = Q_NULLPTR
 argument_list|)
 block|;
 ifndef|#
@@ -510,7 +502,7 @@ name|char
 operator|*
 name|format
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QImage
@@ -1381,7 +1373,7 @@ name|char
 operator|*
 name|format
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|bool
@@ -1391,8 +1383,7 @@ argument|const uchar *buf
 argument_list|,
 argument|int len
 argument_list|,
-argument|const char *format =
-literal|0
+argument|const char *format = Q_NULLPTR
 argument_list|)
 block|;
 specifier|inline
@@ -1401,8 +1392,7 @@ name|loadFromData
 argument_list|(
 argument|const QByteArray&data
 argument_list|,
-argument|const char* aformat=
-literal|0
+argument|const char *aformat = Q_NULLPTR
 argument_list|)
 block|{
 return|return
@@ -1435,10 +1425,9 @@ name|save
 argument_list|(
 argument|const QString&fileName
 argument_list|,
-argument|const char* format=
-literal|0
+argument|const char *format = Q_NULLPTR
 argument_list|,
-argument|int quality=-
+argument|int quality = -
 literal|1
 argument_list|)
 specifier|const
@@ -1448,10 +1437,9 @@ name|save
 argument_list|(
 argument|QIODevice *device
 argument_list|,
-argument|const char* format=
-literal|0
+argument|const char *format = Q_NULLPTR
 argument_list|,
-argument|int quality=-
+argument|int quality = -
 literal|1
 argument_list|)
 specifier|const
@@ -1464,8 +1452,7 @@ argument|const uchar *data
 argument_list|,
 argument|int size
 argument_list|,
-argument|const char *format =
-literal|0
+argument|const char *format = Q_NULLPTR
 argument_list|)
 block|;
 specifier|inline
@@ -1475,8 +1462,7 @@ name|fromData
 argument_list|(
 argument|const QByteArray&data
 argument_list|,
-argument|const char *format =
-literal|0
+argument|const char *format = Q_NULLPTR
 argument_list|)
 block|{
 return|return

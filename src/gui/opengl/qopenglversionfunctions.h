@@ -341,7 +341,7 @@ argument_list|()
 operator|:
 name|owningContext
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|initialized

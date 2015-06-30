@@ -453,7 +453,7 @@ name|QScreen
 modifier|*
 name|screen
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|explicit
@@ -1676,7 +1676,7 @@ name|isWindowType
 argument_list|()
 condition|)
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 end_expr_stmt
 begin_return
@@ -1724,7 +1724,7 @@ name|isWindowType
 argument_list|()
 condition|)
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 end_expr_stmt
 begin_return

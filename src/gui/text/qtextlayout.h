@@ -156,7 +156,7 @@ argument_list|)
 operator|,
 name|eng
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 specifier|inline
@@ -320,7 +320,7 @@ name|QPaintDevice
 operator|*
 name|paintdevice
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 expr_stmt|;
 name|QTextLayout
@@ -936,7 +936,7 @@ argument_list|)
 operator|,
 name|eng
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 specifier|inline
@@ -1159,7 +1159,7 @@ name|FormatRange
 operator|*
 name|selection
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;

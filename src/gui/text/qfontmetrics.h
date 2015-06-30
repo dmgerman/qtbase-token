@@ -333,7 +333,7 @@ name|int
 operator|*
 name|tabarray
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -370,7 +370,7 @@ name|int
 operator|*
 name|tabarray
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 block|{
@@ -418,7 +418,7 @@ name|int
 operator|*
 name|tabarray
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -785,7 +785,7 @@ name|int
 operator|*
 name|tabarray
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -809,7 +809,7 @@ name|int
 operator|*
 name|tabarray
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;

@@ -362,7 +362,7 @@ name|int
 operator|*
 name|a
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -403,7 +403,7 @@ name|qreal
 operator|*
 name|a
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -534,7 +534,7 @@ name|int
 operator|*
 name|a
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -575,7 +575,7 @@ name|qreal
 operator|*
 name|a
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -660,7 +660,7 @@ name|int
 modifier|*
 name|a
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -707,7 +707,7 @@ name|qreal
 modifier|*
 name|a
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -782,7 +782,7 @@ name|int
 operator|*
 name|a
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -823,7 +823,7 @@ name|qreal
 operator|*
 name|a
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;

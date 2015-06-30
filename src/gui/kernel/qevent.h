@@ -3411,8 +3411,7 @@ argument|int type
 argument_list|,
 argument|QAction *action
 argument_list|,
-argument|QAction *before =
-literal|0
+argument|QAction *before = Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -4259,8 +4258,7 @@ name|QTouchEvent
 argument_list|(
 argument|QEvent::Type eventType
 argument_list|,
-argument|QTouchDevice *device =
-literal|0
+argument|QTouchDevice *device = Q_NULLPTR
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers = Qt::NoModifier
 argument_list|,

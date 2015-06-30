@@ -68,7 +68,7 @@ name|QScreen
 operator|*
 name|screen
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl_stmt|;
 name|virtual

@@ -75,8 +75,7 @@ name|QOpenGLWindow
 argument_list|(
 argument|UpdateBehavior updateBehavior = NoPartialUpdate
 argument_list|,
-argument|QWindow *parent =
-literal|0
+argument|QWindow *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -86,8 +85,7 @@ argument|QOpenGLContext *shareContext
 argument_list|,
 argument|UpdateBehavior updateBehavior = NoPartialUpdate
 argument_list|,
-argument|QWindow *parent =
-literal|0
+argument|QWindow *parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~

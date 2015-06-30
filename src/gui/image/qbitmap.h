@@ -73,7 +73,7 @@ name|char
 operator|*
 name|format
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~

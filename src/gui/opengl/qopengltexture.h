@@ -1492,7 +1492,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|QT_DEPRECATED
@@ -1521,7 +1521,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|QT_DEPRECATED
@@ -1547,7 +1547,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|QT_DEPRECATED
@@ -1570,7 +1570,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 endif|#
@@ -1605,7 +1605,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -1634,7 +1634,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -1660,7 +1660,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -1683,7 +1683,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 comment|// Compressed data upload
@@ -1722,7 +1722,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|QT_DEPRECATED
@@ -1748,7 +1748,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|QT_DEPRECATED
@@ -1771,7 +1771,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|QT_DEPRECATED
@@ -1791,7 +1791,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 endif|#
@@ -1823,7 +1823,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -1849,7 +1849,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -1872,7 +1872,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -1892,7 +1892,7 @@ modifier|*
 specifier|const
 name|options
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 comment|// Helpful overloads for setData

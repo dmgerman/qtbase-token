@@ -59,7 +59,7 @@ argument_list|()
 operator|:
 name|table
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 operator|~
@@ -157,7 +157,7 @@ block|{
 return|return
 name|table
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|QTextCursor

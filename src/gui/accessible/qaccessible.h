@@ -1786,7 +1786,7 @@ name|InterfaceType
 argument_list|)
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|protected
@@ -2810,7 +2810,7 @@ argument_list|)
 operator|,
 name|m_object
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{
 name|Q_ASSERT

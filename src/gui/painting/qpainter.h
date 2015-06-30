@@ -2689,7 +2689,7 @@ name|QRectF
 modifier|*
 name|br
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -2712,7 +2712,7 @@ name|QRect
 modifier|*
 name|br
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 specifier|inline
@@ -2743,7 +2743,7 @@ name|QRect
 modifier|*
 name|br
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|void
@@ -3212,7 +3212,7 @@ name|QPoint
 modifier|*
 name|offset
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 specifier|static
