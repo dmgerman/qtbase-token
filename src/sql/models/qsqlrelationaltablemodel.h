@@ -160,8 +160,7 @@ block|;
 name|explicit
 name|QSqlRelationalTableModel
 argument_list|(
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|,
 argument|QSqlDatabase db = QSqlDatabase()
 argument_list|)

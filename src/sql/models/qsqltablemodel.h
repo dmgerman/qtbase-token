@@ -76,8 +76,7 @@ block|;
 name|explicit
 name|QSqlTableModel
 argument_list|(
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|,
 argument|QSqlDatabase db = QSqlDatabase()
 argument_list|)
@@ -371,8 +370,7 @@ name|QSqlTableModel
 argument_list|(
 argument|QSqlTableModelPrivate&dd
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|,
 argument|QSqlDatabase db = QSqlDatabase()
 argument_list|)
