@@ -3236,12 +3236,8 @@ argument_list|()
 operator|)
 return|;
 end_return
-begin_comment
-unit|}
-comment|/*!     \fn int qMetaTypeTypeImpl(const char *typeName, int length)     \internal      Implementation of QMetaType::type(). */
-end_comment
 begin_expr_stmt
-unit|template
+unit|}  template
 operator|<
 name|bool
 name|tryNormalizedType
