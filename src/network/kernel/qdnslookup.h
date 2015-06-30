@@ -797,7 +797,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QDnsLookup
@@ -806,8 +806,7 @@ argument|Type type
 argument_list|,
 argument|const QString&name
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|QDnsLookup
@@ -818,8 +817,7 @@ argument|const QString&name
 argument_list|,
 argument|const QHostAddress&nameserver
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~

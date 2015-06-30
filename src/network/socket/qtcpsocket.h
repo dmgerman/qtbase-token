@@ -48,7 +48,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -68,7 +68,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QTcpSocket
@@ -77,8 +77,7 @@ argument|QAbstractSocket::SocketType socketType
 argument_list|,
 argument|QTcpSocketPrivate&dd
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|private

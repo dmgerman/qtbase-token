@@ -650,7 +650,7 @@ operator|>
 operator|*
 name|caCertificates
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 specifier|const
 name|QByteArray

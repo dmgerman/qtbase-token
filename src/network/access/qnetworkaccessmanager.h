@@ -219,7 +219,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -431,7 +431,7 @@ name|QIODevice
 operator|*
 name|data
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 ifndef|#
@@ -601,8 +601,7 @@ argument|Operation op
 argument_list|,
 argument|const QNetworkRequest&request
 argument_list|,
-argument|QIODevice *outgoingData =
-literal|0
+argument|QIODevice *outgoingData = Q_NULLPTR
 argument_list|)
 block|;
 name|protected

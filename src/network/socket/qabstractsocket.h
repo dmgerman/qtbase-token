@@ -676,8 +676,7 @@ argument|SocketType socketType
 argument_list|,
 argument|QAbstractSocketPrivate&dd
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|private

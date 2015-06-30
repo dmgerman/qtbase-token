@@ -100,7 +100,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -192,8 +192,7 @@ argument_list|(
 argument|int msec =
 literal|0
 argument_list|,
-argument|bool *timedOut =
-literal|0
+argument|bool *timedOut = Q_NULLPTR
 argument_list|)
 block|;
 name|void

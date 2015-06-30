@@ -57,7 +57,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -147,11 +147,9 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|,
-argument|QHostAddress *host =
-literal|0
+argument|QHostAddress *host = Q_NULLPTR
 argument_list|,
-argument|quint16 *port =
-literal|0
+argument|quint16 *port = Q_NULLPTR
 argument_list|)
 block|;
 name|qint64
