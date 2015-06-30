@@ -1106,7 +1106,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QTableWidget
@@ -1115,8 +1115,7 @@ argument|int rows
 argument_list|,
 argument|int columns
 argument_list|,
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -1848,7 +1847,7 @@ name|arow
 argument_list|,
 name|acolumn
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|; }
 DECL|function|itemAt

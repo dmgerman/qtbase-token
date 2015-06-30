@@ -250,7 +250,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -970,7 +970,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|void
@@ -1101,8 +1101,7 @@ name|selectionCommand
 argument_list|(
 argument|const QModelIndex&index
 argument_list|,
-argument|const QEvent *event =
-literal|0
+argument|const QEvent *event = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;

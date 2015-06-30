@@ -359,7 +359,7 @@ name|char
 operator|*
 name|className
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 specifier|static
@@ -399,7 +399,7 @@ name|char
 operator|*
 name|className
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 specifier|static

@@ -141,7 +141,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -200,7 +200,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -250,8 +250,7 @@ name|sourcePixmap
 argument_list|(
 argument|Qt::CoordinateSystem system = Qt::LogicalCoordinates
 argument_list|,
-argument|QPoint *offset =
-literal|0
+argument|QPoint *offset = Q_NULLPTR
 argument_list|,
 argument|PixmapPadMode mode = PadToEffectiveBoundingRect
 argument_list|)
@@ -336,7 +335,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -467,7 +466,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -592,7 +591,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -828,7 +827,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~

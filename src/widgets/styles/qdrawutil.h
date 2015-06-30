@@ -212,7 +212,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -255,7 +255,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -300,7 +300,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -338,7 +338,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -378,7 +378,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -411,7 +411,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -451,7 +451,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -484,7 +484,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -523,7 +523,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -555,7 +555,7 @@ name|QBrush
 modifier|*
 name|fill
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl

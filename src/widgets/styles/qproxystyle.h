@@ -49,7 +49,7 @@ name|QStyle
 operator|*
 name|style
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QProxyStyle
@@ -87,8 +87,7 @@ argument|const QStyleOption *option
 argument_list|,
 argument|QPainter *painter
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -102,8 +101,7 @@ argument|const QStyleOption *option
 argument_list|,
 argument|QPainter *painter
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -117,8 +115,7 @@ argument|const QStyleOptionComplex *option
 argument_list|,
 argument|QPainter *painter
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -235,8 +232,7 @@ argument|const QStyleOptionComplex *option
 argument_list|,
 argument|const QPoint&pos
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -246,14 +242,11 @@ name|styleHint
 argument_list|(
 argument|StyleHint hint
 argument_list|,
-argument|const QStyleOption *option =
-literal|0
+argument|const QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|,
-argument|QStyleHintReturn *returnData =
-literal|0
+argument|QStyleHintReturn *returnData = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -263,11 +256,9 @@ name|pixelMetric
 argument_list|(
 argument|PixelMetric metric
 argument_list|,
-argument|const QStyleOption *option =
-literal|0
+argument|const QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -281,11 +272,9 @@ argument|QSizePolicy::ControlType control2
 argument_list|,
 argument|Qt::Orientation orientation
 argument_list|,
-argument|const QStyleOption *option =
-literal|0
+argument|const QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -295,11 +284,9 @@ name|standardIcon
 argument_list|(
 argument|StandardPixmap standardIcon
 argument_list|,
-argument|const QStyleOption *option =
-literal|0
+argument|const QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
@@ -311,8 +298,7 @@ argument|StandardPixmap standardPixmap
 argument_list|,
 argument|const QStyleOption *opt
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE

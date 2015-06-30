@@ -410,7 +410,7 @@ name|QGraphicsItem
 modifier|*
 name|parent
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|virtual
@@ -614,7 +614,7 @@ operator|*
 operator|*
 name|blockingPanel
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1174,7 +1174,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1608,7 +1608,7 @@ name|QWidget
 modifier|*
 name|widget
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 init|=
 literal|0
@@ -3809,7 +3809,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl_stmt|;
 operator|~
@@ -3971,7 +3971,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -4069,7 +4069,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -4084,7 +4084,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -4132,8 +4132,7 @@ argument|QPainter *painter
 argument_list|,
 argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-argument|QWidget *widget =
-literal|0
+argument|QWidget *widget = Q_NULLPTR
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -4226,7 +4225,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -4241,7 +4240,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -4255,8 +4254,7 @@ argument|qreal w
 argument_list|,
 argument|qreal h
 argument_list|,
-argument|QGraphicsItem *parent =
-literal|0
+argument|QGraphicsItem *parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -4317,8 +4315,7 @@ argument|QPainter *painter
 argument_list|,
 argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-argument|QWidget *widget =
-literal|0
+argument|QWidget *widget = Q_NULLPTR
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -4441,7 +4438,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -4456,7 +4453,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -4470,8 +4467,7 @@ argument|qreal w
 argument_list|,
 argument|qreal h
 argument_list|,
-argument|QGraphicsItem *parent =
-literal|0
+argument|QGraphicsItem *parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -4554,8 +4550,7 @@ argument|QPainter *painter
 argument_list|,
 argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-argument|QWidget *widget =
-literal|0
+argument|QWidget *widget = Q_NULLPTR
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -4678,7 +4673,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -4693,7 +4688,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -4754,8 +4749,7 @@ argument|QPainter *painter
 argument_list|,
 argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-argument|QWidget *widget =
-literal|0
+argument|QWidget *widget = Q_NULLPTR
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -4848,7 +4842,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -4863,7 +4857,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -4877,8 +4871,7 @@ argument|qreal x2
 argument_list|,
 argument|qreal y2
 argument_list|,
-argument|QGraphicsItem *parent =
-literal|0
+argument|QGraphicsItem *parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -4967,8 +4960,7 @@ argument|QPainter *painter
 argument_list|,
 argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-argument|QWidget *widget =
-literal|0
+argument|QWidget *widget = Q_NULLPTR
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -5071,7 +5063,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -5086,7 +5078,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -5317,7 +5309,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -5332,7 +5324,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -5766,7 +5758,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -5781,7 +5773,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -5936,7 +5928,7 @@ name|QGraphicsItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -5972,8 +5964,7 @@ argument|QPainter *painter
 argument_list|,
 argument|const QStyleOptionGraphicsItem *option
 argument_list|,
-argument|QWidget *widget =
-literal|0
+argument|QWidget *widget = Q_NULLPTR
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;

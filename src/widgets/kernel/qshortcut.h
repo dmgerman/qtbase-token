@@ -82,11 +82,9 @@ argument|const QKeySequence& key
 argument_list|,
 argument|QWidget *parent
 argument_list|,
-argument|const char *member =
-literal|0
+argument|const char *member = Q_NULLPTR
 argument_list|,
-argument|const char *ambiguousMember =
-literal|0
+argument|const char *ambiguousMember = Q_NULLPTR
 argument_list|,
 argument|Qt::ShortcutContext context = Qt::WindowShortcut
 argument_list|)

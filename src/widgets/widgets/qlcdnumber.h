@@ -71,7 +71,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -79,8 +79,7 @@ name|QLCDNumber
 argument_list|(
 argument|uint numDigits
 argument_list|,
-argument|QWidget* parent =
-literal|0
+argument|QWidget* parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~

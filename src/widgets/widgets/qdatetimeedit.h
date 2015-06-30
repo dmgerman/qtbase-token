@@ -206,7 +206,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -221,7 +221,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -236,7 +236,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -251,7 +251,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -725,8 +725,7 @@ argument|const QVariant&val
 argument_list|,
 argument|QVariant::Type parserType
 argument_list|,
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|private
@@ -770,7 +769,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -785,7 +784,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -827,7 +826,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -842,7 +841,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~

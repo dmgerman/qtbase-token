@@ -1028,7 +1028,7 @@ name|size
 argument_list|()
 condition|)
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 name|executePendingSort
 argument_list|()
@@ -1527,7 +1527,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -2220,7 +2220,7 @@ name|item
 argument_list|,
 name|column
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|; }
 DECL|function|itemAt

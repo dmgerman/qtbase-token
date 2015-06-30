@@ -57,8 +57,7 @@ name|public
 label|:
 name|QGraphicsLayoutItem
 argument_list|(
-argument|QGraphicsLayoutItem *parent =
-literal|0
+argument|QGraphicsLayoutItem *parent = Q_NULLPTR
 argument_list|,
 argument|bool isLayout = false
 argument_list|)

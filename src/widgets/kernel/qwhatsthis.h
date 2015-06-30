@@ -77,7 +77,7 @@ name|QWidget
 modifier|*
 name|w
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 specifier|static
@@ -94,7 +94,7 @@ name|QObject
 modifier|*
 name|parent
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 block|}

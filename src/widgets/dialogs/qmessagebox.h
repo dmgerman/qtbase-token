@@ -296,7 +296,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -311,8 +311,7 @@ argument|const QString&text
 argument_list|,
 argument|StandardButtons buttons = NoButton
 argument_list|,
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|Qt::WindowFlags flags = Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint
 argument_list|)
@@ -831,8 +830,7 @@ argument|int button1
 argument_list|,
 argument|int button2
 argument_list|,
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|Qt::WindowFlags f = Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint
 argument_list|)

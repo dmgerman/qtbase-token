@@ -84,8 +84,7 @@ block|;
 name|int
 name|screenNumber
 argument_list|(
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;

@@ -642,7 +642,7 @@ specifier|const
 name|Q_DECL_OVERRIDE
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|QAccessible
@@ -685,7 +685,7 @@ decl|const
 name|Q_DECL_OVERRIDE
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|int
@@ -928,7 +928,7 @@ specifier|const
 name|Q_DECL_OVERRIDE
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|QAccessible
@@ -971,7 +971,7 @@ specifier|const
 name|Q_DECL_OVERRIDE
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|int
@@ -1100,7 +1100,7 @@ specifier|const
 name|Q_DECL_OVERRIDE
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|QAccessible
@@ -1165,7 +1165,7 @@ specifier|const
 name|Q_DECL_OVERRIDE
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|int
@@ -1239,7 +1239,7 @@ specifier|const
 name|Q_DECL_OVERRIDE
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|private

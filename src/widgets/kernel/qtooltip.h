@@ -52,7 +52,7 @@ name|QWidget
 modifier|*
 name|w
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 specifier|static

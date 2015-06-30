@@ -95,7 +95,7 @@ name|QListWidget
 modifier|*
 name|view
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 name|type
@@ -115,7 +115,7 @@ name|QListWidget
 modifier|*
 name|view
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 name|type
@@ -140,7 +140,7 @@ name|QListWidget
 modifier|*
 name|view
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 name|type
@@ -1026,7 +1026,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -1610,7 +1610,7 @@ name|setItemWidget
 argument_list|(
 name|aItem
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|; }
 DECL|function|addItem

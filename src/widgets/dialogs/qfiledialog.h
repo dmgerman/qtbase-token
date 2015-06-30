@@ -244,7 +244,7 @@ name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 specifier|const
 name|QString
@@ -766,8 +766,7 @@ specifier|static
 name|QString
 name|getOpenFileName
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&caption = QString()
 argument_list|,
@@ -775,8 +774,7 @@ argument|const QString&dir = QString()
 argument_list|,
 argument|const QString&filter = QString()
 argument_list|,
-argument|QString *selectedFilter =
-literal|0
+argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
 argument|Options options =
 literal|0
@@ -786,8 +784,7 @@ specifier|static
 name|QUrl
 name|getOpenFileUrl
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&caption = QString()
 argument_list|,
@@ -795,8 +792,7 @@ argument|const QUrl&dir = QUrl()
 argument_list|,
 argument|const QString&filter = QString()
 argument_list|,
-argument|QString *selectedFilter =
-literal|0
+argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
 argument|Options options =
 literal|0
@@ -808,8 +804,7 @@ specifier|static
 name|QString
 name|getSaveFileName
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&caption = QString()
 argument_list|,
@@ -817,8 +812,7 @@ argument|const QString&dir = QString()
 argument_list|,
 argument|const QString&filter = QString()
 argument_list|,
-argument|QString *selectedFilter =
-literal|0
+argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
 argument|Options options =
 literal|0
@@ -828,8 +822,7 @@ specifier|static
 name|QUrl
 name|getSaveFileUrl
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&caption = QString()
 argument_list|,
@@ -837,8 +830,7 @@ argument|const QUrl&dir = QUrl()
 argument_list|,
 argument|const QString&filter = QString()
 argument_list|,
-argument|QString *selectedFilter =
-literal|0
+argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
 argument|Options options =
 literal|0
@@ -850,8 +842,7 @@ specifier|static
 name|QString
 name|getExistingDirectory
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&caption = QString()
 argument_list|,
@@ -864,8 +855,7 @@ specifier|static
 name|QUrl
 name|getExistingDirectoryUrl
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&caption = QString()
 argument_list|,
@@ -880,8 +870,7 @@ specifier|static
 name|QStringList
 name|getOpenFileNames
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&caption = QString()
 argument_list|,
@@ -889,8 +878,7 @@ argument|const QString&dir = QString()
 argument_list|,
 argument|const QString&filter = QString()
 argument_list|,
-argument|QString *selectedFilter =
-literal|0
+argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
 argument|Options options =
 literal|0
@@ -903,8 +891,7 @@ name|QUrl
 operator|>
 name|getOpenFileUrls
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
 argument|const QString&caption = QString()
 argument_list|,
@@ -912,8 +899,7 @@ argument|const QUrl&dir = QUrl()
 argument_list|,
 argument|const QString&filter = QString()
 argument_list|,
-argument|QString *selectedFilter =
-literal|0
+argument|QString *selectedFilter = Q_NULLPTR
 argument_list|,
 argument|Options options =
 literal|0

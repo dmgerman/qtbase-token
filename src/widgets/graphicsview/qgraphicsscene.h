@@ -387,7 +387,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QGraphicsScene
@@ -401,7 +401,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QGraphicsScene
@@ -414,8 +414,7 @@ argument|qreal width
 argument_list|,
 argument|qreal height
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -1725,8 +1724,7 @@ argument|QGraphicsItem *items[]
 argument_list|,
 argument|const QStyleOptionGraphicsItem options[]
 argument_list|,
-argument|QWidget *widget =
-literal|0
+argument|QWidget *widget = Q_NULLPTR
 argument_list|)
 block|;
 name|protected

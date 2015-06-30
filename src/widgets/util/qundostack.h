@@ -65,7 +65,7 @@ name|QUndoCommand
 modifier|*
 name|parent
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|explicit
@@ -80,7 +80,7 @@ name|QUndoCommand
 modifier|*
 name|parent
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|virtual
@@ -205,7 +205,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~

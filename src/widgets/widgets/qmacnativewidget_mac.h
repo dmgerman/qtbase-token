@@ -50,7 +50,7 @@ name|NSView
 operator|*
 name|parentView
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~

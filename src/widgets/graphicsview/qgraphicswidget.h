@@ -814,7 +814,7 @@ name|QWidget
 operator|*
 name|widget
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 name|Q_DECL_OVERRIDE
 decl_stmt|;
@@ -835,7 +835,7 @@ name|QWidget
 modifier|*
 name|widget
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|QRectF

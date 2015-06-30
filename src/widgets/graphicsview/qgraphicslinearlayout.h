@@ -53,15 +53,14 @@ name|QGraphicsLayoutItem
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QGraphicsLinearLayout
 argument_list|(
 argument|Qt::Orientation orientation
 argument_list|,
-argument|QGraphicsLayoutItem *parent =
-literal|0
+argument|QGraphicsLayoutItem *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|virtual

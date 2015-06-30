@@ -61,7 +61,7 @@ argument_list|,
 name|QWidget
 operator|*
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~

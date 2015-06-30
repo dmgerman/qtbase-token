@@ -524,7 +524,7 @@ name|QWidget
 operator|*
 name|widget
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|void

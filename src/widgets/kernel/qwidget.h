@@ -3839,7 +3839,7 @@ name|isWidgetType
 argument_list|()
 condition|)
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 end_expr_stmt
 begin_return
@@ -3887,7 +3887,7 @@ name|isWidgetType
 argument_list|()
 condition|)
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 end_expr_stmt
 begin_return

@@ -102,8 +102,7 @@ name|QHeaderView
 argument_list|(
 argument|Qt::Orientation orientation
 argument_list|,
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -771,8 +770,7 @@ argument|QHeaderViewPrivate&dd
 argument_list|,
 argument|Qt::Orientation orientation
 argument_list|,
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|void

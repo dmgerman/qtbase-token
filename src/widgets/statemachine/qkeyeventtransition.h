@@ -53,7 +53,7 @@ name|QState
 operator|*
 name|sourceState
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QKeyEventTransition
@@ -64,8 +64,7 @@ argument|QEvent::Type type
 argument_list|,
 argument|int key
 argument_list|,
-argument|QState *sourceState =
-literal|0
+argument|QState *sourceState = Q_NULLPTR
 argument_list|)
 block|;
 operator|~

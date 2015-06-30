@@ -502,8 +502,7 @@ argument|const QStyleOption *opt
 argument_list|,
 argument|QPainter *p
 argument_list|,
-argument|const QWidget *w =
-literal|0
+argument|const QWidget *w = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -625,8 +624,7 @@ argument|const QStyleOption *opt
 argument_list|,
 argument|QPainter *p
 argument_list|,
-argument|const QWidget *w =
-literal|0
+argument|const QWidget *w = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -765,8 +763,7 @@ argument|SubElement subElement
 argument_list|,
 argument|const QStyleOption *option
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -998,8 +995,7 @@ argument|const QStyleOptionComplex *opt
 argument_list|,
 argument|QPainter *p
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1015,8 +1011,7 @@ argument|const QStyleOptionComplex *opt
 argument_list|,
 argument|const QPoint&pt
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1032,8 +1027,7 @@ argument|const QStyleOptionComplex *opt
 argument_list|,
 argument|SubControl sc
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1260,11 +1254,9 @@ name|pixelMetric
 argument_list|(
 argument|PixelMetric metric
 argument_list|,
-argument|const QStyleOption *option =
-literal|0
+argument|const QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1338,8 +1330,7 @@ argument|const QStyleOption *opt
 argument_list|,
 argument|const QSize&contentsSize
 argument_list|,
-argument|const QWidget *w =
-literal|0
+argument|const QWidget *w = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1606,14 +1597,11 @@ name|styleHint
 argument_list|(
 argument|StyleHint stylehint
 argument_list|,
-argument|const QStyleOption *opt =
-literal|0
+argument|const QStyleOption *opt = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|,
-argument|QStyleHintReturn* returnData =
-literal|0
+argument|QStyleHintReturn* returnData = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1779,11 +1767,9 @@ name|standardPixmap
 argument_list|(
 argument|StandardPixmap standardPixmap
 argument_list|,
-argument|const QStyleOption *opt =
-literal|0
+argument|const QStyleOption *opt = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1795,11 +1781,9 @@ name|standardIcon
 argument_list|(
 argument|StandardPixmap standardIcon
 argument_list|,
-argument|const QStyleOption *option =
-literal|0
+argument|const QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1905,11 +1889,9 @@ argument|QSizePolicy::ControlType control2
 argument_list|,
 argument|Qt::Orientation orientation
 argument_list|,
-argument|const QStyleOption *option =
-literal|0
+argument|const QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 operator|=
@@ -1924,11 +1906,9 @@ argument|QSizePolicy::ControlTypes controls2
 argument_list|,
 argument|Qt::Orientation orientation
 argument_list|,
-argument|QStyleOption *option =
-literal|0
+argument|QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|QWidget *widget =
-literal|0
+argument|QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;

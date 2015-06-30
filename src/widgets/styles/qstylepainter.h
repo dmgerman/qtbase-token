@@ -47,12 +47,12 @@ argument_list|()
 block|,
 name|widget
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|,
 name|wstyle
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 specifier|inline
