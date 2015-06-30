@@ -658,7 +658,8 @@ name|Q_QDOC
 operator|,
 name|T
 modifier|*
-namespace|= 0
+namespace|=
+name|Q_NULLPTR
 endif|#
 directive|endif
 decl_stmt|)
@@ -691,8 +692,7 @@ ifndef|#
 directive|ifndef
 name|Q_QDOC
 argument_list|,
-argument|T * =
-literal|0
+argument|T * = Q_NULLPTR
 endif|#
 directive|endif
 argument_list|)

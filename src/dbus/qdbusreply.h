@@ -420,7 +420,7 @@ name|void
 operator|*
 name|null
 operator|=
-literal|0
+name|Q_NULLPTR
 block|;
 name|QVariant
 name|data
