@@ -625,7 +625,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 expr_stmt|;
 end_expr_stmt

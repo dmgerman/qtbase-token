@@ -800,7 +800,7 @@ operator|>
 operator|*
 name|lastNode
 operator|=
-literal|0
+name|Q_NULLPTR
 block|;
 while|while
 condition|(
@@ -899,7 +899,7 @@ operator|>
 operator|*
 name|lastNode
 operator|=
-literal|0
+name|Q_NULLPTR
 block|;
 while|while
 condition|(
@@ -1259,7 +1259,7 @@ name|Node
 modifier|*
 name|parent
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|bool
 name|left
@@ -1507,7 +1507,7 @@ name|n
 operator|->
 name|left
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 end_else
@@ -1545,7 +1545,7 @@ name|n
 operator|->
 name|right
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 end_if
@@ -1671,7 +1671,7 @@ block|}
 end_expr_stmt
 begin_return
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 end_return
 begin_expr_stmt
@@ -1792,7 +1792,7 @@ argument_list|(
 name|akey
 argument_list|)
 else|:
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 if|if
 condition|(
@@ -1823,7 +1823,7 @@ argument_list|(
 name|akey
 argument_list|)
 else|:
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 if|if
 condition|(
@@ -2757,7 +2757,7 @@ argument_list|()
 operator|:
 name|i
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{ }
 specifier|inline
@@ -3207,7 +3207,7 @@ argument_list|()
 operator|:
 name|i
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{ }
 specifier|inline
@@ -4664,7 +4664,7 @@ argument_list|(
 name|akey
 argument_list|)
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 end_expr_stmt
@@ -4726,7 +4726,7 @@ name|Node
 operator|*
 name|lastNode
 operator|=
-literal|0
+name|Q_NULLPTR
 block|;
 name|bool
 name|left
@@ -5210,7 +5210,7 @@ name|prev
 operator|->
 name|right
 operator|==
-literal|0
+name|Q_NULLPTR
 condition|)
 block|{
 name|Node
@@ -5243,7 +5243,7 @@ name|next
 operator|->
 name|left
 operator|==
-literal|0
+name|Q_NULLPTR
 condition|)
 block|{
 name|Node
@@ -5275,7 +5275,7 @@ argument_list|(
 name|false
 argument_list|)
 expr_stmt|;
-comment|// We should have prev->right == 0 or next->left == 0.
+comment|// We should have prev->right == Q_NULLPTR or next->left == Q_NULLPTR.
 return|return
 name|this
 operator|->
@@ -5359,7 +5359,7 @@ while|while
 condition|(
 name|x
 operator|!=
-literal|0
+name|Q_NULLPTR
 condition|)
 block|{
 name|left
@@ -5722,7 +5722,7 @@ name|prev
 operator|->
 name|right
 operator|==
-literal|0
+name|Q_NULLPTR
 condition|)
 block|{
 name|Node
@@ -5755,7 +5755,7 @@ name|next
 operator|->
 name|left
 operator|==
-literal|0
+name|Q_NULLPTR
 condition|)
 block|{
 name|Node
@@ -5787,7 +5787,7 @@ argument_list|(
 name|false
 argument_list|)
 expr_stmt|;
-comment|// We should have prev->right == 0 or next->left == 0.
+comment|// We should have prev->right == Q_NULLPTR or next->left == Q_NULLPTR.
 return|return
 name|this
 operator|->
@@ -7379,7 +7379,7 @@ argument_list|(
 name|akey
 argument_list|)
 operator|:
-literal|0
+name|Q_NULLPTR
 block|;
 if|if
 condition|(
@@ -7455,7 +7455,7 @@ argument_list|(
 name|akey
 argument_list|)
 else|:
-literal|0
+name|Q_NULLPTR
 block|;
 if|if
 condition|(
@@ -7529,7 +7529,7 @@ argument_list|(
 name|akey
 argument_list|)
 operator|:
-literal|0
+name|Q_NULLPTR
 block|;
 if|if
 condition|(
@@ -7605,7 +7605,7 @@ argument_list|(
 name|akey
 argument_list|)
 else|:
-literal|0
+name|Q_NULLPTR
 block|;
 if|if
 condition|(

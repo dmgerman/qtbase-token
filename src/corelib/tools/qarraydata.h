@@ -410,7 +410,7 @@ argument_list|()
 operator|:
 name|i
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 specifier|inline
@@ -878,7 +878,7 @@ argument_list|()
 operator|:
 name|i
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 specifier|inline

@@ -82,7 +82,7 @@ argument_list|)
 operator|,
 name|m
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{}
 comment|// compiler-generated copy/move ctors/assignment operators are fine!
@@ -230,7 +230,7 @@ operator|&&
 operator|(
 name|m
 operator|!=
-literal|0
+name|Q_NULLPTR
 operator|)
 return|;
 block|}
@@ -975,7 +975,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|virtual
@@ -1734,7 +1734,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 specifier|inline
@@ -1745,8 +1745,7 @@ argument|int row
 argument_list|,
 argument|int column
 argument_list|,
-argument|void *data =
-literal|0
+argument|void *data = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
@@ -2238,7 +2237,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -2354,7 +2353,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~

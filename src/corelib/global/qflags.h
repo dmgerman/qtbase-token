@@ -427,8 +427,7 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFlags
 argument_list|(
-argument|Zero =
-literal|0
+argument|Zero = Q_NULLPTR
 argument_list|)
 name|Q_DECL_NOTHROW
 operator|:

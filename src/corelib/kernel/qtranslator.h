@@ -57,7 +57,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 operator|~
@@ -72,8 +72,7 @@ argument|const char *context
 argument_list|,
 argument|const char *sourceText
 argument_list|,
-argument|const char *disambiguation =
-literal|0
+argument|const char *disambiguation = Q_NULLPTR
 argument_list|,
 argument|int n = -
 literal|1

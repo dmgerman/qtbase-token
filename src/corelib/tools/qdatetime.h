@@ -196,7 +196,7 @@ name|int
 operator|*
 name|yearNum
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;

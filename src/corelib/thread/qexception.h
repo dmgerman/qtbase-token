@@ -150,7 +150,7 @@ name|QException
 operator|*
 name|exception
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 expr_stmt|;
 name|ExceptionHolder

@@ -103,15 +103,14 @@ name|QState
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|QState
 argument_list|(
 argument|ChildMode childMode
 argument_list|,
-argument|QState *parent =
-literal|0
+argument|QState *parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~

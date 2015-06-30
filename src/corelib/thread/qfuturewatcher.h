@@ -63,7 +63,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 comment|// de-inline dtor
@@ -672,7 +672,7 @@ name|QObject
 operator|*
 name|_parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|:
 name|QFutureWatcherBase

@@ -56,7 +56,7 @@ argument_list|()
 operator|:
 name|mobj
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|handle
@@ -226,7 +226,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -301,7 +301,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -411,7 +411,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -515,7 +515,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -623,7 +623,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -695,7 +695,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -793,7 +793,7 @@ block|{
 return|return
 name|mobj
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 ifdef|#
@@ -1087,7 +1087,7 @@ argument_list|()
 operator|:
 name|mobj
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|handle
@@ -1149,7 +1149,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1175,7 +1175,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1209,7 +1209,7 @@ return|return
 name|name
 argument_list|()
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|template
@@ -1364,7 +1364,7 @@ name|QObject
 operator|*
 name|obj
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1376,7 +1376,7 @@ name|QObject
 operator|*
 name|obj
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1388,7 +1388,7 @@ name|QObject
 operator|*
 name|obj
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1400,7 +1400,7 @@ name|QObject
 operator|*
 name|obj
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1412,7 +1412,7 @@ name|QObject
 operator|*
 name|obj
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1603,7 +1603,7 @@ argument_list|()
 operator|:
 name|mobj
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|handle

@@ -848,7 +848,7 @@ name|QAbstractItemModel
 operator|*
 name|model
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit

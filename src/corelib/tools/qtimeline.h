@@ -107,8 +107,7 @@ argument_list|(
 argument|int duration =
 literal|1000
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 name|virtual

@@ -284,11 +284,9 @@ function_decl|;
 name|explicit
 name|AbstractDebugStreamFunction
 argument_list|(
-argument|Stream s =
-literal|0
+argument|Stream s = Q_NULLPTR
 argument_list|,
-argument|Destroy d =
-literal|0
+argument|Destroy d = Q_NULLPTR
 argument_list|)
 block|:
 name|stream
@@ -447,14 +445,11 @@ function_decl|;
 name|explicit
 name|AbstractComparatorFunction
 argument_list|(
-argument|LessThan lt =
-literal|0
+argument|LessThan lt = Q_NULLPTR
 argument_list|,
-argument|Equals e =
-literal|0
+argument|Equals e = Q_NULLPTR
 argument_list|,
-argument|Destroy d =
-literal|0
+argument|Destroy d = Q_NULLPTR
 argument_list|)
 block|:
 name|lessThan
@@ -643,7 +638,7 @@ argument_list|()
 operator|:
 name|AbstractComparatorFunction
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|,
 argument|equals
 argument_list|,
@@ -742,8 +737,7 @@ function_decl|;
 name|explicit
 name|AbstractConverterFunction
 argument_list|(
-argument|Converter c =
-literal|0
+argument|Converter c = Q_NULLPTR
 argument_list|)
 operator|:
 name|convert
@@ -2023,7 +2017,7 @@ name|void
 modifier|*
 name|copy
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 if|#
@@ -2048,7 +2042,7 @@ name|void
 modifier|*
 name|copy
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 return|return
@@ -2197,7 +2191,7 @@ name|void
 operator|*
 name|copy
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -2225,7 +2219,7 @@ name|void
 operator|*
 name|copy
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -2624,7 +2618,7 @@ name|toTypeId
 argument_list|)
 return|;
 block|}
-comment|// member function as in "double QString::toDouble(bool *ok = 0) const"
+comment|// member function as in "double QString::toDouble(bool *ok = Q_NULLPTR) const"
 name|template
 operator|<
 name|typename
@@ -3046,7 +3040,7 @@ name|void
 operator|*
 name|copy
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3072,7 +3066,7 @@ name|void
 operator|*
 name|copy
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3625,7 +3619,7 @@ argument|const void *
 argument_list|)
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 ifndef|#
@@ -5028,7 +5022,7 @@ argument_list|)
 operator|,
 name|_iterator
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_metaType_id
@@ -5116,12 +5110,12 @@ argument_list|()
 operator|:
 name|_iterable
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_iterator
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_metaType_id
@@ -5143,47 +5137,47 @@ argument_list|)
 operator|,
 name|_size
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_at
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_moveToBegin
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_moveToEnd
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_advance
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_get
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_destroyIter
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_equalIter
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_copyIter
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{     }
 specifier|inline
@@ -6181,7 +6175,7 @@ argument_list|()
 operator|:
 name|_iterable
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_metaType_id_key
@@ -6210,52 +6204,52 @@ argument_list|)
 operator|,
 name|_size
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_find
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_begin
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_end
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_advance
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_getKey
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_getValue
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_destroyIter
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_equalIter
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_copyIter
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{     }
 specifier|inline
@@ -6660,17 +6654,17 @@ argument_list|()
 operator|:
 name|_pair
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_getFirst
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|_getSecond
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{     }
 specifier|inline
@@ -6978,7 +6972,7 @@ name|T
 operator|*
 operator|>
 operator|(
-literal|0
+name|Q_NULLPTR
 operator|)
 argument_list|)
 argument_list|)
@@ -7197,7 +7191,7 @@ name|value
 argument_list|()
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 end_expr_stmt
@@ -8821,8 +8815,7 @@ ifndef|#
 directive|ifndef
 name|Q_QDOC
 argument_list|,
-argument|T * dummy =
-literal|0
+argument|T * dummy = Q_NULLPTR
 argument_list|,
 argument|typename QtPrivate::MetaTypeDefinedHelper<T
 argument_list|,
@@ -8898,8 +8891,7 @@ name|Q_QDOC
 argument_list|,
 argument|T *
 comment|/* dummy */
-argument|=
-literal|0
+argument|= Q_NULLPTR
 endif|#
 directive|endif
 argument_list|)
@@ -9916,7 +9908,7 @@ argument_list|)
 operator|,
 name|m_extension
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|m_size

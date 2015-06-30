@@ -399,7 +399,7 @@ argument_list|()
 operator|:
 name|a
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|i
@@ -1005,7 +1005,7 @@ argument_list|()
 operator|:
 name|a
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|i

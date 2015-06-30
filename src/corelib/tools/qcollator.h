@@ -243,7 +243,7 @@ name|other
 operator|.
 name|d
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 name|QCollator

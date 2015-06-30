@@ -430,7 +430,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl_stmt|;
 name|virtual
@@ -474,7 +474,7 @@ name|char
 modifier|*
 name|comment
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 name|n
@@ -497,7 +497,7 @@ name|char
 modifier|*
 name|comment
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 name|n
@@ -537,7 +537,7 @@ specifier|const
 name|char
 modifier|*
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 init|=
@@ -576,7 +576,7 @@ specifier|const
 name|char
 modifier|*
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|,
 name|int
 init|=
@@ -1335,7 +1335,7 @@ name|int
 modifier|*
 name|types
 init|=
-literal|0
+name|Q_NULLPTR
 decl_stmt|;
 end_decl_stmt
 begin_if
@@ -1640,7 +1640,7 @@ name|int
 modifier|*
 name|types
 init|=
-literal|0
+name|Q_NULLPTR
 decl_stmt|;
 end_decl_stmt
 begin_if
@@ -1684,7 +1684,7 @@ argument|reinterpret_cast<void **>(&signal)
 argument_list|,
 argument|context
 argument_list|,
-literal|0
+argument|Q_NULLPTR
 argument_list|,
 argument|new QtPrivate::QStaticSlotObject<Func2
 argument_list|,
@@ -2141,7 +2141,7 @@ name|int
 modifier|*
 name|types
 init|=
-literal|0
+name|Q_NULLPTR
 decl_stmt|;
 end_decl_stmt
 begin_if
@@ -2185,7 +2185,7 @@ argument|reinterpret_cast<void **>(&signal)
 argument_list|,
 argument|context
 argument_list|,
-literal|0
+argument|Q_NULLPTR
 argument_list|,
 argument|new QtPrivate::QFunctorSlotObject<Func2
 argument_list|,
@@ -2277,21 +2277,21 @@ name|char
 operator|*
 name|signal
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 specifier|const
 name|QObject
 operator|*
 name|receiver
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 specifier|const
 name|char
 operator|*
 name|member
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 block|{
@@ -2324,7 +2324,7 @@ name|char
 operator|*
 name|member
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 block|{
@@ -2333,7 +2333,7 @@ name|disconnect
 argument_list|(
 name|this
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|receiver
 argument_list|,
@@ -2530,7 +2530,7 @@ argument_list|,
 argument|void **zero
 argument_list|)
 block|{
-comment|// This is the overload for when one wish to disconnect a signal from any slot. (slot=0)
+comment|// This is the overload for when one wish to disconnect a signal from any slot. (slot=Q_NULLPTR)
 comment|// Since the function template parameter cannot be deduced from '0', we use a
 comment|// dummy void ** parameter that must be equal to 0
 name|Q_ASSERT
@@ -2703,7 +2703,7 @@ parameter_list|(
 name|QObject
 modifier|*
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2766,7 +2766,7 @@ argument_list|(
 name|classname
 argument_list|)
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 end_decl_stmt
@@ -2891,7 +2891,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -3470,7 +3470,7 @@ name|qobject_interface_iid
 argument_list|()
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 end_expr_stmt
@@ -3490,7 +3490,7 @@ parameter_list|,
 name|IId
 parameter_list|)
 define|\
-value|template<> inline const char *qobject_interface_iid<IFace *>() \     { return IId; } \     template<> inline IFace *qobject_cast<IFace *>(QObject *object) \     { return reinterpret_cast<IFace *>((object ? object->qt_metacast(IId) : 0)); } \     template<> inline IFace *qobject_cast<IFace *>(const QObject *object) \     { return reinterpret_cast<IFace *>((object ? const_cast<QObject *>(object)->qt_metacast(IId) : 0)); }
+value|template<> inline const char *qobject_interface_iid<IFace *>() \     { return IId; } \     template<> inline IFace *qobject_cast<IFace *>(QObject *object) \     { return reinterpret_cast<IFace *>((object ? object->qt_metacast(IId) : Q_NULLPTR)); } \     template<> inline IFace *qobject_cast<IFace *>(const QObject *object) \     { return reinterpret_cast<IFace *>((object ? const_cast<QObject *>(object)->qt_metacast(IId) : Q_NULLPTR)); }
 end_define
 begin_endif
 endif|#
@@ -3708,7 +3708,7 @@ name|other
 operator|.
 name|m_o
 operator|=
-literal|0
+name|Q_NULLPTR
 block|; }
 name|QSignalBlocker
 operator|&
@@ -3776,7 +3776,7 @@ name|other
 operator|.
 name|m_o
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 end_expr_stmt

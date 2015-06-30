@@ -1606,7 +1606,7 @@ argument_list|()
 operator|:
 name|i
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{ }
 name|explicit
@@ -2074,7 +2074,7 @@ argument_list|()
 operator|:
 name|i
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{ }
 name|explicit
@@ -2882,7 +2882,7 @@ name|uint
 operator|*
 name|hp
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3210,7 +3210,7 @@ name|concreteNode
 operator|->
 name|h
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|; }
 DECL|member|Key

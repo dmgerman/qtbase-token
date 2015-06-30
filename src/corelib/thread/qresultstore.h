@@ -94,7 +94,7 @@ argument_list|)
 operator|,
 name|result
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{ }
 name|bool
@@ -105,7 +105,7 @@ block|{
 return|return
 name|result
 operator|!=
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|bool

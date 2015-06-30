@@ -3323,7 +3323,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3339,7 +3339,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3355,7 +3355,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3371,7 +3371,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3387,7 +3387,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3403,7 +3403,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3419,7 +3419,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3435,7 +3435,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3451,7 +3451,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3467,7 +3467,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3483,7 +3483,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3499,7 +3499,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3515,7 +3515,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3531,7 +3531,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3547,7 +3547,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -3563,7 +3563,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;

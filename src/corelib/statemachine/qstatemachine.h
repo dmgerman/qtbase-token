@@ -249,7 +249,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|explicit
@@ -257,8 +257,7 @@ name|QStateMachine
 argument_list|(
 argument|QState::ChildMode childMode
 argument_list|,
-argument|QObject *parent =
-literal|0
+argument|QObject *parent = Q_NULLPTR
 argument_list|)
 block|;
 operator|~

@@ -931,14 +931,14 @@ name|char
 operator|*
 name|aName
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 specifier|const
 name|void
 operator|*
 name|aData
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|:
 name|_data
@@ -1016,13 +1016,13 @@ name|char
 operator|*
 name|aName
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|void
 operator|*
 name|aData
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|:
 name|QGenericArgument
@@ -1464,7 +1464,7 @@ name|int
 modifier|*
 name|types
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 comment|// internal index-based disconnect
@@ -1604,7 +1604,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -1685,7 +1685,7 @@ name|val0
 init|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 parameter_list|,
 name|QGenericArgument
@@ -1803,7 +1803,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -1915,7 +1915,7 @@ name|val0
 init|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 parameter_list|,
 name|QGenericArgument
@@ -2018,7 +2018,7 @@ name|val0
 operator|=
 name|QGenericArgument
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 argument_list|,
 name|QGenericArgument
@@ -2314,7 +2314,7 @@ name|Connection
 operator|::
 name|d_ptr
 operator|:
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 endif|#
@@ -2339,7 +2339,7 @@ name|o
 operator|.
 name|d_ptr
 operator|=
-literal|0
+name|Q_NULLPTR
 block|; }
 specifier|inline
 name|Connection

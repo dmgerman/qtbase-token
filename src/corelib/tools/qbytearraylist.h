@@ -134,7 +134,7 @@ argument_list|(
 name|self
 argument_list|()
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|,
 literal|0
 argument_list|)

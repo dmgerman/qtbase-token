@@ -117,7 +117,7 @@ name|QState
 operator|*
 name|sourceState
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|virtual

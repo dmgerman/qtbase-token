@@ -306,7 +306,7 @@ argument_list|)
 operator|,
 name|d
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{
 name|state_data
@@ -372,7 +372,7 @@ name|ConverterState
 operator|*
 name|state
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 block|{
@@ -402,7 +402,7 @@ name|ConverterState
 operator|*
 name|state
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 block|{

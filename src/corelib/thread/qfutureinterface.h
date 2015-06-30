@@ -1468,7 +1468,7 @@ specifier|const
 name|void
 modifier|*
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 block|{
 name|QFutureInterfaceBase

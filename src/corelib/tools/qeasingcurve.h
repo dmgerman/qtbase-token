@@ -250,7 +250,7 @@ name|other
 operator|.
 name|d_ptr
 operator|=
-literal|0
+name|Q_NULLPTR
 block|; }
 name|QEasingCurve
 operator|&

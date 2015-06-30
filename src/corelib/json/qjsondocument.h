@@ -313,7 +313,7 @@ name|QJsonParseError
 modifier|*
 name|error
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 ifdef|#

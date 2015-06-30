@@ -381,8 +381,7 @@ specifier|static
 name|void
 name|sendPostedEvents
 argument_list|(
-argument|QObject *receiver =
-literal|0
+argument|QObject *receiver = Q_NULLPTR
 argument_list|,
 argument|int event_type =
 literal|0
@@ -536,8 +535,7 @@ argument|const char * context
 argument_list|,
 argument|const char * key
 argument_list|,
-argument|const char * disambiguation =
-literal|0
+argument|const char * disambiguation = Q_NULLPTR
 argument_list|,
 argument|int n = -
 literal|1
@@ -941,7 +939,7 @@ parameter_list|(
 name|context
 parameter_list|)
 define|\
-value|QT_DEPRECATED static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); }
+value|QT_DEPRECATED static inline QString trUtf8(const char *sourceText, const char *disambiguation = Q_NULLPTR, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); }
 end_define
 begin_endif
 endif|#
@@ -956,7 +954,7 @@ parameter_list|(
 name|context
 parameter_list|)
 define|\
-value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \     QT_DECLARE_DEPRECATED_TR_FUNCTIONS(context) \ private:
+value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = Q_NULLPTR, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, n); } \     QT_DECLARE_DEPRECATED_TR_FUNCTIONS(context) \ private:
 end_define
 begin_function_decl
 unit|typedef

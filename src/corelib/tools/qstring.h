@@ -5345,7 +5345,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -5363,7 +5363,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -5381,7 +5381,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -5399,7 +5399,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -5417,7 +5417,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -5435,7 +5435,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -5453,7 +5453,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -5471,7 +5471,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -5489,7 +5489,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -5502,7 +5502,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -14488,7 +14488,7 @@ argument_list|()
 operator|:
 name|m_string
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|)
 operator|,
 name|m_position
@@ -15409,7 +15409,7 @@ parameter_list|()
 block|{
 name|m_string
 operator|=
-literal|0
+name|Q_NULLPTR
 expr_stmt|;
 name|m_position
 operator|=
@@ -15450,7 +15450,7 @@ block|{
 return|return
 name|m_string
 operator|==
-literal|0
+name|Q_NULLPTR
 operator|||
 name|m_string
 operator|->
@@ -15828,7 +15828,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -15846,7 +15846,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -15864,7 +15864,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -15882,7 +15882,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -15900,7 +15900,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -15918,7 +15918,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -15936,7 +15936,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -15954,7 +15954,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|int
 name|base
@@ -15972,7 +15972,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;
@@ -15985,7 +15985,7 @@ name|bool
 operator|*
 name|ok
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl|const
 decl_stmt|;

@@ -124,8 +124,7 @@ argument|const QChar *chars
 argument_list|,
 argument|int length
 argument_list|,
-argument|unsigned char *buffer =
-literal|0
+argument|unsigned char *buffer = Q_NULLPTR
 argument_list|,
 argument|int bufferSize =
 literal|0

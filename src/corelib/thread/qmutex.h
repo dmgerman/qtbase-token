@@ -139,7 +139,7 @@ name|d_ptr
 operator|.
 name|testAndSetAcquire
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|dummyLocked
 argument_list|()
@@ -160,7 +160,7 @@ argument_list|(
 name|dummyLocked
 argument_list|()
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 return|;
 block|}
@@ -180,7 +180,7 @@ name|d_ptr
 operator|.
 name|testAndSetAcquire
 argument_list|(
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|dummyLocked
 argument_list|()
@@ -208,7 +208,7 @@ argument_list|(
 name|dummyLocked
 argument_list|()
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|current
 argument_list|)

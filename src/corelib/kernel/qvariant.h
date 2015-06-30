@@ -1333,32 +1333,28 @@ block|;
 name|int
 name|toInt
 argument_list|(
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
 name|uint
 name|toUInt
 argument_list|(
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
 name|qlonglong
 name|toLongLong
 argument_list|(
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
 name|qulonglong
 name|toULongLong
 argument_list|(
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
@@ -1370,24 +1366,21 @@ block|;
 name|double
 name|toDouble
 argument_list|(
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
 name|float
 name|toFloat
 argument_list|(
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
 name|qreal
 name|toReal
 argument_list|(
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
@@ -1785,7 +1778,7 @@ name|data
 operator|.
 name|ptr
 operator|=
-literal|0
+name|Q_NULLPTR
 block|; }
 comment|// Internal constructor for initialized variants.
 name|explicit

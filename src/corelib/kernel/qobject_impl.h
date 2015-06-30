@@ -876,7 +876,7 @@ name|types
 argument_list|()
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 expr|}
@@ -902,7 +902,7 @@ name|types
 argument_list|()
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 expr|}
@@ -1077,11 +1077,11 @@ name|Destroy
 argument_list|,
 name|this
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 expr_stmt|;
 block|}
@@ -1101,7 +1101,7 @@ name|Compare
 argument_list|,
 name|this
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|,
 name|a
 argument_list|,
@@ -1132,7 +1132,7 @@ name|r
 argument_list|,
 name|a
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|; }
 name|protected
