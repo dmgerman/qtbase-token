@@ -922,7 +922,7 @@ name|shouldUseNSPanel
 argument_list|()
 block|;
 name|QRect
-name|windowGeometry
+name|nativeWindowGeometry
 argument_list|()
 specifier|const
 block|;
