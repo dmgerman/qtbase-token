@@ -104,8 +104,10 @@ block|;
 name|bool
 name|m_shouldInvalidateWindowShadow
 block|;
+name|QPointer
+operator|<
 name|QWindow
-operator|*
+operator|>
 name|m_window
 block|;
 name|QCocoaWindow

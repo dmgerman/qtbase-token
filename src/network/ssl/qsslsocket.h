@@ -448,6 +448,18 @@ argument_list|()
 specifier|const
 block|;
 comment|// Cipher settings.
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use QSslConfiguration::ciphers()"
+argument_list|)
 name|QList
 operator|<
 name|QSslCipher
@@ -456,6 +468,10 @@ name|ciphers
 argument_list|()
 specifier|const
 block|;
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use QSslConfiguration::setCiphers()"
+argument_list|)
 name|void
 name|setCiphers
 argument_list|(
@@ -468,6 +484,7 @@ operator|&
 name|ciphers
 argument_list|)
 block|;
+name|QT_DEPRECATED
 name|void
 name|setCiphers
 argument_list|(
@@ -477,6 +494,7 @@ operator|&
 name|ciphers
 argument_list|)
 block|;
+name|QT_DEPRECATED
 specifier|static
 name|void
 name|setDefaultCiphers
@@ -490,6 +508,7 @@ operator|&
 name|ciphers
 argument_list|)
 block|;
+name|QT_DEPRECATED
 specifier|static
 name|QList
 operator|<
@@ -498,6 +517,10 @@ operator|>
 name|defaultCiphers
 argument_list|()
 block|;
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use QSslConfiguration::supportedCiphers()"
+argument_list|)
 specifier|static
 name|QList
 operator|<
@@ -506,56 +529,9 @@ operator|>
 name|supportedCiphers
 argument_list|()
 block|;
-comment|// EC settings.
-name|QVector
-operator|<
-name|QSslEllipticCurve
-operator|>
-name|ellipticCurves
-argument_list|()
-specifier|const
-block|;
-name|void
-name|setEllipticCurves
-argument_list|(
-specifier|const
-name|QVector
-operator|<
-name|QSslEllipticCurve
-operator|>
-operator|&
-name|curves
-argument_list|)
-block|;
-specifier|static
-name|void
-name|setDefaultEllipticCurves
-argument_list|(
-specifier|const
-name|QVector
-operator|<
-name|QSslEllipticCurve
-operator|>
-operator|&
-name|curves
-argument_list|)
-block|;
-specifier|static
-name|QVector
-operator|<
-name|QSslEllipticCurve
-operator|>
-name|defaultEllipticCurves
-argument_list|()
-block|;
-specifier|static
-name|QVector
-operator|<
-name|QSslEllipticCurve
-operator|>
-name|supportedEllipticCurves
-argument_list|()
-block|;
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(5, 5)
 comment|// CA settings.
 name|bool
 name|addCaCertificates
@@ -588,6 +564,18 @@ operator|&
 name|certificates
 argument_list|)
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use QSslConfiguration::setCaCertificates()"
+argument_list|)
 name|void
 name|setCaCertificates
 argument_list|(
@@ -600,6 +588,10 @@ operator|&
 name|certificates
 argument_list|)
 block|;
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use QSslConfiguration::caCertificates()"
+argument_list|)
 name|QList
 operator|<
 name|QSslCertificate
@@ -608,6 +600,9 @@ name|caCertificates
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(5, 5)
 specifier|static
 name|bool
 name|addDefaultCaCertificates
@@ -642,6 +637,15 @@ operator|&
 name|certificates
 argument_list|)
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|5
+argument_list|)
+name|QT_DEPRECATED
 specifier|static
 name|void
 name|setDefaultCaCertificates
@@ -655,6 +659,7 @@ operator|&
 name|certificates
 argument_list|)
 block|;
+name|QT_DEPRECATED
 specifier|static
 name|QList
 operator|<
@@ -663,6 +668,10 @@ operator|>
 name|defaultCaCertificates
 argument_list|()
 block|;
+name|QT_DEPRECATED_X
+argument_list|(
+literal|"Use QSslConfiguration::systemCaCertificates()"
+argument_list|)
 specifier|static
 name|QList
 operator|<
@@ -671,6 +680,9 @@ operator|>
 name|systemCaCertificates
 argument_list|()
 block|;
+endif|#
+directive|endif
+comment|// QT_DEPRECATED_SINCE(5, 5)
 name|bool
 name|waitForConnected
 argument_list|(

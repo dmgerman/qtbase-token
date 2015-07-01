@@ -428,6 +428,15 @@ argument_list|,
 literal|10
 argument_list|)
 block|,
+name|MV_10_11
+init|=
+name|Q_MV_OSX
+argument_list|(
+literal|10
+argument_list|,
+literal|11
+argument_list|)
+block|,
 comment|/* codenames */
 name|MV_CHEETAH
 init|=
@@ -472,6 +481,10 @@ block|,
 name|MV_YOSEMITE
 init|=
 name|MV_10_10
+block|,
+name|MV_ELCAPITAN
+init|=
+name|MV_10_11
 block|,
 comment|/* iOS */
 name|MV_IOS
@@ -577,6 +590,24 @@ argument_list|(
 literal|8
 argument_list|,
 literal|3
+argument_list|)
+block|,
+name|MV_IOS_8_4
+init|=
+name|Q_MV_IOS
+argument_list|(
+literal|8
+argument_list|,
+literal|4
+argument_list|)
+block|,
+name|MV_IOS_9_0
+init|=
+name|Q_MV_IOS
+argument_list|(
+literal|9
+argument_list|,
+literal|0
 argument_list|)
 block|}
 enum|;

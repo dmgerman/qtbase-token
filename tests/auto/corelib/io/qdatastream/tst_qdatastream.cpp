@@ -10395,7 +10395,7 @@ literal|7
 case|:
 name|qWarning
 argument_list|(
-literal|"Skipping streaming of elliptical regions on embedded, Mac OS X, and X11;"
+literal|"Skipping streaming of elliptical regions on embedded, OS X, and X11;"
 literal|" our pointarray stuff is not that great at approximating."
 argument_list|)
 expr_stmt|;

@@ -12148,7 +12148,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabBar::documentMode     \brief Whether or not the tab bar is rendered in a mode suitable for the main window.     \since 4.5      This property is used as a hint for styles to draw the tabs in a different     way then they would normally look in a tab widget.  On Mac OS X this will     look similar to the tabs in Safari or Leopard's Terminal.app.      \sa QTabWidget::documentMode */
+comment|/*!     \property QTabBar::documentMode     \brief Whether or not the tab bar is rendered in a mode suitable for the main window.     \since 4.5      This property is used as a hint for styles to draw the tabs in a different     way then they would normally look in a tab widget.  On OS X this will     look similar to the tabs in Safari or Leopard's Terminal.app.      \sa QTabWidget::documentMode */
 end_comment
 begin_function
 DECL|function|documentMode

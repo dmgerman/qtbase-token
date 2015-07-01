@@ -361,15 +361,6 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|void
-name|execModalForWindow
-argument_list|(
-name|QWindow
-operator|*
-name|parent
-argument_list|)
-block|;
-name|virtual
 name|bool
 name|show
 argument_list|(

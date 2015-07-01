@@ -957,6 +957,17 @@ argument_list|(
 name|accepted
 argument_list|)
 expr_stmt|;
+comment|// The fontdialog sets the styleName, when the fontdatabase knows the style name.
+name|resultFont
+operator|.
+name|setStyleName
+argument_list|(
+name|testFont
+operator|.
+name|styleName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|resultFont

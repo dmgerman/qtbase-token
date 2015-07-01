@@ -10021,10 +10021,13 @@ literal|0
 condition|)
 name|logical
 operator|=
+name|logicalIndex
+argument_list|(
 name|d
 operator|->
 name|lastVisibleVisualIndex
 argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

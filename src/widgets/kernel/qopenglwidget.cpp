@@ -676,7 +676,7 @@ argument_list|()
 operator|<<
 literal|"QOpenGLWidget cannot be used as a native child widget."
 operator|<<
-literal|"Consider setting Qt::AA_DontCreateNativeWidgetAncestors and Siblings."
+literal|"Consider setting Qt::WA_DontCreateNativeAncestors and Qt::AA_DontCreateNativeWidgetSiblings."
 expr_stmt|;
 return|return
 literal|0

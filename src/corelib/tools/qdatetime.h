@@ -93,6 +93,7 @@ block|}
 enum|;
 name|private
 label|:
+name|explicit
 name|Q_DECL_CONSTEXPR
 name|QDate
 argument_list|(
@@ -746,6 +747,7 @@ name|class
 name|Q_CORE_EXPORT
 name|QTime
 block|{
+name|explicit
 name|Q_DECL_CONSTEXPR
 name|QTime
 argument_list|(

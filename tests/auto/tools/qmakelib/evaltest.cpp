@@ -3265,7 +3265,7 @@ argument_list|)
 operator|<<
 literal|"VAR = $$relative_path(dir/..)"
 operator|<<
-literal|"VAR ="
+literal|"VAR = ."
 operator|<<
 literal|""
 operator|<<
@@ -3295,7 +3295,7 @@ argument_list|)
 operator|<<
 literal|"VAR = $$relative_path('', /root/sub)"
 operator|<<
-literal|"VAR ="
+literal|"VAR = ."
 operator|<<
 literal|""
 operator|<<

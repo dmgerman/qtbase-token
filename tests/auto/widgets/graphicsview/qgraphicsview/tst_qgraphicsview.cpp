@@ -20865,7 +20865,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-comment|// Repaint on Mac OS X actually does require spinning the event loop.
+comment|// Repaint on OS X actually does require spinning the event loop.
 name|QTest
 operator|::
 name|qWait

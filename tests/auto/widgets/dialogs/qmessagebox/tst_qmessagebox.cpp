@@ -1803,7 +1803,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// shortcuts are not used on MAC OS X
+comment|// shortcuts are not used on OS X
 end_comment
 begin_ifndef
 ifndef|#
@@ -2611,7 +2611,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_MAC
-comment|// mnemonics are not used on Mac OS X
+comment|// mnemonics are not used on OS X
 name|QCOMPARE
 argument_list|(
 name|exec

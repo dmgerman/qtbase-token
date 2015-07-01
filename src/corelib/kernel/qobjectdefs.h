@@ -2255,6 +2255,11 @@ name|friend
 expr|struct
 name|QMetaObject
 block|;
+name|bool
+name|isConnected_helper
+argument_list|()
+specifier|const
+block|;
 name|public
 operator|:
 operator|~
@@ -2308,6 +2313,9 @@ specifier|const
 block|{
 return|return
 name|d_ptr
+operator|&&
+name|isConnected_helper
+argument_list|()
 operator|?
 operator|&
 name|Connection

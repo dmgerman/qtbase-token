@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QSslSocket>
+file|<QSslConfiguration>
 end_include
 begin_class
 DECL|class|tst_QSslEllipticCurve
@@ -275,7 +275,7 @@ name|Q_FOREACH
 argument_list|(
 argument|QSslEllipticCurve ec
 argument_list|,
-argument|QSslSocket::supportedEllipticCurves()
+argument|QSslConfiguration::supportedEllipticCurves()
 argument_list|)
 block|{
 specifier|const
@@ -493,7 +493,7 @@ name|Q_FOREACH
 argument_list|(
 argument|QSslEllipticCurve ec
 argument_list|,
-argument|QSslSocket::supportedEllipticCurves()
+argument|QSslConfiguration::supportedEllipticCurves()
 argument_list|)
 block|{
 specifier|const

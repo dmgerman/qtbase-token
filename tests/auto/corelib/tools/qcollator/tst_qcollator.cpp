@@ -301,7 +301,7 @@ literal|"numericMode"
 argument_list|)
 expr_stmt|;
 comment|/*         A few tests below are commented out on the mac. It's unclear why they fail,         as it looks like the collator for the locale is created correctly.     */
-comment|/*         It's hard to test English, because it's treated differently         on different platforms. For example, on Linux, it uses the         iso14651_t1 template file, which happens to provide good         defaults for Swedish. Mac OS X seems to do a pure bytewise         comparison of Latin-1 values, although I'm not sure. So I         just test digits to make sure that it's not totally broken.     */
+comment|/*         It's hard to test English, because it's treated differently         on different platforms. For example, on Linux, it uses the         iso14651_t1 template file, which happens to provide good         defaults for Swedish. OS X seems to do a pure bytewise         comparison of Latin-1 values, although I'm not sure. So I         just test digits to make sure that it's not totally broken.     */
 name|QTest
 operator|::
 name|newRow

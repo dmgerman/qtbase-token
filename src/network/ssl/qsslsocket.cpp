@@ -6,7 +6,7 @@ begin_comment
 comment|//#define QSSLSOCKET_DEBUG
 end_comment
 begin_comment
-comment|/*!     \class QSslSocket     \brief The QSslSocket class provides an SSL encrypted socket for both     clients and servers.     \since 4.3      \reentrant     \ingroup network     \ingroup ssl     \inmodule QtNetwork      QSslSocket establishes a secure, encrypted TCP connection you can     use for transmitting encrypted data. It can operate in both client     and server mode, and it supports modern SSL protocols, including     SSLv3 and TLSv1_0. By default, QSslSocket uses TLSv1_0, but you can     change the SSL protocol by calling setProtocol() as long as you do     it before the handshake has started.      SSL encryption operates on top of the existing TCP stream after     the socket enters the ConnectedState. There are two simple ways to     establish a secure connection using QSslSocket: With an immediate     SSL handshake, or with a delayed SSL handshake occurring after the     connection has been established in unencrypted mode.      The most common way to use QSslSocket is to construct an object     and start a secure connection by calling connectToHostEncrypted().     This method starts an immediate SSL handshake once the connection     has been established.      \snippet code/src_network_ssl_qsslsocket.cpp 0      As with a plain QTcpSocket, QSslSocket enters the HostLookupState,     ConnectingState, and finally the ConnectedState, if the connection     is successful. The handshake then starts automatically, and if it     succeeds, the encrypted() signal is emitted to indicate the socket     has entered the encrypted state and is ready for use.      Note that data can be written to the socket immediately after the     return from connectToHostEncrypted() (i.e., before the encrypted()     signal is emitted). The data is queued in QSslSocket until after     the encrypted() signal is emitted.      An example of using the delayed SSL handshake to secure an     existing connection is the case where an SSL server secures an     incoming connection. Suppose you create an SSL server class as a     subclass of QTcpServer. You would override     QTcpServer::incomingConnection() with something like the example     below, which first constructs an instance of QSslSocket and then     calls setSocketDescriptor() to set the new socket's descriptor to     the existing one passed in. It then initiates the SSL handshake     by calling startServerEncryption().      \snippet code/src_network_ssl_qsslsocket.cpp 1      If an error occurs, QSslSocket emits the sslErrors() signal. In this     case, if no action is taken to ignore the error(s), the connection     is dropped. To continue, despite the occurrence of an error, you     can call ignoreSslErrors(), either from within this slot after the     error occurs, or any time after construction of the QSslSocket and     before the connection is attempted. This will allow QSslSocket to     ignore the errors it encounters when establishing the identity of     the peer. Ignoring errors during an SSL handshake should be used     with caution, since a fundamental characteristic of secure     connections is that they should be established with a successful     handshake.      Once encrypted, you use QSslSocket as a regular QTcpSocket. When     readyRead() is emitted, you can call read(), canReadLine() and     readLine(), or getChar() to read decrypted data from QSslSocket's     internal buffer, and you can call write() or putChar() to write     data back to the peer. QSslSocket will automatically encrypt the     written data for you, and emit encryptedBytesWritten() once     the data has been written to the peer.      As a convenience, QSslSocket supports QTcpSocket's blocking     functions waitForConnected(), waitForReadyRead(),     waitForBytesWritten(), and waitForDisconnected(). It also provides     waitForEncrypted(), which will block the calling thread until an     encrypted connection has been established.      \snippet code/src_network_ssl_qsslsocket.cpp 2      QSslSocket provides an extensive, easy-to-use API for handling     cryptographic ciphers, private keys, and local, peer, and     Certification Authority (CA) certificates. It also provides an API     for handling errors that occur during the handshake phase.      The following features can also be customized:      \list     \li The socket's cryptographic cipher suite can be customized before     the handshake phase with setCiphers() and setDefaultCiphers().     \li The socket's local certificate and private key can be customized     before the handshake phase with setLocalCertificate() and     setPrivateKey().     \li The CA certificate database can be extended and customized with     addCaCertificate(), addCaCertificates(), setCaCertificates(),     addDefaultCaCertificate(), addDefaultCaCertificates(), and     setDefaultCaCertificates().     \endlist      \note If available, root certificates on Unix (excluding Mac OS X) will be     loaded on demand from the standard certificate directories. If     you do not want to load root certificates on demand, you need to call either     the static function setDefaultCaCertificates() before the first SSL handshake     is made in your application, (e.g. via     "QSslSocket::setDefaultCaCertificates(QSslSocket::systemCaCertificates());"),     or call setCaCertificates() on your QSslSocket instance prior to the SSL     handshake.      For more information about ciphers and certificates, refer to QSslCipher and     QSslCertificate.      This product includes software developed by the OpenSSL Project     for use in the OpenSSL Toolkit (\l{http://www.openssl.org/}).      \note Be aware of the difference between the bytesWritten() signal and     the encryptedBytesWritten() signal. For a QTcpSocket, bytesWritten()     will get emitted as soon as data has been written to the TCP socket.     For a QSslSocket, bytesWritten() will get emitted when the data     is being encrypted and encryptedBytesWritten()     will get emitted as soon as data has been written to the TCP socket.      \sa QSslCertificate, QSslCipher, QSslError */
+comment|/*!     \class QSslSocket     \brief The QSslSocket class provides an SSL encrypted socket for both     clients and servers.     \since 4.3      \reentrant     \ingroup network     \ingroup ssl     \inmodule QtNetwork      QSslSocket establishes a secure, encrypted TCP connection you can     use for transmitting encrypted data. It can operate in both client     and server mode, and it supports modern SSL protocols, including     SSLv3 and TLSv1_0. By default, QSslSocket uses TLSv1_0, but you can     change the SSL protocol by calling setProtocol() as long as you do     it before the handshake has started.      SSL encryption operates on top of the existing TCP stream after     the socket enters the ConnectedState. There are two simple ways to     establish a secure connection using QSslSocket: With an immediate     SSL handshake, or with a delayed SSL handshake occurring after the     connection has been established in unencrypted mode.      The most common way to use QSslSocket is to construct an object     and start a secure connection by calling connectToHostEncrypted().     This method starts an immediate SSL handshake once the connection     has been established.      \snippet code/src_network_ssl_qsslsocket.cpp 0      As with a plain QTcpSocket, QSslSocket enters the HostLookupState,     ConnectingState, and finally the ConnectedState, if the connection     is successful. The handshake then starts automatically, and if it     succeeds, the encrypted() signal is emitted to indicate the socket     has entered the encrypted state and is ready for use.      Note that data can be written to the socket immediately after the     return from connectToHostEncrypted() (i.e., before the encrypted()     signal is emitted). The data is queued in QSslSocket until after     the encrypted() signal is emitted.      An example of using the delayed SSL handshake to secure an     existing connection is the case where an SSL server secures an     incoming connection. Suppose you create an SSL server class as a     subclass of QTcpServer. You would override     QTcpServer::incomingConnection() with something like the example     below, which first constructs an instance of QSslSocket and then     calls setSocketDescriptor() to set the new socket's descriptor to     the existing one passed in. It then initiates the SSL handshake     by calling startServerEncryption().      \snippet code/src_network_ssl_qsslsocket.cpp 1      If an error occurs, QSslSocket emits the sslErrors() signal. In this     case, if no action is taken to ignore the error(s), the connection     is dropped. To continue, despite the occurrence of an error, you     can call ignoreSslErrors(), either from within this slot after the     error occurs, or any time after construction of the QSslSocket and     before the connection is attempted. This will allow QSslSocket to     ignore the errors it encounters when establishing the identity of     the peer. Ignoring errors during an SSL handshake should be used     with caution, since a fundamental characteristic of secure     connections is that they should be established with a successful     handshake.      Once encrypted, you use QSslSocket as a regular QTcpSocket. When     readyRead() is emitted, you can call read(), canReadLine() and     readLine(), or getChar() to read decrypted data from QSslSocket's     internal buffer, and you can call write() or putChar() to write     data back to the peer. QSslSocket will automatically encrypt the     written data for you, and emit encryptedBytesWritten() once     the data has been written to the peer.      As a convenience, QSslSocket supports QTcpSocket's blocking     functions waitForConnected(), waitForReadyRead(),     waitForBytesWritten(), and waitForDisconnected(). It also provides     waitForEncrypted(), which will block the calling thread until an     encrypted connection has been established.      \snippet code/src_network_ssl_qsslsocket.cpp 2      QSslSocket provides an extensive, easy-to-use API for handling     cryptographic ciphers, private keys, and local, peer, and     Certification Authority (CA) certificates. It also provides an API     for handling errors that occur during the handshake phase.      The following features can also be customized:      \list     \li The socket's cryptographic cipher suite can be customized before     the handshake phase with setCiphers() and setDefaultCiphers().     \li The socket's local certificate and private key can be customized     before the handshake phase with setLocalCertificate() and     setPrivateKey().     \li The CA certificate database can be extended and customized with     addCaCertificate(), addCaCertificates(), setCaCertificates(),     addDefaultCaCertificate(), addDefaultCaCertificates(), and     setDefaultCaCertificates().     \endlist      \note If available, root certificates on Unix (excluding OS X) will be     loaded on demand from the standard certificate directories. If     you do not want to load root certificates on demand, you need to call either     the static function setDefaultCaCertificates() before the first SSL handshake     is made in your application, (e.g. via     "QSslSocket::setDefaultCaCertificates(QSslSocket::systemCaCertificates());"),     or call setCaCertificates() on your QSslSocket instance prior to the SSL     handshake.      For more information about ciphers and certificates, refer to QSslCipher and     QSslCertificate.      This product includes software developed by the OpenSSL Project     for use in the OpenSSL Toolkit (\l{http://www.openssl.org/}).      \note Be aware of the difference between the bytesWritten() signal and     the encryptedBytesWritten() signal. For a QTcpSocket, bytesWritten()     will get emitted as soon as data has been written to the TCP socket.     For a QSslSocket, bytesWritten() will get emitted when the data     is being encrypted and encryptedBytesWritten()     will get emitted as soon as data has been written to the TCP socket.      \sa QSslCertificate, QSslCipher, QSslError */
 end_comment
 begin_comment
 comment|/*!     \enum QSslSocket::SslMode      Describes the connection modes available for QSslSocket.      \value UnencryptedMode The socket is unencrypted. Its     behavior is identical to QTcpSocket.      \value SslClientMode The socket is a client-side SSL socket.     It is either alreayd encrypted, or it is in the SSL handshake     phase (see QSslSocket::isEncrypted()).      \value SslServerMode The socket is a server-side SSL socket.     It is either already encrypted, or it is in the SSL handshake     phase (see QSslSocket::isEncrypted()). */
@@ -2294,7 +2294,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns this socket's current cryptographic cipher suite. This     list is used during the socket's handshake phase for choosing a     session cipher. The returned list of ciphers is ordered by     descending preference. (i.e., the first cipher in the list is the     most preferred cipher). The session cipher will be the first one     in the list that is also supported by the peer.      By default, the handshake phase can choose any of the ciphers     supported by this system's SSL libraries, which may vary from     system to system. The list of ciphers supported by this system's     SSL libraries is returned by supportedCiphers(). You can restrict     the list of ciphers used for choosing the session cipher for this     socket by calling setCiphers() with a subset of the supported     ciphers. You can revert to using the entire set by calling     setCiphers() with the list returned by supportedCiphers().      You can restrict the list of ciphers used for choosing the session     cipher for \e all sockets by calling setDefaultCiphers() with a     subset of the supported ciphers. You can revert to using the     entire set by calling setCiphers() with the list returned by     supportedCiphers().      \sa setCiphers(), defaultCiphers(), setDefaultCiphers(), supportedCiphers() */
+comment|/*!     \deprecated      Use QSslConfiguration::ciphers() instead.      Returns this socket's current cryptographic cipher suite. This     list is used during the socket's handshake phase for choosing a     session cipher. The returned list of ciphers is ordered by     descending preference. (i.e., the first cipher in the list is the     most preferred cipher). The session cipher will be the first one     in the list that is also supported by the peer.      By default, the handshake phase can choose any of the ciphers     supported by this system's SSL libraries, which may vary from     system to system. The list of ciphers supported by this system's     SSL libraries is returned by supportedCiphers(). You can restrict     the list of ciphers used for choosing the session cipher for this     socket by calling setCiphers() with a subset of the supported     ciphers. You can revert to using the entire set by calling     setCiphers() with the list returned by supportedCiphers().      You can restrict the list of ciphers used for choosing the session     cipher for \e all sockets by calling setDefaultCiphers() with a     subset of the supported ciphers. You can revert to using the     entire set by calling setCiphers() with the list returned by     supportedCiphers().      \sa setCiphers(), defaultCiphers(), setDefaultCiphers(), supportedCiphers() */
 end_comment
 begin_function
 DECL|function|ciphers
@@ -2324,7 +2324,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the cryptographic cipher suite for this socket to \a ciphers,     which must contain a subset of the ciphers in the list returned by     supportedCiphers().      Restricting the cipher suite must be done before the handshake     phase, where the session cipher is chosen.      \sa ciphers(), setDefaultCiphers(), supportedCiphers() */
+comment|/*!     \deprecated      USe QSslConfiguration::setCiphers() instead.      Sets the cryptographic cipher suite for this socket to \a ciphers,     which must contain a subset of the ciphers in the list returned by     supportedCiphers().      Restricting the cipher suite must be done before the handshake     phase, where the session cipher is chosen.      \sa ciphers(), setDefaultCiphers(), supportedCiphers() */
 end_comment
 begin_function
 DECL|function|setCiphers
@@ -2358,7 +2358,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the cryptographic cipher suite for this socket to \a ciphers, which     is a colon-separated list of cipher suite names. The ciphers are listed in     order of preference, starting with the most preferred cipher. For example:      \snippet code/src_network_ssl_qsslsocket.cpp 4      Each cipher name in \a ciphers must be the name of a cipher in the     list returned by supportedCiphers().  Restricting the cipher suite     must be done before the handshake phase, where the session cipher     is chosen.      \sa ciphers(), setDefaultCiphers(), supportedCiphers() */
+comment|/*!     \deprecated      Use QSslConfiguration::setCiphers() instead.      Sets the cryptographic cipher suite for this socket to \a ciphers, which     is a colon-separated list of cipher suite names. The ciphers are listed in     order of preference, starting with the most preferred cipher. For example:      \snippet code/src_network_ssl_qsslsocket.cpp 4      Each cipher name in \a ciphers must be the name of a cipher in the     list returned by supportedCiphers().  Restricting the cipher suite     must be done before the handshake phase, where the session cipher     is chosen.      \sa ciphers(), setDefaultCiphers(), supportedCiphers() */
 end_comment
 begin_function
 DECL|function|setCiphers
@@ -2435,7 +2435,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the default cryptographic cipher suite for all sockets in     this application to \a ciphers, which must contain a subset of the     ciphers in the list returned by supportedCiphers().      Restricting the default cipher suite only affects SSL sockets     that perform their handshake phase after the default cipher     suite has been changed.      \sa setCiphers(), defaultCiphers(), supportedCiphers() */
+comment|/*!     \deprecated      Use QSslConfiguration::setCiphers() on the default QSslConfiguration instead.      Sets the default cryptographic cipher suite for all sockets in     this application to \a ciphers, which must contain a subset of the     ciphers in the list returned by supportedCiphers().      Restricting the default cipher suite only affects SSL sockets     that perform their handshake phase after the default cipher     suite has been changed.      \sa setCiphers(), defaultCiphers(), supportedCiphers() */
 end_comment
 begin_function
 DECL|function|setDefaultCiphers
@@ -2463,7 +2463,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the default cryptographic cipher suite for all sockets in     this application. This list is used during the socket's handshake     phase when negotiating with the peer to choose a session cipher.     The list is ordered by preference (i.e., the first cipher in the     list is the most preferred cipher).      By default, the handshake phase can choose any of the ciphers     supported by this system's SSL libraries, which may vary from     system to system. The list of ciphers supported by this system's     SSL libraries is returned by supportedCiphers().      \sa supportedCiphers() */
+comment|/*!     \deprecated      Use QSslConfiguration::ciphers() on the default QSslConfiguration instead.      Returns the default cryptographic cipher suite for all sockets in     this application. This list is used during the socket's handshake     phase when negotiating with the peer to choose a session cipher.     The list is ordered by preference (i.e., the first cipher in the     list is the most preferred cipher).      By default, the handshake phase can choose any of the ciphers     supported by this system's SSL libraries, which may vary from     system to system. The list of ciphers supported by this system's     SSL libraries is returned by supportedCiphers().      \sa supportedCiphers() */
 end_comment
 begin_function
 DECL|function|defaultCiphers
@@ -2485,7 +2485,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the list of cryptographic ciphers supported by this     system. This list is set by the system's SSL libraries and may     vary from system to system.      \sa defaultCiphers(), ciphers(), setCiphers() */
+comment|/*!     \deprecated      Use QSslConfiguration::supportedCiphers() instead.      Returns the list of cryptographic ciphers supported by this     system. This list is set by the system's SSL libraries and may     vary from system to system.      \sa defaultCiphers(), ciphers(), setCiphers() */
 end_comment
 begin_function
 DECL|function|supportedCiphers
@@ -2502,142 +2502,6 @@ return|return
 name|QSslSocketPrivate
 operator|::
 name|supportedCiphers
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \since 5.5      Returns this socket's current list of elliptic curves. This     list is used during the socket's handshake phase for choosing an     elliptic curve (when using an elliptic curve cipher).     The returned list of curves is ordered by descending preference     (i.e., the first curve in the list is the most preferred one).      By default, this list is empty. An empty default list means that the     handshake phase can choose any of the curves supported by this system's SSL     libraries (which may vary from system to system). The list of curves     supported by this system's SSL libraries is returned by     supportedEllipticCurves().      You can restrict the list of curves used for choosing the session cipher     for this socket by calling setEllipticCurves() with a subset of the     supported ciphers. You can revert to using the entire set by calling     setEllipticCurves() with the list returned by supportedEllipticCurves().      \sa setEllipticCurves(), defaultEllipticCurves(), setDefaultEllipticCurves(), supportedEllipticCurves() */
-end_comment
-begin_function
-DECL|function|ellipticCurves
-name|QVector
-argument_list|<
-name|QSslEllipticCurve
-argument_list|>
-name|QSslSocket
-operator|::
-name|ellipticCurves
-parameter_list|()
-specifier|const
-block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QSslSocket
-argument_list|)
-expr_stmt|;
-return|return
-name|d
-operator|->
-name|configuration
-operator|.
-name|ellipticCurves
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \since 5.5      Sets the list of elliptic curves to be used by this socket to \a curves,     which must contain a subset of the curves in the list returned by     supportedEllipticCurves().      Restricting the elliptic curves must be done before the handshake     phase, where the session cipher is chosen.      If an empty list is set, then the handshake phase can choose any of the     curves supported by this system's SSL libraries (which may vary from system     to system). The list of curves supported by this system's SSL libraries is     returned by supportedEllipticCurves().      Use setCipher() in order to disable the usage of elliptic curve ciphers.      \sa ellipticCurves(), setDefaultEllipticCurves(), supportedEllipticCurves() */
-end_comment
-begin_function
-DECL|function|setEllipticCurves
-name|void
-name|QSslSocket
-operator|::
-name|setEllipticCurves
-parameter_list|(
-specifier|const
-name|QVector
-argument_list|<
-name|QSslEllipticCurve
-argument_list|>
-modifier|&
-name|curves
-parameter_list|)
-block|{
-name|Q_D
-argument_list|(
-name|QSslSocket
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|configuration
-operator|.
-name|ellipticCurves
-operator|=
-name|curves
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \since 5.5      Sets the list of elliptic curves to be used by all sockets in this     application to \a curves, which must contain a subset of the curves in the     list returned by supportedEllipticCurves().      Restricting the default elliptic curves only affects SSL sockets     that perform their handshake phase after the default list has been changed.      If an empty list is set, then the handshake phase can choose any of the     curves supported by this system's SSL libraries (which may vary from system     to system). The list of curves supported by this system's SSL libraries is     returned by supportedEllipticCurves().      Use setDefaultCiphers() in order to disable the usage of elliptic curve ciphers.      \sa setEllipticCurves(), defaultEllipticCurves(), supportedEllipticCurves() */
-end_comment
-begin_function
-DECL|function|setDefaultEllipticCurves
-name|void
-name|QSslSocket
-operator|::
-name|setDefaultEllipticCurves
-parameter_list|(
-specifier|const
-name|QVector
-argument_list|<
-name|QSslEllipticCurve
-argument_list|>
-modifier|&
-name|curves
-parameter_list|)
-block|{
-name|QSslSocketPrivate
-operator|::
-name|setDefaultEllipticCurves
-argument_list|(
-name|curves
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \since 5.5      Returns the default elliptic curves list for all sockets in     this application. This list is used during the socket's handshake     phase when negotiating with the peer to choose a session cipher.     The list is ordered by preference (i.e., the first curve in the     list is the most preferred one).      By default, this list is empty. An empty default list means that the     handshake phase can choose any of the curves supported by this system's SSL     libraries (which may vary from system to system). The list of curves     supported by this system's SSL libraries is returned by     supportedEllipticCurves().      \sa setDefaultEllipticCurves(), supportedEllipticCurves() */
-end_comment
-begin_function
-DECL|function|defaultEllipticCurves
-name|QVector
-argument_list|<
-name|QSslEllipticCurve
-argument_list|>
-name|QSslSocket
-operator|::
-name|defaultEllipticCurves
-parameter_list|()
-block|{
-return|return
-name|QSslSocketPrivate
-operator|::
-name|defaultEllipticCurves
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \since 5.5      Returns the list of elliptic curves supported by this     system. This list is set by the system's SSL libraries and may     vary from system to system.      \sa ellipticCurves(), setEllipticCurves(), defaultEllipticCurves() */
-end_comment
-begin_function
-DECL|function|supportedEllipticCurves
-name|QVector
-argument_list|<
-name|QSslEllipticCurve
-argument_list|>
-name|QSslSocket
-operator|::
-name|supportedEllipticCurves
-parameter_list|()
-block|{
-return|return
-name|QSslSocketPrivate
-operator|::
-name|supportedEllipticCurves
 argument_list|()
 return|;
 block|}
@@ -2779,7 +2643,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets this socket's CA certificate database to be \a certificates.   The certificate database must be set prior to the SSL handshake.   The CA certificate database is used by the socket during the   handshake phase to validate the peer's certificate.    The CA certificate database can be reset to the current default CA   certificate database by calling this function with the list of CA   certificates returned by defaultCaCertificates().    \sa defaultCaCertificates() */
+comment|/*!   \deprecated    Use QSslConfiguration::setCaCertificates() instead.    Sets this socket's CA certificate database to be \a certificates.   The certificate database must be set prior to the SSL handshake.   The CA certificate database is used by the socket during the   handshake phase to validate the peer's certificate.    The CA certificate database can be reset to the current default CA   certificate database by calling this function with the list of CA   certificates returned by defaultCaCertificates().    \sa defaultCaCertificates() */
 end_comment
 begin_function
 DECL|function|setCaCertificates
@@ -2819,7 +2683,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns this socket's CA certificate database. The CA certificate   database is used by the socket during the handshake phase to   validate the peer's certificate. It can be moodified prior to the   handshake with addCaCertificate(), addCaCertificates(), and   setCaCertificates().    \note On Unix, this method may return an empty list if the root   certificates are loaded on demand.    \sa addCaCertificate(), addCaCertificates(), setCaCertificates() */
+comment|/*!   \deprecated    Use QSslConfiguration::caCertificates() instead.    Returns this socket's CA certificate database. The CA certificate   database is used by the socket during the handshake phase to   validate the peer's certificate. It can be moodified prior to the   handshake with addCaCertificate(), addCaCertificates(), and   setCaCertificates().    \note On Unix, this method may return an empty list if the root   certificates are loaded on demand.    \sa addCaCertificate(), addCaCertificates(), setCaCertificates() */
 end_comment
 begin_function
 DECL|function|caCertificates
@@ -2942,7 +2806,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the default CA certificate database to \a certificates. The     default CA certificate database is originally set to your system's     default CA certificate database. You can override the default CA     certificate database with your own CA certificate database using     this function.      Each SSL socket's CA certificate database is initialized to the     default CA certificate database.      \sa addDefaultCaCertificate() */
+comment|/*!     \deprecated      Use QSslConfiguration::setCaCertificates() on the default QSslConfiguration instead.      Sets the default CA certificate database to \a certificates. The     default CA certificate database is originally set to your system's     default CA certificate database. You can override the default CA     certificate database with your own CA certificate database using     this function.      Each SSL socket's CA certificate database is initialized to the     default CA certificate database.      \sa addDefaultCaCertificate() */
 end_comment
 begin_function
 DECL|function|setDefaultCaCertificates
@@ -2970,7 +2834,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the current default CA certificate database. This database     is originally set to your system's default CA certificate database.     If no system default database is found, an empty database will be     returned. You can override the default CA certificate database     with your own CA certificate database using setDefaultCaCertificates().      Each SSL socket's CA certificate database is initialized to the     default CA certificate database.      \note On Unix, this method may return an empty list if the root     certificates are loaded on demand.      \sa caCertificates() */
+comment|/*!     \deprecated      Use QSslConfiguration::caCertificates() on the default QSslConfiguration instead.      Returns the current default CA certificate database. This database     is originally set to your system's default CA certificate database.     If no system default database is found, an empty database will be     returned. You can override the default CA certificate database     with your own CA certificate database using setDefaultCaCertificates().      Each SSL socket's CA certificate database is initialized to the     default CA certificate database.      \note On Unix, this method may return an empty list if the root     certificates are loaded on demand.      \sa caCertificates() */
 end_comment
 begin_function
 DECL|function|defaultCaCertificates
@@ -2992,7 +2856,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function provides the CA certificate database     provided by the operating system. The CA certificate database     returned by this function is used to initialize the database     returned by defaultCaCertificates(). You can replace that database     with your own with setDefaultCaCertificates().      \sa caCertificates(), defaultCaCertificates(), setDefaultCaCertificates() */
+comment|/*!     \deprecated      Use QSslConfiguration::systemDefaultCaCertificates instead.      This function provides the CA certificate database     provided by the operating system. The CA certificate database     returned by this function is used to initialize the database     returned by defaultCaCertificates(). You can replace that database     with your own with setDefaultCaCertificates().      \sa caCertificates(), defaultCaCertificates(), setDefaultCaCertificates() */
 end_comment
 begin_function
 DECL|function|systemCaCertificates
@@ -4873,46 +4737,6 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|defaultEllipticCurves
-name|QVector
-argument_list|<
-name|QSslEllipticCurve
-argument_list|>
-name|QSslSocketPrivate
-operator|::
-name|defaultEllipticCurves
-parameter_list|()
-block|{
-name|QSslSocketPrivate
-operator|::
-name|ensureInitialized
-argument_list|()
-expr_stmt|;
-specifier|const
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|globalData
-argument_list|()
-operator|->
-name|mutex
-argument_list|)
-decl_stmt|;
-return|return
-name|globalData
-argument_list|()
-operator|->
-name|config
-operator|->
-name|ellipticCurves
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
-begin_function
 DECL|function|supportedEllipticCurves
 name|QVector
 argument_list|<
@@ -4945,55 +4769,6 @@ argument_list|()
 operator|->
 name|supportedEllipticCurves
 return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
-begin_function
-DECL|function|setDefaultEllipticCurves
-name|void
-name|QSslSocketPrivate
-operator|::
-name|setDefaultEllipticCurves
-parameter_list|(
-specifier|const
-name|QVector
-argument_list|<
-name|QSslEllipticCurve
-argument_list|>
-modifier|&
-name|curves
-parameter_list|)
-block|{
-specifier|const
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|globalData
-argument_list|()
-operator|->
-name|mutex
-argument_list|)
-decl_stmt|;
-name|globalData
-argument_list|()
-operator|->
-name|config
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
-name|globalData
-argument_list|()
-operator|->
-name|config
-operator|->
-name|ellipticCurves
-operator|=
-name|curves
-expr_stmt|;
 block|}
 end_function
 begin_comment

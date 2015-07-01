@@ -6271,7 +6271,7 @@ directive|ifdef
 name|Q_OS_MAC
 name|QSKIP
 argument_list|(
-literal|"This test fails and then hangs on Mac OS X, see QTBUG-24318"
+literal|"This test fails and then hangs on OS X, see QTBUG-24318"
 argument_list|)
 expr_stmt|;
 endif|#

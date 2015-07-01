@@ -7,6 +7,11 @@ include|#
 directive|include
 file|"qandroidplatformaccessibility.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"androidjniaccessibility.h"
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|QAndroidPlatformAccessibility
@@ -14,7 +19,13 @@ name|QAndroidPlatformAccessibility
 operator|::
 name|QAndroidPlatformAccessibility
 parameter_list|()
-block|{}
+block|{
+name|QtAndroidAccessibility
+operator|::
+name|initialize
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_destructor
 DECL|function|~QAndroidPlatformAccessibility

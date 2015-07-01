@@ -5580,7 +5580,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-comment|// Mac OS X uses Enter for editing
+comment|// OS X uses Enter for editing
 name|QTest
 operator|::
 name|keyPress

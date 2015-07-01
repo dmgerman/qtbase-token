@@ -406,7 +406,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"This test fails on Mac OS X, see QTBUG-25272"
+literal|"This test fails on OS X, see QTBUG-25272"
 argument_list|,
 name|Abort
 argument_list|)

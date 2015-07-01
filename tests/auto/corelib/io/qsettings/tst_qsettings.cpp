@@ -11447,7 +11447,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-comment|// 0 on all platforms but Mac OS X.
+comment|// 0 on all platforms but OS X.
 name|settings1
 operator|.
 name|setValue

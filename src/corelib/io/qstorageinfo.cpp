@@ -228,7 +228,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the size (in bytes) available for the current user. It returns     the total size available if the user is the root user or a system administrator.      This size can be less than or equal to the free size returned by     bytesFree() function.      \sa bytesTotal(), bytesFree() */
+comment|/*!     Returns the size (in bytes) available for the current user. It returns     the total size available if the user is the root user or a system administrator.      This size can be less than or equal to the free size returned by     bytesFree() function.      Returns -1 if QStorageInfo object is not valid.      \sa bytesTotal(), bytesFree() */
 end_comment
 begin_function
 DECL|function|bytesAvailable
@@ -247,7 +247,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of free bytes in a volume. Note that if there are     quotas on the filesystem, this value can be larger than the value     returned by bytesAvailable().      \sa bytesTotal(), bytesAvailable() */
+comment|/*!     Returns the number of free bytes in a volume. Note that if there are     quotas on the filesystem, this value can be larger than the value     returned by bytesAvailable().      Returns -1 if QStorageInfo object is not valid.      \sa bytesTotal(), bytesAvailable() */
 end_comment
 begin_function
 DECL|function|bytesFree
@@ -266,7 +266,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the total volume size in bytes.      \sa bytesFree(), bytesAvailable() */
+comment|/*!     Returns the total volume size in bytes.      Returns -1 if QStorageInfo object is not valid.      \sa bytesFree(), bytesAvailable() */
 end_comment
 begin_function
 DECL|function|bytesTotal
