@@ -335,6 +335,14 @@ operator|&
 name|ciphers
 argument_list|)
 decl_stmt|;
+specifier|static
+name|QList
+operator|<
+name|QSslCipher
+operator|>
+name|supportedCiphers
+argument_list|()
+expr_stmt|;
 comment|// Certificate Authority (CA) settings
 name|QList
 operator|<
@@ -356,6 +364,14 @@ operator|&
 name|certificates
 argument_list|)
 decl_stmt|;
+specifier|static
+name|QList
+operator|<
+name|QSslCertificate
+operator|>
+name|systemCaCertificates
+argument_list|()
+expr_stmt|;
 name|void
 name|setSslOption
 argument_list|(
@@ -418,6 +434,14 @@ operator|&
 name|curves
 argument_list|)
 decl_stmt|;
+specifier|static
+name|QVector
+operator|<
+name|QSslEllipticCurve
+operator|>
+name|supportedEllipticCurves
+argument_list|()
+expr_stmt|;
 specifier|static
 name|QSslConfiguration
 name|defaultConfiguration

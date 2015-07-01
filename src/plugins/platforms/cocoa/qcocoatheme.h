@@ -46,26 +46,26 @@ operator|~
 name|QCocoaTheme
 argument_list|()
 block|;
-name|virtual
 name|QPlatformMenuItem
 operator|*
 name|createPlatformMenuItem
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPlatformMenu
 operator|*
 name|createPlatformMenu
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPlatformMenuBar
 operator|*
 name|createPlatformMenuBar
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -75,6 +75,7 @@ operator|*
 name|createPlatformSystemTrayIcon
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
@@ -84,6 +85,7 @@ argument_list|(
 argument|DialogType dialogType
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformDialogHelper
 operator|*
@@ -92,6 +94,7 @@ argument_list|(
 argument|DialogType dialogType
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|const
 name|QPalette
@@ -101,6 +104,7 @@ argument_list|(
 argument|Palette type = SystemPalette
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|const
 name|QFont
@@ -110,6 +114,7 @@ argument_list|(
 argument|Font type = SystemFont
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmap
 name|standardPixmap
@@ -119,6 +124,7 @@ argument_list|,
 argument|const QSizeF&size
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPixmap
 name|fileIconPixmap
@@ -131,6 +137,7 @@ argument|QPlatformTheme::IconOptions options =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|themeHint
@@ -138,6 +145,7 @@ argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QString
 name|standardButtonText

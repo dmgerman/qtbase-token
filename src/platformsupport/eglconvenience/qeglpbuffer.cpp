@@ -62,14 +62,52 @@ argument_list|(
 name|EGL_NO_SURFACE
 argument_list|)
 block|{
-if|if
-condition|(
+name|bool
+name|hasSurfaceless
+init|=
 name|q_hasEglExtension
 argument_list|(
 name|display
 argument_list|,
 literal|"EGL_KHR_surfaceless_context"
 argument_list|)
+decl_stmt|;
+comment|// Disable surfaceless contexts on Mesa for now. As of 10.6.0 and Intel at least, some
+comment|// operations (glReadPixels) are unable to work without a surface since they at some
+comment|// point temporarily unbind the current FBO and then later blow up in some seemingly
+comment|// safe operations, like setting the viewport, that apparently need access to the
+comment|// read/draw surface in the Intel backend.
+specifier|const
+name|char
+modifier|*
+name|vendor
+init|=
+name|eglQueryString
+argument_list|(
+name|display
+argument_list|,
+name|EGL_VENDOR
+argument_list|)
+decl_stmt|;
+comment|// hard to check for GL_ strings here, so blacklist all Mesa
+if|if
+condition|(
+name|vendor
+operator|&&
+name|strstr
+argument_list|(
+name|vendor
+argument_list|,
+literal|"Mesa"
+argument_list|)
+condition|)
+name|hasSurfaceless
+operator|=
+literal|false
+expr_stmt|;
+if|if
+condition|(
+name|hasSurfaceless
 condition|)
 return|return;
 name|EGLConfig

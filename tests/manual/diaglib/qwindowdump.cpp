@@ -652,6 +652,27 @@ name|str
 operator|<<
 literal|"[exposed] "
 expr_stmt|;
+if|if
+condition|(
+specifier|const
+name|Qt
+operator|::
+name|WindowState
+name|state
+init|=
+name|w
+operator|->
+name|windowState
+argument_list|()
+condition|)
+name|str
+operator|<<
+literal|"windowState="
+operator|<<
+name|state
+operator|<<
+literal|' '
+expr_stmt|;
 name|formatRect
 argument_list|(
 name|str

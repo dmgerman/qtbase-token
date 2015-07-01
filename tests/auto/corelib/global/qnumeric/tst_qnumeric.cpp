@@ -504,20 +504,6 @@ argument_list|,
 literal|0.0
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_CC_INTEL
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"ICC optimizes zero * anything to zero"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|qIsNaN
@@ -528,20 +514,6 @@ name|nan
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_CC_INTEL
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"ICC optimizes zero * anything to zero"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|qIsNaN

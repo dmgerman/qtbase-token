@@ -16,7 +16,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QAccessibleBridge     \brief The QAccessibleBridge class is the base class for     accessibility back-ends.     \internal      \ingroup accessibility     \inmodule QtWidgets      Qt supports Microsoft Active Accessibility (MSAA), Mac OS X     Accessibility, and the Unix/X11 AT-SPI standard. By subclassing     QAccessibleBridge, you can support other backends than the     predefined ones.      Currently, custom bridges are only supported on Unix. We might     add support for them on other platforms as well if there is     enough demand.      \sa QAccessible, QAccessibleBridgePlugin */
+comment|/*!     \class QAccessibleBridge     \brief The QAccessibleBridge class is the base class for     accessibility back-ends.     \internal      \ingroup accessibility     \inmodule QtWidgets      Qt supports Microsoft Active Accessibility (MSAA), OS X     Accessibility, and the Unix/X11 AT-SPI standard. By subclassing     QAccessibleBridge, you can support other backends than the     predefined ones.      Currently, custom bridges are only supported on Unix. We might     add support for them on other platforms as well if there is     enough demand.      \sa QAccessible, QAccessibleBridgePlugin */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessibleBridge::~QAccessibleBridge()      Destroys the accessibility bridge object. */

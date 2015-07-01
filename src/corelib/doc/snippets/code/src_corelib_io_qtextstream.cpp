@@ -80,7 +80,7 @@ while|while
 condition|(
 name|stream
 operator|.
-name|readLine
+name|readLineInto
 argument_list|(
 operator|&
 name|line

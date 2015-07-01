@@ -1125,6 +1125,11 @@ argument_list|(
 name|oldOwner
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 comment|//qDebug()<< "QDBusAbstractInterfacePrivate serviceOwnerChanged"<< name<< oldOwner<< newOwner;
 if|if
 condition|(

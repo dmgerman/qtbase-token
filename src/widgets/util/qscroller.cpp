@@ -2070,7 +2070,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the pixel per meter metric for the scrolled widget.      The value is reported for both the x and y axis separately by using a QPointF.      \note Please note that this value should be physically correct. The actual DPI settings     that Qt returns for the display may be reported wrongly on purpose by the underlying     windowing system, for example on Mac OS X. */
+comment|/*!     Returns the pixel per meter metric for the scrolled widget.      The value is reported for both the x and y axis separately by using a QPointF.      \note Please note that this value should be physically correct. The actual DPI settings     that Qt returns for the display may be reported wrongly on purpose by the underlying     windowing system, for example on OS X. */
 end_comment
 begin_function
 DECL|function|pixelPerMeter

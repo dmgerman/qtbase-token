@@ -26,7 +26,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QPageSetupDialog      \brief The QPageSetupDialog class provides a configuration dialog     for the page-related options on a printer.      \ingroup standard-dialogs     \ingroup printing     \inmodule QtPrintSupport      On Windows and Mac OS X the page setup dialog is implemented using     the native page setup dialogs.      Note that on Windows and Mac OS X custom paper sizes won't be     reflected in the native page setup dialogs. Additionally, custom     page margins set on a QPrinter won't show in the native Mac OS X     page setup dialog.      \sa QPrinter, QPrintDialog */
+comment|/*!     \class QPageSetupDialog      \brief The QPageSetupDialog class provides a configuration dialog     for the page-related options on a printer.      \ingroup standard-dialogs     \ingroup printing     \inmodule QtPrintSupport      On Windows and OS X the page setup dialog is implemented using     the native page setup dialogs.      Note that on Windows and OS X custom paper sizes won't be     reflected in the native page setup dialogs. Additionally, custom     page margins set on a QPrinter won't show in the native OS X     page setup dialog.      \sa QPrinter, QPrintDialog */
 end_comment
 begin_comment
 comment|/*!     \fn QPageSetupDialog::QPageSetupDialog(QPrinter *printer, QWidget *parent)      Constructs a page setup dialog that configures \a printer with \a     parent as the parent widget. */

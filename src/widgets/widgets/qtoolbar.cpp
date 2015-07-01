@@ -1041,7 +1041,7 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_OSX
-comment|// When using the unified toolbar on Mac OS X, the user can click and
+comment|// When using the unified toolbar on OS X, the user can click and
 comment|// drag between toolbar contents to move the window. Make this work by
 comment|// implementing the standard mouse-dragging code and then call
 comment|// window->move() in mouseMoveEvent below.

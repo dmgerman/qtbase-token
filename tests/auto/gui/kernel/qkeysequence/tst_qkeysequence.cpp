@@ -2810,7 +2810,7 @@ directive|ifdef
 name|Q_OS_MAC
 name|QSKIP
 argument_list|(
-literal|"Test not applicable to Mac OS X"
+literal|"Test not applicable to OS X"
 argument_list|)
 expr_stmt|;
 endif|#

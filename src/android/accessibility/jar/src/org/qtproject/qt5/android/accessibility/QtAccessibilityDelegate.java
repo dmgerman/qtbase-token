@@ -389,14 +389,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Enable Qt Accessibility so that notifications are enabled
-name|QtNativeAccessibility
-operator|.
-name|setActive
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 block|}
 DECL|class|AccessibilityManagerListener
 specifier|private
@@ -421,22 +413,6 @@ block|{
 if|if
 condition|(
 name|enabled
-condition|)
-block|{
-comment|// The accessibility code depends on android API level 16, so dynamically resolve it
-if|if
-condition|(
-name|android
-operator|.
-name|os
-operator|.
-name|Build
-operator|.
-name|VERSION
-operator|.
-name|SDK_INT
-operator|>=
-literal|16
 condition|)
 block|{
 try|try
@@ -561,7 +537,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 else|else
 block|{
 if|if
@@ -584,6 +559,13 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+name|QtNativeAccessibility
+operator|.
+name|setActive
+argument_list|(
+name|enabled
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@

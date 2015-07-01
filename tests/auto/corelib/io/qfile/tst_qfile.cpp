@@ -12548,7 +12548,7 @@ operator|.
 name|readAll
 argument_list|()
 expr_stmt|;
-comment|// this used to only fail on FreeBSD (and Mac OS X)
+comment|// this used to only fail on FreeBSD (and OS X)
 name|QVERIFY
 argument_list|(
 name|f

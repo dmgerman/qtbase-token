@@ -1543,6 +1543,20 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
 begin_comment
 comment|/*! \obsolete      Returns the width of the character at position \a pos in the     string \a text.      The whole string is needed, as the glyph drawn may change     depending on the context (the letter before and after the current     one) for some languages (e.g. Arabic).      This function also takes non spacing marks and ligatures into     account. */
 end_comment
@@ -1834,6 +1848,10 @@ name|width
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns the bounding rectangle of the characters in the string     specified by \a text. The bounding rectangle always covers at least     the set of pixels the text would cover if drawn at (0, 0).      Note that the bounding rectangle may extend to the left of (0, 0),     e.g. for italicized fonts, and that the width of the returned     rectangle might be different than what the width() method returns.      If you want to know the advance width of the string (to lay out     a set of strings next to each other), use width() instead.      Newline characters are processed as normal characters, \e not as     linebreaks.      The height of the bounding rectangle is at least as large as the     value returned by height().      \sa width(), height(), QPainter::boundingRect(), tightBoundingRect() */
 end_comment

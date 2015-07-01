@@ -851,6 +851,80 @@ argument_list|)
 expr_stmt|;
 comment|// returns "Hellof %2"
 comment|//! [13]
+comment|//! [97]
+name|str
+operator|=
+literal|"%1%3%2"
+expr_stmt|;
+name|str
+operator|.
+name|arg
+argument_list|(
+literal|"Hello"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+literal|20
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+literal|50
+argument_list|)
+expr_stmt|;
+comment|// returns "Hello500"
+name|str
+operator|=
+literal|"%1%2%3"
+expr_stmt|;
+name|str
+operator|.
+name|arg
+argument_list|(
+literal|"Hello"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+literal|50
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+literal|20
+argument_list|)
+expr_stmt|;
+comment|// returns "Hello5020"
+comment|//! [97]
+comment|//! [98]
+name|str
+operator|=
+literal|"%1%2%3"
+expr_stmt|;
+name|str
+operator|.
+name|arg
+argument_list|(
+literal|"Hello"
+argument_list|,
+name|QString
+operator|::
+name|number
+argument_list|(
+literal|20
+argument_list|)
+argument_list|,
+name|QString
+operator|::
+name|number
+argument_list|(
+literal|50
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// returns "Hello5020"
+comment|//! [98]
 comment|//! [14]
 name|str
 operator|=

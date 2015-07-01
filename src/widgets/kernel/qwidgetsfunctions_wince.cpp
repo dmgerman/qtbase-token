@@ -104,22 +104,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|SPI_GETPLATFORMTYPE
-end_ifndef
-begin_define
-DECL|macro|SPI_GETPLATFORMTYPE
-define|#
-directive|define
-name|SPI_GETPLATFORMTYPE
-value|257
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// Internal Qt -----------------------------------------------------
 end_comment
@@ -144,7 +128,7 @@ if|if
 condition|(
 name|SystemParametersInfo
 argument_list|(
-name|SPI_GETPLATFORMTYPE
+name|SPI_GETPLATFORMNAME
 argument_list|,
 sizeof|sizeof
 argument_list|(

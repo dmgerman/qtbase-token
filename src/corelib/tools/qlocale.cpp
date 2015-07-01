@@ -15248,7 +15248,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Returns an ordered list of locale names for translation purposes in     preference order (like "en", "en-US", "en-Latn-US").      The return value represents locale names that the user expects to see the     UI translation in.      Most like you do not need to use this function directly, but just pass the     QLocale object to the QTranslator::load() function.      The first item in the list is the most preferred one.      \sa QTranslator, bcp47Name() */
+comment|/*!     \since 4.8      Returns an ordered list of locale names for translation purposes in     preference order (like "en-Latn-US", "en-US", "en").      The return value represents locale names that the user expects to see the     UI translation in.      Most like you do not need to use this function directly, but just pass the     QLocale object to the QTranslator::load() function.      The first item in the list is the most preferred one.      \sa QTranslator, bcp47Name() */
 end_comment
 begin_function
 DECL|function|uiLanguages

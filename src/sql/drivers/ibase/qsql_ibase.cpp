@@ -1259,6 +1259,11 @@ parameter_list|)
 block|{
 name|QTime
 name|t
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
 decl_stmt|;
 comment|// have to demangle the structure ourselves because isc_decode_time
 comment|// strips the msecs

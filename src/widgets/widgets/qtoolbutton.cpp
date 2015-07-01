@@ -3651,7 +3651,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \property QToolButton::autoRaise     \brief whether auto-raising is enabled or not.      The default is disabled (i.e. false).      This property is currently ignored on Mac OS X when using QMacStyle. */
+comment|/*!     \property QToolButton::autoRaise     \brief whether auto-raising is enabled or not.      The default is disabled (i.e. false).      This property is currently ignored on OS X when using QMacStyle. */
 end_comment
 begin_function
 DECL|function|setAutoRaise

@@ -1273,6 +1273,15 @@ literal|"/include/winrt"
 argument_list|)
 expr_stmt|;
 block|}
+name|binDirs
+operator|<<
+name|vcInstallDir
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"/bin"
+argument_list|)
+expr_stmt|;
 comment|// Inherit PATH
 name|binDirs
 operator|<<

@@ -78,7 +78,6 @@ operator|=
 literal|0
 argument_list|)
 block|;
-name|virtual
 operator|~
 name|QPageSetupDialog
 argument_list|()
@@ -94,16 +93,15 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-name|virtual
 name|void
 name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
-name|virtual
 name|int
 name|exec
 argument_list|()
