@@ -216,39 +216,6 @@ argument|T source
 argument_list|)
 expr_stmt|;
 end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__has_builtin
-end_ifdef
-begin_define
-DECL|macro|QT_HAS_BUILTIN
-define|#
-directive|define
-name|QT_HAS_BUILTIN
-parameter_list|(
-name|x
-parameter_list|)
-value|__has_builtin(x)
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|QT_HAS_BUILTIN
-define|#
-directive|define
-name|QT_HAS_BUILTIN
-parameter_list|(
-name|x
-parameter_list|)
-value|0
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// GCC 4.3 implemented all the intrinsics, but the 16-bit one only got implemented in 4.8;
 end_comment
@@ -709,12 +676,6 @@ end_endif
 begin_comment
 comment|// GCC& Clang intrinsics
 end_comment
-begin_undef
-DECL|macro|QT_HAS_BUILTIN
-undef|#
-directive|undef
-name|QT_HAS_BUILTIN
-end_undef
 begin_comment
 comment|// signed specializations
 end_comment
