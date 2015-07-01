@@ -1736,7 +1736,9 @@ condition|)
 block|{
 foreach|foreach
 control|(
+specifier|const
 name|RulePointer
+modifier|&
 name|rule
 decl|,
 name|_M_grammar
@@ -1989,7 +1991,9 @@ condition|)
 continue|continue;
 foreach|foreach
 control|(
+specifier|const
 name|RulePointer
+modifier|&
 name|rule
 decl|,
 name|_M_grammar
@@ -3139,7 +3143,9 @@ condition|)
 continue|continue;
 foreach|foreach
 control|(
+specifier|const
 name|RulePointer
+modifier|&
 name|rule
 decl|,
 name|_M_grammar
@@ -3729,7 +3735,9 @@ control|)
 block|{
 foreach|foreach
 control|(
+specifier|const
 name|Lookback
+modifier|&
 name|lookback
 decl|,
 name|lookbacks

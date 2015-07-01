@@ -353,7 +353,9 @@ literal|false
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|Name
+modifier|&
 name|la
 decl|,
 name|aut

@@ -12396,7 +12396,9 @@ argument_list|)
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QUrl
+modifier|&
 name|url
 decl|,
 name|options

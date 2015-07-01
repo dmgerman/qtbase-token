@@ -435,7 +435,9 @@ name|i
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|m
 decl|,
 name|t
@@ -6007,7 +6009,9 @@ argument_list|()
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|s
 decl|,
 name|keys

@@ -726,7 +726,9 @@ argument_list|)
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|UncompressedRow
+modifier|&
 name|row
 decl|,
 name|sortedTable

@@ -577,7 +577,9 @@ name|q
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|Name
+modifier|&
 name|s
 decl|,
 name|lookaheads
@@ -2700,7 +2702,9 @@ argument_list|)
 expr_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|Name
+modifier|&
 name|n
 decl|,
 name|rule

@@ -347,7 +347,9 @@ condition|)
 block|{
 foreach|foreach
 control|(
+specifier|const
 name|ObjectPathProperties
+modifier|&
 name|modem
 decl|,
 name|reply
@@ -1156,7 +1158,9 @@ condition|)
 block|{
 foreach|foreach
 control|(
+specifier|const
 name|ObjectPathProperties
+modifier|&
 name|context
 decl|,
 name|reply

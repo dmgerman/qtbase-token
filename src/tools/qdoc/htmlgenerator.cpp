@@ -26336,7 +26336,9 @@ literal|false
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|tag
 decl|,
 name|tags

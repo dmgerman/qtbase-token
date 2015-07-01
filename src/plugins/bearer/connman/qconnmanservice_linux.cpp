@@ -801,9 +801,6 @@ modifier|&
 name|removed
 parameter_list|)
 block|{
-name|ConnmanMap
-name|connmanobj
-decl_stmt|;
 name|servicesList
 operator|.
 name|clear
@@ -812,7 +809,7 @@ expr_stmt|;
 comment|//connman list changes order
 name|Q_FOREACH
 argument_list|(
-argument|connmanobj
+argument|const ConnmanMap&connmanobj
 argument_list|,
 argument|changed
 argument_list|)
@@ -1030,7 +1027,7 @@ condition|)
 block|{
 name|Q_FOREACH
 argument_list|(
-argument|ConnmanMap map
+argument|const ConnmanMap&map
 argument_list|,
 argument|reply.value()
 argument_list|)
@@ -1120,7 +1117,7 @@ condition|)
 block|{
 name|Q_FOREACH
 argument_list|(
-argument|ConnmanMap map
+argument|const ConnmanMap&map
 argument_list|,
 argument|reply.value()
 argument_list|)
