@@ -156,11 +156,9 @@ block|}
 block|;
 name|QInputDialog
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|)
 block|;
 operator|~
@@ -453,11 +451,9 @@ argument|QLineEdit::EchoMode echo = QLineEdit::Normal
 argument_list|,
 argument|const QString&text = QString()
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|,
 argument|Qt::InputMethodHints inputMethodHints = Qt::ImhNone
 argument_list|)
@@ -474,11 +470,9 @@ argument|const QString&label
 argument_list|,
 argument|const QString&text = QString()
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|,
 argument|Qt::InputMethodHints inputMethodHints = Qt::ImhNone
 argument_list|)
@@ -500,11 +494,9 @@ literal|0
 argument_list|,
 argument|bool editable = true
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|,
 argument|Qt::InputMethodHints inputMethodHints = Qt::ImhNone
 argument_list|)
@@ -531,11 +523,9 @@ argument_list|,
 argument|int step =
 literal|1
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|)
 block|;
 specifier|static
@@ -560,11 +550,9 @@ argument_list|,
 argument|int decimals =
 literal|1
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|)
 block|;
 if|#
@@ -599,11 +587,9 @@ argument_list|,
 argument|int step =
 literal|1
 argument_list|,
-argument|bool *ok =
-literal|0
+argument|bool *ok = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|)
 block|{
 return|return

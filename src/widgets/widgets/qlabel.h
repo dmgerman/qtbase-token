@@ -87,11 +87,9 @@ operator|:
 name|explicit
 name|QLabel
 argument_list|(
-argument|QWidget *parent=
-literal|0
+argument|QWidget *parent=Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags f=
-literal|0
+argument|Qt::WindowFlags f=Qt::WindowFlags()
 argument_list|)
 block|;
 name|explicit
@@ -99,11 +97,9 @@ name|QLabel
 argument_list|(
 argument|const QString&text
 argument_list|,
-argument|QWidget *parent=
-literal|0
+argument|QWidget *parent=Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags f=
-literal|0
+argument|Qt::WindowFlags f=Qt::WindowFlags()
 argument_list|)
 block|;
 operator|~

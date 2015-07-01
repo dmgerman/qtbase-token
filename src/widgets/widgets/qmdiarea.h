@@ -186,8 +186,7 @@ name|addSubWindow
 argument_list|(
 argument|QWidget *widget
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|)
 block|;
 name|void

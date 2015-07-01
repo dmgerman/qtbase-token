@@ -260,11 +260,9 @@ name|public
 range|:
 name|QGraphicsWidget
 argument_list|(
-argument|QGraphicsItem *parent =
-literal|0
+argument|QGraphicsItem *parent = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags wFlags =
-literal|0
+argument|Qt::WindowFlags wFlags = Qt::WindowFlags()
 argument_list|)
 decl_stmt|;
 operator|~
@@ -1137,8 +1135,7 @@ argument|QGraphicsWidgetPrivate&
 argument_list|,
 argument|QGraphicsItem *parent
 argument_list|,
-argument|Qt::WindowFlags wFlags =
-literal|0
+argument|Qt::WindowFlags wFlags = Qt::WindowFlags()
 argument_list|)
 empty_stmt|;
 name|private

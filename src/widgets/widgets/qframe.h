@@ -69,11 +69,9 @@ operator|:
 name|explicit
 name|QFrame
 argument_list|(
-argument|QWidget* parent =
-literal|0
+argument|QWidget* parent = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags f =
-literal|0
+argument|Qt::WindowFlags f = Qt::WindowFlags()
 argument_list|)
 block|;
 operator|~
@@ -274,11 +272,9 @@ name|QFrame
 argument_list|(
 argument|QFramePrivate&dd
 argument_list|,
-argument|QWidget* parent =
-literal|0
+argument|QWidget* parent = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags f =
-literal|0
+argument|Qt::WindowFlags f = Qt::WindowFlags()
 argument_list|)
 block|;
 name|void

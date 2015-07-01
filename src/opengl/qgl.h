@@ -1428,14 +1428,11 @@ operator|:
 name|explicit
 name|QGLWidget
 argument_list|(
-argument|QWidget* parent=
-literal|0
+argument|QWidget* parent=Q_NULLPTR
 argument_list|,
-argument|const QGLWidget* shareWidget =
-literal|0
+argument|const QGLWidget* shareWidget = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags f=
-literal|0
+argument|Qt::WindowFlags f=Qt::WindowFlags()
 argument_list|)
 block|;
 name|explicit
@@ -1443,14 +1440,11 @@ name|QGLWidget
 argument_list|(
 argument|QGLContext *context
 argument_list|,
-argument|QWidget* parent=
-literal|0
+argument|QWidget* parent=Q_NULLPTR
 argument_list|,
-argument|const QGLWidget* shareWidget =
-literal|0
+argument|const QGLWidget* shareWidget = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags f=
-literal|0
+argument|Qt::WindowFlags f=Qt::WindowFlags()
 argument_list|)
 block|;
 name|explicit
@@ -1458,14 +1452,11 @@ name|QGLWidget
 argument_list|(
 argument|const QGLFormat& format
 argument_list|,
-argument|QWidget* parent=
-literal|0
+argument|QWidget* parent=Q_NULLPTR
 argument_list|,
-argument|const QGLWidget* shareWidget =
-literal|0
+argument|const QGLWidget* shareWidget = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags f=
-literal|0
+argument|Qt::WindowFlags f=Qt::WindowFlags()
 argument_list|)
 block|;
 operator|~
@@ -1812,14 +1803,11 @@ argument|QGLWidgetPrivate&dd
 argument_list|,
 argument|const QGLFormat&format = QGLFormat()
 argument_list|,
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
-argument|const QGLWidget* shareWidget =
-literal|0
+argument|const QGLWidget* shareWidget = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags f =
-literal|0
+argument|Qt::WindowFlags f = Qt::WindowFlags()
 argument_list|)
 block|;
 name|private

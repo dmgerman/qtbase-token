@@ -49,8 +49,7 @@ name|QSplashScreen
 argument_list|(
 argument|const QPixmap&pixmap = QPixmap()
 argument_list|,
-argument|Qt::WindowFlags f =
-literal|0
+argument|Qt::WindowFlags f = Qt::WindowFlags()
 argument_list|)
 block|;
 name|QSplashScreen
@@ -59,8 +58,7 @@ argument|QWidget *parent
 argument_list|,
 argument|const QPixmap&pixmap = QPixmap()
 argument_list|,
-argument|Qt::WindowFlags f =
-literal|0
+argument|Qt::WindowFlags f = Qt::WindowFlags()
 argument_list|)
 block|;
 name|virtual

@@ -45,11 +45,9 @@ name|public
 operator|:
 name|QGraphicsProxyWidget
 argument_list|(
-argument|QGraphicsItem *parent =
-literal|0
+argument|QGraphicsItem *parent = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags wFlags =
-literal|0
+argument|Qt::WindowFlags wFlags = Qt::WindowFlags()
 argument_list|)
 block|;
 operator|~

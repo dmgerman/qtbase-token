@@ -177,11 +177,9 @@ argument_list|)
 name|explicit
 name|QMainWindow
 argument_list|(
-argument|QWidget *parent =
-literal|0
+argument|QWidget *parent = Q_NULLPTR
 argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
+argument|Qt::WindowFlags flags = Qt::WindowFlags()
 argument_list|)
 block|;
 operator|~

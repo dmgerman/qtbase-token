@@ -1120,8 +1120,7 @@ name|addWidget
 argument_list|(
 argument|QWidget *widget
 argument_list|,
-argument|Qt::WindowFlags wFlags =
-literal|0
+argument|Qt::WindowFlags wFlags = Qt::WindowFlags()
 argument_list|)
 block|;
 specifier|inline
