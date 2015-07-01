@@ -6124,19 +6124,18 @@ condition|)
 block|{
 comment|// just print the milliseconds since the elapsed timer reference
 comment|// like the Linux kernel does
-name|pattern
-operator|->
-name|timer
+name|QElapsedTimer
+name|now
+decl_stmt|;
+name|now
 operator|.
-name|elapsed
+name|start
 argument_list|()
 expr_stmt|;
 name|uint
 name|ms
 init|=
-name|pattern
-operator|->
-name|timer
+name|now
 operator|.
 name|msecsSinceReference
 argument_list|()
