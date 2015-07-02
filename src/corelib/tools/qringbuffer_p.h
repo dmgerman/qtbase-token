@@ -92,15 +92,7 @@ name|bufferSize
 argument_list|(
 literal|0
 argument_list|)
-block|{
-name|buffers
-operator|.
-name|append
-argument_list|(
-name|QByteArray
-argument_list|()
-argument_list|)
-block|;     }
+block|{ }
 specifier|inline
 name|qint64
 name|nextDataBlockSize
