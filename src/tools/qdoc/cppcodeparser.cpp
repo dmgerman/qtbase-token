@@ -7355,9 +7355,23 @@ condition|)
 block|{
 if|if
 condition|(
+name|matched_inline
+condition|)
+block|{
+comment|// nothing yet
+block|}
+if|if
+condition|(
 name|body_present
 condition|)
 block|{
+if|if
+condition|(
+name|body_expected
+condition|)
+block|{
+comment|// nothing yet
+block|}
 name|createFunctionNode
 operator|=
 literal|true
@@ -7417,6 +7431,16 @@ name|extra
 operator|.
 name|isAttached
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|matched_friend
+condition|)
+name|access
+operator|=
+name|Node
+operator|::
+name|Public
 expr_stmt|;
 name|func
 operator|->
