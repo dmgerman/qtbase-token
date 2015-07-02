@@ -3062,6 +3062,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isAncestorOf
+argument_list|(
+name|view
+argument_list|)
+condition|)
 operator|delete
 name|view
 expr_stmt|;
