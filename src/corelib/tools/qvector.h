@@ -238,6 +238,7 @@ name|QVector
 operator|<
 name|T
 operator|>
+operator|&
 name|operator
 operator|=
 operator|(
