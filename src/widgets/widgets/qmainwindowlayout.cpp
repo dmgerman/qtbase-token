@@ -11627,10 +11627,7 @@ block|}
 end_function
 begin_function
 DECL|function|hover
-name|QList
-argument_list|<
-name|int
-argument_list|>
+name|void
 name|QMainWindowLayout
 operator|::
 name|hover
@@ -11668,13 +11665,7 @@ name|widgetItem
 operator|==
 literal|0
 condition|)
-return|return
-name|QList
-argument_list|<
-name|int
-argument_list|>
-argument_list|()
-return|;
+return|return;
 name|QWidget
 modifier|*
 name|widget
@@ -11842,9 +11833,7 @@ name|path
 operator|==
 name|currentGapPos
 condition|)
-return|return
-name|currentGapPos
-return|;
+return|return;
 comment|// the gap is already there
 name|currentGapPos
 operator|=
@@ -11871,13 +11860,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-return|return
-name|QList
-argument_list|<
-name|int
-argument_list|>
-argument_list|()
-return|;
+return|return;
 block|}
 name|fixToolBarOrientation
 argument_list|(
@@ -11915,13 +11898,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// not enough space
-return|return
-name|QList
-argument_list|<
-name|int
-argument_list|>
-argument_list|()
-return|;
+return|return;
 block|}
 name|QSize
 name|min
@@ -11969,13 +11946,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-return|return
-name|QList
-argument_list|<
-name|int
-argument_list|>
-argument_list|()
-return|;
+return|return;
 block|}
 name|newState
 operator|.
@@ -12021,9 +11992,6 @@ expr_stmt|;
 name|updateGapIndicator
 argument_list|()
 expr_stmt|;
-return|return
-name|path
-return|;
 block|}
 end_function
 begin_function

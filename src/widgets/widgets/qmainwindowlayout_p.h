@@ -1112,10 +1112,7 @@ name|gapIndicator
 block|;
 endif|#
 directive|endif
-name|QList
-operator|<
-name|int
-operator|>
+name|void
 name|hover
 argument_list|(
 name|QLayoutItem
