@@ -37,6 +37,50 @@ include|#
 directive|include
 file|<qt_windows.h>
 end_include
+begin_comment
+comment|// See "Accessing an Alternate Registry View" at:
+end_comment
+begin_comment
+comment|// http://msdn.microsoft.com/en-us/library/aa384129%28VS.85%29.aspx
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|KEY_WOW64_64KEY
+end_ifndef
+begin_comment
+comment|// Access a 32-bit key from either a 32-bit or 64-bit application.
+end_comment
+begin_define
+DECL|macro|KEY_WOW64_64KEY
+define|#
+directive|define
+name|KEY_WOW64_64KEY
+value|0x0100
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|KEY_WOW64_32KEY
+end_ifndef
+begin_comment
+comment|// Access a 64-bit key from either a 32-bit or 64-bit application.
+end_comment
+begin_define
+DECL|macro|KEY_WOW64_32KEY
+define|#
+directive|define
+name|KEY_WOW64_32KEY
+value|0x0200
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*  Keys are stored in QStrings. If the variable name starts with 'u', this is a "user"     key, ie. "foo/bar/alpha/beta". If the variable name starts with 'r', this is a "registry"     key, ie. "\foo\bar\alpha\beta". */
@@ -492,7 +536,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// Open a key with the specified perms
+comment|// Open a key with the specified "perms".
+end_comment
+begin_comment
+comment|// "access" is to explicitly use the 32- or 64-bit branch.
 end_comment
 begin_function
 DECL|function|openKey
@@ -510,6 +557,11 @@ specifier|const
 name|QString
 modifier|&
 name|rSubKey
+parameter_list|,
+name|REGSAM
+name|access
+init|=
+literal|0
 parameter_list|)
 block|{
 name|HKEY
@@ -540,6 +592,8 @@ argument_list|,
 literal|0
 argument_list|,
 name|perms
+operator||
+name|access
 argument_list|,
 operator|&
 name|resultHandle
@@ -560,7 +614,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// Open a key with the specified perms, create it if it does not exist
+comment|// Open a key with the specified "perms", create it if it does not exist.
+end_comment
+begin_comment
+comment|// "access" is to explicitly use the 32- or 64-bit branch.
 end_comment
 begin_function
 DECL|function|createOrOpenKey
@@ -578,6 +635,11 @@ specifier|const
 name|QString
 modifier|&
 name|rSubKey
+parameter_list|,
+name|REGSAM
+name|access
+init|=
+literal|0
 parameter_list|)
 block|{
 comment|// try to open it
@@ -591,6 +653,8 @@ argument_list|,
 name|perms
 argument_list|,
 name|rSubKey
+argument_list|,
+name|access
 argument_list|)
 decl_stmt|;
 if|if
@@ -630,6 +694,8 @@ argument_list|,
 name|REG_OPTION_NON_VOLATILE
 argument_list|,
 name|perms
+operator||
+name|access
 argument_list|,
 literal|0
 argument_list|,
@@ -656,7 +722,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// Open or create a key in read-write mode if possible, otherwise read-only
+comment|// Open or create a key in read-write mode if possible, otherwise read-only.
+end_comment
+begin_comment
+comment|// "access" is to explicitly use the 32- or 64-bit branch.
 end_comment
 begin_function
 DECL|function|createOrOpenKey
@@ -675,6 +744,11 @@ parameter_list|,
 name|bool
 modifier|*
 name|readOnly
+parameter_list|,
+name|REGSAM
+name|access
+init|=
+literal|0
 parameter_list|)
 block|{
 comment|// try to open or create it read/write
@@ -688,6 +762,8 @@ argument_list|,
 name|registryPermissions
 argument_list|,
 name|rSubKey
+argument_list|,
+name|access
 argument_list|)
 decl_stmt|;
 if|if
@@ -722,6 +798,8 @@ argument_list|,
 name|KEY_READ
 argument_list|,
 name|rSubKey
+argument_list|,
+name|access
 argument_list|)
 expr_stmt|;
 if|if
@@ -1104,6 +1182,11 @@ parameter_list|,
 name|NameSet
 modifier|*
 name|result
+parameter_list|,
+name|REGSAM
+name|access
+init|=
+literal|0
 parameter_list|)
 block|{
 name|HKEY
@@ -1116,6 +1199,8 @@ argument_list|,
 name|KEY_READ
 argument_list|,
 name|rSubKey
+argument_list|,
+name|access
 argument_list|)
 decl_stmt|;
 if|if
@@ -1266,6 +1351,8 @@ argument_list|,
 name|s
 argument_list|,
 name|result
+argument_list|,
+name|access
 argument_list|)
 expr_stmt|;
 block|}
@@ -1279,6 +1366,11 @@ name|deleteChildGroups
 parameter_list|(
 name|HKEY
 name|parentHandle
+parameter_list|,
+name|REGSAM
+name|access
+init|=
+literal|0
 parameter_list|)
 block|{
 name|QStringList
@@ -1332,6 +1424,8 @@ argument_list|,
 name|registryPermissions
 argument_list|,
 name|group
+argument_list|,
+name|access
 argument_list|)
 decl_stmt|;
 if|if
@@ -1344,6 +1438,8 @@ continue|continue;
 name|deleteChildGroups
 argument_list|(
 name|childGroupHandle
+argument_list|,
+name|access
 argument_list|)
 expr_stmt|;
 name|RegCloseKey
@@ -1437,6 +1533,11 @@ name|bool
 name|read_only
 init|=
 literal|true
+parameter_list|,
+name|REGSAM
+name|access
+init|=
+literal|0
 parameter_list|)
 constructor_decl|;
 name|QString
@@ -1482,6 +1583,10 @@ specifier|mutable
 name|bool
 name|m_read_only
 decl_stmt|;
+DECL|member|m_access
+name|REGSAM
+name|m_access
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -1501,6 +1606,9 @@ name|key
 parameter_list|,
 name|bool
 name|read_only
+parameter_list|,
+name|REGSAM
+name|access
 parameter_list|)
 member_init_list|:
 name|m_parent_handle
@@ -1521,6 +1629,11 @@ member_init_list|,
 name|m_read_only
 argument_list|(
 name|read_only
+argument_list|)
+member_init_list|,
+name|m_access
+argument_list|(
+name|access
 argument_list|)
 block|{ }
 end_constructor
@@ -1569,6 +1682,8 @@ argument_list|,
 name|KEY_READ
 argument_list|,
 name|m_key
+argument_list|,
+name|m_access
 argument_list|)
 expr_stmt|;
 else|else
@@ -1582,6 +1697,8 @@ name|m_key
 argument_list|,
 operator|&
 name|m_read_only
+argument_list|,
+name|m_access
 argument_list|)
 expr_stmt|;
 return|return
@@ -1680,12 +1797,22 @@ specifier|const
 name|QString
 modifier|&
 name|application
+parameter_list|,
+name|REGSAM
+name|access
+init|=
+literal|0
 parameter_list|)
 constructor_decl|;
 name|QWinSettingsPrivate
 parameter_list|(
 name|QString
 name|rKey
+parameter_list|,
+name|REGSAM
+name|access
+init|=
+literal|0
 parameter_list|)
 constructor_decl|;
 name|~
@@ -1796,6 +1923,10 @@ DECL|member|deleteWriteHandleOnExit
 name|bool
 name|deleteWriteHandleOnExit
 decl_stmt|;
+DECL|member|access
+name|REGSAM
+name|access
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -1819,6 +1950,9 @@ specifier|const
 name|QString
 modifier|&
 name|application
+parameter_list|,
+name|REGSAM
+name|access
 parameter_list|)
 member_init_list|:
 name|QSettingsPrivate
@@ -1832,6 +1966,11 @@ argument_list|,
 name|organization
 argument_list|,
 name|application
+argument_list|)
+member_init_list|,
+name|access
+argument_list|(
+name|access
 argument_list|)
 block|{
 name|deleteWriteHandleOnExit
@@ -1911,6 +2050,8 @@ name|regList
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|access
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1929,6 +2070,8 @@ name|regList
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|access
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1956,6 +2099,8 @@ name|regList
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|access
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1974,6 +2119,8 @@ name|regList
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|access
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2002,6 +2149,9 @@ name|QWinSettingsPrivate
 parameter_list|(
 name|QString
 name|rPath
+parameter_list|,
+name|REGSAM
+name|access
 parameter_list|)
 member_init_list|:
 name|QSettingsPrivate
@@ -2009,6 +2159,11 @@ argument_list|(
 name|QSettings
 operator|::
 name|NativeFormat
+argument_list|)
+member_init_list|,
+name|access
+argument_list|(
+name|access
 argument_list|)
 block|{
 name|deleteWriteHandleOnExit
@@ -2250,6 +2405,8 @@ name|QString
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|access
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2284,6 +2441,8 @@ literal|1
 argument_list|)
 argument_list|,
 literal|false
+argument_list|,
+name|access
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2337,6 +2496,8 @@ argument_list|,
 name|KEY_READ
 argument_list|,
 name|rSubkeyPath
+argument_list|,
+name|access
 argument_list|)
 decl_stmt|;
 if|if
@@ -3057,6 +3218,8 @@ name|keyPath
 argument_list|(
 name|rKey
 argument_list|)
+argument_list|,
+name|access
 argument_list|)
 decl_stmt|;
 if|if
@@ -3106,6 +3269,8 @@ argument_list|,
 name|registryPermissions
 argument_list|,
 name|rKey
+argument_list|,
+name|access
 argument_list|)
 expr_stmt|;
 if|if
@@ -3118,6 +3283,8 @@ block|{
 name|deleteChildGroups
 argument_list|(
 name|handle
+argument_list|,
+name|access
 argument_list|)
 expr_stmt|;
 if|if
@@ -3411,6 +3578,8 @@ name|keyPath
 argument_list|(
 name|rKey
 argument_list|)
+argument_list|,
+name|access
 argument_list|)
 decl_stmt|;
 if|if
@@ -4087,6 +4256,8 @@ argument_list|,
 name|KEY_READ
 argument_list|,
 name|rKey
+argument_list|,
+name|access
 argument_list|)
 decl_stmt|;
 if|if
@@ -4117,6 +4288,8 @@ argument_list|)
 argument_list|,
 operator|&
 name|keys
+argument_list|,
+name|access
 argument_list|)
 expr_stmt|;
 name|mergeKeySets
@@ -4350,7 +4523,6 @@ name|QSettings
 operator|::
 name|NativeFormat
 condition|)
-block|{
 return|return
 operator|new
 name|QWinSettingsPrivate
@@ -4362,9 +4534,51 @@ argument_list|,
 name|application
 argument_list|)
 return|;
-block|}
+elseif|else
+if|if
+condition|(
+name|format
+operator|==
+name|QSettings
+operator|::
+name|Registry32Format
+condition|)
+return|return
+operator|new
+name|QWinSettingsPrivate
+argument_list|(
+name|scope
+argument_list|,
+name|organization
+argument_list|,
+name|application
+argument_list|,
+name|KEY_WOW64_32KEY
+argument_list|)
+return|;
+elseif|else
+if|if
+condition|(
+name|format
+operator|==
+name|QSettings
+operator|::
+name|Registry64Format
+condition|)
+return|return
+operator|new
+name|QWinSettingsPrivate
+argument_list|(
+name|scope
+argument_list|,
+name|organization
+argument_list|,
+name|application
+argument_list|,
+name|KEY_WOW64_64KEY
+argument_list|)
+return|;
 else|else
-block|{
 return|return
 operator|new
 name|QConfFileSettingsPrivate
@@ -4378,7 +4592,6 @@ argument_list|,
 name|application
 argument_list|)
 return|;
-block|}
 block|}
 end_function
 begin_function
@@ -4408,7 +4621,6 @@ name|QSettings
 operator|::
 name|NativeFormat
 condition|)
-block|{
 return|return
 operator|new
 name|QWinSettingsPrivate
@@ -4416,9 +4628,43 @@ argument_list|(
 name|fileName
 argument_list|)
 return|;
-block|}
+elseif|else
+if|if
+condition|(
+name|format
+operator|==
+name|QSettings
+operator|::
+name|Registry32Format
+condition|)
+return|return
+operator|new
+name|QWinSettingsPrivate
+argument_list|(
+name|fileName
+argument_list|,
+name|KEY_WOW64_32KEY
+argument_list|)
+return|;
+elseif|else
+if|if
+condition|(
+name|format
+operator|==
+name|QSettings
+operator|::
+name|Registry64Format
+condition|)
+return|return
+operator|new
+name|QWinSettingsPrivate
+argument_list|(
+name|fileName
+argument_list|,
+name|KEY_WOW64_64KEY
+argument_list|)
+return|;
 else|else
-block|{
 return|return
 operator|new
 name|QConfFileSettingsPrivate
@@ -4428,7 +4674,6 @@ argument_list|,
 name|format
 argument_list|)
 return|;
-block|}
 block|}
 end_function
 begin_macro

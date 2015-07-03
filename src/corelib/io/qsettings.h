@@ -122,6 +122,15 @@ name|NativeFormat
 block|,
 name|IniFormat
 block|,
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|Registry32Format
+block|,
+name|Registry64Format
+block|,
+endif|#
+directive|endif
 name|InvalidFormat
 operator|=
 literal|16
