@@ -543,9 +543,6 @@ unit|}
 else|#
 directive|else
 end_else
-begin_comment
-comment|// QT_LINKED_LIBDBUS
-end_comment
 begin_function
 unit|static
 DECL|function|qdbus_unloadLibDBus
@@ -572,11 +569,20 @@ end_endif
 begin_comment
 comment|// !QT_LINKED_LIBDBUS
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_LINKED_LIBDBUS
+argument_list|)
+operator|||
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_LIBRARY
-end_ifndef
+argument_list|)
+end_if
 begin_macro
 name|Q_DESTRUCTOR_FUNCTION
 argument_list|(
