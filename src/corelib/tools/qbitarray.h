@@ -82,6 +82,7 @@ label|:
 specifier|inline
 name|QBitArray
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{}
 name|explicit
 name|QBitArray

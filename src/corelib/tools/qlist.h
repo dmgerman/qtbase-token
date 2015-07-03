@@ -733,17 +733,13 @@ directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 end_ifdef
 begin_expr_stmt
-DECL|function|d
 specifier|inline
 name|QList
 argument_list|(
-name|QList
-operator|<
-name|T
-operator|>
-operator|&&
-name|other
+argument|QList<T>&&other
 argument_list|)
+name|Q_DECL_NOTHROW
+DECL|function|d
 operator|:
 name|d
 argument_list|(
@@ -782,6 +778,7 @@ operator|>
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|QList
 name|moved
@@ -821,6 +818,7 @@ operator|>
 operator|&
 name|other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(

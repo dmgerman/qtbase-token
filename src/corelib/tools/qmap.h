@@ -1888,6 +1888,7 @@ begin_expr_stmt
 specifier|inline
 name|QMap
 argument_list|()
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -2047,15 +2048,11 @@ begin_expr_stmt
 specifier|inline
 name|QMap
 argument_list|(
-name|QMap
-operator|<
-name|Key
+argument|QMap<Key
 argument_list|,
-name|T
-operator|>
-operator|&&
-name|other
+argument|T>&&other
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|d
 argument_list|(
@@ -2110,6 +2107,7 @@ operator|>
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|QMap
 name|moved
@@ -2151,6 +2149,7 @@ operator|>
 operator|&
 name|other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -8230,6 +8229,7 @@ name|public
 operator|:
 name|QMultiMap
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{}
 ifdef|#
 directive|ifdef
@@ -8342,7 +8342,6 @@ operator|)
 block|{}
 endif|#
 directive|endif
-specifier|inline
 name|void
 name|swap
 argument_list|(
@@ -8350,6 +8349,7 @@ argument|QMultiMap<Key
 argument_list|,
 argument|T>&other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|QMap
 operator|<

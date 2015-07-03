@@ -56,6 +56,7 @@ operator|:
 specifier|inline
 name|QSet
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{}
 ifdef|#
 directive|ifdef
@@ -135,6 +136,7 @@ operator|>
 operator|&
 name|other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|q_hash
 operator|.

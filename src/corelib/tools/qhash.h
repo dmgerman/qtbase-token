@@ -6126,6 +6126,7 @@ name|public
 operator|:
 name|QMultiHash
 argument_list|()
+name|Q_DECL_NOTHROW
 block|{}
 ifdef|#
 directive|ifdef
@@ -6258,6 +6259,7 @@ name|swap
 argument_list|(
 argument|QMultiHash&other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|QHash
 operator|<
