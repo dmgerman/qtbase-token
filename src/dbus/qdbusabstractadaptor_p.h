@@ -408,6 +408,17 @@ argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QDBusAdaptorConnector
+operator|::
+name|AdaptorData
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 specifier|extern
 name|QDBusAdaptorConnector
