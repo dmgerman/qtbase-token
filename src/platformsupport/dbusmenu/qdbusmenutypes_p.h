@@ -65,7 +65,7 @@ end_decl_stmt
 begin_typedef
 DECL|typedef|QDBusMenuItemList
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|QDBusMenuItem
 operator|>
@@ -134,6 +134,15 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QDBusMenuItem
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 specifier|const
 name|QDBusArgument
 operator|&
@@ -187,6 +196,15 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QDBusMenuItemKeys
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 specifier|const
 name|QDBusArgument
 operator|&
@@ -225,7 +243,7 @@ end_expr_stmt
 begin_typedef
 DECL|typedef|QDBusMenuItemKeysList
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|QDBusMenuItemKeys
 operator|>
@@ -293,7 +311,7 @@ decl_stmt|;
 name|QVariantMap
 name|m_properties
 decl_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QDBusMenuLayoutItem
 operator|>
@@ -304,6 +322,15 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QDBusMenuLayoutItem
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 specifier|const
 name|QDBusArgument
@@ -342,7 +369,7 @@ end_expr_stmt
 begin_typedef
 DECL|typedef|QDBusMenuLayoutItemList
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|QDBusMenuLayoutItem
 operator|>
@@ -372,6 +399,21 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QDBusMenuEvent
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// QDBusVariant is movable, even though it cannot
+end_comment
+begin_comment
+comment|// be marked as such until Qt 6.
+end_comment
 begin_expr_stmt
 specifier|const
 name|QDBusArgument
@@ -411,7 +453,7 @@ end_expr_stmt
 begin_typedef
 DECL|typedef|QDBusMenuEventList
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|QDBusMenuEvent
 operator|>
