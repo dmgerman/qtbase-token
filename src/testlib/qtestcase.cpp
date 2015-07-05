@@ -10229,6 +10229,22 @@ end_macro
 begin_macro
 name|TO_STRING_IMPL
 argument_list|(
+argument|signed char
+argument_list|,
+argument|%hhd
+argument_list|)
+end_macro
+begin_macro
+name|TO_STRING_IMPL
+argument_list|(
+argument|unsigned char
+argument_list|,
+argument|%hhu
+argument_list|)
+end_macro
+begin_macro
+name|TO_STRING_IMPL
+argument_list|(
 argument|float
 argument_list|,
 argument|%g

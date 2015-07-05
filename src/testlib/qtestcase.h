@@ -1420,6 +1420,18 @@ end_macro
 begin_macro
 name|QTEST_COMPARE_DECL
 argument_list|(
+argument|signed char
+argument_list|)
+end_macro
+begin_macro
+name|QTEST_COMPARE_DECL
+argument_list|(
+argument|unsigned char
+argument_list|)
+end_macro
+begin_macro
+name|QTEST_COMPARE_DECL
+argument_list|(
 argument|bool
 argument_list|)
 end_macro
