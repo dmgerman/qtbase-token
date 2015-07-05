@@ -755,6 +755,17 @@ decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
 unit|};
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QTimeZonePrivate
+operator|::
+name|Data
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|template
 operator|<
 operator|>

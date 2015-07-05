@@ -1106,6 +1106,17 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QDateTimeParser
+operator|::
+name|SectionNode
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|Q_CORE_EXPORT
 name|bool
 name|operator
