@@ -164,10 +164,29 @@ name|properties
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_function_decl
+name|QT_BEGIN_NAMESPACE
+name|Q_DECLARE_TYPEINFO
+parameter_list|(
+name|ObjectPathProperties
+parameter_list|,
+name|Q_MOVABLE_TYPE
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|// QDBusObjectPath is movable, but cannot be
+end_comment
+begin_comment
+comment|// marked as such until Qt 6
+end_comment
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_typedef
 DECL|typedef|PathPropertiesList
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|ObjectPathProperties
 operator|>
