@@ -7859,7 +7859,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the access specification of this method (private,     protected, or public).      Signals are always protected, meaning that you can only emit them     from the class or from a subclass.      \sa methodType() */
+comment|/*!     Returns the access specification of this method (private,     protected, or public).      \note Signals are always public, but you should regard that as an     implementation detail. It is almost always a bad idea to emit a signal from     outside its class.      \sa methodType() */
 end_comment
 begin_function
 DECL|function|access
