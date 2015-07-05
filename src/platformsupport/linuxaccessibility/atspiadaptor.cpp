@@ -7184,10 +7184,7 @@ argument_list|)
 block|{
 comment|// FIXME: this loop seems a bit strange... "related" always have one item when we check.
 comment|//And why is it a list, when it always have one item? And it seems to assume that the QAccessible::Relation enum maps directly to AtSpi
-name|QList
-argument_list|<
-name|QSpiObjectReference
-argument_list|>
+name|QSpiObjectReferenceArray
 name|related
 decl_stmt|;
 name|QDBusObjectPath

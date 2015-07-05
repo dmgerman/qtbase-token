@@ -128,14 +128,9 @@ operator|::
 name|GetItems
 parameter_list|()
 block|{
-name|QList
-argument_list|<
-name|QSpiAccessibleCacheItem
-argument_list|>
-name|cacheArray
-decl_stmt|;
 return|return
-name|cacheArray
+name|QSpiAccessibleCacheArray
+argument_list|()
 return|;
 block|}
 end_function
