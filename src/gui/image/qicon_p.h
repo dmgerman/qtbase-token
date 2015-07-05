@@ -271,6 +271,15 @@ block|}
 struct|;
 end_struct
 begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QPixmapIconEngineEntry
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 DECL|function|QPixmapIconEngineEntry
 specifier|inline
 name|QPixmapIconEngineEntry

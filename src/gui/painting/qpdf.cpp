@@ -10279,6 +10279,15 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QGradientBound
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_function
 DECL|function|createShadingFunction
 name|int

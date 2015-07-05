@@ -2821,6 +2821,12 @@ name|QVariant
 name|value
 block|;     }
 block|;
+name|friend
+name|QTypeInfo
+operator|<
+name|QueryPair
+operator|>
+block|;
 name|QVector
 operator|<
 name|QueryPair
@@ -2829,6 +2835,17 @@ name|m_values
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QInputMethodQueryEvent
+operator|::
+name|QueryPair
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

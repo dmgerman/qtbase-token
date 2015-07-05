@@ -1414,6 +1414,17 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QFontEngine
+operator|::
+name|KernPair
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
