@@ -5962,6 +5962,8 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+comment|// compiler-generated copy/move ctors/assignment operators are fine!
+comment|// compiler-generated destructor is fine!
 name|QMultiHash
 argument_list|(
 specifier|const

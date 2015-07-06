@@ -36,15 +36,7 @@ operator|>
 block|{
 name|public
 operator|:
-specifier|inline
-name|QStack
-argument_list|()
-block|{}
-specifier|inline
-operator|~
-name|QStack
-argument_list|()
-block|{}
+comment|// compiler-generated special member functions are fine!
 specifier|inline
 name|void
 name|swap
