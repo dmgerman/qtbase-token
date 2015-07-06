@@ -1327,6 +1327,12 @@ name|defined
 argument_list|(
 name|SO_REUSEPORT
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_LINUX
+argument_list|)
 if|if
 condition|(
 name|opt
