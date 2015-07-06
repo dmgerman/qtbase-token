@@ -10174,6 +10174,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|cn
+operator|->
+name|noAutoList
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|cn
 operator|->
 name|isGroup
@@ -10216,6 +10225,7 @@ name|members
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|sections
 operator|=
 name|marker

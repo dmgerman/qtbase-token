@@ -1387,6 +1387,13 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+name|virtual
+name|void
+name|setNoAutoList
+parameter_list|(
+name|bool
+parameter_list|)
+block|{ }
 name|bool
 name|isIndexNode
 argument_list|()
@@ -6801,6 +6808,11 @@ argument_list|)
 block|,
 name|seen_
 argument_list|(
+name|false
+argument_list|)
+block|,
+name|noAutoList_
+argument_list|(
 argument|false
 argument_list|)
 block|{
@@ -7130,10 +7142,34 @@ name|seen_
 operator|=
 name|false
 block|; }
+name|bool
+name|noAutoList
+argument_list|()
+specifier|const
+block|{
+return|return
+name|noAutoList_
+return|;
+block|}
+name|virtual
+name|void
+name|setNoAutoList
+argument_list|(
+argument|bool b
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|{
+name|noAutoList_
+operator|=
+name|b
+block|; }
 name|private
 operator|:
 name|bool
 name|seen_
+block|;
+name|bool
+name|noAutoList_
 block|;
 name|QString
 name|title_

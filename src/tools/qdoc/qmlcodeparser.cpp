@@ -114,6 +114,13 @@ name|COMMAND_WRAPPER
 value|Doc::alias("wrapper")
 end_define
 begin_define
+DECL|macro|COMMAND_NOAUTOLIST
+define|#
+directive|define
+name|COMMAND_NOAUTOLIST
+value|Doc::alias("noautolist")
+end_define
+begin_define
 DECL|macro|COMMAND_ABSTRACT
 define|#
 directive|define
@@ -876,6 +883,8 @@ operator|<<
 name|COMMAND_INJSMODULE
 operator|<<
 name|COMMAND_WRAPPER
+operator|<<
+name|COMMAND_NOAUTOLIST
 expr_stmt|;
 block|}
 return|return

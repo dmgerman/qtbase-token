@@ -122,6 +122,13 @@ name|COMMAND_WRAPPER
 value|Doc::alias(QLatin1String("wrapper"))
 end_define
 begin_define
+DECL|macro|COMMAND_NOAUTOLIST
+define|#
+directive|define
+name|COMMAND_NOAUTOLIST
+value|Doc::alias(QLatin1String("noautolist"))
+end_define
+begin_define
 DECL|macro|COMMAND_ABSTRACT
 define|#
 directive|define
