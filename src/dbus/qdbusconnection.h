@@ -225,14 +225,6 @@ literal|0x1000
 comment|// Reserved = 0xff000000
 block|}
 enum|;
-enum|enum
-name|UnregisterMode
-block|{
-name|UnregisterNode
-block|,
-name|UnregisterTree
-block|}
-enum|;
 name|Q_DECLARE_FLAGS
 argument_list|(
 name|RegisterOptions
@@ -240,18 +232,26 @@ argument_list|,
 name|RegisterOption
 argument_list|)
 expr|enum
+name|UnregisterMode
+block|{
+name|UnregisterNode
+block|,
+name|UnregisterTree
+block|}
+expr_stmt|;
+enum|enum
 name|VirtualObjectRegisterOption
 block|{
 name|SingleNode
-operator|=
+init|=
 literal|0x0
 block|,
 name|SubPath
-operator|=
+init|=
 literal|0x1
 comment|// Reserved = 0xff000000
 block|}
-expr_stmt|;
+enum|;
 ifndef|#
 directive|ifndef
 name|Q_QDOC
