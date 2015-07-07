@@ -1050,6 +1050,18 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+comment|// Don't check the version parameter in internal builds.
+comment|// This allows incompatible versions to be loaded, possibly for testing.
+name|Q_UNUSED
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 if|if
 condition|(
 name|version
@@ -1058,9 +1070,15 @@ name|QObjectPrivateVersion
 condition|)
 name|qFatal
 argument_list|(
-literal|"Cannot mix incompatible Qt libraries"
+literal|"Cannot mix incompatible Qt library (version 0x%x) with this library (version 0x%x)"
+argument_list|,
+name|version
+argument_list|,
+name|QObjectPrivateVersion
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|isWidget
 operator|=
 literal|true
