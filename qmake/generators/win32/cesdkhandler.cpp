@@ -136,6 +136,7 @@ name|QString
 modifier|&
 name|val
 parameter_list|)
+specifier|const
 block|{
 return|return
 operator|!
@@ -171,6 +172,7 @@ struct|struct
 name|ValueFromKey
 block|{
 DECL|function|ValueFromKey
+specifier|explicit
 name|ValueFromKey
 parameter_list|(
 specifier|const
@@ -194,6 +196,7 @@ name|QString
 modifier|&
 name|key
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|settings
