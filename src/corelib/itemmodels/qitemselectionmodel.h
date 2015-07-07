@@ -1203,6 +1203,14 @@ name|public
 operator|:
 name|QItemSelection
 argument_list|()
+name|Q_DECL_NOTHROW
+operator|:
+name|QList
+operator|<
+name|QItemSelectionRange
+operator|>
+operator|(
+operator|)
 block|{}
 name|QItemSelection
 argument_list|(
@@ -1217,6 +1225,7 @@ operator|&
 name|bottomRight
 argument_list|)
 block|;
+comment|// reusing QList::swap() here is OK!
 name|void
 name|select
 argument_list|(
@@ -1272,6 +1281,12 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+argument_list|(
+argument|QItemSelection
+argument_list|)
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
