@@ -1455,6 +1455,15 @@ operator|*
 name|m_vfs
 block|; }
 block|;
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QMakeEvaluator
+operator|::
+name|Location
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+block|;
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|QMakeEvaluator::LoadFlags

@@ -86,6 +86,15 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|PropertyContainer
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_constructor
 DECL|function|CeSdkInfo
 name|CeSdkInfo
