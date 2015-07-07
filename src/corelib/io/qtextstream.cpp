@@ -9511,7 +9511,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QTextStream      Calls \l{QTextStream::flush()}{flush()} on \a stream and returns \a stream.      \sa endl(), reset(), {QTextStream manipulators} */
+comment|/*!     \relates QTextStream      Calls QTextStream::flush() on \a stream and returns \a stream.      \sa endl(), reset(), {QTextStream manipulators} */
 end_comment
 begin_function
 DECL|function|flush
