@@ -917,6 +917,12 @@ argument|QDBusConnection::VirtualObjectRegisterOptions
 argument_list|)
 end_macro
 begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QDBusConnection::ConnectionCapabilities
+argument_list|)
+end_macro
+begin_macro
 name|QT_END_NAMESPACE
 end_macro
 begin_endif
