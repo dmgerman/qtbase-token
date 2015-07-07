@@ -4643,6 +4643,7 @@ name|int
 name|type
 parameter_list|,
 name|LPARAM
+name|registerAlias
 parameter_list|)
 block|{
 specifier|const
@@ -4698,7 +4699,7 @@ name|signature
 argument_list|,
 name|type
 argument_list|,
-literal|false
+name|registerAlias
 argument_list|)
 expr_stmt|;
 comment|// keep on enumerating
@@ -4718,6 +4719,9 @@ specifier|const
 name|QString
 modifier|&
 name|familyName
+parameter_list|,
+name|bool
+name|registerAlias
 parameter_list|)
 block|{
 name|qCDebug
@@ -4806,7 +4810,10 @@ name|FONTENUMPROC
 operator|)
 name|storeFont
 argument_list|,
-literal|0
+operator|(
+name|LPARAM
+operator|)
+name|registerAlias
 argument_list|,
 literal|0
 argument_list|)
@@ -4816,6 +4823,28 @@ argument_list|(
 literal|0
 argument_list|,
 name|dummy
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|populateFamily
+name|void
+name|QWindowsFontDatabase
+operator|::
+name|populateFamily
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|familyName
+parameter_list|)
+block|{
+name|populateFamily
+argument_list|(
+name|familyName
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -7368,6 +7397,8 @@ name|at
 argument_list|(
 name|j
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
