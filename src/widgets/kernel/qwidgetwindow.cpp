@@ -5137,6 +5137,15 @@ operator|==
 name|QEvent
 operator|::
 name|TabletRelease
+operator|&&
+name|event
+operator|->
+name|buttons
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|NoButton
 condition|)
 name|qt_tablet_target
 operator|=
