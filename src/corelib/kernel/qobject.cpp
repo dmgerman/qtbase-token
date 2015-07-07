@@ -3110,30 +3110,12 @@ literal|0
 argument_list|)
 condition|)
 block|{
-name|QT_TRY
-block|{
 emit|emit
 name|destroyed
 argument_list|(
 name|this
 argument_list|)
 emit|;
-block|}
-name|QT_CATCH
-argument_list|(
-argument|...
-argument_list|)
-block|{
-comment|// all the signal/slots connections are still in place - if we don't
-comment|// quit now, we will crash pretty soon.
-name|qWarning
-argument_list|(
-literal|"Detected an unexpected exception in ~QObject while emitting destroyed()."
-argument_list|)
-expr_stmt|;
-name|QT_RETHROW
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
