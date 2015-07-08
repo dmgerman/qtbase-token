@@ -1733,7 +1733,7 @@ block|{
 name|XPThemeData
 name|theme
 argument_list|(
-literal|0
+name|widget
 argument_list|,
 name|painter
 argument_list|,
@@ -3858,7 +3858,7 @@ decl_stmt|;
 name|XPThemeData
 name|theme
 argument_list|(
-literal|0
+name|widget
 argument_list|,
 operator|&
 name|pixmapPainter
