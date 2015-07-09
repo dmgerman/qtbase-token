@@ -1194,16 +1194,6 @@ comment|//  Disassembly and instruction-level debugging with GCC and ICC show
 comment|//  that they are doing the right thing. Inverting the arguments in the
 comment|//  instruction does cause a bunch of test failures.
 specifier|const
-name|int
-name|mode
-init|=
-name|_SIDD_UWORD_OPS
-operator||
-name|_SIDD_CMP_RANGES
-operator||
-name|_SIDD_UNIT_MASK
-decl_stmt|;
-specifier|const
 name|__m128i
 name|rangeMatch
 init|=
@@ -1226,7 +1216,11 @@ name|chunk
 argument_list|,
 literal|8
 argument_list|,
-name|mode
+name|_SIDD_UWORD_OPS
+operator||
+name|_SIDD_CMP_RANGES
+operator||
+name|_SIDD_UNIT_MASK
 argument_list|)
 decl_stmt|;
 comment|// replace the non-Latin 1 characters in the chunk with question marks
