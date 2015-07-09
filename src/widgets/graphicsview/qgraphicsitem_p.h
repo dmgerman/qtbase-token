@@ -1751,6 +1751,10 @@ struct|struct
 name|ExtraStruct
 block|{
 name|ExtraStruct
+argument_list|()
+block|{}
+comment|// for QVector, don't use
+name|ExtraStruct
 argument_list|(
 argument|Extra type
 argument_list|,
@@ -1790,7 +1794,7 @@ return|;
 block|}
 block|}
 struct|;
-name|QList
+name|QVector
 operator|<
 name|ExtraStruct
 operator|>
@@ -3044,7 +3048,19 @@ name|q_ptr
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-unit|};  struct
+unit|};
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QGraphicsItemPrivate
+operator|::
+name|ExtraStruct
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+unit|struct
 DECL|struct|TransformData
 name|QGraphicsItemPrivate
 operator|::
