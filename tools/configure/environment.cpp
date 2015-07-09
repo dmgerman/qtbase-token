@@ -160,72 +160,6 @@ block|}
 block|,
 comment|// xilink.exe, xilink5.exe, xilink6.exe, xilib.exe
 block|{
-name|CC_MSVC2005
-block|,
-literal|"Microsoft (R) Visual Studio 2005 C/C++ Compiler (8.0)"
-block|,
-literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\8.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
-name|CC_MSVC2005
-block|,
-literal|"Microsoft (R) Visual Studio 2005 C/C++ Compiler (8.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\8.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
-name|CC_MSVC2008
-block|,
-literal|"Microsoft (R) Visual Studio 2008 C/C++ Compiler (9.0)"
-block|,
-literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\9.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
-name|CC_MSVC2008
-block|,
-literal|"Microsoft (R) Visual Studio 2008 C/C++ Compiler (9.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\9.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
-name|CC_MSVC2010
-block|,
-literal|"Microsoft (R) Visual Studio 2010 C/C++ Compiler (10.0)"
-block|,
-literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\10.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
-name|CC_MSVC2010
-block|,
-literal|"Microsoft (R) Visual Studio 2010 C/C++ Compiler (10.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\10.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
 name|CC_MSVC2012
 block|,
 literal|"Microsoft (R) Visual Studio 2012 C/C++ Compiler (11.0)"
@@ -416,30 +350,6 @@ literal|"win32-msvc2012"
 expr_stmt|;
 break|break;
 case|case
-name|CC_MSVC2010
-case|:
-name|spec
-operator|=
-literal|"win32-msvc2010"
-expr_stmt|;
-break|break;
-case|case
-name|CC_MSVC2008
-case|:
-name|spec
-operator|=
-literal|"win32-msvc2008"
-expr_stmt|;
-break|break;
-case|case
-name|CC_MSVC2005
-case|:
-name|spec
-operator|=
-literal|"win32-msvc2005"
-expr_stmt|;
-break|break;
-case|case
 name|CC_INTEL
 case|:
 name|spec
@@ -519,42 +429,6 @@ argument_list|)
 condition|)
 return|return
 name|CC_MSVC2012
-return|;
-if|if
-condition|(
-name|qmakeSpec
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"win32-msvc2010"
-argument_list|)
-condition|)
-return|return
-name|CC_MSVC2010
-return|;
-if|if
-condition|(
-name|qmakeSpec
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"win32-msvc2008"
-argument_list|)
-condition|)
-return|return
-name|CC_MSVC2008
-return|;
-if|if
-condition|(
-name|qmakeSpec
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"win32-msvc2005"
-argument_list|)
-condition|)
-return|return
-name|CC_MSVC2005
 return|;
 if|if
 condition|(
