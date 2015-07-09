@@ -12992,10 +12992,16 @@ begin_comment
 comment|/*! \typedef QByteArray::Iterator     \internal */
 end_comment
 begin_comment
-comment|/*! \typedef QByteArray::const_iterator     \internal */
+comment|/*! \typedef QByteArray::const_iterator      This typedef provides an STL-style const iterator for QByteArray.      \sa QByteArray::const_reverse_iterator, QByteArray::iterator */
 end_comment
 begin_comment
-comment|/*! \typedef QByteArray::iterator     \internal */
+comment|/*! \typedef QByteArray::iterator      This typedef provides an STL-style non-const iterator for QByteArray.      \sa QByteArray::reverse_iterator, QByteArray::const_iterator */
+end_comment
+begin_comment
+comment|/*! \typedef QByteArray::const_reverse_iterator     \since 5.6      This typedef provides an STL-style const reverse iterator for QByteArray.      \sa QByteArray::reverse_iterator, QByteArray::const_iterator */
+end_comment
+begin_comment
+comment|/*! \typedef QByteArray::reverse_iterator     \since 5.6      This typedef provides an STL-style non-const reverse iterator for QByteArray.      \sa QByteArray::const_reverse_iterator, QByteArray::iterator */
 end_comment
 begin_comment
 comment|/*! \typedef QByteArray::size_type     \internal */
