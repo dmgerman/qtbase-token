@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qversionnumber_p.h>
+file|<QtCore/qversionnumber.h>
 end_include
 begin_class
 DECL|class|tst_QVersionNumber

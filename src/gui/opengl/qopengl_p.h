@@ -66,7 +66,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qversionnumber_p.h>
+file|<QtCore/qversionnumber.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
