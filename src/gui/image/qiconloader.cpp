@@ -153,8 +153,6 @@ argument_list|(
 literal|false
 argument_list|)
 block|{ }
-comment|// We lazily initialize the loader to make static icons
-comment|// work. Though we do not officially support this.
 DECL|function|systemThemeName
 specifier|static
 specifier|inline

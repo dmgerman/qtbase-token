@@ -146,37 +146,9 @@ specifier|const
 name|QString
 name|m_sourceFileName
 decl_stmt|;
-DECL|member|staticIcon
-specifier|const
-specifier|static
-name|QIcon
-name|staticIcon
-decl_stmt|;
 block|}
 class|;
 end_class
-begin_comment
-comment|// Creating an icon statically should not cause a crash.
-end_comment
-begin_comment
-comment|// But we do not officially support this. See QTBUG-8666
-end_comment
-begin_decl_stmt
-DECL|member|staticIcon
-specifier|const
-name|QIcon
-name|tst_QIcon
-operator|::
-name|staticIcon
-init|=
-name|QIcon
-operator|::
-name|fromTheme
-argument_list|(
-literal|"edit-find"
-argument_list|)
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|haveImageFormat
 name|bool
