@@ -570,6 +570,9 @@ name|char
 operator|*
 name|cmap
 block|;
+name|int
+name|cmapSize
+block|;
 name|QByteArray
 name|cmapTable
 block|;

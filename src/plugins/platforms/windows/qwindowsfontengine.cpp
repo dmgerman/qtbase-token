@@ -745,11 +745,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|int
-name|size
-init|=
-literal|0
-decl_stmt|;
 name|cmap
 operator|=
 name|QFontEngine
@@ -778,7 +773,7 @@ operator|&
 name|symb
 argument_list|,
 operator|&
-name|size
+name|cmapSize
 argument_list|)
 expr_stmt|;
 block|}
@@ -1007,6 +1002,8 @@ name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
 argument_list|,
+name|cmapSize
+argument_list|,
 name|uc
 argument_list|)
 expr_stmt|;
@@ -1034,6 +1031,8 @@ operator|=
 name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
+argument_list|,
+name|cmapSize
 argument_list|,
 name|uc
 operator|+
@@ -1088,6 +1087,8 @@ operator|=
 name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
+argument_list|,
+name|cmapSize
 argument_list|,
 name|uc
 argument_list|)
@@ -1273,6 +1274,11 @@ literal|0
 argument_list|)
 member_init_list|,
 name|cmap
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|cmapSize
 argument_list|(
 literal|0
 argument_list|)
@@ -1645,6 +1651,8 @@ name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
 argument_list|,
+name|cmapSize
+argument_list|,
 name|ucs4
 argument_list|)
 expr_stmt|;
@@ -1664,6 +1672,8 @@ name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
 argument_list|,
+name|cmapSize
+argument_list|,
 name|ucs4
 operator|+
 literal|0xf000
@@ -1681,6 +1691,8 @@ operator|=
 name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
+argument_list|,
+name|cmapSize
 argument_list|,
 name|ucs4
 argument_list|)
