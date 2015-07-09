@@ -2582,44 +2582,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-c++11"
-condition|)
-name|dictionary
-index|[
-literal|"C++STD"
-index|]
-operator|=
-literal|"c++11"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-no-c++11"
-condition|)
-name|dictionary
-index|[
-literal|"C++STD"
-index|]
-operator|=
-literal|"c++98"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
 literal|"-c++std"
 condition|)
 block|{
@@ -2645,10 +2607,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|level
-operator|==
-literal|"c++98"
-operator|||
 name|level
 operator|==
 literal|"c++11"
@@ -2677,10 +2635,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|level
-operator|==
-literal|"98"
-operator|||
 name|level
 operator|==
 literal|"11"
@@ -2719,7 +2673,7 @@ literal|"ERROR: invalid C++ standard "
 operator|<<
 name|level
 operator|<<
-literal|"; valid options are: c++98 c++11 c++14 c++1z auto"
+literal|"; valid options are: c++11 c++14 c++1z auto"
 operator|<<
 name|endl
 expr_stmt|;
@@ -11848,7 +11802,7 @@ name|desc
 argument_list|(
 literal|"-c++std<edition>"
 argument_list|,
-literal|"Compile Qt with C++ standard edition (c++98, c++11, c++14, c++1z)\n"
+literal|"Compile Qt with C++ standard edition (c++11, c++14, c++1z)\n"
 literal|"Default: highest supported. This option is not supported for MSVC.\n"
 argument_list|)
 expr_stmt|;
@@ -15849,11 +15803,22 @@ condition|)
 block|{
 name|dictionary
 index|[
-literal|"C++STD"
+literal|"DONE"
 index|]
 operator|=
-literal|"c++98"
+literal|"error"
 expr_stmt|;
+name|cout
+operator|<<
+literal|"ERROR: Qt requires a C++11 compiler and yours does not seem to be that."
+operator|<<
+name|endl
+operator|<<
+literal|"Please upgrade."
+operator|<<
+name|endl
+expr_stmt|;
+return|return;
 block|}
 elseif|else
 if|if
@@ -26896,39 +26861,6 @@ operator|<<
 literal|"will be the same unless you are cross-compiling)."
 operator|<<
 name|endl
-operator|<<
-name|endl
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"C++STD"
-index|]
-operator|==
-literal|"c++98"
-condition|)
-block|{
-name|sout
-operator|<<
-name|endl
-operator|<<
-literal|"NOTE: The -no-c++11 / -c++-level c++98 option is deprecated."
-operator|<<
-name|endl
-operator|<<
-name|endl
-operator|<<
-literal|"Qt 5.7 will require C++11 support. The options are in effect for this"
-operator|<<
-name|endl
-operator|<<
-literal|"Qt 5.6 build, but you should update your build scripts to remove the"
-operator|<<
-name|endl
-operator|<<
-literal|"option and, if necessary, upgrade your compiler."
 operator|<<
 name|endl
 expr_stmt|;
