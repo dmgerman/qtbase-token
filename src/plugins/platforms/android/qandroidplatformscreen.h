@@ -290,6 +290,11 @@ name|logicalDpi
 argument_list|()
 specifier|const
 expr_stmt|;
+name|qreal
+name|pixelDensity
+argument_list|()
+specifier|const
+expr_stmt|;
 name|Qt
 operator|::
 name|ScreenOrientation

@@ -363,6 +363,14 @@ name|m_displayMetricsScaledDensity
 init|=
 literal|1.0
 decl_stmt|;
+DECL|field|m_displayMetricsDensity
+specifier|private
+specifier|static
+name|double
+name|m_displayMetricsDensity
+init|=
+literal|1.0
+decl_stmt|;
 DECL|field|m_oldx
 DECL|field|m_oldy
 specifier|private
@@ -1037,6 +1045,8 @@ argument_list|,
 name|m_displayMetricsYDpi
 argument_list|,
 name|m_displayMetricsScaledDensity
+argument_list|,
+name|m_displayMetricsDensity
 argument_list|)
 expr_stmt|;
 if|if
@@ -1109,6 +1119,9 @@ name|YDpi
 parameter_list|,
 name|double
 name|scaledDensity
+parameter_list|,
+name|double
+name|density
 parameter_list|)
 block|{
 comment|/* Fix buggy dpi report */
@@ -1181,6 +1194,8 @@ argument_list|,
 name|YDpi
 argument_list|,
 name|scaledDensity
+argument_list|,
+name|density
 argument_list|)
 expr_stmt|;
 block|}
@@ -1213,6 +1228,10 @@ expr_stmt|;
 name|m_displayMetricsScaledDensity
 operator|=
 name|scaledDensity
+expr_stmt|;
+name|m_displayMetricsDensity
+operator|=
+name|density
 expr_stmt|;
 block|}
 block|}
@@ -2889,6 +2908,9 @@ name|YDpi
 parameter_list|,
 name|double
 name|scaledDensity
+parameter_list|,
+name|double
+name|density
 parameter_list|)
 function_decl|;
 DECL|method|handleOrientationChanged

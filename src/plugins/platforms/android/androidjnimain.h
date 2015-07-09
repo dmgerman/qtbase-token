@@ -193,6 +193,10 @@ name|double
 name|scaledDensity
 parameter_list|()
 function_decl|;
+name|double
+name|pixelDensity
+parameter_list|()
+function_decl|;
 name|JavaVM
 modifier|*
 name|javaVM

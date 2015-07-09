@@ -218,6 +218,10 @@ argument_list|,
 name|metrics
 operator|.
 name|scaledDensity
+argument_list|,
+name|metrics
+operator|.
+name|density
 argument_list|)
 expr_stmt|;
 if|if
