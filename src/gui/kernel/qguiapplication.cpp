@@ -3483,12 +3483,19 @@ name|fatalMessage
 init|=
 name|QStringLiteral
 argument_list|(
-literal|"This application failed to start because it could not find or load the Qt platform plugin \"%1\".\n\n"
+literal|"This application failed to start because it could not find or load the Qt platform plugin \"%1\"\nin \"%2\".\n\n"
 argument_list|)
 operator|.
 name|arg
 argument_list|(
 name|name
+argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|platformPluginPath
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
