@@ -453,8 +453,21 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|/*    Specialize a shared type with:       Q_DECLARE_SHARED(type)     where 'type' is the name of the type to specialize.  NOTE: shared    types must define a member-swap, and be defined in the same    namespace as Qt for this to work. */
+comment|/*    Specialize a shared type with:       Q_DECLARE_SHARED(type)     where 'type' is the name of the type to specialize.  NOTE: shared    types must define a member-swap, and be defined in the same    namespace as Qt for this to work.     If the type was already released without Q_DECLARE_SHARED applied,    _and_ without an explicit Q_DECLARE_TYPEINFO(type, Q_MOVABLE_TYPE),    then use Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6(type) to mark the    type shared (incl. swap()), without marking it movable (which    would change the memory layout of QList, a BiC change. */
 end_comment
+begin_define
+DECL|macro|Q_DECLARE_SHARED_IMPL
+define|#
+directive|define
+name|Q_DECLARE_SHARED_IMPL
+parameter_list|(
+name|TYPE
+parameter_list|,
+name|FLAGS
+parameter_list|)
+define|\
+value|Q_DECLARE_TYPEINFO(TYPE, FLAGS); \ inline void swap(TYPE&value1, TYPE&value2) \     Q_DECL_NOEXCEPT_EXPR(noexcept(value1.swap(value2))) \ { value1.swap(value2); }
+end_define
 begin_define
 DECL|macro|Q_DECLARE_SHARED
 define|#
@@ -463,8 +476,18 @@ name|Q_DECLARE_SHARED
 parameter_list|(
 name|TYPE
 parameter_list|)
+value|Q_DECLARE_SHARED_IMPL(TYPE, Q_MOVABLE_TYPE)
+end_define
+begin_define
+DECL|macro|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+define|#
+directive|define
+name|Q_DECLARE_SHARED_NOT_MOVABLE_UNTIL_QT6
+parameter_list|(
+name|TYPE
+parameter_list|)
 define|\
-value|Q_DECLARE_TYPEINFO(TYPE, Q_MOVABLE_TYPE); \ inline void swap(TYPE&value1, TYPE&value2) \     Q_DECL_NOEXCEPT_EXPR(noexcept(value1.swap(value2))) \ { value1.swap(value2); }
+value|Q_DECLARE_SHARED_IMPL(TYPE, QT_VERSION>= QT_VERSION_CHECK(6,0,0) ? Q_MOVABLE_TYPE : Q_COMPLEX_TYPE)
 end_define
 begin_comment
 comment|/*    QTypeInfo primitive specializations */
