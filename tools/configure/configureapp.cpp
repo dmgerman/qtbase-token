@@ -26497,6 +26497,39 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|dictionary
+index|[
+literal|"C++STD"
+index|]
+operator|==
+literal|"c++98"
+condition|)
+block|{
+name|sout
+operator|<<
+name|endl
+operator|<<
+literal|"NOTE: The -no-c++11 / -c++-level c++98 option is deprecated."
+operator|<<
+name|endl
+operator|<<
+name|endl
+operator|<<
+literal|"Qt 5.7 will require C++11 support. The options are in effect for this"
+operator|<<
+name|endl
+operator|<<
+literal|"Qt 5.6 build, but you should update your build scripts to remove the"
+operator|<<
+name|endl
+operator|<<
+literal|"option and, if necessary, upgrade your compiler."
+operator|<<
+name|endl
+expr_stmt|;
+block|}
+if|if
+condition|(
 operator|!
 name|dictionary
 index|[
