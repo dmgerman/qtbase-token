@@ -151,47 +151,4 @@ end_expr_stmt
 begin_comment
 comment|//! [2]
 end_comment
-begin_comment
-comment|//! [3]
-end_comment
-begin_function
-DECL|function|main
-name|int
-name|main
-parameter_list|(
-name|int
-name|argc
-parameter_list|,
-name|char
-modifier|*
-name|argv
-index|[]
-parameter_list|)
-block|{
-name|QApplication
-name|app
-argument_list|(
-name|argc
-argument_list|,
-name|argv
-argument_list|)
-decl_stmt|;
-name|QTextCodec
-operator|::
-name|setCodecForTr
-argument_list|(
-name|QTextCodec
-operator|::
-name|codecForName
-argument_list|(
-literal|"eucKR"
-argument_list|)
-argument_list|)
-expr_stmt|;
-operator|...
-block|}
-end_function
-begin_comment
-comment|//! [3]
-end_comment
 end_unit
