@@ -15378,7 +15378,7 @@ begin_comment
 comment|/*!   \fn QStateMachine::WrappedEvent::event() const    Returns a clone of the original event. */
 end_comment
 begin_comment
-comment|/*!   \fn QStateMachine::runningChanged(bool running)   \since 5.4    This signal is emitted when the running property is changed.    \sa QStateMachine::running */
+comment|/*!   \fn QStateMachine::runningChanged(bool running)   \since 5.4    This signal is emitted when the running property is changed with \a running as argument.    \sa QStateMachine::running */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

@@ -453,7 +453,7 @@ begin_comment
 comment|/*!   \fn QAbstractState::exited()    This signal is emitted when the state has been exited (after onExit() has   been called). */
 end_comment
 begin_comment
-comment|/*!   \fn QAbstractState::activeChanged(bool active)   \since 5.4    This signal is emitted when the active property is changed.    \sa QAbstractState::active, entered(), exited() */
+comment|/*!   \fn QAbstractState::activeChanged(bool active)   \since 5.4    This signal is emitted when the active property is changed with \a active as argument.    \sa QAbstractState::active, entered(), exited() */
 end_comment
 begin_comment
 comment|/*!   \reimp */

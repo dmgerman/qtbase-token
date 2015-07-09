@@ -213,7 +213,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the key that this key event transition will check for. */
+comment|/*!   Sets the \a key that this key event transition will check for. */
 end_comment
 begin_function
 DECL|function|setKey

@@ -13634,6 +13634,9 @@ name|int
 parameter_list|)
 block|{ }
 end_function
+begin_comment
+comment|/*!\reimp  */
+end_comment
 begin_function
 DECL|function|event
 name|bool

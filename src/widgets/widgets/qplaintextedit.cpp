@@ -7228,7 +7228,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Changes the text of the text edit to the string \a text.     Any previous text is removed.      \a text is interpreted as plain text.      Note that the undo/redo history is cleared by this function.      \sa toText() */
+comment|/*!     Changes the text of the text edit to the string \a text.     Any previous text is removed.      \a text is interpreted as plain text.      Note that the undo/redo history is cleared by this function.      \sa toPlainText() */
 end_comment
 begin_function
 DECL|function|setPlainText

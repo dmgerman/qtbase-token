@@ -4282,7 +4282,7 @@ begin_comment
 comment|/*!   \fn void QStandardItem::isTristate() const   \obsolete    Use QStandardItem::isAutoTristate() instead.   For a tristate checkbox that the user can change between all three   states, use QStandardItem::isUserTristate() instead. */
 end_comment
 begin_comment
-comment|/*!   Sets whether the item is tristate and controlled by QTreeWidget.   This enables automatic management of the state of parent items in QTreeWidget   (checked if all children are checked, unchecked if all children are unchecked,   or partially checked if only some children are checked).    \since 5.6   \sa isAutoTristate(), setCheckable(), setCheckState() */
+comment|/*!   Determines that the item is tristate and controlled by QTreeWidget if \a tristate   is \c true.   This enables automatic management of the state of parent items in QTreeWidget   (checked if all children are checked, unchecked if all children are unchecked,   or partially checked if only some children are checked).    \since 5.6   \sa isAutoTristate(), setCheckable(), setCheckState() */
 end_comment
 begin_function
 DECL|function|setAutoTristate

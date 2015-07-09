@@ -8049,7 +8049,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.5      Sets the model. The modelChanged() signal will be emitted.      \sa model(), modelChanged() */
+comment|/*!     \since 5.5      Sets the model to \a model. The modelChanged() signal will be emitted.      \sa model(), modelChanged() */
 end_comment
 begin_function
 DECL|function|setModel

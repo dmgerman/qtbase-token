@@ -14721,7 +14721,7 @@ begin_comment
 comment|/*!     \since 4.2     \property QTableView::sortingEnabled     \brief whether sorting is enabled      If this property is \c true, sorting is enabled for the table.  If     this property is \c false, sorting is not enabled. The default value     is false.      \note. Setting the property to true with setSortingEnabled()     immediately triggers a call to sortByColumn() with the current     sort section and order.      \sa sortByColumn() */
 end_comment
 begin_comment
-comment|/*!   If \a enabled true enables sorting for the table and immediately   trigger a call to sortByColumn() with the current sort section and   order  */
+comment|/*!   If \a enable is true, enables sorting for the table and immediately   trigger a call to sortByColumn() with the current sort section and   order  */
 end_comment
 begin_function
 DECL|function|setSortingEnabled

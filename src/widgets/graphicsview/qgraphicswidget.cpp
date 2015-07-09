@@ -639,7 +639,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QGraphicsWidget::resize(qreal w, qreal h)      This convenience function is equivalent to calling resize(QSizeF(w, h)).      \sa setGeometry(), setTransform() */
+comment|/*!     \fn void QGraphicsWidget::resize(qreal w, qreal h)     \overload      This convenience function is equivalent to calling resize(QSizeF(w, h)).      \sa setGeometry(), setTransform() */
 end_comment
 begin_comment
 comment|/*!     \property QGraphicsWidget::sizePolicy     \brief the size policy for the widget     \sa sizePolicy(), setSizePolicy(), QWidget::sizePolicy() */

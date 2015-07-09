@@ -1734,7 +1734,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.5      Sets the image transformations metadata including orientation.      If transformation metadata is not supported by the image format,     the transform is applied before writing.      \sa transformation(), write() */
+comment|/*!     \since 5.5      Sets the image transformations metadata including orientation to \a transform.      If transformation metadata is not supported by the image format,     the transform is applied before writing.      \sa transformation(), write() */
 end_comment
 begin_function
 DECL|function|setTransformation
