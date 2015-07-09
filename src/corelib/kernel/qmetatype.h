@@ -3438,6 +3438,19 @@ argument_list|)
 block|; }
 block|}
 end_decl_stmt
+begin_define
+DECL|macro|QT_METATYPE_PRIVATE_DECLARE_TYPEINFO
+define|#
+directive|define
+name|QT_METATYPE_PRIVATE_DECLARE_TYPEINFO
+parameter_list|(
+name|C
+parameter_list|,
+name|F
+parameter_list|)
+define|\
+value|}                                               \     Q_DECLARE_TYPEINFO(QtMetaTypePrivate:: C, (F)); \     namespace QtMetaTypePrivate {
+end_define
 begin_decl_stmt
 name|namespace
 name|QtMetaTypePrivate
@@ -5362,6 +5375,14 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|QT_METATYPE_PRIVATE_DECLARE_TYPEINFO
+argument_list|(
+argument|QSequentialIterableImpl
+argument_list|,
+argument|Q_MOVABLE_TYPE
+argument_list|)
+end_macro
 begin_expr_stmt
 name|template
 operator|<
@@ -6440,6 +6461,14 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|QT_METATYPE_PRIVATE_DECLARE_TYPEINFO
+argument_list|(
+argument|QAssociativeIterableImpl
+argument_list|,
+argument|Q_MOVABLE_TYPE
+argument_list|)
+end_macro
 begin_expr_stmt
 name|template
 operator|<
@@ -6732,6 +6761,14 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|QT_METATYPE_PRIVATE_DECLARE_TYPEINFO
+argument_list|(
+argument|QPairVariantInterfaceImpl
+argument_list|,
+argument|Q_MOVABLE_TYPE
+argument_list|)
+end_macro
 begin_expr_stmt
 name|template
 operator|<
