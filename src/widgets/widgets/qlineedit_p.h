@@ -287,7 +287,7 @@ name|flags
 block|;     }
 block|;
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|SideWidgetEntry
 operator|>
@@ -990,6 +990,17 @@ decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
 unit|};
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QLineEditPrivate
+operator|::
+name|SideWidgetEntry
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 DECL|function|effectiveLeftTextMargin
 specifier|inline
 name|int
