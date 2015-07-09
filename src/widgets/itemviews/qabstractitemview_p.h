@@ -204,7 +204,7 @@ end_typedef
 begin_typedef
 DECL|typedef|QItemViewPaintPairs
 typedef|typedef
-name|QList
+name|QVector
 operator|<
 name|QItemViewPaintPair
 operator|>
