@@ -1146,13 +1146,13 @@ block|{
 comment|// Error description/code were set, 'error' emitted
 comment|// by initSslContext, but OpenSSL socket also sets error
 comment|// emits a signal twice, so ...
-name|setError
+name|setErrorAndEmit
 argument_list|(
-literal|"Unable to init SSL Context"
-argument_list|,
 name|QAbstractSocket
 operator|::
 name|SslInternalError
+argument_list|,
+literal|"Unable to init SSL Context"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1180,13 +1180,13 @@ block|{
 comment|// Error description/code were set, 'error' emitted
 comment|// by initSslContext, but OpenSSL socket also sets error
 comment|// emits a signal twice, so ...
-name|setError
+name|setErrorAndEmit
 argument_list|(
-literal|"Unable to init SSL Context"
-argument_list|,
 name|QAbstractSocket
 operator|::
 name|SslInternalError
+argument_list|,
+literal|"Unable to init SSL Context"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1313,8 +1313,12 @@ operator|!=
 name|errSSLWouldBlock
 condition|)
 block|{
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"SSLWrite failed: %1"
@@ -1324,10 +1328,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|SslInternalError
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1470,18 +1470,18 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// the other side shut down, make sure we do not send shutdown ourselves
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|RemoteHostClosedError
+argument_list|,
 name|QSslSocket
 operator|::
 name|tr
 argument_list|(
 literal|"The TLS/SSL connection has been closed"
 argument_list|)
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|RemoteHostClosedError
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1498,8 +1498,12 @@ operator|!=
 name|errSSLWouldBlock
 condition|)
 block|{
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"SSLRead failed: %1"
@@ -1509,10 +1513,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|SslInternalError
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2974,13 +2974,13 @@ operator|!
 name|context
 condition|)
 block|{
-name|setError
+name|setErrorAndEmit
 argument_list|(
-literal|"SSLCreateContext failed"
-argument_list|,
 name|QAbstractSocket
 operator|::
 name|SslInternalError
+argument_list|,
+literal|"SSLCreateContext failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -3024,8 +3024,12 @@ block|{
 name|destroySslContext
 argument_list|()
 expr_stmt|;
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"SSLSetIOFuncs failed: %1"
@@ -3035,10 +3039,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|SslInternalError
 argument_list|)
 expr_stmt|;
 return|return
@@ -3095,11 +3095,11 @@ block|{
 name|destroySslContext
 argument_list|()
 expr_stmt|;
-name|setError
+name|setErrorAndEmit
 argument_list|(
-name|errorDescription
-argument_list|,
 name|errorCode
+argument_list|,
+name|errorDescription
 argument_list|)
 expr_stmt|;
 return|return
@@ -3117,13 +3117,13 @@ block|{
 name|destroySslContext
 argument_list|()
 expr_stmt|;
-name|setError
+name|setErrorAndEmit
 argument_list|(
-literal|"Failed to set protocol version"
-argument_list|,
 name|QAbstractSocket
 operator|::
 name|SslInternalError
+argument_list|,
+literal|"Failed to set protocol version"
 argument_list|)
 expr_stmt|;
 return|return
@@ -3168,8 +3168,12 @@ block|{
 name|destroySslContext
 argument_list|()
 expr_stmt|;
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QSslSocket
+operator|::
+name|SslInternalError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"SSLSetEnableCertVerify failed: %1"
@@ -3179,10 +3183,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QSslSocket
-operator|::
-name|SslInternalError
 argument_list|)
 expr_stmt|;
 return|return
@@ -3296,8 +3296,12 @@ block|{
 name|destroySslContext
 argument_list|()
 expr_stmt|;
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QSslSocket
+operator|::
+name|SslInternalError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"SSLSetSessionOption failed: %1"
@@ -3307,10 +3311,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QSslSocket
-operator|::
-name|SslInternalError
 argument_list|)
 expr_stmt|;
 return|return
@@ -3374,8 +3374,12 @@ block|{
 name|destroySslContext
 argument_list|()
 expr_stmt|;
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"failed to set SSL context option in server mode: %1"
@@ -3385,10 +3389,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|SslInternalError
 argument_list|)
 expr_stmt|;
 return|return
@@ -4774,8 +4774,12 @@ operator|!
 name|canIgnoreVerify
 condition|)
 block|{
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslHandshakeFailedError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"Failed to obtain peer trust: %1"
@@ -4785,10 +4789,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|SslHandshakeFailedError
 argument_list|)
 expr_stmt|;
 name|plainSocket
@@ -4863,8 +4863,12 @@ condition|)
 block|{
 comment|// We can not ignore this, it's not even about trust verification
 comment|// probably ...
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslHandshakeFailedError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"SecTrustEvaluate failed: %1"
@@ -4874,10 +4878,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|SslHandshakeFailedError
 argument_list|)
 expr_stmt|;
 name|plainSocket
@@ -5511,8 +5511,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslHandshakeFailedError
+argument_list|,
 name|sslErrors
 operator|.
 name|first
@@ -5520,10 +5524,6 @@ argument_list|()
 operator|.
 name|errorString
 argument_list|()
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|SslHandshakeFailedError
 argument_list|)
 expr_stmt|;
 name|plainSocket
@@ -5656,11 +5656,11 @@ name|errorCode
 argument_list|)
 condition|)
 block|{
-name|setError
+name|setErrorAndEmit
 argument_list|(
-name|errorDescription
-argument_list|,
 name|errorCode
+argument_list|,
+name|errorDescription
 argument_list|)
 expr_stmt|;
 return|return
@@ -5703,8 +5703,12 @@ name|startHandshake
 argument_list|()
 return|;
 block|}
-name|setError
+name|setErrorAndEmit
 argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslHandshakeFailedError
+argument_list|,
 name|QStringLiteral
 argument_list|(
 literal|"SSLHandshake failed: %1"
@@ -5714,10 +5718,6 @@ name|arg
 argument_list|(
 name|err
 argument_list|)
-argument_list|,
-name|QAbstractSocket
-operator|::
-name|SslHandshakeFailedError
 argument_list|)
 expr_stmt|;
 name|plainSocket
@@ -5762,13 +5762,13 @@ name|verifySessionProtocol
 argument_list|()
 condition|)
 block|{
-name|setError
+name|setErrorAndEmit
 argument_list|(
-literal|"Protocol version mismatch"
-argument_list|,
 name|QAbstractSocket
 operator|::
 name|SslHandshakeFailedError
+argument_list|,
+literal|"Protocol version mismatch"
 argument_list|)
 expr_stmt|;
 name|plainSocket
@@ -5799,53 +5799,6 @@ return|return
 literal|false
 return|;
 block|}
-block|}
-end_function
-begin_function
-DECL|function|setError
-name|void
-name|QSslSocketBackendPrivate
-operator|::
-name|setError
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|errorString
-parameter_list|,
-name|QAbstractSocket
-operator|::
-name|SocketError
-name|errorCode
-parameter_list|)
-block|{
-name|Q_Q
-argument_list|(
-name|QSslSocket
-argument_list|)
-expr_stmt|;
-name|q
-operator|->
-name|setErrorString
-argument_list|(
-name|errorString
-argument_list|)
-expr_stmt|;
-name|q
-operator|->
-name|setSocketError
-argument_list|(
-name|errorCode
-argument_list|)
-expr_stmt|;
-emit|emit
-name|q
-operator|->
-name|error
-argument_list|(
-name|errorCode
-argument_list|)
-emit|;
 block|}
 end_function
 begin_comment
