@@ -259,6 +259,7 @@ block|}
 block|;      struct
 name|SideWidgetEntry
 block|{
+name|explicit
 name|SideWidgetEntry
 argument_list|(
 argument|QWidget *w =

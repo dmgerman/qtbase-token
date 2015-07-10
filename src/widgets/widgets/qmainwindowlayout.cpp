@@ -9867,6 +9867,8 @@ name|item_list
 operator|.
 name|append
 argument_list|(
+name|QDockAreaLayoutItem
+argument_list|(
 name|parentLayout
 operator|->
 name|takeAt
@@ -9876,6 +9878,7 @@ operator|->
 name|indexOf
 argument_list|(
 name|currentHoveredFloat
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

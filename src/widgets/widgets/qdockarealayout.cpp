@@ -9097,6 +9097,8 @@ name|item_list
 operator|.
 name|append
 argument_list|(
+name|QDockAreaLayoutItem
+argument_list|(
 name|item_list
 operator|.
 name|at
@@ -9105,6 +9107,7 @@ name|index
 argument_list|)
 operator|.
 name|widgetItem
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|item_list
@@ -9122,7 +9125,10 @@ name|item_list
 operator|.
 name|append
 argument_list|(
+name|QDockAreaLayoutItem
+argument_list|(
 name|dockWidgetItem
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|new_info
@@ -9240,6 +9246,8 @@ name|item_list
 operator|.
 name|append
 argument_list|(
+name|QDockAreaLayoutItem
+argument_list|(
 name|item_list
 operator|.
 name|at
@@ -9248,6 +9256,7 @@ name|index
 argument_list|)
 operator|.
 name|widgetItem
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|item_list
@@ -9265,7 +9274,10 @@ name|item_list
 operator|.
 name|append
 argument_list|(
+name|QDockAreaLayoutItem
+argument_list|(
 name|dockWidgetItem
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -18818,10 +18830,13 @@ name|item_list
 operator|.
 name|append
 argument_list|(
+name|QDockAreaLayoutItem
+argument_list|(
 operator|new
 name|QDockAreaLayoutInfo
 argument_list|(
 name|info
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -18831,7 +18846,10 @@ name|item_list
 operator|.
 name|append
 argument_list|(
+name|QDockAreaLayoutItem
+argument_list|(
 name|dockWidgetItem
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|info
