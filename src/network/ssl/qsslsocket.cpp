@@ -599,6 +599,16 @@ name|error
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setErrorString
+argument_list|(
+name|d
+operator|->
+name|plainSocket
+operator|->
+name|errorString
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setSocketState
 argument_list|(
 name|state
