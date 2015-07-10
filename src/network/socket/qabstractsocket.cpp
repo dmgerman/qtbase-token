@@ -6383,6 +6383,14 @@ name|socketError
 operator|=
 name|SocketTimeoutError
 expr_stmt|;
+name|setErrorString
+argument_list|(
+name|tr
+argument_list|(
+literal|"Socket operation timed out"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|state
@@ -6401,14 +6409,6 @@ name|d
 operator|->
 name|resetSocketLayer
 argument_list|()
-expr_stmt|;
-name|setErrorString
-argument_list|(
-name|tr
-argument_list|(
-literal|"Socket operation timed out"
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 if|#
