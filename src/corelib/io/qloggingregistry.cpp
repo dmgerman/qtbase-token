@@ -1081,6 +1081,13 @@ name|qgetenv
 argument_list|(
 literal|"QT_LOGGING_RULES"
 argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|';'
+argument_list|,
+literal|'\n'
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
