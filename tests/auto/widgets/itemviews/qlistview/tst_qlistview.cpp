@@ -13307,6 +13307,7 @@ foreach|foreach
 control|(
 specifier|const
 name|QItemViewPaintPair
+modifier|&
 name|pair
 decl|,
 name|pairs
@@ -13318,7 +13319,7 @@ name|rect
 argument_list|,
 name|pair
 operator|.
-name|first
+name|rect
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13327,7 +13328,7 @@ name|expectedIndex
 argument_list|,
 name|pair
 operator|.
-name|second
+name|index
 argument_list|)
 expr_stmt|;
 block|}
