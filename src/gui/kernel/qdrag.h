@@ -187,6 +187,11 @@ name|defaultAction
 argument_list|()
 specifier|const
 block|;
+specifier|static
+name|void
+name|cancel
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

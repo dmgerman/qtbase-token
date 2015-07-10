@@ -1898,6 +1898,11 @@ block|{
 if|if
 condition|(
 name|fEscapePressed
+operator|||
+name|QWindowsDrag
+operator|::
+name|isCanceled
+argument_list|()
 condition|)
 block|{
 name|hr
@@ -3383,6 +3388,16 @@ end_function
 begin_comment
 comment|/*!     \class QWindowsDrag     \brief Windows drag implementation.     \internal     \ingroup qt-lighthouse-win */
 end_comment
+begin_decl_stmt
+DECL|member|m_canceled
+name|bool
+name|QWindowsDrag
+operator|::
+name|m_canceled
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
 begin_constructor
 DECL|function|QWindowsDrag
 name|QWindowsDrag
@@ -3945,6 +3960,12 @@ decl_stmt|;
 name|DWORD
 name|resultEffect
 decl_stmt|;
+name|QWindowsDrag
+operator|::
+name|m_canceled
+operator|=
+literal|false
+expr_stmt|;
 name|QWindowsOleDropSource
 modifier|*
 name|windowDropSource

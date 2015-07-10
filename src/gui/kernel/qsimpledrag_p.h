@@ -122,6 +122,11 @@ argument|QDrag *drag
 argument_list|)
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+name|void
+name|cancelDrag
+argument_list|()
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|virtual
 name|bool
 name|eventFilter

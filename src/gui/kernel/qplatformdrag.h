@@ -205,6 +205,11 @@ argument_list|)
 operator|=
 literal|0
 expr_stmt|;
+name|virtual
+name|void
+name|cancelDrag
+parameter_list|()
+function_decl|;
 name|void
 name|updateAction
 argument_list|(

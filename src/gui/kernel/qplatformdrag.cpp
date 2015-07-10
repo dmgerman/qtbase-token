@@ -460,6 +460,22 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \brief Cancels the currently active drag (only for drags of     the current application initiated by QPlatformDrag::drag()).      The default implementation does nothing.      \since 5.6  */
+end_comment
+begin_function
+DECL|function|cancelDrag
+name|void
+name|QPlatformDrag
+operator|::
+name|cancelDrag
+parameter_list|()
+block|{
+name|Q_UNIMPLEMENTED
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!     \brief Called to notify QDrag about changes of the current action.  */
 end_comment
 begin_function

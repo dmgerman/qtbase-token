@@ -15,6 +15,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qpa/qplatformintegration.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qpa/qplatformdrag.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qpixmap.h>
 end_include
 begin_include
@@ -383,7 +393,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a supportedActions. The default proposed action will be selected     among the allowed actions in the following order: Move, Copy and Link.      \b{Note:} On Linux and OS X, the drag and drop operation     can take some time, but this function does not block the event     loop. Other events are still delivered to the application while     the operation is performed. On Windows, the Qt event loop is     blocked during the operation. */
+comment|/*!     \since 4.3      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a supportedActions. The default proposed action will be selected     among the allowed actions in the following order: Move, Copy and Link.      \b{Note:} On Linux and OS X, the drag and drop operation     can take some time, but this function does not block the event     loop. Other events are still delivered to the application while     the operation is performed. On Windows, the Qt event loop is     blocked during the operation.      \sa cancel() */
 end_comment
 begin_function
 DECL|function|exec
@@ -913,6 +923,38 @@ name|d
 operator|->
 name|default_action
 return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Cancels a drag operation initiated by Qt.      \note This is currently implemented on Windows and X11.      \since 5.6     \sa exec() */
+end_comment
+begin_function
+DECL|function|cancel
+name|void
+name|QDrag
+operator|::
+name|cancel
+parameter_list|()
+block|{
+if|if
+condition|(
+name|QPlatformDrag
+modifier|*
+name|platformDrag
+init|=
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|drag
+argument_list|()
+condition|)
+name|platformDrag
+operator|->
+name|cancelDrag
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment
