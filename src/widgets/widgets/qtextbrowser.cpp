@@ -448,6 +448,17 @@ directive|endif
 block|}
 class|;
 end_class
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QTextBrowserPrivate
+operator|::
+name|HistoryEntry
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_function
 DECL|function|findFile
 name|QString
