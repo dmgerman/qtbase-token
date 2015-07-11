@@ -776,6 +776,33 @@ return|return
 name|Q_NULLPTR
 return|;
 block|}
+comment|// Skip disconnected output
+if|if
+condition|(
+name|configuration
+operator|==
+name|OutputConfigPreferred
+operator|&&
+name|connector
+operator|->
+name|connection
+operator|==
+name|DRM_MODE_DISCONNECTED
+condition|)
+block|{
+name|qCDebug
+argument_list|(
+name|qLcEglfsKmsDebug
+argument_list|)
+operator|<<
+literal|"Skipping disconnected output"
+operator|<<
+name|connectorName
+expr_stmt|;
+return|return
+name|Q_NULLPTR
+return|;
+block|}
 comment|// Get the current mode on the current crtc
 name|drmModeModeInfo
 name|crtc_mode
