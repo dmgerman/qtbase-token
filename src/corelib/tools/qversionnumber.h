@@ -1303,7 +1303,7 @@ name|int
 operator|*
 name|suffixIndex
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 name|Q_REQUIRED_RESULT
 decl_stmt|;
