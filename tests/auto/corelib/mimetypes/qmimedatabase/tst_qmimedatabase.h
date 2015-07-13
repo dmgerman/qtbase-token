@@ -188,6 +188,9 @@ block|;
 name|QString
 name|m_qmlAgainFileName
 block|;
+name|QString
+name|m_textXObjCSrcFileName
+block|;
 name|QTemporaryDir
 name|m_temporaryDir
 block|;

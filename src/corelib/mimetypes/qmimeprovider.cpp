@@ -3670,6 +3670,14 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|&&
+operator|(
+name|data
+operator|.
+name|globPatterns
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
 name|data
 operator|.
 name|globPatterns
@@ -3678,6 +3686,7 @@ name|first
 argument_list|()
 operator|!=
 name|mainPattern
+operator|)
 condition|)
 block|{
 comment|// ensure it's first in the list of patterns
