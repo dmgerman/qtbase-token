@@ -280,6 +280,9 @@ name|QStringList
 name|qmake_args
 decl_stmt|;
 name|QString
+name|qtconf
+decl_stmt|;
+name|QString
 name|qmakespec
 decl_stmt|,
 name|xqmakespec

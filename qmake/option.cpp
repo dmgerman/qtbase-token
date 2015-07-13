@@ -705,6 +705,7 @@ literal|"  -recursive     Do a recursive search\n"
 literal|"  -set<prop><value> Set persistent property\n"
 literal|"  -unset<prop>  Unset persistent property\n"
 literal|"  -query<prop>  Query persistent property. Show all if<prop> is empty.\n"
+literal|"  -qtconf file   Use file instead of looking for qt.conf\n"
 literal|"  -cache file    Use file as cache           [makefile mode only]\n"
 literal|"  -spec spec     Use spec as QMAKESPEC       [makefile mode only]\n"
 literal|"  -nocache       Don't use a cache file      [makefile mode only]\n"
@@ -3800,6 +3801,25 @@ name|QString
 name|qmake_libraryInfoFile
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|Option
+operator|::
+name|globals
+operator|->
+name|qtconf
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|Option
+operator|::
+name|globals
+operator|->
+name|qtconf
+return|;
 if|if
 condition|(
 operator|!
