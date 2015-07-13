@@ -61,6 +61,11 @@ name|isValid
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QString
+name|errorString
+argument_list|()
+specifier|const
+expr_stmt|;
 name|bool
 name|autoRemove
 argument_list|()

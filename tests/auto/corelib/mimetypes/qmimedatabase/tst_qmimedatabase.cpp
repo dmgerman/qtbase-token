@@ -200,11 +200,23 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|m_temporaryDir
 operator|.
 name|isValid
+argument_list|()
+argument_list|,
+operator|(
+literal|"Could not create temporary subdir: "
+operator|+
+name|m_temporaryDir
+operator|.
+name|errorString
+argument_list|()
+operator|)
+operator|.
+name|toUtf8
 argument_list|()
 argument_list|)
 expr_stmt|;

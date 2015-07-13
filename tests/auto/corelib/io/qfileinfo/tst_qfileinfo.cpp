@@ -1044,11 +1044,23 @@ argument_list|(
 literal|"/tst_qfileinfo.pro"
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|m_dir
 operator|.
 name|isValid
+argument_list|()
+argument_list|,
+operator|(
+literal|"Failed to create temporary dir: "
+operator|+
+name|m_dir
+operator|.
+name|errorString
+argument_list|()
+operator|)
+operator|.
+name|toUtf8
 argument_list|()
 argument_list|)
 expr_stmt|;

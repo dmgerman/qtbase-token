@@ -274,6 +274,17 @@ name|isDir
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|dir
+operator|.
+name|errorString
+argument_list|()
+argument_list|,
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -1114,6 +1125,18 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
+name|dir
+operator|.
+name|errorString
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|dir
 operator|.
 name|path
@@ -1348,7 +1371,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Failed to create #%1 under %2."
+literal|"Failed to create #%1 under %2: %3."
 argument_list|)
 operator|.
 name|arg
@@ -1364,6 +1387,14 @@ name|toNativeSeparators
 argument_list|(
 name|pattern
 argument_list|)
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|dir
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
