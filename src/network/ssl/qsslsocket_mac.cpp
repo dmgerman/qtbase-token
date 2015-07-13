@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qssl_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qsslsocket_mac_p.h"
 end_include
 begin_include
@@ -228,10 +233,10 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -337,10 +342,10 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -580,10 +585,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"SSLCreateContext failed"
 expr_stmt|;
@@ -809,10 +814,14 @@ block|}
 else|else
 block|{
 comment|// no detailed error handling here
-name|qWarning
+name|qCWarning
 argument_list|(
-literal|"could not retrieve system CA certificates"
+name|lcSsl
 argument_list|)
+operator|<<
+literal|"SecTrustSettingsCopyCertificates failed:"
+operator|<<
+name|status
 expr_stmt|;
 block|}
 endif|#
@@ -859,10 +868,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -1050,17 +1059,14 @@ operator|!=
 name|noErr
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"SSLGetNegotiatedProtocolVersion failed:"
 operator|<<
-name|int
-argument_list|(
 name|err
-argument_list|)
 expr_stmt|;
 return|return
 name|QSsl
@@ -1280,6 +1286,22 @@ operator|&
 name|writtenBytes
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QSSLSOCKET_DEBUG
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
+operator|<<
+name|plainSocket
+operator|<<
+literal|"SSLWrite returned"
+operator|<<
+name|err
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|err
@@ -1291,21 +1313,17 @@ operator|!=
 name|errSSLWouldBlock
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"SSL write failed with error:"
-operator|<<
-name|int
+name|setError
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"SSLWrite failed: %1"
+argument_list|)
+operator|.
+name|arg
 argument_list|(
 name|err
 argument_list|)
-expr_stmt|;
-name|setError
-argument_list|(
-literal|"SSL write failed"
 argument_list|,
 name|QAbstractSocket
 operator|::
@@ -1424,6 +1442,22 @@ operator|&
 name|readBytes
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QSSLSOCKET_DEBUG
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
+operator|<<
+name|plainSocket
+operator|<<
+literal|"SSLRead returned"
+operator|<<
+name|err
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|err
@@ -1464,21 +1498,17 @@ operator|!=
 name|errSSLWouldBlock
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"SSLRead failed with:"
-operator|<<
-name|int
+name|setError
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"SSLRead failed: %1"
+argument_list|)
+operator|.
+name|arg
 argument_list|(
 name|err
 argument_list|)
-expr_stmt|;
-name|setError
-argument_list|(
-literal|"SSL read failed"
 argument_list|,
 name|QAbstractSocket
 operator|::
@@ -2549,10 +2579,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"Unknown Kx"
 operator|<<
@@ -2648,10 +2678,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"Unknown Au"
 operator|<<
@@ -2862,10 +2892,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"Unknown Enc"
 operator|<<
@@ -2944,13 +2974,6 @@ operator|!
 name|context
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"SSLCreateContext failed"
-expr_stmt|;
 name|setError
 argument_list|(
 literal|"SSLCreateContext failed"
@@ -2998,24 +3021,20 @@ operator|!=
 name|noErr
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"SSLSetIOFuncs failed with error "
-operator|<<
-name|int
-argument_list|(
-name|err
-argument_list|)
-expr_stmt|;
 name|destroySslContext
 argument_list|()
 expr_stmt|;
 name|setError
 argument_list|(
-literal|"SSLSetIOFuncs failed"
+name|QStringLiteral
+argument_list|(
+literal|"SSLSetIOFuncs failed: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|err
+argument_list|)
 argument_list|,
 name|QAbstractSocket
 operator|::
@@ -3095,13 +3114,6 @@ name|setSessionProtocol
 argument_list|()
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"failed to set protocol version"
-expr_stmt|;
 name|destroySslContext
 argument_list|()
 expr_stmt|;
@@ -3153,18 +3165,6 @@ operator|!=
 name|noErr
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"SSLSetEnableCertVerify failed:"
-operator|<<
-name|int
-argument_list|(
-name|err
-argument_list|)
-expr_stmt|;
 name|destroySslContext
 argument_list|()
 expr_stmt|;
@@ -3293,18 +3293,6 @@ operator|!=
 name|noErr
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"SSLSetSessionOption failed:"
-operator|<<
-name|int
-argument_list|(
-name|err
-argument_list|)
-expr_stmt|;
 name|destroySslContext
 argument_list|()
 expr_stmt|;
@@ -3383,13 +3371,6 @@ operator|!=
 name|noErr
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"failed to set SSL context option in server mode"
-expr_stmt|;
 name|destroySslContext
 argument_list|()
 expr_stmt|;
@@ -3680,10 +3661,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -3733,10 +3714,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -3796,10 +3777,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -3945,10 +3926,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCWarning
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4030,10 +4011,10 @@ operator|::
 name|SslV2
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"protocol QSsl::SslV2 is disabled"
 expr_stmt|;
@@ -4055,10 +4036,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4106,10 +4087,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4157,10 +4138,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4208,10 +4189,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4259,10 +4240,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4311,10 +4292,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4362,10 +4343,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4413,10 +4394,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4464,10 +4445,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4515,10 +4496,10 @@ block|{
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -4553,13 +4534,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qDebug
-argument_list|()
+ifdef|#
+directive|ifdef
+name|QSSLSOCKET_DEBUG
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
-name|Q_FUNC_INFO
+name|plainSocket
 operator|<<
 literal|"no protocol version found in the configuration"
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|false
 return|;
@@ -4877,7 +4865,15 @@ comment|// We can not ignore this, it's not even about trust verification
 comment|// probably ...
 name|setError
 argument_list|(
-literal|"SecTrustEvaluate failed"
+name|QStringLiteral
+argument_list|(
+literal|"SecTrustEvaluate failed: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|err
+argument_list|)
 argument_list|,
 name|QAbstractSocket
 operator|::
@@ -5574,10 +5570,10 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 name|plainSocket
 operator|<<
@@ -5660,13 +5656,6 @@ name|errorCode
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Failed to provide a client certificate"
-expr_stmt|;
 name|setError
 argument_list|(
 name|errorDescription
@@ -5718,7 +5707,7 @@ name|setError
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"Error during SSL handshake: %1"
+literal|"SSLHandshake failed: %1"
 argument_list|)
 operator|.
 name|arg
@@ -5753,10 +5742,10 @@ operator|::
 name|ConnectedState
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
+name|qCDebug
+argument_list|(
+name|lcSsl
+argument_list|)
 operator|<<
 literal|"connection aborted"
 expr_stmt|;
