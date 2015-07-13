@@ -435,6 +435,13 @@ argument_list|,
 argument|OpenMode mode = ReadWrite
 argument_list|)
 block|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS_COMBINED_ARGUMENT_START
+argument_list|)
 name|void
 name|start
 argument_list|(
@@ -443,6 +450,8 @@ argument_list|,
 argument|OpenMode mode = ReadWrite
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|void
 name|start
 argument_list|(

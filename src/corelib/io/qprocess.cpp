@@ -261,6 +261,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_PROCESS
 name|QT_BEGIN_NAMESPACE
+comment|/*!     \since 5.6      \macro QT_NO_PROCESS_COMBINED_ARGUMENT_START     \relates QProcess      Disables the QProcess::start() overload taking a single string.     In most cases where it is used, the user intends for the first argument     to be treated atomically as per the other overload.      \sa start() */
 comment|/*!     \class QProcessEnvironment     \inmodule QtCore      \brief The QProcessEnvironment class holds the environment variables that     can be passed to a program.      \ingroup io     \ingroup misc     \ingroup shared     \reentrant     \since 4.6      A process's environment is composed of a set of key=value pairs known as     environment variables. The QProcessEnvironment class wraps that concept     and allows easy manipulation of those variables. It's meant to be used     along with QProcess, to set the environment for child processes. It     cannot be used to change the current process's environment.      The environment of the calling process can be obtained using     QProcessEnvironment::systemEnvironment().      On Unix systems, the variable names are case-sensitive. Note that the     Unix environment allows both variable names and contents to contain arbitrary     binary data (except for the NUL character). QProcessEnvironment will preserve     such variables, but does not support manipulating variables whose names or     values are not encodable by the current locale settings (see     QTextCodec::codecForLocale).      On Windows, the variable names are case-insensitive, but case-preserving.     QProcessEnvironment behaves accordingly.      On Windows CE, the concept of environment does not exist. This class will     keep the values set for compatibility with other platforms, but the values     set will have no effect on the processes being created.      \sa QProcess, QProcess::systemEnvironment(), QProcess::setProcessEnvironment() */
 DECL|function|toList
 name|QStringList
@@ -5909,8 +5910,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Starts the command \a command in a new process.     The OpenMode is set to \a mode.      \a command is a single string of text containing both the program name     and its arguments. The arguments are separated by one or more spaces.     For example:      \snippet code/src_corelib_io_qprocess.cpp 5      Arguments containing spaces must be quoted to be correctly supplied to     the new process. For example:      \snippet code/src_corelib_io_qprocess.cpp 6      Literal quotes in the \a command string are represented by triple quotes.     For example:      \snippet code/src_corelib_io_qprocess.cpp 7      After the \a command string has been split and unquoted, this function     behaves like the overload which takes the arguments as a string list.  */
+comment|/*!     \overload      Starts the command \a command in a new process.     The OpenMode is set to \a mode.      \a command is a single string of text containing both the program name     and its arguments. The arguments are separated by one or more spaces.     For example:      \snippet code/src_corelib_io_qprocess.cpp 5      Arguments containing spaces must be quoted to be correctly supplied to     the new process. For example:      \snippet code/src_corelib_io_qprocess.cpp 6      Literal quotes in the \a command string are represented by triple quotes.     For example:      \snippet code/src_corelib_io_qprocess.cpp 7      After the \a command string has been split and unquoted, this function     behaves like the overload which takes the arguments as a string list.      You can disable this overload by defining \c     QT_NO_PROCESS_COMBINED_ARGUMENT_START when you compile your applications.     This can be useful if you want to ensure that you are not splitting arguments     unintentionally, for example. In virtually all cases, using the other overload     is the preferred method.      On operating systems where the system API for passing command line     arguments to a subprocess natively uses a single string (Windows), one can     conceive command lines which cannot be passed via QProcess's portable     list-based API. In these rare cases you need to use setProgram() and     setNativeArguments() instead of this function.  */
 end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_PROCESS_COMBINED_ARGUMENT_START
+argument_list|)
+end_if
 begin_function
 DECL|function|start
 name|void
@@ -5988,6 +5998,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \since 5.0      Returns the program the process was last started with.      \sa start() */
 end_comment
