@@ -42,6 +42,11 @@ literal|"qt.scaling"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_HIGHDPISCALING
+end_ifndef
 begin_decl_stmt
 DECL|variable|legacyDevicePixelEnvVar
 specifier|static
@@ -1262,6 +1267,13 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//QT_NO_HIGHDPISCALING
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
