@@ -1427,6 +1427,35 @@ decl_stmt|;
 if|if
 condition|(
 name|err
+operator|==
+name|errSSLClosedGraceful
+condition|)
+block|{
+name|shutdown
+operator|=
+literal|true
+expr_stmt|;
+comment|// the other side shut down, make sure we do not send shutdown ourselves
+name|setError
+argument_list|(
+name|QSslSocket
+operator|::
+name|tr
+argument_list|(
+literal|"The TLS/SSL connection has been closed"
+argument_list|)
+argument_list|,
+name|QAbstractSocket
+operator|::
+name|RemoteHostClosedError
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
+elseif|else
+if|if
+condition|(
+name|err
 operator|!=
 name|noErr
 operator|&&
