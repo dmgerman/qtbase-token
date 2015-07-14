@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QElapsedTimer>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QFile>
 end_include
 begin_include
@@ -5084,6 +5089,9 @@ return|return
 literal|false
 return|;
 block|}
+name|QElapsedTimer
+name|timer
+decl_stmt|;
 name|QProcess
 name|proc
 decl_stmt|;
@@ -5097,6 +5105,25 @@ name|MergedChannels
 argument_list|)
 expr_stmt|;
 comment|// silence output
+name|qDebug
+argument_list|()
+operator|.
+name|noquote
+argument_list|()
+operator|<<
+literal|"runUpdateMimeDatabase: running"
+operator|<<
+name|umd
+operator|<<
+name|path
+operator|<<
+literal|"..."
+expr_stmt|;
+name|timer
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|proc
 operator|.
 name|start
@@ -5140,12 +5167,32 @@ return|return
 literal|false
 return|;
 block|}
+specifier|const
+name|bool
+name|success
+init|=
 name|proc
 operator|.
 name|waitForFinished
 argument_list|()
+decl_stmt|;
+name|qDebug
+argument_list|()
+operator|.
+name|noquote
+argument_list|()
+operator|<<
+literal|"runUpdateMimeDatabase: done,"
+operator|<<
+name|success
+operator|<<
+name|timer
+operator|.
+name|elapsed
+argument_list|()
+operator|<<
+literal|"ms"
 expr_stmt|;
-comment|//qDebug()<< "runUpdateMimeDatabase"<< path;
 return|return
 literal|true
 return|;
