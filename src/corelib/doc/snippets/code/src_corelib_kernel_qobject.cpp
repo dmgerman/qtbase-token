@@ -1608,7 +1608,7 @@ literal|"button1"
 argument_list|,
 name|Qt
 operator|::
-name|FindDirectChildOnly
+name|FindDirectChildrenOnly
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -1637,7 +1637,7 @@ argument_list|()
 argument_list|,
 name|Qt
 operator|::
-name|FindDirectChildOnly
+name|FindDirectChildrenOnly
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -1669,7 +1669,7 @@ argument_list|()
 argument_list|,
 name|Qt
 operator|::
-name|FindDirectChildOnly
+name|FindDirectChildrenOnly
 argument_list|)
 decl_stmt|;
 end_decl_stmt
