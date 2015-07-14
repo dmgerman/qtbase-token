@@ -264,7 +264,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MACX
+name|Q_OS_DARWIN
 argument_list|)
 name|BundleType
 operator|=
@@ -883,7 +883,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MACX
+name|Q_OS_DARWIN
 argument_list|)
 end_if
 begin_expr_stmt

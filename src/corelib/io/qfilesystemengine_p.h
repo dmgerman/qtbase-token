@@ -193,7 +193,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MACX
+name|Q_OS_DARWIN
 argument_list|)
 specifier|static
 name|QString
