@@ -487,6 +487,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+comment|// ### Qt6: remove me
 name|bool
 name|flush
 argument_list|()
