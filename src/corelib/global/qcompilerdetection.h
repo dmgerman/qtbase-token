@@ -4957,14 +4957,54 @@ if|#
 directive|if
 name|defined
 argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
+operator|&&
+name|Q_CC_INTEL
+operator|>=
+literal|1500
+end_if
+begin_comment
+comment|// ICC 15.x and 16.0 have their own implementation of std::atomic, which is activated when in Clang mode
+end_comment
+begin_comment
+comment|// (probably because libc++'s<atomic> on OS X failed to compile), but they're missing some
+end_comment
+begin_comment
+comment|// critical definitions. (Reported as Intel Issue ID 6000117277)
+end_comment
+begin_define
+DECL|macro|__USE_CONSTEXPR
+define|#
+directive|define
+name|__USE_CONSTEXPR
+value|1
+end_define
+begin_define
+DECL|macro|__USE_NOEXCEPT
+define|#
+directive|define
+name|__USE_NOEXCEPT
+value|1
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|_LIBCPP_VERSION
 argument_list|)
-end_if
+end_elif
 begin_comment
 comment|// libc++ uses __has_feature(cxx_atomic), so disable the feature if the compiler
 end_comment
 begin_comment
-comment|// doesn't support it. That's required for the Intel compiler on OS X, for example.
+comment|// doesn't support it. That's required for the Intel compiler 14.x or earlier on OS X, for example.
 end_comment
 begin_if
 if|#
