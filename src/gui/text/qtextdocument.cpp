@@ -4308,7 +4308,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Finds the next occurrence, matching the regular expression, \a expr, in the document.     The search starts at the given \a from position, and proceeds forwards     through the document unless specified otherwise in the search options.     The \a options control the type of search performed. The FindCaseSensitively     option is ignored for this overload, use QRegExp::caseSensitivity instead.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the \a from position is 0 (the default) the search begins from the beginning     of the document; otherwise it begins at the specified position. */
+comment|/*!     \overload      Finds the next occurrence that matches the given regular expression,     \a expr, within the same paragraph in the document.      The search starts at the given \a from position, and proceeds forwards     through the document unless specified otherwise in the search options.     The \a options control the type of search performed. The FindCaseSensitively     option is ignored for this overload, use QRegExp::caseSensitivity instead.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the \a from position is 0 (the default) the search begins from the beginning     of the document; otherwise it begins at the specified position. */
 end_comment
 begin_function
 DECL|function|find
@@ -4502,7 +4502,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Finds the next occurrence, matching the regular expression, \a expr, in the document.     The search starts at the position of the given from \a cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed. The FindCaseSensitively     option is ignored for this overload, use QRegExp::caseSensitivity instead.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the given \a cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
+comment|/*!     \overload      Finds the next occurrence that matches the given regular expression,     \a expr, within the same paragraph in the document.      The search starts at the position of the given from \a cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed. The FindCaseSensitively     option is ignored for this overload, use QRegExp::caseSensitivity instead.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the given \a cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
 end_comment
 begin_function
 DECL|function|find
@@ -4894,7 +4894,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.5      Finds the next occurrence, matching the regular expression, \a expr, in the document.     The search starts at the given \a from position, and proceeds forwards     through the document unless specified otherwise in the search options.     The \a options control the type of search performed.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the \a from position is 0 (the default) the search begins from the beginning     of the document; otherwise it begins at the specified position. */
+comment|/*!     \since 5.5      Finds the next occurrence that matches the given regular expression,     \a expr, within the same paragraph in the document.      The search starts at the given \a from position, and proceeds forwards     through the document unless specified otherwise in the search options.     The \a options control the type of search performed.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the \a from position is 0 (the default) the search begins from the beginning     of the document; otherwise it begins at the specified position. */
 end_comment
 begin_function
 DECL|function|find
@@ -5089,7 +5089,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.5      Finds the next occurrence, matching the regular expression, \a expr, in the document.     The search starts at the position of the given \a cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the given \a cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
+comment|/*!     \since 5.5      Finds the next occurrence that matches the given regular expression,     \a expr, within the same paragraph in the document.      The search starts at the position of the given \a cursor, and proceeds     forwards through the document unless specified otherwise in the search     options. The \a options control the type of search performed.      Returns a cursor with the match selected if a match was found; otherwise     returns a null cursor.      If the given \a cursor has a selection, the search begins after the     selection; otherwise it begins at the cursor's position.      By default the search is case-sensitive, and can match text anywhere in the     document. */
 end_comment
 begin_function
 DECL|function|find
