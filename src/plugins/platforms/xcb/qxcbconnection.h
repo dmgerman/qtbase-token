@@ -655,26 +655,10 @@ block|;
 name|QXcbConnection
 operator|*
 name|m_connection
-block|;
-typedef|typedef
-name|xcb_generic_event_t
-modifier|*
-function_decl|(
-modifier|*
-name|XcbPollForQueuedEventFunctionPointer
-function_decl|)
-parameter_list|(
-name|xcb_connection_t
-modifier|*
-name|c
-parameter_list|)
-function_decl|;
-name|XcbPollForQueuedEventFunctionPointer
-name|m_xcb_poll_for_queued_event
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-unit|};
 name|class
 name|QXcbWindowEventListener
 block|{
