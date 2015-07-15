@@ -1003,6 +1003,11 @@ specifier|static
 name|QString
 name|OUTPUTPREFIXES
 decl_stmt|;
+DECL|member|OUTPUTSUFFIXES
+specifier|static
+name|QString
+name|OUTPUTSUFFIXES
+decl_stmt|;
 DECL|member|PROJECT
 specifier|static
 name|QString
@@ -1458,6 +1463,13 @@ define|#
 directive|define
 name|CONFIG_OUTPUTPREFIXES
 value|ConfigStrings::OUTPUTPREFIXES
+end_define
+begin_define
+DECL|macro|CONFIG_OUTPUTSUFFIXES
+define|#
+directive|define
+name|CONFIG_OUTPUTSUFFIXES
+value|ConfigStrings::OUTPUTSUFFIXES
 end_define
 begin_define
 DECL|macro|CONFIG_PROJECT
