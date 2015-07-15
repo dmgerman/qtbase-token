@@ -28695,7 +28695,7 @@ literal|"EXTRA_CFLAGS = -DUNICODE -ffunction-sections"
 operator|<<
 name|endl
 operator|<<
-literal|"EXTRA_CXXFLAGS = -DUNICODE -ffunction-sections"
+literal|"EXTRA_CXXFLAGS = -std=c++11 -DUNICODE -ffunction-sections"
 operator|<<
 name|endl
 operator|<<
