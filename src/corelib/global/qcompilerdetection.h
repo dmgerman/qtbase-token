@@ -232,6 +232,7 @@ DECL|macro|Q_CC_INTEL
 define|#
 directive|define
 name|Q_CC_INTEL
+value|__INTEL_COMPILER
 end_define
 begin_endif
 endif|#
