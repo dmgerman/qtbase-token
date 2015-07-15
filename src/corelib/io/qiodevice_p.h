@@ -788,9 +788,6 @@ block|;
 name|bool
 name|baseReadLineDataCalled
 block|;
-name|bool
-name|firstRead
-block|;
 name|virtual
 name|bool
 name|putCharHelper

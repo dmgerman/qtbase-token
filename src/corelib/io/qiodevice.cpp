@@ -504,11 +504,6 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
-name|firstRead
-argument_list|(
-literal|true
-argument_list|)
-member_init_list|,
 name|accessMode
 argument_list|(
 name|Unset
@@ -871,12 +866,6 @@ name|QIODevicePrivate
 operator|::
 name|Unset
 expr_stmt|;
-name|d
-operator|->
-name|firstRead
-operator|=
-literal|true
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1099,12 +1088,6 @@ name|QIODevicePrivate
 operator|::
 name|Unset
 expr_stmt|;
-name|d
-operator|->
-name|firstRead
-operator|=
-literal|true
-expr_stmt|;
 if|#
 directive|if
 name|defined
@@ -1200,12 +1183,6 @@ name|buffer
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|d
-operator|->
-name|firstRead
-operator|=
-literal|true
 expr_stmt|;
 block|}
 end_function
@@ -1946,15 +1923,6 @@ directive|endif
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|d
-operator|->
-name|firstRead
-condition|)
-block|{
-comment|// this is the first time the file has been read, check it's valid and set up pos pointers
-comment|// for fast pos updates.
 name|CHECK_READABLE
 argument_list|(
 name|read
@@ -1966,13 +1934,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|d
-operator|->
-name|firstRead
-operator|=
-literal|false
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
