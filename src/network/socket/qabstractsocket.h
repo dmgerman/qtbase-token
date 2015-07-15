@@ -379,6 +379,7 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+comment|// ### Qt6: remove me
 name|quint16
 name|localPort
 argument_list|()
