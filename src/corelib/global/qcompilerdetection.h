@@ -4191,12 +4191,12 @@ define|#
 directive|define
 name|Q_COMPILER_THREAD_LOCAL
 end_define
-begin_define
-DECL|macro|Q_COMPILER_THREADSAFE_STATICS
-define|#
-directive|define
-name|Q_COMPILER_THREADSAFE_STATICS
-end_define
+begin_comment
+comment|// Broken, see QTBUG-47224 and https://connect.microsoft.com/VisualStudio/feedback/details/1549785
+end_comment
+begin_comment
+comment|//#      define Q_COMPILER_THREADSAFE_STATICS
+end_comment
 begin_define
 DECL|macro|Q_COMPILER_UDL
 define|#

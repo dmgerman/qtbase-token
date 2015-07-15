@@ -41,7 +41,7 @@ name|exception
 parameter_list|()
 function_decl|;
 name|void
-name|threadedException
+name|catchExceptionAndRetry
 parameter_list|()
 function_decl|;
 name|void
@@ -490,11 +490,11 @@ argument|(exceptionControlVar)
 argument_list|)
 end_macro
 begin_function
-DECL|function|threadedException
+DECL|function|catchExceptionAndRetry
 name|void
 name|tst_QGlobalStatic
 operator|::
-name|threadedException
+name|catchExceptionAndRetry
 parameter_list|()
 block|{
 if|if
