@@ -95,13 +95,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Default Printer ID :"
-operator|<<
-name|defaultId
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|ps
@@ -149,12 +142,40 @@ argument_list|(
 name|id
 argument_list|)
 decl_stmt|;
+specifier|const
+name|char
+name|quote
+init|=
+name|id
+operator|==
+name|defaultId
+condition|?
+literal|'*'
+else|:
+literal|'"'
+decl_stmt|;
 name|qDebug
 argument_list|()
+operator|.
+name|noquote
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
 operator|<<
-literal|"Created printer"
+literal|"\nCreated printer "
+operator|<<
+name|quote
 operator|<<
 name|id
+operator|<<
+name|quote
+operator|<<
+literal|":\n"
+operator|<<
+name|printDevice
+operator|<<
+literal|'\n'
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
