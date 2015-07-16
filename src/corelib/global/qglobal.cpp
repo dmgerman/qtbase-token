@@ -632,7 +632,7 @@ begin_comment
 comment|/*!     \macro Q_OS_IOS     \relates<QtGlobal>      Defined on iOS.  */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_WIN     \relates<QtGlobal>      Defined on all supported versions of Windows. That is, if     \l Q_OS_WIN32, \l Q_OS_WIN64 or \l Q_OS_WINCE is defined. */
+comment|/*!     \macro Q_OS_WIN     \relates<QtGlobal>      Defined on all supported versions of Windows. That is, if     \l Q_OS_WIN32, \l Q_OS_WIN64, \l Q_OS_WINCE or \l Q_OS_WINRT is defined. */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_WIN32     \relates<QtGlobal>      Defined on 32-bit and 64-bit versions of Windows (not on Windows CE). */
