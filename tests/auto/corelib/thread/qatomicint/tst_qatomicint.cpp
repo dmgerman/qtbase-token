@@ -2383,7 +2383,7 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|int
+name|bool
 argument_list|>
 argument_list|(
 literal|"result"
@@ -2403,7 +2403,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2418,7 +2418,7 @@ literal|0
 operator|<<
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2434,7 +2434,7 @@ operator|<<
 operator|-
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2449,7 +2449,7 @@ literal|1
 operator|<<
 literal|0
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2464,7 +2464,7 @@ literal|1
 operator|<<
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2480,7 +2480,7 @@ operator|<<
 operator|-
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2497,7 +2497,7 @@ literal|1
 operator|<<
 literal|0
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2514,7 +2514,7 @@ literal|1
 operator|<<
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2532,7 +2532,7 @@ operator|<<
 operator|-
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2553,7 +2553,7 @@ name|INT_MIN
 operator|+
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2572,7 +2572,7 @@ literal|1
 operator|<<
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2592,7 +2592,7 @@ operator|<<
 operator|-
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2607,7 +2607,7 @@ name|INT_MAX
 operator|<<
 name|INT_MAX
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2622,7 +2622,7 @@ name|INT_MAX
 operator|<<
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2638,7 +2638,7 @@ operator|<<
 operator|-
 literal|1
 operator|<<
-literal|1
+literal|true
 expr_stmt|;
 comment|// these should fail
 name|QTest
@@ -2655,7 +2655,7 @@ operator|<<
 operator|~
 literal|0
 operator|<<
-literal|0
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -2672,7 +2672,7 @@ operator|<<
 operator|~
 literal|0
 operator|<<
-literal|0
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -2688,7 +2688,7 @@ operator|<<
 operator|~
 literal|0
 operator|<<
-literal|0
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -2705,7 +2705,7 @@ operator|<<
 operator|~
 literal|0
 operator|<<
-literal|0
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -2722,7 +2722,7 @@ operator|<<
 operator|~
 literal|0
 operator|<<
-literal|0
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -2739,7 +2739,7 @@ operator|<<
 operator|~
 literal|0
 operator|<<
-literal|0
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -2757,7 +2757,7 @@ operator|<<
 operator|~
 literal|0
 operator|<<
-literal|0
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -2775,7 +2775,7 @@ operator|<<
 operator|~
 literal|0
 operator|<<
-literal|0
+literal|false
 expr_stmt|;
 block|}
 end_function
@@ -2824,10 +2824,6 @@ name|expected
 argument_list|,
 name|newval
 argument_list|)
-condition|?
-literal|1
-else|:
-literal|0
 argument_list|,
 literal|"result"
 argument_list|)
@@ -2849,10 +2845,6 @@ name|expected
 argument_list|,
 name|newval
 argument_list|)
-condition|?
-literal|1
-else|:
-literal|0
 argument_list|,
 literal|"result"
 argument_list|)
@@ -2874,10 +2866,6 @@ name|expected
 argument_list|,
 name|newval
 argument_list|)
-condition|?
-literal|1
-else|:
-literal|0
 argument_list|,
 literal|"result"
 argument_list|)
@@ -2899,10 +2887,6 @@ name|expected
 argument_list|,
 name|newval
 argument_list|)
-condition|?
-literal|1
-else|:
-literal|0
 argument_list|,
 literal|"result"
 argument_list|)
@@ -2913,7 +2897,7 @@ directive|ifdef
 name|Q_ATOMIC_INT32_IS_SUPPORTED
 name|QFETCH
 argument_list|(
-name|int
+name|bool
 argument_list|,
 name|result
 argument_list|)

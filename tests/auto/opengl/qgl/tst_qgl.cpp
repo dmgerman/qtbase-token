@@ -13791,9 +13791,6 @@ decl_stmt|;
 comment|// Make sure the texture IDs returned are valid:
 name|QCOMPARE
 argument_list|(
-operator|(
-name|bool
-operator|)
 name|funcs
 operator|->
 name|glIsTexture
@@ -13801,14 +13798,14 @@ argument_list|(
 name|boundImageTextureId
 argument_list|)
 argument_list|,
+name|GLboolean
+argument_list|(
 name|GL_TRUE
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-operator|(
-name|bool
-operator|)
 name|funcs
 operator|->
 name|glIsTexture
@@ -13816,7 +13813,10 @@ argument_list|(
 name|boundPixmapTextureId
 argument_list|)
 argument_list|,
+name|GLboolean
+argument_list|(
 name|GL_TRUE
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Make sure the textures are still valid after we delete the image/pixmap:
@@ -13830,9 +13830,6 @@ literal|0
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-operator|(
-name|bool
-operator|)
 name|funcs
 operator|->
 name|glIsTexture
@@ -13840,7 +13837,10 @@ argument_list|(
 name|boundImageTextureId
 argument_list|)
 argument_list|,
+name|GLboolean
+argument_list|(
 name|GL_TRUE
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13867,9 +13867,6 @@ literal|0
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-operator|(
-name|bool
-operator|)
 name|funcs
 operator|->
 name|glIsTexture
@@ -13877,7 +13874,10 @@ argument_list|(
 name|boundPixmapTextureId
 argument_list|)
 argument_list|,
+name|GLboolean
+argument_list|(
 name|GL_TRUE
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -13910,9 +13910,6 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-operator|(
-name|bool
-operator|)
 name|funcs
 operator|->
 name|glIsTexture
@@ -13920,14 +13917,14 @@ argument_list|(
 name|boundImageTextureId
 argument_list|)
 argument_list|,
+name|GLboolean
+argument_list|(
 name|GL_FALSE
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-operator|(
-name|bool
-operator|)
 name|funcs
 operator|->
 name|glIsTexture
@@ -13935,7 +13932,10 @@ argument_list|(
 name|boundPixmapTextureId
 argument_list|)
 argument_list|,
+name|GLboolean
+argument_list|(
 name|GL_FALSE
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
