@@ -2763,7 +2763,9 @@ operator|)
 condition|?
 literal|0
 else|:
-literal|4
+name|QFileSystemModelPrivate
+operator|::
+name|NumColumns
 return|;
 block|}
 end_function

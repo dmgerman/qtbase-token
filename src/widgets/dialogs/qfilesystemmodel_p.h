@@ -131,6 +131,13 @@ argument|QFileSystemModel
 argument_list|)
 name|public
 operator|:
+expr|enum
+block|{
+name|NumColumns
+operator|=
+literal|4
+block|}
+block|;
 name|class
 name|QFileSystemNode
 block|{
