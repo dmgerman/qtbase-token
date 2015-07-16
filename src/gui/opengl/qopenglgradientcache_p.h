@@ -95,7 +95,10 @@ argument_list|)
 operator|:
 name|stops
 argument_list|(
+name|qMove
+argument_list|(
 name|s
+argument_list|)
 argument_list|)
 block|,
 name|opacity

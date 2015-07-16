@@ -240,10 +240,12 @@ name|QXmlStreamWriter
 operator|&
 name|writer
 argument_list|,
+specifier|const
 name|QSet
 operator|<
 name|int
 operator|>
+operator|&
 name|formatIds
 argument_list|)
 decl|const

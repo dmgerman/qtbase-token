@@ -2508,10 +2508,12 @@ name|QXmlStreamWriter
 modifier|&
 name|writer
 parameter_list|,
+specifier|const
 name|QSet
 argument_list|<
 name|int
 argument_list|>
+modifier|&
 name|formats
 parameter_list|)
 specifier|const

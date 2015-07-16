@@ -100,7 +100,7 @@ name|QStandardItemData
 argument_list|(
 argument|int r
 argument_list|,
-argument|QVariant v
+argument|const QVariant&v
 argument_list|)
 operator|:
 name|role

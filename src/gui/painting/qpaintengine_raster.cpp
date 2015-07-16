@@ -24779,7 +24779,10 @@ parameter_list|)
 member_init_list|:
 name|stops
 argument_list|(
+name|qMove
+argument_list|(
 name|s
+argument_list|)
 argument_list|)
 member_init_list|,
 name|opacity

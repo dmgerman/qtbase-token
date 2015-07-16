@@ -177,6 +177,7 @@ argument_list|,
 argument|QVariant argument
 argument_list|)
 block|;
+comment|// ### Qt 6: QVariant by const-ref
 name|public
 name|Q_SLOTS
 operator|:

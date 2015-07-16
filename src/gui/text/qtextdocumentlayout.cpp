@@ -2119,7 +2119,9 @@ name|PaintContext
 modifier|&
 name|context
 parameter_list|,
+specifier|const
 name|QTextBlock
+modifier|&
 name|bl
 parameter_list|,
 name|bool
@@ -2146,7 +2148,9 @@ name|PaintContext
 modifier|&
 name|context
 parameter_list|,
+specifier|const
 name|QTextBlock
+modifier|&
 name|bl
 parameter_list|,
 specifier|const
@@ -2367,7 +2371,9 @@ function_decl|;
 name|HitPoint
 name|hitTest
 parameter_list|(
+specifier|const
 name|QTextBlock
+modifier|&
 name|bl
 parameter_list|,
 specifier|const
@@ -4168,7 +4174,9 @@ name|QTextDocumentLayoutPrivate
 operator|::
 name|hitTest
 parameter_list|(
+specifier|const
 name|QTextBlock
+modifier|&
 name|bl
 parameter_list|,
 specifier|const
@@ -8344,7 +8352,9 @@ name|PaintContext
 modifier|&
 name|context
 parameter_list|,
+specifier|const
 name|QTextBlock
+modifier|&
 name|bl
 parameter_list|,
 name|bool
@@ -9132,7 +9142,9 @@ name|PaintContext
 modifier|&
 name|context
 parameter_list|,
+specifier|const
 name|QTextBlock
+modifier|&
 name|bl
 parameter_list|,
 specifier|const

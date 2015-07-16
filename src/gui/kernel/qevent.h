@@ -2595,7 +2595,7 @@ argument_list|)
 block|,
 name|value
 argument_list|(
-argument|val
+argument|qMove(val)
 argument_list|)
 block|{}
 name|AttributeType
