@@ -227,6 +227,10 @@ literal|0
 argument_list|)
 decl|const
 decl_stmt|;
+name|QString
+name|checkAvx512Availability
+parameter_list|()
+function_decl|;
 comment|// Our variable dictionaries
 name|QMap
 operator|<
