@@ -6754,7 +6754,7 @@ decl_stmt|;
 name|XPThemeData
 name|theme
 argument_list|(
-literal|0
+name|widget
 argument_list|,
 literal|0
 argument_list|,
@@ -8611,7 +8611,7 @@ expr_stmt|;
 name|XPThemeData
 name|theme
 argument_list|(
-literal|0
+name|widget
 argument_list|,
 literal|0
 argument_list|,

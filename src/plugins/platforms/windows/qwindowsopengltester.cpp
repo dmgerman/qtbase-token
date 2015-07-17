@@ -1277,11 +1277,11 @@ name|fromDevice
 argument_list|(
 name|gpu
 operator|.
-name|deviceId
+name|vendorId
 argument_list|,
 name|gpu
 operator|.
-name|vendorId
+name|deviceId
 argument_list|,
 name|gpu
 operator|.

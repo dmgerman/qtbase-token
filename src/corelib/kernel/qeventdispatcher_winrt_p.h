@@ -55,7 +55,7 @@ file|<qt_windows.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
-name|int
+name|quint64
 name|qt_msectime
 parameter_list|()
 function_decl|;

@@ -3466,9 +3466,12 @@ name|spaceIndex
 operator|-
 name|releaseIndex
 operator|-
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|keyword
+argument_list|)
 argument_list|)
 else|:
 operator|-

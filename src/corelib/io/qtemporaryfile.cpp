@@ -1432,6 +1432,48 @@ operator|!
 name|fileEngine
 condition|)
 block|{
+name|fileEngine
+operator|=
+operator|new
+name|QTemporaryFileEngine
+expr_stmt|;
+name|resetFileEngine
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|fileEngine
+return|;
+block|}
+end_function
+begin_function
+DECL|function|resetFileEngine
+name|void
+name|QTemporaryFilePrivate
+operator|::
+name|resetFileEngine
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+operator|!
+name|fileEngine
+condition|)
+return|return;
+name|QTemporaryFileEngine
+modifier|*
+name|tef
+init|=
+cast|static_cast
+argument_list|<
+name|QTemporaryFileEngine
+operator|*
+argument_list|>
+argument_list|(
+name|fileEngine
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|fileName
@@ -1439,10 +1481,9 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|fileEngine
-operator|=
-operator|new
-name|QTemporaryFileEngine
+name|tef
+operator|->
+name|initialize
 argument_list|(
 name|templateName
 argument_list|,
@@ -1450,10 +1491,9 @@ literal|0600
 argument_list|)
 expr_stmt|;
 else|else
-name|fileEngine
-operator|=
-operator|new
-name|QTemporaryFileEngine
+name|tef
+operator|->
+name|initialize
 argument_list|(
 name|fileName
 argument_list|,
@@ -1462,10 +1502,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
-return|return
-name|fileEngine
-return|;
 block|}
 end_function
 begin_function
@@ -2223,6 +2259,16 @@ literal|true
 return|;
 block|}
 block|}
+comment|// reset the engine state so it creates a new, unique file name from the template;
+comment|// equivalent to:
+comment|//    delete d->fileEngine;
+comment|//    d->fileEngine = 0;
+comment|//    d->engine();
+name|d
+operator|->
+name|resetFileEngine
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|QFile

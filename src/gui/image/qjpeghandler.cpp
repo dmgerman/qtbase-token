@@ -4175,6 +4175,9 @@ block|,
 DECL|enumerator|ReadHeader
 name|ReadHeader
 block|,
+DECL|enumerator|ReadingEnd
+name|ReadingEnd
+block|,
 DECL|enumerator|Error
 name|Error
 block|}
@@ -5329,7 +5332,7 @@ argument_list|)
 expr_stmt|;
 name|state
 operator|=
-name|Ready
+name|ReadingEnd
 expr_stmt|;
 return|return
 literal|true
@@ -5551,6 +5554,14 @@ operator|!=
 name|QJpegHandlerPrivate
 operator|::
 name|Error
+operator|&&
+name|d
+operator|->
+name|state
+operator|!=
+name|QJpegHandlerPrivate
+operator|::
+name|ReadingEnd
 condition|)
 block|{
 name|setFormat
