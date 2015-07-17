@@ -2847,8 +2847,11 @@ argument_list|(
 name|QProcess
 operator|::
 name|FailedToStart
+argument_list|,
+name|errorString
 argument_list|)
 expr_stmt|;
+comment|// the error string was already set
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
