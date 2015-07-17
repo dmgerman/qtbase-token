@@ -860,14 +860,6 @@ directive|endif
 if|#
 directive|if
 name|defined
-name|__HLE__
-operator||
-name|HLE
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
 name|__AVX2__
 operator||
 name|AVX2

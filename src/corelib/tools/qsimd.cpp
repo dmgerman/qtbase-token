@@ -2071,9 +2071,6 @@ end_decl_stmt
 begin_comment
 comment|// record what CPU features were enabled by default in this Qt build
 end_comment
-begin_comment
-comment|// don't define for HLE, since the HLE prefix can be run on older CPUs
-end_comment
 begin_decl_stmt
 DECL|variable|minFeature
 specifier|static
@@ -2082,9 +2079,6 @@ name|uint
 name|minFeature
 init|=
 name|qCompilerCpuFeatures
-operator|&
-operator|~
-name|HLE
 decl_stmt|;
 end_decl_stmt
 begin_ifdef
