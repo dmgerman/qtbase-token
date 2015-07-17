@@ -3061,16 +3061,22 @@ argument_list|)
 decl_stmt|;
 if|#
 directive|if
+operator|(
 name|defined
 argument_list|(
 name|Q_CC_MSVC
 argument_list|)
+operator|&&
+name|_MSC_VER
+operator|<
+literal|1900
+operator|)
 operator|||
 name|defined
 argument_list|(
 name|Q_CC_MINGW
 argument_list|)
-comment|// MSVC, MinGW format double numbers differently
+comment|// MSVC up to MSVC2013, MinGW format double numbers differently
 if|if
 condition|(
 name|n
