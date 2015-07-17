@@ -3617,10 +3617,7 @@ comment|// enter the working directory
 if|if
 condition|(
 name|workingDir
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|QT_CHDIR
 argument_list|(
 name|workingDir
@@ -3629,13 +3626,11 @@ operator|==
 operator|-
 literal|1
 condition|)
-name|qWarning
-argument_list|(
-literal|"QProcessPrivate::execChild() failed to chdir to %s"
-argument_list|,
-name|workingDir
-argument_list|)
-expr_stmt|;
+block|{
+comment|// failed, stop the process
+goto|goto
+name|report_errno
+goto|;
 block|}
 comment|// this is a virtual call, and it base behavior is to do nothing.
 name|q
@@ -3763,6 +3758,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// notify failure
+name|report_errno
+label|:
 name|QString
 name|error
 init|=
