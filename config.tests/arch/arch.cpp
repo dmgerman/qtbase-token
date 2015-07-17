@@ -79,6 +79,13 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
+name|__ADX__
+comment|// Multi-Precision Add-Carry Instruction Extensions, Intel Core 5th generation ("Broadwell")
+literal|" adx"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|__AES__
 comment|// AES New Instructions, Intel Core-i7 second generation ("Sandy Bridge")
 literal|" aes"
@@ -101,28 +108,28 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__AVX512F__
-comment|// AVX512 Foundation, Intel Xeon Phi codename "Knights Landing"
+comment|// AVX512 Foundation, Intel Xeon Phi codename "Knights Landing" and Intel Xeon codename "Skylake"
 literal|" avx512f"
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
 name|__AVX512CD__
-comment|// AVX512 Conflict Detection, Intel Xeon Phi codename "Knights Landing"
+comment|// AVX512 Conflict Detection, Intel Xeon Phi codename "Knights Landing" and Intel Xeon codename "Skylake"
 literal|" avx512cd"
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
 name|__AVX512DQ__
-comment|// AVX512 Double& Quadword, future Intel Xeon processor
+comment|// AVX512 Double& Quadword, Intel Xeon processor codename "Skylake"
 literal|" avx512dq"
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
 name|__AVX512BW__
-comment|// AVX512 Byte& Word, future Intel Xeon processor
+comment|// AVX512 Byte& Word, Intel Xeon processor codename "Skylake"
 literal|" avx512bw"
 endif|#
 directive|endif
@@ -143,8 +150,22 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__AVX512VL__
-comment|// AVX512 Vector Length, future Intel Xeon processor
+comment|// AVX512 Vector Length, Intel Xeon processor codename "Skylake"
 literal|" avx512vl"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__AVX512IFMA__
+comment|// AVX512 Integer Fused Multiply-Add, Intel processor codename "Cannonlake"
+literal|" avx512ifma"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__AVX512VBMI__
+comment|// AVX512 Vector Byte Manipulation Instructions, Intel processor codename "Cannonlake"
+literal|" avx512vbmi"
 endif|#
 directive|endif
 ifdef|#
@@ -228,6 +249,13 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
+name|__MPX__
+comment|// Memory Protection Extensions, Intel Core processor codename "Skylake"
+literal|" mpx"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|__NO_SAHF__
 comment|// missing SAHF instruction in 64-bit, up to Intel Pentium 4 64-bit ("Nocona"), AMD Athlon FX
 comment|// Note: the macro is not defined, so this will never show up
@@ -250,9 +278,37 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
+name|__PREFETCHWT1__
+comment|// Prefetch data for writing with T1 hint, Intel processor TBA
+literal|" prefetchwt1"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__PRFCHW__
+comment|// Prefetch data for writing, Intel Core 5th Generation ("Broadwell")
+literal|" prfchw"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|__RDRND__
 comment|// Random number generator, Intel Core 3rd Generation ("Ivy Bridge")
 literal|" rdrnd"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__RDSEED__
+comment|// Random number generator, Intel Core 5th Generation ("Broadwell")
+literal|" rdseed"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__RTM__
+comment|// Restricted Transactional Memory, Intel Core 4th Generation ("Haswell")
+literal|" rtm"
 endif|#
 directive|endif
 ifdef|#
