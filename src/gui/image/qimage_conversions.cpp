@@ -8087,7 +8087,9 @@ name|data
 operator|->
 name|format
 operator|=
-name|DestFormat
+name|QImage
+operator|::
+name|Format_RGBX8888
 expr_stmt|;
 return|return
 literal|true

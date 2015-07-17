@@ -343,7 +343,14 @@ name|T
 argument_list|)
 operator|>
 block|{
+comment|// this is GCC or GCC-like, so we can use extensions:
+comment|// force the alignment to be the size of the type, as on some ABIs the alignment
+comment|// of 64-bit types is 32-bit. We need proper alignment for LDREX / STREX.
 typedef|typedef
+name|__attribute__
+argument_list|(
+argument|(__aligned__(sizeof(T)))
+argument_list|)
 name|T
 name|Type
 typedef|;

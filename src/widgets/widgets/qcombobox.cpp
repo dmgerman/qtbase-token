@@ -9638,6 +9638,9 @@ argument_list|(
 name|newText
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_COMPLETER
 if|if
 condition|(
 name|lineEdit
@@ -9655,6 +9658,8 @@ argument_list|(
 name|newText
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|updateLineEditGeometry
 argument_list|()

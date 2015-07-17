@@ -2593,14 +2593,9 @@ literal|"\n"
 literal|"Copyright (C) 2015 The Qt Company Ltd.\n"
 literal|"Contact: http://www.qt.io/licensing/\n"
 literal|"\n"
-literal|"Build date:          %s\n"
 literal|"Installation prefix: %s\n"
 literal|"Library path:        %s\n"
 literal|"Include path:        %s\n"
-argument_list|,
-name|qt_configure_installation
-operator|+
-literal|12
 argument_list|,
 name|qt_configure_prefix_path_str
 operator|+

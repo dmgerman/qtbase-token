@@ -7638,7 +7638,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the tag associated with this method.      Tags are special macros recognized by \c moc that make it     possible to add extra information about a method.      Tag information can be added in the following     way in the function declaration:      \code         #ifndef Q_MOC_RUN         // define the tag text         #  define THISISTESTTAG         #endif         ...         private slots:             THISISTESTTAG void testFunc();     \endcode      and the information can be accessed by using:      \code         MainWindow win;         win.show();          int functionIndex = win.metaObject()->indexOfSlot("testFunc()");         QMetaMethod mm = metaObject()->method(functionIndex);         qDebug()<< mm.tag(); // prints THISISTESTTAG     \endcode      For the moment, \c moc will extract and record all tags, but it will not     handle any of them specially.      \note Since Qt 5.0, \c moc expands preprocessor macros, so it is necessary     to surround the definition with \c #ifndef \c Q_MOC_RUN, as shown in the     example above. This was not required in Qt 4. The code as shown above works     with Qt 4 too. */
+comment|/*!     Returns the tag associated with this method.      Tags are special macros recognized by \c moc that make it     possible to add extra information about a method.      Tag information can be added in the following     way in the function declaration:      \code         // In the class MainWindow declaration         #ifndef Q_MOC_RUN         // define the tag text as empty, so the compiler doesn't see it         #  define MY_CUSTOM_TAG         #endif         ...         private slots:             MY_CUSTOM_TAG void testFunc();     \endcode      and the information can be accessed by using:      \code         MainWindow win;         win.show();          int functionIndex = win.metaObject()->indexOfSlot("testFunc()");         QMetaMethod mm = win.metaObject()->method(functionIndex);         qDebug()<< mm.tag(); // prints MY_CUSTOM_TAG     \endcode      For the moment, \c moc will extract and record all tags, but it will not     handle any of them specially. You can use the tags to annotate your methods     differently, and treat them according to the specific needs of your     application.      \note Since Qt 5.0, \c moc expands preprocessor macros, so it is necessary     to surround the definition with \c #ifndef \c Q_MOC_RUN, as shown in the     example above. This was not required in Qt 4. The code as shown above works     with Qt 4 too. */
 end_comment
 begin_function
 DECL|function|tag
@@ -7854,7 +7854,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the access specification of this method (private,     protected, or public).      Signals are always protected, meaning that you can only emit them     from the class or from a subclass.      \sa methodType() */
+comment|/*!     Returns the access specification of this method (private,     protected, or public).      \note Signals are always public, but you should regard that as an     implementation detail. It is almost always a bad idea to emit a signal from     outside its class.      \sa methodType() */
 end_comment
 begin_function
 DECL|function|access

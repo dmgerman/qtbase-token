@@ -3841,6 +3841,7 @@ argument_list|(
 name|child
 argument_list|)
 expr_stmt|;
+else|else
 name|ret
 operator|.
 name|append

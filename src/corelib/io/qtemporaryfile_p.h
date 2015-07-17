@@ -95,6 +95,11 @@ name|engine
 argument_list|()
 specifier|const
 block|;
+name|void
+name|resetFileEngine
+argument_list|()
+specifier|const
+block|;
 name|bool
 name|autoRemove
 block|;
@@ -125,37 +130,37 @@ argument|QFSFileEngine
 argument_list|)
 name|public
 operator|:
-name|QTemporaryFileEngine
+name|void
+name|initialize
 argument_list|(
 argument|const QString&file
 argument_list|,
-argument|quint32 fileMode
+argument|quint32 mode
 argument_list|,
-argument|bool fileIsTemplate = true
-argument_list|)
-operator|:
-name|QFSFileEngine
-argument_list|()
-block|,
-name|fileMode
-argument_list|(
-name|fileMode
-argument_list|)
-block|,
-name|filePathIsTemplate
-argument_list|(
-name|fileIsTemplate
-argument_list|)
-block|,
-name|filePathWasTemplate
-argument_list|(
-argument|fileIsTemplate
+argument|bool nameIsTemplate = true
 argument_list|)
 block|{
 name|Q_D
 argument_list|(
 name|QFSFileEngine
 argument_list|)
+block|;
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|isReallyOpen
+argument_list|()
+argument_list|)
+block|;
+name|fileMode
+operator|=
+name|mode
+block|;
+name|filePathIsTemplate
+operator|=
+name|filePathWasTemplate
+operator|=
+name|nameIsTemplate
 block|;
 name|d
 operator|->

@@ -863,6 +863,13 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
+name|reader
+operator|.
+name|setAutoTransform
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|qCDebug
 argument_list|(
 name|lcExample

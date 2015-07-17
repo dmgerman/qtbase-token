@@ -7684,6 +7684,14 @@ argument_list|,
 name|e
 operator|->
 name|unicode
+argument_list|,
+name|e
+operator|->
+name|repeat
+argument_list|,
+name|e
+operator|->
+name|repeatCount
 argument_list|)
 condition|)
 return|return;

@@ -405,6 +405,8 @@ name|_KDE_NET_WM_WINDOW_TYPE_OVERRIDE
 operator|,
 name|_KDE_NET_WM_FRAME_STRUT
 operator|,
+name|_NET_FRAME_EXTENTS
+operator|,
 name|_NET_STARTUP_INFO
 operator|,
 name|_NET_STARTUP_INFO_BEGIN
@@ -1134,6 +1136,10 @@ return|;
 block|}
 name|xcb_window_t
 name|rootWindow
+argument_list|()
+block|;
+name|xcb_window_t
+name|clientLeader
 argument_list|()
 block|;
 name|bool
@@ -2644,6 +2650,11 @@ begin_decl_stmt
 name|QXcbWindow
 modifier|*
 name|m_focusWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|xcb_window_t
+name|m_clientLeader
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

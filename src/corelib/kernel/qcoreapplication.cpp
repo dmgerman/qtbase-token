@@ -1719,6 +1719,10 @@ condition|(
 name|__argc
 operator|!=
 name|argc
+operator|||
+operator|!
+name|__argv
+comment|/* wmain() */
 condition|)
 return|return
 literal|true
