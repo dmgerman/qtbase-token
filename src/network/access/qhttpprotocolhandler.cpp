@@ -940,14 +940,6 @@ argument_list|()
 operator|<<
 literal|"QAbstractProtocolHandler::sendRequest() called without QHttpNetworkReply"
 expr_stmt|;
-name|m_channel
-operator|->
-name|state
-operator|=
-name|QHttpNetworkConnectionChannel
-operator|::
-name|IdleState
-expr_stmt|;
 return|return
 literal|false
 return|;

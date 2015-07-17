@@ -701,6 +701,10 @@ name|bufferCount
 argument_list|()
 operator|==
 literal|1
+operator|&&
+operator|!
+name|isFinished
+argument_list|()
 condition|)
 name|d
 operator|->

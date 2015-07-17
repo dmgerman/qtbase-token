@@ -6378,6 +6378,33 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+comment|// this moves encrypted bytes from plain socket into our buffer
+if|if
+condition|(
+name|plainSocket
+operator|->
+name|bytesAvailable
+argument_list|()
+condition|)
+block|{
+name|qint64
+name|tmpReadBufferMaxSize
+init|=
+name|readBufferMaxSize
+decl_stmt|;
+name|readBufferMaxSize
+operator|=
+literal|0
+expr_stmt|;
+comment|// reset temporarily so the plain sockets completely drained drained
+name|transmit
+argument_list|()
+expr_stmt|;
+name|readBufferMaxSize
+operator|=
+name|tmpReadBufferMaxSize
+expr_stmt|;
+block|}
 name|q
 operator|->
 name|setSocketError
