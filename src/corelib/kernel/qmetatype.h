@@ -8417,13 +8417,12 @@ block|{
 name|Flags
 operator|=
 operator|(
-operator|!
-name|QTypeInfo
+name|QTypeInfoQuery
 operator|<
 name|T
 operator|>
 operator|::
-name|isStatic
+name|isRelocatable
 operator|?
 name|QMetaType
 operator|::

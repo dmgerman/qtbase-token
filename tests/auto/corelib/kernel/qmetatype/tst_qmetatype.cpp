@@ -6647,7 +6647,7 @@ name|FlagsDataEnum
 argument_list|>
 argument_list|()
 operator|<<
-literal|false
+literal|true
 operator|<<
 literal|true
 operator|<<
@@ -7118,7 +7118,7 @@ expr_stmt|;
 name|quint32
 name|mask_5_0
 init|=
-literal|0x1ff
+literal|0x1fb
 decl_stmt|;
 comment|// Only compare the values that were already defined in 5.0
 name|QCOMPARE
@@ -7136,6 +7136,8 @@ operator|&
 name|mask_5_0
 argument_list|,
 name|flags
+operator|&
+name|mask_5_0
 argument_list|)
 expr_stmt|;
 block|}
