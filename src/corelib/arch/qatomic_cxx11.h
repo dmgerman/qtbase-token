@@ -1517,12 +1517,25 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
-begin_ifdef
+begin_if
 unit|};
-ifdef|#
-directive|ifdef
-name|ATOMIC_VAR_INIT
-end_ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_CONSTEXPR
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_COMPILER_DEFAULT_MEMBERS
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_COMPILER_DELETE_MEMBERS
+argument_list|)
+end_if
 begin_define
 DECL|macro|Q_BASIC_ATOMIC_INITIALIZER
 define|#
@@ -1531,7 +1544,7 @@ name|Q_BASIC_ATOMIC_INITIALIZER
 parameter_list|(
 name|a
 parameter_list|)
-value|{ ATOMIC_VAR_INIT(a) }
+value|{ a }
 end_define
 begin_else
 else|#
@@ -1545,7 +1558,7 @@ name|Q_BASIC_ATOMIC_INITIALIZER
 parameter_list|(
 name|a
 parameter_list|)
-value|{ {a} }
+value|{ ATOMIC_VAR_INIT(a) }
 end_define
 begin_endif
 endif|#
