@@ -919,7 +919,7 @@ operator|::
 name|InputSlot
 name|ppdChoiceToInputSlot
 argument_list|(
-argument|ppd_choice_t choice
+argument|const ppd_choice_t&choice
 argument_list|)
 block|{
 name|QPrint
@@ -982,7 +982,7 @@ operator|::
 name|OutputBin
 name|ppdChoiceToOutputBin
 argument_list|(
-argument|ppd_choice_t choice
+argument|const ppd_choice_t&choice
 argument_list|)
 block|{
 name|QPrint
