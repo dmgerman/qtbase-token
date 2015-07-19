@@ -114,6 +114,9 @@ begin_comment
 comment|/*!     \fn void QVector::append(const T&value)      Inserts \a value at the end of the vector.      Example:     \snippet code/src_corelib_tools_qvector.cpp 7      This is the same as calling resize(size() + 1) and assigning \a     value to the new last element in the vector.      This operation is relatively fast, because QVector typically     allocates more memory than necessary, so it can grow without     reallocating the entire vector each time.      \sa operator<<(), prepend(), insert() */
 end_comment
 begin_comment
+comment|/*!     \fn void QVector::append(T&&value)     \since 5.6      \overload      Example:     \snippet code/src_corelib_tools_qvector.cpp move-append */
+end_comment
+begin_comment
 comment|/*! \fn void QVector::append(const QVector<T>&value)      \overload      \since 5.5      Appends the items of the \a value vector to this vector.      \sa operator<<(), operator+=() */
 end_comment
 begin_comment
@@ -268,6 +271,9 @@ comment|/*! \fn T QVector::value(int i, const T&defaultValue) const      \overlo
 end_comment
 begin_comment
 comment|/*! \fn void QVector::push_back(const T&value)      This function is provided for STL compatibility. It is equivalent     to append(\a value). */
+end_comment
+begin_comment
+comment|/*! \fn void QVector::push_back(T&&value)     \since 5.6     \overload */
 end_comment
 begin_comment
 comment|/*! \fn void QVector::push_front(const T&value)      This function is provided for STL compatibility. It is equivalent     to prepend(\a value). */

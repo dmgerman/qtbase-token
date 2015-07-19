@@ -227,14 +227,12 @@ begin_comment
 comment|//! [7]
 end_comment
 begin_decl_stmt
+DECL|variable|vector
 name|QVector
 argument_list|<
 name|QString
 argument_list|>
 name|vector
-argument_list|(
-literal|0
-argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
@@ -255,12 +253,20 @@ literal|"two"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+DECL|variable|three
+name|QString
+name|three
+init|=
+literal|"three"
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|vector
 operator|.
 name|append
 argument_list|(
-literal|"three"
+name|three
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -268,7 +274,71 @@ begin_comment
 comment|// vector: ["one", "two", "three"]
 end_comment
 begin_comment
+comment|// three: "three"
+end_comment
+begin_comment
 comment|//! [7]
+end_comment
+begin_comment
+comment|//! [move-append]
+end_comment
+begin_decl_stmt
+DECL|variable|vector
+name|QVector
+argument_list|<
+name|QString
+argument_list|>
+name|vector
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+name|vector
+operator|.
+name|append
+argument_list|(
+literal|"one"
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|vector
+operator|.
+name|append
+argument_list|(
+literal|"two"
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
+DECL|variable|three
+name|QString
+name|three
+init|=
+literal|"three"
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+name|vector
+operator|.
+name|append
+argument_list|(
+name|std
+operator|::
+name|move
+argument_list|(
+name|three
+argument_list|)
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// vector: ["one", "two", "three"]
+end_comment
+begin_comment
+comment|// three: ""
+end_comment
+begin_comment
+comment|//! [move-append]
 end_comment
 begin_comment
 comment|//! [8]
