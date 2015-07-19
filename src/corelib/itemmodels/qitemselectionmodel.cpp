@@ -34,6 +34,7 @@ comment|/*!     \fn QItemSelectionRange::QItemSelectionRange()      Constructs a
 comment|/*!     \fn QItemSelectionRange::QItemSelectionRange(const QItemSelectionRange&other)      Copy constructor. Constructs a new selection range with the same contents     as the \a other range given.  */
 comment|/*!     \fn QItemSelectionRange::QItemSelectionRange(const QModelIndex&topLeft, const QModelIndex&bottomRight)      Constructs a new selection range containing only the index specified     by the \a topLeft and the index \a bottomRight.  */
 comment|/*!     \fn QItemSelectionRange::QItemSelectionRange(const QModelIndex&index)      Constructs a new selection range containing only the model item specified     by the model index \a index. */
+comment|/*!     \fn QItemSelectionRange::swap(QItemSelectionRange&other)     \since 5.6      Swaps this selection range's contents with \a other.     This function is very fast and never fails. */
 comment|/*!     \fn int QItemSelectionRange::top() const      Returns the row index corresponding to the uppermost selected row in the     selection range.  */
 comment|/*!     \fn int QItemSelectionRange::left() const      Returns the column index corresponding to the leftmost selected column in the     selection range. */
 comment|/*!     \fn int QItemSelectionRange::bottom() const      Returns the row index corresponding to the lowermost selected row in the     selection range.  */
