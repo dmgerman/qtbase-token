@@ -710,7 +710,7 @@ argument_list|()
 specifier|const
 block|;
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>

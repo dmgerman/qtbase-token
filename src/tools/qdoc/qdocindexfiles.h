@@ -203,7 +203,7 @@ decl_stmt|;
 name|QString
 name|project_
 decl_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<
@@ -215,7 +215,7 @@ operator|>
 expr|>
 name|basesList_
 expr_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<

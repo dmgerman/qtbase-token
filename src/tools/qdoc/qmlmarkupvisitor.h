@@ -806,7 +806,7 @@ name|engine
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|QList
+name|QVector
 operator|<
 name|ExtraType
 operator|>

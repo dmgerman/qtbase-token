@@ -1470,7 +1470,7 @@ argument_list|>
 name|tableOfContents_
 decl_stmt|;
 DECL|member|tableOfContentsLevels_
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -15555,7 +15555,7 @@ end_function
 begin_function
 DECL|function|tableOfContentsLevels
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
