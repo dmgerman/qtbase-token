@@ -1639,6 +1639,15 @@ name|FileTag
 block|}
 enum|;
 end_enum
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|RCCXmlTag
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_function
 DECL|function|interpretResourceFile
 name|bool

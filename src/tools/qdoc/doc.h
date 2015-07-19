@@ -844,6 +844,13 @@ operator|*
 name|config_
 block|; }
 block|;
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|Doc
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+block|;
 DECL|typedef|DocList
 typedef|typedef
 name|QList

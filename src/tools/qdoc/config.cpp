@@ -1028,6 +1028,15 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|MetaStackEntry
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|/*!   Start accumulating values in a list by appending an empty   string to the list.  */
 end_comment
