@@ -1032,6 +1032,18 @@ argument_list|(
 argument|index
 argument_list|)
 block|{ }
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
 specifier|inline
 name|const_iterator
 argument_list|(
@@ -1053,6 +1065,9 @@ argument_list|(
 argument|o.i
 argument_list|)
 block|{}
+comment|// ### Qt 6: Removed so class can be trivially-copyable
+endif|#
+directive|endif
 specifier|inline
 name|const_iterator
 argument_list|(
