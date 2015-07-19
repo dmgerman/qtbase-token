@@ -626,7 +626,7 @@ name|Q_DECLARE_TYPEINFO
 argument_list|(
 name|QVector4D
 argument_list|,
-name|Q_MOVABLE_TYPE
+name|Q_PRIMITIVE_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
