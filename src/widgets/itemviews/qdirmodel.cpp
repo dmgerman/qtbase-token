@@ -125,17 +125,6 @@ argument_list|(
 literal|false
 argument_list|)
 block|{}
-DECL|function|~QDirNode
-name|~
-name|QDirNode
-parameter_list|()
-block|{
-name|children
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
 DECL|member|parent
 name|QDirNode
 modifier|*
