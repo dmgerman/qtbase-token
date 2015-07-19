@@ -275,6 +275,7 @@ name|restoreHistoryEntry
 parameter_list|(
 specifier|const
 name|HistoryEntry
+modifier|&
 name|entry
 parameter_list|)
 function_decl|;
@@ -2630,6 +2631,7 @@ name|restoreHistoryEntry
 parameter_list|(
 specifier|const
 name|HistoryEntry
+modifier|&
 name|entry
 parameter_list|)
 block|{

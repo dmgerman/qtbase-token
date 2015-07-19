@@ -2051,13 +2051,27 @@ comment|// Linear Programming solver methods
 name|bool
 name|solveMinMax
 argument_list|(
-argument|const QList<QSimplexConstraint *>&constraints
+specifier|const
+name|QList
+operator|<
+name|QSimplexConstraint
+operator|*
+operator|>
+operator|&
+name|constraints
 argument_list|,
-argument|GraphPath path
+specifier|const
+name|GraphPath
+operator|&
+name|path
 argument_list|,
-argument|qreal *min
+name|qreal
+operator|*
+name|min
 argument_list|,
-argument|qreal *max
+name|qreal
+operator|*
+name|max
 argument_list|)
 block|;
 name|bool

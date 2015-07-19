@@ -12469,7 +12469,9 @@ argument_list|>
 modifier|&
 name|constraints
 parameter_list|,
+specifier|const
 name|GraphPath
+modifier|&
 name|path
 parameter_list|,
 name|qreal

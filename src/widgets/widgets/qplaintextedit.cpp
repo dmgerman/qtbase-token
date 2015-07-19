@@ -8386,7 +8386,9 @@ parameter_list|,
 name|QBrush
 name|brush
 parameter_list|,
+specifier|const
 name|QRectF
+modifier|&
 name|gradientRect
 init|=
 name|QRectF

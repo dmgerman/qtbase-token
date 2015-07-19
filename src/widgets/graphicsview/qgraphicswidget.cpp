@@ -5959,7 +5959,39 @@ name|e
 argument_list|)
 argument_list|; }
 comment|/*!     \since 4.5      Inserts the actions \a actions to this widget's list of actions,     before the action \a before. It appends the action if \a before is 0 or     \a before is not a valid action for this widget.      A QGraphicsWidget can have at most one of each action.      \sa removeAction(), QMenu, insertAction(), QWidget::insertActions() */
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
 DECL|function|insertActions
+name|void
+name|QGraphicsWidget
+operator|::
+name|insertActions
+argument_list|(
+name|QAction
+operator|*
+name|before
+argument_list|,
+specifier|const
+name|QList
+argument_list|<
+name|QAction
+operator|*
+argument_list|>
+operator|&
+name|actions
+argument_list|)
+else|#
+directive|else
 name|void
 name|QGraphicsWidget
 operator|::
@@ -5976,6 +6008,8 @@ operator|*
 argument_list|>
 name|actions
 argument_list|)
+endif|#
+directive|endif
 argument_list|{     for
 operator|(
 name|int

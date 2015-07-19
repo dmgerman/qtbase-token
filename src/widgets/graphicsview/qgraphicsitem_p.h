@@ -1758,7 +1758,7 @@ name|ExtraStruct
 argument_list|(
 argument|Extra type
 argument_list|,
-argument|QVariant value
+argument|const QVariant&value
 argument_list|)
 block|:
 name|type
