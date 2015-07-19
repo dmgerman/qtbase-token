@@ -184,8 +184,6 @@ decl_stmt|;
 DECL|member|type
 name|Type
 name|type
-range|:
-literal|4
 decl_stmt|;
 block|}
 struct|;
