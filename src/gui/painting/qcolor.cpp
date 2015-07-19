@@ -555,9 +555,27 @@ end_comment
 begin_comment
 comment|/*!     \fn QColor::QColor(const char *name)      Constructs a named color in the same way as setNamedColor() using     the given \a name.      The color is left invalid if the \a name cannot be parsed.      \sa setNamedColor(), name(), isValid() */
 end_comment
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
 begin_comment
 comment|/*!     \fn QColor::QColor(const QColor&color)      Constructs a color that is a copy of \a color.      \sa isValid() */
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \fn bool QColor::isValid() const      Returns \c true if the color is valid; otherwise returns \c false. */
 end_comment
@@ -9478,6 +9496,20 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
 begin_comment
 comment|/*!     Assigns a copy of \a color to this color, and returns a reference to it. */
 end_comment
@@ -9518,6 +9550,10 @@ name|this
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*! \overload     Assigns a copy of \a color and returns a reference to this color.  */
 end_comment
