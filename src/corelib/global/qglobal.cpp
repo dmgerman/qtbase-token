@@ -623,7 +623,7 @@ begin_comment
 comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin-based operating systems such as OS X and iOS,     including any open source version(s) of Darwin. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_MAC     \relates<QtGlobal>      Defined on Darwin-based operating systems distributed by Apple, which     currently includes OS X and iOS, but not the open source version.  */
+comment|/*!     \macro Q_OS_MAC     \relates<QtGlobal>      Defined on Darwin-based operating systems distributed by Apple, which     currently includes OS X and iOS, but not the open source versions of Darwin.  */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_OSX     \relates<QtGlobal>      Defined on OS X.  */
