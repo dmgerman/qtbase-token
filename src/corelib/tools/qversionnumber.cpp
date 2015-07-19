@@ -151,7 +151,7 @@ begin_comment
 comment|/*!     \fn int QVersionNumber::segmentCount() const      Returns the number of integers stored in segments().      \sa segments() */
 end_comment
 begin_comment
-comment|/*!     \fn QVersionNumber QVersionNumber::normalized() const      Returns an equivalent version number but with all trailing zeros removed.      To check if two numbers are equivalent, use normalized() on both version     numbers before perforing the compare.      \snippet qversionnumber/main.cpp 4  */
+comment|/*!     \fn QVersionNumber QVersionNumber::normalized() const      Returns an equivalent version number but with all trailing zeros removed.      To check if two numbers are equivalent, use normalized() on both version     numbers before performing the compare.      \snippet qversionnumber/main.cpp 4  */
 end_comment
 begin_function
 DECL|function|normalized
