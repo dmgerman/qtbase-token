@@ -4981,7 +4981,6 @@ operator|||
 name|isTooSmall
 condition|)
 block|{
-specifier|const
 name|T
 name|copy
 parameter_list|(
@@ -5040,7 +5039,10 @@ argument|d->end()
 argument_list|)
 name|T
 argument_list|(
+name|qMove
+argument_list|(
 name|copy
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
@@ -5050,7 +5052,10 @@ operator|->
 name|end
 argument_list|()
 operator|=
+name|qMove
+argument_list|(
 name|copy
+argument_list|)
 expr_stmt|;
 block|}
 end_expr_stmt
