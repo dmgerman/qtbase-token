@@ -7583,8 +7583,13 @@ name|dbus_connection_can_send_type
 expr_stmt|;
 endif|#
 directive|endif
-else|#
-directive|else
+elif|#
+directive|elif
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_LIBRARY
+argument_list|)
 comment|// run-time check if the next functions are available
 name|can_send_type
 operator|=
