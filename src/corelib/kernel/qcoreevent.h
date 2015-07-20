@@ -864,6 +864,11 @@ operator|=
 literal|217
 block|,
 comment|// Platform surface created or about to be destroyed
+name|Pointer
+operator|=
+literal|218
+block|,
+comment|// QQuickPointerEvent; ### Qt 6: QPointerEvent
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User
