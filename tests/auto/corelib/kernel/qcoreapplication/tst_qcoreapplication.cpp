@@ -5210,6 +5210,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
+end_ifndef
 begin_function
 DECL|function|addRemoveLibPaths
 name|void
@@ -5388,6 +5393,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|createQObjectOnDestruction
 specifier|static

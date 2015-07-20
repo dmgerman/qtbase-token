@@ -398,6 +398,9 @@ name|void
 name|testDeleteLaterProcessEvents
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 name|void
 name|libraryPaths
 parameter_list|()
@@ -410,6 +413,8 @@ name|void
 name|libraryPaths_qt_plugin_path_2
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|sendPostedEvents
 parameter_list|()
@@ -4231,6 +4236,11 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
+end_ifndef
 begin_define
 DECL|macro|QT_TST_QAPP_DEBUG
 define|#
@@ -5390,6 +5400,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|SendPostedEventsTester
 class|class

@@ -115,10 +115,16 @@ name|void
 name|threadedEventDelivery
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBRARY
 name|void
 name|addRemoveLibPaths
 argument_list|()
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_endif
