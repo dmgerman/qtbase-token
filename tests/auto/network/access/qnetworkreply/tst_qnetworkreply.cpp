@@ -48509,6 +48509,9 @@ operator|::
 name|backgroundRequest_data
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 name|QTest
 operator|::
 name|addColumn
@@ -48855,6 +48858,9 @@ name|QNetworkReply
 operator|::
 name|BackgroundRequestNotAllowedError
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_BEARERMANAGEMENT
 block|}
 end_function
 begin_endif
