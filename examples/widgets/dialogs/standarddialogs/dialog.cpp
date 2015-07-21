@@ -1383,6 +1383,62 @@ name|addCheckBox
 argument_list|(
 name|tr
 argument_list|(
+literal|"Show scalable fonts"
+argument_list|)
+argument_list|,
+name|QFontDialog
+operator|::
+name|ScalableFonts
+argument_list|)
+expr_stmt|;
+name|fontDialogOptionsWidget
+operator|->
+name|addCheckBox
+argument_list|(
+name|tr
+argument_list|(
+literal|"Show non scalable fonts"
+argument_list|)
+argument_list|,
+name|QFontDialog
+operator|::
+name|NonScalableFonts
+argument_list|)
+expr_stmt|;
+name|fontDialogOptionsWidget
+operator|->
+name|addCheckBox
+argument_list|(
+name|tr
+argument_list|(
+literal|"Show monospaced fonts"
+argument_list|)
+argument_list|,
+name|QFontDialog
+operator|::
+name|MonospacedFonts
+argument_list|)
+expr_stmt|;
+name|fontDialogOptionsWidget
+operator|->
+name|addCheckBox
+argument_list|(
+name|tr
+argument_list|(
+literal|"Show proportional fonts"
+argument_list|)
+argument_list|,
+name|QFontDialog
+operator|::
+name|ProportionalFonts
+argument_list|)
+expr_stmt|;
+name|fontDialogOptionsWidget
+operator|->
+name|addCheckBox
+argument_list|(
+name|tr
+argument_list|(
 literal|"No buttons"
 argument_list|)
 argument_list|,
@@ -1651,6 +1707,20 @@ argument_list|,
 name|QFileDialog
 operator|::
 name|HideNameFilterDetails
+argument_list|)
+expr_stmt|;
+name|fileDialogOptionsWidget
+operator|->
+name|addCheckBox
+argument_list|(
+name|tr
+argument_list|(
+literal|"Do not use custom directory icons (Windows)"
+argument_list|)
+argument_list|,
+name|QFileDialog
+operator|::
+name|DontUseCustomDirectoryIcons
 argument_list|)
 expr_stmt|;
 name|layout
