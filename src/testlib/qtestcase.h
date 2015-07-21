@@ -249,6 +249,36 @@ parameter_list|)
 value|QTRY_VERIFY_WITH_TIMEOUT((__expr), 5000)
 end_define
 begin_comment
+comment|// Will try to wait for the expression to become true while allowing event processing
+end_comment
+begin_define
+DECL|macro|QTRY_VERIFY2_WITH_TIMEOUT
+define|#
+directive|define
+name|QTRY_VERIFY2_WITH_TIMEOUT
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__messageExpression
+parameter_list|,
+name|__timeout
+parameter_list|)
+define|\
+value|do { \     QTRY_IMPL((__expr), __timeout);\     QVERIFY2(__expr, __messageExpression); \ } while (0)
+end_define
+begin_define
+DECL|macro|QTRY_VERIFY2
+define|#
+directive|define
+name|QTRY_VERIFY2
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__messageExpression
+parameter_list|)
+value|QTRY_VERIFY2_WITH_TIMEOUT((__expr), (__messageExpression), 5000)
+end_define
+begin_comment
 comment|// Will try to wait for the comparison to become successful while allowing event processing
 end_comment
 begin_define
