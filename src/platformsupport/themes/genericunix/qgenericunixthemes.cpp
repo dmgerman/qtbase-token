@@ -3883,8 +3883,7 @@ operator|new
 name|QGnomeTheme
 return|;
 return|return
-operator|new
-name|QGenericUnixTheme
+name|Q_NULLPTR
 return|;
 block|}
 end_function
@@ -4070,16 +4069,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// desktopSettingsAware
-if|if
-condition|(
 name|result
 operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|result
-operator|.
-name|push_back
+name|append
 argument_list|(
 name|QLatin1String
 argument_list|(
