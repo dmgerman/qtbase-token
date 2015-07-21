@@ -12750,6 +12750,10 @@ directive|ifdef
 name|QT_NO_OPENGL
 name|Q_UNUSED
 argument_list|(
+argument|err
+argument_list|)
+name|Q_UNUSED
+argument_list|(
 argument|nativeConfig
 argument_list|)
 return|return
