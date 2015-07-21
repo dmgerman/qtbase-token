@@ -51,6 +51,20 @@ argument_list|)
 decl_stmt|;
 name|QCoreApplication
 operator|::
+name|setApplicationName
+argument_list|(
+literal|"MDI Example"
+argument_list|)
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|setOrganizationName
+argument_list|(
+literal|"QtProject"
+argument_list|)
+expr_stmt|;
+name|QCoreApplication
+operator|::
 name|setApplicationVersion
 argument_list|(
 name|QT_VERSION_STR
