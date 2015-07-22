@@ -4351,6 +4351,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QLocale::swap(QLocale&other)     \since 5.6      Swaps locale \a other with this locale. This operation is very fast and     never fails. */
+end_comment
+begin_comment
 comment|/*!     \since 5.6     \relates QLocale      Returns the hash value for \a key, using     \a seed to seed the calculation. */
 end_comment
 begin_function
