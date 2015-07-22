@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QOpenGLWidget>
+file|<QOpenGLWindow>
 end_include
 begin_include
 include|#
@@ -59,23 +59,31 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|GLWidget
+name|GLWindow
 range|:
 name|public
-name|QOpenGLWidget
+name|QOpenGLWindow
 block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
 argument|float z READ z WRITE setZ
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|float r READ r WRITE setR
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|float r2 READ r2 WRITE setR2
+argument_list|)
 name|public
 operator|:
-name|GLWidget
+name|GLWindow
 argument_list|()
 block|;
 operator|~
-name|GLWidget
+name|GLWindow
 argument_list|()
 block|;
 name|void
@@ -112,6 +120,43 @@ argument_list|(
 argument|float v
 argument_list|)
 block|;
+name|float
+name|r
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_r
+return|;
+block|}
+name|void
+name|setR
+argument_list|(
+argument|float v
+argument_list|)
+block|;
+name|float
+name|r2
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_r2
+return|;
+block|}
+name|void
+name|setR2
+argument_list|(
+argument|float v
+argument_list|)
+block|;
+name|private
+name|slots
+operator|:
+name|void
+name|startSecondStage
+argument_list|()
+block|;
 name|private
 operator|:
 name|QOpenGLTexture
@@ -143,6 +188,9 @@ name|int
 name|m_worldMatrixLoc
 block|;
 name|int
+name|m_myMatrixLoc
+block|;
+name|int
 name|m_lightPosLoc
 block|;
 name|QMatrix4x4
@@ -159,6 +207,12 @@ name|m_target
 block|;
 name|bool
 name|m_uniformsDirty
+block|;
+name|float
+name|m_r
+block|;
+name|float
+name|m_r2
 block|; }
 decl_stmt|;
 end_decl_stmt

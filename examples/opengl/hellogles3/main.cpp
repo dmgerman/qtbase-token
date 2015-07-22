@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QApplication>
+file|<QGuiApplication>
 end_include
 begin_include
 include|#
@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"mainwindow.h"
+file|"glwindow.h"
 end_include
 begin_comment
 comment|// This example demonstrates easy, cross-platform usage of OpenGL ES 3.0 functions via
@@ -125,7 +125,7 @@ argument_list|(
 name|fmt
 argument_list|)
 expr_stmt|;
-name|QApplication
+name|QGuiApplication
 name|app
 argument_list|(
 name|argc
@@ -133,10 +133,10 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
-name|MainWindow
-name|mainWindow
+name|GLWindow
+name|glWindow
 decl_stmt|;
-name|mainWindow
+name|glWindow
 operator|.
 name|showMaximized
 argument_list|()
