@@ -6,12 +6,6 @@ begin_comment
 comment|/*!     \class QQueue     \inmodule QtCore     \brief The QQueue class is a generic container that provides a queue.      \ingroup tools     \ingroup shared      \reentrant      QQueue\<T\> is one of Qt's generic \l{container classes}. It     implements a queue data structure for items of a same type.      A queue is a first in, first out (FIFO) structure. Items are     added to the tail of the queue using enqueue() and retrieved from     the head using dequeue(). The head() function provides access to     the head item without removing it.      Example:     \snippet code/src_corelib_tools_qqueue.cpp 0      The example will output 1, 2, 3 in that order.      QQueue inherits from QList. All of QList's functionality also     applies to QQueue. For example, you can use isEmpty() to test     whether the queue is empty, and you can traverse a QQueue using     QList's iterator classes (for example, QListIterator). But in     addition, QQueue provides three convenience functions that make     it easy to implement FIFO semantics: enqueue(), dequeue(), and     head().      QQueue's value type must be an \l{assignable data type}. This     covers most data types that are commonly used, but the compiler     won't let you, for example, store a QWidget as a value. Use     QWidget* instead.      \sa QList, QStack */
 end_comment
 begin_comment
-comment|/*!     \fn QQueue::QQueue()      Constructs an empty queue. */
-end_comment
-begin_comment
-comment|/*!     \fn QQueue::~QQueue()      Destroys the queue. References to the values in the queue, and all     iterators over this queue, become invalid. */
-end_comment
-begin_comment
 comment|/*!     \fn void QQueue::swap(QQueue<T>&other)     \since 4.8      Swaps queue \a other with this queue. This operation is very     fast and never fails. */
 end_comment
 begin_comment
