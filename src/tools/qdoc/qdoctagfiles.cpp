@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdom.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"atom.h"
 end_include
 begin_include

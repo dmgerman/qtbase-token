@@ -44,12 +44,6 @@ name|QDocDatabase
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QDomElement
-name|class
-name|QDomElement
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QXmlStreamWriter
 name|class
 name|QXmlStreamWriter
@@ -132,10 +126,9 @@ function_decl|;
 name|void
 name|readIndexSection
 parameter_list|(
-specifier|const
-name|QDomElement
+name|QXmlStreamReader
 modifier|&
-name|element
+name|reader
 parameter_list|,
 name|Node
 modifier|*
