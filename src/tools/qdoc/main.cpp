@@ -1719,6 +1719,15 @@ name|singleExec
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|Generator
+operator|::
+name|preparing
+argument_list|()
+condition|)
+block|{
 name|Generator
 operator|::
 name|debug
@@ -1738,6 +1747,7 @@ argument_list|(
 literal|"  done loading index files"
 argument_list|)
 expr_stmt|;
+block|}
 name|qdb
 operator|->
 name|newPrimaryTree
