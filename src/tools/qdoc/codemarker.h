@@ -811,6 +811,15 @@ name|string
 parameter_list|)
 function_decl|;
 name|QString
+name|protect
+parameter_list|(
+specifier|const
+name|QStringRef
+modifier|&
+name|string
+parameter_list|)
+function_decl|;
+name|QString
 name|taggedNode
 parameter_list|(
 specifier|const
