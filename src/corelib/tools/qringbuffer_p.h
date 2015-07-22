@@ -55,6 +55,16 @@ file|<QtCore/qlist.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QRINGBUFFER_CHUNKSIZE
+DECL|macro|QRINGBUFFER_CHUNKSIZE
+define|#
+directive|define
+name|QRINGBUFFER_CHUNKSIZE
+value|4096
+endif|#
+directive|endif
 name|class
 name|QRingBuffer
 block|{
@@ -64,8 +74,7 @@ name|explicit
 specifier|inline
 name|QRingBuffer
 argument_list|(
-argument|int growth =
-literal|4096
+argument|int growth = QRINGBUFFER_CHUNKSIZE
 argument_list|)
 operator|:
 name|head

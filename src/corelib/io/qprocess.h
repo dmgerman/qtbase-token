@@ -871,6 +871,9 @@ specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|// ### Qt6: remove trivial override
+end_comment
 begin_expr_stmt
 name|qint64
 name|bytesToWrite
@@ -895,6 +898,9 @@ specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|// ### Qt6: remove trivial override
+end_comment
 begin_expr_stmt
 name|void
 name|close
@@ -910,6 +916,9 @@ specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|// ### Qt6: remove trivial override
+end_comment
 begin_function_decl
 specifier|static
 name|int

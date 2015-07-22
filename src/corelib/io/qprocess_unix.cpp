@@ -4716,9 +4716,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|stdinChannel
-operator|.
-name|buffer
+name|writeBuffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -4877,7 +4875,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|processChannel
+name|currentReadChannel
 operator|==
 name|QProcess
 operator|::
@@ -4924,7 +4922,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|processChannel
+name|currentReadChannel
 operator|==
 name|QProcess
 operator|::
@@ -5040,9 +5038,7 @@ expr_stmt|;
 while|while
 condition|(
 operator|!
-name|stdinChannel
-operator|.
-name|buffer
+name|writeBuffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -5157,9 +5153,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|stdinChannel
-operator|.
-name|buffer
+name|writeBuffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -5556,9 +5550,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|stdinChannel
-operator|.
-name|buffer
+name|writeBuffer
 operator|.
 name|isEmpty
 argument_list|()

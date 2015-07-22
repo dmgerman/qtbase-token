@@ -3424,9 +3424,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|stdinChannel
-operator|.
-name|buffer
+name|writeBuffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -3611,9 +3609,7 @@ condition|(
 operator|!
 name|pendingDataInPipe
 operator|&&
-name|stdinChannel
-operator|.
-name|buffer
+name|writeBuffer
 operator|.
 name|isEmpty
 argument_list|()
@@ -3823,9 +3819,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|stdinChannel
-operator|.
-name|buffer
+name|writeBuffer
 operator|.
 name|isEmpty
 argument_list|()

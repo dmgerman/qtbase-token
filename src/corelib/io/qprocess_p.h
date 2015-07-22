@@ -66,11 +66,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qringbuffer_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"private/qiodevice_p.h"
 end_include
 begin_ifdef
@@ -1276,9 +1271,6 @@ block|}
 union|;
 endif|#
 directive|endif
-name|QRingBuffer
-name|buffer
-decl_stmt|;
 name|Q_PIPE
 name|pipe
 index|[
@@ -1331,11 +1323,6 @@ name|bool
 name|_q_processDied
 parameter_list|()
 function_decl|;
-name|QProcess
-operator|::
-name|ProcessChannel
-name|processChannel
-expr_stmt|;
 name|QProcess
 operator|::
 name|ProcessChannelMode
