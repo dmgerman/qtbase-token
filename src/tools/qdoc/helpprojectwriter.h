@@ -111,6 +111,10 @@ operator|*
 operator|>
 name|nodes
 expr_stmt|;
+DECL|member|groups
+name|QStringList
+name|groups
+decl_stmt|;
 block|}
 struct|;
 end_struct
