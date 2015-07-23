@@ -2849,9 +2849,8 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|ok
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

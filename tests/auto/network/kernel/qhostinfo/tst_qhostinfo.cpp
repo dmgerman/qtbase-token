@@ -2998,9 +2998,8 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|valid
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -3045,8 +3044,6 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|valid
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -3117,9 +3114,8 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|valid
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY

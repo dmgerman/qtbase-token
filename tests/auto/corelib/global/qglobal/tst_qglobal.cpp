@@ -2002,8 +2002,6 @@ name|Q_IS_ENUM
 argument_list|(
 name|isEnum_G
 argument_list|)
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 endif|#

@@ -9427,6 +9427,7 @@ expr_stmt|;
 comment|//try to set data in non valid index
 name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|.
 name|setData
@@ -9442,8 +9443,6 @@ argument_list|)
 argument_list|,
 literal|5
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|//same test with LeftJoin mode
@@ -9514,6 +9513,7 @@ expr_stmt|;
 comment|//try to set data in non valid index
 name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|.
 name|setData
@@ -9529,8 +9529,6 @@ argument_list|)
 argument_list|,
 literal|5
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

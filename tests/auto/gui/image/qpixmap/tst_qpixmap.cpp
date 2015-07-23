@@ -4810,12 +4810,11 @@ argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|pixmap
 operator|.
 name|isNull
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

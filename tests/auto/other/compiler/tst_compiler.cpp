@@ -1422,8 +1422,6 @@ name|int
 argument_list|>
 operator|::
 name|HasDataStream
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1436,8 +1434,6 @@ name|uint
 argument_list|>
 operator|::
 name|HasDataStream
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1510,8 +1506,6 @@ name|double
 argument_list|>
 operator|::
 name|HasDataStream
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1524,8 +1518,6 @@ name|QString
 argument_list|>
 operator|::
 name|HasDataStream
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1538,12 +1530,11 @@ name|MyString
 argument_list|>
 operator|::
 name|HasDataStream
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QtTestInternal
 operator|::
 name|DataStreamChecker
@@ -1552,8 +1543,6 @@ name|Qxxx
 argument_list|>
 operator|::
 name|HasDataStream
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY

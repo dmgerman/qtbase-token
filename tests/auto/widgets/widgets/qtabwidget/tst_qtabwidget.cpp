@@ -1027,6 +1027,7 @@ block|{
 comment|// Test bad arguments
 name|QVERIFY
 argument_list|(
+operator|!
 name|tw
 operator|->
 name|isTabEnabled
@@ -1034,8 +1035,6 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|tw

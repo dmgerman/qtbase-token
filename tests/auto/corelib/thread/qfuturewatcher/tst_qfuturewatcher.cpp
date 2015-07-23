@@ -4199,12 +4199,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|watcher
 operator|.
 name|isFinished
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -4272,12 +4271,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|iface
 operator|.
 name|isThrottled
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 for|for
@@ -4314,8 +4312,6 @@ name|iface
 operator|.
 name|isThrottled
 argument_list|()
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -4328,12 +4324,11 @@ expr_stmt|;
 comment|// process events.
 name|QVERIFY
 argument_list|(
+operator|!
 name|iface
 operator|.
 name|isThrottled
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|iface

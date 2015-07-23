@@ -8203,6 +8203,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 operator|(
 name|child1
 operator|->
@@ -8211,8 +8212,6 @@ argument_list|()
 operator|.
 name|invisible
 operator|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|tabBar

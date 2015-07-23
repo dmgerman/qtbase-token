@@ -3636,12 +3636,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|menu
 operator|->
 name|isVisible
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|m_onStatusTipTimerExecuted

@@ -15527,8 +15527,6 @@ decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|found
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -15614,8 +15612,6 @@ decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|found
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -15679,9 +15675,8 @@ argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|found
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

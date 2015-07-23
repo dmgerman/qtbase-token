@@ -10815,12 +10815,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|selectionModel
 operator|->
 name|hasSelection
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|selectionModel

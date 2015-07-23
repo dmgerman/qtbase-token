@@ -553,6 +553,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QTestEventLoop
 operator|::
 name|instance
@@ -560,8 +561,6 @@ argument_list|()
 operator|.
 name|timeout
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

@@ -2095,14 +2095,13 @@ argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|.
 name|hasChildren
 argument_list|(
 name|idx
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

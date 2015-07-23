@@ -5242,12 +5242,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|layoutHasConflict
 argument_list|(
 name|l
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// Test QSizePolicy::ExpandFlag, it shouldn't change the extreme

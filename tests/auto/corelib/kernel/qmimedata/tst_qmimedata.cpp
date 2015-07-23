@@ -137,12 +137,11 @@ argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasText
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// repopulate, verify not empty
@@ -492,12 +491,11 @@ decl_stmt|;
 comment|// initial state
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasColor
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// set, verify
@@ -529,12 +527,11 @@ argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasColor
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// set something else, verify
@@ -549,12 +546,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasColor
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -574,14 +570,13 @@ decl_stmt|;
 comment|// initial state
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasFormat
 argument_list|(
 literal|"text/plain"
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// add, verify
@@ -606,14 +601,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasFormat
 argument_list|(
 literal|"text/html"
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// clear, verify
@@ -624,26 +618,24 @@ argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasFormat
 argument_list|(
 literal|"text/plain"
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasFormat
 argument_list|(
 literal|"text/html"
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -663,12 +655,11 @@ decl_stmt|;
 comment|// initial state
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasHtml
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// add plain, verify false
@@ -683,12 +674,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasHtml
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// add html, verify
@@ -717,12 +707,11 @@ argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasHtml
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// readd, verify
@@ -760,12 +749,11 @@ decl_stmt|;
 comment|// initial state
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasImage
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// add text, verify false
@@ -780,12 +768,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasImage
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// add image
@@ -813,12 +800,11 @@ argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasImage
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -959,14 +945,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasFormat
 argument_list|(
 literal|"text/plain"
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -989,26 +974,24 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasFormat
 argument_list|(
 literal|"text/plain"
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasFormat
 argument_list|(
 literal|"text/html"
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1028,12 +1011,11 @@ decl_stmt|;
 comment|// initial state
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasHtml
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// add html, verify
@@ -1124,12 +1106,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasText
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// set, verify
@@ -1247,12 +1228,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|mimeData
 operator|.
 name|hasText
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

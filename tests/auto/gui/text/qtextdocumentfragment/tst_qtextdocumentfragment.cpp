@@ -4275,8 +4275,6 @@ argument_list|()
 operator|.
 name|fontUnderline
 argument_list|()
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -4321,6 +4319,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|doc
 operator|->
 name|begin
@@ -4337,8 +4336,6 @@ argument_list|()
 operator|.
 name|fontUnderline
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -4438,6 +4435,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|it
 operator|.
 name|fragment
@@ -4448,8 +4446,6 @@ argument_list|()
 operator|.
 name|isAnchor
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// the 'b' of 'blah' as separate fragment with the anchor attribute
@@ -4532,6 +4528,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|it
 operator|.
 name|fragment
@@ -4542,8 +4539,6 @@ argument_list|()
 operator|.
 name|isAnchor
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -10747,6 +10742,7 @@ control|)
 block|{
 name|QVERIFY
 argument_list|(
+operator|!
 name|block
 operator|.
 name|blockFormat
@@ -10758,8 +10754,6 @@ name|QTextFormat
 operator|::
 name|BackgroundBrush
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

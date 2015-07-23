@@ -2456,8 +2456,6 @@ name|contains
 argument_list|(
 name|T_FOO
 argument_list|)
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -2488,8 +2486,6 @@ name|contains
 argument_list|(
 name|T_BLAH
 argument_list|)
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

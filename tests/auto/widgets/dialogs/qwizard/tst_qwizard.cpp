@@ -2837,6 +2837,7 @@ directive|ifdef
 name|Q_OS_OSX
 name|QVERIFY
 argument_list|(
+operator|!
 name|wizard
 operator|.
 name|pixmap
@@ -2848,8 +2849,6 @@ argument_list|)
 operator|.
 name|isNull
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 else|#
@@ -2921,6 +2920,7 @@ directive|ifdef
 name|Q_OS_OSX
 name|QVERIFY
 argument_list|(
+operator|!
 name|wizard
 operator|.
 name|pixmap
@@ -2932,8 +2932,6 @@ argument_list|)
 operator|.
 name|isNull
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 else|#

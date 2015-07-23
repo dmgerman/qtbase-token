@@ -7500,6 +7500,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|basicValue
 index|[
 name|QStringLiteral
@@ -7510,8 +7511,6 @@ index|]
 operator|.
 name|toBool
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// Subject key identifier
@@ -7919,6 +7918,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|basicValue
 index|[
 name|QStringLiteral
@@ -7929,8 +7929,6 @@ index|]
 operator|.
 name|toBool
 argument_list|()
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// Key Usage

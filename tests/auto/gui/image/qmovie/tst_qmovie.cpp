@@ -761,6 +761,7 @@ argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|movie
 operator|.
 name|jumpToFrame
@@ -768,8 +769,6 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY

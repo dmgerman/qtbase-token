@@ -15967,14 +15967,13 @@ argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|ba
 operator|.
 name|testBit
 argument_list|(
 literal|17
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|ba
