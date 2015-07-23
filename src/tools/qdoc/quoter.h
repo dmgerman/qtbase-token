@@ -229,6 +229,7 @@ decl_stmt|;
 name|Location
 name|codeLocation
 decl_stmt|;
+specifier|static
 name|QHash
 operator|<
 name|QString

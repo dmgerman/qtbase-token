@@ -22,8 +22,21 @@ include|#
 directive|include
 file|"quoter.h"
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|member|commentHash
+name|QHash
+argument_list|<
+name|QString
+argument_list|,
+name|QString
+argument_list|>
+name|Quoter
+operator|::
+name|commentHash
+decl_stmt|;
+end_decl_stmt
+begin_function
 DECL|function|replaceMultipleNewlines
 specifier|static
 name|void
@@ -436,6 +449,15 @@ literal|false
 argument_list|)
 block|{
 comment|/* We're going to hard code these delimiters:         * C++, Qt, Qt Script, Java:           //! [<id>]         * .pro, .py files:           #! [<id>]         * .html, .qrc, .ui, .xq, .xml .dita files:<!-- [<id>] -->     */
+if|if
+condition|(
+operator|!
+name|commentHash
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
 name|commentHash
 index|[
 literal|"pro"
@@ -492,6 +514,7 @@ index|]
 operator|=
 literal|"<!--"
 expr_stmt|;
+block|}
 block|}
 end_constructor
 begin_function

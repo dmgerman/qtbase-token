@@ -19,7 +19,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<qmap.h>
+file|<qhash.h>
 end_include
 begin_include
 include|#
@@ -795,24 +795,6 @@ name|marker
 argument_list|)
 block|;
 name|void
-name|generateRequisitesTable
-argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|requisitesOrder
-argument_list|,
-name|QMap
-operator|<
-name|QString
-argument_list|,
-name|Text
-operator|>
-operator|&
-name|requisites
-argument_list|)
-block|;
-name|void
 name|generateSection
 argument_list|(
 argument|const NodeList& nl
@@ -1116,7 +1098,7 @@ operator|&
 name|xmlWriter
 argument_list|()
 block|;
-name|QMap
+name|QHash
 operator|<
 name|QString
 block|,
