@@ -241,10 +241,10 @@ argument_list|,
 name|entry2
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|entry
-operator|==
+argument_list|,
 name|entry
 argument_list|)
 expr_stmt|;

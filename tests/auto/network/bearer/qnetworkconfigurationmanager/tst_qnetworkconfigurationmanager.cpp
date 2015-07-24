@@ -861,10 +861,10 @@ name|identifier
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|copy
-operator|==
+argument_list|,
 name|defaultConfig
 argument_list|)
 expr_stmt|;
@@ -985,10 +985,10 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|direct
-operator|==
+argument_list|,
 name|c
 argument_list|)
 expr_stmt|;

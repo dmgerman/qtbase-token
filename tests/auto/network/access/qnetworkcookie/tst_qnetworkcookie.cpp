@@ -183,10 +183,10 @@ decl_stmt|;
 name|QNetworkCookie
 name|otherCookie
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|cookie
-operator|==
+argument_list|,
 name|otherCookie
 argument_list|)
 expr_stmt|;
@@ -546,10 +546,10 @@ name|isSecure
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|cookie
-operator|==
+argument_list|,
 name|otherCookie
 argument_list|)
 expr_stmt|;
