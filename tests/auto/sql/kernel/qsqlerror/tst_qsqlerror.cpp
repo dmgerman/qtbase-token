@@ -930,10 +930,10 @@ operator|::
 name|UnknownError
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|error1
-operator|==
+argument_list|,
 name|error2
 argument_list|)
 expr_stmt|;
