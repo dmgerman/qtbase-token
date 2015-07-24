@@ -1626,6 +1626,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QtTestInternal
 operator|::
 name|getSaveOperator
@@ -1633,8 +1634,6 @@ argument_list|<
 name|Qxxx
 argument_list|>
 argument_list|()
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -3122,13 +3121,13 @@ argument_list|)
 name|char
 name|c
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|Q_ALIGNOF
 argument_list|(
 name|c
 argument_list|)
-operator|==
+argument_list|,
 name|Q_ALIGNOF
 argument_list|(
 name|double

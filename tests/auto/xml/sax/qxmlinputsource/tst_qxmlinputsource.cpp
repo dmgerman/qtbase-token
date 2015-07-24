@@ -507,13 +507,13 @@ modifier|*
 name|reply
 parameter_list|)
 block|{
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|reply
 operator|->
 name|error
 argument_list|()
-operator|==
+argument_list|,
 name|QNetworkReply
 operator|::
 name|NoError

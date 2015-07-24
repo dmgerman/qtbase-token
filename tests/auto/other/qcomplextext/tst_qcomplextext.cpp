@@ -703,10 +703,10 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// The cursor should remain at the same position after a digit is appended
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|x1
-operator|==
+argument_list|,
 name|x2
 argument_list|)
 expr_stmt|;

@@ -3305,13 +3305,13 @@ operator|.
 name|parent
 argument_list|()
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|topLeft
 operator|.
 name|parent
 argument_list|()
-operator|==
+argument_list|,
 name|commonParent
 argument_list|)
 expr_stmt|;

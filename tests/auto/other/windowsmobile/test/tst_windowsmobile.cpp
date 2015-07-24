@@ -727,10 +727,10 @@ argument_list|)
 expr_stmt|;
 comment|//screenShot.save("scr2.png", "PNG");
 comment|//original.save("orig1.png", "PNG");
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|original
-operator|==
+argument_list|,
 name|screenShot
 argument_list|)
 expr_stmt|;

@@ -9278,13 +9278,13 @@ name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|customGestureA
 operator|.
 name|data
 argument_list|()
-operator|==
+argument_list|,
 name|customGestureB
 operator|.
 name|data

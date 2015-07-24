@@ -2364,13 +2364,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|socket
 operator|.
 name|state
 argument_list|()
-operator|==
+argument_list|,
 name|QAbstractSocket
 operator|::
 name|ConnectedState

@@ -5225,7 +5225,7 @@ name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|bar
 operator|.
@@ -5236,8 +5236,11 @@ argument_list|)
 operator|.
 name|tagName
 argument_list|()
-operator|==
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"bar"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5277,17 +5280,17 @@ name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|bar
 operator|.
 name|nextSiblingElement
 argument_list|()
-operator|==
+argument_list|,
 name|bop
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|bop
 operator|.
@@ -5295,7 +5298,7 @@ name|nextSiblingElement
 argument_list|(
 literal|"bop"
 argument_list|)
-operator|==
+argument_list|,
 name|foo
 operator|.
 name|lastChildElement
@@ -5304,7 +5307,7 @@ literal|"bop"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|bop
 operator|.
@@ -5312,7 +5315,7 @@ name|previousSiblingElement
 argument_list|(
 literal|"bar"
 argument_list|)
-operator|==
+argument_list|,
 name|foo
 operator|.
 name|firstChildElement
@@ -5321,7 +5324,7 @@ literal|"bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|bop
 operator|.
@@ -5329,7 +5332,7 @@ name|previousSiblingElement
 argument_list|(
 literal|"bar"
 argument_list|)
-operator|==
+argument_list|,
 name|foo
 operator|.
 name|firstChildElement
