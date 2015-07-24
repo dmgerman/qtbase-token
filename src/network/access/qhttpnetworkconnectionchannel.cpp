@@ -3613,6 +3613,20 @@ argument_list|()
 condition|)
 block|{
 comment|// No content expected, this is a valid way to have the connection closed by the server
+comment|// We need to invoke this asynchronously to make sure the state() of the socket is on QAbstractSocket::UnconnectedState
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|this
+argument_list|,
+literal|"_q_receiveReply"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -3637,6 +3651,20 @@ condition|)
 block|{
 comment|// There was no content-length header and it's not chunked encoding,
 comment|// so this is a valid way to have the connection closed by the server
+comment|// We need to invoke this asynchronously to make sure the state() of the socket is on QAbstractSocket::UnconnectedState
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|this
+argument_list|,
+literal|"_q_receiveReply"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 comment|// ok, we got a disconnect even though we did not expect it

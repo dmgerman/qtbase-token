@@ -896,6 +896,17 @@ name|isSocketReading
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|m_socket
+operator|->
+name|bytesAvailable
+argument_list|()
+condition|)
+block|{
+comment|// We might get a spurious call from readMoreLater()
+comment|// call of the QHttpNetworkConnection even while the socket is disconnecting.
+comment|// Therefore check if there is actually bytes available before changing the channel state.
 name|m_channel
 operator|->
 name|state
@@ -904,6 +915,7 @@ name|QHttpNetworkConnectionChannel
 operator|::
 name|ReadingState
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|m_reply
