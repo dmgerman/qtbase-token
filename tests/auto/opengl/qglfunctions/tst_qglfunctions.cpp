@@ -1205,10 +1205,10 @@ operator|&
 name|active
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|active
-operator|==
+argument_list|,
 name|GL_TEXTURE1
 argument_list|)
 expr_stmt|;
@@ -1233,10 +1233,10 @@ operator|&
 name|active
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|active
-operator|==
+argument_list|,
 name|GL_TEXTURE0
 argument_list|)
 expr_stmt|;
