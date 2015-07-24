@@ -5639,7 +5639,7 @@ literal|100
 operator|+
 name|__GNUC_MINOR__
 operator|>=
-literal|405
+literal|406
 operator|)
 end_elif
 begin_define
