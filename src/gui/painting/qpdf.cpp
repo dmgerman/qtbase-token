@@ -11276,7 +11276,7 @@ operator|->
 name|center
 argument_list|()
 decl_stmt|;
-name|double
+name|qreal
 name|r1
 init|=
 name|gradient
@@ -11292,7 +11292,7 @@ operator|->
 name|focalPoint
 argument_list|()
 decl_stmt|;
-name|double
+name|qreal
 name|r0
 init|=
 name|gradient

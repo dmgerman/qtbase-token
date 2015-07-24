@@ -1882,7 +1882,10 @@ name|qFuzzyCompare
 argument_list|(
 name|m_opacity
 argument_list|,
+name|qreal
+argument_list|(
 literal|1.0
+argument_list|)
 argument_list|)
 operator|||
 operator|!
