@@ -1805,13 +1805,13 @@ argument_list|(
 name|req
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|rpl
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|ReplyMessage
@@ -10365,7 +10365,7 @@ argument_list|,
 name|testString
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|reply
 operator|.
@@ -10374,7 +10374,7 @@ argument_list|()
 operator|.
 name|count
 argument_list|()
-operator|==
+argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
@@ -10514,7 +10514,7 @@ argument_list|,
 name|testString
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|reply
 operator|.
@@ -10523,7 +10523,7 @@ argument_list|()
 operator|.
 name|count
 argument_list|()
-operator|==
+argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;

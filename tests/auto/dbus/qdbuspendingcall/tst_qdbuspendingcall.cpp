@@ -584,7 +584,7 @@ name|isError
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ac
 operator|.
@@ -593,7 +593,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|InvalidMessage
@@ -630,13 +630,13 @@ operator|.
 name|reply
 argument_list|()
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|reply
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|ReplyMessage
@@ -751,7 +751,7 @@ name|isError
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ac
 operator|.
@@ -760,7 +760,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|InvalidMessage
@@ -1111,7 +1111,7 @@ name|isError
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ac
 operator|.
@@ -1120,7 +1120,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|InvalidMessage
@@ -1313,7 +1313,7 @@ name|isError
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ac
 operator|.
@@ -1322,7 +1322,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|InvalidMessage
@@ -1482,7 +1482,7 @@ name|isError
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ac
 operator|.
@@ -1491,7 +1491,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|InvalidMessage
@@ -1692,7 +1692,7 @@ argument_list|()
 decl_stmt|;
 comment|//            QVERIFY(!ac.isFinished());
 comment|//            QVERIFY(!ac.isError());
-comment|//            QVERIFY(ac.reply().type() == QDBusMessage::InvalidMessage);
+comment|//            QCOMPARE(ac.reply().type(), QDBusMessage::InvalidMessage);
 name|QDBusPendingCallWatcher
 name|watch
 argument_list|(
@@ -1739,7 +1739,7 @@ expr_stmt|;
 comment|// don't process events in this thread
 comment|//            QVERIFY(!ac.isFinished());
 comment|//            QVERIFY(!ac.isError());
-comment|//            QVERIFY(ac.reply().type() == QDBusMessage::InvalidMessage);
+comment|//            QCOMPARE(ac.reply().type(), QDBusMessage::InvalidMessage);
 name|QCOMPARE
 argument_list|(
 name|tst
@@ -1965,7 +1965,7 @@ name|isError
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ac
 operator|.
@@ -1974,7 +1974,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|InvalidMessage
@@ -2173,7 +2173,7 @@ name|isError
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ac
 operator|.
@@ -2182,7 +2182,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|InvalidMessage
@@ -2425,7 +2425,7 @@ name|isError
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ac
 operator|.
@@ -2434,7 +2434,7 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
-operator|==
+argument_list|,
 name|QDBusMessage
 operator|::
 name|InvalidMessage
