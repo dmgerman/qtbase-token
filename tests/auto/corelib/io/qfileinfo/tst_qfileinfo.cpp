@@ -8455,13 +8455,13 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|info
 operator|.
 name|lastModified
 argument_list|()
-operator|==
+argument_list|,
 name|lastModified
 argument_list|)
 expr_stmt|;

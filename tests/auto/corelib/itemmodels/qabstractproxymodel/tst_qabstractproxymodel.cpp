@@ -1719,13 +1719,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|it
 operator|.
 name|value
 argument_list|()
-operator|==
+argument_list|,
 name|superSet
 operator|.
 name|value

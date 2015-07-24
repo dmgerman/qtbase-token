@@ -2669,10 +2669,10 @@ name|filePath
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|actualEntries
-operator|==
+argument_list|,
 name|expectedEntries
 argument_list|)
 expr_stmt|;

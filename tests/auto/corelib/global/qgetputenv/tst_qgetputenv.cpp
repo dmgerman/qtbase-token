@@ -263,11 +263,14 @@ argument_list|(
 name|varName
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|result
-operator|==
+argument_list|,
+name|QByteArrayLiteral
+argument_list|(
 literal|"supervalue"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|qputenv

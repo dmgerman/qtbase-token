@@ -1064,10 +1064,10 @@ argument_list|(
 name|uuidA
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|uuidA
-operator|==
+argument_list|,
 name|copy
 argument_list|)
 expr_stmt|;
@@ -1078,10 +1078,10 @@ name|assigned
 operator|=
 name|uuidA
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|uuidA
-operator|==
+argument_list|,
 name|assigned
 argument_list|)
 expr_stmt|;

@@ -6126,14 +6126,13 @@ parameter_list|()
 block|{
 name|QVERIFY
 argument_list|(
+operator|!
 name|QObject
 operator|::
 name|staticMetaObject
 operator|.
 name|superClass
 argument_list|()
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6453,9 +6452,8 @@ argument_list|()
 decl_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|obj
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

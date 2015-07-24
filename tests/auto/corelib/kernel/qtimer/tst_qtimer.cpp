@@ -2439,7 +2439,7 @@ operator|.
 name|timerFired
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|object
 operator|.
@@ -2447,7 +2447,7 @@ name|eventLoop
 operator|.
 name|exec
 argument_list|()
-operator|==
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

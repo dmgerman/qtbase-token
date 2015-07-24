@@ -2972,13 +2972,13 @@ expr_stmt|;
 operator|delete
 name|anim1
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|group
 operator|.
 name|animationCount
 argument_list|()
-operator|==
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

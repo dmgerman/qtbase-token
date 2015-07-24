@@ -298,7 +298,7 @@ literal|"pirates"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|mimeData
 operator|.
@@ -309,7 +309,7 @@ argument_list|)
 operator|.
 name|length
 argument_list|()
-operator|==
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

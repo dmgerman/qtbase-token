@@ -2154,12 +2154,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|anim
 operator|->
 name|targetObject
 argument_list|()
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

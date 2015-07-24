@@ -616,9 +616,8 @@ condition|)
 block|{
 name|QVERIFY
 argument_list|(
+operator|!
 name|codec
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -12968,9 +12967,8 @@ expr_stmt|;
 else|else
 name|QVERIFY
 argument_list|(
+operator|!
 name|codec
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

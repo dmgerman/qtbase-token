@@ -747,10 +747,10 @@ name|isDetached
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|copy
-operator|==
+argument_list|,
 name|empty
 argument_list|)
 expr_stmt|;
@@ -781,10 +781,10 @@ name|copy
 operator|=
 name|empty
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|copy
-operator|==
+argument_list|,
 name|empty
 argument_list|)
 expr_stmt|;
@@ -793,10 +793,10 @@ operator|=
 name|QUrlQuery
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|copy
-operator|==
+argument_list|,
 name|empty
 argument_list|)
 expr_stmt|;
@@ -822,10 +822,10 @@ name|emptyQuery
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|copy
-operator|==
+argument_list|,
 name|empty
 argument_list|)
 expr_stmt|;
@@ -1007,10 +1007,10 @@ argument_list|(
 name|other
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|copy
-operator|==
+argument_list|,
 name|other
 argument_list|)
 expr_stmt|;
@@ -1047,10 +1047,10 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|copy
-operator|==
+argument_list|,
 name|other
 argument_list|)
 expr_stmt|;
@@ -1634,10 +1634,10 @@ literal|"b"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|query
-operator|==
+argument_list|,
 name|original
 argument_list|)
 expr_stmt|;
@@ -1932,7 +1932,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// returns the first one
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|query
 operator|.
@@ -1940,8 +1940,11 @@ name|queryItemValue
 argument_list|(
 literal|"a"
 argument_list|)
-operator|==
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"b"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// order is the order we set them in
@@ -2003,7 +2006,7 @@ literal|"a"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|query
 operator|.
@@ -2011,8 +2014,11 @@ name|queryItemValue
 argument_list|(
 literal|"a"
 argument_list|)
-operator|==
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"b"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -2032,7 +2038,7 @@ operator|<<
 literal|"c"
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|query
 operator|.
@@ -2040,8 +2046,11 @@ name|queryItemValue
 argument_list|(
 literal|"A"
 argument_list|)
-operator|==
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"B"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -2082,7 +2091,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// it must have removed the first one
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|query
 operator|.
@@ -2090,8 +2099,11 @@ name|queryItemValue
 argument_list|(
 literal|"a"
 argument_list|)
-operator|==
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"c"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4983,10 +4995,10 @@ operator|.
 name|queryItems
 argument_list|()
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|newItems
-operator|==
+argument_list|,
 name|setItems
 argument_list|)
 expr_stmt|;

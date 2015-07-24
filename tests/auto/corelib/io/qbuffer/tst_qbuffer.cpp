@@ -1821,10 +1821,10 @@ name|in
 operator|>>
 name|ch
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|ch
-operator|==
+argument_list|,
 operator|(
 name|quint8
 operator|)

@@ -583,10 +583,10 @@ name|variable
 expr_stmt|;
 block|}
 block|}
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|variable
-operator|==
+argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;

@@ -3862,10 +3862,10 @@ argument_list|(
 name|f
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|valid
-operator|==
+argument_list|,
 operator|(
 name|bool
 operator|)

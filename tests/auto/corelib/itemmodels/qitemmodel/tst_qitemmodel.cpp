@@ -1551,10 +1551,10 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|a
-operator|==
+argument_list|,
 name|b
 argument_list|)
 expr_stmt|;
@@ -1908,10 +1908,10 @@ argument_list|,
 name|parent
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|a
-operator|==
+argument_list|,
 name|b
 argument_list|)
 expr_stmt|;
@@ -1962,13 +1962,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Some basic checking on the index that is returned
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|index
 operator|.
 name|model
 argument_list|()
-operator|==
+argument_list|,
 name|currentModel
 argument_list|)
 expr_stmt|;

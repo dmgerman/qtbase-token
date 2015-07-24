@@ -3139,11 +3139,11 @@ name|currentPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|QDir
 argument_list|()
-operator|==
+argument_list|,
 name|QDir
 argument_list|(
 name|QDir
@@ -7110,10 +7110,10 @@ name|path
 argument_list|)
 decl_stmt|;
 comment|// If path is non existent, then setCurrent should be false (currentDir is empty in testData)
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|b
-operator|==
+argument_list|,
 operator|!
 name|currentDir
 operator|.
@@ -12154,7 +12154,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|QDir
 operator|::
@@ -12167,7 +12167,7 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|)
-operator|==
+argument_list|,
 name|searchPathsList
 operator|.
 name|at
@@ -12368,7 +12368,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|QDir
 operator|::
@@ -12381,7 +12381,7 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|)
-operator|==
+argument_list|,
 name|searchPathsList
 operator|.
 name|at
