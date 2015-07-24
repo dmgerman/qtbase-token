@@ -236,11 +236,10 @@ directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 name|QEasingCurve
 argument_list|(
-name|QEasingCurve
-operator|&&
-name|other
+argument|QEasingCurve&&other
 argument_list|)
-operator|:
+name|Q_DECL_NOTHROW
+label|:
 name|d_ptr
 argument_list|(
 argument|other.d_ptr
@@ -251,16 +250,18 @@ operator|.
 name|d_ptr
 operator|=
 name|Q_NULLPTR
-block|; }
+expr_stmt|;
+block|}
 name|QEasingCurve
-operator|&
+modifier|&
 name|operator
-operator|=
+init|=
 operator|(
 name|QEasingCurve
 operator|&&
 name|other
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
@@ -278,7 +279,6 @@ return|;
 block|}
 endif|#
 directive|endif
-specifier|inline
 name|void
 name|swap
 parameter_list|(
@@ -286,6 +286,7 @@ name|QEasingCurve
 modifier|&
 name|other
 parameter_list|)
+function|Q_DECL_NOTHROW
 block|{
 name|qSwap
 argument_list|(
