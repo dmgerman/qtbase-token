@@ -2193,6 +2193,9 @@ begin_comment
 comment|/*! \fn QMap::const_iterator QMap::constBegin() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first item     in the map.      \sa begin(), constEnd() */
 end_comment
 begin_comment
+comment|/*! \fn QMap::key_iterator QMap::keyBegin() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the first key     in the map.      \sa keyEnd(), firstKey() */
+end_comment
+begin_comment
 comment|/*! \fn QMap::iterator QMap::end()      Returns an \l{STL-style iterators}{STL-style iterator} pointing to the imaginary item     after the last item in the map.      \sa begin(), constEnd() */
 end_comment
 begin_comment
@@ -2205,10 +2208,13 @@ begin_comment
 comment|/*! \fn QMap::const_iterator QMap::constEnd() const      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last item in the map.      \sa constBegin(), end() */
 end_comment
 begin_comment
-comment|/*! \fn const Key&QMap::firstKey() const     \since 5.2      Returns a reference to the smallest key in the map.     This function assumes that the map is not empty.      This executes in \l{constant time}.      \sa lastKey(), first(), isEmpty() */
+comment|/*! \fn QMap::key_iterator QMap::keyEnd() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last key in the map.      \sa keyBegin(), lastKey() */
 end_comment
 begin_comment
-comment|/*! \fn const Key&QMap::lastKey() const     \since 5.2      Returns a reference to the largest key in the map.     This function assumes that the map is not empty.      This executes in \l{logarithmic time}.      \sa firstKey(), last(), isEmpty() */
+comment|/*! \fn const Key&QMap::firstKey() const     \since 5.2      Returns a reference to the smallest key in the map.     This function assumes that the map is not empty.      This executes in \l{constant time}.      \sa lastKey(), first(), keyBegin(), isEmpty() */
+end_comment
+begin_comment
+comment|/*! \fn const Key&QMap::lastKey() const     \since 5.2      Returns a reference to the largest key in the map.     This function assumes that the map is not empty.      This executes in \l{logarithmic time}.      \sa firstKey(), last(), keyEnd(), isEmpty() */
 end_comment
 begin_comment
 comment|/*! \fn T&QMap::first()     \since 5.2      Returns a reference to the first value in the map, that is the value mapped     to the smallest key. This function assumes that the map is not empty.      When unshared (or const version is called), this executes in \l{constant time}.      \sa last(), firstKey(), isEmpty() */
@@ -2289,7 +2295,7 @@ begin_comment
 comment|/*!     \fn QPair<const_iterator, const_iterator> QMap::equal_range(const Key&key) const     \overload     \since 5.6 */
 end_comment
 begin_comment
-comment|/*! \class QMap::iterator     \inmodule QtCore     \brief The QMap::iterator class provides an STL-style non-const iterator for QMap and QMultiMap.      QMap features both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style iterators are more low-level and more     cumbersome to use; on the other hand, they are slightly faster     and, for developers who already know STL, have the advantage of     familiarity.      QMap\<Key, T\>::iterator allows you to iterate over a QMap (or     QMultiMap) and to modify the value (but not the key) stored under     a particular key. If you want to iterate over a const QMap, you     should use QMap::const_iterator. It is generally good practice to     use QMap::const_iterator on a non-const QMap as well, unless you     need to change the QMap through the iterator. Const iterators are     slightly faster, and can improve code readability.      The default QMap::iterator constructor creates an uninitialized     iterator. You must initialize it using a QMap function like     QMap::begin(), QMap::end(), or QMap::find() before you can     start iterating. Here's a typical loop that prints all the (key,     value) pairs stored in a map:      \snippet code/src_corelib_tools_qmap.cpp 18      Unlike QHash, which stores its items in an arbitrary order, QMap     stores its items ordered by key. Items that share the same key     (because they were inserted using QMap::insertMulti(), or due to a     unite()) will appear consecutively, from the most recently to the     least recently inserted value.      Let's see a few examples of things we can do with a     QMap::iterator that we cannot do with a QMap::const_iterator.     Here's an example that increments every value stored in the QMap     by 2:      \snippet code/src_corelib_tools_qmap.cpp 19      Here's an example that removes all the items whose key is a     string that starts with an underscore character:      \snippet code/src_corelib_tools_qmap.cpp 20      The call to QMap::erase() removes the item pointed to by the     iterator from the map, and returns an iterator to the next item.     Here's another way of removing an item while iterating:      \snippet code/src_corelib_tools_qmap.cpp 21      It might be tempting to write code like this:      \snippet code/src_corelib_tools_qmap.cpp 22      However, this will potentially crash in \c{++i}, because \c i is     a dangling iterator after the call to erase().      Multiple iterators can be used on the same map. If you add items     to the map, existing iterators will remain valid. If you remove     items from the map, iterators that point to the removed items     will become dangling iterators.      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QMap::const_iterator, QMutableMapIterator */
+comment|/*! \class QMap::iterator     \inmodule QtCore     \brief The QMap::iterator class provides an STL-style non-const iterator for QMap and QMultiMap.      QMap features both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style iterators are more low-level and more     cumbersome to use; on the other hand, they are slightly faster     and, for developers who already know STL, have the advantage of     familiarity.      QMap\<Key, T\>::iterator allows you to iterate over a QMap (or     QMultiMap) and to modify the value (but not the key) stored under     a particular key. If you want to iterate over a const QMap, you     should use QMap::const_iterator. It is generally good practice to     use QMap::const_iterator on a non-const QMap as well, unless you     need to change the QMap through the iterator. Const iterators are     slightly faster, and can improve code readability.      The default QMap::iterator constructor creates an uninitialized     iterator. You must initialize it using a QMap function like     QMap::begin(), QMap::end(), or QMap::find() before you can     start iterating. Here's a typical loop that prints all the (key,     value) pairs stored in a map:      \snippet code/src_corelib_tools_qmap.cpp 18      Unlike QHash, which stores its items in an arbitrary order, QMap     stores its items ordered by key. Items that share the same key     (because they were inserted using QMap::insertMulti(), or due to a     unite()) will appear consecutively, from the most recently to the     least recently inserted value.      Let's see a few examples of things we can do with a     QMap::iterator that we cannot do with a QMap::const_iterator.     Here's an example that increments every value stored in the QMap     by 2:      \snippet code/src_corelib_tools_qmap.cpp 19      Here's an example that removes all the items whose key is a     string that starts with an underscore character:      \snippet code/src_corelib_tools_qmap.cpp 20      The call to QMap::erase() removes the item pointed to by the     iterator from the map, and returns an iterator to the next item.     Here's another way of removing an item while iterating:      \snippet code/src_corelib_tools_qmap.cpp 21      It might be tempting to write code like this:      \snippet code/src_corelib_tools_qmap.cpp 22      However, this will potentially crash in \c{++i}, because \c i is     a dangling iterator after the call to erase().      Multiple iterators can be used on the same map. If you add items     to the map, existing iterators will remain valid. If you remove     items from the map, iterators that point to the removed items     will become dangling iterators.      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QMap::const_iterator, QMap::key_iterator, QMutableMapIterator */
 end_comment
 begin_comment
 comment|/*! \typedef QMap::iterator::difference_type      \internal */
@@ -2355,7 +2361,7 @@ begin_comment
 comment|/*! \fn QMap::iterator&QMap::iterator::operator-=(int j)      Makes the iterator go back by \a j items. (If \a j is negative,     the iterator goes forward.)      \sa operator+=(), operator-() */
 end_comment
 begin_comment
-comment|/*! \class QMap::const_iterator     \inmodule QtCore     \brief The QMap::const_iterator class provides an STL-style const iterator for QMap and QMultiMap.      QMap features both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style iterators are more low-level and more     cumbersome to use; on the other hand, they are slightly faster     and, for developers who already know STL, have the advantage of     familiarity.      QMap\<Key, T\>::const_iterator allows you to iterate over a QMap     (or a QMultiMap). If you want to modify the QMap as you iterate     over it, you must use QMap::iterator instead. It is generally     good practice to use QMap::const_iterator on a non-const QMap as     well, unless you need to change the QMap through the iterator.     Const iterators are slightly faster, and can improve code     readability.      The default QMap::const_iterator constructor creates an     uninitialized iterator. You must initialize it using a QMap     function like QMap::constBegin(), QMap::constEnd(), or     QMap::find() before you can start iterating. Here's a typical     loop that prints all the (key, value) pairs stored in a map:      \snippet code/src_corelib_tools_qmap.cpp 24      Unlike QHash, which stores its items in an arbitrary order, QMap     stores its items ordered by key. Items that share the same key     (because they were inserted using QMap::insertMulti()) will     appear consecutively, from the most recently to the least     recently inserted value.      Multiple iterators can be used on the same map. If you add items     to the map, existing iterators will remain valid. If you remove     items from the map, iterators that point to the removed items     will become dangling iterators.      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QMap::iterator, QMapIterator */
+comment|/*! \class QMap::const_iterator     \inmodule QtCore     \brief The QMap::const_iterator class provides an STL-style const iterator for QMap and QMultiMap.      QMap features both \l{STL-style iterators} and \l{Java-style     iterators}. The STL-style iterators are more low-level and more     cumbersome to use; on the other hand, they are slightly faster     and, for developers who already know STL, have the advantage of     familiarity.      QMap\<Key, T\>::const_iterator allows you to iterate over a QMap     (or a QMultiMap). If you want to modify the QMap as you iterate     over it, you must use QMap::iterator instead. It is generally     good practice to use QMap::const_iterator on a non-const QMap as     well, unless you need to change the QMap through the iterator.     Const iterators are slightly faster, and can improve code     readability.      The default QMap::const_iterator constructor creates an     uninitialized iterator. You must initialize it using a QMap     function like QMap::constBegin(), QMap::constEnd(), or     QMap::find() before you can start iterating. Here's a typical     loop that prints all the (key, value) pairs stored in a map:      \snippet code/src_corelib_tools_qmap.cpp 24      Unlike QHash, which stores its items in an arbitrary order, QMap     stores its items ordered by key. Items that share the same key     (because they were inserted using QMap::insertMulti()) will     appear consecutively, from the most recently to the least     recently inserted value.      Multiple iterators can be used on the same map. If you add items     to the map, existing iterators will remain valid. If you remove     items from the map, iterators that point to the removed items     will become dangling iterators.      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QMap::iterator, QMap::key_iterator, QMapIterator */
 end_comment
 begin_comment
 comment|/*! \typedef QMap::const_iterator::difference_type      \internal */
@@ -2422,6 +2428,51 @@ comment|/*! \fn QMap::const_iterator&QMap::const_iterator::operator+=(int j)    
 end_comment
 begin_comment
 comment|/*! \fn QMap::const_iterator&QMap::const_iterator::operator-=(int j)      Makes the iterator go back by \a j items. (If \a j is negative,     the iterator goes forward.)      This operation can be slow for large \a j values.      \sa operator+=(), operator-() */
+end_comment
+begin_comment
+comment|/*! \class QMap::key_iterator     \inmodule QtCore     \since 5.6     \brief The QMap::key_iterator class provides an STL-style const iterator for QMap and QMultiMap keys.      QMap::key_iterator is essentially the same as QMap::const_iterator     with the difference that operator*() and operator->() return a key     instead of a value.      For most uses QMap::iterator and QMap::const_iterator should be used,     you can easily access the key by calling QMap::iterator::key():      \snippet code/src_corelib_tools_qmap.cpp keyiterator1      However, to have interoperability between QMap's keys and STL-style     algorithms we need an iterator that dereferences to a key instead     of a value. With QMap::key_iterator we can apply an algorithm to a     range of keys without having to call QMap::keys(), which is inefficient     as it costs one QMap iteration and memory allocation to create a temporary     QList.      \snippet code/src_corelib_tools_qmap.cpp keyiterator2      QMap::key_iterator is const, it's not possible to modify the key.      The default QMap::key_iterator constructor creates an uninitialized     iterator. You must initialize it using a QMap function like     QMap::keyBegin() or QMap::keyEnd().      \warning Iterators on implicitly shared containers do not work     exactly like STL-iterators. You should avoid copying a container     while iterators are active on that container. For more information,     read \l{Implicit sharing iterator problem}.      \sa QMap::const_iterator, QMap::iterator */
+end_comment
+begin_comment
+comment|/*! \typedef QMap::key_iterator::difference_type     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QMap::key_iterator::iterator_category     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QMap::key_iterator::pointer     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QMap::key_iterator::reference     \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QMap::key_iterator::value_type     \internal */
+end_comment
+begin_comment
+comment|/*! \fn const T&QMap::key_iterator::operator*() const      Returns the current item's key. */
+end_comment
+begin_comment
+comment|/*! \fn const T *QMap::key_iterator::operator->() const      Returns a pointer to the current item's key. */
+end_comment
+begin_comment
+comment|/*! \fn bool QMap::key_iterator::operator==(key_iterator other)      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
+end_comment
+begin_comment
+comment|/*! \fn bool QMap::key_iterator::operator!=(key_iterator other)      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
+end_comment
+begin_comment
+comment|/*!     \fn QMap::key_iterator&QMap::key_iterator::operator++()      The prefix ++ operator (\c{++i}) advances the iterator to the     next item in the hash and returns an iterator to the new current     item.      Calling this function on QMap::keyEnd() leads to undefined results.      \sa operator--() */
+end_comment
+begin_comment
+comment|/*! \fn QMap::key_iterator QMap::key_iterator::operator++(int)      \overload      The postfix ++ operator (\c{i++}) advances the iterator to the     next item in the hash and returns an iterator to the previous     item. */
+end_comment
+begin_comment
+comment|/*! \fn QMap::key_iterator&QMap::key_iterator::operator--()      The prefix -- operator (\c{--i}) makes the preceding item     current and returns an iterator pointing to the new current item.      Calling this function on QMap::keyBegin() leads to undefined     results.      \sa operator++() */
+end_comment
+begin_comment
+comment|/*! \fn QMap::key_iterator QMap::key_iterator::operator--(int)      \overload      The postfix -- operator (\c{i--}) makes the preceding item     current and returns an iterator pointing to the previous     item. */
+end_comment
+begin_comment
+comment|/*! \fn const_iterator QMap::key_iterator::base() const     Returns the underlying const_iterator this key_iterator is based on. */
 end_comment
 begin_comment
 comment|/*! \fn QDataStream&operator<<(QDataStream&out, const QMap<Key, T>&map)     \relates QMap      Writes the map \a map to stream \a out.      This function requires the key and value types to implement \c     operator<<().      \sa{Serializing Qt Data Types}{Format of the QDataStream operators} */
