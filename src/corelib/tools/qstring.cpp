@@ -850,7 +850,6 @@ begin_comment
 comment|// conversion between Latin 1 and UTF-16
 end_comment
 begin_function
-DECL|function|qt_from_latin1
 name|void
 name|qt_from_latin1
 parameter_list|(
@@ -866,6 +865,7 @@ parameter_list|,
 name|size_t
 name|size
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 comment|/* SIMD:      * Unpacking with SSE has been shown to improve performance on recent CPUs      * The same method gives no improvement with NEON.      */
 if|#

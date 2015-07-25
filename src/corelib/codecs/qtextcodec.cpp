@@ -2805,6 +2805,7 @@ parameter_list|,
 name|size_t
 name|size
 parameter_list|)
+name|Q_DECL_NOTHROW
 function_decl|;
 end_function_decl
 begin_comment
