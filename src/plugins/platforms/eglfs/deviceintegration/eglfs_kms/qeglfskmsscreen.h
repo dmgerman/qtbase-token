@@ -108,6 +108,10 @@ name|drmModeModeInfo
 operator|>
 name|modes
 expr_stmt|;
+DECL|member|dpms_prop
+name|drmModePropertyPtr
+name|dpms_prop
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -290,6 +294,21 @@ name|void
 name|restoreMode
 argument_list|()
 block|;
+name|QPlatformScreen
+operator|::
+name|PowerState
+name|powerState
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|setPowerState
+argument_list|(
+argument|QPlatformScreen::PowerState state
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 name|QEglFSKmsIntegration
@@ -330,6 +349,9 @@ name|QPlatformScreen
 operator|*
 operator|>
 name|m_siblings
+block|;
+name|PowerState
+name|m_powerState
 block|;      struct
 name|FrameBuffer
 block|{
