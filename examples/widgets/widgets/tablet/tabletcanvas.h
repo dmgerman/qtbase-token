@@ -83,6 +83,8 @@ name|AlphaChannelType
 block|{
 name|AlphaPressure
 block|,
+name|AlphaTangentialPressure
+block|,
 name|AlphaTilt
 block|,
 name|NoAlpha
@@ -296,12 +298,16 @@ name|myPen
 block|;
 name|bool
 name|deviceDown
+block|;      struct
+name|Point
+block|{
+name|QPointF
+name|pos
 block|;
-name|QPoint
-name|polyLine
-index|[
-literal|3
-index|]
+name|qreal
+name|rotation
+block|;     }
+name|lastPoint
 block|; }
 decl_stmt|;
 end_decl_stmt

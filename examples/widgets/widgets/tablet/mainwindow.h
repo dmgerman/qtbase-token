@@ -145,6 +145,10 @@ name|alphaChannelPressureAction
 block|;
 name|QAction
 operator|*
+name|alphaChannelTangentialPressureAction
+block|;
+name|QAction
+operator|*
 name|alphaChannelTiltAction
 block|;
 name|QAction
