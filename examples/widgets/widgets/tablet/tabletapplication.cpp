@@ -60,9 +60,6 @@ argument_list|>
 argument_list|(
 name|event
 argument_list|)
-operator|->
-name|device
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

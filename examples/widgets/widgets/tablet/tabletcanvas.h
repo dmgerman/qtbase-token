@@ -183,12 +183,20 @@ block|}
 name|void
 name|setTabletDevice
 argument_list|(
-argument|QTabletEvent::TabletDevice device
+argument|QTabletEvent *event
 argument_list|)
 block|{
 name|myTabletDevice
 operator|=
+name|event
+operator|->
 name|device
+argument_list|()
+block|;
+name|updateCursor
+argument_list|(
+name|event
+argument_list|)
 block|; }
 name|int
 name|maximum
@@ -260,6 +268,16 @@ block|;
 name|void
 name|updateBrush
 argument_list|(
+specifier|const
+name|QTabletEvent
+operator|*
+name|event
+argument_list|)
+block|;
+name|void
+name|updateCursor
+argument_list|(
+specifier|const
 name|QTabletEvent
 operator|*
 name|event
