@@ -177,6 +177,12 @@ operator|.
 name|f_fstypename
 argument_list|)
 expr_stmt|;
+name|blockSize
+operator|=
+name|statfs_buf
+operator|.
+name|f_bsize
+expr_stmt|;
 block|}
 block|}
 end_function

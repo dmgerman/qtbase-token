@@ -285,6 +285,25 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \since 5.6     Returns the optimal transfer block size for this filesystem.      Returns -1 if QStorageInfo could not determine the size or if the QStorageInfo     object is not valid.  */
+end_comment
+begin_function
+DECL|function|blockSize
+name|int
+name|QStorageInfo
+operator|::
+name|blockSize
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|blockSize
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the type name of the filesystem.      This is a platform-dependent function, and filesystem names can vary     between different operating systems. For example, on Windows filesystems     they can be named \c NTFS, and on Linux they can be named \c ntfs-3g or \c fuseblk.      \sa name() */
 end_comment
 begin_function

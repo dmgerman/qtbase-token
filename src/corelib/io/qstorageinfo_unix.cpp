@@ -2096,6 +2096,12 @@ name|statfs_buf
 operator|.
 name|f_bsize
 expr_stmt|;
+name|blockSize
+operator|=
+name|statfs_buf
+operator|.
+name|f_bsize
+expr_stmt|;
 if|#
 directive|if
 name|defined

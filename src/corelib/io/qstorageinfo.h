@@ -196,6 +196,11 @@ name|bytesAvailable
 argument_list|()
 specifier|const
 expr_stmt|;
+name|int
+name|blockSize
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|inline
 name|bool
 name|isRoot

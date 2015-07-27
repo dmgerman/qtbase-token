@@ -83,6 +83,12 @@ operator|-
 literal|1
 argument_list|)
 block|,
+name|blockSize
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+block|,
 name|readOnly
 argument_list|(
 name|false
@@ -201,6 +207,9 @@ name|bytesFree
 block|;
 name|qint64
 name|bytesAvailable
+block|;
+name|int
+name|blockSize
 block|;
 name|bool
 name|readOnly
