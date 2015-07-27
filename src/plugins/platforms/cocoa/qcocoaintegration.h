@@ -379,11 +379,12 @@ name|nativeInterface
 argument_list|()
 specifier|const
 block|;
-name|QCocoaInputContext
+name|QPlatformInputContext
 operator|*
 name|inputContext
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QCocoaAccessibility
 operator|*
@@ -531,7 +532,7 @@ name|mFontDb
 block|;
 name|QScopedPointer
 operator|<
-name|QCocoaInputContext
+name|QPlatformInputContext
 operator|>
 name|mInputContext
 block|;
