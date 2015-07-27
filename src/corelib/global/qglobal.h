@@ -2370,6 +2370,13 @@ directive|define
 name|Q_NEVER_INLINE
 value|__declspec(noinline)
 end_define
+begin_define
+DECL|macro|Q_ALWAYS_INLINE
+define|#
+directive|define
+name|Q_ALWAYS_INLINE
+value|__forceinline
+end_define
 begin_elif
 elif|#
 directive|elif
@@ -2385,6 +2392,13 @@ directive|define
 name|Q_NEVER_INLINE
 value|__attribute__((noinline))
 end_define
+begin_define
+DECL|macro|Q_ALWAYS_INLINE
+define|#
+directive|define
+name|Q_ALWAYS_INLINE
+value|inline __attribute__((always_inline))
+end_define
 begin_else
 else|#
 directive|else
@@ -2394,6 +2408,13 @@ DECL|macro|Q_NEVER_INLINE
 define|#
 directive|define
 name|Q_NEVER_INLINE
+end_define
+begin_define
+DECL|macro|Q_ALWAYS_INLINE
+define|#
+directive|define
+name|Q_ALWAYS_INLINE
+value|inline
 end_define
 begin_endif
 endif|#

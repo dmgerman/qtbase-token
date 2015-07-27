@@ -117,11 +117,6 @@ define|#
 directive|define
 name|Q_STATIC_TEMPLATE_FUNCTION
 value|static
-DECL|macro|Q_ALWAYS_INLINE
-define|#
-directive|define
-name|Q_ALWAYS_INLINE
-value|inline __attribute__((always_inline))
 DECL|macro|Q_DECL_RESTRICT
 define|#
 directive|define
@@ -139,10 +134,6 @@ name|Q_STATIC_TEMPLATE_FUNCTION
 value|static
 define|#
 directive|define
-name|Q_ALWAYS_INLINE
-value|__forceinline
-define|#
-directive|define
 name|Q_DECL_RESTRICT
 value|__restrict
 else|#
@@ -151,10 +142,6 @@ define|#
 directive|define
 name|Q_STATIC_TEMPLATE_FUNCTION
 value|static
-define|#
-directive|define
-name|Q_ALWAYS_INLINE
-value|inline
 define|#
 directive|define
 name|Q_DECL_RESTRICT

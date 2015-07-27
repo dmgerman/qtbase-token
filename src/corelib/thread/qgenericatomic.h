@@ -38,22 +38,6 @@ directive|pragma
 name|qt_sync_stop_processing
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_CC_GNU
-comment|// lowercase is fine, we'll undef it below
-DECL|macro|always_inline
-define|#
-directive|define
-name|always_inline
-value|__attribute__((always_inline, gnu_inline))
-else|#
-directive|else
-define|#
-directive|define
-name|always_inline
-endif|#
-directive|endif
 DECL|struct|QAtomicOpsSupport
 DECL|enumerator|IsSupported
 name|template
@@ -250,8 +234,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|load
 argument_list|(
@@ -275,8 +258,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|void
 name|store
 argument_list|(
@@ -296,8 +278,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|loadAcquire
 argument_list|(
@@ -344,8 +325,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|void
 name|storeRelease
 argument_list|(
@@ -416,8 +396,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|bool
 name|ref
 argument_list|(
@@ -450,8 +429,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|bool
 name|deref
 argument_list|(
@@ -501,8 +479,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|bool
 name|testAndSetAcquire
 argument_list|(
@@ -551,8 +528,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|bool
 name|testAndSetRelease
 argument_list|(
@@ -596,8 +572,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|bool
 name|testAndSetOrdered
 argument_list|(
@@ -641,8 +616,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|bool
 name|testAndSetAcquire
 argument_list|(
@@ -695,8 +669,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|bool
 name|testAndSetRelease
 argument_list|(
@@ -744,8 +717,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|bool
 name|testAndSetOrdered
 argument_list|(
@@ -821,8 +793,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndStoreRelaxed
 argument_list|(
@@ -872,8 +843,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndStoreAcquire
 argument_list|(
@@ -918,8 +888,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndStoreRelease
 argument_list|(
@@ -959,8 +928,7 @@ name|typename
 name|X
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndStoreOrdered
 argument_list|(
@@ -1024,8 +992,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndAddRelaxed
 argument_list|(
@@ -1078,8 +1045,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndAddAcquire
 argument_list|(
@@ -1120,8 +1086,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndAddRelease
 argument_list|(
@@ -1157,8 +1122,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndAddOrdered
 argument_list|(
@@ -1194,8 +1158,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndSubRelaxed
 argument_list|(
@@ -1224,8 +1187,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndSubAcquire
 argument_list|(
@@ -1266,8 +1228,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndSubRelease
 argument_list|(
@@ -1303,8 +1264,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndSubOrdered
 argument_list|(
@@ -1340,8 +1300,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndAndRelaxed
 argument_list|(
@@ -1399,8 +1358,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndAndAcquire
 argument_list|(
@@ -1443,8 +1401,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndAndRelease
 argument_list|(
@@ -1482,8 +1439,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndAndOrdered
 argument_list|(
@@ -1521,8 +1477,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndOrRelaxed
 argument_list|(
@@ -1580,8 +1535,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndOrAcquire
 argument_list|(
@@ -1624,8 +1578,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndOrRelease
 argument_list|(
@@ -1663,8 +1616,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndOrOrdered
 argument_list|(
@@ -1702,8 +1654,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndXorRelaxed
 argument_list|(
@@ -1761,8 +1712,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndXorAcquire
 argument_list|(
@@ -1805,8 +1755,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndXorRelease
 argument_list|(
@@ -1844,8 +1793,7 @@ name|typename
 name|T
 operator|>
 specifier|static
-specifier|inline
-name|always_inline
+name|Q_ALWAYS_INLINE
 name|T
 name|fetchAndXorOrdered
 argument_list|(
@@ -1876,14 +1824,8 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
-begin_undef
-DECL|macro|always_inline
-unit|};
-undef|#
-directive|undef
-name|always_inline
-end_undef
 begin_macro
+unit|};
 name|QT_END_NAMESPACE
 end_macro
 begin_endif
