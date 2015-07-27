@@ -1857,7 +1857,7 @@ if|if
 condition|(
 name|oid
 operator|==
-name|RSA_ENCRYPTION_OID
+name|DSA_ENCRYPTION_OID
 condition|)
 name|publicKeyAlgorithm
 operator|=
