@@ -4039,14 +4039,10 @@ name|QT_NO_OPENGL
 operator|delete
 name|widgetTextures
 expr_stmt|;
-operator|delete
-name|dirtyOnScreenWidgets
-expr_stmt|;
 endif|#
 directive|endif
+operator|delete
 name|dirtyOnScreenWidgets
-operator|=
-literal|0
 expr_stmt|;
 block|}
 end_destructor

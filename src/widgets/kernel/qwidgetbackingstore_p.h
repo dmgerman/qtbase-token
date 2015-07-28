@@ -1321,6 +1321,12 @@ name|QBackingStore
 decl_stmt|;
 end_decl_stmt
 begin_macro
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QWidgetBackingStore
+argument_list|)
+end_macro
+begin_macro
 unit|};
 name|QT_END_NAMESPACE
 end_macro
