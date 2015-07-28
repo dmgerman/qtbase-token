@@ -219,11 +219,11 @@ name|setWidget
 parameter_list|()
 function_decl|;
 name|void
-name|eventFilter_data
+name|testEventFilter_data
 parameter_list|()
 function_decl|;
 name|void
-name|eventFilter
+name|testEventFilter
 parameter_list|()
 function_decl|;
 name|void
@@ -2821,11 +2821,11 @@ argument|QEvent::Type
 argument_list|)
 end_macro
 begin_function
-DECL|function|eventFilter_data
+DECL|function|testEventFilter_data
 name|void
 name|tst_QGraphicsProxyWidget
 operator|::
-name|eventFilter_data
+name|testEventFilter_data
 parameter_list|()
 block|{
 name|QTest
@@ -3087,11 +3087,11 @@ begin_comment
 comment|// protected bool eventFilter(QObject* object, QEvent* event)
 end_comment
 begin_function
-DECL|function|eventFilter
+DECL|function|testEventFilter
 name|void
 name|tst_QGraphicsProxyWidget
 operator|::
-name|eventFilter
+name|testEventFilter
 parameter_list|()
 block|{
 name|QFETCH
