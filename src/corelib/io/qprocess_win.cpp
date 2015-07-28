@@ -3653,6 +3653,15 @@ return|;
 comment|// If we wouldn't write anything, check if we can read stdout.
 if|if
 condition|(
+name|stdoutChannel
+operator|.
+name|pipe
+index|[
+literal|0
+index|]
+operator|!=
+name|INVALID_Q_PIPE
+operator|&&
 name|bytesAvailableInChannel
 argument_list|(
 operator|&
@@ -3677,6 +3686,15 @@ block|}
 comment|// Check if we can read stderr.
 if|if
 condition|(
+name|stderrChannel
+operator|.
+name|pipe
+index|[
+literal|0
+index|]
+operator|!=
+name|INVALID_Q_PIPE
+operator|&&
 name|bytesAvailableInChannel
 argument_list|(
 operator|&
