@@ -260,11 +260,6 @@ name|QLabel
 argument_list|>
 name|test_label
 decl_stmt|;
-DECL|member|test_edit
-name|QLineEdit
-modifier|*
-name|test_edit
-decl_stmt|;
 block|}
 class|;
 end_class
@@ -635,14 +630,16 @@ argument_list|(
 literal|"&Test with a buddy"
 argument_list|)
 expr_stmt|;
+name|QWidget
+modifier|*
 name|test_edit
-operator|=
+init|=
 operator|new
 name|QLineEdit
 argument_list|(
 name|test_box
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QVBoxLayout
 modifier|*
 name|layout

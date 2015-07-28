@@ -801,10 +801,6 @@ specifier|mutable
 name|int
 name|proxyAuthCalled
 decl_stmt|;
-DECL|member|numConnections
-name|int
-name|numConnections
-decl_stmt|;
 DECL|member|loopLevel
 specifier|static
 name|int
@@ -9443,10 +9439,6 @@ endif|#
 directive|endif
 comment|// !QT_NO_NETWORKPROXY
 private|private:
-DECL|member|exitCode
-name|int
-name|exitCode
-decl_stmt|;
 DECL|member|socket
 name|QTcpSocket
 modifier|*
