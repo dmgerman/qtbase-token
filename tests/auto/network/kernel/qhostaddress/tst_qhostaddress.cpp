@@ -2551,6 +2551,7 @@ name|Q_IPV6ADDR
 name|localhostv4mapped
 init|=
 block|{
+block|{
 literal|0
 block|,
 literal|0
@@ -2582,6 +2583,7 @@ block|,
 literal|0
 block|,
 literal|1
+block|}
 block|}
 decl_stmt|;
 name|QTest
