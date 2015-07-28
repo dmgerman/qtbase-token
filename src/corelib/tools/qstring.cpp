@@ -13711,7 +13711,7 @@ begin_comment
 comment|// QT_NO_REGULAREXPRESSION
 end_comment
 begin_comment
-comment|/*!     Returns a substring that contains the \a n leftmost characters     of the string.      The entire string is returned if \a n is greater than size() or     less than zero.      \snippet qstring/main.cpp 31      \sa right(), mid(), startsWith() */
+comment|/*!     Returns a substring that contains the \a n leftmost characters     of the string.      The entire string is returned if \a n is greater than or equal     to size(), or less than zero.      \snippet qstring/main.cpp 31      \sa right(), mid(), startsWith() */
 end_comment
 begin_function
 DECL|function|left
@@ -13762,7 +13762,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a substring that contains the \a n rightmost characters     of the string.      The entire string is returned if \a n is greater than size() or     less than zero.      \snippet qstring/main.cpp 48      \sa left(), mid(), endsWith() */
+comment|/*!     Returns a substring that contains the \a n rightmost characters     of the string.      The entire string is returned if \a n is greater than or equal     to size(), or less than zero.      \snippet qstring/main.cpp 48      \sa left(), mid(), endsWith() */
 end_comment
 begin_function
 DECL|function|right
@@ -15525,7 +15525,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a n characters from the end of the string.      If \a n is greater than size(), the result is an empty string.      Example:     \snippet qstring/main.cpp 15      If you want to remove characters from the \e beginning of the     string, use remove() instead.      \sa truncate(), resize(), remove() */
+comment|/*!     Removes \a n characters from the end of the string.      If \a n is greater than or equal to size(), the result is an     empty string.      Example:     \snippet qstring/main.cpp 15      If you want to remove characters from the \e beginning of the     string, use remove() instead.      \sa truncate(), resize(), remove() */
 end_comment
 begin_function
 DECL|function|chop
@@ -26508,7 +26508,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QStringRef::left(int n) const     \since 5.2      Returns a substring reference to the \a n leftmost characters     of the string.      If \a n is greater than size() or less than zero, a reference to the entire     string is returned.      \sa right(), mid(), startsWith() */
+comment|/*!     \fn QStringRef::left(int n) const     \since 5.2      Returns a substring reference to the \a n leftmost characters     of the string.      If \a n is greater than or equal to size(), or less than zero,     a reference to the entire string is returned.      \sa right(), mid(), startsWith() */
 end_comment
 begin_function
 DECL|function|left
@@ -26551,7 +26551,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns a substring reference to the \a n leftmost characters     of the string.      If \a n is greater than size() or less than zero, a reference to the entire     string is returned.      \snippet qstring/main.cpp leftRef      \sa left(), rightRef(), midRef(), startsWith() */
+comment|/*!     \since 4.4      Returns a substring reference to the \a n leftmost characters     of the string.      If \a n is greater than or equal to size(), or less than zero,     a reference to the entire string is returned.      \snippet qstring/main.cpp leftRef      \sa left(), rightRef(), midRef(), startsWith() */
 end_comment
 begin_function
 DECL|function|leftRef
@@ -26598,7 +26598,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QStringRef::right(int n) const     \since 5.2      Returns a substring reference to the \a n rightmost characters     of the string.      If \a n is greater than size() or less than zero, a reference to the entire     string is returned.      \sa left(), mid(), endsWith() */
+comment|/*!     \fn QStringRef::right(int n) const     \since 5.2      Returns a substring reference to the \a n rightmost characters     of the string.      If \a n is greater than or equal to size(), or less than zero,     a reference to the entire string is returned.      \sa left(), mid(), endsWith() */
 end_comment
 begin_function
 DECL|function|right
@@ -26645,7 +26645,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns a substring reference to the \a n rightmost characters     of the string.      If \a n is greater than size() or less than zero, a reference to the entire     string is returned.      \snippet qstring/main.cpp rightRef      \sa right(), leftRef(), midRef(), endsWith() */
+comment|/*!     \since 4.4      Returns a substring reference to the \a n rightmost characters     of the string.      If \a n is greater than or equal to size(), or less than zero,     a reference to the entire string is returned.      \snippet qstring/main.cpp rightRef      \sa right(), leftRef(), midRef(), endsWith() */
 end_comment
 begin_function
 DECL|function|rightRef
