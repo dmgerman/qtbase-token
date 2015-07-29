@@ -260,6 +260,11 @@ name|QOpenGLWidget
 operator|::
 name|NoPartialUpdate
 argument_list|)
+member_init_list|,
+name|requestedSamples
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|requestedFormat
 operator|=
@@ -419,6 +424,10 @@ name|QOpenGLWidget
 operator|::
 name|UpdateBehavior
 name|updateBehavior
+decl_stmt|;
+DECL|member|requestedSamples
+name|int
+name|requestedSamples
 decl_stmt|;
 block|}
 class|;
@@ -826,13 +835,7 @@ expr_stmt|;
 name|int
 name|samples
 init|=
-name|context
-operator|->
-name|format
-argument_list|()
-operator|.
-name|samples
-argument_list|()
+name|requestedSamples
 decl_stmt|;
 name|QOpenGLExtensions
 modifier|*
@@ -1097,6 +1100,24 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// Do not include the sample count. Requesting a multisampled context is not necessary
+comment|// since we render into an FBO, never to an actual surface. What's more, attempting to
+comment|// create a pbuffer with a multisampled config crashes certain implementations. Just
+comment|// avoid the entire hassle, the result is the same.
+name|requestedSamples
+operator|=
+name|requestedFormat
+operator|.
+name|samples
+argument_list|()
+expr_stmt|;
+name|requestedFormat
+operator|.
+name|setSamples
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|QScopedPointer
 argument_list|<
 name|QOpenGLContext
