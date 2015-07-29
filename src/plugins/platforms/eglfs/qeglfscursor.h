@@ -416,12 +416,6 @@ modifier|*
 name|m_program
 decl_stmt|;
 name|int
-name|m_vertexCoordEntry
-decl_stmt|;
-name|int
-name|m_textureCoordEntry
-decl_stmt|;
-name|int
 name|m_textureEntry
 decl_stmt|;
 name|QEglFSCursorDeviceListener
