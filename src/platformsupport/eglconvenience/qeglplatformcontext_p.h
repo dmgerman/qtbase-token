@@ -258,6 +258,12 @@ name|m_swapIntervalFromEnv
 block|;
 name|bool
 name|m_ownsContext
+block|;
+name|QVector
+operator|<
+name|EGLint
+operator|>
+name|m_contextAttrs
 block|; }
 decl_stmt|;
 end_decl_stmt
