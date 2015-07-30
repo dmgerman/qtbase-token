@@ -455,10 +455,10 @@ name|a4portrait
 init|=
 name|simple
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|a4portrait
-operator|==
+argument_list|,
 name|simple
 argument_list|)
 expr_stmt|;

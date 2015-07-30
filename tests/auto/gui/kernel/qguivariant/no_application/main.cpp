@@ -59,7 +59,7 @@ argument_list|(
 literal|"red"
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|qvariant_cast
 argument_list|<
@@ -68,7 +68,7 @@ argument_list|>
 argument_list|(
 name|v
 argument_list|)
-operator|==
+argument_list|,
 name|QColor
 argument_list|(
 name|Qt

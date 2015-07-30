@@ -1012,7 +1012,7 @@ operator|-
 literal|7
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|noFocus
 operator|.
@@ -1020,7 +1020,7 @@ name|copy
 argument_list|(
 name|compareRect
 argument_list|)
-operator|==
+argument_list|,
 name|focus
 operator|.
 name|copy

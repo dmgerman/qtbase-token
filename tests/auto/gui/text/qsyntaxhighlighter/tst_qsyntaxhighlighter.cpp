@@ -688,7 +688,7 @@ operator|->
 name|documentChangedCalled
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|doc
 operator|->
@@ -700,7 +700,7 @@ argument_list|()
 operator|->
 name|formats
 argument_list|()
-operator|==
+argument_list|,
 name|formats
 argument_list|)
 expr_stmt|;

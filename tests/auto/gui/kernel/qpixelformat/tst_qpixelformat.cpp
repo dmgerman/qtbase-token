@@ -119,10 +119,10 @@ operator|::
 name|Premultiplied
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|first
-operator|==
+argument_list|,
 name|second
 argument_list|)
 expr_stmt|;

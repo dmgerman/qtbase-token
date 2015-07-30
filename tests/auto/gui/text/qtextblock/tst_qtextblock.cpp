@@ -223,7 +223,7 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|doc
 operator|->
@@ -235,7 +235,7 @@ argument_list|()
 operator|.
 name|numNodes
 argument_list|()
-operator|==
+argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
@@ -379,10 +379,10 @@ name|atEnd
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|it
-operator|==
+argument_list|,
 name|block
 operator|.
 name|end

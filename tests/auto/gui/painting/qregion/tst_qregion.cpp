@@ -742,10 +742,10 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|region
-operator|==
+argument_list|,
 name|QRegion
 argument_list|()
 argument_list|)

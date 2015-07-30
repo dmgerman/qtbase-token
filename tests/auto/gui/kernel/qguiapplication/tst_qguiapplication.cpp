@@ -5770,7 +5770,7 @@ name|primaryScreen
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|QGuiApplication
 operator|::
@@ -5779,7 +5779,7 @@ argument_list|()
 operator|->
 name|orientation
 argument_list|()
-operator|==
+argument_list|,
 name|testOrientationToSend
 argument_list|)
 expr_stmt|;

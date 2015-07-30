@@ -331,14 +331,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QPixmapCache
 operator|::
 name|find
 argument_list|(
 literal|"P1"
 argument_list|)
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 name|p1
@@ -1841,14 +1840,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QPixmapCache
 operator|::
 name|find
 argument_list|(
 literal|"red"
 argument_list|)
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 name|QPixmapCache
@@ -1860,14 +1858,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QPixmapCache
 operator|::
 name|find
 argument_list|(
 literal|"red"
 argument_list|)
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 name|QPixmapCache
@@ -1879,14 +1876,13 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QPixmapCache
 operator|::
 name|find
 argument_list|(
 literal|"green"
 argument_list|)
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 comment|//The int part of the API
@@ -2396,6 +2392,7 @@ name|k
 control|)
 name|QVERIFY
 argument_list|(
+operator|!
 name|QPixmapCache
 operator|::
 name|find
@@ -2407,8 +2404,6 @@ argument_list|(
 name|k
 argument_list|)
 argument_list|)
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 comment|//The int part of the API
