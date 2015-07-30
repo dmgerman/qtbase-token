@@ -773,10 +773,13 @@ begin_if
 if|if
 condition|(
 name|_section
+operator|.
+name|toLower
+argument_list|()
 operator|==
 name|QLatin1String
 argument_list|(
-literal|"Rules"
+literal|"rules"
 argument_list|)
 condition|)
 block|{
