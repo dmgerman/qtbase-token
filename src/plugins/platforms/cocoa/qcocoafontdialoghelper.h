@@ -43,6 +43,7 @@ block|;
 name|void
 name|exec
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|show
@@ -53,23 +54,25 @@ argument|Qt::WindowModality windowModality
 argument_list|,
 argument|QWindow *parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hide
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setCurrentFont
 argument_list|(
-specifier|const
-name|QFont
-operator|&
+argument|const QFont&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QFont
 name|currentFont
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

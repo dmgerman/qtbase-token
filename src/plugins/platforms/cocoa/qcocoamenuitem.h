@@ -110,29 +110,26 @@ operator|:
 name|QCocoaMenuItem
 argument_list|()
 block|;
-name|virtual
 operator|~
 name|QCocoaMenuItem
 argument_list|()
 block|;
-specifier|inline
-name|virtual
 name|void
 name|setTag
 argument_list|(
 argument|quintptr tag
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_tag
 operator|=
 name|tag
 block|; }
-specifier|inline
-name|virtual
 name|quintptr
 name|tag
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_tag
@@ -141,70 +138,65 @@ block|}
 name|void
 name|setText
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|text
+argument|const QString&text
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setIcon
 argument_list|(
-specifier|const
-name|QIcon
-operator|&
-name|icon
+argument|const QIcon&icon
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setMenu
 argument_list|(
-name|QPlatformMenu
-operator|*
-name|menu
+argument|QPlatformMenu *menu
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setVisible
 argument_list|(
 argument|bool isVisible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setIsSeparator
 argument_list|(
 argument|bool isSeparator
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setFont
 argument_list|(
-specifier|const
-name|QFont
-operator|&
-name|font
+argument|const QFont&font
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setRole
 argument_list|(
 argument|MenuRole role
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setShortcut
 argument_list|(
-specifier|const
-name|QKeySequence
-operator|&
-name|shortcut
+argument|const QKeySequence& shortcut
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setCheckable
 argument_list|(
 argument|bool checkable
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -216,24 +208,28 @@ name|setChecked
 argument_list|(
 argument|bool isChecked
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setEnabled
 argument_list|(
 argument|bool isEnabled
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setIconSize
 argument_list|(
 argument|int size
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setNativeContents
 argument_list|(
 argument|WId item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|QString

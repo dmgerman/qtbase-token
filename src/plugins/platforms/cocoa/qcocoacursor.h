@@ -45,34 +45,27 @@ operator|~
 name|QCocoaCursor
 argument_list|()
 block|;
-name|virtual
 name|void
 name|changeCursor
 argument_list|(
-name|QCursor
-operator|*
-name|cursor
+argument|QCursor *cursor
 argument_list|,
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPoint
 name|pos
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|setPos
 argument_list|(
-specifier|const
-name|QPoint
-operator|&
-name|position
+argument|const QPoint&position
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

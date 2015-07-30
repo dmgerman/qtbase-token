@@ -31,20 +31,16 @@ operator|:
 name|bool
 name|openUrl
 argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|url
+argument|const QUrl&url
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|openDocument
 argument_list|(
-specifier|const
-name|QUrl
-operator|&
-name|url
+argument|const QUrl&url
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -59,6 +59,7 @@ name|QClipboard
 operator|::
 name|Clipboard
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|void
 name|setMimeData
@@ -76,6 +77,7 @@ name|QClipboard
 operator|::
 name|Clipboard
 argument_list|)
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|bool
 name|supportsMode
@@ -86,6 +88,7 @@ name|Mode
 name|mode
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|bool
 name|ownsMode
@@ -96,6 +99,7 @@ name|Mode
 name|mode
 argument_list|)
 decl|const
+name|Q_DECL_OVERRIDE
 decl_stmt|;
 name|private
 name|Q_SLOTS

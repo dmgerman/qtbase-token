@@ -48,52 +48,40 @@ operator|:
 name|QCocoaMenuBar
 argument_list|()
 block|;
-name|virtual
 operator|~
 name|QCocoaMenuBar
 argument_list|()
 block|;
-name|virtual
 name|void
 name|insertMenu
 argument_list|(
-name|QPlatformMenu
-operator|*
-name|menu
+argument|QPlatformMenu *menu
 argument_list|,
-name|QPlatformMenu
-operator|*
-name|before
+argument|QPlatformMenu* before
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|removeMenu
 argument_list|(
-name|QPlatformMenu
-operator|*
-name|menu
+argument|QPlatformMenu *menu
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|syncMenu
 argument_list|(
-name|QPlatformMenu
-operator|*
-name|menuItem
+argument|QPlatformMenu *menuItem
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|handleReparent
 argument_list|(
-name|QWindow
-operator|*
-name|newParentWindow
+argument|QWindow *newParentWindow
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPlatformMenu
 operator|*
 name|menuForTag
@@ -101,6 +89,7 @@ argument_list|(
 argument|quintptr tag
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|NSMenu

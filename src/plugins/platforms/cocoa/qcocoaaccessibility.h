@@ -48,26 +48,26 @@ block|;
 name|void
 name|notifyAccessibilityUpdate
 argument_list|(
-name|QAccessibleEvent
-operator|*
-name|event
+argument|QAccessibleEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setRootObject
 argument_list|(
-name|QObject
-operator|*
-name|o
+argument|QObject *o
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|initialize
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|cleanup
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

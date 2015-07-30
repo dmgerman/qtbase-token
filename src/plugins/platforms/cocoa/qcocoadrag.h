@@ -51,29 +51,25 @@ operator|:
 name|QCocoaDrag
 argument_list|()
 block|;
-name|virtual
 operator|~
 name|QCocoaDrag
 argument_list|()
 block|;
-name|virtual
 name|QMimeData
 operator|*
 name|platformDropData
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|Qt
 operator|::
 name|DropAction
 name|drag
 argument_list|(
-name|QDrag
-operator|*
-name|m_drag
+argument|QDrag *m_drag
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|Qt
 operator|::
 name|DropAction
@@ -84,6 +80,7 @@ argument_list|,
 argument|Qt::KeyboardModifiers modifiers
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 comment|/**     * to meet NSView dragImage:at guarantees, we need to record the original     * event and view when handling an event in QNSView     */
 name|void

@@ -51,24 +51,22 @@ operator|~
 name|QCocoaMenu
 argument_list|()
 block|;
-specifier|inline
-name|virtual
 name|void
 name|setTag
 argument_list|(
 argument|quintptr tag
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|m_tag
 operator|=
 name|tag
 block|; }
-specifier|inline
-name|virtual
 name|quintptr
 name|tag
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_tag
@@ -77,76 +75,68 @@ block|}
 name|void
 name|insertMenuItem
 argument_list|(
-name|QPlatformMenuItem
-operator|*
-name|menuItem
+argument|QPlatformMenuItem *menuItem
 argument_list|,
-name|QPlatformMenuItem
-operator|*
-name|before
+argument|QPlatformMenuItem *before
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|removeMenuItem
 argument_list|(
-name|QPlatformMenuItem
-operator|*
-name|menuItem
+argument|QPlatformMenuItem *menuItem
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|syncMenuItem
 argument_list|(
-name|QPlatformMenuItem
-operator|*
-name|menuItem
+argument|QPlatformMenuItem *menuItem
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setEnabled
 argument_list|(
 argument|bool enabled
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isEnabled
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|showPopup
 argument_list|(
-specifier|const
-name|QWindow
-operator|*
-name|parentWindow
+argument|const QWindow *parentWindow
 argument_list|,
-specifier|const
-name|QRect
-operator|&
-name|targetRect
+argument|const QRect&targetRect
 argument_list|,
-specifier|const
-name|QPlatformMenuItem
-operator|*
-name|item
+argument|const QPlatformMenuItem *item
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|dismiss
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|syncSeparatorsCollapsible
 argument_list|(
 argument|bool enable
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|syncModalState
@@ -154,12 +144,12 @@ argument_list|(
 argument|bool modal
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setIcon
 argument_list|(
 argument|const QIcon&icon
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|Q_UNUSED
 argument_list|(
@@ -169,26 +159,23 @@ block|}
 name|void
 name|setText
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|text
+argument|const QString&text
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setMinimumWidth
 argument_list|(
 argument|int width
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setFont
 argument_list|(
-specifier|const
-name|QFont
-operator|&
-name|font
+argument|const QFont&font
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|NSMenu
@@ -222,7 +209,6 @@ return|return
 name|m_visible
 return|;
 block|}
-name|virtual
 name|QPlatformMenuItem
 operator|*
 name|menuItemAt
@@ -230,8 +216,8 @@ argument_list|(
 argument|int position
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QPlatformMenuItem
 operator|*
 name|menuItemForTag
@@ -239,6 +225,7 @@ argument_list|(
 argument|quintptr tag
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QList
 operator|<

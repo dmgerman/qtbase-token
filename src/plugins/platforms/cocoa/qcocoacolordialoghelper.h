@@ -36,7 +36,6 @@ operator|:
 name|QCocoaColorDialogHelper
 argument_list|()
 block|;
-name|virtual
 operator|~
 name|QCocoaColorDialogHelper
 argument_list|()
@@ -44,6 +43,7 @@ block|;
 name|void
 name|exec
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|show
@@ -54,23 +54,25 @@ argument|Qt::WindowModality windowModality
 argument_list|,
 argument|QWindow *parent
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|hide
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setCurrentColor
 argument_list|(
-specifier|const
-name|QColor
-operator|&
+argument|const QColor&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QColor
 name|currentColor
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -58,42 +58,33 @@ name|QPaintDevice
 operator|*
 name|paintDevice
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|flush
 argument_list|(
-name|QWindow
-operator|*
-name|widget
+argument|QWindow *widget
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|region
+argument|const QRegion&region
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|offset
+argument|const QPoint&offset
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|toImage
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resize
 argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|size
+argument|const QSize&size
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
+argument|const QRegion&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|scroll
@@ -104,15 +95,14 @@ argument|int dx
 argument_list|,
 argument|int dy
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|beginPaint
 argument_list|(
-specifier|const
-name|QRegion
-operator|&
-name|region
+argument|const QRegion&region
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|getBackingStoreDevicePixelRatio
