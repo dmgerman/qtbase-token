@@ -434,7 +434,7 @@ argument_list|(
 name|layout
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|layout
 operator|->
@@ -442,11 +442,11 @@ name|itemAt
 argument_list|(
 literal|0
 argument_list|)
-operator|==
+argument_list|,
 name|spacer2
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|layout
 operator|->
@@ -454,7 +454,7 @@ name|itemAt
 argument_list|(
 literal|2
 argument_list|)
-operator|==
+argument_list|,
 name|spacer1
 argument_list|)
 expr_stmt|;

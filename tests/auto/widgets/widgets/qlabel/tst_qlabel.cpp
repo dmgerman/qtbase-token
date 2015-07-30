@@ -1605,7 +1605,7 @@ name|textInteractionFlags
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|int
 argument_list|(
@@ -1614,7 +1614,7 @@ operator|->
 name|focusPolicy
 argument_list|()
 argument_list|)
-operator|==
+argument_list|,
 name|focusPolicy
 argument_list|)
 expr_stmt|;

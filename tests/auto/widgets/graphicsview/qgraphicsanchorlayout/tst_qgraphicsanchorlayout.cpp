@@ -16342,23 +16342,20 @@ decl_stmt|;
 comment|// Ensure none of these anchors are accessible.
 name|QVERIFY
 argument_list|(
+operator|!
 name|layoutAnchor
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|itemAnchor
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|invalidAnchor
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 comment|// Hook the anchors to a QObject

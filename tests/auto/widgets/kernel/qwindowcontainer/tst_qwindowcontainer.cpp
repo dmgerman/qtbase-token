@@ -1585,13 +1585,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_COMPARE
 argument_list|(
 name|window
 operator|->
 name|parent
 argument_list|()
-operator|==
+argument_list|,
 name|mainWindow
 operator|.
 name|window

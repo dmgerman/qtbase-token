@@ -23272,7 +23272,7 @@ expr_stmt|;
 comment|//See also task 147191
 endif|#
 directive|endif
-name|QTRY_VERIFY
+name|QTRY_COMPARE
 argument_list|(
 name|QApplication
 operator|::
@@ -23280,7 +23280,7 @@ name|widgetAt
 argument_list|(
 name|testPos
 argument_list|)
-operator|==
+argument_list|,
 name|w1
 operator|.
 name|data
@@ -23656,8 +23656,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -23667,10 +23668,10 @@ comment|// focusOut (crashes)
 comment|//w = new Widget;
 comment|//w->show();
 comment|//w->setFocus();
-comment|//QVERIFY(qApp->focusWidget() == w);
+comment|//QCOMPARE(qApp->focusWidget(), w);
 comment|//w->deleteThis = true;
 comment|//w->clearFocus();
-comment|//QVERIFY(w == 0);
+comment|//QVERIFY(w.isNull());
 comment|// key press
 name|w
 operator|=
@@ -23702,8 +23703,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -23740,8 +23742,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -23778,8 +23781,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -23840,8 +23844,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -23878,8 +23883,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -23890,7 +23896,7 @@ comment|//w = new Widget;
 comment|//w->show();
 comment|//w->deleteThis = true;
 comment|//w->hide();
-comment|//QVERIFY(w == 0);
+comment|//QVERIFY(w.isNull());
 comment|// action event
 name|w
 operator|=
@@ -23917,8 +23923,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -23951,8 +23958,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -24022,8 +24030,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|w
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -26637,10 +26646,13 @@ literal|3
 argument_list|)
 expr_stmt|;
 comment|// winId is set to zero during reparenting
-name|QVERIFY
+name|QCOMPARE
+argument_list|(
+name|WId
 argument_list|(
 literal|0
-operator|==
+argument_list|)
+argument_list|,
 name|child
 operator|.
 name|m_winIdList
@@ -26868,10 +26880,13 @@ literal|3
 argument_list|)
 expr_stmt|;
 comment|// winId is set to zero during reparenting
-name|QVERIFY
+name|QCOMPARE
+argument_list|(
+name|WId
 argument_list|(
 literal|0
-operator|==
+argument_list|)
+argument_list|,
 name|child
 operator|.
 name|m_winIdList
@@ -67924,13 +67939,13 @@ operator|&
 name|parent
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|child
 operator|.
 name|parentWidget
 argument_list|()
-operator|==
+argument_list|,
 operator|&
 name|parent
 argument_list|)

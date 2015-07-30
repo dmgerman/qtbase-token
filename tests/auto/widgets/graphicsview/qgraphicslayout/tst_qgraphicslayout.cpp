@@ -5500,13 +5500,13 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|destructedSet
 operator|.
 name|count
 argument_list|()
-operator|==
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

@@ -219,11 +219,11 @@ operator|.
 name|exec
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 operator|&
 name|d
-operator|==
+argument_list|,
 name|d
 operator|.
 name|m_activeModalWidget

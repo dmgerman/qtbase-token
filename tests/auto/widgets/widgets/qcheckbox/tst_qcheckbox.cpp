@@ -1477,13 +1477,13 @@ operator|::
 name|foregroundRole
 parameter_list|()
 block|{
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|testWidget
 operator|->
 name|foregroundRole
 argument_list|()
-operator|==
+argument_list|,
 name|QPalette
 operator|::
 name|WindowText

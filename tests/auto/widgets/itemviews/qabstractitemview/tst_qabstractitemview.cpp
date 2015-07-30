@@ -5135,7 +5135,7 @@ begin_comment
 comment|// successes == 0, QAbstractItemView is probably ok!)
 end_comment
 begin_endif
-unit|}  void tst_QAbstractItemView::dragAndDropOnChild() {      const int attempts = 10;     int successes = 0;     for (int i = 0; i< attempts; ++i) {         Qt::DropAction dropAction = Qt::MoveAction;          DnDTestModel model;         QModelIndex parent = model.index(0, 0);         model.insertRow(0, parent);         model.insertColumn(0, parent);         QModelIndex child = model.index(0, 0, parent);         model.setData(child, "child");         QCOMPARE(model.rowCount(parent), 1);         DnDTestView view(dropAction,&model);         view.setExpanded(parent, true);         view.setDragDropMode(QAbstractItemView::InternalMove);          const int size = 200;         view.setFixedSize(size, size);         view.move(int(size * 1.5), int(size * 1.5));         view.show();         QVERIFY(QTest::qWaitForWindowExposed(&view));          view.dragAndDrop(view.visualRect(parent).center(),                          view.visualRect(child).center());         if (model.dropAction() == dropAction)             ++successes;     }      QVERIFY(successes == 0); }
+unit|}  void tst_QAbstractItemView::dragAndDropOnChild() {      const int attempts = 10;     int successes = 0;     for (int i = 0; i< attempts; ++i) {         Qt::DropAction dropAction = Qt::MoveAction;          DnDTestModel model;         QModelIndex parent = model.index(0, 0);         model.insertRow(0, parent);         model.insertColumn(0, parent);         QModelIndex child = model.index(0, 0, parent);         model.setData(child, "child");         QCOMPARE(model.rowCount(parent), 1);         DnDTestView view(dropAction,&model);         view.setExpanded(parent, true);         view.setDragDropMode(QAbstractItemView::InternalMove);          const int size = 200;         view.setFixedSize(size, size);         view.move(int(size * 1.5), int(size * 1.5));         view.show();         QVERIFY(QTest::qWaitForWindowExposed(&view));          view.dragAndDrop(view.visualRect(parent).center(),                          view.visualRect(child).center());         if (model.dropAction() == dropAction)             ++successes;     }      QCOMPARE(successes, 0); }
 endif|#
 directive|endif
 end_endif
@@ -6338,13 +6338,13 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|view
 operator|->
 name|currentIndex
 argument_list|()
-operator|==
+argument_list|,
 name|model
 operator|->
 name|index

@@ -568,13 +568,13 @@ operator|->
 name|exec
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|spy
 operator|.
 name|count
 argument_list|()
-operator|==
+argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;

@@ -26261,10 +26261,10 @@ name|item
 operator|->
 name|transform
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|a
-operator|==
+argument_list|,
 name|b
 argument_list|)
 expr_stmt|;

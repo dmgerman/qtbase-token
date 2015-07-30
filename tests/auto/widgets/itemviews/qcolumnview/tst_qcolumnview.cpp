@@ -1534,12 +1534,11 @@ argument_list|()
 condition|)
 name|QVERIFY
 argument_list|(
+operator|!
 name|view
 operator|->
 name|cornerWidget
 argument_list|()
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -3552,7 +3551,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|view
 operator|.
@@ -3564,7 +3563,7 @@ argument_list|()
 operator|.
 name|count
 argument_list|()
-operator|==
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

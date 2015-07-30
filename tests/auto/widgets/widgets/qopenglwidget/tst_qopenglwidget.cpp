@@ -190,7 +190,7 @@ name|context
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|w
 operator|->
@@ -199,7 +199,7 @@ argument_list|()
 operator|->
 name|format
 argument_list|()
-operator|==
+argument_list|,
 name|w
 operator|->
 name|format
@@ -1696,13 +1696,13 @@ operator|->
 name|processEvents
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|view
 operator|->
 name|paintCount
 argument_list|()
-operator|==
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

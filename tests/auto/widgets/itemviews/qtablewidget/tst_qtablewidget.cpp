@@ -762,7 +762,7 @@ argument_list|,
 name|item
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|testWidget
 operator|->
@@ -770,7 +770,7 @@ name|horizontalHeaderItem
 argument_list|(
 literal|0
 argument_list|)
-operator|==
+argument_list|,
 name|item
 argument_list|)
 expr_stmt|;
@@ -779,7 +779,7 @@ operator|->
 name|clearContents
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|testWidget
 operator|->
@@ -787,7 +787,7 @@ name|horizontalHeaderItem
 argument_list|(
 literal|0
 argument_list|)
-operator|==
+argument_list|,
 name|item
 argument_list|)
 expr_stmt|;
@@ -10500,7 +10500,7 @@ name|format
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|data
 operator|->
@@ -10508,7 +10508,7 @@ name|data
 argument_list|(
 name|format
 argument_list|)
-operator|==
+argument_list|,
 name|data2
 operator|->
 name|data

@@ -1132,12 +1132,11 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|group
 operator|.
 name|checkedAction
 argument_list|()
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

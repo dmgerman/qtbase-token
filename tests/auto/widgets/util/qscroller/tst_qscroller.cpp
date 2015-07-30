@@ -1331,10 +1331,10 @@ name|scrollerProperties
 argument_list|()
 decl_stmt|;
 comment|// default properties should be the same
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|sp1
-operator|==
+argument_list|,
 name|sp2
 argument_list|)
 expr_stmt|;

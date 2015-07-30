@@ -15538,7 +15538,7 @@ operator|&
 name|wheelUpEvent
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|lv
 operator|.
@@ -15547,7 +15547,7 @@ argument_list|()
 operator|->
 name|value
 argument_list|()
-operator|==
+argument_list|,
 name|hValue
 argument_list|)
 expr_stmt|;
@@ -15564,7 +15564,7 @@ operator|&
 name|wheelLeftDownEvent
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|lv
 operator|.
@@ -15573,7 +15573,7 @@ argument_list|()
 operator|->
 name|value
 argument_list|()
-operator|==
+argument_list|,
 name|hValue
 argument_list|)
 expr_stmt|;

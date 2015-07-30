@@ -975,13 +975,13 @@ operator|::
 name|Copy
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|act
 operator|.
 name|shortcut
 argument_list|()
-operator|==
+argument_list|,
 name|act
 operator|.
 name|shortcuts

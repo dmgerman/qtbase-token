@@ -2842,7 +2842,7 @@ modifier|*
 name|painter
 parameter_list|)
 block|{
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|sourcePixmap
 argument_list|(
@@ -2853,7 +2853,7 @@ argument_list|)
 operator|.
 name|handle
 argument_list|()
-operator|==
+argument_list|,
 name|pixmap
 operator|.
 name|handle
@@ -3283,12 +3283,12 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_COMPARE
 argument_list|(
 name|item
 operator|->
 name|numRepaints
-operator|==
+argument_list|,
 name|numRepaints
 argument_list|)
 expr_stmt|;

@@ -6386,9 +6386,8 @@ condition|)
 block|{
 name|QVERIFY
 argument_list|(
+operator|!
 name|item
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -6426,9 +6425,8 @@ condition|)
 block|{
 name|QVERIFY
 argument_list|(
+operator|!
 name|item
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
