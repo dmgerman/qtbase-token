@@ -22304,22 +22304,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|style
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"GTK+"
-argument_list|)
-operator|&&
-name|useStyledPanel
-condition|)
-name|QSKIP
-argument_list|(
-literal|"GTK + style test skipped, see QTBUG-29002"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
 name|useStyledPanel
 operator|&&
 name|style

@@ -3496,11 +3496,6 @@ name|styleNames
 operator|<<
 name|QStringLiteral
 argument_list|(
-literal|"GTK+"
-argument_list|)
-operator|<<
-name|QStringLiteral
-argument_list|(
 literal|"fusion"
 argument_list|)
 operator|<<
