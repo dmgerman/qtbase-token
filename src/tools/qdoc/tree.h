@@ -111,7 +111,21 @@ name|type_
 argument_list|(
 argument|type
 argument_list|)
-block|{ }
+block|{
+comment|// Discard the dedicated ref for keywords - they always
+comment|// link to the top of the QDoc comment they appear in
+if|if
+condition|(
+name|type
+operator|==
+name|Keyword
+condition|)
+name|ref_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 DECL|function|isEmpty
 name|bool
 name|isEmpty
