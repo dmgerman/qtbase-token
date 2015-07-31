@@ -734,6 +734,9 @@ name|QAbstractSocket
 operator|*
 name|sslSocket
 block|;
+name|EventRegistrationToken
+name|connectionToken
+block|;
 name|HRESULT
 name|handleBindCompleted
 argument_list|(
