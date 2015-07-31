@@ -7761,6 +7761,16 @@ operator|::
 name|multicastTtlOption
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QSKIP
+argument_list|(
+literal|"WinRT does not support multicast."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -8137,6 +8147,16 @@ operator|::
 name|multicastLoopbackOption
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QSKIP
+argument_list|(
+literal|"WinRT does not support multicast."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -8321,6 +8341,16 @@ operator|::
 name|multicastJoinBeforeBind
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QSKIP
+argument_list|(
+literal|"WinRT does not support multicast."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH
 argument_list|(
 name|QHostAddress
@@ -8425,6 +8455,16 @@ operator|::
 name|multicastLeaveAfterClose
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QSKIP
+argument_list|(
+literal|"WinRT does not support multicast."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -8710,6 +8750,16 @@ operator|::
 name|setMulticastInterface
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QSKIP
+argument_list|(
+literal|"WinRT does not support multicast."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -9079,6 +9129,16 @@ operator|::
 name|multicast
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QSKIP
+argument_list|(
+literal|"WinRT does not support multicast."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
