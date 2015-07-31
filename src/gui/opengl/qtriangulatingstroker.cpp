@@ -453,7 +453,10 @@ literal|2
 expr_stmt|;
 name|m_curvyness_mul
 operator|=
+name|float
+argument_list|(
 name|CURVE_FLATNESS
+argument_list|)
 expr_stmt|;
 name|m_roundness
 operator|=
@@ -3221,7 +3224,10 @@ literal|2
 expr_stmt|;
 name|curvynessMul
 operator|=
+name|float
+argument_list|(
 name|CURVE_FLATNESS
+argument_list|)
 expr_stmt|;
 block|}
 else|else

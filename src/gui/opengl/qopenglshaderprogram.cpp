@@ -5776,7 +5776,10 @@ name|void
 operator|*
 argument_list|>
 argument_list|(
+name|qintptr
+argument_list|(
 name|offset
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
