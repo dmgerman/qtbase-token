@@ -2230,25 +2230,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qWarning
-argument_list|(
-literal|"Qt: Untested Windows version %d.%d detected!"
-argument_list|,
-name|int
-argument_list|(
-name|osver
-operator|.
-name|dwMajorVersion
-argument_list|)
-argument_list|,
-name|int
-argument_list|(
-name|osver
-operator|.
-name|dwMinorVersion
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|winver
 operator|=
 name|QSysInfo
