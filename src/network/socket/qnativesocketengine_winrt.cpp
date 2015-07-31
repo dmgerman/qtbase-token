@@ -5927,6 +5927,15 @@ operator|->
 name|connectionReady
 argument_list|()
 emit|;
+if|if
+condition|(
+name|socketType
+operator|!=
+name|QAbstractSocket
+operator|::
+name|TcpSocket
+condition|)
+return|return;
 comment|// Delay the reader so that the SSL socket can upgrade
 if|if
 condition|(
