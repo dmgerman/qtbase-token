@@ -4340,11 +4340,6 @@ argument_list|(
 name|icon
 argument_list|)
 expr_stmt|;
-name|QHighDpiScaling
-operator|::
-name|updateHighDpiScaling
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -4409,6 +4404,13 @@ expr_stmt|;
 name|platform_integration
 operator|->
 name|initialize
+argument_list|()
+expr_stmt|;
+comment|// Do this here in order to play nice with platforms that add screens only
+comment|// in initialize().
+name|QHighDpiScaling
+operator|::
+name|updateHighDpiScaling
 argument_list|()
 expr_stmt|;
 block|}
