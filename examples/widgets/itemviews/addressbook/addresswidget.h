@@ -89,7 +89,7 @@ name|public
 name|slots
 operator|:
 name|void
-name|addEntry
+name|showAddEntryDialog
 argument_list|()
 block|;
 name|void
