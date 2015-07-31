@@ -4112,7 +4112,10 @@ name|FakePointer
 operator|*
 argument_list|>
 argument_list|(
+name|qintptr
+argument_list|(
 name|thing
+argument_list|)
 argument_list|)
 return|;
 block|}
