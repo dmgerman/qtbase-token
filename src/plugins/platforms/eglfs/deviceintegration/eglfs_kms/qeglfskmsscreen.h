@@ -108,6 +108,10 @@ name|drmModeModeInfo
 operator|>
 name|modes
 expr_stmt|;
+DECL|member|subpixel
+name|int
+name|subpixel
+decl_stmt|;
 DECL|member|dpms_prop
 name|drmModePropertyPtr
 name|dpms_prop
@@ -293,6 +297,12 @@ block|}
 name|void
 name|restoreMode
 argument_list|()
+block|;
+name|SubpixelAntialiasingType
+name|subpixelAntialiasingTypeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformScreen
 operator|::

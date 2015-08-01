@@ -1289,6 +1289,10 @@ argument_list|)
 block|,
 name|modes
 block|,
+name|connector
+operator|->
+name|subpixel
+block|,
 name|connectorProperty
 argument_list|(
 argument|connector
