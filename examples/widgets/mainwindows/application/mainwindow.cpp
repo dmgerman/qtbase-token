@@ -813,6 +813,9 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|//!
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 specifier|const
 name|QIcon
 name|cutIcon
@@ -1072,6 +1075,9 @@ operator|->
 name|addSeparator
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_CLIPBOARD
 name|QMenu
 modifier|*
 name|helpMenu
@@ -1152,6 +1158,9 @@ argument_list|)
 expr_stmt|;
 comment|//! [22]
 comment|//! [23]
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|cutAct
 operator|->
 name|setEnabled
@@ -1201,6 +1210,9 @@ operator|::
 name|setEnabled
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !QT_NO_CLIPBOARD
 block|}
 end_function
 begin_comment
