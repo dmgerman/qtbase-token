@@ -268,8 +268,10 @@ name|maybeQuit
 argument_list|()
 block|;
 specifier|static
+name|QBasicAtomicPointer
+operator|<
 name|QThread
-operator|*
+operator|>
 name|theMainThread
 block|;
 specifier|static
