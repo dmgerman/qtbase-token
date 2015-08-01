@@ -1902,10 +1902,51 @@ argument_list|)
 expr_stmt|;
 name|string
 operator|=
-name|QLatin1String
+literal|"Sm\xc3\xb8rg\xc3\xa5sbord "
+comment|// Latin script
+literal|"\xce\x91\xce\xb8\xce\xae\xce\xbd\xce\xb1 "
+comment|// Greek script
+literal|"\xd0\x9c\xd0\xbe\xd1\x81\xd0\xba\xd0\xb2\xd0\xb0"
+expr_stmt|;
+comment|// Cyrillic script
+name|qDebug
+argument_list|()
+operator|.
+name|noquote
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+name|string
+expr_stmt|;
+name|QCOMPARE
 argument_list|(
-literal|"\nSm\xF8rg\xE5sbord\\"
+name|s_msg
+argument_list|,
+name|string
 argument_list|)
+expr_stmt|;
+comment|// This string only contains printable characters
+name|qDebug
+argument_list|()
+operator|<<
+name|string
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|s_msg
+argument_list|,
+literal|'"'
+operator|+
+name|string
+operator|+
+literal|'"'
+argument_list|)
+expr_stmt|;
+name|string
+operator|=
+literal|"\n\t\\\""
 expr_stmt|;
 name|qDebug
 argument_list|()
@@ -1925,6 +1966,7 @@ argument_list|,
 name|string
 argument_list|)
 expr_stmt|;
+comment|// This string only contains characters that must be escaped
 name|qDebug
 argument_list|()
 operator|<<
@@ -1936,11 +1978,83 @@ name|s_msg
 argument_list|,
 name|QString
 argument_list|(
-literal|"\"\\nSm\\u00F8rg\\u00E5sbord\\\\\""
+literal|"\"\\n\\t\\\\\\\"\""
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// surrogate pairs (including broken pairings)
+comment|// Unicode escapes, BMP
+name|string
+operator|=
+literal|"\1"
+comment|// U+0001: START OF HEADING (category Cc)
+literal|"\x7f"
+comment|// U+007F: DELETE (category Cc)
+literal|"\xc2\xad"
+comment|// U+00AD: SOFT HYPHEN (category Cf)
+literal|"\xef\xbb\xbf"
+expr_stmt|;
+comment|// U+FEFF: ZERO WIDTH NO-BREAK SPACE / BOM (category Cf)
+name|qDebug
+argument_list|()
+operator|<<
+name|string
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|s_msg
+argument_list|,
+name|QString
+argument_list|(
+literal|"\"\\u0001\\u007F\\u00AD\\uFEFF\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Unicode printable non-BMP
+name|string
+operator|=
+literal|"\xf0\x90\x80\x80"
+expr_stmt|;
+comment|// U+10000: LINEAR B SYLLABLE B008 A (category Lo)
+name|qDebug
+argument_list|()
+operator|<<
+name|string
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|s_msg
+argument_list|,
+literal|'"'
+operator|+
+name|string
+operator|+
+literal|'"'
+argument_list|)
+expr_stmt|;
+comment|// non-BMP and non-printable
+name|string
+operator|=
+literal|"\xf3\xa0\x80\x81 "
+comment|// U+E0001: LANGUAGE TAG (category Cf)
+literal|"\xf4\x80\x80\x80"
+expr_stmt|;
+comment|// U+100000: Plane 16 Private Use (category Co)
+name|qDebug
+argument_list|()
+operator|<<
+name|string
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|s_msg
+argument_list|,
+name|QString
+argument_list|(
+literal|"\"\\U000E0001 \\U00100000\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// broken surrogate pairs
 name|ushort
 name|utf16
 index|[]
@@ -1950,13 +2064,7 @@ literal|0xDC00
 block|,
 literal|0xD800
 block|,
-literal|0xDC00
-block|,
 literal|'x'
-block|,
-literal|0xD800
-block|,
-literal|0xDC00
 block|,
 literal|0xD800
 block|,
@@ -1983,7 +2091,7 @@ name|s_msg
 argument_list|,
 name|QString
 argument_list|(
-literal|"\"\\uDC00\\U00010000x\\U00010000\\uD800\""
+literal|"\"\\uDC00\\uD800x\\uD800\""
 argument_list|)
 argument_list|)
 expr_stmt|;
