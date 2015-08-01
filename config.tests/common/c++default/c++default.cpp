@@ -1,0 +1,5 @@
+begin_unit
+begin_macro
+name|__cplusplus
+end_macro
+end_unit

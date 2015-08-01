@@ -481,6 +481,11 @@ name|extraOptions
 init|=
 name|QString
 argument_list|()
+parameter_list|,
+name|bool
+name|distClean
+init|=
+name|true
 parameter_list|)
 function_decl|;
 name|bool
