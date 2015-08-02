@@ -4251,7 +4251,7 @@ begin_comment
 comment|/*!     \fn bool QObject::signalsBlocked() const      Returns \c true if signals are blocked; otherwise returns \c false.      Signals are not blocked by default.      \sa blockSignals() */
 end_comment
 begin_comment
-comment|/*!     If \a block is true, signals emitted by this object are blocked     (i.e., emitting a signal will not invoke anything connected to it).     If \a block is false, no such blocking will occur.      The return value is the previous value of signalsBlocked().      Note that the destroyed() signal will be emitted even if the signals     for this object have been blocked.      \sa signalsBlocked() */
+comment|/*!     If \a block is true, signals emitted by this object are blocked     (i.e., emitting a signal will not invoke anything connected to it).     If \a block is false, no such blocking will occur.      The return value is the previous value of signalsBlocked().      Note that the destroyed() signal will be emitted even if the signals     for this object have been blocked.      Signals emitted while being blocked are not buffered.      \sa signalsBlocked() */
 end_comment
 begin_function
 name|bool
