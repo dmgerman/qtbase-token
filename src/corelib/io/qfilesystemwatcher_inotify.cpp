@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qsystemerror_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qdebug.h>
 end_include
 begin_include
@@ -1301,10 +1306,29 @@ operator|<
 literal|0
 condition|)
 block|{
-name|perror
+name|qWarning
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"inotify_add_watch("
+operator|<<
+name|path
+operator|<<
+literal|") failed: "
+operator|<<
+name|QSystemError
 argument_list|(
-literal|"QInotifyFileSystemWatcherEngine::addPaths: inotify_add_watch failed"
+name|errno
+argument_list|,
+name|QSystemError
+operator|::
+name|NativeError
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 continue|continue;
 block|}
