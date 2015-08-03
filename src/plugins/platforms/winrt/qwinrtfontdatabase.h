@@ -18,11 +18,6 @@ include|#
 directive|include
 file|<QtPlatformSupport/private/qbasicfontdatabase_p.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_WINRT_USE_DWRITE
-end_ifdef
 begin_struct_decl
 struct_decl|struct
 name|IDWriteFontFile
@@ -33,18 +28,9 @@ struct_decl|struct
 name|IDWriteFontFamily
 struct_decl|;
 end_struct_decl
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_WINRT_USE_DWRITE
-end_ifdef
 begin_struct
 DECL|struct|FontDescription
 struct|struct
@@ -61,10 +47,6 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|class
 name|QWinRTFontDatabase
@@ -79,9 +61,6 @@ name|fontDir
 argument_list|()
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|QT_WINRT_USE_DWRITE
 operator|~
 name|QWinRTFontDatabase
 argument_list|()
@@ -146,11 +125,7 @@ name|IDWriteFontFamily
 operator|*
 operator|>
 name|m_fontFamilies
-block|;
-endif|#
-directive|endif
-comment|// QT_WINRT_USE_DWRITE
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

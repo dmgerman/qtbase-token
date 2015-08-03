@@ -17,11 +17,6 @@ include|#
 directive|include
 file|<QtCore/QFile>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_WINRT_USE_DWRITE
-end_ifdef
 begin_include
 include|#
 directive|include
@@ -50,13 +45,6 @@ operator|::
 name|WRL
 namespace|;
 end_using
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_WINRT_USE_DWRITE
-end_comment
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|// Based on unicode range tables at http://www.microsoft.com/typography/otspec/os2.htm#ur
@@ -689,9 +677,6 @@ name|fontDirectory
 argument_list|)
 condition|)
 block|{
-ifdef|#
-directive|ifdef
-name|QT_WINRT_USE_DWRITE
 if|if
 condition|(
 name|m_fontFamilies
@@ -699,8 +684,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-endif|#
-directive|endif
 name|qWarning
 argument_list|(
 literal|"No fonts directory found in application package."
@@ -717,11 +700,6 @@ name|fontDirectory
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_WINRT_USE_DWRITE
-end_ifdef
 begin_destructor
 DECL|function|~QWinRTFontDatabase
 name|QWinRTFontDatabase
@@ -2513,46 +2491,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// QT_WINRT_USE_DWRITE
-end_comment
-begin_function
-DECL|function|defaultFont
-name|QFont
-name|QWinRTFontDatabase
-operator|::
-name|defaultFont
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|QFont
-argument_list|(
-name|QFontDatabase
-argument_list|()
-operator|.
-name|families
-argument_list|()
-operator|.
-name|value
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-return|;
-block|}
-end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !QT_WINRT_USE_DWRITE
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
