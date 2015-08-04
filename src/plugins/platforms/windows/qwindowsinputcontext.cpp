@@ -486,12 +486,8 @@ name|m_compositionContext
 operator|.
 name|isComposing
 condition|)
-name|imeNotifyCancelComposition
-argument_list|(
-name|m_compositionContext
-operator|.
-name|hwnd
-argument_list|)
+name|reset
+argument_list|()
 expr_stmt|;
 specifier|const
 name|QWindow
