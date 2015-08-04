@@ -38379,6 +38379,16 @@ operator|::
 name|sslSessionSharing
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_SECURETRANSPORT
+name|QSKIP
+argument_list|(
+literal|"Not implemented with SecureTransport"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QString
 name|urlString
 argument_list|(
@@ -38802,6 +38812,16 @@ operator|::
 name|sslSessionSharingFromPersistentSession
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_SECURETRANSPORT
+name|QSKIP
+argument_list|(
+literal|"Not implemented with SecureTransport"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QString
 name|urlString
 argument_list|(
