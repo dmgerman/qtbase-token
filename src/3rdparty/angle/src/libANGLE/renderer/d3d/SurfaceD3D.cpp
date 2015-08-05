@@ -927,6 +927,9 @@ operator|==
 literal|0
 condition|)
 block|{
+name|checkForOutOfDateSwapChain
+argument_list|()
+expr_stmt|;
 return|return
 name|egl
 operator|::
