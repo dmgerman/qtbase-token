@@ -623,6 +623,11 @@ init|=
 literal|0x9279
 block|,
 comment|// GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC
+name|RGB8_ETC1
+init|=
+literal|0x8D64
+block|,
+comment|// GL_ETC1_RGB8_OES
 comment|// sRGB formats
 name|SRGB8
 init|=
