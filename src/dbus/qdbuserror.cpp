@@ -221,6 +221,11 @@ index|]
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
 begin_function
 DECL|function|get
 specifier|static
@@ -302,6 +307,10 @@ name|Other
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \class QDBusError     \inmodule QtDBus     \since 4.2      \brief The QDBusError class represents an error received from the     D-Bus bus or from remote applications found in the bus.      When dealing with the D-Bus bus service or with remote     applications over D-Bus, a number of error conditions can     happen. This error conditions are sometimes signalled by a     returned error value or by a QDBusError.      C++ and Java exceptions are a valid analogy for D-Bus errors:     instead of returning normally with a return value, remote     applications and the bus may decide to throw an error     condition. However, the Qt D-Bus implementation does not use the C++     exception-throwing mechanism, so you will receive QDBusErrors in     the return reply (see QDBusReply::error()).      QDBusError objects are used to inspect the error name and message     as received from the bus and remote applications. You should not     create such objects yourself to signal error conditions when     called from D-Bus: instead, use QDBusMessage::createError() and     QDBusConnection::send().      \sa QDBusConnection::send(), QDBusMessage, QDBusReply */
 end_comment
