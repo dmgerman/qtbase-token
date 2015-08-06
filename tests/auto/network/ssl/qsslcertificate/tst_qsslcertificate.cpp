@@ -5434,6 +5434,16 @@ operator|::
 name|nulInCN
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_SECURETRANSPORT
+name|QSKIP
+argument_list|(
+literal|"Generic QSslCertificatePrivate fails this test"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QList
 argument_list|<
 name|QSslCertificate
@@ -5537,6 +5547,16 @@ operator|::
 name|nulInSan
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_SECURETRANSPORT
+name|QSKIP
+argument_list|(
+literal|"Generic QSslCertificatePrivate fails this test"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QList
 argument_list|<
 name|QSslCertificate
@@ -6431,6 +6451,16 @@ operator|::
 name|verify
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_SECURETRANSPORT
+name|QSKIP
+argument_list|(
+literal|"Not implemented in SecureTransport"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QList
 argument_list|<
 name|QSslError
