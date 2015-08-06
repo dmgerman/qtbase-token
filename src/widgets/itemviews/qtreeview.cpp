@@ -1237,7 +1237,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   \property QTreeView::uniformRowHeights   \brief whether all items in the treeview have the same height    This property should only be set to true if it is guaranteed that all items   in the view has the same height. This enables the view to do some   optimizations.    The height is obtained from the first item in the view.  It is updated   when the data changes on that item.    By default, this property is \c false. */
+comment|/*!   \property QTreeView::uniformRowHeights   \brief whether all items in the treeview have the same height    This property should only be set to true if it is guaranteed that all items   in the view has the same height. This enables the view to do some   optimizations.    The height is obtained from the first item in the view.  It is updated   when the data changes on that item.    \note If the editor size hint is bigger than the cell size hint, then the   size hint of the editor will be used.    By default, this property is \c false. */
 end_comment
 begin_function
 DECL|function|uniformRowHeights
