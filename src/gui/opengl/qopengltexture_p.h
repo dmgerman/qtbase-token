@@ -439,6 +439,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+name|bool
+name|isUsingImmutableStorage
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QOpenGLTexture
 modifier|*
 name|q_ptr
