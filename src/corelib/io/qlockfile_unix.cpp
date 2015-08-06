@@ -1211,6 +1211,11 @@ name|name
 return|;
 else|#
 directive|else
+name|Q_UNUSED
+argument_list|(
+name|pid
+argument_list|)
+expr_stmt|;
 return|return
 name|QString
 argument_list|()
