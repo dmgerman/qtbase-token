@@ -1873,7 +1873,7 @@ comment|// pos<= span< sqrt(INT_MAX+0.0625)+0.25 ~ sqrt(INT_MAX)
 block|}
 end_function
 begin_comment
-comment|/*!      Returns the style's standard palette.      Note that on systems that support system colors, the style's     standard palette is not used. In particular, the Windows XP,     Vista, and Mac styles do not use the standard palette, but make     use of native theme engines. With these styles, you should not set     the palette with QApplication::setStandardPalette().   */
+comment|/*!      Returns the style's standard palette.      Note that on systems that support system colors, the style's     standard palette is not used. In particular, the Windows XP,     Vista, and Mac styles do not use the standard palette, but make     use of native theme engines. With these styles, you should not set     the palette with QApplication::setPalette().      \sa QApplication::setPalette()  */
 end_comment
 begin_function
 DECL|function|standardPalette
