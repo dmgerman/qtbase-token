@@ -2789,16 +2789,11 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-if|if
-condition|(
 name|xi2PrepareXIGenericDeviceEvent
 argument_list|(
 name|event
-argument_list|,
-name|m_xiOpCode
 argument_list|)
-condition|)
-block|{
+expr_stmt|;
 name|xXIGenericDeviceEvent
 modifier|*
 name|xiEvent
@@ -3187,7 +3182,6 @@ block|}
 endif|#
 directive|endif
 comment|// XCB_USE_XINPUT22
-block|}
 block|}
 end_function
 begin_ifdef
