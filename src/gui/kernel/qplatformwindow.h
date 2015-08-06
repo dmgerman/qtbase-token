@@ -456,6 +456,11 @@ name|windowGeometry
 argument_list|()
 specifier|const
 block|;
+name|QRect
+name|windowFrameGeometry
+argument_list|()
+specifier|const
+block|;
 name|QRectF
 name|windowClosestAcceptableGeometry
 argument_list|(
