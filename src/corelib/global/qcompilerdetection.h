@@ -2425,6 +2425,18 @@ undef|#
 directive|undef
 name|Q_COMPILER_UNICODE_STRINGS
 end_undef
+begin_comment
+comment|//       Disable constexpr unless the MS headers have constexpr in all the right places too
+end_comment
+begin_comment
+comment|//       (like std::numeric_limits<T>::max())
+end_comment
+begin_undef
+DECL|macro|Q_COMPILER_CONSTEXPR
+undef|#
+directive|undef
+name|Q_COMPILER_CONSTEXPR
+end_undef
 begin_endif
 endif|#
 directive|endif
@@ -5627,7 +5639,7 @@ literal|100
 operator|+
 name|__GNUC_MINOR__
 operator|>=
-literal|405
+literal|406
 operator|)
 end_elif
 begin_define

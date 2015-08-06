@@ -15258,7 +15258,7 @@ argument_list|)
 operator|<<
 literal|"</a>"
 operator|<<
-literal|"are part of the "
+literal|" are part of the "
 literal|"Qt compatibility layer.</b> We advise against "
 literal|"using them in new code.</p>\n"
 expr_stmt|;

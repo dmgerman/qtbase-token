@@ -71,6 +71,7 @@ if|if
 condition|(
 operator|(
 operator|(
+specifier|const
 name|char
 operator|*
 operator|)

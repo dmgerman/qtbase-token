@@ -575,9 +575,15 @@ modifier|&
 name|resource
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|QT_NO_OPENGL
+name|Q_UNUSED
+argument_list|(
+argument|resource
+argument_list|)
+else|#
+directive|else
 if|if
 condition|(
 name|resourceType

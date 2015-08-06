@@ -2377,6 +2377,15 @@ literal|1024
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!    \fn QPixmapCache::KeyData::KeyData()     \internal */
+end_comment
+begin_comment
+comment|/*!    \fn QPixmapCache::KeyData::KeyData(const KeyData&other)    \internal */
+end_comment
+begin_comment
+comment|/*!    \fn QPixmapCache::KeyData::~KeyData()     \internal */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

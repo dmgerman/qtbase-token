@@ -48678,6 +48678,9 @@ name|f
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \internal      Do PaintDevice rendering with the specified \a offset. */
+end_comment
 begin_function
 DECL|function|redirected
 name|QPaintDevice
@@ -48703,6 +48706,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \internal      A painter that is shared among other instances of QPainter. */
+end_comment
 begin_function
 DECL|function|sharedPainter
 name|QPainter
@@ -49587,6 +49593,18 @@ directive|endif
 end_endif
 begin_comment
 comment|// !QT_NO_DEBUG_STREAM
+end_comment
+begin_comment
+comment|/*! \fn Qt::HANDLE QWidget::macCGHandle() const     \internal      Returns the CoreGraphics handle of the widget. Use of this function is not portable.     This function will return 0 if no painter context can be established, or if the handle     could not be created.      \warning This function is only available on OS X. */
+end_comment
+begin_comment
+comment|/*! \fn Qt::HANDLE QWidget::macQDHandle() const     \internal      Returns the QuickDraw handle of the widget. Use of this function is not portable.     This function will return 0 if QuickDraw is not supported, or if the handle could     not be created.      \warning This function is only available on OS X. */
+end_comment
+begin_comment
+comment|/*! \fn const QX11Info&QWidget::x11Info() const     \internal      Returns information about the configuration of the X display used to display     the widget.      \warning This function is only available on X11. */
+end_comment
+begin_comment
+comment|/*! \fn Qt::HANDLE QWidget::x11PictureHandle() const     \internal      Returns the X11 picture handle of the widget for XRender     support. Use of this function is not portable. This function will     return 0 if XRender support is not compiled into Qt, if the     XRender extension is not supported on the X11 display, or if the     handle could not be created.      \warning This function is only available on X11.  */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

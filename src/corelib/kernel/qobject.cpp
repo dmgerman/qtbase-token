@@ -14961,6 +14961,7 @@ operator|<<
 literal|'('
 operator|<<
 operator|(
+specifier|const
 name|void
 operator|*
 operator|)
@@ -16350,6 +16351,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Creates a Connection instance. */
+end_comment
 begin_constructor
 DECL|function|Connection
 name|QMetaObject
@@ -16365,6 +16369,9 @@ literal|0
 argument_list|)
 block|{}
 end_constructor
+begin_comment
+comment|/*!     Destructor for QMetaObject::Connection. */
+end_comment
 begin_destructor
 DECL|function|~Connection
 name|QMetaObject

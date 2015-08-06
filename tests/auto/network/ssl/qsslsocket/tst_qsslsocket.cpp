@@ -190,7 +190,7 @@ begin_comment
 comment|// Non-OpenSSL backends are not able to report a specific error code
 end_comment
 begin_comment
-comment|// for self-signed certificate for certificates.
+comment|// for self-signed certificates.
 end_comment
 begin_ifndef
 ifndef|#

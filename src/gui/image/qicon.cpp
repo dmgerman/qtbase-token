@@ -3062,6 +3062,9 @@ constructor_decl|;
 block|}
 end_constructor
 begin_comment
+comment|/*!   \fn QIcon::QIcon(QIcon&&other)    Move-constructs a QIcon instance, making it point to the same object   that \a other was pointing to. */
+end_comment
+begin_comment
 comment|/*!     Constructs an icon from the file with the given \a fileName. The     file will be loaded on demand.      If \a fileName contains a relative path (e.g. the filename only)     the relevant file must be found relative to the runtime working     directory.      The file name can be either refer to an actual file on disk or to     one of the application's embedded resources.  See the     \l{resources.html}{Resource System} overview for details on how to     embed images and other resource files in the application's     executable.      Use the QImageReader::supportedImageFormats() and     QImageWriter::supportedImageFormats() functions to retrieve a     complete list of the supported file formats. */
 end_comment
 begin_constructor

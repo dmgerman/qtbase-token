@@ -11442,9 +11442,15 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
-specifier|extern
+comment|// qfontdatabase.cpp
+name|Q_AUTOTEST_EXPORT
 name|void
 name|qt_setQtEnableTestFont
 parameter_list|(
@@ -11455,6 +11461,8 @@ function_decl|;
 end_function_decl
 begin_function
 name|QT_END_NAMESPACE
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL

@@ -114,20 +114,6 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
-name|fallbacksForFamily
-argument_list|(
-argument|const QString&family
-argument_list|,
-argument|QFont::Style style
-argument_list|,
-argument|QFont::StyleHint styleHint
-argument_list|,
-argument|QChar::Script script
-argument_list|)
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
-name|QStringList
 name|addApplicationFont
 argument_list|(
 argument|const QByteArray&fontData
@@ -156,12 +142,6 @@ specifier|const
 name|QByteArray
 operator|&
 name|file
-argument_list|,
-name|QSupportedWritingSystems
-operator|*
-name|supportedWritingSystems
-operator|=
-literal|0
 argument_list|)
 block|; }
 decl_stmt|;

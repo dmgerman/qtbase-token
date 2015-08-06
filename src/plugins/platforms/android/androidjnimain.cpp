@@ -1917,6 +1917,27 @@ argument_list|,
 literal|"()V"
 argument_list|)
 expr_stmt|;
+comment|// All attached threads should be detached before returning from this function.
+name|JavaVM
+modifier|*
+name|vm
+init|=
+name|QtAndroidPrivate
+operator|::
+name|javaVM
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|vm
+operator|!=
+literal|0
+condition|)
+name|vm
+operator|->
+name|DetachCurrentThread
+argument_list|()
+expr_stmt|;
 return|return
 literal|0
 return|;

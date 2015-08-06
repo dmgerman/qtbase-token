@@ -8024,6 +8024,17 @@ name|lineEdit
 operator|=
 name|edit
 expr_stmt|;
+name|qt_widget_private
+argument_list|(
+name|d
+operator|->
+name|lineEdit
+argument_list|)
+operator|->
+name|inheritsInputMethodHints
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|d

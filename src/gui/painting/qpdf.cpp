@@ -10418,7 +10418,10 @@ literal|1
 operator|-
 name|qBound
 argument_list|(
+name|qreal
+argument_list|(
 literal|0.
+argument_list|)
 argument_list|,
 name|stops
 operator|.
@@ -10429,7 +10432,10 @@ argument_list|)
 operator|.
 name|first
 argument_list|,
+name|qreal
+argument_list|(
 literal|1.
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|b
@@ -10442,7 +10448,10 @@ literal|1
 operator|-
 name|qBound
 argument_list|(
+name|qreal
+argument_list|(
 literal|0.
+argument_list|)
 argument_list|,
 name|stops
 operator|.
@@ -10455,7 +10464,10 @@ argument_list|)
 operator|.
 name|first
 argument_list|,
+name|qreal
+argument_list|(
 literal|1.
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|b
@@ -10516,7 +10528,10 @@ name|step
 operator|+
 name|qBound
 argument_list|(
+name|qreal
+argument_list|(
 literal|0.
+argument_list|)
 argument_list|,
 name|stops
 operator|.
@@ -10527,7 +10542,10 @@ argument_list|)
 operator|.
 name|first
 argument_list|,
+name|qreal
+argument_list|(
 literal|1.
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|b
@@ -10538,7 +10556,10 @@ name|step
 operator|+
 name|qBound
 argument_list|(
+name|qreal
+argument_list|(
 literal|0.
+argument_list|)
 argument_list|,
 name|stops
 operator|.
@@ -10551,7 +10572,10 @@ argument_list|)
 operator|.
 name|first
 argument_list|,
+name|qreal
+argument_list|(
 literal|1.
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|b

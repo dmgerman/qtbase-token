@@ -304,6 +304,14 @@ block|;
 name|private
 operator|:
 name|void
+name|populateFamily
+argument_list|(
+argument|const QString&familyName
+argument_list|,
+argument|bool registerAlias
+argument_list|)
+block|;
+name|void
 name|removeApplicationFonts
 argument_list|()
 block|;      struct

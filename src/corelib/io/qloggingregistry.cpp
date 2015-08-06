@@ -1609,6 +1609,8 @@ argument_list|(
 name|cat
 argument_list|)
 decl_stmt|;
+comment|// NB: note that the numeric values of the Qt*Msg constants are
+comment|//     not in severity order.
 name|bool
 name|debug
 init|=
@@ -1621,27 +1623,33 @@ decl_stmt|;
 name|bool
 name|info
 init|=
+name|debug
+operator|||
 operator|(
 name|enableForLevel
-operator|<=
+operator|==
 name|QtInfoMsg
 operator|)
 decl_stmt|;
 name|bool
 name|warning
 init|=
+name|info
+operator|||
 operator|(
 name|enableForLevel
-operator|<=
+operator|==
 name|QtWarningMsg
 operator|)
 decl_stmt|;
 name|bool
 name|critical
 init|=
+name|warning
+operator|||
 operator|(
 name|enableForLevel
-operator|<=
+operator|==
 name|QtCriticalMsg
 operator|)
 decl_stmt|;

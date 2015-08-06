@@ -65,6 +65,11 @@ define|#
 directive|define
 name|DSA_ENCRYPTION_OID
 value|QByteArrayLiteral("1.2.840.10040.4.1")
+DECL|macro|EC_ENCRYPTION_OID
+define|#
+directive|define
+name|EC_ENCRYPTION_OID
+value|QByteArrayLiteral("1.2.840.10045.2.1")
 name|class
 name|Q_AUTOTEST_EXPORT
 name|QAsn1Element
@@ -144,6 +149,10 @@ comment|// context specific
 name|Context0Type
 init|=
 literal|0xA0
+block|,
+name|Context1Type
+init|=
+literal|0xA1
 block|,
 name|Context3Type
 init|=

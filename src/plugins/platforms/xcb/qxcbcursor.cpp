@@ -4097,6 +4097,9 @@ argument_list|,
 name|cursorFont
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 foreach|foreach
 control|(
 name|xcb_cursor_t
@@ -4111,6 +4114,8 @@ argument_list|,
 name|cursor
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_destructor
 begin_ifndef

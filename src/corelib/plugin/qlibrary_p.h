@@ -303,6 +303,7 @@ operator|>
 operator|(
 operator|*
 operator|(
+specifier|const
 name|uint
 operator|*
 operator|)

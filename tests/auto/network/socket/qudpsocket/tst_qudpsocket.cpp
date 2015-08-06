@@ -10743,7 +10743,7 @@ name|sender
 operator|.
 name|writeDatagram
 argument_list|(
-literal|"a"
+literal|"aa"
 argument_list|,
 name|makeNonAny
 argument_list|(
@@ -10793,7 +10793,7 @@ argument_list|()
 argument_list|,
 name|qint64
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10806,7 +10806,7 @@ argument_list|()
 argument_list|,
 name|qint64
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10874,7 +10874,7 @@ argument_list|()
 argument_list|,
 name|qint64
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;

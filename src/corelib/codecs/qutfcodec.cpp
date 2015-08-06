@@ -134,6 +134,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -148,6 +149,7 @@ argument_list|(
 literal|1
 operator|+
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -306,6 +308,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -2002,6 +2005,7 @@ argument_list|(
 name|dst
 operator|-
 operator|(
+specifier|const
 name|ushort
 operator|*
 operator|)
@@ -2542,7 +2546,7 @@ operator|*
 operator|)
 name|result
 operator|.
-name|unicode
+name|data
 argument_list|()
 decl_stmt|;
 while|while
@@ -3374,7 +3378,7 @@ operator|*
 operator|)
 name|result
 operator|.
-name|unicode
+name|data
 argument_list|()
 decl_stmt|;
 specifier|const

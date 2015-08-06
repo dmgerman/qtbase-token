@@ -6436,6 +6436,18 @@ begin_comment
 comment|/*!     \fn bool QMetaObject::invokeMethod(QObject *obj, const char *member,                              QGenericArgument val0 = QGenericArgument(0),                              QGenericArgument val1 = QGenericArgument(),                              QGenericArgument val2 = QGenericArgument(),                              QGenericArgument val3 = QGenericArgument(),                              QGenericArgument val4 = QGenericArgument(),                              QGenericArgument val5 = QGenericArgument(),                              QGenericArgument val6 = QGenericArgument(),                              QGenericArgument val7 = QGenericArgument(),                              QGenericArgument val8 = QGenericArgument(),                              QGenericArgument val9 = QGenericArgument())      \overload invokeMethod()      This overload invokes the member using the connection type Qt::AutoConnection and     ignores return values. */
 end_comment
 begin_comment
+comment|/*!     \fn QMetaObject::Connection::Connection(const Connection&other)      Constructs a copy of \a other. */
+end_comment
+begin_comment
+comment|/*!     \fn QMetaObject::Connection::Connection&operator=(const Connection&other)      Assigns \a other to this connection and returns a reference to this connection. */
+end_comment
+begin_comment
+comment|/*!     \fn QMetaObject::Connection&QMetaObject::Connection::operator=(Connection&&other)      Move-assigns \a other to this object. */
+end_comment
+begin_comment
+comment|/*!     \fn QMetaObject::Connection::Connection(Connection&&o)      Move-constructs a Connection instance, making it point to the same object that \a o was pointing to. */
+end_comment
+begin_comment
 comment|/*!     \class QMetaMethod     \inmodule QtCore      \brief The QMetaMethod class provides meta-data about a member     function.      \ingroup objectmodel      A QMetaMethod has a methodType(), a methodSignature(), a list of     parameterTypes() and parameterNames(), a return typeName(), a     tag(), and an access() specifier. You can use invoke() to invoke     the method on an arbitrary QObject.      \sa QMetaObject, QMetaEnum, QMetaProperty, {Qt's Property System} */
 end_comment
 begin_comment
