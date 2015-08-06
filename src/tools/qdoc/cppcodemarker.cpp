@@ -532,7 +532,7 @@ argument_list|()
 condition|)
 block|{
 comment|//synopsis += QLatin1Char(' ');
-name|QList
+name|QVector
 argument_list|<
 name|Parameter
 argument_list|>
@@ -586,7 +586,7 @@ operator|*
 name|p
 operator|)
 operator|.
-name|leftType
+name|dataType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1671,7 +1671,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QList
+name|QVector
 argument_list|<
 name|Parameter
 argument_list|>
@@ -1725,7 +1725,7 @@ operator|*
 name|p
 operator|)
 operator|.
-name|leftType
+name|dataType
 argument_list|()
 argument_list|)
 expr_stmt|;

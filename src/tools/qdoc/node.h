@@ -2259,6 +2259,8 @@ operator|*
 name|findFunctionNode
 argument_list|(
 argument|const QString& name
+argument_list|,
+argument|const QString& params
 argument_list|)
 specifier|const
 block|;
@@ -5002,7 +5004,7 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
-name|leftType
+name|dataType
 argument_list|,
 specifier|const
 name|QString
@@ -5064,7 +5066,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|leftType_
+name|dataType_
 operator|.
 name|length
 argument_list|()
@@ -5080,12 +5082,12 @@ block|}
 specifier|const
 name|QString
 operator|&
-name|leftType
+name|dataType
 argument_list|()
 specifier|const
 block|{
 return|return
-name|leftType_
+name|dataType_
 return|;
 block|}
 specifier|const
@@ -5128,14 +5130,15 @@ argument|bool value = false
 argument_list|)
 specifier|const
 block|;
-name|private
+name|public
 operator|:
 name|QString
-name|leftType_
+name|dataType_
 block|;
 name|QString
 name|rightType_
 block|;
+comment|// mws says remove this 04/08/2015
 name|QString
 name|name_
 block|;
@@ -5143,6 +5146,8 @@ name|QString
 name|defaultValue_
 block|; }
 block|;
+comment|//friend class QTypeInfo<Parameter>;
+comment|//Q_DECLARE_TYPEINFO(Parameter, Q_MOVABLE_TYPE);
 name|class
 name|FunctionNode
 operator|:
@@ -5314,7 +5319,7 @@ name|void
 name|setParameters
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|Parameter
 operator|>
@@ -5593,7 +5598,7 @@ operator|)
 return|;
 block|}
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|Parameter
 operator|>
@@ -5925,7 +5930,7 @@ name|unsigned
 name|char
 name|overloadNumber_
 block|;
-name|QList
+name|QVector
 operator|<
 name|Parameter
 operator|>
@@ -6478,7 +6483,7 @@ name|FunctionNode
 operator|::
 name|setParameters
 argument_list|(
-argument|const QList<Parameter>&p
+argument|const QVector<Parameter>&p
 argument_list|)
 block|{
 name|parameters_

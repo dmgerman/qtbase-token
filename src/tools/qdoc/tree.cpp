@@ -637,6 +637,11 @@ modifier|&
 name|path
 parameter_list|,
 specifier|const
+name|QString
+modifier|&
+name|params
+parameter_list|,
+specifier|const
 name|Node
 modifier|*
 name|relative
@@ -786,6 +791,8 @@ name|path
 index|[
 literal|2
 index|]
+argument_list|,
+name|params
 argument_list|)
 argument_list|)
 return|;
@@ -902,6 +909,8 @@ name|at
 argument_list|(
 name|i
 argument_list|)
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 else|else
@@ -1002,6 +1011,8 @@ name|at
 argument_list|(
 name|i
 argument_list|)
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 else|else
@@ -6852,6 +6863,11 @@ modifier|&
 name|target
 parameter_list|,
 specifier|const
+name|QString
+modifier|&
+name|params
+parameter_list|,
+specifier|const
 name|Node
 modifier|*
 name|relative
@@ -6861,6 +6877,7 @@ operator|::
 name|Genus
 name|genus
 parameter_list|)
+specifier|const
 block|{
 name|QString
 name|t
@@ -6876,6 +6893,7 @@ argument_list|(
 literal|"()"
 argument_list|)
 condition|)
+block|{
 name|t
 operator|.
 name|chop
@@ -6883,6 +6901,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
+block|}
 name|QStringList
 name|path
 init|=
@@ -6901,6 +6920,8 @@ init|=
 name|findFunctionNode
 argument_list|(
 name|path
+argument_list|,
+name|params
 argument_list|,
 name|relative
 argument_list|,

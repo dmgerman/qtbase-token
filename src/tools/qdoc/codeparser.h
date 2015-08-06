@@ -31,12 +31,6 @@ name|Config
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|Node
-name|class
-name|Node
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QString
 name|class
 name|QString
