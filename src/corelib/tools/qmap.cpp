@@ -2454,10 +2454,10 @@ begin_comment
 comment|/*! \fn const T *QMap::key_iterator::operator->() const      Returns a pointer to the current item's key. */
 end_comment
 begin_comment
-comment|/*! \fn bool QMap::key_iterator::operator==(key_iterator other)      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
+comment|/*! \fn bool QMap::key_iterator::operator==(key_iterator other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
 end_comment
 begin_comment
-comment|/*! \fn bool QMap::key_iterator::operator!=(key_iterator other)      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
+comment|/*! \fn bool QMap::key_iterator::operator!=(key_iterator other) const      Returns \c true if \a other points to a different item than this     iterator; otherwise returns \c false.      \sa operator==() */
 end_comment
 begin_comment
 comment|/*!     \fn QMap::key_iterator&QMap::key_iterator::operator++()      The prefix ++ operator (\c{++i}) advances the iterator to the     next item in the hash and returns an iterator to the new current     item.      Calling this function on QMap::keyEnd() leads to undefined results.      \sa operator--() */
