@@ -394,7 +394,7 @@ name|QByteArray
 operator|>
 name|propertyNames
 block|;
-name|QList
+name|QVector
 operator|<
 name|QVariant
 operator|>
