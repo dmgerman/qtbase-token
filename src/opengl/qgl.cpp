@@ -6629,6 +6629,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Returns the OpenGL context handle. */
+end_comment
 begin_function
 DECL|function|contextHandle
 name|QOpenGLContext
@@ -6653,7 +6656,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a OpenGL context for the window context specified by the \a context     parameter. */
+comment|/*!     Returns an OpenGL context for the window context specified by the \a context     parameter. */
 end_comment
 begin_function
 DECL|function|fromOpenGLContext
@@ -13635,7 +13638,7 @@ parameter_list|)
 block|{ }
 end_function
 begin_comment
-comment|/*!\reimp  */
+comment|/*!\reimp */
 end_comment
 begin_function
 DECL|function|event

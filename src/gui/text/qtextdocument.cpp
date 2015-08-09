@@ -604,7 +604,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString Qt::convertFromPlainText(const QString&plain, WhiteSpaceMode mode)      Converts the plain text string \a plain to an HTML-formatted     paragraph while preserving most of its look.      \a mode defines how whitespace is handled.      This function is defined in the \c<QTextDocument> header file.      \sa escape(), mightBeRichText() */
+comment|/*!     Converts the plain text string \a plain to an HTML-formatted     paragraph while preserving most of its look.      \a mode defines how whitespace is handled.      This function is defined in the \c<QTextDocument> header file.      \sa escape(), mightBeRichText() */
 end_comment
 begin_function
 DECL|function|convertFromPlainText

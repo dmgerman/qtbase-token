@@ -912,6 +912,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -1409,6 +1410,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -1433,6 +1435,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -2264,6 +2267,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -2276,6 +2280,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -2836,6 +2841,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -2865,6 +2871,7 @@ init|=
 name|_mm256_loadu_si256
 argument_list|(
 operator|(
+specifier|const
 name|__m256i
 operator|*
 operator|)
@@ -2924,6 +2931,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -2940,6 +2948,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -3060,6 +3069,7 @@ name|_mm_cvtsi64_si128
 argument_list|(
 operator|*
 operator|(
+specifier|const
 name|long
 name|long
 operator|*
@@ -3087,6 +3097,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -3665,6 +3676,7 @@ init|=
 name|_mm_loadu_si128
 argument_list|(
 operator|(
+specifier|const
 name|__m128i
 operator|*
 operator|)
@@ -8454,6 +8466,7 @@ modifier|*
 name|c
 init|=
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)
@@ -8538,6 +8551,7 @@ modifier|*
 name|c
 init|=
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)
@@ -16097,6 +16111,7 @@ modifier|*
 name|c
 init|=
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)

@@ -61,6 +61,7 @@ argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformMenuItem
 operator|*
@@ -101,6 +102,7 @@ argument_list|(
 argument|Font type = SystemFont
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 specifier|const

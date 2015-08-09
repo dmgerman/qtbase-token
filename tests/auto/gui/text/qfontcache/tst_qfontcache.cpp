@@ -50,9 +50,15 @@ function_decl|;
 block|}
 class|;
 end_class
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
-specifier|extern
+comment|// qfontdatabase.cpp
+name|Q_AUTOTEST_EXPORT
 name|void
 name|qt_setQtEnableTestFont
 parameter_list|(
@@ -62,25 +68,17 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|// qfontdatabase.cpp
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
-end_ifdef
-begin_comment
 comment|// qfontengine.cpp
 end_comment
 begin_function_decl
-specifier|extern
+name|Q_AUTOTEST_EXPORT
 name|void
 name|QFontEngine_startCollectingEngines
 parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-specifier|extern
+name|Q_AUTOTEST_EXPORT
 name|QList
 argument_list|<
 name|QFontEngine
@@ -90,12 +88,10 @@ name|QFontEngine_stopCollectingEngines
 parameter_list|()
 function_decl|;
 end_function_decl
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 name|QT_END_NAMESPACE
+endif|#
+directive|endif
 DECL|function|tst_QFontCache
 name|tst_QFontCache
 operator|::
@@ -137,6 +133,9 @@ name|fontEngine
 init|=
 literal|0
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 block|{
 comment|// we're never caching the box (and the "test") font engines
 comment|// let's ensure we're not leaking them as well as the cached ones
@@ -162,6 +161,8 @@ argument_list|()
 expr_stmt|;
 comment|// loads engine
 block|}
+endif|#
+directive|endif
 block|{
 name|QFontDatabase
 name|db

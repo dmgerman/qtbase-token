@@ -232,7 +232,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \fn QDBusUnixFileDescriptor&operator=(QDBusUnixFileDescriptor&&other)     Move-assigns  \a other to this QDBusUnixFileDescriptor. */
+comment|/*!    \fn QDBusUnixFileDescriptor&QDBusUnixFileDescriptor::operator=(QDBusUnixFileDescriptor&&other)     Move-assigns  \a other to this QDBusUnixFileDescriptor. */
 end_comment
 begin_comment
 comment|/*!     Destroys this QDBusUnixFileDescriptor object and disposes of the Unix file descriptor that it contained. */

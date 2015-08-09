@@ -372,14 +372,11 @@ operator|:
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|obj
+argument|QObject *obj
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:

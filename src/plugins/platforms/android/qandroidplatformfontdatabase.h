@@ -49,18 +49,6 @@ argument_list|,
 argument|QChar::Script script
 argument_list|)
 specifier|const
-block|;
-name|private
-operator|:
-name|QHash
-operator|<
-name|QChar
-operator|::
-name|Script
-block|,
-name|QStringList
-operator|>
-name|m_fallbacks
 block|; }
 decl_stmt|;
 end_decl_stmt

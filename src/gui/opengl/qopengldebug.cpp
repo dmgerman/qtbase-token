@@ -1923,6 +1923,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!    \fn QOpenGLDebugMessage&QOpenGLDebugMessage::operator=(QOpenGLDebugMessage&&debugMessage)     Move-assigns \a debugMessage to this object. */
+end_comment
+begin_comment
 comment|/*!     \fn void QOpenGLDebugMessage::swap(QOpenGLDebugMessage&debugMessage)      Swaps the message \a debugMessage with this message. This operation is very     fast and never fails. */
 end_comment
 begin_comment

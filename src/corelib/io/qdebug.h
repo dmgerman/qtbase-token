@@ -2322,21 +2322,13 @@ name|QDebug
 operator|>
 operator|::
 name|Type
-DECL|function|operator
-name|operator
-operator|<<
-operator|(
-name|QDebug
-name|debug
-operator|,
-specifier|const
-name|QFlags
-operator|<
-name|T
-operator|>
-operator|&
-name|flags
-operator|)
+DECL|function|qt_QMetaEnum_flagDebugOperator_helper
+name|qt_QMetaEnum_flagDebugOperator_helper
+argument_list|(
+argument|QDebug debug
+argument_list|,
+argument|const QFlags<T>&flags
+argument_list|)
 block|{
 specifier|const
 name|QMetaObject
@@ -2417,21 +2409,13 @@ name|QDebug
 operator|>
 operator|::
 name|Type
-DECL|function|operator
-name|operator
-operator|<<
-operator|(
-name|QDebug
-name|debug
-operator|,
-specifier|const
-name|QFlags
-operator|<
-name|T
-operator|>
-operator|&
-name|flags
-operator|)
+DECL|function|qt_QMetaEnum_flagDebugOperator_helper
+name|qt_QMetaEnum_flagDebugOperator_helper
+argument_list|(
+argument|QDebug debug
+argument_list|,
+argument|const QFlags<T>&flags
+argument_list|)
 else|#
 directive|else
 comment|// !QT_NO_QOBJECT
@@ -2442,20 +2426,12 @@ name|T
 operator|>
 specifier|inline
 name|QDebug
-name|operator
-operator|<<
-operator|(
-name|QDebug
-name|debug
-operator|,
-specifier|const
-name|QFlags
-operator|<
-name|T
-operator|>
-operator|&
-name|flags
-operator|)
+name|qt_QMetaEnum_flagDebugOperator_helper
+argument_list|(
+argument|QDebug debug
+argument_list|,
+argument|const QFlags<T>&flags
+argument_list|)
 endif|#
 directive|endif
 block|{
@@ -2564,8 +2540,43 @@ return|return
 name|debug
 return|;
 end_return
+begin_expr_stmt
+unit|}  template
+operator|<
+name|typename
+name|T
+operator|>
+DECL|function|operator
+specifier|inline
+name|QDebug
+name|operator
+operator|<<
+operator|(
+name|QDebug
+name|debug
+operator|,
+specifier|const
+name|QFlags
+operator|<
+name|T
+operator|>
+operator|&
+name|flags
+operator|)
+block|{
+comment|// We have to use an indirection otherwise specialisation of some other overload of the
+comment|// operator<< the compiler would try to instantiate QFlags<T> for the QEnableIf
+return|return
+name|qt_QMetaEnum_flagDebugOperator_helper
+argument_list|(
+name|debug
+argument_list|,
+name|flags
+argument_list|)
+return|;
+block|}
+end_expr_stmt
 begin_ifdef
-unit|}
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
@@ -2620,15 +2631,14 @@ name|type
 parameter_list|)
 value|typedef struct type *type ## Ref;
 end_define
-begin_expr_stmt
-DECL|macro|QT_FORWARD_DECLARE_MUTABLE_CG_TYPE
-unit|QT_END_NAMESPACE
+begin_function_decl
+name|QT_END_NAMESPACE
 name|Q_FORWARD_DECLARE_CF_TYPE
-argument_list|(
+parameter_list|(
 name|CFString
-argument_list|)
-expr_stmt|;
-end_expr_stmt
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_expr_stmt
 DECL|variable|NSObject
 name|Q_FORWARD_DECLARE_OBJC_CLASS

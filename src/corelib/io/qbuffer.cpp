@@ -1233,10 +1233,6 @@ operator|+
 name|pos
 argument_list|()
 argument_list|,
-operator|(
-name|uchar
-operator|*
-operator|)
 name|data
 argument_list|,
 name|int

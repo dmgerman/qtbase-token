@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformpixmap.h"
+file|<qpa/qplatformpixmap.h>
 end_include
 begin_include
 include|#

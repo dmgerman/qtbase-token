@@ -649,19 +649,34 @@ block|{
 comment|// not created or already destroyed
 return|return;
 block|}
-if|if
-condition|(
+name|QOpenGLContext
+modifier|*
+name|currentContext
+init|=
 name|QOpenGLContext
 operator|::
 name|currentContext
 argument_list|()
-operator|!=
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|currentContext
+operator|||
+operator|!
+name|QOpenGLContext
+operator|::
+name|areSharing
+argument_list|(
+name|currentContext
+argument_list|,
 name|context
+argument_list|)
 condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Requires a valid current OpenGL context.\n"
+literal|"Texture is not valid in the current context.\n"
 literal|"Texture has not been destroyed"
 argument_list|)
 expr_stmt|;

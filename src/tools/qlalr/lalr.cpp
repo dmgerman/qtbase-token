@@ -1063,9 +1063,9 @@ expr_stmt|;
 block|}
 end_function
 begin_struct
-DECL|struct|_Nullable
+DECL|struct|Nullable
 struct|struct
-name|_Nullable
+name|Nullable
 super|:
 specifier|public
 name|std
@@ -1082,8 +1082,8 @@ name|Automaton
 modifier|*
 name|_M_automaton
 decl_stmt|;
-DECL|function|_Nullable
-name|_Nullable
+DECL|function|Nullable
+name|Nullable
 parameter_list|(
 name|Automaton
 modifier|*
@@ -1388,7 +1388,7 @@ name|std
 operator|::
 name|not1
 argument_list|(
-name|_Nullable
+name|Nullable
 argument_list|(
 name|this
 argument_list|)
@@ -3347,7 +3347,7 @@ name|std
 operator|::
 name|not1
 argument_list|(
-name|_Nullable
+name|Nullable
 argument_list|(
 name|this
 argument_list|)

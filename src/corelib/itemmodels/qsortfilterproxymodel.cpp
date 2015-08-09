@@ -14037,7 +14037,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the item in the column indicated by the given \a source_column     and \a source_parent should be included in the model; otherwise returns \c false.      The default implementation returns \c true if the value held by the relevant item     matches the filter string, wildcard string or regular expression.      \note By default, the Qt::DisplayRole is used to determine if the row     should be accepted or not. This can be changed by setting the \l     filterRole property.      \sa filterAcceptsRow(), setFilterFixedString(), setFilterRegExp(), setFilterWildcard() */
+comment|/*!     Returns \c true if the item in the column indicated by the given \a source_column     and \a source_parent should be included in the model; otherwise returns \c false.      The default implementation returns \c true if the value held by the relevant item     matches the filter string, wildcard string or regular expression.      \note By default, the Qt::DisplayRole is used to determine if the column     should be accepted or not. This can be changed by setting the \l     filterRole property.      \sa filterAcceptsRow(), setFilterFixedString(), setFilterRegExp(), setFilterWildcard() */
 end_comment
 begin_function
 DECL|function|filterAcceptsColumn

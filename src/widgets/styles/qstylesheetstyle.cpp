@@ -28655,9 +28655,13 @@ init|=
 name|renderRule
 argument_list|(
 name|w
+condition|?
+name|w
 operator|->
 name|parentWidget
 argument_list|()
+else|:
+name|Q_NULLPTR
 argument_list|,
 name|opt
 argument_list|,
