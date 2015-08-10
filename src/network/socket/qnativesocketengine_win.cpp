@@ -793,7 +793,7 @@ name|AF_INET6
 condition|)
 block|{
 specifier|const
-name|qt_sockaddr_in6
+name|sockaddr_in6
 modifier|*
 name|sa6
 init|=
@@ -830,7 +830,7 @@ name|sa6
 operator|->
 name|sin6_addr
 operator|.
-name|qt_s6_addr
+name|s6_addr
 index|[
 name|i
 index|]

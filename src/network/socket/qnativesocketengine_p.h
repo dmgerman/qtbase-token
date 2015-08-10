@@ -80,6 +80,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ws2tcpip.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<mswsock.h>
 end_include
 begin_endif
@@ -89,67 +94,6 @@ end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_comment
-comment|// Use our own defines and structs which we know are correct
-end_comment
-begin_define
-DECL|macro|QT_SS_MAXSIZE
-define|#
-directive|define
-name|QT_SS_MAXSIZE
-value|128
-end_define
-begin_define
-DECL|macro|QT_SS_ALIGNSIZE
-define|#
-directive|define
-name|QT_SS_ALIGNSIZE
-value|(sizeof(qint64))
-end_define
-begin_define
-DECL|macro|QT_SS_PAD1SIZE
-define|#
-directive|define
-name|QT_SS_PAD1SIZE
-value|(QT_SS_ALIGNSIZE - sizeof (short))
-end_define
-begin_define
-DECL|macro|QT_SS_PAD2SIZE
-define|#
-directive|define
-name|QT_SS_PAD2SIZE
-value|(QT_SS_MAXSIZE - (sizeof (short) + QT_SS_PAD1SIZE + QT_SS_ALIGNSIZE))
-end_define
-begin_struct
-DECL|struct|qt_sockaddr_storage
-struct|struct
-name|qt_sockaddr_storage
-block|{
-DECL|member|ss_family
-name|short
-name|ss_family
-decl_stmt|;
-DECL|member|__ss_pad1
-name|char
-name|__ss_pad1
-index|[
-name|QT_SS_PAD1SIZE
-index|]
-decl_stmt|;
-DECL|member|__ss_align
-name|qint64
-name|__ss_align
-decl_stmt|;
-DECL|member|__ss_pad2
-name|char
-name|__ss_pad2
-index|[
-name|QT_SS_PAD2SIZE
-index|]
-decl_stmt|;
-block|}
-struct|;
-end_struct
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -316,64 +260,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// sockaddr_in6 size changed between old and new SDK
-end_comment
-begin_comment
-comment|// Only the new version is the correct one, so always
-end_comment
-begin_comment
-comment|// use this structure.
-end_comment
-begin_struct
-DECL|struct|qt_in6_addr
-struct|struct
-name|qt_in6_addr
-block|{
-DECL|member|qt_s6_addr
-name|quint8
-name|qt_s6_addr
-index|[
-literal|16
-index|]
-decl_stmt|;
-block|}
-struct|;
-end_struct
-begin_struct
-DECL|struct|qt_sockaddr_in6
-struct|struct
-name|qt_sockaddr_in6
-block|{
-DECL|member|sin6_family
-name|short
-name|sin6_family
-decl_stmt|;
-comment|/* AF_INET6 */
-DECL|member|sin6_port
-name|quint16
-name|sin6_port
-decl_stmt|;
-comment|/* Transport level port number */
-DECL|member|sin6_flowinfo
-name|quint32
-name|sin6_flowinfo
-decl_stmt|;
-comment|/* IPv6 flow information */
-DECL|member|sin6_addr
-name|struct
-name|qt_in6_addr
-name|sin6_addr
-decl_stmt|;
-comment|/* IPv6 address */
-DECL|member|sin6_scope_id
-name|quint32
-name|sin6_scope_id
-decl_stmt|;
-comment|/* set of interfaces for a scope */
-block|}
-struct|;
-end_struct
 begin_union
 DECL|union|qt_sockaddr
 union|union
@@ -388,12 +274,8 @@ name|sockaddr_in
 name|a4
 decl_stmt|;
 DECL|member|a6
-name|qt_sockaddr_in6
+name|sockaddr_in6
 name|a6
-decl_stmt|;
-DECL|member|storage
-name|qt_sockaddr_storage
-name|storage
 decl_stmt|;
 block|}
 union|;
@@ -1152,7 +1034,7 @@ literal|0
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|qt_sockaddr_in6
+name|sockaddr_in6
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1220,7 +1102,7 @@ name|sockAddrSize
 operator|=
 sizeof|sizeof
 argument_list|(
-name|qt_sockaddr_in6
+name|sockaddr_in6
 argument_list|)
 expr_stmt|;
 block|}

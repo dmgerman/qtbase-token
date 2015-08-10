@@ -315,59 +315,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// copied from qnativesocketengine_win.cpp
-end_comment
-begin_struct
-DECL|struct|qt_in6_addr
-struct|struct
-name|qt_in6_addr
-block|{
-DECL|member|qt_s6_addr
-name|u_char
-name|qt_s6_addr
-index|[
-literal|16
-index|]
-decl_stmt|;
-block|}
-struct|;
-end_struct
-begin_typedef
-typedef|typedef
-struct|struct
-block|{
-DECL|member|sin6_family
-name|short
-name|sin6_family
-decl_stmt|;
-comment|/* AF_INET6 */
-DECL|member|sin6_port
-name|u_short
-name|sin6_port
-decl_stmt|;
-comment|/* Transport level port number */
-DECL|member|sin6_flowinfo
-name|u_long
-name|sin6_flowinfo
-decl_stmt|;
-comment|/* IPv6 flow information */
-DECL|member|sin6_addr
-name|struct
-name|qt_in6_addr
-name|sin6_addr
-decl_stmt|;
-comment|/* IPv6 address */
-DECL|member|sin6_scope_id
-name|u_long
-name|sin6_scope_id
-decl_stmt|;
-comment|/* set of interfaces for a scope */
-block|}
-DECL|typedef|qt_sockaddr_in6
-name|qt_sockaddr_in6
-typedef|;
-end_typedef
-begin_comment
 comment|// copied from MSDN online help
 end_comment
 begin_typedef

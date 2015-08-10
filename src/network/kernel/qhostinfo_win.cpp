@@ -587,7 +587,7 @@ block|{
 name|sockaddr_in
 name|sa4
 decl_stmt|;
-name|qt_sockaddr_in6
+name|sockaddr_in6
 name|sa6
 decl_stmt|;
 name|sockaddr
@@ -698,11 +698,10 @@ name|AF_INET6
 expr_stmt|;
 name|memcpy
 argument_list|(
+operator|&
 name|sa6
 operator|.
 name|sin6_addr
-operator|.
-name|qt_s6_addr
 argument_list|,
 name|address
 operator|.
@@ -716,8 +715,6 @@ argument_list|(
 name|sa6
 operator|.
 name|sin6_addr
-operator|.
-name|qt_s6_addr
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1052,7 +1049,7 @@ name|setAddress
 argument_list|(
 operator|(
 operator|(
-name|qt_sockaddr_in6
+name|sockaddr_in6
 operator|*
 operator|)
 name|p
@@ -1062,7 +1059,7 @@ operator|)
 operator|->
 name|sin6_addr
 operator|.
-name|qt_s6_addr
+name|s6_addr
 argument_list|)
 expr_stmt|;
 if|if

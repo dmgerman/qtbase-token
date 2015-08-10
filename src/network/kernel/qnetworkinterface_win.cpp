@@ -42,6 +42,11 @@ include|#
 directive|include
 file|<private/qsystemlibrary_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<WS2tcpip.h>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -324,7 +329,7 @@ name|setAddress
 argument_list|(
 operator|(
 operator|(
-name|qt_sockaddr_in6
+name|sockaddr_in6
 operator|*
 operator|)
 name|sa
@@ -332,7 +337,7 @@ operator|)
 operator|->
 name|sin6_addr
 operator|.
-name|qt_s6_addr
+name|s6_addr
 argument_list|)
 expr_stmt|;
 name|int
@@ -340,7 +345,7 @@ name|scope
 init|=
 operator|(
 operator|(
-name|qt_sockaddr_in6
+name|sockaddr_in6
 operator|*
 operator|)
 name|sa
