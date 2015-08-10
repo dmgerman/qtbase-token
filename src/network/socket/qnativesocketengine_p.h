@@ -285,6 +285,72 @@ decl_stmt|;
 block|}
 union|;
 end_union
+begin_macro
+name|namespace
+end_macro
+begin_block
+block|{
+name|namespace
+name|SetSALen
+block|{
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|void
+name|set
+argument_list|(
+argument|T *sa
+argument_list|,
+argument|typename QtPrivate::QEnableIf<(&T::sa_len, true)
+argument_list|,
+argument|QT_SOCKLEN_T>::Type len
+argument_list|)
+block|{
+name|sa
+operator|->
+name|sa_len
+operator|=
+name|len
+block|; }
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|void
+name|set
+argument_list|(
+argument|T *sin6
+argument_list|,
+argument|typename QtPrivate::QEnableIf<(&T::sin6_len, true)
+argument_list|,
+argument|QT_SOCKLEN_T>::Type len
+argument_list|)
+block|{
+name|sin6
+operator|->
+name|sin6_len
+operator|=
+name|len
+block|; }
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|void
+name|set
+argument_list|(
+argument|T *
+argument_list|,
+argument|...
+argument_list|)
+block|{}
+block|}
+block|}
+end_block
 begin_decl_stmt
 DECL|variable|QNativeSocketEnginePrivate
 name|class
@@ -1122,6 +1188,21 @@ argument_list|(
 name|sockaddr_in6
 argument_list|)
 expr_stmt|;
+name|SetSALen
+operator|::
+name|set
+argument_list|(
+operator|&
+name|aa
+operator|->
+name|a
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|sockaddr_in6
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1181,6 +1262,21 @@ operator|=
 sizeof|sizeof
 argument_list|(
 name|sockaddr_in
+argument_list|)
+expr_stmt|;
+name|SetSALen
+operator|::
+name|set
+argument_list|(
+operator|&
+name|aa
+operator|->
+name|a
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|sockaddr_in
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
