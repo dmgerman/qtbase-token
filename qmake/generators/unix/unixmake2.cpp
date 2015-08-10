@@ -6296,6 +6296,16 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
+comment|// replace invalid bundle id characters
+name|bundleIdentifier
+operator|.
+name|replace
+argument_list|(
+literal|'_'
+argument_list|,
+literal|'-'
+argument_list|)
+expr_stmt|;
 name|commonSedArgs
 operator|<<
 literal|"-e \"s,@BUNDLEIDENTIFIER@,"
