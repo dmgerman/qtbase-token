@@ -8355,11 +8355,14 @@ index|]
 operator|.
 name|contains
 argument_list|(
-operator|(
-name|Node
+cast|const_cast
+argument_list|<
+name|FunctionNode
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|fn
+argument_list|)
 argument_list|)
 condition|)
 return|return

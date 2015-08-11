@@ -49333,6 +49333,7 @@ operator|<<
 literal|'('
 operator|<<
 operator|(
+specifier|const
 name|void
 operator|*
 operator|)
