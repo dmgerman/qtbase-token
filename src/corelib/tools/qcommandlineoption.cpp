@@ -574,10 +574,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|qMove
-argument_list|(
 name|nameList
-argument_list|)
 return|;
 block|}
 end_function
