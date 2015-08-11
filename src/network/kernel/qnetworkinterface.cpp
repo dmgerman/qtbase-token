@@ -292,6 +292,20 @@ operator|.
 name|constBegin
 argument_list|()
 decl_stmt|;
+name|bool
+name|ok
+decl_stmt|;
+name|uint
+name|index
+init|=
+name|name
+operator|.
+name|toUInt
+argument_list|(
+operator|&
+name|ok
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 init|;
@@ -305,6 +319,28 @@ condition|;
 operator|++
 name|it
 control|)
+block|{
+if|if
+condition|(
+name|ok
+operator|&&
+operator|(
+operator|*
+name|it
+operator|)
+operator|->
+name|index
+operator|==
+name|int
+argument_list|(
+name|index
+argument_list|)
+condition|)
+return|return
+operator|*
+name|it
+return|;
+elseif|else
 if|if
 condition|(
 operator|(
@@ -320,6 +356,7 @@ return|return
 operator|*
 name|it
 return|;
+block|}
 return|return
 name|empty
 return|;
@@ -1264,7 +1301,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QNetworkInterface object for the interface named \a     name. If no such interface exists, this function returns an     invalid QNetworkInterface object.      \sa name(), isValid() */
+comment|/*!     Returns a QNetworkInterface object for the interface named \a     name. If no such interface exists, this function returns an     invalid QNetworkInterface object.      The string \a name may be either an actual interface name (such as "eth0"     or "en1") or an interface index in string form ("1", "2", etc.).      \sa name(), isValid() */
 end_comment
 begin_function
 DECL|function|interfaceFromName
