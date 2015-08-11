@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtNetwork/qnetworkinterface.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qabstractsocketengine_p.h"
 end_include
 begin_ifndef
@@ -971,12 +976,18 @@ specifier|static
 name|uint
 name|scopeIdFromString
 argument_list|(
-specifier|const
-name|QString
-operator|&
+argument|const QString&scopeid
+argument_list|)
+block|{
+return|return
+name|QNetworkInterface
+operator|::
+name|interfaceIndexFromName
+argument_list|(
 name|scopeid
 argument_list|)
-block|;
+return|;
+block|}
 comment|/*! \internal         Sets \a address and \a port in the \a aa sockaddr structure and the size in \a sockAddrSize.         The address \a is converted to IPv6 if the current socket protocol is also IPv6.      */
 name|void
 name|setPortAndAddress
@@ -1168,12 +1179,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_macro
+expr|}
+block|;
 name|QT_END_NAMESPACE
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

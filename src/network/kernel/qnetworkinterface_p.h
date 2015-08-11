@@ -231,6 +231,24 @@ expr|>
 name|allInterfaces
 argument_list|()
 expr_stmt|;
+specifier|static
+name|uint
+name|interfaceIndexFromName
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|name
+parameter_list|)
+function_decl|;
+specifier|static
+name|QString
+name|interfaceNameFromIndex
+parameter_list|(
+name|uint
+name|index
+parameter_list|)
+function_decl|;
 comment|// convenience:
 name|QSharedDataPointer
 operator|<
