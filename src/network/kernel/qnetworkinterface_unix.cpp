@@ -522,16 +522,6 @@ end_ifdef
 begin_comment
 comment|// getifaddrs not available
 end_comment
-begin_decl_stmt
-DECL|variable|STORAGEBUFFER_GROWTH
-specifier|static
-specifier|const
-name|int
-name|STORAGEBUFFER_GROWTH
-init|=
-literal|256
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|interfaceNames
 specifier|static
@@ -560,6 +550,13 @@ decl_stmt|;
 name|struct
 name|ifconf
 name|interfaceList
+decl_stmt|;
+specifier|static
+specifier|const
+name|int
+name|STORAGEBUFFER_GROWTH
+init|=
+literal|256
 decl_stmt|;
 forever|forever
 block|{
