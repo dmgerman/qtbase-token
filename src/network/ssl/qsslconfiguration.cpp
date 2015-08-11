@@ -1225,6 +1225,25 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!    \since 5.7     Returns the ephemeral server key used for cipher algorithms    with forward secrecy, e.g. DHE-RSA-AES128-SHA.     The ephemeral key is only available when running in client mode, i.e.    QSslSocket::SslClientMode. When running in server mode or using a    cipher algorithm without forward secrecy a null key is returned.    The ephemeral server key will be set before emitting the encrypted()    signal.  */
+end_comment
+begin_function
+DECL|function|ephemeralServerKey
+name|QSslKey
+name|QSslConfiguration
+operator|::
+name|ephemeralServerKey
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|ephemeralServerKey
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \since 5.5      Returns this connection's current list of elliptic curves. This     list is used during the handshake phase for choosing an     elliptic curve (when using an elliptic curve cipher).     The returned list of curves is ordered by descending preference     (i.e., the first curve in the list is the most preferred one).      By default, the handshake phase can choose any of the curves     supported by this system's SSL libraries, which may vary from     system to system. The list of curves supported by this system's     SSL libraries is returned by QSslSocket::supportedEllipticCurves().      You can restrict the list of curves used for choosing the session cipher     for this socket by calling setEllipticCurves() with a subset of the     supported ciphers. You can revert to using the entire set by calling     setEllipticCurves() with the list returned by     QSslSocket::supportedEllipticCurves().      \sa setEllipticCurves  */
 end_comment
 begin_function

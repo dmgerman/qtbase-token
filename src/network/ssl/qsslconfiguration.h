@@ -413,6 +413,11 @@ name|sessionTicketLifeTimeHint
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QSslKey
+name|ephemeralServerKey
+argument_list|()
+specifier|const
+expr_stmt|;
 comment|// EC settings
 name|QVector
 operator|<

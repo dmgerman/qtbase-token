@@ -3541,6 +3541,32 @@ end_endif
 begin_comment
 comment|// OPENSSL_NO_EC
 end_comment
+begin_if
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10002000L
+end_if
+begin_define
+DECL|macro|q_SSL_get_server_tmp_key
+define|#
+directive|define
+name|q_SSL_get_server_tmp_key
+parameter_list|(
+name|ssl
+parameter_list|,
+name|key
+parameter_list|)
+value|q_SSL_ctrl((ssl), SSL_CTRL_GET_SERVER_TMP_KEY, 0, (char *)key)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// OPENSSL_VERSION_NUMBER>= 0x10002000L
+end_comment
 begin_comment
 comment|// PKCS#12 support
 end_comment

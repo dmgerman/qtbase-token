@@ -236,6 +236,9 @@ block|;
 name|int
 name|sslSessionTicketLifeTimeHint
 block|;
+name|QSslKey
+name|ephemeralServerKey
+block|;
 name|QList
 operator|<
 name|QByteArray
