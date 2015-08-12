@@ -16,37 +16,64 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeglplatformcontext_p.h>
+file|<qpa/qplatformopenglcontext.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QWinRTEGLContextPrivate
+name|class
+name|QWinRTEGLContextPrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QWinRTEGLContext
 range|:
 name|public
-name|QEGLPlatformContext
+name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:
 name|explicit
 name|QWinRTEGLContext
 argument_list|(
-argument|const QSurfaceFormat&format
-argument_list|,
-argument|QPlatformOpenGLContext *share
-argument_list|,
-argument|EGLDisplay display
-argument_list|,
-argument|EGLSurface surface
-argument_list|,
-argument|EGLConfig config
+name|QOpenGLContext
+operator|*
+name|context
 argument_list|)
+block|;
+operator|~
+name|QWinRTEGLContext
+argument_list|()
+block|;
+name|void
+name|initialize
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|bool
+name|makeCurrent
+argument_list|(
+argument|QPlatformSurface *windowSurface
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|doneCurrent
+argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|swapBuffers
 argument_list|(
-argument|QPlatformSurface *surface
+argument|QPlatformSurface *windowSurface
 argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|QSurfaceFormat
+name|format
+argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|QFunctionPointer
@@ -56,21 +83,19 @@ argument|const QByteArray&procName
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|protected
-operator|:
-name|EGLSurface
-name|eglSurfaceForPlatformSurface
-argument_list|(
-name|QPlatformSurface
-operator|*
-name|surface
-argument_list|)
-block|;
 name|private
 operator|:
-name|EGLSurface
-name|m_eglSurface
-block|; }
+name|QScopedPointer
+operator|<
+name|QWinRTEGLContextPrivate
+operator|>
+name|d_ptr
+block|;
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QWinRTEGLContext
+argument_list|)
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

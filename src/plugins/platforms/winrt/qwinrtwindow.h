@@ -25,9 +25,9 @@ file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QWinRTScreen
+DECL|variable|QWinRTWindowPrivate
 name|class
-name|QWinRTScreen
+name|QWinRTWindowPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -97,6 +97,12 @@ name|void
 name|lower
 argument_list|()
 block|;
+name|WId
+name|winId
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|qreal
 name|devicePixelRatio
 argument_list|()
@@ -105,10 +111,17 @@ name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
-name|QWinRTScreen
-operator|*
-name|m_screen
-block|; }
+name|QScopedPointer
+operator|<
+name|QWinRTWindowPrivate
+operator|>
+name|d_ptr
+block|;
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QWinRTWindow
+argument_list|)
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
