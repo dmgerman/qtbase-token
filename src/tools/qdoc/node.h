@@ -614,6 +614,15 @@ name|pseudoParent
 parameter_list|)
 function_decl|;
 name|void
+name|setRelates
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|name
+parameter_list|)
+function_decl|;
+name|void
 name|setPhysicalModuleName
 parameter_list|(
 specifier|const
@@ -2091,6 +2100,10 @@ argument_list|,
 argument|const QString& name
 argument_list|)
 empty_stmt|;
+name|void
+name|removeRelates
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|unsigned
@@ -2595,6 +2608,14 @@ argument_list|)
 block|;
 name|void
 name|removeRelated
+argument_list|(
+name|Node
+operator|*
+name|pseudoChild
+argument_list|)
+block|;
+name|void
+name|addRelated
 argument_list|(
 name|Node
 operator|*

@@ -191,6 +191,11 @@ modifier|&
 name|indexFiles
 parameter_list|)
 block|{
+name|relatedList_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 foreach|foreach
 control|(
 specifier|const
@@ -416,11 +421,6 @@ name|toString
 argument_list|()
 expr_stmt|;
 name|basesList_
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|relatedList_
 operator|.
 name|clear
 argument_list|()
@@ -4937,6 +4937,51 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// No longer needed.
+name|basesList_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*     Goes though the list of nodes that are related to other aggregates     that were read from all index files, and tries to find the aggregate     nodes from the database. Calls the node's setRelates() for each     aggregate that is found in the local module (primary tree).      This function is meant to be called before starting the doc generation,     after all the index files are read.  */
+end_comment
+begin_function
+DECL|function|resolveRelates
+name|void
+name|QDocIndexFiles
+operator|::
+name|resolveRelates
+parameter_list|()
+block|{
+if|if
+condition|(
+name|relatedList_
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return;
+comment|// Restrict searching only to the local (primary) tree
+name|QVector
+argument_list|<
+name|Tree
+modifier|*
+argument_list|>
+name|searchOrder
+init|=
+name|qdb_
+operator|->
+name|searchOrder
+argument_list|()
+decl_stmt|;
+name|qdb_
+operator|->
+name|setLocalSearch
+argument_list|()
+expr_stmt|;
 name|QPair
 argument_list|<
 name|FunctionNode
@@ -4988,7 +5033,7 @@ name|setRelates
 argument_list|(
 cast|static_cast
 argument_list|<
-name|ClassNode
+name|Aggregate
 operator|*
 argument_list|>
 argument_list|(
@@ -4997,11 +5042,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// No longer needed.
-name|basesList_
-operator|.
-name|clear
-argument_list|()
+comment|// Restore original search order
+name|qdb_
+operator|->
+name|setSearchOrder
+argument_list|(
+name|searchOrder
+argument_list|)
 expr_stmt|;
 name|relatedList_
 operator|.

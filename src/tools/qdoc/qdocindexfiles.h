@@ -144,6 +144,10 @@ name|void
 name|resolveIndex
 parameter_list|()
 function_decl|;
+name|void
+name|resolveRelates
+parameter_list|()
+function_decl|;
 name|bool
 name|generateIndexSection
 parameter_list|(

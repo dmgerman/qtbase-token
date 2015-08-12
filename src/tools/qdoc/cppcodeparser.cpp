@@ -4430,6 +4430,23 @@ condition|(
 operator|!
 name|n
 condition|)
+block|{
+comment|// Store just a string to write to the index file
+if|if
+condition|(
+name|Generator
+operator|::
+name|preparing
+argument_list|()
+condition|)
+name|node
+operator|->
+name|setRelates
+argument_list|(
+name|arg
+argument_list|)
+expr_stmt|;
+else|else
 name|doc
 operator|.
 name|location
@@ -4453,6 +4470,7 @@ name|COMMAND_RELATES
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 else|else
 name|node
 operator|->
