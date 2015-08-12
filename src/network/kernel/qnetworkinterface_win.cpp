@@ -146,10 +146,6 @@ operator|!
 name|done
 condition|)
 block|{
-name|done
-operator|=
-literal|true
-expr_stmt|;
 name|HINSTANCE
 name|iphlpapiHnd
 init|=
@@ -166,7 +162,13 @@ name|iphlpapiHnd
 operator|==
 name|NULL
 condition|)
+block|{
+name|done
+operator|=
+literal|true
+expr_stmt|;
 return|return;
+block|}
 if|#
 directive|if
 name|defined
@@ -249,6 +251,10 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|done
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 end_function
