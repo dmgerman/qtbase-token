@@ -5552,6 +5552,8 @@ argument_list|()
 operator|<<
 literal|"Received a 304 from"
 operator|<<
+name|request
+operator|.
 name|url
 argument_list|()
 expr_stmt|;
@@ -6867,6 +6869,8 @@ argument_list|)
 name|QByteArray
 name|n
 init|=
+name|q
+operator|->
 name|rawHeader
 argument_list|(
 name|header
