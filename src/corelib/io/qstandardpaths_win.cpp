@@ -872,13 +872,6 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
-if|if
-condition|(
-name|type
-operator|!=
-name|GenericDataLocation
-condition|)
-block|{
 name|dirs
 operator|.
 name|append
@@ -904,7 +897,6 @@ literal|"/data"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 endif|#
 directive|endif
 block|}
