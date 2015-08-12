@@ -4747,17 +4747,6 @@ name|resendCurrent
 operator|=
 literal|false
 expr_stmt|;
-name|channels
-index|[
-name|i
-index|]
-operator|.
-name|state
-operator|=
-name|QHttpNetworkConnectionChannel
-operator|::
-name|IdleState
-expr_stmt|;
 comment|// if this is not possible, error will be emitted and connection terminated
 if|if
 condition|(
