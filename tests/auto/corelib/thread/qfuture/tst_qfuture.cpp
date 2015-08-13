@@ -7418,6 +7418,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_EXCEPTIONS
+end_comment
 begin_function
 DECL|function|nonGlobalThreadPool
 name|void
@@ -7638,13 +7645,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_EXCEPTIONS
-end_comment
 begin_macro
 name|QTEST_MAIN
 argument_list|(
