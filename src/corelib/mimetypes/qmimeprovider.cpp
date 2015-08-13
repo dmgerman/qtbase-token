@@ -3199,7 +3199,7 @@ argument_list|(
 literal|".xml"
 argument_list|)
 decl_stmt|;
-specifier|const
+comment|// shared-mime-info since 1.3 lowercases the xml files
 name|QStringList
 name|mimeFiles
 init|=
@@ -3219,6 +3219,9 @@ literal|"mime/"
 argument_list|)
 operator|+
 name|file
+operator|.
+name|toLower
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -3229,7 +3232,36 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// TODO: ask Thiago about this
+name|mimeFiles
+operator|=
+name|QStandardPaths
+operator|::
+name|locateAll
+argument_list|(
+name|QStandardPaths
+operator|::
+name|GenericDataLocation
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"mime/"
+argument_list|)
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+comment|// pre-1.3
+block|}
+if|if
+condition|(
+name|mimeFiles
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|qWarning
 argument_list|()
 operator|<<
@@ -3237,7 +3269,7 @@ literal|"No file found for"
 operator|<<
 name|file
 operator|<<
-literal|", even though the file appeared in a directory listing."
+literal|", even though update-mime-info said it would exist."
 expr_stmt|;
 name|qWarning
 argument_list|()

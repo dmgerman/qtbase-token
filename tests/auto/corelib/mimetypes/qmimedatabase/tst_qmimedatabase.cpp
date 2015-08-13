@@ -5871,7 +5871,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"text/x-suse-ymu"
+literal|"text/x-SuSE-ymu"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6283,7 +6283,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"text/x-suse-ymu"
+literal|"text/x-SuSE-ymu"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6301,6 +6301,27 @@ argument_list|)
 operator|.
 name|isValid
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|db
+operator|.
+name|mimeTypeForName
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"text/x-SuSE-ymu"
+argument_list|)
+argument_list|)
+operator|.
+name|comment
+argument_list|()
+argument_list|,
+name|QString
+argument_list|(
+literal|"URL of a YaST Meta Package"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|checkHasMimeType
