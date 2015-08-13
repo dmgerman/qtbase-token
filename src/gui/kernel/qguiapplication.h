@@ -155,6 +155,10 @@ argument|QString applicationDisplayName READ applicationDisplayName WRITE setApp
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|QString desktopFileName READ desktopFileName WRITE setDesktopFileName
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|Qt::LayoutDirection layoutDirection READ layoutDirection WRITE setLayoutDirection NOTIFY layoutDirectionChanged
 argument_list|)
 name|Q_PROPERTY
@@ -220,6 +224,21 @@ block|;
 specifier|static
 name|QString
 name|applicationDisplayName
+argument_list|()
+block|;
+specifier|static
+name|void
+name|setDesktopFileName
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
+block|;
+specifier|static
+name|QString
+name|desktopFileName
 argument_list|()
 block|;
 specifier|static
