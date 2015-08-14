@@ -819,6 +819,7 @@ block|}
 end_function
 begin_function
 DECL|function|parse
+name|Q_NEVER_INLINE
 name|bool
 name|QHostAddressPrivate
 operator|::
