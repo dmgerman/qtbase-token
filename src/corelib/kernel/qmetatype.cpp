@@ -2757,17 +2757,24 @@ expr_stmt|;
 block|}
 end_if
 begin_comment
-comment|// Do not compare types higher than 0x100:
+comment|// these flags cannot change in a binary compatible way:
 end_comment
-begin_comment
-comment|// Ignore WasDeclaredAsMetaType inconsitency, to many users were hitting the problem
-end_comment
-begin_comment
-comment|// Ignore IsGadget as it was added in Qt 5.5
-end_comment
-begin_comment
-comment|// Ignore all the future flags as well
-end_comment
+begin_decl_stmt
+specifier|const
+name|int
+name|binaryCompatibilityFlag
+init|=
+name|PointerToQObject
+operator||
+name|IsEnumeration
+operator||
+name|SharedPointerToQObject
+operator||
+name|WeakPointerToQObject
+operator||
+name|TrackingPointerToQObject
+decl_stmt|;
+end_decl_stmt
 begin_if
 if|if
 condition|(
@@ -2777,19 +2784,9 @@ operator|^
 name|flags
 operator|)
 operator|&
-literal|0xff
+name|binaryCompatibilityFlag
 condition|)
 block|{
-specifier|const
-name|int
-name|maskForTypeInfo
-init|=
-name|NeedsConstruction
-operator||
-name|NeedsDestruction
-operator||
-name|MovableType
-decl_stmt|;
 specifier|const
 name|char
 modifier|*
@@ -2798,38 +2795,7 @@ init|=
 literal|"QMetaType::registerType: Binary compatibility break. "
 literal|"\nType flags for type '%s' [%i] don't match. Previously "
 literal|"registered TypeFlags(0x%x), now registering TypeFlags(0x%x). "
-literal|"This is an ODR break, which means that your application depends on a C++ undefined behavior."
-literal|"\nHint: %s"
 decl_stmt|;
-name|QT_PREPEND_NAMESPACE
-argument_list|(
-argument|QByteArray
-argument_list|)
-name|hint
-expr_stmt|;
-if|if
-condition|(
-operator|(
-name|previousFlags
-operator|&
-name|maskForTypeInfo
-operator|)
-operator|!=
-operator|(
-name|flags
-operator|&
-name|maskForTypeInfo
-operator|)
-condition|)
-block|{
-name|hint
-operator|+=
-literal|"\nIt seems that the type was registered at least twice in a different translation units, "
-literal|"but Q_DECLARE_TYPEINFO is not visible from all the translations unit or different flags were used."
-literal|"Remember that Q_DECLARE_TYPEINFO should be declared before QMetaType registration, "
-literal|"preferably it should be placed just after the type declaration and before Q_DECLARE_METATYPE"
-expr_stmt|;
-block|}
 name|qFatal
 argument_list|(
 name|msg
@@ -2847,11 +2813,6 @@ name|int
 argument_list|(
 name|flags
 argument_list|)
-argument_list|,
-name|hint
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
