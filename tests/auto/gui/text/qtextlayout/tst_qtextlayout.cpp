@@ -10412,7 +10412,12 @@ literal|"nager -Iprogressmanager -Iscriptmanager -I.moc/debug-shared -I.uic -o .
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// textWidth includes right bearing, but it should never be LARGER than width if there is space for at least one character
+comment|// The naturalTextWidth includes right bearing, but should never be LARGER than line width if
+comment|// there is space for at least one character. Unfortunately that assumption may not hold if the
+comment|// font engine fails to report an accurate minimum right bearing for the font, eg. when the
+comment|// minimum right bearing reported by the font engine doesn't cover all the glyphs in the font.
+comment|// The result is that this test may fail in some cases. We should fix this by running the test
+comment|// with a font that we know have no suprising right bearings. See qtextlayout.cpp for details.
 for|for
 control|(
 name|int

@@ -7834,20 +7834,32 @@ name|lbh
 operator|.
 name|rightBearing
 decl_stmt|;
-comment|// We ignore the right bearing if the minimum negative bearing is too little to
-comment|// expand the text beyond the edge.
+comment|// We skip calculating the right bearing if the minimum negative bearing is too
+comment|// small to possibly expand the text beyond the edge. Note that this optimization
+comment|// will in some cases fail, as the minimum right bearing reported by the font
+comment|// engine may not cover all the glyphs in the font. The result is that we think
+comment|// we don't need to break at the current glyph (because the right bearing is 0),
+comment|// and when we then end up breaking on the next glyph we compute the right bearing
+comment|// and end up with a line width that is slightly larger width than what was requested.
+comment|// Unfortunately we can't remove this optimization as it will slow down text
+comment|// layouting significantly, so we accept the slight correctnes issue.
 if|if
 condition|(
+operator|(
 name|lbh
 operator|.
 name|calculateNewWidth
 argument_list|(
 name|line
 argument_list|)
-operator|-
+operator|+
+name|qAbs
+argument_list|(
 name|lbh
 operator|.
 name|minimumRightBearing
+argument_list|)
+operator|)
 operator|>
 name|line
 operator|.
