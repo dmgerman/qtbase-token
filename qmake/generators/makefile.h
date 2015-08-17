@@ -856,11 +856,6 @@ argument_list|)
 block|;
 name|virtual
 name|void
-name|processPrlFiles
-argument_list|()
-block|;
-name|virtual
-name|void
 name|writePrlFile
 argument_list|(
 name|QTextStream
@@ -871,7 +866,11 @@ comment|//make sure libraries are found
 name|virtual
 name|bool
 name|findLibraries
-argument_list|()
+argument_list|(
+argument|bool linkPrl
+argument_list|,
+argument|bool mergeLflags
+argument_list|)
 block|;
 comment|//for retrieving values and lists of values
 name|virtual
@@ -1331,7 +1330,11 @@ name|bool
 name|MakefileGenerator
 operator|::
 name|findLibraries
-argument_list|()
+argument_list|(
+argument|bool
+argument_list|,
+argument|bool
+argument_list|)
 block|{
 return|return
 name|true

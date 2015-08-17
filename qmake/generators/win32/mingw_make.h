@@ -152,7 +152,11 @@ block|;
 name|virtual
 name|bool
 name|findLibraries
-argument_list|()
+argument_list|(
+argument|bool linkPrl
+argument_list|,
+argument|bool mergeLflags
+argument_list|)
 block|;
 name|QString
 name|objectsLinkLine
