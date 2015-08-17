@@ -765,8 +765,11 @@ argument_list|)
 condition|)
 block|{
 comment|// does not increase the refcount
-name|dev
-operator|=
+name|struct
+name|udev_device
+modifier|*
+name|parent_dev
+init|=
 name|udev_device_get_parent_with_subsystem_devtype
 argument_list|(
 name|dev
@@ -775,11 +778,11 @@ name|subsystem
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 operator|!
-name|dev
+name|parent_dev
 condition|)
 goto|goto
 name|cleanup
@@ -789,7 +792,7 @@ condition|(
 operator|!
 name|checkDeviceType
 argument_list|(
-name|dev
+name|parent_dev
 argument_list|)
 condition|)
 goto|goto
