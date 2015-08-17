@@ -2297,7 +2297,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_WIN32
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_function
@@ -2338,7 +2338,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// !Q_OS_WIN32
+comment|// Q_OS_WIN
 end_comment
 begin_function_decl
 name|QT_BEGIN_INCLUDE_NAMESPACE
@@ -2805,7 +2805,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !Q_OS_WIN32
+comment|// !Q_OS_WIN
 end_comment
 begin_comment
 comment|/*!     \fn bool QUuid::operator==(const GUID&guid) const      Returns \c true if this UUID is equal to the Windows GUID \a guid;     otherwise returns \c false. */
