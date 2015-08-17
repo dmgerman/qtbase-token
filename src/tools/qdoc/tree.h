@@ -415,6 +415,11 @@ operator|&
 name|target
 argument_list|,
 specifier|const
+name|QString
+operator|&
+name|params
+argument_list|,
+specifier|const
 name|Node
 operator|*
 name|relative
@@ -424,6 +429,7 @@ operator|::
 name|Genus
 name|genus
 argument_list|)
+decl|const
 decl_stmt|;
 name|Node
 modifier|*
@@ -764,6 +770,11 @@ specifier|const
 name|QStringList
 operator|&
 name|path
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|params
 argument_list|,
 specifier|const
 name|Node

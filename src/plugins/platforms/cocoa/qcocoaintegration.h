@@ -237,6 +237,14 @@ return|return
 name|m_siblings
 return|;
 block|}
+name|QPlatformScreen
+operator|::
+name|SubpixelAntialiasingType
+name|subpixelAntialiasingTypeHint
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 comment|// ----------------------------------------------------
 comment|// Additional methods
 name|void
@@ -312,8 +320,27 @@ name|QPlatformIntegration
 block|{
 name|public
 operator|:
+expr|enum
+name|Option
+block|{
+name|UseFreeTypeFontEngine
+operator|=
+literal|0x1
+block|}
+block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|Options
+argument_list|,
+argument|Option
+argument_list|)
 name|QCocoaIntegration
-argument_list|()
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|paramList
+argument_list|)
 block|;
 operator|~
 name|QCocoaIntegration
@@ -324,6 +351,11 @@ name|QCocoaIntegration
 operator|*
 name|instance
 argument_list|()
+block|;
+name|Options
+name|options
+argument_list|()
+specifier|const
 block|;
 name|bool
 name|hasCapability
@@ -541,6 +573,9 @@ name|QCocoaIntegration
 operator|*
 name|mInstance
 block|;
+name|Options
+name|mOptions
+block|;
 name|QScopedPointer
 operator|<
 name|QCoreTextFontDatabase
@@ -624,6 +659,12 @@ name|m_popupWindowStack
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QCocoaIntegration::Options
+argument_list|)
+end_macro
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

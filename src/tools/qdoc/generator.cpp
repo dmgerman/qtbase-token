@@ -4525,7 +4525,7 @@ name|QString
 argument_list|>
 name|definedParams
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|Parameter
 argument_list|>
@@ -4572,7 +4572,7 @@ operator|*
 name|p
 operator|)
 operator|.
-name|leftType
+name|dataType
 argument_list|()
 operator|!=
 name|QLatin1String
@@ -4847,6 +4847,9 @@ argument_list|(
 name|func
 operator|->
 name|name
+argument_list|()
+argument_list|,
+name|QString
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -8384,7 +8387,7 @@ name|code
 operator|+=
 name|p
 operator|.
-name|leftType
+name|dataType
 argument_list|()
 operator|+
 name|p
@@ -8479,7 +8482,7 @@ name|code
 operator|+=
 name|p
 operator|.
-name|leftType
+name|dataType
 argument_list|()
 expr_stmt|;
 if|if
@@ -11476,6 +11479,9 @@ operator|->
 name|findFunctionNode
 argument_list|(
 name|alternateName
+argument_list|,
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -11508,6 +11514,9 @@ operator|->
 name|findFunctionNode
 argument_list|(
 name|alternateName
+argument_list|,
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -11540,6 +11549,9 @@ operator|->
 name|findFunctionNode
 argument_list|(
 name|alternateName
+argument_list|,
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -11597,6 +11609,9 @@ operator|->
 name|findFunctionNode
 argument_list|(
 name|alternateName
+argument_list|,
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

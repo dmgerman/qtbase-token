@@ -1998,6 +1998,35 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns the QWindow frame geometry. */
+end_comment
+begin_function
+DECL|function|windowFrameGeometry
+name|QRect
+name|QPlatformWindow
+operator|::
+name|windowFrameGeometry
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QHighDpi
+operator|::
+name|toNativePixels
+argument_list|(
+name|window
+argument_list|()
+operator|->
+name|frameGeometry
+argument_list|()
+argument_list|,
+name|window
+argument_list|()
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the closest acceptable geometry for a given geometry before     a resize/move event for platforms that support it, for example to     implement heightForWidth(). */
 end_comment
 begin_function

@@ -7761,7 +7761,7 @@ literal|"left"
 argument_list|,
 name|parameter
 operator|.
-name|leftType
+name|dataType
 argument_list|()
 argument_list|)
 expr_stmt|;

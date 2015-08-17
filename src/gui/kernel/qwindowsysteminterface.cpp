@@ -1585,7 +1585,7 @@ block|}
 end_function
 begin_function
 DECL|function|handleKeyEvent
-name|void
+name|bool
 name|QWindowSystemInterface
 operator|::
 name|handleKeyEvent
@@ -1630,6 +1630,7 @@ operator|.
 name|elapsed
 argument_list|()
 decl_stmt|;
+return|return
 name|handleKeyEvent
 argument_list|(
 name|w
@@ -1648,12 +1649,12 @@ name|autorep
 argument_list|,
 name|count
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_function
 DECL|function|handleKeyEvent
-name|void
+name|bool
 name|QWindowSystemInterface
 operator|::
 name|handleKeyEvent
@@ -1722,7 +1723,9 @@ argument_list|,
 name|text
 argument_list|)
 condition|)
-return|return;
+return|return
+literal|true
+return|;
 endif|#
 directive|endif
 comment|// Q_OS_OSX
@@ -1754,13 +1757,14 @@ argument_list|,
 name|count
 argument_list|)
 decl_stmt|;
+return|return
 name|QWindowSystemInterfacePrivate
 operator|::
 name|handleWindowSystemEvent
 argument_list|(
 name|e
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_function
@@ -2672,7 +2676,7 @@ block|}
 end_function
 begin_function
 DECL|function|handleWindowSystemEvent
-name|void
+name|bool
 name|QWindowSystemInterfacePrivate
 operator|::
 name|handleWindowSystemEvent
@@ -2684,6 +2688,11 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
+name|bool
+name|accepted
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
 name|synchronousWindowSystemEvents
@@ -2695,6 +2704,12 @@ name|processWindowSystemEvent
 argument_list|(
 name|ev
 argument_list|)
+expr_stmt|;
+name|accepted
+operator|=
+name|ev
+operator|->
+name|eventAccepted
 expr_stmt|;
 operator|delete
 name|ev
@@ -2728,6 +2743,9 @@ name|wakeUp
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|accepted
+return|;
 block|}
 end_function
 begin_function
@@ -3801,7 +3819,7 @@ operator|::
 name|flushEventMutex
 argument_list|)
 decl_stmt|;
-name|flushWindowSystemEvents
+name|sendWindowSystemEvents
 argument_list|(
 name|flags
 argument_list|)

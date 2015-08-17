@@ -1222,6 +1222,12 @@ argument|quint32 *nPoints
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|setQtDefaultHintStyle
+argument_list|(
+argument|QFont::HintingPreference hintingPreference
+argument_list|)
+block|;
 name|virtual
 name|void
 name|setDefaultHintStyle
@@ -1311,6 +1317,10 @@ block|;
 name|friend
 name|class
 name|QBasicFontDatabase
+block|;
+name|friend
+name|class
+name|QCoreTextFontDatabase
 block|;
 name|friend
 name|class

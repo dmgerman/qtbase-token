@@ -7980,6 +7980,15 @@ block|}
 block|}
 endif|#
 directive|endif
+name|e
+operator|->
+name|eventAccepted
+operator|=
+name|ev
+operator|.
+name|isAccepted
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function

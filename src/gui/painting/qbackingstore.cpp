@@ -569,6 +569,11 @@ argument_list|()
 argument_list|,
 name|source
 operator|->
+name|bytesPerLine
+argument_list|()
+argument_list|,
+name|source
+operator|->
 name|format
 argument_list|()
 argument_list|)

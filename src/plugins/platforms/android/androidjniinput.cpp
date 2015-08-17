@@ -165,6 +165,9 @@ name|height
 parameter_list|,
 name|int
 name|inputHints
+parameter_list|,
+name|int
+name|enterKeyType
 parameter_list|)
 block|{
 name|QJNIObjectPrivate
@@ -179,7 +182,7 @@ argument_list|()
 argument_list|,
 literal|"showSoftwareKeyboard"
 argument_list|,
-literal|"(IIIII)V"
+literal|"(IIIIII)V"
 argument_list|,
 name|left
 argument_list|,
@@ -190,6 +193,8 @@ argument_list|,
 name|height
 argument_list|,
 name|inputHints
+argument_list|,
+name|enterKeyType
 argument_list|)
 expr_stmt|;
 ifdef|#
@@ -209,6 +214,8 @@ operator|<<
 name|height
 operator|<<
 name|inputHints
+operator|<<
+name|enterKeyType
 expr_stmt|;
 endif|#
 directive|endif

@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"generator.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qfile.h>
 end_include
 begin_include

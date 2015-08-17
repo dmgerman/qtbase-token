@@ -564,6 +564,16 @@ argument|QDockWidget *dockwidget
 argument_list|)
 specifier|const
 block|;
+name|void
+name|resizeDocks
+argument_list|(
+argument|const QList<QDockWidget *>&docks
+argument_list|,
+argument|const QList<int>&sizes
+argument_list|,
+argument|Qt::Orientation orientation
+argument_list|)
+block|;
 endif|#
 directive|endif
 comment|// QT_NO_DOCKWIDGET

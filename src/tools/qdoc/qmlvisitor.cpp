@@ -3458,7 +3458,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|Parameter
 argument_list|>
@@ -3935,7 +3935,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|Parameter
 argument_list|>

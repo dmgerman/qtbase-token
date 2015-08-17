@@ -5250,11 +5250,8 @@ block|{
 name|bool
 name|hasLine
 init|=
-name|d_func
-argument_list|()
-operator|->
-name|buffer
-operator|.
+name|QIODevice
+operator|::
 name|canReadLine
 argument_list|()
 decl_stmt|;
@@ -5295,11 +5292,6 @@ endif|#
 directive|endif
 return|return
 name|hasLine
-operator|||
-name|QIODevice
-operator|::
-name|canReadLine
-argument_list|()
 return|;
 block|}
 end_function
