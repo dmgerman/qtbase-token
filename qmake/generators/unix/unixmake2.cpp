@@ -6103,8 +6103,6 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
-argument_list|,
-literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
