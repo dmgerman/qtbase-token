@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QLoggingCategory>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_include
@@ -41,16 +46,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_function_decl
 name|QT_BEGIN_NAMESPACE
+name|Q_DECLARE_LOGGING_CATEGORY
+parameter_list|(
+name|qLcLibInput
+parameter_list|)
 DECL|variable|REPEAT_DELAY
 specifier|const
 name|int
 name|REPEAT_DELAY
-init|=
-literal|500
-decl_stmt|;
-end_decl_stmt
+decl_stmt|= 500;
+end_function_decl
 begin_decl_stmt
 DECL|variable|REPEAT_RATE
 specifier|const
@@ -612,6 +619,13 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_XKBCOMMON_EVDEV
+name|qCDebug
+argument_list|(
+name|qLcLibInput
+argument_list|)
+operator|<<
+literal|"Using xkbcommon for key mapping"
+expr_stmt|;
 name|m_ctx
 operator|=
 name|xkb_context_new
@@ -748,6 +762,15 @@ name|QLibInputKeyboard
 operator|::
 name|handleRepeat
 argument_list|)
+expr_stmt|;
+else|#
+directive|else
+name|qCWarning
+argument_list|(
+name|qLcLibInput
+argument_list|)
+operator|<<
+literal|"X-less xkbcommon not available, not performing key mapping"
 expr_stmt|;
 endif|#
 directive|endif
