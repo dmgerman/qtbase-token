@@ -12999,9 +12999,13 @@ name|qCDebug
 argument_list|(
 name|lcQpaXInput
 argument_list|,
-literal|"XI2 mouse press, button %d"
+literal|"XI2 mouse press, button %d, time %d"
 argument_list|,
 name|button
+argument_list|,
+name|ev
+operator|->
+name|time
 argument_list|)
 expr_stmt|;
 name|conn
@@ -13042,9 +13046,13 @@ name|qCDebug
 argument_list|(
 name|lcQpaXInput
 argument_list|,
-literal|"XI2 mouse release, button %d"
+literal|"XI2 mouse release, button %d, time %d"
 argument_list|,
 name|button
+argument_list|,
+name|ev
+operator|->
+name|time
 argument_list|)
 expr_stmt|;
 name|conn
@@ -13085,11 +13093,15 @@ name|qCDebug
 argument_list|(
 name|lcQpaXInput
 argument_list|,
-literal|"XI2 mouse motion %d,%d"
+literal|"XI2 mouse motion %d,%d, time %d"
 argument_list|,
 name|event_x
 argument_list|,
 name|event_y
+argument_list|,
+name|ev
+operator|->
+name|time
 argument_list|)
 expr_stmt|;
 name|handleMotionNotifyEvent
