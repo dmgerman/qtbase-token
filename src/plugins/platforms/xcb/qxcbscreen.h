@@ -238,6 +238,19 @@ name|compositingActive
 argument_list|()
 specifier|const
 block|;
+name|QRect
+name|workArea
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_workArea
+return|;
+block|}
+name|void
+name|updateWorkArea
+argument_list|()
+block|;
 name|void
 name|handleXFixesSelectionNotify
 argument_list|(
@@ -252,6 +265,11 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|QRect
+name|getWorkArea
+argument_list|()
+specifier|const
+block|;
 name|xcb_screen_t
 operator|*
 name|m_screen
@@ -275,6 +293,9 @@ name|m_net_wm_cm_atom
 block|;
 name|bool
 name|m_compositingActive
+block|;
+name|QRect
+name|m_workArea
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -658,6 +679,10 @@ name|timestamp
 init|=
 name|XCB_TIME_CURRENT_TIME
 parameter_list|)
+function_decl|;
+name|void
+name|updateAvailableGeometry
+parameter_list|()
 function_decl|;
 name|void
 name|updateRefreshRate
