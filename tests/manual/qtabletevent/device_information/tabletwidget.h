@@ -172,6 +172,9 @@ name|mUnique
 block|;
 name|bool
 name|mMouseToo
+block|;
+name|ulong
+name|mTimestamp
 block|; }
 decl_stmt|;
 end_decl_stmt
