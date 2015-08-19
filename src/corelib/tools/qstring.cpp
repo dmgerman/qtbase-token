@@ -8445,7 +8445,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \overload operator<()    \relates QString     Returns \c true if this string is lexically less than the parameter     string called \a other; otherwise returns \c false. */
+comment|/*!    \overload operator<()      Returns \c true if this string is lexically less than the parameter     string called \a other; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator <
@@ -8530,7 +8530,7 @@ begin_comment
 comment|/*! \fn bool operator>(const QString&s1, const QString&s2)     \relates QString      Returns \c true if string \a s1 is lexically greater than string \a s2;     otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
-comment|/*!    \overload operator>()    \relates QString     Returns \c true if this string is lexically greater than the parameter     string \a other; otherwise returns \c false. */
+comment|/*!    \overload operator>()      Returns \c true if this string is lexically greater than the parameter     string \a other; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|operator >

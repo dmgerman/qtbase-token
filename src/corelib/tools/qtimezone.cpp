@@ -302,7 +302,7 @@ begin_comment
 comment|/*!     \class QTimeZone::OffsetData     \inmodule QtCore      The time zone offset data for a given moment in time, i.e. the time zone     offsets and abbreviation to use at that moment in time.      \list     \li OffsetData::atUtc  The datetime of the offset data in UTC time.     \li OffsetData::offsetFromUtc  The total offset from UTC in effect at the datetime.     \li OffsetData::standardTimeOffset  The standard time offset component of the total offset.     \li OffsetData::daylightTimeOffset  The daylight time offset component of the total offset.     \li OffsetData::abbreviation  The abbreviation in effect at the datetime.     \endlist      For example, for time zone "Europe/Berlin" the OffsetDate in standard and daylight time might be:      \list     \li atUtc = QDateTime(QDate(2013, 1, 1), QTime(0, 0, 0), Qt::UTC)     \li offsetFromUtc = 3600     \li standardTimeOffset = 3600     \li daylightTimeOffset = 0     \li abbreviation = "CET"     \endlist      \list     \li atUtc = QDateTime(QDate(2013, 6, 1), QTime(0, 0, 0), Qt::UTC)     \li offsetFromUtc = 7200     \li standardTimeOffset = 3600     \li daylightTimeOffset = 3600     \li abbreviation = "CEST"     \endlist */
 end_comment
 begin_comment
-comment|/*!     \typedef QTimeZone::OffsetDataList     \relates QTimeZone      Synonym for QVector<OffsetData>. */
+comment|/*!     \typedef QTimeZone::OffsetDataList      Synonym for QVector<OffsetData>. */
 end_comment
 begin_comment
 comment|/*!     Create a null/invalid time zone instance. */
