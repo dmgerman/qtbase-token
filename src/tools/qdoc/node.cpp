@@ -1837,6 +1837,14 @@ modifier|*
 name|pseudoParent
 parameter_list|)
 block|{
+if|if
+condition|(
+name|pseudoParent
+operator|==
+name|parent
+argument_list|()
+condition|)
+return|return;
 name|removeRelates
 argument_list|()
 expr_stmt|;
