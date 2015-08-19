@@ -6700,6 +6700,10 @@ name|QWindowSystemInterface
 operator|::
 name|handleTabletEnterProximityEvent
 argument_list|(
+name|ev
+operator|->
+name|time
+argument_list|,
 name|tabletData
 operator|->
 name|tool
@@ -6781,6 +6785,10 @@ name|QWindowSystemInterface
 operator|::
 name|handleTabletLeaveProximityEvent
 argument_list|(
+name|ev
+operator|->
+name|time
+argument_list|,
 name|tabletData
 operator|->
 name|tool
@@ -7175,7 +7183,8 @@ name|qCDebug
 argument_list|(
 name|lcQpaXInput
 argument_list|,
-literal|"XI2 event on tablet %d with tool %d type %d seq %d detail %d pos %6.1f, %6.1f root pos %6.1f, %6.1f buttons 0x%x pressure %4.2lf tilt %d, %d rotation %6.2lf"
+literal|"XI2 event on tablet %d with tool %d type %d seq %d detail %d time %d "
+literal|"pos %6.1f, %6.1f root pos %6.1f, %6.1f buttons 0x%x pressure %4.2lf tilt %d, %d rotation %6.2lf"
 argument_list|,
 name|tabletData
 operator|.
@@ -7196,6 +7205,10 @@ argument_list|,
 name|ev
 operator|->
 name|detail
+argument_list|,
+name|ev
+operator|->
+name|time
 argument_list|,
 name|fixed1616ToReal
 argument_list|(
@@ -7246,6 +7259,10 @@ operator|::
 name|handleTabletEvent
 argument_list|(
 name|window
+argument_list|,
+name|ev
+operator|->
+name|time
 argument_list|,
 name|local
 argument_list|,
