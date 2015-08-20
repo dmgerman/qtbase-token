@@ -202,6 +202,10 @@ name|void
 name|endContextComposition
 argument_list|()
 block|;
+name|void
+name|updateEnabled
+argument_list|()
+block|;
 specifier|const
 name|DWORD
 name|m_WM_MSIME_MOUSE
