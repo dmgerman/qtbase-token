@@ -2547,7 +2547,7 @@ name|QCOMPARE
 argument_list|(
 name|proxy
 operator|->
-name|acceptsHoverEvents
+name|acceptHoverEvents
 argument_list|()
 argument_list|,
 literal|true

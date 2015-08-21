@@ -2055,6 +2055,8 @@ name|scene
 operator|.
 name|items
 argument_list|(
+name|QRectF
+argument_list|(
 literal|295
 argument_list|,
 literal|295
@@ -2062,6 +2064,7 @@ argument_list|,
 literal|50
 argument_list|,
 literal|50
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//This should not crash

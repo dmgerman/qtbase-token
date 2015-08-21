@@ -66,7 +66,7 @@ operator||
 name|ItemIsMovable
 argument_list|)
 expr_stmt|;
-name|setAcceptsHoverEvents
+name|setAcceptHoverEvents
 argument_list|(
 literal|true
 argument_list|)
