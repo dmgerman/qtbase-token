@@ -179,6 +179,29 @@ begin_comment
 comment|/*!     \fn void QPixmapCache::Key::swap(Key&)     \internal     \since 5.6 */
 end_comment
 begin_comment
+comment|/*!     Returns \c true if there is a cached pixmap associated with this key.     Otherwise, if pixmap was flushed, the key is no longer valid.     \since 5.7 */
+end_comment
+begin_function
+name|bool
+name|QPixmapCache
+operator|::
+name|Key
+operator|::
+name|isValid
+parameter_list|()
+specifier|const
+name|Q_DECL_NOTHROW
+block|{
+return|return
+name|d
+operator|&&
+name|d
+operator|->
+name|isValid
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function

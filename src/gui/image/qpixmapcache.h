@@ -156,6 +156,12 @@ name|d
 argument_list|)
 expr_stmt|;
 block|}
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|private
 label|:
 name|KeyData
