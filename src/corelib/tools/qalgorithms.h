@@ -3656,7 +3656,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_DECL_CONSTEXPR
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|uint
 name|qCountLeadingZeroBits
@@ -3747,7 +3747,7 @@ directive|endif
 block|}
 end_function
 begin_function
-name|Q_DECL_CONSTEXPR
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|uint
 name|qCountLeadingZeroBits
@@ -3825,7 +3825,7 @@ directive|endif
 block|}
 end_function
 begin_function
-name|Q_DECL_CONSTEXPR
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|uint
 name|qCountLeadingZeroBits
@@ -3913,7 +3913,7 @@ directive|endif
 block|}
 end_function
 begin_function
-name|Q_DECL_CONSTEXPR
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|uint
 name|qCountLeadingZeroBits
@@ -4013,7 +4013,7 @@ directive|endif
 block|}
 end_function
 begin_function
-name|Q_DECL_CONSTEXPR
+name|Q_DECL_RELAXED_CONSTEXPR
 specifier|inline
 name|uint
 name|qCountLeadingZeroBits
