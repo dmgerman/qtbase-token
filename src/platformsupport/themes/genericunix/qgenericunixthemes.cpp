@@ -75,6 +75,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QStandardPaths>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QStringList>
 end_include
 begin_include
@@ -880,8 +885,25 @@ specifier|const
 name|QString
 modifier|&
 name|kdeDir
+parameter_list|,
+name|int
+name|kdeVersion
 parameter_list|)
 block|{
+if|if
+condition|(
+name|kdeVersion
+operator|>
+literal|4
+condition|)
+return|return
+name|kdeDir
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"/kdeglobals"
+argument_list|)
+return|;
 return|return
 name|kdeDir
 operator|+
@@ -909,6 +931,9 @@ name|QStringList
 modifier|&
 name|kdeDirs
 parameter_list|,
+name|int
+name|kdeVersion
+parameter_list|,
 name|QHash
 argument_list|<
 name|QString
@@ -928,6 +953,9 @@ specifier|const
 name|QStringList
 modifier|&
 name|kdeDirs
+parameter_list|,
+name|int
+name|kdeVersion
 parameter_list|,
 name|QHash
 argument_list|<
@@ -1083,6 +1111,8 @@ name|readKdeSystemPalette
 argument_list|(
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|,
 operator|&
@@ -1117,6 +1147,8 @@ literal|"widgetStyle"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1168,6 +1200,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 decl_stmt|;
@@ -1197,6 +1231,8 @@ literal|"Icons/Theme"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1228,6 +1264,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 decl_stmt|;
@@ -1257,6 +1295,8 @@ literal|"Toolbar style/ToolButtonStyle"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1339,6 +1379,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 decl_stmt|;
@@ -1373,6 +1415,8 @@ literal|"font"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1426,6 +1470,8 @@ literal|"fixed"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1504,6 +1550,9 @@ name|QStringList
 modifier|&
 name|kdeDirs
 parameter_list|,
+name|int
+name|kdeVersion
+parameter_list|,
 name|QHash
 argument_list|<
 name|QString
@@ -1549,6 +1598,8 @@ init|=
 name|kdeGlobals
 argument_list|(
 name|kdeDir
+argument_list|,
+name|kdeVersion
 argument_list|)
 decl_stmt|;
 if|if
@@ -1736,6 +1787,9 @@ name|QStringList
 modifier|&
 name|kdeDirs
 parameter_list|,
+name|int
+name|kdeVersion
+parameter_list|,
 name|QHash
 argument_list|<
 name|QString
@@ -1770,6 +1824,8 @@ literal|"Colors:Button/BackgroundNormal"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1828,6 +1884,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 argument_list|)
@@ -1848,6 +1906,8 @@ literal|"Colors:View/ForegroundNormal"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1870,6 +1930,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 argument_list|)
@@ -1890,6 +1952,8 @@ literal|"Colors:View/BackgroundNormal"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1912,6 +1976,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 argument_list|)
@@ -1932,6 +1998,8 @@ literal|"Colors:Selection/ForegroundNormal"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1954,6 +2022,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 argument_list|)
@@ -1974,6 +2044,8 @@ literal|"Colors:Button/ForegroundNormal"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -1996,6 +2068,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 argument_list|)
@@ -2016,6 +2090,8 @@ literal|"Colors:View/ForegroundVisited"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -2038,6 +2114,8 @@ argument_list|)
 argument_list|,
 name|kdeDirs
 argument_list|,
+name|kdeVersion
+argument_list|,
 name|kdeSettings
 argument_list|)
 argument_list|)
@@ -2058,6 +2136,8 @@ literal|"Colors:Tooltip/ForegroundNormal"
 argument_list|)
 argument_list|,
 name|kdeDirs
+argument_list|,
+name|kdeVersion
 argument_list|,
 name|kdeSettings
 argument_list|)
@@ -2931,6 +3011,30 @@ literal|4
 condition|)
 return|return
 literal|0
+return|;
+if|if
+condition|(
+name|kdeVersion
+operator|>
+literal|4
+condition|)
+comment|// Plasma 5 follows XDG spec
+comment|// but uses the same config file format:
+return|return
+operator|new
+name|QKdeTheme
+argument_list|(
+name|QStandardPaths
+operator|::
+name|standardLocations
+argument_list|(
+name|QStandardPaths
+operator|::
+name|GenericConfigLocation
+argument_list|)
+argument_list|,
+name|kdeVersion
+argument_list|)
 return|;
 comment|// Determine KDE prefixes in the following priority order:
 comment|// - KDEHOME and KDEDIRS environment variables
