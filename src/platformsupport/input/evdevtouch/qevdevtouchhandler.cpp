@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QTouchDevice>
+end_include
+begin_include
+include|#
+directive|include
 file|<QLoggingCategory>
 end_include
 begin_include

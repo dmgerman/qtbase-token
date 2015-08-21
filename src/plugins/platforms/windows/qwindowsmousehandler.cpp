@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QTouchDevice>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QWindow>
 end_include
 begin_include

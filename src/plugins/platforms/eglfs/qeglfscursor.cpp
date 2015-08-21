@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QFile>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QJsonDocument>
 end_include
 begin_include

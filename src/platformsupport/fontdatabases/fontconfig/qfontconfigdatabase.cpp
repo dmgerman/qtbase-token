@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QFile>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_include

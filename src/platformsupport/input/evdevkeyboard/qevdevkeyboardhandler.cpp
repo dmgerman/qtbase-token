@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QFile>
+end_include
+begin_include
+include|#
+directive|include
 file|<QSocketNotifier>
 end_include
 begin_include

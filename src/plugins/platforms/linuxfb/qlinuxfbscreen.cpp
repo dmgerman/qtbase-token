@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QFile>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QRegularExpression>
 end_include
 begin_include

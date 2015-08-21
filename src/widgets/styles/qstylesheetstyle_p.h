@@ -46,6 +46,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qset.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtWidgets/qapplication.h"
 end_include
 begin_include

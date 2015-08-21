@@ -175,6 +175,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qtouchdevice.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformtheme.h>
 end_include
 begin_ifndef

@@ -150,6 +150,11 @@ end_endif
 begin_include
 include|#
 directive|include
+file|<QtGui/qtouchdevice.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_include

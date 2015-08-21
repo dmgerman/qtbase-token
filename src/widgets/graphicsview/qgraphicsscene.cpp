@@ -184,6 +184,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qtouchdevice.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtWidgets/qstyleoption.h>
 end_include
 begin_include

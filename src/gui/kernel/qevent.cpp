@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qfile.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qmetaobject.h"
 end_include
 begin_include

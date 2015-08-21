@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qtouchdevice.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qwidget.h>
 end_include
 begin_include

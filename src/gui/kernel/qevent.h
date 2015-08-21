@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qobject.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/qregion.h>
 end_include
 begin_include
@@ -58,6 +53,9 @@ include|#
 directive|include
 file|<QtCore/qmap.h>
 end_include
+begin_comment
+comment|// ### Qt 6: Remove
+end_comment
 begin_include
 include|#
 directive|include
@@ -68,6 +66,9 @@ include|#
 directive|include
 file|<QtCore/qset.h>
 end_include
+begin_comment
+comment|// ### Qt 6: Remove
+end_comment
 begin_include
 include|#
 directive|include
@@ -78,6 +79,9 @@ include|#
 directive|include
 file|<QtCore/qfile.h>
 end_include
+begin_comment
+comment|// ### Qt 6: Replace by<qiodevice.h> and forward declare QFile
+end_comment
 begin_include
 include|#
 directive|include
@@ -88,6 +92,9 @@ include|#
 directive|include
 file|<QtGui/qtouchdevice.h>
 end_include
+begin_comment
+comment|// ### Qt 6: Replace by forward declaration
+end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAction
