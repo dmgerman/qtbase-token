@@ -232,7 +232,7 @@ name|QT_COMPILER_SUPPORTS_HERE
 parameter_list|(
 name|x
 parameter_list|)
-value|defined(__ ## x ## __)
+value|(__ ## x ## __)
 end_define
 begin_define
 DECL|macro|QT_FUNCTION_TARGET
