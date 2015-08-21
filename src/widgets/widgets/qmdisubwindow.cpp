@@ -4190,6 +4190,16 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+comment|// QTBUG-47993: parent widget can be reset before this call
+if|if
+condition|(
+name|baseWidget
+operator|->
+name|parentWidget
+argument_list|()
+operator|==
+name|q
+condition|)
 name|baseWidget
 operator|->
 name|setParent
