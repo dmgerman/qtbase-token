@@ -557,12 +557,6 @@ init|=
 name|Q_NULLPTR
 parameter_list|)
 block|{
-typedef|typedef
-name|FontKeys
-operator|::
-name|ConstIterator
-name|ConstIt
-typedef|;
 specifier|const
 name|FontKeys
 modifier|&
@@ -573,7 +567,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ConstIt
+name|auto
 name|it
 init|=
 name|keys
