@@ -507,7 +507,6 @@ name|int
 name|tailBuffer
 decl_stmt|;
 comment|// always buffers.size() - 1
-specifier|const
 name|int
 name|basicBlockSize
 decl_stmt|;
