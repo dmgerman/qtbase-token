@@ -851,7 +851,7 @@ argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 name|w
 argument_list|)

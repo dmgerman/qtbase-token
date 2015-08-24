@@ -1125,6 +1125,22 @@ literal|80
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QByteArray
+name|encodedHost
+init|=
+name|url
+operator|.
+name|host
+argument_list|(
+name|QUrl
+operator|::
+name|FullyEncoded
+argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+decl_stmt|;
 name|QVERIFY2
 argument_list|(
 name|socket
@@ -1136,10 +1152,7 @@ argument_list|)
 argument_list|,
 literal|"Timeout connecting to "
 operator|+
-name|url
-operator|.
 name|encodedHost
-argument_list|()
 argument_list|)
 expr_stmt|;
 ifndef|#
@@ -1220,10 +1233,7 @@ argument_list|)
 argument_list|,
 literal|"Timeout starting TLS with "
 operator|+
-name|url
-operator|.
 name|encodedHost
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1258,10 +1268,7 @@ literal|"Connection: close\r\n"
 literal|"User-Agent: tst_QTcpSocket_stresstest/1.0\r\n"
 literal|"Host: "
 operator|+
-name|url
-operator|.
 name|encodedHost
-argument_list|()
 operator|+
 literal|"\r\n"
 literal|"\r\n"
@@ -1285,10 +1292,7 @@ argument_list|)
 argument_list|,
 literal|"Timeout writing to "
 operator|+
-name|url
-operator|.
 name|encodedHost
-argument_list|()
 argument_list|)
 expr_stmt|;
 while|while
@@ -1342,10 +1346,7 @@ argument_list|)
 argument_list|,
 literal|"Timeout reading from "
 operator|+
-name|url
-operator|.
 name|encodedHost
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|totalBytes
@@ -1665,6 +1666,22 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+specifier|const
+name|QByteArray
+name|encodedHost
+init|=
+name|url
+operator|.
+name|host
+argument_list|(
+name|QUrl
+operator|::
+name|FullyEncoded
+argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+decl_stmt|;
 name|socket
 operator|->
 name|write
@@ -1693,10 +1710,7 @@ literal|"Connection: close\r\n"
 literal|"User-Agent: tst_QTcpSocket_stresstest/1.0\r\n"
 literal|"Host: "
 operator|+
-name|url
-operator|.
 name|encodedHost
-argument_list|()
 operator|+
 literal|"\r\n"
 literal|"\r\n"
@@ -1770,10 +1784,7 @@ argument_list|()
 argument_list|,
 literal|"Timeout with "
 operator|+
-name|url
-operator|.
 name|encodedHost
-argument_list|()
 operator|+
 literal|"; "
 operator|+
@@ -2238,6 +2249,22 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+specifier|const
+name|QByteArray
+name|encodedHost
+init|=
+name|url
+operator|.
+name|host
+argument_list|(
+name|QUrl
+operator|::
+name|FullyEncoded
+argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+decl_stmt|;
 name|socket
 operator|->
 name|write
@@ -2266,10 +2293,7 @@ literal|"Connection: close\r\n"
 literal|"User-Agent: tst_QTcpSocket_stresstest/1.0\r\n"
 literal|"Host: "
 operator|+
-name|url
-operator|.
 name|encodedHost
-argument_list|()
 operator|+
 literal|"\r\n"
 literal|"\r\n"

@@ -871,7 +871,7 @@ argument_list|()
 expr_stmt|;
 name|QInputDialog
 operator|::
-name|getInteger
+name|getInt
 argument_list|(
 literal|0
 argument_list|,

@@ -1385,7 +1385,12 @@ parameter_list|()
 block|{
 name|m_model
 operator|->
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|m_model
+operator|->
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

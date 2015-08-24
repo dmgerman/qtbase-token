@@ -2626,7 +2626,7 @@ parameter_list|()
 block|{
 name|QFont
 operator|::
-name|removeSubstitution
+name|removeSubstitutions
 argument_list|(
 literal|"BogusFontFamily"
 argument_list|)
@@ -2749,7 +2749,7 @@ argument_list|)
 expr_stmt|;
 name|QFont
 operator|::
-name|removeSubstitution
+name|removeSubstitutions
 argument_list|(
 literal|"BogusFontFamily"
 argument_list|)

@@ -10702,9 +10702,10 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|QStandardItemModel
-operator|::
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

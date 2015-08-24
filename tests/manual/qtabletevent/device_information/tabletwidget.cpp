@@ -183,7 +183,7 @@ name|mHiResGlobalPos
 operator|=
 name|event
 operator|->
-name|hiResGlobalPos
+name|posF
 argument_list|()
 expr_stmt|;
 name|mDev

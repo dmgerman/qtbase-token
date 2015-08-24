@@ -15081,9 +15081,10 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|QStandardItemModel
-operator|::
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}
@@ -19990,7 +19991,10 @@ break|break;
 case|case
 literal|1
 case|:
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 break|break;

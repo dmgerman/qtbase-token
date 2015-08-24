@@ -31005,9 +31005,15 @@ argument_list|)
 expr_stmt|;
 name|proxy
 operator|->
+name|setTransform
+argument_list|(
+name|QTransform
+argument_list|()
+operator|.
 name|rotate
 argument_list|(
 literal|45
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|w

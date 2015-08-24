@@ -11558,7 +11558,7 @@ argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|edit
@@ -15085,7 +15085,7 @@ argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|le
@@ -26635,7 +26635,7 @@ name|QVERIFY
 argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|combo
