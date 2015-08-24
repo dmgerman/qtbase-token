@@ -18000,7 +18000,12 @@ parameter_list|()
 block|{
 name|QStringListModel
 operator|::
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|QStringListModel
+operator|::
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

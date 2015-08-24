@@ -1636,9 +1636,10 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|QAbstractTableModel
-operator|::
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}
@@ -21816,7 +21817,10 @@ name|void
 name|res
 parameter_list|()
 block|{
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}
