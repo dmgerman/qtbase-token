@@ -760,7 +760,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets whether to hide this option in the user-visible help output.      All options are visible by default. Setting \a hidden to true for     a particular option makes it internal, i.e. not listed in the help output.      \since 5.6     \sa isHidden  */
+comment|/*!     Sets whether to hide this option in the user-visible help output.      All options are visible by default. Setting \a hide to true for     a particular option makes it internal, i.e. not listed in the help output.      \since 5.6     \sa isHidden  */
 end_comment
 begin_function
 DECL|function|setHidden
