@@ -3657,10 +3657,7 @@ directive|ifndef
 name|QT_NO_QOBJECT
 end_ifndef
 begin_comment
-comment|/*!     \property QCoreApplication::quitLockEnabled      Returns \c true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns \c false.      \sa QEventLoopLocker */
-end_comment
-begin_comment
-comment|/*!     Returns \c true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns \c false.      \sa QEventLoopLocker  */
+comment|/*!     \property QCoreApplication::quitLockEnabled      \brief Whether the use of the QEventLoopLocker feature can cause the     application to quit.      The default is \c true.      \sa QEventLoopLocker */
 end_comment
 begin_function
 DECL|function|isQuitLockEnabled
@@ -3688,9 +3685,6 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|/*!     Enables the ability of the QEventLoopLocker feature to quit     the application.      If disabled, the use of QEventLoopLocker will not quit the application.      \sa QEventLoopLocker  */
-end_comment
 begin_function
 DECL|function|setQuitLockEnabled
 name|void
