@@ -143,12 +143,28 @@ argument_list|)
 block|{ }
 comment|// compiler-generated copy/move ctor/assignment operators are fine!
 comment|// compiler-generated dtor is fine!
+ifdef|#
+directive|ifdef
+name|Q_QDOC
+comment|// Stop qdoc from complaining about missing function
+operator|~
+name|QPointer
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_function
 specifier|inline
 name|void
 name|swap
-argument_list|(
-argument|QPointer&other
-argument_list|)
+parameter_list|(
+name|QPointer
+modifier|&
+name|other
+parameter_list|)
 block|{
 name|wp
 operator|.
@@ -158,7 +174,10 @@ name|other
 operator|.
 name|wp
 argument_list|)
-block|; }
+expr_stmt|;
+block|}
+end_function
+begin_expr_stmt
 specifier|inline
 name|QPointer
 operator|<
