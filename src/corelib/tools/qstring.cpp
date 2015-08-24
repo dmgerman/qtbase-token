@@ -11611,7 +11611,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \overload count()    Returns the number of occurrences of character \a ch in the string. */
+comment|/*!     \overload count()      Returns the number of occurrences of character \a ch in the string.      If \a cs is Qt::CaseSensitive (default), the search is     case sensitive; otherwise the search is case insensitive.      \sa contains(), indexOf() */
 end_comment
 begin_function
 DECL|function|count
