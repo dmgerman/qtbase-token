@@ -8329,7 +8329,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload operator==() */
+comment|/*!     \overload operator==()     Returns \c true if this string is equal to \a other; otherwise     returns \c false. */
 end_comment
 begin_function
 DECL|function|operator ==
