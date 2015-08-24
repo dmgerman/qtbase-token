@@ -772,9 +772,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|constructing
 name|void
@@ -1289,9 +1286,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|startWithOpen
 name|void
@@ -1407,9 +1401,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|startWithOldOpen
 name|void
@@ -1480,9 +1471,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|execute
 name|void
@@ -1525,9 +1513,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|startDetached
 name|void
@@ -1584,9 +1569,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|readFromProcess
 name|void
@@ -1622,9 +1604,6 @@ decl_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|crashTest
 name|void
@@ -2046,9 +2025,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|crashTest2
 name|void
@@ -2334,9 +2310,6 @@ end_ifndef
 begin_comment
 comment|//Reading and writing to a process is not supported on Qt/CE
 end_comment
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|echoTest_data
 name|void
@@ -2459,9 +2432,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|echoTest
 name|void
@@ -2701,9 +2671,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|exitLoopSlot
 name|void
@@ -2722,9 +2689,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -3025,9 +2989,6 @@ end_if
 begin_comment
 comment|// Reading and writing to a process is not supported on Qt/CE
 end_comment
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|echoTestGui
 name|void
@@ -3183,9 +3144,6 @@ directive|endif
 end_endif
 begin_comment
 comment|// !Q_OS_WINCE&& Q_OS_WIN
-end_comment
-begin_comment
-comment|//-----------------------------------------------------------------------------
 end_comment
 begin_if
 if|#
@@ -3344,9 +3302,6 @@ directive|endif
 end_endif
 begin_comment
 comment|// !Q_OS_WINCE&& Q_OS_WIN
-end_comment
-begin_comment
-comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
 DECL|function|exitStatus_data
@@ -3629,9 +3584,6 @@ literal|0
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -3761,9 +3713,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -4283,9 +4232,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -4431,9 +4377,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -4591,9 +4534,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -4787,9 +4727,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -5059,9 +4996,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -5272,9 +5206,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|hardExit
 name|void
@@ -5390,9 +5321,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|softExit
 name|void
@@ -5901,9 +5829,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|softExitInSlots_data
 name|void
@@ -5947,9 +5872,6 @@ literal|"testProcessEcho2/testProcessEcho2"
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|softExitInSlots
 name|void
@@ -6031,9 +5953,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -6175,9 +6094,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -6610,9 +6526,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -6867,9 +6780,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|processInAThread
 name|void
@@ -6924,9 +6834,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|processesInMultipleThreads
 name|void
@@ -7097,9 +7004,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -7182,9 +7086,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -7366,9 +7267,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -7425,9 +7323,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -7587,9 +7482,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -7637,9 +7529,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|spaceArgsTest_data
 name|void
@@ -8077,9 +7966,6 @@ name|result
 return|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|spaceArgsTest
 name|void
@@ -8468,9 +8354,6 @@ argument_list|(
 name|Q_OS_WIN
 argument_list|)
 end_if
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|nativeArguments
 name|void
@@ -8695,9 +8578,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|exitCodeTest
 name|void
@@ -8786,9 +8666,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|failToStart
 name|void
@@ -9318,9 +9195,6 @@ block|}
 block|}
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|failToStartWithWait
 name|void
@@ -9595,9 +9469,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|failToStartWithEventLoop
 name|void
@@ -10101,9 +9972,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -10191,9 +10059,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -10648,9 +10513,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -10864,9 +10726,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|systemEnvironment
 name|void
@@ -10971,9 +10830,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -11034,9 +10890,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|lockupsInStartDetached
 name|void
@@ -11093,9 +10946,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -11183,9 +11033,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|waitForReadyReadForNonexistantProcess
 name|void
@@ -11477,9 +11324,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -11645,9 +11489,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -11834,9 +11675,6 @@ literal|true
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -12208,9 +12046,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -12386,9 +12221,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -12559,9 +12391,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|detachedWorkingDirectoryAndPid
 name|void
@@ -12803,9 +12632,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -13121,9 +12947,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -13225,9 +13048,6 @@ literal|0
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|setNonExistentWorkingDirectory
 name|void
@@ -13317,9 +13137,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|startFinishStartFinish
 name|void
@@ -13429,9 +13246,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|invalidProgramString_data
 name|void
@@ -13622,9 +13436,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_function
 DECL|function|onlyOneStartedSignal
 name|void
@@ -13800,9 +13611,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//-----------------------------------------------------------------------------
-end_comment
 begin_class
 DECL|class|BlockOnReadStdOut
 class|class
