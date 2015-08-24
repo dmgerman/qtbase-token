@@ -158,7 +158,7 @@ begin_comment
 comment|/*!     \property QStateMachine::globalRestorePolicy      \brief the restore policy for states of this state machine.      The default value of this property is     QState::DontRestoreProperties. */
 end_comment
 begin_comment
-comment|/*!     \property QStateMachine::running     \since 5.4      \brief the running state of this state machine */
+comment|/*!     \property QStateMachine::running     \since 5.4      \brief the running state of this state machine      \sa start(), stop(), started(), stopped(), runningChanged() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -12966,9 +12966,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!   Returns whether this state machine is running.    \sa start(), stop() */
-end_comment
 begin_function
 DECL|function|isRunning
 name|bool
@@ -13159,9 +13156,6 @@ break|break;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!     Convenience functions to start/stop this state machine.      \sa start(), stop(), started(), finished(), stopped() */
-end_comment
 begin_function
 DECL|function|setRunning
 name|void
