@@ -6760,7 +6760,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tells the application to exit with return code 0 (success).     Equivalent to calling QCoreApplication::exit(0).      It's common to connect the QApplication::lastWindowClosed() signal     to quit(), and you also often connect e.g. QAbstractButton::clicked() or     signals in QAction, QMenu, or QMenuBar to it.      Example:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 1      \sa exit(), aboutToQuit(), QApplication::lastWindowClosed() */
+comment|/*!     Tells the application to exit with return code 0 (success).     Equivalent to calling QCoreApplication::exit(0).      It's common to connect the QGuiApplication::lastWindowClosed() signal     to quit(), and you also often connect e.g. QAbstractButton::clicked() or     signals in QAction, QMenu, or QMenuBar to it.      Example:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 1      \sa exit(), aboutToQuit(), QGuiApplication::lastWindowClosed() */
 end_comment
 begin_function
 DECL|function|quit
