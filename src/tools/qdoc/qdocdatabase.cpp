@@ -723,6 +723,9 @@ operator|.
 name|insert
 argument_list|(
 name|module
+operator|.
+name|toLower
+argument_list|()
 argument_list|,
 name|primaryTree_
 argument_list|)
