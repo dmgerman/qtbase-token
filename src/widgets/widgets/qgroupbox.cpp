@@ -2736,6 +2736,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|event
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
@@ -2870,6 +2878,11 @@ argument_list|,
 name|this
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|event
+operator|->
+name|ignore
+argument_list|()
 expr_stmt|;
 block|}
 end_function
