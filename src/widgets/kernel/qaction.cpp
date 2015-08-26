@@ -3682,7 +3682,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAction::iconVisibleInMenu     \brief Whether or not an action should show an icon in a menu     \since 4.4      In some applications, it may make sense to have actions with icons in the     toolbar, but not in menus. If true, the icon (if valid) is shown in the menu, when it     is false, it is not shown.      The default is to follow whether the Qt::AA_DontShowIconsInMenus attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute.      For example:     \snippet code/src_gui_kernel_qaction.cpp 0      \sa QAction::icon, QApplication::setAttribute() */
+comment|/*!     \property QAction::iconVisibleInMenu     \brief Whether or not an action should show an icon in a menu     \since 4.4      In some applications, it may make sense to have actions with icons in the     toolbar, but not in menus. If true, the icon (if valid) is shown in the menu, when it     is false, it is not shown.      The default is to follow whether the Qt::AA_DontShowIconsInMenus attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute.      For example:     \snippet code/src_gui_kernel_qaction.cpp 0      \sa QAction::icon, QCoreApplication::setAttribute() */
 end_comment
 begin_function
 DECL|function|setIconVisibleInMenu
