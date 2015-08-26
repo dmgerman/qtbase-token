@@ -3005,7 +3005,7 @@ name|QPlatformFileDialogHelper
 operator|::
 name|filterRegExp
 init|=
-literal|"^(.*)\\(([a-zA-Z0-9_.*? +;#\\-\\[\\]@\\{\\}/!<>\\$%&=^~:\\|]*)\\)$"
+literal|"^(.*)\\(([a-zA-Z0-9_.,*? +;#\\-\\[\\]@\\{\\}/!<>\\$%&=^~:\\|]*)\\)$"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -3035,6 +3035,14 @@ name|filterRegExp
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|regexp
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QString
 name|f
 init|=
