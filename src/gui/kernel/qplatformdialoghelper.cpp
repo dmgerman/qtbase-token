@@ -680,7 +680,20 @@ name|QPlatformDialogHelper
 operator|::
 name|QPlatformDialogHelper
 parameter_list|()
-block|{ }
+block|{
+name|qRegisterMetaType
+argument_list|<
+name|StandardButton
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|qRegisterMetaType
+argument_list|<
+name|ButtonRole
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QPlatformDialogHelper
