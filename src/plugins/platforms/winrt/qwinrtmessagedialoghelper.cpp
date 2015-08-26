@@ -20,6 +20,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qeventdispatcher_winrt_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<functional>
+end_include
+begin_include
+include|#
+directive|include
 file|<windows.ui.popups.h>
 end_include
 begin_include
@@ -793,12 +803,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|hr
+operator|=
+name|QEventDispatcherWinRT
+operator|::
+name|runOnXamlThread
+argument_list|(
+capture|[
+name|this
+capture|,
+name|d
+capture|,
+name|dialog
+capture|]
+parameter_list|()
+block|{
+name|HRESULT
+name|hr
+decl_stmt|;
 name|ComPtr
 argument_list|<
 name|IAsyncOperation
 argument_list|<
 name|IUICommand
-modifier|*
+operator|*
 argument_list|>
 argument_list|>
 name|op
@@ -813,7 +841,7 @@ operator|&
 name|op
 argument_list|)
 expr_stmt|;
-name|RETURN_FALSE_IF_FAILED
+name|RETURN_HR_IF_FAILED
 argument_list|(
 literal|"Failed to show dialog"
 argument_list|)
@@ -841,7 +869,7 @@ name|Get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|RETURN_FALSE_IF_FAILED
+name|RETURN_HR_IF_FAILED
 argument_list|(
 literal|"Failed to set dialog callback"
 argument_list|)
@@ -864,11 +892,21 @@ operator|->
 name|info
 argument_list|)
 expr_stmt|;
-name|RETURN_FALSE_IF_FAILED
+name|RETURN_HR_IF_FAILED
 argument_list|(
 literal|"Failed to acquire AsyncInfo for MessageDialog"
 argument_list|)
 expr_stmt|;
+return|return
+name|hr
+return|;
+block|}
+argument_list|)
+expr_stmt|;
+name|RETURN_FALSE_IF_FAILED
+argument_list|(
+literal|"Failed to show dialog"
+argument_list|)
 return|return
 literal|true
 return|;
