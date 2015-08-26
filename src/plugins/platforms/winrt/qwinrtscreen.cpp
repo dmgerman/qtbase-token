@@ -5895,6 +5895,10 @@ operator|->
 name|orientation
 argument_list|)
 expr_stmt|;
+name|handleExpose
+argument_list|()
+expr_stmt|;
+comment|// Clean broken frames caused by race between Qt and ANGLE
 block|}
 return|return
 name|S_OK
