@@ -24,10 +24,7 @@ directive|include
 file|"qt_mac_p.h"
 end_include
 begin_empty
-empty|#import<Cocoa/Cocoa.h>
-end_empty
-begin_empty
-empty|#import<AppKit/NSAccessibility.h>
+empty|#import<AppKit/AppKit.h>
 end_empty
 begin_empty
 empty|#import<qaccessible.h>

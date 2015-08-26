@@ -30,7 +30,7 @@ directive|undef
 name|slots
 end_undef
 begin_empty
-empty|#import<Cocoa/Cocoa.h>
+empty|#import<AppKit/AppKit.h>
 end_empty
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

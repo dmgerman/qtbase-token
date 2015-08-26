@@ -49,7 +49,7 @@ directive|include
 file|<QtCore/qglobal.h>
 end_include
 begin_empty
-empty|#import<Cocoa/Cocoa.h>
+empty|#import<AppKit/AppKit.h>
 end_empty
 begin_include
 include|#

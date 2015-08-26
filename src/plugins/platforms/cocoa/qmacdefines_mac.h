@@ -75,7 +75,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<Cocoa/Cocoa.h>
+file|<AppKit/AppKit.h>
 end_include
 begin_ifdef
 ifdef|#

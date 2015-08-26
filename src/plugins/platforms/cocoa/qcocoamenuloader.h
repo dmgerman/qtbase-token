@@ -44,7 +44,7 @@ begin_comment
 comment|//
 end_comment
 begin_empty
-empty|#import<Cocoa/Cocoa.h>
+empty|#import<AppKit/AppKit.h>
 end_empty
 begin_include
 include|#
