@@ -6126,8 +6126,6 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
-argument_list|,
-literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -6319,6 +6317,16 @@ operator|.
 name|chop
 argument_list|(
 literal|10
+argument_list|)
+expr_stmt|;
+comment|// replace invalid bundle id characters
+name|bundleIdentifier
+operator|.
+name|replace
+argument_list|(
+literal|'_'
+argument_list|,
+literal|'-'
 argument_list|)
 expr_stmt|;
 name|commonSedArgs

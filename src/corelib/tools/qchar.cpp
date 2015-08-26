@@ -102,8 +102,8 @@ comment|/*!     \fn void QChar::setRow(uchar row)     \internal */
 comment|/*!     \fn QChar::QChar()      Constructs a null QChar ('\\0').      \sa isNull() */
 comment|/*!     \fn QChar::QChar(QLatin1Char ch)      Constructs a QChar corresponding to ASCII/Latin-1 character \a ch. */
 comment|/*!     \fn QChar::QChar(SpecialCharacter ch)      Constructs a QChar for the predefined character value \a ch. */
-comment|/*!     \fn QChar::QChar(char ch)      Constructs a QChar corresponding to ASCII/Latin-1 character \a ch. */
-comment|/*!     \fn QChar::QChar(uchar ch)      Constructs a QChar corresponding to ASCII/Latin-1 character \a ch. */
+comment|/*!     \fn QChar::QChar(char ch)      Constructs a QChar corresponding to ASCII/Latin-1 character \a ch.      \note This constructor is not available when \c QT_NO_CAST_FROM_ASCII     is defined.      \sa QT_NO_CAST_FROM_ASCII */
+comment|/*!     \fn QChar::QChar(uchar ch)      Constructs a QChar corresponding to ASCII/Latin-1 character \a ch.      \note This constructor is not available when \c QT_NO_CAST_FROM_ASCII     is defined.      \sa QT_NO_CAST_FROM_ASCII */
 comment|/*!     \fn QChar::QChar(uchar cell, uchar row)      Constructs a QChar for Unicode cell \a cell in row \a row.      \sa cell(), row() */
 comment|/*!     \fn QChar::QChar(ushort code)      Constructs a QChar for the character with Unicode code point \a code. */
 comment|/*!     \fn QChar::QChar(short code)      Constructs a QChar for the character with Unicode code point \a code. */

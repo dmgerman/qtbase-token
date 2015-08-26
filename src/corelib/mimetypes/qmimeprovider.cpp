@@ -229,15 +229,6 @@ operator|::
 name|shouldCheck
 parameter_list|()
 block|{
-specifier|const
-name|QDateTime
-name|now
-init|=
-name|QDateTime
-operator|::
-name|currentDateTime
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|m_lastCheck
@@ -247,19 +238,20 @@ argument_list|()
 operator|&&
 name|m_lastCheck
 operator|.
-name|secsTo
-argument_list|(
-name|now
-argument_list|)
+name|elapsed
+argument_list|()
 operator|<
 name|qmime_secondsBetweenChecks
+operator|*
+literal|1000
 condition|)
 return|return
 literal|false
 return|;
 name|m_lastCheck
-operator|=
-name|now
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 return|return
 literal|true
@@ -3217,7 +3209,7 @@ argument_list|(
 literal|".xml"
 argument_list|)
 decl_stmt|;
-specifier|const
+comment|// shared-mime-info since 1.3 lowercases the xml files
 name|QStringList
 name|mimeFiles
 init|=
@@ -3237,6 +3229,9 @@ literal|"mime/"
 argument_list|)
 operator|+
 name|file
+operator|.
+name|toLower
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -3247,7 +3242,36 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// TODO: ask Thiago about this
+name|mimeFiles
+operator|=
+name|QStandardPaths
+operator|::
+name|locateAll
+argument_list|(
+name|QStandardPaths
+operator|::
+name|GenericDataLocation
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"mime/"
+argument_list|)
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+comment|// pre-1.3
+block|}
+if|if
+condition|(
+name|mimeFiles
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|qWarning
 argument_list|()
 operator|<<
@@ -3255,7 +3279,7 @@ literal|"No file found for"
 operator|<<
 name|file
 operator|<<
-literal|", even though the file appeared in a directory listing."
+literal|", even though update-mime-info said it would exist."
 expr_stmt|;
 name|qWarning
 argument_list|()
@@ -3688,6 +3712,14 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|&&
+operator|(
+name|data
+operator|.
+name|globPatterns
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
 name|data
 operator|.
 name|globPatterns
@@ -3696,6 +3728,7 @@ name|first
 argument_list|()
 operator|!=
 name|mainPattern
+operator|)
 condition|)
 block|{
 comment|// ensure it's first in the list of patterns

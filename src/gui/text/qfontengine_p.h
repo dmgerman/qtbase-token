@@ -1117,6 +1117,9 @@ name|uchar
 modifier|*
 name|cmap
 parameter_list|,
+name|int
+name|cmapSize
+parameter_list|,
 name|uint
 name|unicode
 parameter_list|)

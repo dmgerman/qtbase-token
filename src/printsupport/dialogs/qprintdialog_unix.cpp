@@ -4071,6 +4071,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|cur
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|cur
 operator|.
 name|at

@@ -2074,7 +2074,7 @@ name|f_blocks
 operator|*
 name|statfs_buf
 operator|.
-name|f_bsize
+name|f_frsize
 expr_stmt|;
 name|bytesFree
 operator|=
@@ -2084,7 +2084,7 @@ name|f_bfree
 operator|*
 name|statfs_buf
 operator|.
-name|f_bsize
+name|f_frsize
 expr_stmt|;
 name|bytesAvailable
 operator|=
@@ -2094,7 +2094,7 @@ name|f_bavail
 operator|*
 name|statfs_buf
 operator|.
-name|f_bsize
+name|f_frsize
 expr_stmt|;
 name|blockSize
 operator|=

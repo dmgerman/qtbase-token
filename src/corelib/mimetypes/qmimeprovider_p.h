@@ -63,6 +63,11 @@ include|#
 directive|include
 file|<QtCore/qset.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qelapsedtimer.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QMimeMagicRuleMatcher
@@ -219,7 +224,7 @@ name|bool
 name|shouldCheck
 parameter_list|()
 function_decl|;
-name|QDateTime
+name|QElapsedTimer
 name|m_lastCheck
 decl_stmt|;
 block|}

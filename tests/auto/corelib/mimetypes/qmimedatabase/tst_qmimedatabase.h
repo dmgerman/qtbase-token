@@ -44,6 +44,14 @@ name|initTestCase
 argument_list|()
 block|;
 name|void
+name|init
+argument_list|()
+block|;
+name|void
+name|cleanupTestCase
+argument_list|()
+block|;
+name|void
 name|mimeTypeForName
 argument_list|()
 block|;
@@ -164,7 +172,7 @@ block|;
 name|private
 operator|:
 name|void
-name|init
+name|initTestCaseInternal
 argument_list|()
 block|;
 comment|// test-specific
@@ -172,7 +180,7 @@ name|QString
 name|m_globalXdgDir
 block|;
 name|QString
-name|m_localXdgDir
+name|m_localMimeDir
 block|;
 name|QString
 name|m_yastMimeTypes
@@ -180,11 +188,17 @@ block|;
 name|QString
 name|m_qmlAgainFileName
 block|;
+name|QString
+name|m_textXObjCSrcFileName
+block|;
 name|QTemporaryDir
 name|m_temporaryDir
 block|;
 name|QString
 name|m_testSuite
+block|;
+name|bool
+name|m_isUsingCacheProvider
 block|; }
 decl_stmt|;
 end_decl_stmt

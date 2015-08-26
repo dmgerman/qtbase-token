@@ -4476,6 +4476,10 @@ name|s
 parameter_list|)
 specifier|const
 block|{
+name|s
+operator|%=
+name|SECS_PER_DAY
+expr_stmt|;
 return|return
 name|addMSecs
 argument_list|(

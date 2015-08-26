@@ -80,12 +80,21 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_macro
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-end_macro
-begin_comment
 comment|// TODO: Put channel specific stuff here so it does not polute qhttpnetworkconnection.cpp
-end_comment
+comment|// Because in-flight when sending a request, the server might close our connection (because the persistent HTTP
+comment|// connection times out)
+comment|// We use 3 because we can get a _q_error 3 times depending on the timing:
+DECL|variable|reconnectAttemptsDefault
+specifier|static
+specifier|const
+name|int
+name|reconnectAttemptsDefault
+init|=
+literal|3
+decl_stmt|;
+end_decl_stmt
 begin_constructor
 DECL|function|QHttpNetworkConnectionChannel
 name|QHttpNetworkConnectionChannel
@@ -145,7 +154,7 @@ argument_list|)
 member_init_list|,
 name|reconnectAttempts
 argument_list|(
-literal|2
+name|reconnectAttemptsDefault
 argument_list|)
 member_init_list|,
 name|authMethod
@@ -287,10 +296,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// We want all signals (except the interactive ones) be connected as QueuedConnection
-comment|// because else we're falling into cases where we recurse back into the socket code
-comment|// and mess up the state. Always going to the event loop (and expecting that when reading/writing)
-comment|// is safer.
+comment|// After some back and forth in all the last years, this is now a DirectConnection because otherwise
+comment|// the state inside the *Socket classes gets messed up, also in conjunction with the socket notifiers
+comment|// which behave slightly differently on Windows vs Linux
 name|QObject
 operator|::
 name|connect
@@ -317,7 +325,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|QueuedConnection
+name|DirectConnection
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -342,7 +350,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|QueuedConnection
+name|DirectConnection
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -367,7 +375,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|QueuedConnection
+name|DirectConnection
 argument_list|)
 expr_stmt|;
 comment|// The disconnected() and error() signals may already come
@@ -406,7 +414,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|QueuedConnection
+name|DirectConnection
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -439,7 +447,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|QueuedConnection
+name|DirectConnection
 argument_list|)
 expr_stmt|;
 ifndef|#
@@ -526,7 +534,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|QueuedConnection
+name|DirectConnection
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -621,7 +629,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|QueuedConnection
+name|DirectConnection
 argument_list|)
 expr_stmt|;
 if|if
@@ -1688,7 +1696,7 @@ comment|// reset the reconnection attempts after we receive a complete reply.
 comment|// in case of failures, each channel will attempt two reconnects before emitting error.
 name|reconnectAttempts
 operator|=
-literal|2
+name|reconnectAttemptsDefault
 expr_stmt|;
 comment|// now the channel can be seen as free/idle again, all signal emissions for the reply have been done
 if|if
@@ -2909,6 +2917,51 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|resendCurrentRequest
+name|void
+name|QHttpNetworkConnectionChannel
+operator|::
+name|resendCurrentRequest
+parameter_list|()
+block|{
+name|requeueCurrentlyPipelinedRequests
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|reply
+condition|)
+name|resendCurrent
+operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
+name|qobject_cast
+argument_list|<
+name|QHttpNetworkConnection
+operator|*
+argument_list|>
+argument_list|(
+name|connection
+argument_list|)
+condition|)
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|connection
+argument_list|,
+literal|"_q_startNextRequest"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|isSocketBusy
 name|bool
 name|QHttpNetworkConnectionChannel
@@ -3063,13 +3116,20 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// read the available data before closing
+comment|// read the available data before closing (also done in _q_error for other codepaths)
 if|if
 condition|(
+operator|(
 name|isSocketWaiting
 argument_list|()
 operator|||
 name|isSocketReading
+argument_list|()
+operator|)
+operator|&&
+name|socket
+operator|->
+name|bytesAvailable
 argument_list|()
 condition|)
 block|{
@@ -3125,8 +3185,9 @@ expr_stmt|;
 name|requeueCurrentlyPipelinedRequests
 argument_list|()
 expr_stmt|;
-name|close
-argument_list|()
+name|pendingEncrypt
+operator|=
+literal|false
 expr_stmt|;
 block|}
 end_function
@@ -3534,8 +3595,27 @@ name|QAbstractSocket
 operator|::
 name|RemoteHostClosedError
 case|:
-comment|// try to reconnect/resend before sending an error.
-comment|// while "Reading" the _q_disconnected() will handle this.
+comment|// This error for SSL comes twice in a row, first from SSL layer ("The TLS/SSL connection has been closed") then from TCP layer.
+comment|// Depending on timing it can also come three times in a row (first time when we try to write into a closing QSslSocket).
+comment|// The reconnectAttempts handling catches the cases where we can re-send the request.
+if|if
+condition|(
+operator|!
+name|reply
+operator|&&
+name|state
+operator|==
+name|QHttpNetworkConnectionChannel
+operator|::
+name|IdleState
+condition|)
+block|{
+comment|// Not actually an error, it is normal for Keep-Alive connections to close after some time if no request
+comment|// is sent on them. No need to error the other replies below. Just bail out here.
+comment|// The _q_disconnected will handle the possibly pipelined replies
+return|return;
+block|}
+elseif|else
 if|if
 condition|(
 name|state
@@ -3551,6 +3631,8 @@ operator|::
 name|ReadingState
 condition|)
 block|{
+comment|// Try to reconnect/resend before sending an error.
+comment|// While "Reading" the _q_disconnected() will handle this.
 if|if
 condition|(
 name|reconnectAttempts
@@ -3559,7 +3641,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|closeAndResendCurrentRequest
+name|resendCurrentRequest
 argument_list|()
 expr_stmt|;
 return|return;
@@ -3603,6 +3685,20 @@ argument_list|()
 condition|)
 block|{
 comment|// No content expected, this is a valid way to have the connection closed by the server
+comment|// We need to invoke this asynchronously to make sure the state() of the socket is on QAbstractSocket::UnconnectedState
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|this
+argument_list|,
+literal|"_q_receiveReply"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -3627,6 +3723,20 @@ condition|)
 block|{
 comment|// There was no content-length header and it's not chunked encoding,
 comment|// so this is a valid way to have the connection closed by the server
+comment|// We need to invoke this asynchronously to make sure the state() of the socket is on QAbstractSocket::UnconnectedState
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|this
+argument_list|,
+literal|"_q_receiveReply"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 comment|// ok, we got a disconnect even though we did not expect it
@@ -3649,80 +3759,47 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|_q_receiveReply
-argument_list|()
-expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_SSL
-if|if
-condition|(
-name|ssl
-condition|)
-block|{
-comment|// QT_NO_OPENSSL. The QSslSocket can still have encrypted bytes in the plainsocket.
-comment|// So we need to check this if the socket is a QSslSocket. When the socket is flushed
-comment|// it will force a decrypt of the encrypted data in the plainsocket.
-name|QSslSocket
-modifier|*
-name|sslSocket
-init|=
-cast|static_cast
-argument_list|<
-name|QSslSocket
-operator|*
-argument_list|>
+name|reply
+operator|->
+name|setDownstreamLimited
 argument_list|(
-name|socket
+literal|false
 argument_list|)
-decl_stmt|;
-name|qint64
-name|beforeFlush
-init|=
-name|sslSocket
-operator|->
-name|encryptedBytesAvailable
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|sslSocket
-operator|->
-name|encryptedBytesAvailable
-argument_list|()
-condition|)
-block|{
-name|sslSocket
-operator|->
-name|flush
-argument_list|()
 expr_stmt|;
 name|_q_receiveReply
 argument_list|()
 expr_stmt|;
-name|qint64
-name|afterFlush
-init|=
-name|sslSocket
-operator|->
-name|encryptedBytesAvailable
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|afterFlush
-operator|==
-name|beforeFlush
+operator|!
+name|reply
 condition|)
-break|break;
-name|beforeFlush
-operator|=
-name|afterFlush
+block|{
+comment|// No more reply assigned after the previous call? Then it had been finished successfully.
+name|requeueCurrentlyPipelinedRequests
+argument_list|()
 expr_stmt|;
+name|state
+operator|=
+name|QHttpNetworkConnectionChannel
+operator|::
+name|IdleState
+expr_stmt|;
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|connection
+argument_list|,
+literal|"_q_startNextRequest"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
-block|}
-endif|#
-directive|endif
 block|}
 name|errorCode
 operator|=
@@ -3763,7 +3840,7 @@ literal|0
 operator|)
 condition|)
 block|{
-name|closeAndResendCurrentRequest
+name|resendCurrentRequest
 argument_list|()
 expr_stmt|;
 return|return;
@@ -3813,7 +3890,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|closeAndResendCurrentRequest
+name|resendCurrentRequest
 argument_list|()
 expr_stmt|;
 return|return;
@@ -3839,7 +3916,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|closeAndResendCurrentRequest
+name|resendCurrentRequest
 argument_list|()
 expr_stmt|;
 return|return;
@@ -4086,10 +4163,50 @@ if|if
 condition|(
 name|that
 condition|)
+block|{
 comment|//signal emission triggered event loop
-name|close
-argument_list|()
+if|if
+condition|(
+operator|!
+name|socket
+condition|)
+name|state
+operator|=
+name|QHttpNetworkConnectionChannel
+operator|::
+name|IdleState
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|socket
+operator|->
+name|state
+argument_list|()
+operator|==
+name|QAbstractSocket
+operator|::
+name|UnconnectedState
+condition|)
+name|state
+operator|=
+name|QHttpNetworkConnectionChannel
+operator|::
+name|IdleState
+expr_stmt|;
+else|else
+name|state
+operator|=
+name|QHttpNetworkConnectionChannel
+operator|::
+name|ClosingState
+expr_stmt|;
+comment|// pendingEncrypt must only be true in between connected and encrypted states
+name|pendingEncrypt
+operator|=
+literal|false
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_ifndef
@@ -4205,6 +4322,10 @@ operator|::
 name|_q_uploadDataReadyRead
 parameter_list|()
 block|{
+if|if
+condition|(
+name|reply
+condition|)
 name|sendRequest
 argument_list|()
 expr_stmt|;

@@ -5883,11 +5883,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|m_dropTarget
-operator|->
-name|Release
-argument_list|()
-expr_stmt|;
 name|CoLockObjectExternal
 argument_list|(
 name|m_dropTarget
@@ -5896,6 +5891,11 @@ literal|false
 argument_list|,
 literal|true
 argument_list|)
+expr_stmt|;
+name|m_dropTarget
+operator|->
+name|Release
+argument_list|()
 expr_stmt|;
 name|RevokeDragDrop
 argument_list|(

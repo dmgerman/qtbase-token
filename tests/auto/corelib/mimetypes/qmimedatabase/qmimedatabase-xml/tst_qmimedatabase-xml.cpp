@@ -8,11 +8,11 @@ directive|include
 file|"../tst_qmimedatabase.h"
 end_include
 begin_function
-DECL|function|init
+DECL|function|initTestCaseInternal
 name|void
 name|tst_QMimeDatabase
 operator|::
-name|init
+name|initTestCaseInternal
 parameter_list|()
 block|{
 name|qputenv

@@ -2161,11 +2161,11 @@ name|QWidget
 modifier|*
 name|alien
 init|=
-name|m_widget
+name|receiver
 operator|->
 name|childAt
 argument_list|(
-name|m_widget
+name|receiver
 operator|->
 name|mapFromGlobal
 argument_list|(
@@ -2238,7 +2238,10 @@ name|e
 argument_list|,
 name|alien
 argument_list|,
-name|m_widget
+name|receiver
+operator|->
+name|window
+argument_list|()
 argument_list|,
 operator|&
 name|qt_button_down
