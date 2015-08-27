@@ -55,6 +55,12 @@ name|QTableWidget
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QTableWidgetItem
+name|class
+name|QTableWidgetItem
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QT_END_NAMESPACE
 name|class
 name|LocationDialog
@@ -104,6 +110,13 @@ operator|:
 name|void
 name|updateLocationsTable
 argument_list|()
+block|;
+name|void
+name|itemActivated
+argument_list|(
+name|QTableWidgetItem
+operator|*
+argument_list|)
 block|;
 name|private
 operator|:

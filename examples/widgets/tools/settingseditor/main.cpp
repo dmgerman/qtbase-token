@@ -34,6 +34,20 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
+name|QCoreApplication
+operator|::
+name|setApplicationName
+argument_list|(
+literal|"Settings Editor"
+argument_list|)
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|setApplicationVersion
+argument_list|(
+name|QT_VERSION_STR
+argument_list|)
+expr_stmt|;
 name|MainWindow
 name|mainWin
 decl_stmt|;
