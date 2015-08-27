@@ -159,11 +159,13 @@ name|QRect
 name|geometry
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|depth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 operator|::
@@ -171,6 +173,7 @@ name|Format
 name|format
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSizeF
 name|physicalSize
@@ -194,6 +197,7 @@ operator|*
 name|cursor
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -208,6 +212,7 @@ name|ScreenOrientation
 name|nativeOrientation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -215,6 +220,7 @@ name|ScreenOrientation
 name|orientation
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QWindow
 operator|*
