@@ -339,7 +339,7 @@ name|surface
 parameter_list|)
 function_decl|;
 DECL|member|eglGetProcAddress
-name|__eglMustCastToProperFunctionPointerType
+name|QFunctionPointer
 function_decl|(
 name|EGLAPIENTRY
 modifier|*
