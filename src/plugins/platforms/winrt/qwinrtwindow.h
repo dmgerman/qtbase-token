@@ -109,6 +109,13 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 name|QScopedPointer
