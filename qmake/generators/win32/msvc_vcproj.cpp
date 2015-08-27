@@ -8460,6 +8460,25 @@ name|dllPaths
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+operator|!
+operator|(
+name|conf
+operator|.
+name|WinRT
+operator|&&
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"MSVC_VER"
+argument_list|)
+operator|.
+name|toQString
+argument_list|()
+operator|==
+literal|"14.0"
+operator|)
 condition|)
 block|{
 comment|// FIXME: This code should actually resolve the libraries from all Qt modules.

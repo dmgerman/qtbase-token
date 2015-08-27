@@ -5456,7 +5456,7 @@ literal|"application/x-qt-image"
 argument_list|)
 condition|)
 block|{
-comment|//add DIBV5 if image has alpha channel
+comment|//add DIBV5 if image has alpha channel. Do not add CF_PNG here as it will confuse MS Office (QTBUG47656).
 name|QImage
 name|image
 init|=
@@ -5498,14 +5498,6 @@ argument_list|(
 name|CF_DIB
 argument_list|)
 expr_stmt|;
-name|formatetcs
-operator|+=
-name|setCf
-argument_list|(
-name|CF_PNG
-argument_list|)
-expr_stmt|;
-comment|// QTBUG-86848, Paste into GIMP queries for PNG.
 block|}
 return|return
 name|formatetcs
@@ -5677,8 +5669,6 @@ condition|)
 return|return
 literal|false
 return|;
-comment|// QTBUG-11463, deny CF_DIB support for images with alpha to prevent loss of
-comment|// transparency in conversion.
 return|return
 name|cf
 operator|==
@@ -5688,12 +5678,6 @@ operator|(
 name|cf
 operator|==
 name|CF_DIB
-operator|&&
-operator|!
-name|image
-operator|.
-name|hasAlphaChannel
-argument_list|()
 operator|)
 operator|||
 name|cf

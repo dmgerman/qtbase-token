@@ -7520,6 +7520,27 @@ condition|)
 name|destroySslContext
 argument_list|()
 expr_stmt|;
+else|else
+block|{
+comment|// Move all bytes into the plain buffer
+name|qint64
+name|tmpReadBufferMaxSize
+init|=
+name|readBufferMaxSize
+decl_stmt|;
+name|readBufferMaxSize
+operator|=
+literal|0
+expr_stmt|;
+comment|// reset temporarily so the plain socket buffer is completely drained
+name|transmit
+argument_list|()
+expr_stmt|;
+name|readBufferMaxSize
+operator|=
+name|tmpReadBufferMaxSize
+expr_stmt|;
+block|}
 comment|//if there is still buffered data in the plain socket, don't destroy the ssl context yet.
 comment|//it will be destroyed when the socket is deleted.
 block|}

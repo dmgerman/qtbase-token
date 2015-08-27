@@ -2765,7 +2765,7 @@ define|#
 directive|define
 name|HSPACE_LIST
 define|\
-value|CHAR_HT, CHAR_SPACE, 0xa0, \   0x1680, 0x180e, 0x2000, 0x2001, 0x2002, 0x2003, 0x2004, 0x2005, \   0x2006, 0x2007, 0x2008, 0x2009, 0x200A, 0x202f, 0x205f, 0x3000, \   NOTACHAR
+value|CHAR_HT, CHAR_SPACE, CHAR_NBSP, \   0x1680, 0x180e, 0x2000, 0x2001, 0x2002, 0x2003, 0x2004, 0x2005, \   0x2006, 0x2007, 0x2008, 0x2009, 0x200A, 0x202f, 0x205f, 0x3000, \   NOTACHAR
 end_define
 begin_define
 DECL|macro|HSPACE_MULTIBYTE_CASES
@@ -2814,11 +2814,8 @@ define|#
 directive|define
 name|HSPACE_BYTE_CASES
 define|\
-value|case CHAR_HT: \   case CHAR_SPACE: \   case 0xa0
+value|case CHAR_HT: \   case CHAR_SPACE: \   case CHAR_NBSP
 end_define
-begin_comment
-comment|/* NBSP */
-end_comment
 begin_define
 DECL|macro|HSPACE_CASES
 define|#
@@ -2876,7 +2873,7 @@ DECL|macro|HSPACE_LIST
 define|#
 directive|define
 name|HSPACE_LIST
-value|CHAR_HT, CHAR_SPACE
+value|CHAR_HT, CHAR_SPACE, CHAR_NBSP, NOTACHAR
 end_define
 begin_define
 DECL|macro|HSPACE_BYTE_CASES
@@ -2884,7 +2881,7 @@ define|#
 directive|define
 name|HSPACE_BYTE_CASES
 define|\
-value|case CHAR_HT: \   case CHAR_SPACE
+value|case CHAR_HT: \   case CHAR_SPACE: \   case CHAR_NBSP
 end_define
 begin_define
 DECL|macro|HSPACE_CASES
@@ -3425,6 +3422,13 @@ name|CHAR_DEL
 value|'\007'
 end_define
 begin_define
+DECL|macro|CHAR_NBSP
+define|#
+directive|define
+name|CHAR_NBSP
+value|'\x41'
+end_define
+begin_define
 DECL|macro|STR_ESC
 define|#
 directive|define
@@ -3482,6 +3486,13 @@ define|#
 directive|define
 name|CHAR_DEL
 value|'\177'
+end_define
+begin_define
+DECL|macro|CHAR_NBSP
+define|#
+directive|define
+name|CHAR_NBSP
+value|((unsigned char)'\xa0')
 end_define
 begin_define
 DECL|macro|STR_LF
@@ -5996,6 +6007,13 @@ name|CHAR_TILDE
 value|'\176'
 end_define
 begin_define
+DECL|macro|CHAR_NBSP
+define|#
+directive|define
+name|CHAR_NBSP
+value|((unsigned char)'\xa0')
+end_define
+begin_define
 DECL|macro|STR_HT
 define|#
 directive|define
@@ -7020,6 +7038,22 @@ end_comment
 begin_comment
 comment|/* Escape items that are just an encoding of a particular data value. */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ESC_a
+end_ifndef
+begin_define
+DECL|macro|ESC_a
+define|#
+directive|define
+name|ESC_a
+value|CHAR_BEL
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -9303,6 +9337,11 @@ name|BOOL
 name|dupnames
 decl_stmt|;
 comment|/* Duplicate names exist */
+DECL|member|dupgroups
+name|BOOL
+name|dupgroups
+decl_stmt|;
+comment|/* Duplicate groups exist: (?| found */
 DECL|member|iscondassert
 name|BOOL
 name|iscondassert

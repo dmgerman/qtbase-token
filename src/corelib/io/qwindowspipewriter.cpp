@@ -258,12 +258,9 @@ name|data
 operator|.
 name|append
 argument_list|(
-name|QByteArray
-argument_list|(
 name|ptr
 argument_list|,
 name|maxlen
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|waitCondition

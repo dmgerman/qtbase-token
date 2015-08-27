@@ -5982,14 +5982,9 @@ operator|.
 name|textWidth
 operator|+
 name|softHyphenWidth
-operator|-
-name|qMin
-argument_list|(
-name|rightBearing
-argument_list|,
-name|QFixed
+operator|+
+name|negativeRightBearing
 argument_list|()
-argument_list|)
 return|;
 block|}
 DECL|function|currentGlyph
@@ -6070,10 +6065,10 @@ expr_stmt|;
 comment|// needed to calculate right bearing later
 block|}
 block|}
-DECL|function|adjustRightBearing
+DECL|function|calculateRightBearing
 specifier|inline
 name|void
-name|adjustRightBearing
+name|calculateRightBearing
 parameter_list|(
 name|glyph_t
 name|glyph
@@ -6094,26 +6089,32 @@ operator|&
 name|rb
 argument_list|)
 expr_stmt|;
+comment|// We only care about negative right bearings, so we limit the range
+comment|// of the bearing here so that we can assume it's negative in the rest
+comment|// of the code, as well ase use QFixed(1) as a sentinel to represent
+comment|// the state where we have yet to compute the right bearing.
 name|rightBearing
 operator|=
 name|qMin
 argument_list|(
-name|QFixed
-argument_list|()
-argument_list|,
 name|QFixed
 operator|::
 name|fromReal
 argument_list|(
 name|rb
 argument_list|)
+argument_list|,
+name|QFixed
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|adjustRightBearing
+DECL|function|calculateRightBearing
 specifier|inline
 name|void
-name|adjustRightBearing
+name|calculateRightBearing
 parameter_list|()
 block|{
 if|if
@@ -6123,17 +6124,17 @@ operator|<=
 literal|0
 condition|)
 return|return;
-name|adjustRightBearing
+name|calculateRightBearing
 argument_list|(
 name|currentGlyph
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|adjustPreviousRightBearing
+DECL|function|calculateRightBearingForPreviousGlyph
 specifier|inline
 name|void
-name|adjustPreviousRightBearing
+name|calculateRightBearingForPreviousGlyph
 parameter_list|()
 block|{
 if|if
@@ -6142,12 +6143,18 @@ name|previousGlyph
 operator|>
 literal|0
 condition|)
-name|adjustRightBearing
+name|calculateRightBearing
 argument_list|(
 name|previousGlyph
 argument_list|)
 expr_stmt|;
 block|}
+DECL|member|RightBearingNotCalculated
+specifier|static
+specifier|const
+name|QFixed
+name|RightBearingNotCalculated
+decl_stmt|;
 DECL|function|resetRightBearing
 specifier|inline
 name|void
@@ -6156,16 +6163,51 @@ parameter_list|()
 block|{
 name|rightBearing
 operator|=
+name|RightBearingNotCalculated
+expr_stmt|;
+block|}
+comment|// We express the negative right bearing as an absolute number
+comment|// so that it can be applied to the width using addition.
+DECL|function|negativeRightBearing
+specifier|inline
+name|QFixed
+name|negativeRightBearing
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+name|rightBearing
+operator|==
+name|RightBearingNotCalculated
+condition|)
+return|return
+name|QFixed
+argument_list|(
+literal|0
+argument_list|)
+return|;
+return|return
+name|qAbs
+argument_list|(
+name|rightBearing
+argument_list|)
+return|;
+block|}
+block|}
+struct|;
+DECL|member|RightBearingNotCalculated
+specifier|const
+name|QFixed
+name|LineBreakHelper
+operator|::
+name|RightBearingNotCalculated
+init|=
 name|QFixed
 argument_list|(
 literal|1
 argument_list|)
-expr_stmt|;
-comment|// Any positive number is defined as invalid since only
-comment|// negative right bearings are interesting to us.
-block|}
-block|}
-struct|;
+decl_stmt|;
 DECL|function|checkFullOtherwiseExtend
 specifier|inline
 name|bool
@@ -7261,7 +7303,7 @@ operator|++
 expr_stmt|;
 name|lbh
 operator|.
-name|adjustPreviousRightBearing
+name|calculateRightBearingForPreviousGlyph
 argument_list|()
 expr_stmt|;
 block|}
@@ -7772,12 +7814,6 @@ index|]
 index|]
 expr_stmt|;
 block|}
-comment|// The actual width of the text needs to take the right bearing into account. The
-comment|// right bearing is left-ward, which means that if the rightmost pixel is to the right
-comment|// of the advance of the glyph, the bearing will be negative. We flip the sign
-comment|// for the code to be more readable. Logic borrowed from qfontmetrics.cpp.
-comment|// We ignore the right bearing if the minimum negative bearing is too little to
-comment|// expand the text beyond the edge.
 if|if
 condition|(
 name|sb_or_ws
@@ -7785,14 +7821,21 @@ operator||
 name|breakany
 condition|)
 block|{
+comment|// To compute the final width of the text we need to take negative right bearing
+comment|// into account (negative right bearing means the glyph has pixel data past the
+comment|// advance length). Note that the negative right bearing is an absolute number,
+comment|// so that we can apply it to the width using straight forward addition.
+comment|// Store previous right bearing (for the already accepted glyph) in case we
+comment|// end up breaking due to the current glyph being too wide.
 name|QFixed
-name|rightBearing
+name|previousRightBearing
 init|=
 name|lbh
 operator|.
 name|rightBearing
 decl_stmt|;
-comment|// store previous right bearing
+comment|// We ignore the right bearing if the minimum negative bearing is too little to
+comment|// expand the text beyond the edge.
 if|if
 condition|(
 name|lbh
@@ -7812,7 +7855,7 @@ name|width
 condition|)
 name|lbh
 operator|.
-name|adjustRightBearing
+name|calculateRightBearing
 argument_list|()
 expr_stmt|;
 if|if
@@ -7825,24 +7868,27 @@ name|line
 argument_list|)
 condition|)
 block|{
-comment|// we are too wide, fix right bearing
+comment|// We are too wide to accept the next glyph with its bearing, so we restore the
+comment|// right bearing to that of the previous glyph (the one that was already accepted),
+comment|// so that the bearing can be be applied to the final width of the text below.
 if|if
 condition|(
-name|rightBearing
-operator|<=
-literal|0
+name|previousRightBearing
+operator|!=
+name|LineBreakHelper
+operator|::
+name|RightBearingNotCalculated
 condition|)
 name|lbh
 operator|.
 name|rightBearing
 operator|=
-name|rightBearing
+name|previousRightBearing
 expr_stmt|;
-comment|// take from cache
 else|else
 name|lbh
 operator|.
-name|adjustPreviousRightBearing
+name|calculateRightBearingForPreviousGlyph
 argument_list|()
 expr_stmt|;
 if|if
@@ -7900,25 +7946,6 @@ argument_list|)
 expr_stmt|;
 name|found
 label|:
-if|if
-condition|(
-name|lbh
-operator|.
-name|rightBearing
-operator|>
-literal|0
-operator|&&
-operator|!
-name|lbh
-operator|.
-name|whiteSpaceOrObject
-condition|)
-comment|// If right bearing has not yet been adjusted
-name|lbh
-operator|.
-name|adjustRightBearing
-argument_list|()
-expr_stmt|;
 name|line
 operator|.
 name|textAdvance
@@ -7927,19 +7954,36 @@ name|line
 operator|.
 name|textWidth
 expr_stmt|;
-name|line
-operator|.
-name|textWidth
-operator|-=
-name|qMin
-argument_list|(
-name|QFixed
-argument_list|()
-argument_list|,
+comment|// If right bearing has not been calculated yet, do that now
+if|if
+condition|(
 name|lbh
 operator|.
 name|rightBearing
-argument_list|)
+operator|==
+name|LineBreakHelper
+operator|::
+name|RightBearingNotCalculated
+operator|&&
+operator|!
+name|lbh
+operator|.
+name|whiteSpaceOrObject
+condition|)
+name|lbh
+operator|.
+name|calculateRightBearing
+argument_list|()
+expr_stmt|;
+comment|// Then apply any negative right bearing
+name|line
+operator|.
+name|textWidth
+operator|+=
+name|lbh
+operator|.
+name|negativeRightBearing
+argument_list|()
 expr_stmt|;
 if|if
 condition|(

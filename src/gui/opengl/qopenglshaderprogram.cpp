@@ -1669,14 +1669,20 @@ expr_stmt|;
 block|}
 comment|// The precision qualifiers are useful on OpenGL/ES systems,
 comment|// but usually not present on desktop systems.
-specifier|const
-name|QSurfaceFormat
-name|currentSurfaceFormat
+name|QOpenGLContext
+modifier|*
+name|ctx
 init|=
 name|QOpenGLContext
 operator|::
 name|currentContext
 argument_list|()
+decl_stmt|;
+specifier|const
+name|QSurfaceFormat
+name|currentSurfaceFormat
+init|=
+name|ctx
 operator|->
 name|format
 argument_list|()
@@ -1791,10 +1797,51 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// Append #line directive in order to compensate for text insertion
 name|QByteArray
 name|lineDirective
+decl_stmt|;
+comment|// #line is rejected by some drivers:
+comment|// "2.1 Mesa 8.1-devel (git-48a3d4e)" or "MESA 2.1 Mesa 8.1-devel"
+specifier|const
+name|char
+modifier|*
+name|version
 init|=
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|char
+operator|*
+argument_list|>
+argument_list|(
+name|ctx
+operator|->
+name|functions
+argument_list|()
+operator|->
+name|glGetString
+argument_list|(
+name|GL_VERSION
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|version
+operator|||
+operator|!
+name|strstr
+argument_list|(
+name|version
+argument_list|,
+literal|"2.1 Mesa 8"
+argument_list|)
+condition|)
+block|{
+comment|// Append #line directive in order to compensate for text insertion
+name|lineDirective
+operator|=
 name|QStringLiteral
 argument_list|(
 literal|"#line %1\n"
@@ -1809,7 +1856,7 @@ argument_list|)
 operator|.
 name|toUtf8
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|sourceChunks
 operator|.
 name|append
@@ -1833,6 +1880,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Append rest of shader code
 name|sourceChunks
 operator|.

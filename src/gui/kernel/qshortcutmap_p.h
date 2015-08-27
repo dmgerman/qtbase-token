@@ -272,9 +272,10 @@ operator|::
 name|SequenceMatch
 name|find
 argument_list|(
-name|QKeyEvent
-operator|*
-name|e
+argument|QKeyEvent *e
+argument_list|,
+argument|int ignoredModifiers =
+literal|0
 argument_list|)
 expr_stmt|;
 name|QKeySequence
@@ -311,6 +312,9 @@ name|QKeySequence
 operator|>
 operator|&
 name|ksl
+argument_list|,
+name|int
+name|ignoredModifiers
 argument_list|)
 decl_stmt|;
 name|void

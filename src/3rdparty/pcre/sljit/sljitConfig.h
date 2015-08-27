@@ -208,6 +208,28 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|/* Force cdecl calling convention even if a better calling    convention (e.g. fastcall) is supported by the C compiler.    If this option is enabled, C functions without    SLJIT_CALL can also be called from JIT code. */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|SLJIT_USE_CDECL_CALLING_CONVENTION
+end_ifndef
+begin_comment
+comment|/* Disabled by default */
+end_comment
+begin_define
+DECL|macro|SLJIT_USE_CDECL_CALLING_CONVENTION
+define|#
+directive|define
+name|SLJIT_USE_CDECL_CALLING_CONVENTION
+value|0
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|/* Return with error when an invalid argument is passed. */
 end_comment
 begin_ifndef
