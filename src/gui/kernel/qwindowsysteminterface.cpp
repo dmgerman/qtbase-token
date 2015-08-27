@@ -1110,6 +1110,15 @@ operator|::
 name|ShortcutOverride
 argument_list|)
 expr_stmt|;
+name|QGuiApplicationPrivate
+operator|::
+name|modifier_buttons
+operator|=
+name|ev
+operator|->
+name|modifiers
+argument_list|()
+expr_stmt|;
 name|QObject
 modifier|*
 name|focus
