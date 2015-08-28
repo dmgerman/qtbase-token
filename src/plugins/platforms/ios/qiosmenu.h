@@ -452,6 +452,15 @@ name|visibleMenuItems
 argument_list|()
 specifier|const
 block|;
+name|QIOSMenuItemList
+name|filterFirstResponderActions
+argument_list|(
+specifier|const
+name|QIOSMenuItemList
+operator|&
+name|menuItems
+argument_list|)
+block|;
 name|void
 name|repositionMenu
 argument_list|()
