@@ -362,11 +362,10 @@ literal|4000
 argument_list|,
 name|this
 argument_list|,
-name|SLOT
-argument_list|(
+operator|&
+name|GLWindow
+operator|::
 name|startSecondStage
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

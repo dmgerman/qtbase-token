@@ -854,11 +854,10 @@ name|interval
 argument_list|,
 name|this
 argument_list|,
-name|SLOT
-argument_list|(
+operator|&
+name|RenderWindow
+operator|::
 name|render
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
