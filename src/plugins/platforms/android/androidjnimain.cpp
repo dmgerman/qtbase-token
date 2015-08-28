@@ -1866,11 +1866,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|ret
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|m_mainLibraryHnd
@@ -1937,6 +1932,12 @@ name|vm
 operator|->
 name|DetachCurrentThread
 argument_list|()
+expr_stmt|;
+comment|// We must call exit() to ensure that all global objects will be destructed
+name|exit
+argument_list|(
+name|ret
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
