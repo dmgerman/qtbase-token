@@ -1597,6 +1597,8 @@ specifier|const
 name|int
 name|width
 init|=
+name|qMax
+argument_list|(
 name|widgets
 operator|.
 name|at
@@ -1606,6 +1608,9 @@ argument_list|)
 operator|->
 name|width
 argument_list|()
+argument_list|,
+literal|1
+argument_list|)
 decl_stmt|;
 specifier|const
 name|int
@@ -4662,18 +4667,6 @@ name|child
 operator|->
 name|isShaded
 argument_list|()
-operator|&&
-operator|!
-operator|(
-name|child
-operator|->
-name|windowFlags
-argument_list|()
-operator|&
-name|Qt
-operator|::
-name|FramelessWindowHint
-operator|)
 condition|)
 name|widgets
 operator|.

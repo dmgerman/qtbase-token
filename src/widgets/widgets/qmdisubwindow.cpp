@@ -12469,6 +12469,16 @@ name|baseWidget
 operator|->
 name|isHidden
 argument_list|()
+operator|&&
+operator|!
+operator|(
+name|windowFlags
+argument_list|()
+operator|&
+name|Qt
+operator|::
+name|FramelessWindowHint
+operator|)
 condition|)
 block|{
 name|d
