@@ -56,6 +56,10 @@ name|Startup
 init|=
 literal|5
 block|,
+name|TypeInformationVersion
+init|=
+literal|6
+block|,
 name|LastHookIndex
 block|}
 enum|;

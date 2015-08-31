@@ -8,6 +8,30 @@ directive|include
 file|<QtTest>
 end_include
 begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Note:
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// When this test here fails and the change leading to the failure
+end_comment
+begin_comment
+comment|// intentionally changed a private class, adjust the test here and bump
+end_comment
+begin_comment
+comment|// the TypeInformationVersion field in src/corelib/global/qhooks.cpp
+end_comment
+begin_comment
+comment|// in the same commit as the modification to the private class.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
 comment|// Don't do this at home. This is test code, not production.
 end_comment
 begin_define

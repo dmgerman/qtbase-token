@@ -17,7 +17,7 @@ name|qtHookData
 index|[]
 init|=
 block|{
-literal|2
+literal|3
 block|,
 comment|// hook data version
 name|QHooks
@@ -38,6 +38,15 @@ comment|// you get as an argument is already largely invalid.
 literal|0
 block|,
 comment|// Startup, void(*)(), called once QCoreApplication is operational
+literal|0
+block|,
+comment|// TypeInformationVersion, an integral value, bumped whenever private
+comment|// object sizes or member offsets that are used in Qt Creator's
+comment|// data structure "pretty printing" change.
+comment|//
+comment|// The required sizes and offsets are tested in tests/auto/other/toolsupport.
+comment|// When this fails and the change was intentional, adjust the test and
+comment|// adjust this value here.
 literal|0
 block|}
 decl_stmt|;

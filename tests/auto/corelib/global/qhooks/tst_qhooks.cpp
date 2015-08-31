@@ -52,7 +52,7 @@ operator|::
 name|HookDataVersion
 index|]
 operator|>=
-literal|1
+literal|3
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
