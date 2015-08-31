@@ -1483,10 +1483,15 @@ name|AA_DontCreateNativeWidgetSiblings
 init|=
 literal|4
 block|,
-name|AA_MacPluginApplication
+name|AA_PluginApplication
 init|=
 literal|5
 block|,
+name|AA_MacPluginApplication
+init|=
+name|AA_PluginApplication
+block|,
+comment|// ### Qt 6: remove me
 name|AA_DontUseNativeMenuBar
 init|=
 literal|6

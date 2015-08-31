@@ -9523,7 +9523,7 @@ directive|ifndef
 name|QT_NO_QOBJECT
 end_ifndef
 begin_comment
-comment|/*!     Installs an event filter \a filterObj for all native events     received by the application in the main thread.      The event filter \a filterObj receives events via its \l {QAbstractNativeEventFilter::}{nativeEventFilter()}     function, which is called for all native events received in the main thread.      The QAbstractNativeEventFilter::nativeEventFilter() function should return true if the event should     be filtered, (i.e. stopped). It should return false to allow     normal Qt processing to continue: the native event can then be translated     into a QEvent and handled by the standard Qt \l{QEvent} {event} filtering,     e.g. QObject::installEventFilter().      If multiple event filters are installed, the filter that was     installed last is activated first.      \note The filter function set here receives native messages,     i.e. MSG or XCB event structs.      \note Native event filters will be disabled when the application the     Qt::AA_MacPluginApplication attribute is set.      For maximum portability, you should always try to use QEvent     and QObject::installEventFilter() whenever possible.      \sa QObject::installEventFilter()      \since 5.0 */
+comment|/*!     Installs an event filter \a filterObj for all native events     received by the application in the main thread.      The event filter \a filterObj receives events via its \l {QAbstractNativeEventFilter::}{nativeEventFilter()}     function, which is called for all native events received in the main thread.      The QAbstractNativeEventFilter::nativeEventFilter() function should return true if the event should     be filtered, (i.e. stopped). It should return false to allow     normal Qt processing to continue: the native event can then be translated     into a QEvent and handled by the standard Qt \l{QEvent} {event} filtering,     e.g. QObject::installEventFilter().      If multiple event filters are installed, the filter that was     installed last is activated first.      \note The filter function set here receives native messages,     i.e. MSG or XCB event structs.      \note Native event filters will be disabled when the application the     Qt::AA_PluginApplication attribute is set.      For maximum portability, you should always try to use QEvent     and QObject::installEventFilter() whenever possible.      \sa QObject::installEventFilter()      \since 5.0 */
 end_comment
 begin_function
 DECL|function|installNativeEventFilter
@@ -9545,13 +9545,13 @@ name|testAttribute
 argument_list|(
 name|Qt
 operator|::
-name|AA_MacPluginApplication
+name|AA_PluginApplication
 argument_list|)
 condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Native event filters are not applied when the Qt::AA_MacPluginApplication attribute is set"
+literal|"Native event filters are not applied when the Qt::AA_PluginApplication attribute is set"
 argument_list|)
 expr_stmt|;
 return|return;
