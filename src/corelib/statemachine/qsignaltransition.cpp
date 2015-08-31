@@ -224,6 +224,9 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!   \fn QSignalTransition::QSignalTransition(const QObject *sender,                        PointerToMemberFunction signal, QState *sourceState);   \since 5.7   \overload    Constructs a new signal transition associated with the given \a signal of   the given \a sender object and with the given \a sourceSate.   This constructor is enabled if compiler supports delegating constructor.    \sa Q_COMPILER_DELEGATING_CONSTRUCTORS */
+end_comment
+begin_comment
 comment|/*!   Destroys this signal transition. */
 end_comment
 begin_destructor

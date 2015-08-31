@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtCore/qabstracttransition.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qmetaobject.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -75,6 +80,49 @@ operator|=
 name|Q_NULLPTR
 argument_list|)
 block|;
+ifdef|#
+directive|ifdef
+name|Q_QDOC
+name|QSignalTransition
+argument_list|(
+argument|const QObject *object
+argument_list|,
+argument|PointerToMemberFunction signal
+argument_list|,
+argument|QState *sourceState = Q_NULLPTR
+argument_list|)
+block|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_COMPILER_DELEGATING_CONSTRUCTORS
+argument_list|)
+name|template
+operator|<
+name|typename
+name|Func
+operator|>
+name|QSignalTransition
+argument_list|(
+argument|const typename QtPrivate::FunctionPointer<Func>::Object *obj
+argument_list|,
+argument|Func sig
+argument_list|,
+argument|QState *srcState = Q_NULLPTR
+argument_list|)
+operator|:
+name|QSignalTransition
+argument_list|(
+argument|obj
+argument_list|,
+argument|QMetaMethod::fromSignal(sig).methodSignature().constData()
+argument_list|,
+argument|srcState
+argument_list|)
+block|{     }
+endif|#
+directive|endif
 operator|~
 name|QSignalTransition
 argument_list|()
