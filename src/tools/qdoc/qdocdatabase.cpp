@@ -7912,20 +7912,6 @@ operator|.
 name|trimmed
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|Generator
-operator|::
-name|debugging
-argument_list|()
-condition|)
-name|qDebug
-argument_list|()
-operator|<<
-literal|"  first:"
-operator|<<
-name|first
-expr_stmt|;
 name|Tree
 modifier|*
 name|domain
@@ -8265,20 +8251,6 @@ name|relative
 argument_list|,
 name|genus
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|Generator
-operator|::
-name|debugging
-argument_list|()
-condition|)
-name|qDebug
-argument_list|()
-operator|<<
-literal|"  node:"
-operator|<<
-name|node
 expr_stmt|;
 block|}
 else|else
