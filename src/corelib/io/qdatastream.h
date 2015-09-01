@@ -249,7 +249,7 @@ name|Qt_5_4
 block|,
 name|Qt_5_6
 init|=
-name|Qt_5_5
+literal|17
 block|,
 if|#
 directive|if
