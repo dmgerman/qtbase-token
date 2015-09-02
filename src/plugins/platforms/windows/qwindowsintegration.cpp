@@ -845,6 +845,19 @@ name|dpiAwarenessSet
 condition|)
 block|{
 comment|// Set only once in case of repeated instantiations of QGuiApplication.
+if|if
+condition|(
+operator|!
+name|QCoreApplication
+operator|::
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|AA_PluginApplication
+argument_list|)
+condition|)
+block|{
 name|m_context
 operator|.
 name|setProcessDpiAwareness
@@ -852,11 +865,6 @@ argument_list|(
 name|dpiAwareness
 argument_list|)
 expr_stmt|;
-name|dpiAwarenessSet
-operator|=
-literal|true
-expr_stmt|;
-block|}
 name|qCDebug
 argument_list|(
 name|lcQpaWindows
@@ -868,6 +876,12 @@ literal|"DpiAwareness="
 operator|<<
 name|dpiAwareness
 expr_stmt|;
+block|}
+name|dpiAwarenessSet
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|QTouchDevice
 modifier|*
 name|touchDevice
