@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEVDEVTABLET_P_H
+name|QEVDEVTABLETHANDLER_P_H
 end_ifndef
 begin_define
-DECL|macro|QEVDEVTABLET_P_H
+DECL|macro|QEVDEVTABLETHANDLER_P_H
 define|#
 directive|define
-name|QEVDEVTABLET_P_H
+name|QEVDEVTABLETHANDLER_P_H
 end_define
 begin_comment
 comment|//
@@ -65,6 +65,12 @@ file|<QtCore/private/qthread_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QSocketNotifier
+name|class
+name|QSocketNotifier
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QEvdevTabletData
 name|class
 name|QEvdevTabletData
@@ -86,6 +92,11 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
+name|device
+argument_list|,
+specifier|const
+name|QString
+operator|&
 name|spec
 operator|=
 name|QString
@@ -102,6 +113,11 @@ operator|~
 name|QEvdevTabletHandler
 argument_list|()
 block|;
+name|qint64
+name|deviceId
+argument_list|()
+specifier|const
+block|;
 name|private
 name|slots
 operator|:
@@ -111,6 +127,20 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|bool
+name|queryLimits
+argument_list|()
+block|;
+name|int
+name|m_fd
+block|;
+name|QString
+name|m_device
+block|;
+name|QSocketNotifier
+operator|*
+name|m_notifier
+block|;
 name|QEvdevTabletData
 operator|*
 name|d
@@ -129,6 +159,11 @@ operator|:
 name|explicit
 name|QEvdevTabletHandlerThread
 argument_list|(
+specifier|const
+name|QString
+operator|&
+name|device
+argument_list|,
 specifier|const
 name|QString
 operator|&
@@ -162,6 +197,9 @@ block|}
 name|private
 operator|:
 name|QString
+name|m_device
+block|;
+name|QString
 name|m_spec
 block|;
 name|QEvdevTabletHandler
@@ -178,6 +216,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEVDEVTABLET_P_H
+comment|// QEVDEVTABLETHANDLER_P_H
 end_comment
 end_unit
