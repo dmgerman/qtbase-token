@@ -213,6 +213,9 @@ end_comment
 begin_comment
 comment|/*!     \fn QWeakPointer<X> qWeakPointerCast(const QWeakPointer<T>&other)     \relates QWeakPointer      Returns a weak pointer to the pointer held by \a other, cast to     type \tt X. The types \tt T and \tt X must belong to one     hierarchy for the \tt static_cast to succeed.      Note that \tt X must have the same cv-qualifiers (\tt const and     \tt volatile) that \tt T has, or the code will fail to     compile. Use qSharedPointerConstCast to cast away the constness. */
 end_comment
+begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug debug, const QSharedPointer<T>&ptr)     \relates QSharedPointer     \since 5.7      Writes the pointer tracked by \a ptr into the debug object \a debug for     debugging purposes.      \sa {Debugging Techniques} */
+end_comment
 begin_include
 include|#
 directive|include
