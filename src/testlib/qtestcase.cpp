@@ -8008,10 +8008,8 @@ name|ExceptionRecord
 operator|->
 name|ExceptionAddress
 decl_stmt|;
-name|fprintf
+name|printf
 argument_list|(
-name|stderr
-argument_list|,
 literal|"A crash occurred in %s.\n\n"
 literal|"Exception address: 0x%p\n"
 literal|"Exception code   : 0x%lx\n"
@@ -8064,10 +8062,8 @@ operator|.
 name|name
 condition|)
 block|{
-name|fprintf
+name|printf
 argument_list|(
-name|stderr
-argument_list|,
 literal|"Nearby symbol    : %s\n"
 argument_list|,
 name|exceptionSymbol
@@ -8093,7 +8089,7 @@ name|fputs
 argument_list|(
 literal|"\nStack:\n"
 argument_list|,
-name|stderr
+name|stdout
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -8154,10 +8150,8 @@ operator|.
 name|name
 condition|)
 block|{
-name|fprintf
+name|printf
 argument_list|(
-name|stderr
-argument_list|,
 literal|"#%3u: %s() - 0x%p\n"
 argument_list|,
 name|f
@@ -8187,10 +8181,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|fprintf
+name|printf
 argument_list|(
-name|stderr
-argument_list|,
 literal|"#%3u: Unable to obtain symbol\n"
 argument_list|,
 name|f
@@ -8205,7 +8197,12 @@ name|fputc
 argument_list|(
 literal|'\n'
 argument_list|,
-name|stderr
+name|stdout
+argument_list|)
+expr_stmt|;
+name|fflush
+argument_list|(
+name|stdout
 argument_list|)
 expr_stmt|;
 return|return
