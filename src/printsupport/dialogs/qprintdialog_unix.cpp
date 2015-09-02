@@ -570,6 +570,14 @@ argument_list|(
 name|parent
 argument_list|)
 block|{
+name|setWindowTitle
+argument_list|(
+name|tr
+argument_list|(
+literal|"Printer Properties"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QVBoxLayout
 modifier|*
 name|lay
