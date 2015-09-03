@@ -3326,9 +3326,17 @@ argument_list|(
 name|bytesToRead
 operator|-
 operator|(
+operator|(
 name|readBytes
 operator|<
 literal|0
+operator|||
+operator|!
+name|q
+operator|->
+name|isReadable
+argument_list|()
+operator|)
 condition|?
 name|qint64
 argument_list|(
