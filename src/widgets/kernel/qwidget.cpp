@@ -32687,7 +32687,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Closes this widget. Returns \c true if the widget was closed;     otherwise returns \c false.      First it sends the widget a QCloseEvent. The widget is     \l{hide()}{hidden} if it \l{QCloseEvent::accept()}{accepts}     the close event. If it \l{QCloseEvent::ignore()}{ignores}     the event, nothing happens. The default     implementation of QWidget::closeEvent() accepts the close event.      If the widget has the Qt::WA_DeleteOnClose flag, the widget     is also deleted. A close events is delivered to the widget no     matter if the widget is visible or not.      The \l QApplication::lastWindowClosed() signal is emitted when the     last visible primary window (i.e. window with no parent) with the     Qt::WA_QuitOnClose attribute set is closed. By default this     attribute is set for all widgets except transient windows such as     splash screens, tool windows, and popup menus.  */
+comment|/*!     Closes this widget. Returns \c true if the widget was closed;     otherwise returns \c false.      First it sends the widget a QCloseEvent. The widget is     \l{hide()}{hidden} if it \l{QEvent::accept()}{accepts}     the close event. If it \l{QEvent::ignore()}{ignores}     the event, nothing happens. The default     implementation of QWidget::closeEvent() accepts the close event.      If the widget has the Qt::WA_DeleteOnClose flag, the widget     is also deleted. A close events is delivered to the widget no     matter if the widget is visible or not.      The \l QApplication::lastWindowClosed() signal is emitted when the     last visible primary window (i.e. window with no parent) with the     Qt::WA_QuitOnClose attribute set is closed. By default this     attribute is set for all widgets except transient windows such as     splash screens, tool windows, and popup menus.  */
 end_comment
 begin_function
 DECL|function|close
@@ -36528,7 +36528,7 @@ directive|ifndef
 name|QT_NO_WHEELEVENT
 end_ifndef
 begin_comment
-comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive wheel events for the widget.      If you reimplement this handler, it is very important that you     \l{QWheelEvent}{ignore()} the event if you do not handle     it, so that the widget's parent can interpret it.      The default implementation ignores the event.      \sa QWheelEvent::ignore(), QWheelEvent::accept(), event(),     QWheelEvent */
+comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive wheel events for the widget.      If you reimplement this handler, it is very important that you     \l{QEvent}{ignore()} the event if you do not handle     it, so that the widget's parent can interpret it.      The default implementation ignores the event.      \sa QEvent::ignore(), QEvent::accept(), event(),     QWheelEvent */
 end_comment
 begin_function
 DECL|function|wheelEvent
@@ -36562,7 +36562,7 @@ directive|ifndef
 name|QT_NO_TABLETEVENT
 end_ifndef
 begin_comment
-comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive tablet events for the widget.      If you reimplement this handler, it is very important that you     \l{QTabletEvent}{ignore()} the event if you do not handle     it, so that the widget's parent can interpret it.      The default implementation ignores the event.      \sa QTabletEvent::ignore(), QTabletEvent::accept(), event(),     QTabletEvent */
+comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive tablet events for the widget.      If you reimplement this handler, it is very important that you     \l{QEvent}{ignore()} the event if you do not handle     it, so that the widget's parent can interpret it.      The default implementation ignores the event.      \sa QEvent::ignore(), QEvent::accept(), event(),     QTabletEvent */
 end_comment
 begin_function
 DECL|function|tabletEvent
@@ -36646,7 +36646,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive key release events for the widget.      A widget must \l{setFocusPolicy()}{accept focus}     initially and \l{hasFocus()}{have focus} in order to     receive a key release event.      If you reimplement this handler, it is very important that you     call the base class implementation if you do not act upon the key.      The default implementation ignores the event, so that the widget's     parent can interpret it.      Note that QKeyEvent starts with isAccepted() == true, so you do not     need to call QKeyEvent::accept() - just do not call the base class     implementation if you act upon the key.      \sa keyPressEvent(), QKeyEvent::ignore(), setFocusPolicy(),     focusInEvent(), focusOutEvent(), event(), QKeyEvent */
+comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive key release events for the widget.      A widget must \l{setFocusPolicy()}{accept focus}     initially and \l{hasFocus()}{have focus} in order to     receive a key release event.      If you reimplement this handler, it is very important that you     call the base class implementation if you do not act upon the key.      The default implementation ignores the event, so that the widget's     parent can interpret it.      Note that QKeyEvent starts with isAccepted() == true, so you do not     need to call QKeyEvent::accept() - just do not call the base class     implementation if you act upon the key.      \sa keyPressEvent(), QEvent::ignore(), setFocusPolicy(),     focusInEvent(), focusOutEvent(), event(), QKeyEvent */
 end_comment
 begin_function
 DECL|function|keyReleaseEvent

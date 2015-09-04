@@ -11,7 +11,7 @@ begin_comment
 comment|/*!   \enum QTest::QBenchmarkMetric   \since 4.7    This enum lists all the things that can be benchmarked.    \value FramesPerSecond        Frames per second   \value BitsPerSecond          Bits per second   \value BytesPerSecond         Bytes per second   \value WalltimeMilliseconds   Clock time in milliseconds   \value WalltimeNanoseconds    Clock time in nanoseconds   \value BytesAllocated         Memory usage in bytes   \value Events                 Event count   \value CPUTicks               CPU time   \value CPUMigrations          Process migrations between CPUs   \value CPUCycles              CPU cycles   \value BusCycles              Bus cycles   \value StalledCycles          Cycles stalled   \value InstructionReads       Instruction reads   \value Instructions           Instructions executed   \value BranchInstructions     Branch-type instructions   \value BranchMisses           Branch instructions that were mispredicted   \value CacheReferences        Cache accesses of any type   \value CacheMisses            Cache misses of any type   \value CacheReads             Cache reads / loads   \value CacheReadMisses        Cache read / load misses   \value CacheWrites            Cache writes / stores   \value CacheWriteMisses       Cache write / store misses   \value CachePrefetches        Cache prefetches   \value CachePrefetchMisses    Cache prefetch misses   \value ContextSwitches        Context switches   \value PageFaults             Page faults of any type   \value MinorPageFaults        Minor page faults   \value MajorPageFaults        Major page faults   \value AlignmentFaults        Faults caused due to misalignment   \value EmulationFaults        Faults that needed software emulation    \sa QTest::benchmarkMetricName(), QTest::benchmarkMetricUnit()    Note that \c WalltimeNanoseconds and \c BytesAllocated are   only provided for use via \l setBenchmarkResult(), and results   in those metrics are not able to be provided automatically   by the QTest framework.  */
 end_comment
 begin_comment
-comment|/*!   \relates QTest   \since 4.7   Returns the enum value \a metric as a character string.  */
+comment|/*!   \since 4.7   Returns the enum value \a metric as a character string.  */
 end_comment
 begin_function
 DECL|function|benchmarkMetricName
@@ -222,7 +222,7 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_comment
-comment|/*!   \relates QTest   \since 4.7   Retuns the units of measure for the specified \a metric.  */
+comment|/*!   \since 4.7   Retuns the units of measure for the specified \a metric.  */
 end_comment
 begin_function
 DECL|function|benchmarkMetricUnit
