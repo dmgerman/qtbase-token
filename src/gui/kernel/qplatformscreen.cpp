@@ -108,9 +108,10 @@ argument_list|)
 expr_stmt|;
 name|QGuiApplicationPrivate
 operator|::
-name|screen_list
-operator|.
-name|removeOne
+name|platformIntegration
+argument_list|()
+operator|->
+name|removeScreen
 argument_list|(
 name|d
 operator|->
