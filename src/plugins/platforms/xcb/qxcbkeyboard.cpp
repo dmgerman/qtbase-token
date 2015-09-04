@@ -8052,6 +8052,9 @@ operator|!
 name|filtered
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 if|if
 condition|(
 name|type
@@ -8112,6 +8115,9 @@ name|modifiers
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 name|QWindowSystemInterface
 operator|::
 name|handleExtendedKeyEvent

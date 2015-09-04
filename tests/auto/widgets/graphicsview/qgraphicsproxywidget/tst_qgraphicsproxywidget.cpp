@@ -469,10 +469,16 @@ name|void
 name|createProxyForChildWidget
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|void
 name|actionsContextMenu
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 name|void
 name|actionsContextMenu_data
 parameter_list|()
@@ -19556,6 +19562,11 @@ name|boxProxy
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
+end_ifndef
 begin_class
 DECL|class|ContextMenuWidget
 class|class
@@ -19764,6 +19775,13 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_CONTEXTMENU
+end_comment
 begin_function
 DECL|function|actionsContextMenu_data
 name|void
@@ -19838,6 +19856,11 @@ literal|false
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
+end_ifndef
 begin_function
 DECL|function|actionsContextMenu
 name|void
@@ -20166,6 +20189,13 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_CONTEXTMENU
+end_comment
 begin_function
 DECL|function|deleteProxyForChildWidget
 name|void

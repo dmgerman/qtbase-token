@@ -872,6 +872,9 @@ name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 argument_list|(
@@ -879,6 +882,9 @@ argument|QContextMenuEvent *e
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 name|void
 name|inputMethodEvent
 argument_list|(

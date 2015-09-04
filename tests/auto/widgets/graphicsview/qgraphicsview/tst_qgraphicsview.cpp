@@ -2432,6 +2432,9 @@ operator|::
 name|UngrabMouse
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|QContextMenuEvent
 name|contextEvent
 argument_list|(
@@ -2492,6 +2495,9 @@ operator|::
 name|GraphicsSceneContextMenu
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 block|}
 name|view
 operator|.
@@ -2587,6 +2593,9 @@ operator|::
 name|GraphicsSceneContextMenu
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|QContextMenuEvent
 name|contextEvent
 argument_list|(
@@ -2643,6 +2652,9 @@ operator|::
 name|GraphicsSceneContextMenu
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 block|}
 block|}
 end_function

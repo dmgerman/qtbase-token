@@ -9314,6 +9314,9 @@ argument_list|,
 literal|32
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|QMenu
 modifier|*
 name|menu
@@ -9374,6 +9377,9 @@ name|pixelSize
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 comment|//task 242556
 name|QComboBox
 name|box

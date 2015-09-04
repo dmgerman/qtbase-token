@@ -432,6 +432,9 @@ argument|QMouseEvent *ev
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 argument_list|(
@@ -439,6 +442,9 @@ argument|QContextMenuEvent *ev
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 name|void
 name|focusInEvent
 argument_list|(

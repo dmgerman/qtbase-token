@@ -6748,6 +6748,9 @@ operator|<<
 literal|')'
 expr_stmt|;
 break|break;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 case|case
 name|QEvent
 operator|::
@@ -6773,6 +6776,9 @@ operator|<<
 literal|')'
 expr_stmt|;
 break|break;
+endif|#
+directive|endif
+comment|// !QT_NO_CONTEXTMENU
 ifndef|#
 directive|ifndef
 name|QT_NO_TABLETEVENT

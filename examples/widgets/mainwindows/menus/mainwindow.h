@@ -60,6 +60,9 @@ argument_list|()
 block|;
 name|protected
 operator|:
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 argument_list|(
@@ -67,6 +70,9 @@ argument|QContextMenuEvent *event
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 comment|//! [0]
 comment|//! [1]
 name|private

@@ -1862,6 +1862,9 @@ operator|!
 name|retval
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|QWindow
 modifier|*
 name|window
@@ -1939,6 +1942,9 @@ name|modifiers
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 name|QKeyEvent
 name|event
 argument_list|(

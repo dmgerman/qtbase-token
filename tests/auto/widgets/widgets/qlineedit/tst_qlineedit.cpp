@@ -12453,6 +12453,9 @@ operator|.
 name|selectAll
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|QMenu
 modifier|*
 name|menu
@@ -12531,6 +12534,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 block|}
 end_function
 begin_function

@@ -2769,6 +2769,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
+end_ifndef
 begin_comment
 comment|/*!\reimp */
 end_comment
@@ -2784,16 +2789,6 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_CONTEXTMENU
-name|Q_UNUSED
-argument_list|(
-name|ev
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|Q_D
 argument_list|(
 name|QLabel
@@ -2865,10 +2860,15 @@ name|globalPos
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_CONTEXTMENU
+end_comment
 begin_comment
 comment|/*!     \reimp */
 end_comment

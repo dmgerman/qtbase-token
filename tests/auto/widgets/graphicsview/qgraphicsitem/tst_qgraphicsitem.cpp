@@ -1691,10 +1691,16 @@ name|void
 name|untransformable
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEventPropagation
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 name|void
 name|itemIsMovable
 parameter_list|()
@@ -40223,6 +40229,9 @@ expr_stmt|;
 block|}
 block|}
 protected|protected:
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 DECL|function|contextMenuEvent
 name|void
 name|contextMenuEvent
@@ -40247,6 +40256,9 @@ name|this
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 DECL|function|dragEnterEvent
 name|void
 name|dragEnterEvent
@@ -40832,6 +40844,9 @@ operator|.
 name|advance
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 if|if
 condition|(
 operator|!
@@ -40872,6 +40887,9 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_CONTEXTMENU
 if|if
 condition|(
 operator|!
@@ -48608,6 +48626,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
+end_ifndef
 begin_class
 DECL|class|ContextMenuItem
 class|class
@@ -48994,6 +49017,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_CONTEXTMENU
+end_comment
 begin_function
 DECL|function|itemIsMovable
 name|void

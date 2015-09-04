@@ -2010,6 +2010,9 @@ name|void
 name|renderItemsWithNegativeWidthOrHeight
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 parameter_list|()
@@ -2018,6 +2021,8 @@ name|void
 name|contextMenuEvent_ItemIgnoresTransformations
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|update
 parameter_list|()
@@ -24549,6 +24554,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
+end_ifndef
 begin_function
 DECL|function|contextMenuEvent
 name|void
@@ -25088,6 +25098,13 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_CONTEXTMENU
+end_comment
 begin_function
 DECL|function|update
 name|void

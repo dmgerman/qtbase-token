@@ -336,6 +336,9 @@ argument_list|(
 name|parent
 argument_list|)
 block|{ }
+ifndef|#
+directive|ifndef
+name|QT_NO_CONTEXTMENU
 name|void
 name|contextMenuEvent
 parameter_list|(
@@ -345,9 +348,6 @@ name|e
 parameter_list|)
 name|Q_DECL_OVERRIDE
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_CONTEXTMENU
 name|QMenu
 modifier|*
 name|menu
@@ -374,16 +374,10 @@ name|globalPos
 argument_list|()
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
+block|}
 endif|#
 directive|endif
-block|}
+comment|// QT_NO_CONTEXTMENU
 block|}
 class|;
 DECL|function|QMessageBoxDetailsText
