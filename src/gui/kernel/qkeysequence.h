@@ -283,6 +283,8 @@ block|,
 name|DeleteCompleteLine
 block|,
 name|Backspace
+block|,
+name|Cancel
 block|}
 decl_stmt|;
 name|Q_ENUM

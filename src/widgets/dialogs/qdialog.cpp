@@ -1915,28 +1915,16 @@ block|{
 comment|//   Calls reject() if Escape is pressed. Simulates a button
 comment|//   click for the default button if Enter is pressed. Move focus
 comment|//   for the arrow keys. Ignore the rest.
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
 if|if
 condition|(
 name|e
 operator|->
-name|modifiers
-argument_list|()
-operator|==
-name|Qt
+name|matches
+argument_list|(
+name|QKeySequence
 operator|::
-name|ControlModifier
-operator|&&
-name|e
-operator|->
-name|key
-argument_list|()
-operator|==
-name|Qt
-operator|::
-name|Key_Period
+name|Cancel
+argument_list|)
 condition|)
 block|{
 name|reject
@@ -1944,8 +1932,6 @@ argument_list|()
 expr_stmt|;
 block|}
 elseif|else
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -2066,15 +2052,6 @@ return|return;
 block|}
 block|}
 block|}
-break|break;
-case|case
-name|Qt
-operator|::
-name|Key_Escape
-case|:
-name|reject
-argument_list|()
-expr_stmt|;
 break|break;
 default|default:
 name|e

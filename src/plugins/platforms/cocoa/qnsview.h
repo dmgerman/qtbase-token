@@ -178,6 +178,10 @@ name|m_scrolling
 block|;
 name|bool
 name|m_exposedOnMoveToWindow
+block|;
+name|NSEvent
+operator|*
+name|m_currentlyInterpretedKeyEvent
 block|; }
 operator|-
 operator|(
@@ -777,20 +781,6 @@ operator|(
 name|void
 operator|)
 name|keyUp
-operator|:
-operator|(
-name|NSEvent
-operator|*
-operator|)
-name|theEvent
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-operator|-
-operator|(
-name|BOOL
-operator|)
-name|performKeyEquivalent
 operator|:
 operator|(
 name|NSEvent

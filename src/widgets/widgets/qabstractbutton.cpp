@@ -4672,13 +4672,18 @@ expr_stmt|;
 block|}
 break|break;
 block|}
-case|case
-name|Qt
-operator|::
-name|Key_Escape
-case|:
+default|default:
 if|if
 condition|(
+name|e
+operator|->
+name|matches
+argument_list|(
+name|QKeySequence
+operator|::
+name|Cancel
+argument_list|)
+operator|&&
 name|d
 operator|->
 name|down
@@ -4703,10 +4708,8 @@ operator|->
 name|emitReleased
 argument_list|()
 expr_stmt|;
-break|break;
+return|return;
 block|}
-comment|// fall through
-default|default:
 name|e
 operator|->
 name|ignore

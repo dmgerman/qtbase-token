@@ -11596,12 +11596,12 @@ if|if
 condition|(
 name|keyEvent
 operator|->
-name|key
-argument_list|()
-operator|==
-name|Qt
+name|matches
+argument_list|(
+name|QKeySequence
 operator|::
-name|Key_Escape
+name|Cancel
+argument_list|)
 condition|)
 name|dateChanged
 operator|=
