@@ -1777,7 +1777,7 @@ block|}
 end_function
 begin_function
 DECL|function|handleExtendedKeyEvent
-name|void
+name|bool
 name|QWindowSystemInterface
 operator|::
 name|handleExtendedKeyEvent
@@ -1831,6 +1831,7 @@ operator|.
 name|elapsed
 argument_list|()
 decl_stmt|;
+return|return
 name|handleExtendedKeyEvent
 argument_list|(
 name|w
@@ -1855,12 +1856,12 @@ name|autorep
 argument_list|,
 name|count
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_function
 DECL|function|handleExtendedKeyEvent
-name|void
+name|bool
 name|QWindowSystemInterface
 operator|::
 name|handleExtendedKeyEvent
@@ -1947,13 +1948,14 @@ argument_list|,
 name|count
 argument_list|)
 decl_stmt|;
+return|return
 name|QWindowSystemInterfacePrivate
 operator|::
 name|handleWindowSystemEvent
 argument_list|(
 name|e
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_function
