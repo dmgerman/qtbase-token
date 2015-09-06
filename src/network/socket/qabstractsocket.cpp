@@ -1171,7 +1171,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// only emit readyRead() when not recursing, and only if there is data available
+comment|// Only emit readyRead() if there is data available.
 name|bool
 name|hasData
 init|=
@@ -1217,32 +1217,11 @@ operator|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|emittedReadyRead
-operator|&&
 name|hasData
 condition|)
-block|{
-name|QScopedValueRollback
-argument_list|<
-name|bool
-argument_list|>
-name|r
-argument_list|(
-name|emittedReadyRead
-argument_list|)
-decl_stmt|;
-name|emittedReadyRead
-operator|=
-literal|true
-expr_stmt|;
-emit|emit
-name|q
-operator|->
-name|readyRead
+name|emitReadyRead
 argument_list|()
-emit|;
-block|}
+expr_stmt|;
 comment|// If we were closed as a result of the readyRead() signal,
 comment|// return.
 if|if
@@ -1439,12 +1418,9 @@ comment|// then we could get another FD_READ. The disconnect will
 comment|// then occur when we read from the socket again and fail
 comment|// in canReadNotification or by the manually created
 comment|// closeNotification below.
-emit|emit
-name|q
-operator|->
-name|readyRead
+name|emitReadyRead
 argument_list|()
-emit|;
+expr_stmt|;
 name|QMetaObject
 operator|::
 name|invokeMethod
@@ -1472,12 +1448,9 @@ operator|&&
 name|socketEngine
 condition|)
 block|{
-emit|emit
-name|q
-operator|->
-name|readyRead
+name|emitReadyRead
 argument_list|()
-emit|;
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -3435,6 +3408,51 @@ block|}
 return|return
 literal|true
 return|;
+block|}
+end_function
+begin_comment
+comment|/*! \internal      Prevents from the recursive readyRead() emission. */
+end_comment
+begin_function
+DECL|function|emitReadyRead
+name|void
+name|QAbstractSocketPrivate
+operator|::
+name|emitReadyRead
+parameter_list|()
+block|{
+name|Q_Q
+argument_list|(
+name|QAbstractSocket
+argument_list|)
+expr_stmt|;
+comment|// Only emit readyRead() when not recursing.
+if|if
+condition|(
+operator|!
+name|emittedReadyRead
+condition|)
+block|{
+name|QScopedValueRollback
+argument_list|<
+name|bool
+argument_list|>
+name|r
+argument_list|(
+name|emittedReadyRead
+argument_list|)
+decl_stmt|;
+name|emittedReadyRead
+operator|=
+literal|true
+expr_stmt|;
+emit|emit
+name|q
+operator|->
+name|readyRead
+argument_list|()
+emit|;
+block|}
 block|}
 end_function
 begin_comment

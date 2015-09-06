@@ -401,6 +401,10 @@ name|bool
 name|readFromSocket
 parameter_list|()
 function_decl|;
+name|void
+name|emitReadyRead
+parameter_list|()
+function_decl|;
 name|qint64
 name|readBufferMaxSize
 decl_stmt|;
