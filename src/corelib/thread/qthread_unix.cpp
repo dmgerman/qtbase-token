@@ -199,23 +199,6 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
-end_ifdef
-begin_include
-include|#
-directive|include
-file|<CoreServices/CoreServices.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_OS_MACX
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
 name|old_qDebug
 end_ifdef
 begin_undef

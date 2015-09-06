@@ -15,6 +15,11 @@ end_ifndef
 begin_include
 include|#
 directive|include
+file|<CFNetwork/CFNetwork.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<CoreFoundation/CoreFoundation.h>
 end_include
 begin_include
