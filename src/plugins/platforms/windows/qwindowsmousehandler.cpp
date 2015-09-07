@@ -1733,8 +1733,33 @@ name|window
 else|:
 literal|0
 expr_stmt|;
+comment|// QTBUG-48117, force synchronous handling for the extra buttons so that WM_APPCOMMAND
+comment|// is sent for unhandled WM_XBUTTONDOWN.
 return|return
-literal|true
+operator|(
+name|msg
+operator|.
+name|message
+operator|!=
+name|WM_XBUTTONUP
+operator|&&
+name|msg
+operator|.
+name|message
+operator|!=
+name|WM_XBUTTONDOWN
+operator|&&
+name|msg
+operator|.
+name|message
+operator|!=
+name|WM_XBUTTONDBLCLK
+operator|)
+operator|||
+name|QWindowSystemInterface
+operator|::
+name|flushWindowSystemEvents
+argument_list|()
 return|;
 block|}
 end_function
