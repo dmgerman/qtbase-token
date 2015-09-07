@@ -7071,6 +7071,15 @@ operator|&
 name|ev
 argument_list|)
 expr_stmt|;
+name|e
+operator|->
+name|eventAccepted
+operator|=
+name|ev
+operator|.
+name|isAccepted
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|!

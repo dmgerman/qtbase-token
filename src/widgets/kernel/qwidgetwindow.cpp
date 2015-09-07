@@ -2899,6 +2899,16 @@ argument_list|,
 name|qt_last_mouse_receiver
 argument_list|)
 expr_stmt|;
+name|event
+operator|->
+name|setAccepted
+argument_list|(
+name|translated
+operator|.
+name|isAccepted
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 ifndef|#
 directive|ifndef
