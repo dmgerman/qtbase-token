@@ -579,6 +579,26 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+name|QAquaWidgetSize
+name|effectiveAquaSizeConstrain
+argument_list|(
+argument|const QStyleOption *option
+argument_list|,
+argument|const QWidget *widg
+argument_list|,
+argument|QStyle::ContentsType ct = QStyle::CT_CustomBase
+argument_list|,
+argument|QSize szHint=QSize(-
+literal|1
+argument|, -
+literal|1
+argument|)
+argument_list|,
+argument|QSize *insz =
+literal|0
+argument_list|)
+specifier|const
+block|;
 name|void
 name|getSliderInfo
 argument_list|(
