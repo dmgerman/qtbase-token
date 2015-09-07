@@ -1374,7 +1374,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value at index position \a i as a modifiable reference.     \a i must be a valid index position in the array (i.e., \c{0<= i<     size()}).      The return value is of type \keyword QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type \keyword QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa at()  */
+comment|/*!     Returns the value at index position \a i as a modifiable reference.     \a i must be a valid index position in the array (i.e., \c{0<= i<     size()}).      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa at()  */
 end_comment
 begin_function
 DECL|function|operator []
@@ -1662,13 +1662,13 @@ begin_comment
 comment|/*! \fn QJsonArray::iterator::iterator(QJsonArray *array, int index)     \internal */
 end_comment
 begin_comment
-comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator*() const       Returns a modifiable reference to the current item.      You can change the value of an item by using operator*() on the     left side of an assignment.      The return value is of type \keyword QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type \keyword QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference. */
+comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator*() const       Returns a modifiable reference to the current item.      You can change the value of an item by using operator*() on the     left side of an assignment.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference. */
 end_comment
 begin_comment
 comment|/*! \fn QJsonValueRef *QJsonArray::iterator::operator->() const      Returns a pointer to a modifiable reference to the current item. */
 end_comment
 begin_comment
-comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator[](int j) const      Returns a modifiable reference to the item at offset \a j from the     item pointed to by this iterator (the item at position \c{*this + j}).      This function is provided to make QJsonArray iterators behave like C++     pointers.      The return value is of type \keyword QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type \keyword QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa operator+() */
+comment|/*! \fn QJsonValueRef QJsonArray::iterator::operator[](int j) const      Returns a modifiable reference to the item at offset \a j from the     item pointed to by this iterator (the item at position \c{*this + j}).      This function is provided to make QJsonArray iterators behave like C++     pointers.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa operator+() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QJsonArray::iterator::operator==(const iterator&other) const     \fn bool QJsonArray::iterator::operator==(const const_iterator&other) const      Returns \c true if \a other points to the same item as this     iterator; otherwise returns \c false.      \sa operator!=() */
