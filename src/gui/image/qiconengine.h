@@ -194,6 +194,8 @@ init|=
 literal|1
 block|,
 name|IconNameHook
+block|,
+name|IsNullHook
 block|}
 enum|;
 struct|struct
@@ -236,6 +238,12 @@ name|iconName
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|isNull
+argument_list|()
+specifier|const
+expr_stmt|;
+comment|// ### Qt6 make virtual
 name|virtual
 name|void
 name|virtual_hook

@@ -184,7 +184,7 @@ parameter_list|)
 block|{ }
 end_function
 begin_comment
-comment|/*!     \enum QIconEngine::IconEngineHook     \since 4.5      These enum values are used for virtual_hook() to allow additional     queries to icon engine without breaking binary compatibility.      \value AvailableSizesHook Allows to query the sizes of the     contained pixmaps for pixmap-based engines. The \a data argument     of the virtual_hook() function is a AvailableSizesArgument pointer     that should be filled with icon sizes. Engines that work in terms     of a scalable, vectorial format normally return an empty list.      \value IconNameHook Allows to query the name used to create the     icon, for example when instantiating an icon using     QIcon::fromTheme().      \sa virtual_hook()  */
+comment|/*!     \enum QIconEngine::IconEngineHook     \since 4.5      These enum values are used for virtual_hook() to allow additional     queries to icon engine without breaking binary compatibility.      \value AvailableSizesHook Allows to query the sizes of the     contained pixmaps for pixmap-based engines. The \a data argument     of the virtual_hook() function is a AvailableSizesArgument pointer     that should be filled with icon sizes. Engines that work in terms     of a scalable, vectorial format normally return an empty list.      \value IconNameHook Allows to query the name used to create the     icon, for example when instantiating an icon using     QIcon::fromTheme().      \value IsNullHook Allow to query if this engine represents a null     icon. The \a data argument of the virtual_hook() is a pointer to a     bool that can be set to true if the icon is null. This enum value     was added in Qt 5.7.      \sa virtual_hook()  */
 end_comment
 begin_comment
 comment|/*!     \class QIconEngine::AvailableSizesArgument     \since 4.5      \inmodule QtGui      This struct represents arguments to virtual_hook() function when     \a id parameter is QIconEngine::AvailableSizesHook.      \sa virtual_hook(), QIconEngine::IconEngineHook  */
@@ -435,6 +435,47 @@ argument_list|)
 expr_stmt|;
 return|return
 name|name
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \since 5.7      Returns true if this icon engine represent a null QIcon.  */
+end_comment
+begin_function
+DECL|function|isNull
+name|bool
+name|QIconEngine
+operator|::
+name|isNull
+parameter_list|()
+specifier|const
+block|{
+name|bool
+name|isNull
+init|=
+literal|false
+decl_stmt|;
+cast|const_cast
+argument_list|<
+name|QIconEngine
+operator|*
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+operator|->
+name|virtual_hook
+argument_list|(
+name|QIconEngine
+operator|::
+name|IsNullHook
+argument_list|,
+operator|&
+name|isNull
+argument_list|)
+expr_stmt|;
+return|return
+name|isNull
 return|;
 block|}
 end_function
