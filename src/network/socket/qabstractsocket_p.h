@@ -401,6 +401,10 @@ name|bool
 name|readFromSocket
 parameter_list|()
 function_decl|;
+name|bool
+name|writeToSocket
+parameter_list|()
+function_decl|;
 name|void
 name|emitReadyRead
 parameter_list|()

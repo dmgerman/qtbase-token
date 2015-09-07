@@ -1502,17 +1502,12 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|qint64
-name|tmp
+name|bool
+name|dataWasWritten
 init|=
-name|writeBuffer
-operator|.
-name|size
+name|writeToSocket
 argument_list|()
 decl_stmt|;
-name|flush
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|socketEngine
@@ -1566,14 +1561,7 @@ endif|#
 directive|endif
 block|}
 return|return
-operator|(
-name|writeBuffer
-operator|.
-name|size
-argument_list|()
-operator|<
-name|tmp
-operator|)
+name|dataWasWritten
 return|;
 block|}
 end_function
@@ -1619,14 +1607,14 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \internal      Writes pending data in the write buffers to the socket. The     function writes as much as it can without blocking.      It is usually invoked by canWriteNotification after one or more     calls to write().      Emits bytesWritten(). */
+comment|/*! \internal      Writes one pending data block in the write buffer to the socket.      It is usually invoked by canWriteNotification after one or more     calls to write().      Emits bytesWritten(). */
 end_comment
 begin_function
-DECL|function|flush
+DECL|function|writeToSocket
 name|bool
 name|QAbstractSocketPrivate
 operator|::
-name|flush
+name|writeToSocket
 parameter_list|()
 block|{
 name|Q_Q
@@ -1668,7 +1656,7 @@ name|QABSTRACTSOCKET_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QAbstractSocketPrivate::flush() nothing to do: valid ? %s, writeBuffer.isEmpty() ? %s"
+literal|"QAbstractSocketPrivate::writeToSocket() nothing to do: valid ? %s, writeBuffer.isEmpty() ? %s"
 argument_list|,
 operator|(
 name|socketEngine
@@ -1777,7 +1765,7 @@ argument_list|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QAbstractSocketPrivate::flush() write error, aborting."
+literal|"QAbstractSocketPrivate::writeToSocket() write error, aborting."
 operator|<<
 name|socketEngine
 operator|->
@@ -1812,7 +1800,7 @@ name|QABSTRACTSOCKET_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QAbstractSocketPrivate::flush() %lld bytes written to the network"
+literal|"QAbstractSocketPrivate::writeToSocket() %lld bytes written to the network"
 argument_list|,
 name|written
 argument_list|)
@@ -1905,7 +1893,45 @@ name|disconnectFromHost
 argument_list|()
 expr_stmt|;
 return|return
+name|written
+operator|>
+literal|0
+return|;
+block|}
+end_function
+begin_comment
+comment|/*! \internal      Writes pending data in the write buffers to the socket. The function     writes as much as it can without blocking. If any data was written,     this function returns true; otherwise false is returned. */
+end_comment
+begin_function
+DECL|function|flush
+name|bool
+name|QAbstractSocketPrivate
+operator|::
+name|flush
+parameter_list|()
+block|{
+name|bool
+name|dataWasWritten
+init|=
+literal|false
+decl_stmt|;
+while|while
+condition|(
+operator|!
+name|writeBuffer
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|writeToSocket
+argument_list|()
+condition|)
+name|dataWasWritten
+operator|=
 literal|true
+expr_stmt|;
+return|return
+name|dataWasWritten
 return|;
 block|}
 end_function
