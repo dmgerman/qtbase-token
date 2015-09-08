@@ -897,7 +897,14 @@ block|;
 name|void
 name|destroy
 argument_list|()
-block|; }
+block|;
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_screenDestroyed(QObject *object)
+argument_list|)
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro

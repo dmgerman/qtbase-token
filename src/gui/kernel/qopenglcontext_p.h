@@ -904,7 +904,14 @@ name|makeCurrentTrackerMutex
 block|;
 endif|#
 directive|endif
-block|}
+name|void
+name|_q_screenDestroyed
+argument_list|(
+name|QObject
+operator|*
+name|object
+argument_list|)
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_function_decl
