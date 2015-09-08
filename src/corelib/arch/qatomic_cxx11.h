@@ -209,6 +209,11 @@ define|#
 directive|define
 name|Q_ATOMIC_INT16_FETCH_AND_ADD_IS_ALWAYS_NATIVE
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_STD_ATOMIC64
+end_ifndef
 begin_define
 DECL|macro|Q_ATOMIC_INT64_IS_SUPPORTED
 define|#
@@ -239,6 +244,10 @@ define|#
 directive|define
 name|Q_ATOMIC_INT64_FETCH_AND_ADD_IS_ALWAYS_NATIVE
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_expr_stmt
 DECL|struct|QAtomicOps
 name|template
