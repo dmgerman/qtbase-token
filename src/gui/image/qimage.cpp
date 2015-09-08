@@ -6703,8 +6703,9 @@ literal|0
 operator|||
 name|y
 operator|>=
+name|d
+operator|->
 name|height
-argument_list|()
 condition|)
 block|{
 name|qWarning
