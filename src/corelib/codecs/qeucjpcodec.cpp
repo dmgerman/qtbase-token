@@ -120,6 +120,7 @@ parameter_list|()
 block|{
 operator|delete
 operator|(
+specifier|const
 name|QJpUnicodeConv
 operator|*
 operator|)
@@ -445,6 +446,7 @@ argument_list|(
 name|cursor
 operator|-
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)

@@ -38520,6 +38520,7 @@ argument_list|(
 name|cursor
 operator|-
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)
@@ -39087,6 +39088,7 @@ argument_list|(
 name|cursor
 operator|-
 operator|(
+specifier|const
 name|uchar
 operator|*
 operator|)

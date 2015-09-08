@@ -325,6 +325,7 @@ parameter_list|()
 block|{
 operator|delete
 operator|(
+specifier|const
 name|QJpUnicodeConv
 operator|*
 operator|)
