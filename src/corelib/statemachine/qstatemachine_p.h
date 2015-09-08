@@ -450,6 +450,11 @@ argument_list|(
 argument|bool didChange
 argument_list|)
 block|;
+name|virtual
+name|void
+name|exitInterpreter
+argument_list|()
+block|;
 name|void
 name|exitStates
 argument_list|(
