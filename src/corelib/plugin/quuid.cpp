@@ -2284,10 +2284,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool operator<=(const QUuid&lhs, const QUuid&rhs)     \relates QUuid     \since 5.5      Returns \c true if \a lhs has the same \l{Variant field}     {variant field} as \a rhs and is lexicographically     \e{not after} \a rhs. If \a rhs has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
+comment|/*!     \fn bool operator<=(const QUuid&lhs, const QUuid&rhs)     \relates QUuid     \since 5.5      Returns \c true if \a lhs has the same \l{Variant field}     {variant field} as \a rhs and is lexicographically     \e{not after} \a rhs. If \a rhs has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa QUuid::variant() */
 end_comment
 begin_comment
-comment|/*!     \fn bool operator>=(const QUuid&lhs, const QUuid&rhs)     \relates QUuid     \since 5.5      Returns \c true if \a lhs has the same \l{Variant field}     {variant field} as \a rhs and is lexicographically     \e{not before} \a rhs. If \a rhs has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
+comment|/*!     \fn bool operator>=(const QUuid&lhs, const QUuid&rhs)     \relates QUuid     \since 5.5      Returns \c true if \a lhs has the same \l{Variant field}     {variant field} as \a rhs and is lexicographically     \e{not before} \a rhs. If \a rhs has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa QUuid::variant() */
 end_comment
 begin_comment
 comment|/*!     \fn QUuid QUuid::createUuid()      On any platform other than Windows, this function returns a new     UUID with variant QUuid::DCE and version QUuid::Random.  If     the /dev/urandom device exists, then the numbers used to construct     the UUID will be of cryptographic quality, which will make the UUID     unique.  Otherwise, the numbers of the UUID will be obtained from     the local pseudo-random number generator (qrand(), which is seeded     by qsrand()) which is usually not of cryptograhic quality, which     means that the UUID can't be guaranteed to be unique.      On a Windows platform, a GUID is generated, which almost certainly     \e{will} be unique, on this or any other system, networked or not.      \sa variant(), version() */

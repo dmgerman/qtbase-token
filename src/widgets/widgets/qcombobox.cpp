@@ -14422,9 +14422,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \reimp */
-end_comment
 begin_function
 DECL|function|showPopupFromMouseEvent
 name|void

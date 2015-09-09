@@ -4282,9 +4282,6 @@ begin_comment
 comment|/*!     \variable FileInfo::size     The total size of the unpacked content. */
 end_comment
 begin_comment
-comment|/*!     \variable FileInfo::d     \internal     private pointer. */
-end_comment
-begin_comment
 comment|/*!     \class QZipReader     \internal     \since 4.5      \brief the QZipReader class provides a way to inspect the contents of a zip     archive and extract individual files from it.      QZipReader can be used to read a zip archive either from a file or from any     device. An in-memory QBuffer for instance.  The reader can be used to read     which files are in the archive using fileInfoList() and entryInfoAt() but     also to extract individual files using fileData() or even to extract all     files in the archive using extractAll() */
 end_comment
 begin_comment

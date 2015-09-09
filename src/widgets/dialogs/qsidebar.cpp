@@ -130,7 +130,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     QUrlModel lets you have indexes from a QFileSystemModel to a list.  When QFileSystemModel     changes them QUrlModel will automatically update.      Example usage: File dialog sidebar and combo box  */
+comment|/*!     \internal     \class QUrlModel     QUrlModel lets you have indexes from a QFileSystemModel to a list.  When QFileSystemModel     changes them QUrlModel will automatically update.      Example usage: File dialog sidebar and combo box  */
 end_comment
 begin_constructor
 DECL|function|QUrlModel
