@@ -770,9 +770,7 @@ name|allOwners
 operator|&&
 name|allKeys
 operator|&&
-name|id
-operator|==
-literal|0
+name|allIds
 condition|)
 block|{
 name|itemsRemoved
