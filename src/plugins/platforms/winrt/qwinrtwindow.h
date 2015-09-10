@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<qpa/qwindowsysteminterface.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<EGL/egl.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWinRTWindowPrivate
@@ -115,6 +120,19 @@ argument_list|(
 argument|Qt::WindowState state
 argument_list|)
 name|Q_DECL_OVERRIDE
+block|;
+name|EGLSurface
+name|eglSurface
+argument_list|()
+specifier|const
+block|;
+name|void
+name|createEglSurface
+argument_list|(
+argument|EGLDisplay display
+argument_list|,
+argument|EGLConfig config
+argument_list|)
 block|;
 name|private
 operator|:
