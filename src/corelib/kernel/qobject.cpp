@@ -3933,7 +3933,7 @@ begin_comment
 comment|/*!     \fn bool QObject::isWindowType() const      Returns \c true if the object is a window; otherwise returns \c false.      Calling this function is equivalent to calling     \c{inherits("QWindow")}, except that it is much faster. */
 end_comment
 begin_comment
-comment|/*!     This virtual function receives events to an object and should     return true if the event \a e was recognized and processed.      The event() function can be reimplemented to customize the     behavior of an object.      \sa installEventFilter(), timerEvent(), QCoreApplication::sendEvent(),     QCoreApplication::postEvent() */
+comment|/*!     This virtual function receives events to an object and should     return true if the event \a e was recognized and processed.      The event() function can be reimplemented to customize the     behavior of an object.      Make sure you call the parent event class implementation     for all the events you did not handle.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 52      \sa installEventFilter(), timerEvent(), QCoreApplication::sendEvent(),     QCoreApplication::postEvent() */
 end_comment
 begin_function
 DECL|function|event
