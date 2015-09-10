@@ -23,6 +23,11 @@ include|#
 directive|include
 file|"qt_mac_p.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_empty
 empty|#import<Cocoa/Cocoa.h>
 end_empty
@@ -111,4 +116,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_NO_ACCESSIBILITY
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QCOCOAACCESIBILITYELEMENT_H
+end_comment
 end_unit

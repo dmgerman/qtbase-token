@@ -425,6 +425,9 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 name|QCocoaAccessibility
 operator|*
 name|accessibility
@@ -432,6 +435,8 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
 name|QCocoaClipboard
 operator|*
 name|clipboard
