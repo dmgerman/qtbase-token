@@ -738,11 +738,6 @@ argument_list|(
 name|hr
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT_SUCCEEDED
-argument_list|(
-name|hr
-argument_list|)
-expr_stmt|;
 name|quint32
 name|index
 decl_stmt|;
