@@ -25553,6 +25553,9 @@ argument_list|(
 name|font
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 block|}
 elseif|else
 if|if
@@ -25625,6 +25628,9 @@ name|font
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_ACCESSIBILITY
 block|}
 name|QSize
 name|textRect
