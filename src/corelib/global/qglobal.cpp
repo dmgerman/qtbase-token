@@ -625,13 +625,19 @@ begin_comment
 comment|/*!     \enum QSysInfo::MacVersion      This enum provides symbolic names for the various versions of the     Darwin operating system, covering both OS X and iOS. The     QSysInfo::MacintoshVersion variable gives the version of the     system on which the application is run.      \value MV_9        Mac OS 9 (unsupported)     \value MV_10_0     Mac OS X 10.0 (unsupported)     \value MV_10_1     Mac OS X 10.1 (unsupported)     \value MV_10_2     Mac OS X 10.2 (unsupported)     \value MV_10_3     Mac OS X 10.3 (unsupported)     \value MV_10_4     Mac OS X 10.4 (unsupported)     \value MV_10_5     Mac OS X 10.5 (unsupported)     \value MV_10_6     Mac OS X 10.6     \value MV_10_7     Mac OS X 10.7     \value MV_10_8     OS X 10.8     \value MV_10_9     OS X 10.9     \value MV_10_10    OS X 10.10     \value MV_10_11    OS X 10.11     \value MV_Unknown  An unknown and currently unsupported platform      \value MV_CHEETAH  Apple codename for MV_10_0     \value MV_PUMA     Apple codename for MV_10_1     \value MV_JAGUAR   Apple codename for MV_10_2     \value MV_PANTHER  Apple codename for MV_10_3     \value MV_TIGER    Apple codename for MV_10_4     \value MV_LEOPARD  Apple codename for MV_10_5     \value MV_SNOWLEOPARD  Apple codename for MV_10_6     \value MV_LION     Apple codename for MV_10_7     \value MV_MOUNTAINLION Apple codename for MV_10_8     \value MV_MAVERICKS    Apple codename for MV_10_9     \value MV_YOSEMITE     Apple codename for MV_10_10     \value MV_ELCAPITAN    Apple codename for MV_10_11      \value MV_IOS      iOS (any)     \value MV_IOS_4_3  iOS 4.3     \value MV_IOS_5_0  iOS 5.0     \value MV_IOS_5_1  iOS 5.1     \value MV_IOS_6_0  iOS 6.0     \value MV_IOS_6_1  iOS 6.1     \value MV_IOS_7_0  iOS 7.0     \value MV_IOS_7_1  iOS 7.1     \value MV_IOS_8_0  iOS 8.0     \value MV_IOS_8_1  iOS 8.1     \value MV_IOS_8_2  iOS 8.2     \value MV_IOS_8_3  iOS 8.3     \value MV_IOS_8_4  iOS 8.4     \value MV_IOS_9_0  iOS 9.0      \value MV_None     Not a Darwin operating system      \sa WinVersion */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin-based operating systems such as OS X and iOS. */
+comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin-based operating systems such as OS X, iOS, watchOS, and tvOS. */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_OSX     \relates<QtGlobal>      Defined on OS X.  */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_IOS     \relates<QtGlobal>      Defined on iOS.  */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_WATCHOS     \relates<QtGlobal>      Defined on watchOS.  */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_TVOS     \relates<QtGlobal>      Defined on tvOS.  */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_WIN     \relates<QtGlobal>      Defined on all supported versions of Windows. That is, if     \l Q_OS_WIN32, \l Q_OS_WIN64, \l Q_OS_WINCE or \l Q_OS_WINRT is defined. */
