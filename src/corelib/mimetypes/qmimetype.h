@@ -41,12 +41,6 @@ name|QMimeTypePrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QFileinfo
-name|class
-name|QFileinfo
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QStringList
 name|class
 name|QStringList
