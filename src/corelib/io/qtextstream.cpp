@@ -9401,7 +9401,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QTextStream      Calls QTextStream::setFieldAlignment(QTextStream::AlignLeft)     on \a stream and returns \a stream.      \sa right(), center(), {QTextStream manipulators} */
+comment|/*!     \relates QTextStream      Calls QTextStream::setFieldAlignment(QTextStream::AlignLeft)     on \a stream and returns \a stream.      \sa {QTextStream::}{right()}, {QTextStream::}{center()}, {QTextStream manipulators} */
 end_comment
 begin_function
 DECL|function|left
@@ -9429,7 +9429,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QTextStream      Calls QTextStream::setFieldAlignment(QTextStream::AlignRight)     on \a stream and returns \a stream.      \sa left(), center(), {QTextStream manipulators} */
+comment|/*!     \relates QTextStream      Calls QTextStream::setFieldAlignment(QTextStream::AlignRight)     on \a stream and returns \a stream.      \sa {QTextStream::}{left()}, {QTextStream::}{center()}, {QTextStream manipulators} */
 end_comment
 begin_function
 DECL|function|right
@@ -9457,7 +9457,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QTextStream      Calls QTextStream::setFieldAlignment(QTextStream::AlignCenter)     on \a stream and returns \a stream.      \sa left(), right(), {QTextStream manipulators} */
+comment|/*!     \relates QTextStream      Calls QTextStream::setFieldAlignment(QTextStream::AlignCenter)     on \a stream and returns \a stream.      \sa {QTextStream::}{left()}, {QTextStream::}{right()}, {QTextStream manipulators} */
 end_comment
 begin_function
 DECL|function|center
