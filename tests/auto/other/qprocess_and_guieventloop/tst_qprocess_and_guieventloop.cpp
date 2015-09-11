@@ -48,6 +48,17 @@ if|#
 directive|if
 name|defined
 argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"QProcess not supported"
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
 operator|&&
@@ -61,8 +72,8 @@ argument_list|(
 literal|"Not supported on Android"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+else|#
+directive|else
 comment|// based on testcase provided in QTBUG-39488
 name|QByteArray
 name|msg
@@ -245,6 +256,8 @@ argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro

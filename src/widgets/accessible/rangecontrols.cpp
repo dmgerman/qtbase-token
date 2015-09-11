@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"rangecontrols.h"
+file|"rangecontrols_p.h"
 end_include
 begin_include
 include|#
@@ -75,7 +75,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"simplewidgets.h"
+file|"simplewidgets_p.h"
 end_include
 begin_comment
 comment|// let spinbox use line edit's interface

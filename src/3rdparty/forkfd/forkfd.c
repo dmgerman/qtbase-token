@@ -2891,10 +2891,9 @@ end_comment
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
 name|_POSIX_SPAWN
-argument_list|)
+operator|>
+literal|0
 operator|&&
 operator|!
 name|defined

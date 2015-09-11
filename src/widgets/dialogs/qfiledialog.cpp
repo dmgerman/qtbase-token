@@ -11249,6 +11249,17 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_NO_FSCOMPLETER
+name|qFileDialogUi
+operator|->
+name|fileNameEdit
+operator|->
+name|setInputMethodHints
+argument_list|(
+name|Qt
+operator|::
+name|ImhNoPredictiveText
+argument_list|)
+expr_stmt|;
 name|QObject
 operator|::
 name|connect

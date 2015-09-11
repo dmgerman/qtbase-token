@@ -4163,6 +4163,7 @@ name|t
 operator|<<
 name|_slnHeader140
 expr_stmt|;
+break|break;
 case|case
 name|NET2013
 case|:

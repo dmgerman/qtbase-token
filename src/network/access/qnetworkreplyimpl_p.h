@@ -246,6 +246,12 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void _q_networkSessionStateChanged(QNetworkSession::State)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_networkSessionUsagePoliciesChanged(QNetworkSession::UsagePolicies)
 argument_list|)
 endif|#
@@ -378,6 +384,16 @@ name|_q_networkSessionFailed
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_decl_stmt
+name|void
+name|_q_networkSessionStateChanged
+argument_list|(
+name|QNetworkSession
+operator|::
+name|State
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|void
 name|_q_networkSessionUsagePoliciesChanged
