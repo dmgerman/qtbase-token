@@ -7350,7 +7350,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|w
+name|window
 operator|->
 name|close
 argument_list|()
@@ -7454,7 +7454,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|w
+name|window
 operator|->
 name|close
 argument_list|()
