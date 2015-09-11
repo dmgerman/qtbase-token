@@ -3882,6 +3882,14 @@ argument_list|(
 name|is_closing
 argument_list|)
 expr_stmt|;
+name|QWindow
+operator|::
+name|event
+argument_list|(
+name|event
+argument_list|)
+expr_stmt|;
+comment|// Call QWindow QCloseEvent handler.
 block|}
 end_function
 begin_ifndef
