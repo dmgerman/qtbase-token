@@ -6529,7 +6529,7 @@ name|char
 name|tracerPidToken
 index|[]
 init|=
-literal|"TracerPid:"
+literal|"\nTracerPid:"
 decl_stmt|;
 name|char
 modifier|*
