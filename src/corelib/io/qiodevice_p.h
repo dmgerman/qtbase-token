@@ -96,7 +96,7 @@ DECL|macro|QIODEVICE_BUFFERSIZE
 define|#
 directive|define
 name|QIODEVICE_BUFFERSIZE
-value|Q_INT64_C(16384)
+value|16384
 endif|#
 directive|endif
 name|Q_CORE_EXPORT
@@ -728,6 +728,12 @@ name|currentReadChannel
 block|;
 name|int
 name|currentWriteChannel
+block|;
+name|int
+name|readBufferChunkSize
+block|;
+name|int
+name|writeBufferChunkSize
 block|;
 name|qint64
 name|transactionPos
