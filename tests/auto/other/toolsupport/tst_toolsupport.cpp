@@ -432,9 +432,9 @@ argument_list|)
 decl_stmt|;
 name|data
 operator|<<
-literal|196
+literal|168
 operator|<<
-literal|280
+literal|248
 expr_stmt|;
 block|}
 endif|#

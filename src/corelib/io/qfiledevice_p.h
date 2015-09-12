@@ -48,11 +48,6 @@ include|#
 directive|include
 file|"private/qiodevice_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"private/qringbuffer_p.h"
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAbstractFileEngine
@@ -132,9 +127,6 @@ name|mutable
 name|QAbstractFileEngine
 operator|*
 name|fileEngine
-block|;
-name|QRingBuffer
-name|writeBuffer
 block|;
 name|mutable
 name|qint64
