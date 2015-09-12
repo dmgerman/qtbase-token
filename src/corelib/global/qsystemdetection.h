@@ -97,6 +97,11 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
+name|__ANDROID__
+argument_list|)
+operator|||
+name|defined
+argument_list|(
 name|ANDROID
 argument_list|)
 end_elif
