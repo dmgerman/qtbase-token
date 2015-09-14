@@ -2840,12 +2840,15 @@ name|a
 operator|.
 name|resize
 argument_list|(
+name|int
+argument_list|(
 name|it
 operator|-
 name|a
 operator|.
 name|constData
 argument_list|()
+argument_list|)
 argument_list|)
 block|;
 comment|//may be smaller than len if there was conversion from utf8
