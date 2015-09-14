@@ -2503,6 +2503,12 @@ name|AbsX
 argument_list|)
 condition|)
 block|{
+name|caps
+operator||=
+name|QTouchDevice
+operator|::
+name|Position
+expr_stmt|;
 name|dev
 operator|->
 name|size
@@ -2542,6 +2548,12 @@ name|AbsY
 argument_list|)
 condition|)
 block|{
+name|caps
+operator||=
+name|QTouchDevice
+operator|::
+name|Position
+expr_stmt|;
 name|dev
 operator|->
 name|size
