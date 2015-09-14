@@ -899,7 +899,19 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void _q_channelReadyReadSlot(int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_bytesWrittenSlot(qint64)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_channelBytesWrittenSlot(int, qint64)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(

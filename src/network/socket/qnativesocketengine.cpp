@@ -2956,6 +2956,16 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|inboundStreamCount
+operator|=
+name|d
+operator|->
+name|outboundStreamCount
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|d

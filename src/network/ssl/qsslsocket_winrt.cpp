@@ -1349,6 +1349,16 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+emit|emit
+name|q
+operator|->
+name|channelBytesWritten
+argument_list|(
+literal|0
+argument_list|,
+name|totalBytesWritten
+argument_list|)
+emit|;
 block|}
 block|}
 comment|// Check if we've got any data to be read from the socket.
@@ -1430,6 +1440,14 @@ name|q
 operator|->
 name|readyRead
 argument_list|()
+emit|;
+emit|emit
+name|q
+operator|->
+name|channelReadyRead
+argument_list|(
+literal|0
+argument_list|)
 emit|;
 block|}
 if|if

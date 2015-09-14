@@ -5392,6 +5392,12 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|inboundStreamCount
+operator|=
+name|outboundStreamCount
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|socketDescriptor
@@ -5639,6 +5645,7 @@ operator|&
 name|sockAddrSize
 argument_list|)
 condition|)
+block|{
 name|qt_socket_getPortAndAddress
 argument_list|(
 operator|&
@@ -5651,6 +5658,13 @@ operator|&
 name|peerAddress
 argument_list|)
 expr_stmt|;
+name|inboundStreamCount
+operator|=
+name|outboundStreamCount
+operator|=
+literal|1
+expr_stmt|;
+block|}
 comment|// Determine the socket type (UDP/TCP)
 name|int
 name|value
@@ -5812,7 +5826,7 @@ expr_stmt|;
 name|qDebug
 argument_list|(
 literal|"QNativeSocketEnginePrivate::fetchConnectionParameters() local == %s:%i,"
-literal|" peer == %s:%i, socket == %s - %s"
+literal|" peer == %s:%i, socket == %s - %s, inboundStreamCount == %i, outboundStreamCount == %i"
 argument_list|,
 name|localAddress
 operator|.
@@ -5855,6 +5869,10 @@ argument_list|()
 operator|.
 name|constData
 argument_list|()
+argument_list|,
+name|inboundStreamCount
+argument_list|,
+name|outboundStreamCount
 argument_list|)
 expr_stmt|;
 endif|#

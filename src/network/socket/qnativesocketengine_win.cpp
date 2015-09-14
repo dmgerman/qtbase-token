@@ -2390,6 +2390,12 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|inboundStreamCount
+operator|=
+name|outboundStreamCount
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|socketDescriptor
@@ -2649,6 +2655,12 @@ argument_list|,
 operator|&
 name|peerAddress
 argument_list|)
+expr_stmt|;
+name|inboundStreamCount
+operator|=
+name|outboundStreamCount
+operator|=
+literal|1
 expr_stmt|;
 block|}
 else|else

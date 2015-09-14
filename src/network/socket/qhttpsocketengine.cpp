@@ -2650,6 +2650,16 @@ name|localPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|inboundStreamCount
+operator|=
+name|d
+operator|->
+name|outboundStreamCount
+operator|=
+literal|1
+expr_stmt|;
 name|setState
 argument_list|(
 name|QAbstractSocket
