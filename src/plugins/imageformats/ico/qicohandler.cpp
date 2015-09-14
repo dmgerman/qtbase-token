@@ -3742,7 +3742,8 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|// Scale down the image if it is larger than 128 pixels in either width or height
+comment|// Scale down the image if it is larger than 256 pixels in either width or height
+comment|// because this is a maximum size of image in the ICO file.
 if|if
 condition|(
 name|image
@@ -3750,14 +3751,14 @@ operator|.
 name|width
 argument_list|()
 operator|>
-literal|128
+literal|256
 operator|||
 name|image
 operator|.
 name|height
 argument_list|()
 operator|>
-literal|128
+literal|256
 condition|)
 block|{
 name|image
@@ -3766,9 +3767,9 @@ name|image
 operator|.
 name|scaled
 argument_list|(
-literal|128
+literal|256
 argument_list|,
-literal|128
+literal|256
 argument_list|,
 name|Qt
 operator|::
@@ -4984,12 +4985,12 @@ name|m_currentIconIndex
 operator|=
 name|imageNumber
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 return|return
-name|imageNumber
-operator|<
-name|imageCount
-argument_list|()
+literal|false
 return|;
 block|}
 end_function
