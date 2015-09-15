@@ -1730,7 +1730,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the data associated with the MIME type given by \a mimeType     to the specified \a data.      For the most common types of data, you can call the higher-level     functions setText(), setHtml(), setUrls(), setImageData(), and     setColorData() instead.      Note that if you want to use a custom data type in an item view drag and drop     operation, you must register it as a Qt \l{QMetaType}{meta type}, using the     Q_DECLARE_METATYPE() macro, and implement stream operators for it. The stream     operators must then be registered with the qRegisterMetaTypeStreamOperators()     function.      \sa hasFormat(), QMetaType, qRegisterMetaTypeStreamOperators() */
+comment|/*!     Sets the data associated with the MIME type given by \a mimeType     to the specified \a data.      For the most common types of data, you can call the higher-level     functions setText(), setHtml(), setUrls(), setImageData(), and     setColorData() instead.      Note that if you want to use a custom data type in an item view drag and drop     operation, you must register it as a Qt \l{QMetaType}{meta type}, using the     Q_DECLARE_METATYPE() macro, and implement stream operators for it. The stream     operators must then be registered with the qRegisterMetaTypeStreamOperators()     function.      \sa hasFormat(), QMetaType, {QMetaType::}{qRegisterMetaTypeStreamOperators()} */
 end_comment
 begin_function
 DECL|function|setData
