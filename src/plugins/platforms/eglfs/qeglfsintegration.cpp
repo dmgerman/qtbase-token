@@ -413,14 +413,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|m_disableInputHandlers
-condition|)
-name|createInputHandlers
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
 name|qt_egl_device_integration
 argument_list|()
 operator|->
@@ -442,6 +434,15 @@ name|qt_egl_device_integration
 argument_list|()
 operator|->
 name|screenInit
+argument_list|()
+expr_stmt|;
+comment|// Input code may rely on the screens, so do it only after the screen init.
+if|if
+condition|(
+operator|!
+name|m_disableInputHandlers
+condition|)
+name|createInputHandlers
 argument_list|()
 expr_stmt|;
 block|}
