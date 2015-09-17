@@ -15,10 +15,17 @@ argument_list|(
 name|Q_CC_GNU
 argument_list|)
 operator|&&
+operator|(
 name|defined
 argument_list|(
 name|Q_OS_LINUX
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_FREEBSD
+argument_list|)
+operator|)
 operator|&&
 name|defined
 argument_list|(
@@ -47,14 +54,12 @@ value|QT_STRINGIFY(SYM)
 end_define
 begin_asm
 asm|asm(
+comment|// ASM macro that makes one ELF versioned symbol
+asm|".macro     make_versioned_symbol    plainsym versionedsym\n" ".globl     plainsym\n" ".type      plainsym, @object\n" ".size      plainsym, 1\n" ".symver    plainsym, versionedsym\n" "plainsym :\n" ".endm\n"
 comment|// ASM macro that makes one ELF versioned symbol qt_version_tag{sep}Qt_{major}.{minor}
 comment|// that is an alias to qt_version_tag_{major}_{minor}.
 comment|// The {sep} parameter must be @ for all old versions and @@ for the current version.
-asm|".macro      make_one_tag    major minor sep\n" ".globl      " SSYM "_\\major\\()_\\minor\n"
-comment|// make the symbol global
-asm|SSYM "_\\major\\()_\\minor:\n"
-comment|// declare it
-asm|"    .symver " SSYM "_\\major\\()_\\minor, " SSYM "\\sep\\()Qt_\\major\\().\\minor\n" ".endm\n"  ".altmacro\n" ".bss\n" ".set qt_version_major, " QT_STRINGIFY(QT_VERSION) ">> 16\n"
+asm|".macro      make_one_tag    major minor sep\n" "       make_versioned_symbol   " SSYM "_\\major\\()_\\minor, " SSYM "\\sep\\()Qt_\\major\\().\\minor\n" ".endm\n"  ".altmacro\n" ".bss\n" ".set qt_version_major, " QT_STRINGIFY(QT_VERSION) ">> 16\n"
 comment|// set qt_version_major
 asm|".set qt_version_minor, 0\n"
 comment|// set qt_version_minor to 0 (it will grow to the current)
