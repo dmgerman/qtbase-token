@@ -2204,6 +2204,19 @@ argument_list|)
 operator|.
 name|currentPointerType
 decl_stmt|;
+specifier|const
+name|qint64
+name|uniqueId
+init|=
+name|m_devices
+operator|.
+name|at
+argument_list|(
+name|m_currentDevice
+argument_list|)
+operator|.
+name|uniqueId
+decl_stmt|;
 comment|// The tablet can be used in 2 different modes, depending on it settings:
 comment|// 1) Absolute (pen) mode:
 comment|//    The coordinates are scaled to the virtual desktop (by default). The user
@@ -2243,7 +2256,12 @@ literal|"target:"
 operator|<<
 name|QGuiApplicationPrivate
 operator|::
-name|tabletPressTarget
+name|tabletDevicePoint
+argument_list|(
+name|uniqueId
+argument_list|)
+operator|.
+name|target
 expr_stmt|;
 specifier|const
 name|Qt
@@ -2334,7 +2352,12 @@ name|target
 init|=
 name|QGuiApplicationPrivate
 operator|::
-name|tabletPressTarget
+name|tabletDevicePoint
+argument_list|(
+name|uniqueId
+argument_list|)
+operator|.
+name|target
 decl_stmt|;
 comment|// Pass to window that grabbed it.
 name|QPoint
@@ -2772,13 +2795,6 @@ name|rotation
 argument_list|,
 name|z
 argument_list|,
-name|m_devices
-operator|.
-name|at
-argument_list|(
-name|m_currentDevice
-argument_list|)
-operator|.
 name|uniqueId
 argument_list|,
 name|keyboardModifiers
