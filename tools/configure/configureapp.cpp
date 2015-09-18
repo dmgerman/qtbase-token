@@ -25242,56 +25242,72 @@ name|endl
 expr_stmt|;
 name|sout
 operator|<<
-literal|"SSE2 support................"
+literal|"SSE support................."
 operator|<<
+operator|(
 name|dictionary
 index|[
 literal|"SSE2"
 index|]
+operator|==
+literal|"no"
+condition|?
+literal|"<none>"
+else|:
+literal|"SSE2"
+operator|)
 operator|<<
-name|endl
-expr_stmt|;
-name|sout
-operator|<<
-literal|"SSE3 support................"
-operator|<<
+operator|(
 name|dictionary
 index|[
 literal|"SSE3"
 index|]
+operator|==
+literal|"no"
+condition|?
+literal|""
+else|:
+literal|" SSE3"
+operator|)
 operator|<<
-name|endl
-expr_stmt|;
-name|sout
-operator|<<
-literal|"SSSE3 support..............."
-operator|<<
+operator|(
 name|dictionary
 index|[
 literal|"SSSE3"
 index|]
+operator|==
+literal|"no"
+condition|?
+literal|""
+else|:
+literal|" SSSE3"
+operator|)
 operator|<<
-name|endl
-expr_stmt|;
-name|sout
-operator|<<
-literal|"SSE4.1 support.............."
-operator|<<
+operator|(
 name|dictionary
 index|[
 literal|"SSE4_1"
 index|]
+operator|==
+literal|"no"
+condition|?
+literal|""
+else|:
+literal|" SSE4.1"
+operator|)
 operator|<<
-name|endl
-expr_stmt|;
-name|sout
-operator|<<
-literal|"SSE4.2 support.............."
-operator|<<
+operator|(
 name|dictionary
 index|[
 literal|"SSE4_2"
 index|]
+operator|==
+literal|"no"
+condition|?
+literal|""
+else|:
+literal|" SSE4.2"
+operator|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -25299,21 +25315,31 @@ name|sout
 operator|<<
 literal|"AVX support................."
 operator|<<
+operator|(
 name|dictionary
 index|[
 literal|"AVX"
 index|]
+operator|==
+literal|"no"
+condition|?
+literal|"<none>"
+else|:
+literal|"AVX"
+operator|)
 operator|<<
-name|endl
-expr_stmt|;
-name|sout
-operator|<<
-literal|"AVX2 support................"
-operator|<<
+operator|(
 name|dictionary
 index|[
 literal|"AVX2"
 index|]
+operator|==
+literal|"no"
+condition|?
+literal|""
+else|:
+literal|" AVX2"
+operator|)
 operator|<<
 name|endl
 expr_stmt|;
