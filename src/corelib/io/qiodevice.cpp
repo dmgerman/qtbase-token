@@ -310,6 +310,9 @@ modifier|*
 name|what
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_WARNING_OUTPUT
 name|QDebug
 name|d
 init|=
@@ -421,6 +424,26 @@ literal|": "
 operator|<<
 name|what
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|device
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|function
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|what
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_WARNING_OUTPUT
 block|}
 end_function
 begin_define

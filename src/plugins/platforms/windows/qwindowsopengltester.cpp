@@ -1616,7 +1616,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|qDebug
+name|qCDebug
 argument_list|(
 name|lcQpaGl
 argument_list|)
@@ -1666,7 +1666,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|qDebug
+name|qCDebug
 argument_list|(
 name|lcQpaGl
 argument_list|)
