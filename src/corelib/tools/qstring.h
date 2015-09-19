@@ -3082,6 +3082,7 @@ endif|#
 directive|endif
 end_endif
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|toLower
 argument_list|()
@@ -3099,6 +3100,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|toLower
 argument_list|()
@@ -3115,6 +3117,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|toUpper
 argument_list|()
@@ -3132,6 +3135,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|toUpper
 argument_list|()
@@ -3148,6 +3152,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|toCaseFolded
 argument_list|()
@@ -3165,6 +3170,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|toCaseFolded
 argument_list|()
@@ -3181,6 +3187,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|trimmed
 argument_list|()
@@ -3198,6 +3205,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|trimmed
 argument_list|()
@@ -3214,6 +3222,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|simplified
 argument_list|()
@@ -3231,6 +3240,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_ALWAYS_INLINE
 name|QString
 name|simplified
 argument_list|()

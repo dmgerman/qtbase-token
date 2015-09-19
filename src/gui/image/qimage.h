@@ -702,6 +702,7 @@ name|defined
 argument_list|(
 name|QT_COMPILING_QIMAGE_COMPAT_CPP
 argument_list|)
+name|Q_ALWAYS_INLINE
 name|QImage
 name|convertToFormat
 argument_list|(
@@ -722,6 +723,7 @@ name|flags
 argument_list|)
 return|;
 block|}
+name|Q_ALWAYS_INLINE
 name|QImage
 name|convertToFormat
 argument_list|(

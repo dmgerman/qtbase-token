@@ -1262,6 +1262,7 @@ directive|define
 name|Q_REQUIRED_RESULT_pushed
 endif|#
 directive|endif
+name|Q_ALWAYS_INLINE
 name|QByteArray
 name|toLower
 argument_list|()
@@ -1277,6 +1278,7 @@ name|this
 argument_list|)
 return|;
 block|}
+name|Q_ALWAYS_INLINE
 name|QByteArray
 name|toLower
 argument_list|()
@@ -1291,6 +1293,7 @@ name|this
 argument_list|)
 return|;
 block|}
+name|Q_ALWAYS_INLINE
 name|QByteArray
 name|toUpper
 argument_list|()
@@ -1306,6 +1309,7 @@ name|this
 argument_list|)
 return|;
 block|}
+name|Q_ALWAYS_INLINE
 name|QByteArray
 name|toUpper
 argument_list|()
@@ -1320,6 +1324,7 @@ name|this
 argument_list|)
 return|;
 block|}
+name|Q_ALWAYS_INLINE
 name|QByteArray
 name|trimmed
 argument_list|()
@@ -1335,6 +1340,7 @@ name|this
 argument_list|)
 return|;
 block|}
+name|Q_ALWAYS_INLINE
 name|QByteArray
 name|trimmed
 argument_list|()
@@ -1349,6 +1355,7 @@ name|this
 argument_list|)
 return|;
 block|}
+name|Q_ALWAYS_INLINE
 name|QByteArray
 name|simplified
 argument_list|()
@@ -1364,6 +1371,7 @@ name|this
 argument_list|)
 return|;
 block|}
+name|Q_ALWAYS_INLINE
 name|QByteArray
 name|simplified
 argument_list|()
