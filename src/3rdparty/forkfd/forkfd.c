@@ -148,7 +148,7 @@ operator|)
 operator|+
 name|__UCLIBC_SUBLEVEL__
 operator|>
-literal|0x921
+literal|0x90201
 operator|)
 operator|)
 operator|)
@@ -216,7 +216,7 @@ operator|)
 operator|+
 name|__UCLIBC_SUBLEVEL__
 operator|>
-literal|0x921
+literal|0x90201
 operator|)
 operator|)
 operator|)
