@@ -166,7 +166,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!   Returns this history state's default transition. The default transition is   taken when the history state has never been entered before. The target states   of the default transition therefore make up the default state. */
+comment|/*!   Returns this history state's default transition. The default transition is   taken when the history state has never been entered before. The target states   of the default transition therefore make up the default state.    \since 5.6 */
 end_comment
 begin_function
 DECL|function|defaultTransition
@@ -192,7 +192,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets this history state's default transition to be the given \a transition.   This will set the source state of the \a transition to the history state.    Note that the eventTest method of the \a transition will never be called. */
+comment|/*!   Sets this history state's default transition to be the given \a transition.   This will set the source state of the \a transition to the history state.    Note that the eventTest method of the \a transition will never be called.    \since 5.6 */
 end_comment
 begin_function
 DECL|function|setDefaultTransition
@@ -571,6 +571,9 @@ comment|/*!   \fn QHistoryState::defaultStateChanged()   \since 5.4    This sign
 end_comment
 begin_comment
 comment|/*!   \fn QHistoryState::historyTypeChanged()   \since 5.4    This signal is emitted when the historyType property is changed.    \sa QHistoryState::historyType */
+end_comment
+begin_comment
+comment|/*!   \fn QHistoryState::defaultTransitionChanged()   \since 5.6    This signal is emitted when the defaultTransition property is changed.    \sa QHistoryState::defaultTransition */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
