@@ -455,6 +455,7 @@ name|void
 name|exitInterpreter
 argument_list|()
 block|;
+name|virtual
 name|void
 name|exitStates
 argument_list|(
@@ -561,6 +562,7 @@ operator|&
 name|transitionList
 argument_list|)
 block|;
+name|virtual
 name|void
 name|enterStates
 argument_list|(
