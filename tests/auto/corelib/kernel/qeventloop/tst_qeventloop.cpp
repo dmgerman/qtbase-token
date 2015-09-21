@@ -718,7 +718,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// allow any session manager to complete its handshake, so that
-comment|// there are no pending events left.
+comment|// there are no pending events left. This tests that we are able
+comment|// to process all events from the queue, otherwise it will hang.
 while|while
 condition|(
 name|eventLoop
@@ -727,54 +728,6 @@ name|processEvents
 argument_list|()
 condition|)
 empty_stmt|;
-comment|// On mac we get application started events at this point,
-comment|// so process events one more time just to be sure.
-name|eventLoop
-operator|.
-name|processEvents
-argument_list|()
-expr_stmt|;
-comment|// no events to process, QEventLoop::processEvents() should return
-comment|// false
-name|aboutToBlockSpy
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|awakeSpy
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-operator|!
-name|eventLoop
-operator|.
-name|processEvents
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|aboutToBlockSpy
-operator|.
-name|count
-argument_list|()
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|awakeSpy
-operator|.
-name|count
-argument_list|()
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
 comment|// make sure the test doesn't block forever
 name|int
 name|timerId
