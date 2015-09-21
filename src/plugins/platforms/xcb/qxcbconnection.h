@@ -548,6 +548,8 @@ name|_COMPIZ_DECOR_REQUEST
 operator|,
 name|_COMPIZ_DECOR_DELETE_PIXMAP
 operator|,
+name|_COMPIZ_TOOLKIT_ACTION
+operator|,
 name|NPredefinedAtoms
 operator|,
 name|_QT_SETTINGS_TIMESTAMP

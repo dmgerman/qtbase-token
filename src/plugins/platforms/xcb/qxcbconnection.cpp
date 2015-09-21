@@ -8244,6 +8244,7 @@ literal|"_XSETTINGS_SETTINGS\0"
 literal|"_COMPIZ_DECOR_PENDING\0"
 literal|"_COMPIZ_DECOR_REQUEST\0"
 literal|"_COMPIZ_DECOR_DELETE_PIXMAP\0"
+literal|"_COMPIZ_TOOLKIT_ACTION\0"
 comment|// \0\0 terminates loop.
 block|}
 decl_stmt|;
