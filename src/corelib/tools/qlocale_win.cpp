@@ -76,20 +76,11 @@ include|#
 directive|include
 file|<windows.foundation.collections.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINPHONE
-end_ifndef
 begin_include
 include|#
 directive|include
 file|<windows.globalization.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
@@ -3615,9 +3606,6 @@ comment|// !Q_OS_WINRT
 name|QStringList
 name|result
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WINPHONE
 name|ComPtr
 argument_list|<
 name|ABI
@@ -3765,21 +3753,6 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-else|#
-directive|else
-comment|// !Q_OS_WINPHONE
-name|result
-operator|<<
-name|QString
-operator|::
-name|fromWCharArray
-argument_list|(
-name|lcName
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_WINPHONE
 return|return
 name|result
 return|;
