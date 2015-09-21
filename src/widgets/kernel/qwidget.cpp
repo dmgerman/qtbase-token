@@ -18819,6 +18819,8 @@ operator|::
 name|transparent
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
 name|render
 argument_list|(
 operator|&
