@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*************************************************************************** ** ** Copyright (C) 2014 BlackBerry Limited. All rights reserved. ** Contact: http://www.qt.io/licensing/ ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and The Qt Company. For licensing terms ** and conditions see http://www.qt.io/terms-conditions. For further ** information use the contact form at http://www.qt.io/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** As a special exception, The Qt Company gives you certain additional ** rights. These rights are described in The Qt Company LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/*************************************************************************** ** ** Copyright (C) 2014 BlackBerry Limited. All rights reserved. ** Copyright (C) 2015 KlarÃ¤lvdalens Datakonsult AB, a KDAB Group company, info@kdab.com ** Copyright (C) 2015 The Qt Company Ltd. ** Contact: http://www.qt.io/licensing/ ** ** This file is part of the QtWidgets module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and The Qt Company. For licensing terms ** and conditions see http://www.qt.io/terms-conditions. For further ** information use the contact form at http://www.qt.io/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** As a special exception, The Qt Company gives you certain additional ** rights. These rights are described in The Qt Company LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -16,41 +16,23 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QCommonStyle>
+file|<QtWidgets/QCommonStyle>
 end_include
 begin_include
 include|#
 directive|include
-file|<QString>
-end_include
-begin_include
-include|#
-directive|include
-file|<QPixmap>
-end_include
-begin_include
-include|#
-directive|include
-file|<QMargins>
-end_include
-begin_include
-include|#
-directive|include
-file|<QTileRules>
-end_include
-begin_include
-include|#
-directive|include
-file|<QHash>
-end_include
-begin_include
-include|#
-directive|include
-file|<QPainter>
+file|<QtWidgets/QTileRules>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QPixmapStylePrivate
 name|class
+name|QPixmapStylePrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|Q_WIDGETS_EXPORT
 name|QPixmapStyle
 range|:
 name|public
@@ -59,27 +41,10 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-expr|struct
-name|Descriptor
-block|{
-name|QString
-name|fileName
-block|;
-name|QSize
-name|size
-block|;
-name|QMargins
-name|margins
-block|;
-name|QTileRules
-name|tileRules
-block|;     }
-block|;      enum
+expr|enum
 name|ControlDescriptor
 block|{
 name|BG_Background
-operator|=
-literal|0
 block|,
 name|LE_Enabled
 block|,
@@ -163,16 +128,7 @@ block|,
 comment|// QScrollBar
 name|SB_Vertical
 block|}
-block|;      struct
-name|Pixmap
-block|{
-name|QPixmap
-name|pixmap
-block|;
-name|QMargins
-name|margins
-block|;     }
-block|;     enum
+block|;      enum
 name|ControlPixmap
 block|{
 name|CB_Enabled
@@ -240,34 +196,37 @@ block|;
 name|void
 name|polish
 argument_list|(
-name|QApplication
-operator|*
-name|application
+argument|QApplication *application
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|polish
 argument_list|(
-name|QPalette
-operator|&
-name|palette
+argument|QPalette&palette
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|polish
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|unpolish
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QApplication *application
 argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|unpolish
+argument_list|(
+argument|QWidget *widget
+argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPrimitive
@@ -278,10 +237,10 @@ argument|const QStyleOption *option
 argument_list|,
 argument|QPainter *painter
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawControl
@@ -292,10 +251,10 @@ argument|const QStyleOption *option
 argument_list|,
 argument|QPainter *painter
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawComplexControl
@@ -310,6 +269,7 @@ argument|const QWidget *widget=
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QSize
 name|sizeFromContents
@@ -320,10 +280,10 @@ argument|const QStyleOption *option
 argument_list|,
 argument|const QSize&contentsSize
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|subElementRect
@@ -332,10 +292,10 @@ argument|SubElement element
 argument_list|,
 argument|const QStyleOption *option
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QRect
 name|subControlRect
@@ -346,23 +306,22 @@ argument|const QStyleOptionComplex *option
 argument_list|,
 argument|SubControl sc
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|pixelMetric
 argument_list|(
 argument|PixelMetric metric
 argument_list|,
-argument|const QStyleOption *option =
-literal|0
+argument|const QStyleOption *option = Q_NULLPTR
 argument_list|,
-argument|const QWidget *widget =
-literal|0
+argument|const QWidget *widget = Q_NULLPTR
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|styleHint
@@ -376,6 +335,7 @@ argument_list|,
 argument|QStyleHintReturn *returnData
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|SubControl
 name|hitTestComplexControl
@@ -389,21 +349,17 @@ argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|eventFilter
 argument_list|(
-name|QObject
-operator|*
-name|watched
+argument|QObject *watched
 argument_list|,
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-name|protected
-operator|:
 name|void
 name|addDescriptor
 argument_list|(
@@ -453,6 +409,8 @@ argument_list|,
 argument|ControlPixmap dest
 argument_list|)
 block|;
+name|protected
+operator|:
 name|void
 name|drawPushButton
 argument_list|(
@@ -656,7 +614,7 @@ name|comboBoxSubControlRect
 argument_list|(
 argument|const QStyleOptionComplex *option
 argument_list|,
-argument|SubControl sc
+argument|QPixmapStyle::SubControl sc
 argument_list|,
 argument|const QWidget *widget
 argument_list|)
@@ -667,54 +625,28 @@ name|scrollBarSubControlRect
 argument_list|(
 argument|const QStyleOptionComplex *option
 argument_list|,
-argument|SubControl sc
+argument|QPixmapStyle::SubControl sc
 argument_list|,
 argument|const QWidget *widget
 argument_list|)
 specifier|const
 block|;
-name|private
+name|protected
 operator|:
-name|QPixmap
-name|getCachedPixmap
+name|QPixmapStyle
 argument_list|(
-argument|ControlDescriptor control
-argument_list|,
-argument|const Descriptor&desc
-argument_list|,
-argument|const QSize&size
+name|QPixmapStylePrivate
+operator|&
+name|dd
 argument_list|)
-specifier|const
-block|;
-name|QSize
-name|computeSize
-argument_list|(
-argument|const Descriptor&desc
-argument_list|,
-argument|int width
-argument_list|,
-argument|int height
-argument_list|)
-specifier|const
 block|;
 name|private
 operator|:
-name|QHash
-operator|<
-name|ControlDescriptor
-block|,
-name|Descriptor
-operator|>
-name|m_descriptors
-block|;
-name|QHash
-operator|<
-name|ControlPixmap
-block|,
-name|Pixmap
-operator|>
-name|m_pixmaps
-block|; }
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QPixmapStyle
+argument_list|)
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
