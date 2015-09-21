@@ -1083,19 +1083,7 @@ undef|#
 directive|undef
 name|main
 end_undef
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
-specifier|extern
-name|Q_DECL_IMPORT
-name|QBasicAtomicInt
-name|qt_qhash_seed
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// from qhash.cpp
-end_comment
 begin_function
-name|QT_END_NAMESPACE
 DECL|function|main
 name|int
 name|main
@@ -1109,9 +1097,7 @@ name|argv
 index|[]
 parameter_list|)
 block|{
-name|qt_qhash_seed
-operator|.
-name|store
+name|qSetGlobalQHashSeed
 argument_list|(
 literal|0
 argument_list|)
