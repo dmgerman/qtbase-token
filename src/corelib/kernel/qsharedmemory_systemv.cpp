@@ -189,7 +189,7 @@ return|;
 block|}
 name|unix_key
 operator|=
-name|ftok
+name|qt_safe_ftok
 argument_list|(
 name|QFile
 operator|::
@@ -197,9 +197,6 @@ name|encodeName
 argument_list|(
 name|nativeKey
 argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|,
 literal|'Q'
 argument_list|)
