@@ -510,7 +510,7 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-comment|// Eat all mouse events
+comment|// Eat all mouse move events
 block|}
 case|case
 name|QEvent
@@ -551,15 +551,31 @@ block|}
 name|exitDndEventLoop
 argument_list|()
 expr_stmt|;
+name|QCoreApplication
+operator|::
+name|postEvent
+argument_list|(
+name|o
+argument_list|,
+operator|new
+name|QMouseEvent
+argument_list|(
+operator|*
+cast|static_cast
+argument_list|<
+name|QMouseEvent
+operator|*
+argument_list|>
+argument_list|(
+name|e
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
-comment|// Eat all mouse events
-case|case
-name|QEvent
-operator|::
-name|MouseButtonPress
-case|:
+comment|// defer mouse release events until drag event loop has returned
 case|case
 name|QEvent
 operator|::
