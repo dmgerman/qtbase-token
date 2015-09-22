@@ -1551,8 +1551,8 @@ name|dictionary
 index|[
 literal|"QMAKESPEC"
 index|]
-operator|==
-name|QString
+operator|.
+name|startsWith
 argument_list|(
 literal|"win32-g++"
 argument_list|)
@@ -9491,10 +9491,13 @@ name|dictionary
 index|[
 literal|"QMAKESPEC"
 index|]
-operator|==
-name|QString
+operator|.
+name|startsWith
+argument_list|(
+name|QLatin1String
 argument_list|(
 literal|"win32-g++"
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -28573,8 +28576,8 @@ name|dictionary
 index|[
 literal|"QMAKESPEC"
 index|]
-operator|==
-name|QString
+operator|.
+name|startsWith
 argument_list|(
 literal|"win32-g++"
 argument_list|)
@@ -28582,7 +28585,12 @@ condition|)
 block|{
 name|stream
 operator|<<
-literal|"QMAKESPEC = $(SOURCE_PATH)\\mkspecs\\win32-g++"
+literal|"QMAKESPEC = $(SOURCE_PATH)\\mkspecs\\"
+operator|<<
+name|dictionary
+index|[
+literal|"QMAKESPEC"
+index|]
 operator|<<
 name|endl
 operator|<<
