@@ -959,6 +959,17 @@ specifier|static
 name|void
 name|registerTouchDevice
 parameter_list|(
+specifier|const
+name|QTouchDevice
+modifier|*
+name|device
+parameter_list|)
+function_decl|;
+specifier|static
+name|void
+name|unregisterTouchDevice
+parameter_list|(
+specifier|const
 name|QTouchDevice
 modifier|*
 name|device

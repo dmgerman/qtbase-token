@@ -125,6 +125,10 @@ operator|&
 name|deviceNode
 argument_list|)
 block|;
+name|void
+name|updateInputDeviceCount
+argument_list|()
+block|;
 name|private
 operator|:
 name|QString
