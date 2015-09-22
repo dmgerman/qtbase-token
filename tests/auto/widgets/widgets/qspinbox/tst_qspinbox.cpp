@@ -475,6 +475,28 @@ block|{
 name|QSpinBox
 name|obj1
 decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|obj1
+operator|.
+name|inputMethodQuery
+argument_list|(
+name|Qt
+operator|::
+name|ImHints
+argument_list|)
+argument_list|,
+name|QVariant
+argument_list|(
+name|int
+argument_list|(
+name|Qt
+operator|::
+name|ImhDigitsOnly
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// int QSpinBox::singleStep()
 comment|// void QSpinBox::setSingleStep(int)
 name|obj1
@@ -691,6 +713,28 @@ expr_stmt|;
 name|QDoubleSpinBox
 name|obj2
 decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|obj2
+operator|.
+name|inputMethodQuery
+argument_list|(
+name|Qt
+operator|::
+name|ImHints
+argument_list|)
+argument_list|,
+name|QVariant
+argument_list|(
+name|int
+argument_list|(
+name|Qt
+operator|::
+name|ImhFormattedNumbersOnly
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// double QDoubleSpinBox::singleStep()
 comment|// void QDoubleSpinBox::setSingleStep(double)
 name|obj2
