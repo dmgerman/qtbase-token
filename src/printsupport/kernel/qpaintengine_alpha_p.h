@@ -270,8 +270,19 @@ block|;
 name|QRegion
 name|m_cliprgn
 block|;
+name|mutable
 name|QRegion
-name|m_dirtyrgn
+name|m_cachedDirtyRgn
+block|;
+name|mutable
+name|int
+name|m_numberOfCachedRects
+block|;
+name|QVector
+operator|<
+name|QRect
+operator|>
+name|m_dirtyRects
 block|;
 name|bool
 name|m_hasalpha
@@ -321,12 +332,15 @@ argument_list|(
 argument|const QRectF&rect
 argument_list|)
 block|{
-name|m_dirtyrgn
-operator||=
+name|m_dirtyRects
+operator|.
+name|append
+argument_list|(
 name|rect
 operator|.
 name|toAlignedRect
 argument_list|()
+argument_list|)
 block|; }
 name|bool
 name|canSeeTroughBackground
