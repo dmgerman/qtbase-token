@@ -14560,18 +14560,6 @@ name|out
 operator|<<
 name|dateAndTime
 expr_stmt|;
-if|if
-condition|(
-name|out
-operator|.
-name|version
-argument_list|()
-operator|>=
-name|QDataStream
-operator|::
-name|Qt_4_0
-condition|)
-block|{
 switch|switch
 condition|(
 name|dateTime
@@ -14646,7 +14634,6 @@ operator|::
 name|LocalUnknown
 expr_stmt|;
 break|break;
-block|}
 block|}
 block|}
 else|else
