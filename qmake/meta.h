@@ -81,10 +81,6 @@ name|ProValueMap
 operator|>
 name|cache_vars
 expr_stmt|;
-name|void
-name|clear
-parameter_list|()
-function_decl|;
 name|public
 label|:
 name|QMakeMetaInfo
