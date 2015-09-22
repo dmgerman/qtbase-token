@@ -4746,6 +4746,21 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|reply
+condition|)
+comment|// a reply was actually dequeued.
+name|reply
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|connectionChannel
+operator|=
+name|this
+expr_stmt|;
+comment|// set correct channel like in sendRequest() and queueRequest();
+if|if
+condition|(
 name|connection
 operator|->
 name|connectionType
