@@ -9470,6 +9470,14 @@ name|Qt
 operator|::
 name|OffsetFromUTC
 case|:
+return|return
+name|QTimeZone
+argument_list|(
+name|d
+operator|->
+name|m_offsetFromUtc
+argument_list|)
+return|;
 case|case
 name|Qt
 operator|::
