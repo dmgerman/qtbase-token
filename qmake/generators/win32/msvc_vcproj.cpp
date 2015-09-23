@@ -5232,15 +5232,6 @@ argument_list|(
 literal|"1"
 argument_list|)
 expr_stmt|;
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"QMAKE_L_FLAG"
-argument_list|)
-operator|<<
-literal|"/LIBPATH:"
-expr_stmt|;
 name|processVars
 argument_list|()
 expr_stmt|;

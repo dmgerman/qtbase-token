@@ -150,12 +150,17 @@ name|QString
 name|preCompHeaderOut
 block|;
 name|virtual
-name|bool
-name|findLibraries
+name|LibFlagType
+name|parseLibFlag
 argument_list|(
-argument|bool linkPrl
+specifier|const
+name|ProString
+operator|&
+name|flag
 argument_list|,
-argument|bool mergeLflags
+name|ProString
+operator|*
+name|arg
 argument_list|)
 block|;
 name|QString
