@@ -11345,9 +11345,8 @@ block|{
 if|if
 condition|(
 name|precision
-operator|==
-operator|-
-literal|1
+operator|<
+literal|0
 condition|)
 name|precision
 operator|=
@@ -11356,9 +11355,8 @@ expr_stmt|;
 if|if
 condition|(
 name|width
-operator|==
-operator|-
-literal|1
+operator|<
+literal|0
 condition|)
 name|width
 operator|=
