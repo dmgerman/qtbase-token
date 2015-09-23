@@ -5600,12 +5600,7 @@ name|QT_WARNING_DISABLE_GCC
 parameter_list|(
 name|text
 parameter_list|)
-value|QT_DO_PRAGMA(GCC diagnostic ignored text)
 end_define
-begin_comment
-DECL|macro|QT_WARNING_DISABLE_GCC
-comment|// GCC directives work in Clang too
-end_comment
 begin_define
 DECL|macro|QT_WARNING_DISABLE_INTEL
 define|#
