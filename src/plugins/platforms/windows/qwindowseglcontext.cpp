@@ -4356,7 +4356,7 @@ name|qWarning
 argument_list|(
 literal|"%s: No Display"
 argument_list|,
-name|Q_FUNC_INFO
+name|__FUNCTION__
 argument_list|)
 expr_stmt|;
 return|return
@@ -4376,7 +4376,7 @@ name|qWarning
 argument_list|(
 literal|"%s: Failed to load and resolve libEGL functions"
 argument_list|,
-name|Q_FUNC_INFO
+name|__FUNCTION__
 argument_list|)
 expr_stmt|;
 return|return
@@ -4396,7 +4396,7 @@ name|qWarning
 argument_list|(
 literal|"%s: Failed to load and resolve libGLESv2 functions"
 argument_list|,
-name|Q_FUNC_INFO
+name|__FUNCTION__
 argument_list|)
 expr_stmt|;
 return|return
@@ -4613,7 +4613,7 @@ name|qWarning
 argument_list|(
 literal|"%s: Could not obtain EGL display"
 argument_list|,
-name|Q_FUNC_INFO
+name|__FUNCTION__
 argument_list|)
 expr_stmt|;
 return|return
@@ -4650,9 +4650,9 @@ argument_list|()
 decl_stmt|;
 name|qWarning
 argument_list|(
-literal|"%s: Could not initialize EGL display: error 0x%x\n"
+literal|"%s: Could not initialize EGL display: error 0x%x"
 argument_list|,
-name|Q_FUNC_INFO
+name|__FUNCTION__
 argument_list|,
 name|err
 argument_list|)
@@ -4667,7 +4667,7 @@ name|qWarning
 argument_list|(
 literal|"%s: When using ANGLE, check if d3dcompiler_4x.dll is available"
 argument_list|,
-name|Q_FUNC_INFO
+name|__FUNCTION__
 argument_list|)
 expr_stmt|;
 return|return
@@ -4835,9 +4835,9 @@ argument_list|()
 expr_stmt|;
 name|qWarning
 argument_list|(
-literal|"%s: Could not create the EGL window surface: 0x%x\n"
+literal|"%s: Could not create the EGL window surface: 0x%x"
 argument_list|,
-name|Q_FUNC_INFO
+name|__FUNCTION__
 argument_list|,
 operator|*
 name|err
@@ -5345,18 +5345,36 @@ operator|==
 name|EGL_NO_CONTEXT
 condition|)
 block|{
-name|qWarning
-argument_list|(
-literal|"QWindowsEGLContext: eglError: %x, this: %p \n"
-argument_list|,
+name|int
+name|err
+init|=
 name|QWindowsEGLStaticContext
 operator|::
 name|libEGL
 operator|.
 name|eglGetError
 argument_list|()
+decl_stmt|;
+name|qWarning
+argument_list|(
+literal|"QWindowsEGLContext: Failed to create context, eglError: %x, this: %p"
+argument_list|,
+name|err
 argument_list|,
 name|this
+argument_list|)
+expr_stmt|;
+comment|// ANGLE gives bad alloc when it fails to reset a previously lost D3D device.
+comment|// A common cause for this is disabling the graphics adapter used by the app.
+if|if
+condition|(
+name|err
+operator|==
+name|EGL_BAD_ALLOC
+condition|)
+name|qWarning
+argument_list|(
+literal|"QWindowsEGLContext: Graphics device lost. (Did the adapter get disabled?)"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5732,6 +5750,41 @@ operator|<<
 name|this
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|err
+operator|==
+name|EGL_BAD_ACCESS
+condition|)
+block|{
+comment|// With ANGLE this means no (D3D) device and can happen when disabling/changing graphics adapters.
+name|qCDebug
+argument_list|(
+name|lcQpaGl
+argument_list|)
+operator|<<
+literal|"Bad access (missing device?) in createWindowSurface() for context"
+operator|<<
+name|this
+expr_stmt|;
+comment|// Simulate context loss as the context is useless.
+name|QWindowsEGLStaticContext
+operator|::
+name|libEGL
+operator|.
+name|eglDestroyContext
+argument_list|(
+name|m_eglDisplay
+argument_list|,
+name|m_eglContext
+argument_list|)
+expr_stmt|;
+name|m_eglContext
+operator|=
+name|EGL_NO_CONTEXT
+expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
@@ -5895,7 +5948,9 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"QWindowsEGLContext::makeCurrent: eglError: %x, this: %p \n"
+literal|"%s: Failed to make surface current. eglError: %x, this: %p"
+argument_list|,
+name|__FUNCTION__
 argument_list|,
 name|err
 argument_list|,
@@ -5951,7 +6006,9 @@ name|ok
 condition|)
 name|qWarning
 argument_list|(
-literal|"QWindowsEGLContext::doneCurrent: eglError: %d, this: %p \n"
+literal|"%s: Failed to make no context/surface current. eglError: %d, this: %p"
+argument_list|,
+name|__FUNCTION__
 argument_list|,
 name|QWindowsEGLStaticContext
 operator|::
@@ -6072,20 +6129,50 @@ condition|(
 operator|!
 name|ok
 condition|)
-name|qWarning
-argument_list|(
-literal|"QWindowsEGLContext::swapBuffers: eglError: %d, this: %p \n"
-argument_list|,
+block|{
+name|err
+operator|=
 name|QWindowsEGLStaticContext
 operator|::
 name|libEGL
 operator|.
 name|eglGetError
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+name|EGL_CONTEXT_LOST
+condition|)
+block|{
+name|m_eglContext
+operator|=
+name|EGL_NO_CONTEXT
+expr_stmt|;
+name|qCDebug
+argument_list|(
+name|lcQpaGl
+argument_list|)
+operator|<<
+literal|"Got EGL context lost in eglSwapBuffers()"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|qWarning
+argument_list|(
+literal|"%s: Failed to swap buffers. eglError: %d, this: %p"
+argument_list|,
+name|__FUNCTION__
+argument_list|,
+name|err
 argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 end_function
 begin_function
