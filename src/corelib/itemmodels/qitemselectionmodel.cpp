@@ -2945,7 +2945,7 @@ name|end
 argument_list|,
 name|it
 operator|->
-name|left
+name|right
 argument_list|()
 argument_list|,
 name|it
@@ -3023,7 +3023,7 @@ name|start
 argument_list|,
 name|it
 operator|->
-name|right
+name|left
 argument_list|()
 argument_list|,
 name|it
@@ -3108,7 +3108,7 @@ name|start
 argument_list|,
 name|it
 operator|->
-name|right
+name|left
 argument_list|()
 argument_list|,
 name|it
@@ -3125,7 +3125,7 @@ name|end
 argument_list|,
 name|it
 operator|->
-name|left
+name|right
 argument_list|()
 argument_list|,
 name|it
