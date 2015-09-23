@@ -12705,7 +12705,7 @@ literal|true
 argument_list|)
 condition|)
 return|return;
-comment|// don't connect
+comment|// don't disconnect
 name|Q_ASSERT
 argument_list|(
 name|thread

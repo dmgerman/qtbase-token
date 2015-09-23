@@ -212,6 +212,15 @@ name|QString
 operator|&
 name|newOwner
 argument_list|)
+block|;
+specifier|static
+name|void
+name|finishDisconnectNotify
+argument_list|(
+argument|QDBusAbstractInterface *iface
+argument_list|,
+argument|int signalId
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
