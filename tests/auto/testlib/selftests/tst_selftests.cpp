@@ -1521,6 +1521,22 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
+name|QVERIFY2
+argument_list|(
+name|tempDir
+operator|.
+name|isValid
+argument_list|()
+argument_list|,
+name|qPrintable
+argument_list|(
+name|tempDir
+operator|.
+name|errorString
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|//Detect the location of the sub programs
 name|QString
 name|subProgram

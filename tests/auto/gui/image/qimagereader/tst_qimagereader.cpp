@@ -524,12 +524,20 @@ argument_list|(
 literal|"Can't find images directory!"
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|m_temporaryDir
 operator|.
 name|isValid
 argument_list|()
+argument_list|,
+name|qPrintable
+argument_list|(
+name|m_temporaryDir
+operator|.
+name|errorString
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

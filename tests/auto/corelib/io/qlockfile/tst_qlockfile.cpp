@@ -215,6 +215,22 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+name|QVERIFY2
+argument_list|(
+name|dir
+operator|.
+name|isValid
+argument_list|()
+argument_list|,
+name|qPrintable
+argument_list|(
+name|dir
+operator|.
+name|errorString
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// chdir to our testdata path and execute helper apps relative to that.
 name|QString
 name|testdata_dir
