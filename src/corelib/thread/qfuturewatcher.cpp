@@ -402,9 +402,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*! \fn void QFutureWatcher::setPendingResultsLimit(int limit)      The setPendingResultsLimit() provides throttling control. When the number     of pending resultReadyAt() or resultsReadyAt() signals exceeds the     \a limit, the computation represented by the future will be throttled     automatically. The computation will resume once the number of pending     signals drops below the \a limit. */
-end_comment
 begin_function
 DECL|function|event
 name|bool
@@ -572,6 +569,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \fn void QFutureWatcher::setPendingResultsLimit(int limit)      The setPendingResultsLimit() provides throttling control. When the number     of pending resultReadyAt() or resultsReadyAt() signals exceeds the     \a limit, the computation represented by the future will be throttled     automatically. The computation will resume once the number of pending     signals drops below the \a limit. */
+end_comment
 begin_function
 DECL|function|setPendingResultsLimit
 name|void
