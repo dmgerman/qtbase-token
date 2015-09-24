@@ -284,7 +284,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QFutureWatcher::isFinished() const      Returns \c true if the asynchronous computation represented by the future()     has finished; otherwise returns \c false. */
+comment|/*! \fn bool QFutureWatcher::isFinished() const      Returns \c true if the asynchronous computation represented by the future()     has finished, or if no future has been set; otherwise returns \c false. */
 end_comment
 begin_function
 DECL|function|isFinished
@@ -761,6 +761,12 @@ name|resultAtConnected
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|finished
+argument_list|(
+literal|true
+argument_list|)
+comment|/* the initial m_future is a canceledResult(), with Finished set */
 block|{ }
 end_constructor
 begin_comment
@@ -840,6 +846,7 @@ name|finished
 operator|=
 literal|false
 expr_stmt|;
+comment|/* May soon be amended, during connectOutputInterface() */
 block|}
 name|futureInterface
 argument_list|()
