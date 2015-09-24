@@ -168,6 +168,15 @@ name|defined
 argument_list|(
 name|QT_NO_SETTINGS
 argument_list|)
+argument_list|if
+operator|(
+operator|!
+name|key
+operator|.
+name|isEmpty
+argument_list|()
+operator|)
+block|{
 name|QStringList
 name|paramList
 operator|=
@@ -180,7 +189,7 @@ argument_list|(
 literal|':'
 argument_list|)
 argument_list|)
-argument_list|;
+block|;
 specifier|const
 name|QString
 name|platform
@@ -192,7 +201,7 @@ argument_list|()
 operator|.
 name|toLower
 argument_list|()
-argument_list|;
+block|;
 name|QPlatformInputContext
 operator|*
 name|ic
@@ -211,33 +220,27 @@ name|platform
 argument_list|,
 name|paramList
 argument_list|)
-argument_list|;     if
-operator|(
+block|;
+if|if
+condition|(
 name|ic
 operator|&&
 name|ic
 operator|->
 name|isValid
 argument_list|()
-operator|)
+condition|)
 return|return
 name|ic
 return|;
-end_decl_stmt
-begin_expr_stmt
 operator|delete
 name|ic
-expr_stmt|;
-end_expr_stmt
-begin_endif
+argument_list|;     }
 endif|#
 directive|endif
-end_endif
-begin_return
-return|return
-literal|0
-return|;
-end_return
+decl|return 0
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 unit|}  QPlatformInputContext
 DECL|function|create
