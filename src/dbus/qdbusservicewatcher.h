@@ -23,11 +23,21 @@ include|#
 directive|include
 file|<QtDBus/qdbusmacros.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_DBUS
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_QOBJECT
+argument_list|)
+end_if
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QDBusConnection
@@ -236,7 +246,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_DBUS
+comment|// QT_NO_DBUS || QT_NO_QOBJECT
 end_comment
 begin_endif
 endif|#

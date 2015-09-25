@@ -36,6 +36,9 @@ name|QIconEngine
 block|{
 name|public
 label|:
+name|QIconEngine
+argument_list|()
+expr_stmt|;
 name|virtual
 operator|~
 name|QIconEngine

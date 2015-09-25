@@ -102,7 +102,7 @@ name|QAccessibleInterface
 operator|(
 operator|)
 block|{ }
-comment|/*!     \typedef QAccessible::Id     \relates QAccessible      Synonym for unsigned, used by the QAccessibleInterface cache. */
+comment|/*!     \typedef QAccessible::Id      Synonym for unsigned, used by the QAccessibleInterface cache. */
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY

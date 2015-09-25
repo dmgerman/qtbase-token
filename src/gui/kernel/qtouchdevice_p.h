@@ -104,6 +104,16 @@ name|dev
 parameter_list|)
 function_decl|;
 specifier|static
+name|void
+name|unregisterDevice
+parameter_list|(
+specifier|const
+name|QTouchDevice
+modifier|*
+name|dev
+parameter_list|)
+function_decl|;
+specifier|static
 name|bool
 name|isRegistered
 parameter_list|(

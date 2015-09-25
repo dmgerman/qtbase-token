@@ -950,8 +950,34 @@ operator|++
 name|edition
 expr_stmt|;
 block|}
-comment|// The following line was changed to fix QTBUG-27798
-comment|//codeIndent = config.getInt(CONFIG_CODEINDENT);
+name|codeIndent
+operator|=
+name|config
+operator|.
+name|getInt
+argument_list|(
+name|CONFIG_CODEINDENT
+argument_list|)
+expr_stmt|;
+comment|// QTBUG-27798
+name|codePrefix
+operator|=
+name|config
+operator|.
+name|getString
+argument_list|(
+name|CONFIG_CODEPREFIX
+argument_list|)
+expr_stmt|;
+name|codeSuffix
+operator|=
+name|config
+operator|.
+name|getString
+argument_list|(
+name|CONFIG_CODESUFFIX
+argument_list|)
+expr_stmt|;
 comment|/*       The help file write should be allocated once and only once       per qdoc execution.      */
 if|if
 condition|(
@@ -2960,6 +2986,10 @@ argument_list|)
 argument_list|,
 name|relative
 argument_list|)
+argument_list|,
+name|codePrefix
+argument_list|,
+name|codeSuffix
 argument_list|)
 operator|<<
 literal|"</pre>\n"
@@ -2991,6 +3021,10 @@ argument_list|)
 argument_list|,
 name|relative
 argument_list|)
+argument_list|,
+name|codePrefix
+argument_list|,
+name|codeSuffix
 argument_list|)
 operator|<<
 literal|"</pre>\n"
@@ -3022,6 +3056,10 @@ argument_list|)
 argument_list|,
 name|relative
 argument_list|)
+argument_list|,
+name|codePrefix
+argument_list|,
+name|codeSuffix
 argument_list|)
 operator|<<
 literal|"</pre>\n"
@@ -3055,6 +3093,10 @@ argument_list|)
 argument_list|,
 name|relative
 argument_list|)
+argument_list|,
+name|codePrefix
+argument_list|,
+name|codeSuffix
 argument_list|)
 operator|<<
 literal|"</pre>\n"
@@ -3098,6 +3140,10 @@ argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
+argument_list|,
+name|codePrefix
+argument_list|,
+name|codeSuffix
 argument_list|)
 operator|<<
 literal|"</pre>\n"
@@ -13650,6 +13696,10 @@ argument_list|)
 argument_list|,
 name|inner
 argument_list|)
+argument_list|,
+name|codePrefix
+argument_list|,
+name|codeSuffix
 argument_list|)
 operator|<<
 literal|"</pre>"

@@ -1242,27 +1242,15 @@ argument_list|)
 expr_stmt|;
 name|funcs
 operator|->
-name|glBlendFunc
+name|glBlendFuncSeparate
 argument_list|(
 name|GL_SRC_ALPHA
 argument_list|,
 name|GL_ONE_MINUS_SRC_ALPHA
-argument_list|)
-expr_stmt|;
-comment|// Do not write out alpha. We need blending, but only for RGB. The toplevel may have
-comment|// alpha enabled in which case blending (writing out< 1.0 alpha values) would lead to
-comment|// semi-transparency even when it is not wanted.
-name|funcs
-operator|->
-name|glColorMask
-argument_list|(
-name|GL_TRUE
 argument_list|,
-name|GL_TRUE
+name|GL_ONE
 argument_list|,
-name|GL_TRUE
-argument_list|,
-name|GL_FALSE
+name|GL_ONE
 argument_list|)
 expr_stmt|;
 comment|// Backingstore texture with the normal widgets.
@@ -1704,19 +1692,6 @@ name|blitter
 argument_list|)
 expr_stmt|;
 block|}
-name|funcs
-operator|->
-name|glColorMask
-argument_list|(
-name|GL_TRUE
-argument_list|,
-name|GL_TRUE
-argument_list|,
-name|GL_TRUE
-argument_list|,
-name|GL_TRUE
-argument_list|)
-expr_stmt|;
 name|funcs
 operator|->
 name|glDisable

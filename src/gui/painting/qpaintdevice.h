@@ -253,7 +253,7 @@ name|devicePixelRatioFScale
 parameter_list|()
 block|{
 return|return
-literal|10000000.0
+literal|0x10000
 return|;
 block|}
 name|protected

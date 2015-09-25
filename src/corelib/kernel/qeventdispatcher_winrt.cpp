@@ -1385,21 +1385,26 @@ block|}
 name|TimeSpan
 name|period
 decl_stmt|;
+comment|// TimeSpan is based on 100-nanosecond units
 name|period
 operator|.
 name|Duration
 operator|=
+name|qMax
+argument_list|(
+name|qint64
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+name|qint64
+argument_list|(
 name|interval
-condition|?
-operator|(
-name|interval
+argument_list|)
 operator|*
 literal|10000
-operator|)
-else|:
-literal|1
+argument_list|)
 expr_stmt|;
-comment|// TimeSpan is based on 100-nanosecond units
 specifier|const
 name|HANDLE
 name|handle

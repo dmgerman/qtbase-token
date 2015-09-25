@@ -108,6 +108,12 @@ include|#
 directive|include
 file|<sys/wait.h>
 end_include
+begin_define
+DECL|macro|__APPLE_USE_RFC_3542
+define|#
+directive|define
+name|__APPLE_USE_RFC_3542
+end_define
 begin_include
 include|#
 directive|include

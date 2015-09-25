@@ -174,27 +174,24 @@ operator|<<
 name|legacyDevicePixelEnvVar
 operator|<<
 literal|"is deprecated. Instead use:"
-expr_stmt|;
-name|qWarning
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"   "
 operator|<<
 name|autoScreenEnvVar
 operator|<<
 literal|"to enable platform plugin controlled per-screen factors."
-expr_stmt|;
-name|qWarning
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"   "
 operator|<<
 name|screenFactorsEnvVar
 operator|<<
 literal|"to set per-screen factors."
-expr_stmt|;
-name|qWarning
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"   "
 operator|<<

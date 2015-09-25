@@ -1510,7 +1510,7 @@ name|SLJIT_OP0_BASE
 value|0
 end_define
 begin_comment
-comment|/* Flags: - (never set any flags)    Note: breakpoint instruction is not supported by all architectures (namely ppc)          It falls back to SLJIT_NOP in those cases. */
+comment|/* Flags: - (never set any flags)    Note: breakpoint instruction is not supported by all architectures (e.g. ppc)          It falls back to SLJIT_NOP in those cases. */
 end_comment
 begin_define
 DECL|macro|SLJIT_BREAKPOINT
@@ -1530,7 +1530,7 @@ name|SLJIT_NOP
 value|(SLJIT_OP0_BASE + 1)
 end_define
 begin_comment
-comment|/* Flags: - (may destroy flags)    Unsigned multiplication of SLJIT_R0 and SLJIT_R1.    Result goes to SLJIT_R1:SLJIT_R0 (high:low) word */
+comment|/* Flags: - (may destroy flags)    Unsigned multiplication of SLJIT_R0 and SLJIT_R1.    Result is placed into SLJIT_R1:SLJIT_R0 (high:low) word */
 end_comment
 begin_define
 DECL|macro|SLJIT_LUMUL
@@ -1540,7 +1540,7 @@ name|SLJIT_LUMUL
 value|(SLJIT_OP0_BASE + 2)
 end_define
 begin_comment
-comment|/* Flags: - (may destroy flags)    Signed multiplication of SLJIT_R0 and SLJIT_R1.    Result goes to SLJIT_R1:SLJIT_R0 (high:low) word */
+comment|/* Flags: - (may destroy flags)    Signed multiplication of SLJIT_R0 and SLJIT_R1.    Result is placed into SLJIT_R1:SLJIT_R0 (high:low) word */
 end_comment
 begin_define
 DECL|macro|SLJIT_LSMUL
@@ -1550,38 +1550,72 @@ name|SLJIT_LSMUL
 value|(SLJIT_OP0_BASE + 3)
 end_define
 begin_comment
-comment|/* Flags: I - (may destroy flags)    Unsigned divide of the value in SLJIT_R0 by the value in SLJIT_R1.    The result is placed in SLJIT_R0 and the remainder goes to SLJIT_R1.    Note: if SLJIT_R1 contains 0, the behaviour is undefined. */
+comment|/* Flags: I - (may destroy flags)    Unsigned divide of the value in SLJIT_R0 by the value in SLJIT_R1.    The result is placed into SLJIT_R0 and the remainder into SLJIT_R1.    Note: if SLJIT_R1 is 0, the behaviour is undefined. */
 end_comment
 begin_define
-DECL|macro|SLJIT_LUDIV
+DECL|macro|SLJIT_UDIVMOD
 define|#
 directive|define
-name|SLJIT_LUDIV
+name|SLJIT_UDIVMOD
 value|(SLJIT_OP0_BASE + 4)
 end_define
 begin_define
-DECL|macro|SLJIT_ILUDIV
+DECL|macro|SLJIT_IUDIVMOD
 define|#
 directive|define
-name|SLJIT_ILUDIV
-value|(SLJIT_LUDIV | SLJIT_INT_OP)
+name|SLJIT_IUDIVMOD
+value|(SLJIT_UDIVMOD | SLJIT_INT_OP)
 end_define
 begin_comment
-comment|/* Flags: I - (may destroy flags)    Signed divide of the value in SLJIT_R0 by the value in SLJIT_R1.    The result is placed in SLJIT_R0 and the remainder goes to SLJIT_R1.    Note: if SLJIT_R1 contains 0, the behaviour is undefined. */
+comment|/* Flags: I - (may destroy flags)    Signed divide of the value in SLJIT_R0 by the value in SLJIT_R1.    The result is placed into SLJIT_R0 and the remainder into SLJIT_R1.    Note: if SLJIT_R1 is 0, the behaviour is undefined.    Note: if SLJIT_R1 is -1 and SLJIT_R0 is integer min (0x800..00),          the behaviour is undefined. */
 end_comment
 begin_define
-DECL|macro|SLJIT_LSDIV
+DECL|macro|SLJIT_SDIVMOD
 define|#
 directive|define
-name|SLJIT_LSDIV
+name|SLJIT_SDIVMOD
 value|(SLJIT_OP0_BASE + 5)
 end_define
 begin_define
-DECL|macro|SLJIT_ILSDIV
+DECL|macro|SLJIT_ISDIVMOD
 define|#
 directive|define
-name|SLJIT_ILSDIV
-value|(SLJIT_LSDIV | SLJIT_INT_OP)
+name|SLJIT_ISDIVMOD
+value|(SLJIT_SDIVMOD | SLJIT_INT_OP)
+end_define
+begin_comment
+comment|/* Flags: I - (may destroy flags)    Unsigned divide of the value in SLJIT_R0 by the value in SLJIT_R1.    The result is placed into SLJIT_R0. SLJIT_R1 preserves its value.    Note: if SLJIT_R1 is 0, the behaviour is undefined.    Note: SLJIT_SDIV is single precision divide. */
+end_comment
+begin_define
+DECL|macro|SLJIT_UDIVI
+define|#
+directive|define
+name|SLJIT_UDIVI
+value|(SLJIT_OP0_BASE + 6)
+end_define
+begin_define
+DECL|macro|SLJIT_IUDIVI
+define|#
+directive|define
+name|SLJIT_IUDIVI
+value|(SLJIT_UDIVI | SLJIT_INT_OP)
+end_define
+begin_comment
+comment|/* Flags: I - (may destroy flags)    Signed divide of the value in SLJIT_R0 by the value in SLJIT_R1.    The result is placed into SLJIT_R0. SLJIT_R1 preserves its value.    Note: if SLJIT_R1 is 0, the behaviour is undefined.    Note: if SLJIT_R1 is -1 and SLJIT_R0 is integer min (0x800..00),          the behaviour is undefined.    Note: SLJIT_SDIV is single precision divide. */
+end_comment
+begin_define
+DECL|macro|SLJIT_SDIVI
+define|#
+directive|define
+name|SLJIT_SDIVI
+value|(SLJIT_OP0_BASE + 7)
+end_define
+begin_define
+DECL|macro|SLJIT_ISDIVI
+define|#
+directive|define
+name|SLJIT_ISDIVI
+value|(SLJIT_SDIVI | SLJIT_INT_OP)
 end_define
 begin_function_decl
 name|SLJIT_API_FUNC_ATTRIBUTE

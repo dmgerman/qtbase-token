@@ -1331,6 +1331,28 @@ parameter_list|()
 block|{
 comment|// Perform everything that may potentially need the event dispatcher (timers, socket
 comment|// notifiers) here instead of the constructor.
+name|QString
+name|icStr
+init|=
+name|QPlatformInputContextFactory
+operator|::
+name|requested
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|icStr
+operator|.
+name|isNull
+argument_list|()
+condition|)
+name|icStr
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"compose"
+argument_list|)
+expr_stmt|;
 name|m_inputContext
 operator|.
 name|reset
@@ -1338,7 +1360,9 @@ argument_list|(
 name|QPlatformInputContextFactory
 operator|::
 name|create
-argument_list|()
+argument_list|(
+name|icStr
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

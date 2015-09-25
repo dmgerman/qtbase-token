@@ -3166,7 +3166,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Creates and attaches an additional texture or renderbuffer of size \a width     and \a height.      There is always an attachment at GL_COLOR_ATTACHMENT0. Call this function     to set up additional attachments at GL_COLOR_ATTACHMENT1,     GL_COLOR_ATTACHMENT2, ...      When \a internalFormat is not \c 0, it specifies the internal format of the     texture or renderbuffer. Otherwise a default of GL_RGBA or GL_RGBA8 is     used.      \note This is only functional when multiple render targets are supported by     the OpenGL implementation. When that is not the case, the function will not     add any additional color attachments. Call     QOpenGLFunctions::hasOpenGLFeature() with     QOpenGLFunctions::MultipleRenderTargets at runtime to check if MRT is     supported.      \note The internal format of the color attachments may differ but there may     be limitations on the supported combinations, depending on the drivers.      \note The size of the color attachments may differ but rendering is limited     to the area that fits all the attachments, according to the OpenGL     specification. Some drivers may not be fully conformant in this respect,     however.      \since 5.6  */
+comment|/*!     Creates and attaches an additional texture or renderbuffer of \a size width     and height.      There is always an attachment at GL_COLOR_ATTACHMENT0. Call this function     to set up additional attachments at GL_COLOR_ATTACHMENT1,     GL_COLOR_ATTACHMENT2, ...      When \a internalFormat is not \c 0, it specifies the internal format of the     texture or renderbuffer. Otherwise a default of GL_RGBA or GL_RGBA8 is     used.      \note This is only functional when multiple render targets are supported by     the OpenGL implementation. When that is not the case, the function will not     add any additional color attachments. Call     QOpenGLFunctions::hasOpenGLFeature() with     QOpenGLFunctions::MultipleRenderTargets at runtime to check if MRT is     supported.      \note The internal format of the color attachments may differ but there may     be limitations on the supported combinations, depending on the drivers.      \note The size of the color attachments may differ but rendering is limited     to the area that fits all the attachments, according to the OpenGL     specification. Some drivers may not be fully conformant in this respect,     however.      \since 5.6  */
 end_comment
 begin_function
 DECL|function|addColorAttachment
@@ -3669,7 +3669,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the texture id for all attached textures.      If a multisample framebuffer object is used, then an empty vector is returned.      \since 5.6      \sa takeTextures(), texture() */
+comment|/*!     Returns the texture id for all attached textures.      If a multisample framebuffer object is used, then an empty vector is returned.      \since 5.6      \sa takeTexture(), texture() */
 end_comment
 begin_function
 DECL|function|textures
@@ -3758,7 +3758,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \fn GLuint QOpenGLFramebufferObject::takeTexture()     Returns the texture id for the texture attached to this framebuffer    object. The ownership of the texture is transferred to the caller.     If the framebuffer object is currently bound, an implicit release()    will be done. During the next call to bind() a new texture will be    created.     If a multisample framebuffer object is used, then there is no    texture and the return value from this function will be invalid.    Similarly, incomplete framebuffer objects will also return 0.     \since 5.3     \sa texture(), bind(), release(), takeTextures()  */
+comment|/*!    \fn GLuint QOpenGLFramebufferObject::takeTexture()     Returns the texture id for the texture attached to this framebuffer    object. The ownership of the texture is transferred to the caller.     If the framebuffer object is currently bound, an implicit release()    will be done. During the next call to bind() a new texture will be    created.     If a multisample framebuffer object is used, then there is no    texture and the return value from this function will be invalid.    Similarly, incomplete framebuffer objects will also return 0.     \since 5.3     \sa texture(), bind(), release()  */
 end_comment
 begin_function
 DECL|function|takeTexture

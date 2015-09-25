@@ -555,6 +555,19 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|printf
+argument_list|(
+literal|"QSysInfo::machineHostName() = %s\n"
+argument_list|,
+name|qPrintable
+argument_list|(
+name|QSysInfo
+operator|::
+name|machineHostName
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;

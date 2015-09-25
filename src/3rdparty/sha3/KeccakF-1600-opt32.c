@@ -1006,6 +1006,7 @@ name|UINT8
 modifier|*
 name|dest
 parameter_list|,
+specifier|const
 name|UINT32
 modifier|*
 name|evenAndOdd
@@ -1033,6 +1034,7 @@ name|fromInterleaving
 argument_list|(
 operator|*
 operator|(
+specifier|const
 name|UINT64
 operator|*
 operator|)
@@ -1192,7 +1194,7 @@ parameter_list|,
 name|data
 parameter_list|)
 define|\
-value|{ \         unsigned i; \         for(i=0; i<(laneCount); i++) \             setInterleavedWordsInto8bytes(data+i*8, (UINT32*)state+i*2); \     }
+value|{ \         unsigned i; \         for(i=0; i<(laneCount); i++) \             setInterleavedWordsInto8bytes(data+i*8, (const UINT32*)state+i*2); \     }
 end_define
 begin_endif
 endif|#

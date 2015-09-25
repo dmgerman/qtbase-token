@@ -5226,7 +5226,7 @@ operator|+
 literal|1
 argument_list|)
 operator|-
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|left
 argument_list|)
@@ -5235,7 +5235,7 @@ specifier|const
 name|Q16Dot16
 name|rightWidth
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|right
 argument_list|)
@@ -5456,7 +5456,7 @@ specifier|const
 name|Q16Dot16
 name|yPa
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|pa
 operator|.
@@ -5468,7 +5468,7 @@ specifier|const
 name|Q16Dot16
 name|yPb
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|pb
 operator|.
@@ -6160,7 +6160,7 @@ decl_stmt|;
 name|Q16Dot16
 name|leftIntersectAf
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|top
 operator|.
@@ -6185,7 +6185,7 @@ decl_stmt|;
 name|Q16Dot16
 name|rightIntersectAf
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|top
 operator|.
@@ -6225,7 +6225,7 @@ name|iTopFP
 condition|)
 name|leftIntersectBf
 operator|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|left
 operator|.
@@ -6255,7 +6255,7 @@ name|iTopFP
 condition|)
 name|rightIntersectBf
 operator|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|right
 operator|.
@@ -6321,7 +6321,7 @@ specifier|const
 name|Q16Dot16
 name|yTopFP
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|top
 operator|.
@@ -6333,7 +6333,7 @@ specifier|const
 name|Q16Dot16
 name|yLeftFP
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|left
 operator|.
@@ -6345,7 +6345,7 @@ specifier|const
 name|Q16Dot16
 name|yRightFP
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|right
 operator|.
@@ -6357,7 +6357,7 @@ specifier|const
 name|Q16Dot16
 name|yBottomFP
 init|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|bottom
 operator|.
@@ -6481,7 +6481,7 @@ argument_list|)
 decl_stmt|;
 name|leftIntersectBf
 operator|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|left
 operator|.
@@ -6558,7 +6558,7 @@ argument_list|)
 decl_stmt|;
 name|rightIntersectBf
 operator|=
-name|FloatToQ16Dot16
+name|qSafeFloatToQ16Dot16
 argument_list|(
 name|right
 operator|.

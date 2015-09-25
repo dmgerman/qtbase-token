@@ -33,6 +33,11 @@ include|#
 directive|include
 file|<QLoggingCategory>
 end_include
+begin_include
+include|#
+directive|include
+file|<QWindow>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|Q_DECLARE_LOGGING_CATEGORY
@@ -66,7 +71,7 @@ argument_list|,
 argument|QObject *parent =
 literal|0
 argument_list|,
-argument|QObject *input =
+argument|QWindow *window =
 literal|0
 argument_list|,
 argument|const Qt::KeyboardModifiers modifiers =
@@ -82,9 +87,9 @@ argument_list|,
 name|parent
 argument_list|)
 block|,
-name|m_input
+name|m_window
 argument_list|(
-name|input
+name|window
 argument_list|)
 block|,
 name|m_modifiers
@@ -102,14 +107,14 @@ name|QIBusFilterEventWatcher
 argument_list|()
 block|{}
 specifier|inline
-name|QObject
+name|QWindow
 operator|*
-name|input
+name|window
 argument_list|()
 specifier|const
 block|{
 return|return
-name|m_input
+name|m_window
 return|;
 block|}
 specifier|inline
@@ -140,9 +145,9 @@ name|private
 operator|:
 name|QPointer
 operator|<
-name|QObject
+name|QWindow
 operator|>
-name|m_input
+name|m_window
 block|;
 specifier|const
 name|Qt

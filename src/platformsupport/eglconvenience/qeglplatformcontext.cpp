@@ -982,6 +982,12 @@ operator|::
 name|initialize
 parameter_list|()
 block|{
+if|if
+condition|(
+name|m_eglContext
+operator|!=
+name|EGL_NO_CONTEXT
+condition|)
 name|updateFormatFromGL
 argument_list|()
 expr_stmt|;

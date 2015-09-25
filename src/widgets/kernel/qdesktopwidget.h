@@ -193,6 +193,10 @@ argument_list|(
 name|int
 argument_list|)
 block|;
+name|void
+name|primaryScreenChanged
+argument_list|()
+block|;
 name|protected
 operator|:
 name|void

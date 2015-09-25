@@ -3141,6 +3141,15 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|toggleViewAction
+operator|->
+name|setMenuRole
+argument_list|(
+name|QAction
+operator|::
+name|NoRole
+argument_list|)
+expr_stmt|;
 name|fixedWindowTitle
 operator|=
 name|qt_setWindowTitle_helperHelper

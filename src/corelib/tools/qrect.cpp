@@ -3149,16 +3149,16 @@ begin_comment
 comment|/*!     \fn QRectF operator+(const QMarginsF&lhs, const QRectF&rhs)     \relates QRectF     \overload     \since 5.3      Returns the \a lhs rectangle grown by the \a rhs margins. */
 end_comment
 begin_comment
-comment|/*!     \fn QRectF QRectF::marginsAdded(const QMarginsF&margins) const     \relates QRectF     \since 5.3      Returns a rectangle grown by the \a margins.      \sa operator+=(), marginsRemoved(), operator-=() */
+comment|/*!     \fn QRectF QRectF::marginsAdded(const QMarginsF&margins) const     \since 5.3      Returns a rectangle grown by the \a margins.      \sa operator+=(), marginsRemoved(), operator-=() */
 end_comment
 begin_comment
-comment|/*!     \fn QRectF QRectF::marginsRemoved(const QMarginsF&margins) const     \relates QRectF     \since 5.3      Removes the \a margins from the rectangle, shrinking it.      \sa marginsAdded(), operator+=(), operator-=() */
+comment|/*!     \fn QRectF QRectF::marginsRemoved(const QMarginsF&margins) const     \since 5.3      Removes the \a margins from the rectangle, shrinking it.      \sa marginsAdded(), operator+=(), operator-=() */
 end_comment
 begin_comment
-comment|/*!     \fn QRectF QRectF::operator+=(const QMarginsF&margins)     \relates QRectF     \since 5.3      Adds the \a margins to the rectangle, growing it.      \sa marginsAdded(), marginsRemoved(), operator-=() */
+comment|/*!     \fn QRectF QRectF::operator+=(const QMarginsF&margins)     \since 5.3      Adds the \a margins to the rectangle, growing it.      \sa marginsAdded(), marginsRemoved(), operator-=() */
 end_comment
 begin_comment
-comment|/*!     \fn QRectF QRectF::operator-=(const QMarginsF&margins)     \relates QRectF     \since 5.3      Returns a rectangle shrunk by the \a margins.      \sa marginsRemoved(), operator+=(), marginsAdded() */
+comment|/*!     \fn QRectF QRectF::operator-=(const QMarginsF&margins)     \since 5.3      Returns a rectangle shrunk by the \a margins.      \sa marginsRemoved(), operator+=(), marginsAdded() */
 end_comment
 begin_comment
 comment|/*****************************************************************************   QRectF stream functions  *****************************************************************************/

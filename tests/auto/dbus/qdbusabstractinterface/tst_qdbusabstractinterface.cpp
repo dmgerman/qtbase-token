@@ -5452,32 +5452,14 @@ argument_list|(
 literal|""
 argument_list|)
 decl_stmt|;
-comment|// we need to connect the signal somewhere in order for D-Bus to enable the rules
-name|QTestEventLoop
-operator|::
-name|instance
-argument_list|()
-operator|.
-name|connect
-argument_list|(
-name|p
-operator|.
-name|data
-argument_list|()
-argument_list|,
-name|SIGNAL
-argument_list|(
-name|voidSignal
-argument_list|()
-argument_list|)
-argument_list|,
-name|SLOT
-argument_list|(
-name|exitLoop
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// connect our test signal
+comment|// FRAGILE CODE AHEAD:
+comment|// Connection order is important: we connect the control first because that
+comment|// needs to be delivered last, to ensure that we don't exitLoop() before
+comment|// the signal delivery to QSignalSpy is posted to the current thread. That
+comment|// happens because QDBusConnectionPrivate runs in a separate thread and
+comment|// uses a QMultiHash and insertMulti prepends to the list of items with the
+comment|// same key.
 name|QTestEventLoop
 operator|::
 name|instance

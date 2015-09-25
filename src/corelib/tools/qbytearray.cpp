@@ -2206,7 +2206,7 @@ begin_comment
 comment|/*!     \fn QByteArray qCompress(const QByteArray& data, int compressionLevel)      \relates QByteArray      Compresses the \a data byte array and returns the compressed data     in a new byte array.      The \a compressionLevel parameter specifies how much compression     should be used. Valid values are between 0 and 9, with 9     corresponding to the greatest compression (i.e. smaller compressed     data) at the cost of using a slower algorithm. Smaller values (8,     7, ..., 1) provide successively less compression at slightly     faster speeds. The value 0 corresponds to no compression at all.     The default value is -1, which specifies zlib's default     compression.      \sa qUncompress() */
 end_comment
 begin_comment
-comment|/*! \relates QByteArray      \overload      Compresses the first \a nbytes of \a data and returns the     compressed data in a new byte array. */
+comment|/*! \relates QByteArray      \overload      Compresses the first \a nbytes of \a data at compression level     \a compressionLevel and returns the compressed data in a new byte array. */
 end_comment
 begin_ifndef
 ifndef|#

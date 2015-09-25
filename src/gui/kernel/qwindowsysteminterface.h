@@ -597,7 +597,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 specifier|static
-name|void
+name|bool
 name|handleExtendedKeyEvent
 argument_list|(
 name|QWindow
@@ -646,7 +646,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 specifier|static
-name|void
+name|bool
 name|handleExtendedKeyEvent
 argument_list|(
 name|QWindow
@@ -959,6 +959,17 @@ specifier|static
 name|void
 name|registerTouchDevice
 parameter_list|(
+specifier|const
+name|QTouchDevice
+modifier|*
+name|device
+parameter_list|)
+function_decl|;
+specifier|static
+name|void
+name|unregisterTouchDevice
+parameter_list|(
+specifier|const
 name|QTouchDevice
 modifier|*
 name|device
@@ -1885,7 +1896,7 @@ name|enable
 parameter_list|)
 function_decl|;
 specifier|static
-name|void
+name|bool
 name|flushWindowSystemEvents
 argument_list|(
 name|QEventLoop

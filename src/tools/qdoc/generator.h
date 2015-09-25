@@ -901,6 +901,16 @@ specifier|const
 name|QString
 modifier|&
 name|string
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|prefix
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|suffix
 parameter_list|)
 function_decl|;
 specifier|static

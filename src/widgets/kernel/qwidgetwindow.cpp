@@ -2162,11 +2162,11 @@ name|QWidget
 modifier|*
 name|alien
 init|=
-name|m_widget
+name|receiver
 operator|->
 name|childAt
 argument_list|(
-name|m_widget
+name|receiver
 operator|->
 name|mapFromGlobal
 argument_list|(
@@ -2239,7 +2239,10 @@ name|e
 argument_list|,
 name|alien
 argument_list|,
-name|m_widget
+name|receiver
+operator|->
+name|window
+argument_list|()
 argument_list|,
 operator|&
 name|qt_button_down
@@ -2926,6 +2929,16 @@ operator|&
 name|qt_button_down
 argument_list|,
 name|qt_last_mouse_receiver
+argument_list|)
+expr_stmt|;
+name|event
+operator|->
+name|setAccepted
+argument_list|(
+name|translated
+operator|.
+name|isAccepted
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3940,6 +3953,14 @@ argument_list|(
 name|is_closing
 argument_list|)
 expr_stmt|;
+name|QWindow
+operator|::
+name|event
+argument_list|(
+name|event
+argument_list|)
+expr_stmt|;
+comment|// Call QWindow QCloseEvent handler.
 block|}
 end_function
 begin_ifndef

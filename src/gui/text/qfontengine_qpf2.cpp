@@ -1622,6 +1622,8 @@ name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
 argument_list|,
+name|cmapSize
+argument_list|,
 name|ucs4
 argument_list|)
 decl_stmt|;
@@ -1642,6 +1644,8 @@ operator|=
 name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
+argument_list|,
+name|cmapSize
 argument_list|,
 name|ucs4
 operator|+
@@ -1784,6 +1788,8 @@ name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
 argument_list|,
+name|cmapSize
+argument_list|,
 name|uc
 argument_list|)
 expr_stmt|;
@@ -1811,6 +1817,8 @@ operator|=
 name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
+argument_list|,
+name|cmapSize
 argument_list|,
 name|uc
 operator|+
@@ -1861,6 +1869,8 @@ operator|=
 name|getTrueTypeGlyphIndex
 argument_list|(
 name|cmap
+argument_list|,
+name|cmapSize
 argument_list|,
 name|uc
 argument_list|)

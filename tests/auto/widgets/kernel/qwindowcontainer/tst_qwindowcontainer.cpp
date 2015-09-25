@@ -848,12 +848,23 @@ comment|// does not work. The second gets ignored by the window manager, even th
 comment|// timestamp in the xcb connection is unique for both.
 if|if
 condition|(
+operator|!
 name|QGuiApplication
 operator|::
 name|platformName
 argument_list|()
-operator|==
+operator|.
+name|compare
+argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"xcb"
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
 condition|)
 name|QTest
 operator|::

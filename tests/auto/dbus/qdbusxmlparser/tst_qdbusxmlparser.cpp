@@ -117,20 +117,7 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
-comment|// Avoid QHash randomization so that the order of the XML attributes is stable
-specifier|extern
-name|Q_CORE_EXPORT
-name|QBasicAtomicInt
-name|qt_qhash_seed
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// from qhash.cpp
-end_comment
 begin_function
-name|QT_END_NAMESPACE
 DECL|function|initTestCase
 name|void
 name|tst_QDBusXmlParser
@@ -139,9 +126,7 @@ name|initTestCase
 parameter_list|()
 block|{
 comment|// Always initialize the hash seed to 0 to get reliable test results
-name|qt_qhash_seed
-operator|.
-name|store
+name|qSetGlobalQHashSeed
 argument_list|(
 literal|0
 argument_list|)

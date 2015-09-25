@@ -169,6 +169,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool quitOnLastWindowClosed  READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QScreen *primaryScreen READ primaryScreen NOTIFY primaryScreenChanged STORED false
+argument_list|)
 name|public
 operator|:
 ifdef|#
@@ -579,6 +583,14 @@ argument_list|)
 block|;
 name|void
 name|screenRemoved
+argument_list|(
+name|QScreen
+operator|*
+name|screen
+argument_list|)
+block|;
+name|void
+name|primaryScreenChanged
 argument_list|(
 name|QScreen
 operator|*

@@ -211,7 +211,7 @@ begin_comment
 comment|/*! \fn void QInputEvent::setModifiers(Qt::KeyboardModifiers modifiers)      \internal      Sets the keyboard modifiers flags for this event. */
 end_comment
 begin_comment
-comment|/*!     \fn ulong QInputEvent::timestamp() const      Returns the window system's timestamp for this event. */
+comment|/*!     \fn ulong QInputEvent::timestamp() const      Returns the window system's timestamp for this event.     It will normally be in milliseconds since some arbitrary point     in time, such as the time when the system was started. */
 end_comment
 begin_comment
 comment|/*! \fn void QInputEvent::setTimestamp(ulong atimestamp)      \internal      Sets the timestamp for this event. */

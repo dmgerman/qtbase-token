@@ -428,7 +428,7 @@ name|CHAR_UNDERSCORE
 block|,
 name|CHAR_GRAVE_ACCENT
 block|,
-literal|7
+name|ESC_a
 block|,
 operator|-
 name|ESC_b
@@ -630,7 +630,7 @@ block|,
 comment|/*  80 */
 literal|0
 block|,
-literal|7
+name|ESC_a
 block|,
 operator|-
 name|ESC_b
@@ -672,7 +672,7 @@ block|,
 operator|-
 name|ESC_k
 block|,
-literal|'l'
+literal|0
 block|,
 literal|0
 block|,
@@ -925,6 +925,20 @@ literal|0
 block|,
 literal|0
 block|}
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|/* We also need a table of characters that may follow \c in an EBCDIC environment for characters 0-31. */
+end_comment
+begin_decl_stmt
+DECL|variable|ebcdic_escape_c
+specifier|static
+name|unsigned
+name|char
+name|ebcdic_escape_c
+index|[]
+init|=
+literal|"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -2008,8 +2022,7 @@ literal|"invalid escape sequence in character class\0"
 literal|"range out of order in character class\0"
 literal|"nothing to repeat\0"
 comment|/* 10 */
-literal|"operand of unlimited repeat could match the empty string\0"
-comment|/** DEAD **/
+literal|"internal error: invalid forward reference offset\0"
 literal|"internal error: unexpected repeat\0"
 literal|"unrecognized character after (? or (?-\0"
 literal|"POSIX named classes are supported only within a class\0"
@@ -2092,7 +2105,15 @@ comment|/* 65 */
 literal|"different names for subpatterns of the same number are not allowed\0"
 literal|"(*MARK) must have an argument\0"
 literal|"this version of PCRE is not compiled with Unicode property support\0"
+ifndef|#
+directive|ifndef
+name|EBCDIC
 literal|"\\c must be followed by an ASCII character\0"
+else|#
+directive|else
+literal|"\\c must be followed by a letter or one of [\\]^_?\0"
+endif|#
+directive|endif
 literal|"\\k is not followed by a braced, angle-bracketed, or quoted name\0"
 comment|/* 70 */
 literal|"internal error: unknown opcode in find_fixedlength()\0"
@@ -8119,10 +8140,72 @@ name|c
 operator|+=
 literal|64
 expr_stmt|;
+if|if
+condition|(
 name|c
-operator|^=
-literal|0xC0
+operator|==
+name|CHAR_QUESTION_MARK
+condition|)
+name|c
+operator|=
+operator|(
+literal|'\\'
+operator|==
+literal|188
+operator|&&
+literal|'`'
+operator|==
+literal|74
+operator|)
+condition|?
+literal|0x5f
+else|:
+literal|0xff
 expr_stmt|;
+else|else
+block|{
+for|for
+control|(
+name|i
+operator|=
+literal|0
+init|;
+name|i
+operator|<
+literal|32
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|c
+operator|==
+name|ebcdic_escape_c
+index|[
+name|i
+index|]
+condition|)
+break|break;
+block|}
+if|if
+condition|(
+name|i
+operator|<
+literal|32
+condition|)
+name|c
+operator|=
+name|i
+expr_stmt|;
+else|else
+operator|*
+name|errorcodeptr
+operator|=
+name|ERR68
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 break|break;
@@ -9333,14 +9416,9 @@ condition|)
 do|;
 name|cc
 operator|+=
-name|PRIV
-argument_list|(
-name|OP_lengths
-argument_list|)
-index|[
-operator|*
-name|cc
-index|]
+literal|1
+operator|+
+name|LINK_SIZE
 expr_stmt|;
 break|break;
 comment|/* Skip over things that don't match chars */
@@ -11530,6 +11608,10 @@ operator|||
 name|c
 operator|==
 name|OP_COND
+operator|||
+name|c
+operator|==
+name|OP_SCOND
 condition|)
 block|{
 name|BOOL
@@ -16289,7 +16371,7 @@ begin_comment
 comment|/************************************************* *           Check for POSIX class syntax         * *************************************************/
 end_comment
 begin_comment
-comment|/* This function is called when the sequence "[:" or "[." or "[=" is encountered in a character class. It checks whether this is followed by a sequence of characters terminated by a matching ":]" or ".]" or "=]". If we reach an unescaped ']' without the special preceding character, return FALSE.  Originally, this function only recognized a sequence of letters between the terminators, but it seems that Perl recognizes any sequence of characters, though of course unknown POSIX names are subsequently rejected. Perl gives an "Unknown POSIX class" error for [:f\oo:] for example, where previously PCRE didn't consider this to be a POSIX class. Likewise for [:1234:].  The problem in trying to be exactly like Perl is in the handling of escapes. We have to be sure that [abc[:x\]pqr] is *not* treated as containing a POSIX class, but [abc[:x\]pqr:]] is (so that an error can be generated). The code below handles the special case of \], but does not try to do any other escape processing. This makes it different from Perl for cases such as [:l\ower:] where Perl recognizes it as the POSIX class "lower" but PCRE does not recognize "l\ower". This is a lesser evil than not diagnosing bad classes when Perl does, I think.  A user pointed out that PCRE was rejecting [:a[:digit:]] whereas Perl was not. It seems that the appearance of a nested POSIX class supersedes an apparent external class. For example, [:a[:digit:]b:] matches "a", "b", ":", or a digit.  In Perl, unescaped square brackets may also appear as part of class names. For example, [:a[:abc]b:] gives unknown POSIX class "[:abc]b:]". However, for [:a[:abc]b][b:] it gives unknown POSIX class "[:abc]b][b:]", which does not seem right at all. PCRE does not allow closing square brackets in POSIX class names.  Arguments:   ptr      pointer to the initial [   endptr   where to return the end pointer  Returns:   TRUE or FALSE */
+comment|/* This function is called when the sequence "[:" or "[." or "[=" is encountered in a character class. It checks whether this is followed by a sequence of characters terminated by a matching ":]" or ".]" or "=]". If we reach an unescaped ']' without the special preceding character, return FALSE.  Originally, this function only recognized a sequence of letters between the terminators, but it seems that Perl recognizes any sequence of characters, though of course unknown POSIX names are subsequently rejected. Perl gives an "Unknown POSIX class" error for [:f\oo:] for example, where previously PCRE didn't consider this to be a POSIX class. Likewise for [:1234:].  The problem in trying to be exactly like Perl is in the handling of escapes. We have to be sure that [abc[:x\]pqr] is *not* treated as containing a POSIX class, but [abc[:x\]pqr:]] is (so that an error can be generated). The code below handles the special cases \\ and \], but does not try to do any other escape processing. This makes it different from Perl for cases such as [:l\ower:] where Perl recognizes it as the POSIX class "lower" but PCRE does not recognize "l\ower". This is a lesser evil than not diagnosing bad classes when Perl does, I think.  A user pointed out that PCRE was rejecting [:a[:digit:]] whereas Perl was not. It seems that the appearance of a nested POSIX class supersedes an apparent external class. For example, [:a[:digit:]b:] matches "a", "b", ":", or a digit.  In Perl, unescaped square brackets may also appear as part of class names. For example, [:a[:abc]b:] gives unknown POSIX class "[:abc]b:]". However, for [:a[:abc]b][b:] it gives unknown POSIX class "[:abc]b][b:]", which does not seem right at all. PCRE does not allow closing square brackets in POSIX class names.  Arguments:   ptr      pointer to the initial [   endptr   where to return the end pointer  Returns:   TRUE or FALSE */
 end_comment
 begin_function
 specifier|static
@@ -16343,12 +16425,21 @@ name|ptr
 operator|==
 name|CHAR_BACKSLASH
 operator|&&
+operator|(
 name|ptr
 index|[
 literal|1
 index|]
 operator|==
 name|CHAR_RIGHT_SQUARE_BRACKET
+operator|||
+name|ptr
+index|[
+literal|1
+index|]
+operator|==
+name|CHAR_BACKSLASH
+operator|)
 condition|)
 name|ptr
 operator|++
@@ -16356,6 +16447,20 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
+operator|(
+operator|*
+name|ptr
+operator|==
+name|CHAR_LEFT_SQUARE_BRACKET
+operator|&&
+name|ptr
+index|[
+literal|1
+index|]
+operator|==
+name|terminator
+operator|)
+operator|||
 operator|*
 name|ptr
 operator|==
@@ -16364,8 +16469,7 @@ condition|)
 return|return
 name|FALSE
 return|;
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 operator|*
@@ -16388,47 +16492,6 @@ name|ptr
 expr_stmt|;
 return|return
 name|TRUE
-return|;
-block|}
-if|if
-condition|(
-operator|*
-name|ptr
-operator|==
-name|CHAR_LEFT_SQUARE_BRACKET
-operator|&&
-operator|(
-name|ptr
-index|[
-literal|1
-index|]
-operator|==
-name|CHAR_COLON
-operator|||
-name|ptr
-index|[
-literal|1
-index|]
-operator|==
-name|CHAR_DOT
-operator|||
-name|ptr
-index|[
-literal|1
-index|]
-operator|==
-name|CHAR_EQUALS_SIGN
-operator|)
-operator|&&
-name|check_posix_syntax
-argument_list|(
-name|ptr
-argument_list|,
-name|endptr
-argument_list|)
-condition|)
-return|return
-name|FALSE
 return|;
 block|}
 block|}
@@ -16531,7 +16594,7 @@ begin_comment
 comment|/************************************************* *    Adjust OP_RECURSE items in repeated group   * *************************************************/
 end_comment
 begin_comment
-comment|/* OP_RECURSE items contain an offset from the start of the regex to the group that is referenced. This means that groups can be replicated for fixed repetition simply by copying (because the recursion is allowed to refer to earlier groups that are outside the current group). However, when a group is optional (i.e. the minimum quantifier is zero), OP_BRAZERO or OP_SKIPZERO is inserted before it, after it has been compiled. This means that any OP_RECURSE items within it that refer to the group itself or any contained groups have to have their offsets adjusted. That one of the jobs of this function. Before it is called, the partially compiled regex must be temporarily terminated with OP_END.  This function has been extended with the possibility of forward references for recursions and subroutine calls. It must also check the list of such references for the group we are dealing with. If it finds that one of the recursions in the current group is on this list, it adjusts the offset in the list, not the value in the reference (which is a group number).  Arguments:   group      points to the start of the group   adjust     the amount by which the group is to be moved   utf        TRUE in UTF-8 / UTF-16 / UTF-32 mode   cd         contains pointers to tables etc.   save_hwm_offset   the hwm forward reference offset at the start of the group  Returns:     nothing */
+comment|/* OP_RECURSE items contain an offset from the start of the regex to the group that is referenced. This means that groups can be replicated for fixed repetition simply by copying (because the recursion is allowed to refer to earlier groups that are outside the current group). However, when a group is optional (i.e. the minimum quantifier is zero), OP_BRAZERO or OP_SKIPZERO is inserted before it, after it has been compiled. This means that any OP_RECURSE items within it that refer to the group itself or any contained groups have to have their offsets adjusted. That one of the jobs of this function. Before it is called, the partially compiled regex must be temporarily terminated with OP_END.  This function has been extended to cope with forward references for recursions and subroutine calls. It must check the list of such references for the group we are dealing with. If it finds that one of the recursions in the current group is on this list, it does not adjust the value in the reference (which is a group number). After the group has been scanned, all the offsets in the forward reference list for the group are adjusted.  Arguments:   group      points to the start of the group   adjust     the amount by which the group is to be moved   utf        TRUE in UTF-8 / UTF-16 / UTF-32 mode   cd         contains pointers to tables etc.   save_hwm_offset   the hwm forward reference offset at the start of the group  Returns:     nothing */
 end_comment
 begin_function
 specifier|static
@@ -16557,6 +16620,13 @@ name|size_t
 name|save_hwm_offset
 parameter_list|)
 block|{
+name|int
+name|offset
+decl_stmt|;
+name|pcre_uchar
+modifier|*
+name|hc
+decl_stmt|;
 name|pcre_uchar
 modifier|*
 name|ptr
@@ -16583,14 +16653,6 @@ operator|!=
 name|NULL
 condition|)
 block|{
-name|int
-name|offset
-decl_stmt|;
-name|pcre_uchar
-modifier|*
-name|hc
-decl_stmt|;
-comment|/* See if this recursion is on the forward reference list. If so, adjust the   reference. */
 for|for
 control|(
 name|hc
@@ -16640,22 +16702,9 @@ name|ptr
 operator|+
 literal|1
 condition|)
-block|{
-name|PUT
-argument_list|(
-name|hc
-argument_list|,
-literal|0
-argument_list|,
-name|offset
-operator|+
-name|adjust
-argument_list|)
-expr_stmt|;
 break|break;
 block|}
-block|}
-comment|/* Otherwise, adjust the recursion offset if it's after the start of this   group. */
+comment|/* If we have not found this recursion on the forward reference list, adjust   the recursion's offset if it's after the start of this group. */
 if|if
 condition|(
 name|hc
@@ -16704,6 +16753,56 @@ operator|+=
 literal|1
 operator|+
 name|LINK_SIZE
+expr_stmt|;
+block|}
+comment|/* Now adjust all forward reference offsets for the group. */
+for|for
+control|(
+name|hc
+operator|=
+operator|(
+name|pcre_uchar
+operator|*
+operator|)
+name|cd
+operator|->
+name|start_workspace
+operator|+
+name|save_hwm_offset
+init|;
+name|hc
+operator|<
+name|cd
+operator|->
+name|hwm
+condition|;
+name|hc
+operator|+=
+name|LINK_SIZE
+control|)
+block|{
+name|offset
+operator|=
+operator|(
+name|int
+operator|)
+name|GET
+argument_list|(
+name|hc
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|PUT
+argument_list|(
+name|hc
+argument_list|,
+literal|0
+argument_list|,
+name|offset
+operator|+
+name|adjust
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -18091,7 +18190,7 @@ init|=
 name|NULL
 decl_stmt|;
 name|size_t
-name|save_hwm_offset
+name|item_hwm_offset
 init|=
 literal|0
 decl_stmt|;
@@ -19070,6 +19169,16 @@ name|previous
 operator|=
 name|code
 expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
+expr_stmt|;
 operator|*
 name|code
 operator|++
@@ -19187,6 +19296,16 @@ comment|/* Handle a real character class. */
 name|previous
 operator|=
 name|code
+expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
 expr_stmt|;
 comment|/* PCRE supports POSIX class stuff inside a class. Perl gives an error if     they are encountered at the top level, so we'll do that too. */
 if|if
@@ -20587,15 +20706,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 continue|continue;
-ifdef|#
-directive|ifdef
-name|SUPPORT_UCP
 case|case
 name|ESC_p
 case|:
 case|case
 name|ESC_P
 case|:
+ifdef|#
+directive|ifdef
+name|SUPPORT_UCP
 block|{
 name|BOOL
 name|negated
@@ -20673,6 +20792,16 @@ expr_stmt|;
 comment|/* Undo! */
 continue|continue;
 block|}
+else|#
+directive|else
+operator|*
+name|errorcodeptr
+operator|=
+name|ERR45
+expr_stmt|;
+goto|goto
+name|FAILED
+goto|;
 endif|#
 directive|endif
 comment|/* Unrecognized escapes are faulted if PCRE is running in its             strict mode. By default, for compatibility with Perl, they are             treated as literals. */
@@ -23157,7 +23286,7 @@ decl_stmt|;
 name|size_t
 name|base_hwm_offset
 init|=
-name|save_hwm_offset
+name|item_hwm_offset
 decl_stmt|;
 name|pcre_uchar
 modifier|*
@@ -23257,7 +23386,7 @@ name|utf
 argument_list|,
 name|cd
 argument_list|,
-name|save_hwm_offset
+name|item_hwm_offset
 argument_list|)
 expr_stmt|;
 name|memmove
@@ -23331,7 +23460,7 @@ name|utf
 argument_list|,
 name|cd
 argument_list|,
-name|save_hwm_offset
+name|item_hwm_offset
 argument_list|)
 expr_stmt|;
 name|memmove
@@ -24195,6 +24324,31 @@ name|OP_ALT
 condition|)
 do|;
 block|}
+comment|/* A conditional group with only one branch has an implicit empty           alternative branch. */
+if|if
+condition|(
+operator|*
+name|bracode
+operator|==
+name|OP_COND
+operator|&&
+name|bracode
+index|[
+name|GET
+argument_list|(
+name|bracode
+argument_list|,
+literal|1
+argument_list|)
+index|]
+operator|!=
+name|OP_ALT
+condition|)
+operator|*
+name|bracode
+operator|=
+name|OP_SCOND
+expr_stmt|;
 comment|/* Handle possessive quantifiers. */
 if|if
 condition|(
@@ -24244,7 +24398,7 @@ name|utf
 argument_list|,
 name|cd
 argument_list|,
-name|save_hwm_offset
+name|item_hwm_offset
 argument_list|)
 expr_stmt|;
 name|memmove
@@ -24278,7 +24432,16 @@ expr_stmt|;
 operator|*
 name|bracode
 operator|=
+operator|(
+operator|*
+name|bracode
+operator|==
+name|OP_COND
+operator|)
+condition|?
 name|OP_BRAPOS
+else|:
+name|OP_SBRAPOS
 expr_stmt|;
 operator|*
 name|code
@@ -24613,7 +24776,7 @@ name|utf
 argument_list|,
 name|cd
 argument_list|,
-name|save_hwm_offset
+name|item_hwm_offset
 argument_list|)
 expr_stmt|;
 name|memmove
@@ -24927,7 +25090,7 @@ name|utf
 argument_list|,
 name|cd
 argument_list|,
-name|save_hwm_offset
+name|item_hwm_offset
 argument_list|)
 expr_stmt|;
 name|memmove
@@ -25616,7 +25779,7 @@ name|bravalue
 operator|=
 name|OP_CBRA
 expr_stmt|;
-name|save_hwm_offset
+name|item_hwm_offset
 operator|=
 name|cd
 operator|->
@@ -25679,6 +25842,13 @@ name|reset_bracount
 operator|=
 name|TRUE
 expr_stmt|;
+name|cd
+operator|->
+name|dupgroups
+operator|=
+name|TRUE
+expr_stmt|;
+comment|/* Record (?| encountered */
 comment|/* Fall through */
 comment|/* ------------------------------------------------------------ */
 case|case
@@ -25989,6 +26159,38 @@ name|ptr
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|recno
+operator|>
+name|INT_MAX
+operator|/
+literal|10
+operator|-
+literal|1
+condition|)
+comment|/* Integer overflow */
+block|{
+while|while
+condition|(
+name|IS_DIGIT
+argument_list|(
+operator|*
+name|ptr
+argument_list|)
+condition|)
+name|ptr
+operator|++
+expr_stmt|;
+operator|*
+name|errorcodeptr
+operator|=
+name|ERR61
+expr_stmt|;
+goto|goto
+name|FAILED
+goto|;
+block|}
 name|recno
 operator|=
 name|recno
@@ -26114,8 +26316,7 @@ name|lengthptr
 operator|!=
 name|NULL
 condition|)
-operator|*
-name|lengthptr
+name|skipbytes
 operator|+=
 name|IMM2_SIZE
 expr_stmt|;
@@ -26531,6 +26732,27 @@ operator|*
 name|errorcodeptr
 operator|=
 name|ERR15
+expr_stmt|;
+goto|goto
+name|FAILED
+goto|;
+block|}
+if|if
+condition|(
+name|recno
+operator|>
+name|INT_MAX
+operator|/
+literal|10
+operator|-
+literal|1
+condition|)
+comment|/* Integer overflow */
+block|{
+operator|*
+name|errorcodeptr
+operator|=
+name|ERR61
 expr_stmt|;
 goto|goto
 name|FAILED
@@ -27571,6 +27793,10 @@ name|named_group
 modifier|*
 name|ng
 decl_stmt|;
+name|recno
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|namelen
@@ -27623,7 +27849,53 @@ goto|goto
 name|FAILED
 goto|;
 block|}
-comment|/* The name table does not exist in the first pass; instead we must           scan the list of names encountered so far in order to get the           number. If the name is not found, set the value to 0 for a forward           reference. */
+comment|/* Count named back references. */
+if|if
+condition|(
+operator|!
+name|is_recurse
+condition|)
+name|cd
+operator|->
+name|namedrefcount
+operator|++
+expr_stmt|;
+comment|/* We have to allow for a named reference to a duplicated name (this           cannot be determined until the second pass). This needs an extra           16-bit data item. */
+operator|*
+name|lengthptr
+operator|+=
+name|IMM2_SIZE
+expr_stmt|;
+comment|/* If this is a forward reference and we are within a (?|...) group,           the reference may end up as the number of a group which we are           currently inside, that is, it could be a recursive reference. In the           real compile this will be picked up and the reference wrapped with           OP_ONCE to make it atomic, so we must space in case this occurs. */
+comment|/* In fact, this can happen for a non-forward reference because           another group with the same number might be created later. This           issue is fixed "properly" in PCRE2. As PCRE1 is now in maintenance           only mode, we finesse the bug by allowing more memory always. */
+operator|*
+name|lengthptr
+operator|+=
+literal|2
+operator|+
+literal|2
+operator|*
+name|LINK_SIZE
+expr_stmt|;
+comment|/* It is even worse than that. The current reference may be to an           existing named group with a different number (so apparently not           recursive) but which later on is also attached to a group with the           current number. This can only happen if $(| has been previous            encountered. In that case, we allow yet more memory, just in case.            (Again, this is fixed "properly" in PCRE2. */
+if|if
+condition|(
+name|cd
+operator|->
+name|dupgroups
+condition|)
+operator|*
+name|lengthptr
+operator|+=
+literal|4
+operator|+
+literal|4
+operator|*
+name|LINK_SIZE
+expr_stmt|;
+comment|/* Otherwise, check for recursion here. The name table does not exist           in the first pass; instead we must scan the list of names encountered           so far in order to get the number. If the name is not found, leave           the value of recno as 0 for a forward reference. */
+else|else
+block|{
 name|ng
 operator|=
 name|cd
@@ -27670,41 +27942,62 @@ argument_list|)
 operator|==
 literal|0
 condition|)
-break|break;
-block|}
+block|{
+name|open_capitem
+modifier|*
+name|oc
+decl_stmt|;
 name|recno
 operator|=
-operator|(
-name|i
-operator|<
-name|cd
-operator|->
-name|names_found
-operator|)
-condition|?
 name|ng
 operator|->
 name|number
-else|:
-literal|0
 expr_stmt|;
-comment|/* Count named back references. */
 if|if
 condition|(
-operator|!
 name|is_recurse
 condition|)
+break|break;
+for|for
+control|(
+name|oc
+operator|=
 name|cd
 operator|->
-name|namedrefcount
-operator|++
+name|open_caps
+init|;
+name|oc
+operator|!=
+name|NULL
+condition|;
+name|oc
+operator|=
+name|oc
+operator|->
+name|next
+control|)
+block|{
+if|if
+condition|(
+name|oc
+operator|->
+name|number
+operator|==
+name|recno
+condition|)
+block|{
+name|oc
+operator|->
+name|flag
+operator|=
+name|TRUE
 expr_stmt|;
-comment|/* We have to allow for a named reference to a duplicated name (this           cannot be determined until the second pass). This needs an extra           16-bit data item. */
-operator|*
-name|lengthptr
-operator|+=
-name|IMM2_SIZE
-expr_stmt|;
+break|break;
+block|}
+block|}
+block|}
+block|}
+block|}
 block|}
 comment|/* In the real compile, search the name table. We check the name         first, and then check that we have reached the end of the name in the         table. That way, if the name is longer than any in the table, the         comparison will fail without reading beyond the table entry. */
 else|else
@@ -27897,6 +28190,16 @@ name|previous
 operator|=
 name|code
 expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
+expr_stmt|;
 operator|*
 name|code
 operator|++
@@ -28044,12 +28347,34 @@ comment|/* ------------------------------------------------------------ */
 case|case
 name|CHAR_R
 case|:
-comment|/* Recursion */
-name|ptr
-operator|++
+comment|/* Recursion, same as (?0) */
+name|recno
+operator|=
+literal|0
 expr_stmt|;
-comment|/* Same as (?0)      */
-comment|/* Fall through */
+if|if
+condition|(
+operator|*
+operator|(
+operator|++
+name|ptr
+operator|)
+operator|!=
+name|CHAR_RIGHT_PARENTHESIS
+condition|)
+block|{
+operator|*
+name|errorcodeptr
+operator|=
+name|ERR29
+expr_stmt|;
+goto|goto
+name|FAILED
+goto|;
+block|}
+goto|goto
+name|HANDLE_RECURSION
+goto|;
 comment|/* ------------------------------------------------------------ */
 case|case
 name|CHAR_MINUS
@@ -28174,6 +28499,39 @@ operator|*
 name|ptr
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
+name|recno
+operator|>
+name|INT_MAX
+operator|/
+literal|10
+operator|-
+literal|1
+condition|)
+comment|/* Integer overflow */
+block|{
+while|while
+condition|(
+name|IS_DIGIT
+argument_list|(
+operator|*
+name|ptr
+argument_list|)
+condition|)
+name|ptr
+operator|++
+expr_stmt|;
+operator|*
+name|errorcodeptr
+operator|=
+name|ERR61
+expr_stmt|;
+goto|goto
+name|FAILED
+goto|;
+block|}
 name|recno
 operator|=
 name|recno
@@ -28186,6 +28544,7 @@ operator|++
 operator|-
 name|CHAR_0
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|*
@@ -28293,6 +28652,16 @@ label|:
 name|previous
 operator|=
 name|code
+expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
 expr_stmt|;
 name|called
 operator|=
@@ -28868,10 +29237,22 @@ name|FALSE
 expr_stmt|;
 block|}
 else|else
+block|{
 name|previous
 operator|=
 name|code
 expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
+expr_stmt|;
+block|}
 operator|*
 name|code
 operator|=
@@ -29533,7 +29914,7 @@ decl_stmt|;
 name|pcre_uint32
 name|cf
 decl_stmt|;
-name|save_hwm_offset
+name|item_hwm_offset
 operator|=
 name|cd
 operator|->
@@ -29636,7 +30017,9 @@ name|errorcodeptr
 operator|=
 name|ERR57
 expr_stmt|;
-break|break;
+goto|goto
+name|FAILED
+goto|;
 block|}
 name|ptr
 operator|++
@@ -29684,7 +30067,9 @@ name|errorcodeptr
 operator|=
 name|ERR69
 expr_stmt|;
-break|break;
+goto|goto
+name|FAILED
+goto|;
 block|}
 name|is_recurse
 operator|=
@@ -29752,6 +30137,16 @@ expr_stmt|;
 name|previous
 operator|=
 name|code
+expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
 expr_stmt|;
 operator|*
 name|code
@@ -29907,6 +30302,16 @@ name|previous
 operator|=
 name|code
 expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
+expr_stmt|;
 operator|*
 name|code
 operator|++
@@ -30054,6 +30459,16 @@ name|code
 else|:
 name|NULL
 expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
+expr_stmt|;
 operator|*
 name|code
 operator|++
@@ -30181,6 +30596,16 @@ label|:
 name|previous
 operator|=
 name|code
+expr_stmt|;
+name|item_hwm_offset
+operator|=
+name|cd
+operator|->
+name|hwm
+operator|-
+name|cd
+operator|->
+name|start_workspace
 expr_stmt|;
 comment|/* For caseless UTF-8 mode when UCP support is available, check whether     this character has more than one other case. If so, generate a special     OP_PROP item instead of OP_CHARI. */
 ifdef|#
@@ -34466,6 +34891,12 @@ name|FALSE
 expr_stmt|;
 name|cd
 operator|->
+name|dupgroups
+operator|=
+name|FALSE
+expr_stmt|;
+name|cd
+operator|->
 name|namedrefcount
 operator|=
 literal|0
@@ -35338,6 +35769,29 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+comment|/* Check that the hwm handling hasn't gone wrong. This whole area is     rewritten in PCRE2 because there are some obscure cases. */
+if|if
+condition|(
+name|offset
+operator|==
+literal|0
+operator|||
+name|codestart
+index|[
+name|offset
+operator|-
+literal|1
+index|]
+operator|!=
+name|OP_RECURSE
+condition|)
+block|{
+name|errorcode
+operator|=
+name|ERR10
+expr_stmt|;
+break|break;
+block|}
 name|recno
 operator|=
 name|GET
@@ -35461,6 +35915,10 @@ expr_stmt|;
 comment|/* Unless disabled, check whether any single character iterators can be auto-possessified. The function overwrites the appropriate opcode values, so the type of the pointer must be cast. NOTE: the intermediate variable "temp" is used in this code because at least one compiler gives a warning about loss of "const" attribute if the cast (pcre_uchar *)codestart is used directly in the function call. */
 if|if
 condition|(
+name|errorcode
+operator|==
+literal|0
+operator|&&
 operator|(
 name|options
 operator|&
@@ -35493,6 +35951,10 @@ block|}
 comment|/* If there were any lookbehind assertions that contained OP_RECURSE (recursions or subroutine calls), a flag is set for them to be checked here, because they may contain forward references. Actual recursions cannot be fixed length, but subroutine calls can. It is done like this so that those without OP_RECURSE that are not fixed length get a diagnosic with a useful offset. The exceptional ones forgo this. We scan the pattern to check that they are fixed length, and set their lengths. */
 if|if
 condition|(
+name|errorcode
+operator|==
+literal|0
+operator|&&
 name|cd
 operator|->
 name|check_lookbehind

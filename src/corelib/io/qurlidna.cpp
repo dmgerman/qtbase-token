@@ -19568,6 +19568,7 @@ modifier|*
 name|end
 init|=
 operator|(
+specifier|const
 name|ushort
 operator|*
 operator|)

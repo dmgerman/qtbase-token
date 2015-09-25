@@ -1109,6 +1109,12 @@ block|;
 name|int
 name|codeIndent
 block|;
+name|QString
+name|codePrefix
+block|;
+name|QString
+name|codeSuffix
+block|;
 name|HelpProjectWriter
 operator|*
 name|helpProjectWriter

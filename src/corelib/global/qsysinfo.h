@@ -687,6 +687,11 @@ name|QString
 name|prettyProductName
 parameter_list|()
 function_decl|;
+specifier|static
+name|QString
+name|machineHostName
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt

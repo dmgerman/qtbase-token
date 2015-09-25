@@ -1255,7 +1255,7 @@ begin_comment
 comment|/*!     \enum QAbstractFileEngineIterator::EntryInfoType     \internal      This enum describes the different types of information that can be     requested through the QAbstractFileEngineIterator::entryInfo() function. */
 end_comment
 begin_comment
-comment|/*!     \typedef QAbstractFileEngine::Iterator     \since 4.3     \relates QAbstractFileEngine      Synonym for QAbstractFileEngineIterator. */
+comment|/*!     \typedef QAbstractFileEngine::Iterator     \since 4.3      Synonym for QAbstractFileEngineIterator. */
 end_comment
 begin_class
 DECL|class|QAbstractFileEngineIteratorPrivate

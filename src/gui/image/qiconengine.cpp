@@ -45,6 +45,17 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \since 5.6     Constructs the icon engine.  */
+end_comment
+begin_constructor
+DECL|function|QIconEngine
+name|QIconEngine
+operator|::
+name|QIconEngine
+parameter_list|()
+block|{ }
+end_constructor
+begin_comment
 comment|/*!   Destroys the icon engine.  */
 end_comment
 begin_destructor

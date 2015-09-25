@@ -329,7 +329,7 @@ operator|::
 name|_NET_VIRTUAL_ROOTS
 argument_list|)
 argument_list|,
-name|XCB_ATOM_ATOM
+name|XCB_ATOM_WINDOW
 argument_list|,
 name|offset
 argument_list|,
@@ -366,7 +366,7 @@ name|reply
 operator|->
 name|type
 operator|==
-name|XCB_ATOM_ATOM
+name|XCB_ATOM_WINDOW
 operator|&&
 name|reply
 operator|->

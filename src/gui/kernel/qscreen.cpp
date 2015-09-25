@@ -1683,6 +1683,7 @@ operator|<<
 literal|"QScreen("
 operator|<<
 operator|(
+specifier|const
 name|void
 operator|*
 operator|)

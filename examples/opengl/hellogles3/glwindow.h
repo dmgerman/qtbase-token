@@ -34,6 +34,7 @@ directive|include
 file|"../hellogl2/logo.h"
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QOpenGLTexture
 name|class
 name|QOpenGLTexture
@@ -58,6 +59,7 @@ name|QOpenGLVertexArrayObject
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QT_END_NAMESPACE
 name|class
 name|GLWindow
 range|:

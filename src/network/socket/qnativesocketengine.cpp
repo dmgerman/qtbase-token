@@ -8,6 +8,9 @@ end_comment
 begin_comment
 comment|/*! \class QNativeSocketEngine     \internal      \brief The QNativeSocketEngine class provides low level access to a socket.      \reentrant     \ingroup network     \inmodule QtNetwork      QtSocketLayer provides basic socket functionality provided by the     operating system. It also keeps track of what state the socket is     in, and which errors that occur.      The classes QTcpSocket, QUdpSocket and QTcpServer provide a     higher level API, and are in general more useful for the common     application.      There are two main ways of initializing the a QNativeSocketEngine; either     create a new socket by passing the socket type (TcpSocket or     UdpSocket) and network layer protocol (IPv4Protocol or     IPv6Protocol) to initialize(), or pass an existing socket     descriptor and have QNativeSocketEngine determine the type and protocol     itself. The native socket descriptor can later be fetched by     calling socketDescriptor(). The socket is made non-blocking, but     blocking behavior can still be achieved by calling waitForRead()     and waitForWrite(). isValid() can be called to check if the socket     has been successfully initialized and is ready to use.      To connect to a host, determine its address and pass this and the     port number to connectToHost(). The socket can then be used as a     TCP or UDP client. Otherwise; bind(), listen() and accept() are     used to have the socket function as a TCP or UDP server. Call     close() to close the socket.      bytesAvailable() is called to determine how much data is available     for reading. read() and write() are used by both TCP and UDP     clients to exchange data with the connected peer. UDP clients can     also call hasMoreDatagrams(), nextDatagramSize(),     readDatagram(), and writeDatagram().      Call state() to determine the state of the socket, for     example, ListeningState or ConnectedState. socketType() tells     whether the socket is a TCP socket or a UDP socket, or if the     socket type is unknown. protocol() is used to determine the     socket's network layer protocol.      localAddress(), localPort() are called to find the address and     port that are currently bound to the socket. If the socket is     connected, peerAddress() and peerPort() determine the address and     port of the connected peer.      Finally, if any function should fail, error() and     errorString() can be called to determine the cause of the error. */
 end_comment
+begin_comment
+comment|/*!     \enum QAbstractSocketEngine::PacketHeaderOption      Specifies which fields in the IP packet header are desired in the call to     readDatagram().      \value WantNone             caller isn't interested in the packet metadata     \value WantDatagramSender   caller wants the sender address and port number     \value WantDatagramDestination caller wants the packet's destination address and port number                                    (this option is useful to distinguish multicast packets from unicast)     \value WantDatagramHopLimit caller wants the packet's remaining hop limit or time to live                                 (this option is useful in IPv4 multicasting, where the TTL is used                                 to indicate the realm)     \value WantAll              this is a catch-all value to indicate the caller is                                 interested in all the available information      \sa readDatagram(), QUdpDatagram */
+end_comment
 begin_include
 include|#
 directive|include
@@ -192,7 +195,7 @@ parameter_list|)
 value|QT_TRANSLATE_NOOP(QNativeSocketEngine, a)
 end_define
 begin_comment
-comment|/*! \internal     Constructs the private class and initializes all data members.      On Windows, WSAStartup is called "recursively" for every     concurrent QNativeSocketEngine. This is safe, because WSAStartup and     WSACleanup are reference counted. */
+comment|/*! \internal     Constructs the private class and initializes all data members. */
 end_comment
 begin_constructor
 DECL|function|QNativeSocketEnginePrivate
@@ -221,7 +224,28 @@ name|exceptNotifier
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+name|QSysInfo
+operator|::
+name|machineHostName
+argument_list|()
+expr_stmt|;
+comment|// this initializes ws2_32.dll
+endif|#
+directive|endif
+block|}
 end_constructor
 begin_comment
 comment|/*! \internal     Destructs the private class. */
@@ -1147,7 +1171,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// Set the broadcasting flag if it's a UDP socket.
 if|if
 condition|(
 name|socketType
@@ -1155,7 +1178,11 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|UdpSocket
-operator|&&
+condition|)
+block|{
+comment|// Set the broadcasting flag if it's a UDP socket.
+if|if
+condition|(
 operator|!
 name|setOption
 argument_list|(
@@ -1184,6 +1211,22 @@ expr_stmt|;
 return|return
 literal|false
 return|;
+block|}
+comment|// Set some extra flags that are interesting to us, but accept failure
+name|setOption
+argument_list|(
+name|ReceivePacketInformation
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|setOption
+argument_list|(
+name|ReceiveHopLimit
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Make sure we receive out-of-band data
 if|if
@@ -2381,7 +2424,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads up to \a maxSize bytes of a datagram from the socket,     stores it in \a data and returns the number of bytes read. The     address and port of the sender are stored in \a address and \a     port. If either of these pointers is 0, the corresponding value is     discarded.      To avoid unnecessarily loss of data, call pendingDatagramSize() to     determine the size of the pending message before reading it. If \a     maxSize is too small, the rest of the datagram will be lost.      Returns -1 if an error occurred.      \sa hasPendingDatagrams() */
+comment|/*!     Reads up to \a maxSize bytes of a datagram from the socket,     stores it in \a data and returns the number of bytes read. The     address, port, and other IP header fields are stored in \a header     according to the request in \a options.      To avoid unnecessarily loss of data, call pendingDatagramSize() to     determine the size of the pending message before reading it. If \a     maxSize is too small, the rest of the datagram will be lost.      Returns -1 if an error occurred.      \sa hasPendingDatagrams() */
 end_comment
 begin_function
 DECL|function|readDatagram
@@ -2397,13 +2440,12 @@ parameter_list|,
 name|qint64
 name|maxSize
 parameter_list|,
-name|QHostAddress
+name|QIpPacketHeader
 modifier|*
-name|address
+name|header
 parameter_list|,
-name|quint16
-modifier|*
-name|port
+name|PacketHeaderOptions
+name|options
 parameter_list|)
 block|{
 name|Q_D
@@ -2446,15 +2488,15 @@ name|data
 argument_list|,
 name|maxSize
 argument_list|,
-name|address
+name|header
 argument_list|,
-name|port
+name|options
 argument_list|)
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes a UDP datagram of size \a size bytes to the socket from     \a data to the address \a host on port \a port, and returns the     number of bytes written, or -1 if an error occurred.      Only one datagram is sent, and if there is too much data to fit     into a single datagram, the operation will fail and error()     will return QAbstractSocket::DatagramTooLargeError. Operating systems impose an     upper limit to the size of a datagram, but this size is different     on almost all platforms. Sending large datagrams is in general     disadvised, as even if they are sent successfully, they are likely     to be fragmented before arriving at their destination.      Experience has shown that it is in general safe to send datagrams     no larger than 512 bytes.      \sa readDatagram() */
+comment|/*!     Writes a UDP datagram of size \a size bytes to the socket from     \a data to the destination contained in \a header, and returns the     number of bytes written, or -1 if an error occurred. If \a header     contains other settings like hop limit or source address, this function     will try to pass them to the operating system too, but will not     indicate an error if it could not pass them.      Only one datagram is sent, and if there is too much data to fit     into a single datagram, the operation will fail and error()     will return QAbstractSocket::DatagramTooLargeError. Operating systems impose an     upper limit to the size of a datagram, but this size is different     on almost all platforms. Sending large datagrams is in general     disadvised, as even if they are sent successfully, they are likely     to be fragmented before arriving at their destination.      Experience has shown that it is in general safe to send IPv4 datagrams     no larger than 512 bytes or IPv6 datagrams no larger than 1280 (the     minimum MTU).      \sa readDatagram() */
 end_comment
 begin_function
 DECL|function|writeDatagram
@@ -2472,12 +2514,9 @@ name|qint64
 name|size
 parameter_list|,
 specifier|const
-name|QHostAddress
+name|QIpPacketHeader
 modifier|&
-name|host
-parameter_list|,
-name|quint16
-name|port
+name|header
 parameter_list|)
 block|{
 name|Q_D
@@ -2520,14 +2559,7 @@ name|data
 argument_list|,
 name|size
 argument_list|,
-name|d
-operator|->
-name|adjustAddressProtocol
-argument_list|(
-name|host
-argument_list|)
-argument_list|,
-name|port
+name|header
 argument_list|)
 return|;
 block|}

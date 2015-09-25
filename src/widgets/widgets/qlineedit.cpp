@@ -6180,34 +6180,6 @@ name|height
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|int
-name|minLB
-init|=
-name|qMax
-argument_list|(
-literal|0
-argument_list|,
-operator|-
-name|fm
-operator|.
-name|minLeftBearing
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|int
-name|minRB
-init|=
-name|qMax
-argument_list|(
-literal|0
-argument_list|,
-operator|-
-name|fm
-operator|.
-name|minRightBearing
-argument_list|()
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|d
@@ -6260,22 +6232,6 @@ argument_list|(
 name|col
 argument_list|)
 expr_stmt|;
-name|QRect
-name|ph
-init|=
-name|lineRect
-operator|.
-name|adjusted
-argument_list|(
-name|minLB
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-decl_stmt|;
 name|QString
 name|elidedText
 init|=
@@ -6291,7 +6247,7 @@ name|Qt
 operator|::
 name|ElideRight
 argument_list|,
-name|ph
+name|lineRect
 operator|.
 name|width
 argument_list|()
@@ -6301,7 +6257,7 @@ name|p
 operator|.
 name|drawText
 argument_list|(
-name|ph
+name|lineRect
 argument_list|,
 name|va
 argument_list|,
@@ -6333,9 +6289,8 @@ decl_stmt|;
 comment|// horizontal scrolling. d->hscroll is the left indent from the beginning
 comment|// of the text line to the left edge of lineRect. we update this value
 comment|// depending on the delta from the last paint event; in effect this means
-comment|// the below code handles all scrolling based on the textline (widthUsed,
-comment|// minLB, minRB), the line edit rect (lineRect) and the cursor position
-comment|// (cix).
+comment|// the below code handles all scrolling based on the textline (widthUsed),
+comment|// the line edit rect (lineRect) and the cursor position (cix).
 name|int
 name|widthUsed
 init|=
@@ -6350,16 +6305,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|1
-operator|+
-name|minRB
 decl_stmt|;
 if|if
 condition|(
-operator|(
-name|minLB
-operator|+
 name|widthUsed
-operator|)
 operator|<=
 name|lineRect
 operator|.
@@ -6434,12 +6383,6 @@ literal|0
 expr_stmt|;
 break|break;
 block|}
-name|d
-operator|->
-name|hscroll
-operator|-=
-name|minLB
-expr_stmt|;
 block|}
 elseif|else
 if|if

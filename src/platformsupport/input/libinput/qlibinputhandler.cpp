@@ -61,7 +61,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|Q_LOGGING_CATEGORY
 argument_list|(
-name|qLcInput
+name|qLcLibInput
 argument_list|,
 literal|"qt.qpa.input"
 argument_list|)
@@ -214,7 +214,7 @@ literal|'\0'
 expr_stmt|;
 name|qCDebug
 argument_list|(
-name|qLcInput
+name|qLcLibInput
 argument_list|,
 literal|"libinput: %s"
 argument_list|,
@@ -297,7 +297,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|qLcInput
+name|qLcLibInput
 argument_list|()
 operator|.
 name|isDebugEnabled

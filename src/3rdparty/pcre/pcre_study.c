@@ -61,7 +61,7 @@ begin_comment
 comment|/************************************************* *   Find the minimum subject length for a group  * *************************************************/
 end_comment
 begin_comment
-comment|/* Scan a parenthesized group and compute the minimum length of subject that is needed to match it. This is a lower bound; it does not mean there is a string of that length that matches. In UTF8 mode, the result is in characters rather than bytes.  Arguments:   re              compiled pattern block   code            pointer to start of group (the bracket)   startcode       pointer to start of the whole pattern's code   options         the compiling options   recurses        chain of recurse_check to catch mutual recursion  Returns:   the minimum length            -1 if \C in UTF-8 mode or (*ACCEPT) was encountered            -2 internal error (missing capturing bracket)            -3 internal error (opcode not listed) */
+comment|/* Scan a parenthesized group and compute the minimum length of subject that is needed to match it. This is a lower bound; it does not mean there is a string of that length that matches. In UTF8 mode, the result is in characters rather than bytes.  Arguments:   re              compiled pattern block   code            pointer to start of group (the bracket)   startcode       pointer to start of the whole pattern's code   options         the compiling options   recurses        chain of recurse_check to catch mutual recursion   countptr        pointer to call count (to catch over complexity)   Returns:   the minimum length            -1 if \C in UTF-8 mode or (*ACCEPT) was encountered            -2 internal error (missing capturing bracket)            -3 internal error (opcode not listed) */
 end_comment
 begin_function
 specifier|static
@@ -90,6 +90,10 @@ parameter_list|,
 name|recurse_check
 modifier|*
 name|recurses
+parameter_list|,
+name|int
+modifier|*
+name|countptr
 parameter_list|)
 block|{
 name|int
@@ -139,6 +143,21 @@ literal|1
 operator|+
 name|LINK_SIZE
 decl_stmt|;
+if|if
+condition|(
+operator|(
+operator|*
+name|countptr
+operator|)
+operator|++
+operator|>
+literal|1000
+condition|)
+return|return
+operator|-
+literal|1
+return|;
+comment|/* too complex */
 if|if
 condition|(
 operator|*
@@ -276,6 +295,8 @@ argument_list|,
 name|options
 argument_list|,
 name|recurses
+argument_list|,
+name|countptr
 argument_list|)
 expr_stmt|;
 if|if
@@ -1307,6 +1328,8 @@ name|options
 argument_list|,
 operator|&
 name|this_recurse
+argument_list|,
+name|countptr
 argument_list|)
 expr_stmt|;
 if|if
@@ -1515,6 +1538,8 @@ name|options
 argument_list|,
 operator|&
 name|this_recurse
+argument_list|,
+name|countptr
 argument_list|)
 expr_stmt|;
 block|}
@@ -1750,6 +1775,8 @@ name|options
 argument_list|,
 operator|&
 name|this_recurse
+argument_list|,
+name|countptr
 argument_list|)
 expr_stmt|;
 block|}
@@ -4723,6 +4750,11 @@ block|{
 name|int
 name|min
 decl_stmt|;
+name|int
+name|count
+init|=
+literal|0
+decl_stmt|;
 name|BOOL
 name|bits_set
 init|=
@@ -5130,6 +5162,9 @@ operator|->
 name|options
 argument_list|,
 name|NULL
+argument_list|,
+operator|&
+name|count
 argument_list|)
 condition|)
 block|{

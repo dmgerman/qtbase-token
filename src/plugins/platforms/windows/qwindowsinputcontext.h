@@ -36,6 +36,12 @@ name|QInputMethodEvent
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QWindowsWindow
+name|class
+name|QWindowsWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QWindowsInputContext
 range|:
@@ -81,6 +87,15 @@ operator|~
 name|QWindowsInputContext
 argument_list|()
 block|;
+specifier|static
+name|void
+name|setWindowsImeEnabled
+argument_list|(
+argument|QWindowsWindow *platformWindow
+argument_list|,
+argument|bool enabled
+argument_list|)
+block|;
 name|bool
 name|hasCapability
 argument_list|(
@@ -116,12 +131,6 @@ argument_list|(
 argument|QObject *object
 argument_list|)
 name|Q_DECL_OVERRIDE
-block|;
-specifier|static
-name|QWindowsInputContext
-operator|*
-name|instance
-argument_list|()
 block|;
 name|bool
 name|startComposition
@@ -200,6 +209,10 @@ argument_list|()
 block|;
 name|void
 name|endContextComposition
+argument_list|()
+block|;
+name|void
+name|updateEnabled
 argument_list|()
 block|;
 specifier|const

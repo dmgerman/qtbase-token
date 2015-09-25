@@ -101,13 +101,12 @@ argument_list|)
 operator|&&
 operator|(
 operator|(
-operator|!
-name|QTypeInfo
+name|QTypeInfoQuery
 operator|<
 name|T
 operator|>
 operator|::
-name|isStatic
+name|isRelocatable
 operator|)
 operator|||
 name|Q_IS_ENUM

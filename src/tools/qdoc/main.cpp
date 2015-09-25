@@ -4196,7 +4196,7 @@ operator|::
 name|startLoggingProgress
 argument_list|()
 expr_stmt|;
-comment|/*       The default indent for code is 4.       The default value for false is 0.       The default supported file extensions are cpp, h, qdoc and qml.       The default language is c++.       The default output format is html.       The default tab size is 8.       And those are all the default values for configuration variables.      */
+comment|/*       The default indent for code is 0.       The default value for false is 0.       The default supported file extensions are cpp, h, qdoc and qml.       The default language is c++.       The default output format is html.       The default tab size is 8.       And those are all the default values for configuration variables.      */
 if|if
 condition|(
 name|defaults
@@ -4213,7 +4213,7 @@ name|CONFIG_CODEINDENT
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"4"
+literal|"0"
 argument_list|)
 argument_list|)
 expr_stmt|;

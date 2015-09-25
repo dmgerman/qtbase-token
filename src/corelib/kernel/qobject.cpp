@@ -3933,7 +3933,7 @@ begin_comment
 comment|/*!     \fn bool QObject::isWindowType() const      Returns \c true if the object is a window; otherwise returns \c false.      Calling this function is equivalent to calling     \c{inherits("QWindow")}, except that it is much faster. */
 end_comment
 begin_comment
-comment|/*!     This virtual function receives events to an object and should     return true if the event \a e was recognized and processed.      The event() function can be reimplemented to customize the     behavior of an object.      \sa installEventFilter(), timerEvent(), QCoreApplication::sendEvent(),     QCoreApplication::postEvent() */
+comment|/*!     This virtual function receives events to an object and should     return true if the event \a e was recognized and processed.      The event() function can be reimplemented to customize the     behavior of an object.      Make sure you call the parent event class implementation     for all the events you did not handle.      Example:      \snippet code/src_corelib_kernel_qobject.cpp 52      \sa installEventFilter(), timerEvent(), QCoreApplication::sendEvent(),     QCoreApplication::postEvent() */
 end_comment
 begin_function
 DECL|function|event
@@ -4261,10 +4261,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QObject::signalsBlocked() const      Returns \c true if signals are blocked; otherwise returns \c false.      Signals are not blocked by default.      \sa blockSignals() */
+comment|/*!     \fn bool QObject::signalsBlocked() const      Returns \c true if signals are blocked; otherwise returns \c false.      Signals are not blocked by default.      \sa blockSignals(), QSignalBlocker */
 end_comment
 begin_comment
-comment|/*!     If \a block is true, signals emitted by this object are blocked     (i.e., emitting a signal will not invoke anything connected to it).     If \a block is false, no such blocking will occur.      The return value is the previous value of signalsBlocked().      Note that the destroyed() signal will be emitted even if the signals     for this object have been blocked.      \sa signalsBlocked() */
+comment|/*!     If \a block is true, signals emitted by this object are blocked     (i.e., emitting a signal will not invoke anything connected to it).     If \a block is false, no such blocking will occur.      The return value is the previous value of signalsBlocked().      Note that the destroyed() signal will be emitted even if the signals     for this object have been blocked.      Signals emitted while being blocked are not buffered.      \sa signalsBlocked(), QSignalBlocker */
 end_comment
 begin_function
 name|bool

@@ -259,18 +259,6 @@ name|bool
 name|startHandshake
 argument_list|()
 block|;
-comment|// Aux. function, sets:
-comment|//1) socket error code,
-comment|//2) error string (description)
-comment|//3) emits a signal.
-name|void
-name|setError
-argument_list|(
-argument|const QString&errorString
-argument_list|,
-argument|QAbstractSocket::SocketError errorCode
-argument_list|)
-block|;
 name|mutable
 name|QCFType
 operator|<

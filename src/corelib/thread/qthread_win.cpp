@@ -10,7 +10,9 @@ if|#
 directive|if
 operator|!
 name|defined
-name|Q_OS_WINRT
+argument_list|(
+name|WINAPI_FAMILY
+argument_list|)
 operator|&&
 operator|(
 name|_WIN32_WINNT
@@ -391,8 +393,11 @@ operator|::
 name|HANDLE
 argument_list|>
 argument_list|(
+name|quintptr
+argument_list|(
 name|GetCurrentThreadId
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1484,8 +1489,11 @@ operator|::
 name|HANDLE
 argument_list|>
 argument_list|(
+name|quintptr
+argument_list|(
 name|GetCurrentThreadId
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QThread
@@ -1887,8 +1895,11 @@ operator|::
 name|HANDLE
 argument_list|>
 argument_list|(
+name|quintptr
+argument_list|(
 name|GetCurrentThreadId
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}

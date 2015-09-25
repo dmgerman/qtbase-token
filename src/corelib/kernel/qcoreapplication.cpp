@@ -3657,10 +3657,7 @@ directive|ifndef
 name|QT_NO_QOBJECT
 end_ifndef
 begin_comment
-comment|/*!     \property QCoreApplication::quitLockEnabled      Returns \c true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns \c false.      \sa QEventLoopLocker */
-end_comment
-begin_comment
-comment|/*!     Returns \c true if the use of the QEventLoopLocker feature can cause the     application to quit, otherwise returns \c false.      \sa QEventLoopLocker  */
+comment|/*!     \property QCoreApplication::quitLockEnabled      \brief Whether the use of the QEventLoopLocker feature can cause the     application to quit.      The default is \c true.      \sa QEventLoopLocker */
 end_comment
 begin_function
 DECL|function|isQuitLockEnabled
@@ -3688,9 +3685,6 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|/*!     Enables the ability of the QEventLoopLocker feature to quit     the application.      If disabled, the use of QEventLoopLocker will not quit the application.      \sa QEventLoopLocker  */
-end_comment
 begin_function
 DECL|function|setQuitLockEnabled
 name|void
@@ -6766,7 +6760,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tells the application to exit with return code 0 (success).     Equivalent to calling QCoreApplication::exit(0).      It's common to connect the QApplication::lastWindowClosed() signal     to quit(), and you also often connect e.g. QAbstractButton::clicked() or     signals in QAction, QMenu, or QMenuBar to it.      Example:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 1      \sa exit(), aboutToQuit(), QApplication::lastWindowClosed() */
+comment|/*!     Tells the application to exit with return code 0 (success).     Equivalent to calling QCoreApplication::exit(0).      It's common to connect the QGuiApplication::lastWindowClosed() signal     to quit(), and you also often connect e.g. QAbstractButton::clicked() or     signals in QAction, QMenu, or QMenuBar to it.      Example:      \snippet code/src_corelib_kernel_qcoreapplication.cpp 1      \sa exit(), aboutToQuit(), QGuiApplication::lastWindowClosed() */
 end_comment
 begin_function
 DECL|function|quit
@@ -8961,71 +8955,6 @@ argument_list|(
 name|app_libpaths
 argument_list|)
 expr_stmt|;
-name|QString
-name|installPathPlugins
-init|=
-name|QLibraryInfo
-operator|::
-name|location
-argument_list|(
-name|QLibraryInfo
-operator|::
-name|PluginsPath
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|QFile
-operator|::
-name|exists
-argument_list|(
-name|installPathPlugins
-argument_list|)
-condition|)
-block|{
-comment|// Make sure we convert from backslashes to slashes.
-name|installPathPlugins
-operator|=
-name|QDir
-argument_list|(
-name|installPathPlugins
-argument_list|)
-operator|.
-name|canonicalPath
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|app_libpaths
-operator|->
-name|contains
-argument_list|(
-name|installPathPlugins
-argument_list|)
-condition|)
-name|app_libpaths
-operator|->
-name|append
-argument_list|(
-name|installPathPlugins
-argument_list|)
-expr_stmt|;
-block|}
-comment|// If QCoreApplication is not yet instantiated,
-comment|// make sure we add the application path when we construct the QCoreApplication
-if|if
-condition|(
-name|self
-condition|)
-name|self
-operator|->
-name|d_func
-argument_list|()
-operator|->
-name|appendApplicationPathToLibraryPaths
-argument_list|()
-expr_stmt|;
 specifier|const
 name|QByteArray
 name|libPathEnv
@@ -9128,6 +9057,71 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|QString
+name|installPathPlugins
+init|=
+name|QLibraryInfo
+operator|::
+name|location
+argument_list|(
+name|QLibraryInfo
+operator|::
+name|PluginsPath
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|QFile
+operator|::
+name|exists
+argument_list|(
+name|installPathPlugins
+argument_list|)
+condition|)
+block|{
+comment|// Make sure we convert from backslashes to slashes.
+name|installPathPlugins
+operator|=
+name|QDir
+argument_list|(
+name|installPathPlugins
+argument_list|)
+operator|.
+name|canonicalPath
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|app_libpaths
+operator|->
+name|contains
+argument_list|(
+name|installPathPlugins
+argument_list|)
+condition|)
+name|app_libpaths
+operator|->
+name|append
+argument_list|(
+name|installPathPlugins
+argument_list|)
+expr_stmt|;
+block|}
+comment|// If QCoreApplication is not yet instantiated,
+comment|// make sure we add the application path when we construct the QCoreApplication
+if|if
+condition|(
+name|self
+condition|)
+name|self
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|appendApplicationPathToLibraryPaths
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 operator|*

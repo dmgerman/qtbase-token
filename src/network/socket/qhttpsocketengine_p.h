@@ -291,11 +291,9 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|,
-argument|QHostAddress *addr =
-literal|0
+argument|QIpPacketHeader *
 argument_list|,
-argument|quint16 *port =
-literal|0
+argument|PacketHeaderOptions
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
@@ -306,9 +304,7 @@ argument|const char *data
 argument_list|,
 argument|qint64 len
 argument_list|,
-argument|const QHostAddress&addr
-argument_list|,
-argument|quint16 port
+argument|const QIpPacketHeader&
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;

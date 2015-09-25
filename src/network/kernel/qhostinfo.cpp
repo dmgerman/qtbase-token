@@ -985,8 +985,24 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QHostInfo::localHostName()      Returns the host name of this machine.      \sa hostName() */
+comment|/*!     \fn QString QHostInfo::localHostName()      Returns this machine's host name, if one is configured. Note that hostnames     are not guaranteed to be globally unique, especially if they were     configured automatically.      This function does not guarantee the returned host name is a Fully     Qualified Domain Name (FQDN). For that, use fromName() to resolve the     returned name to an FQDN.      This function returns the same as QSysInfo::machineHostName().      \sa hostName(), localDomainName() */
 end_comment
+begin_function
+DECL|function|localHostName
+name|QString
+name|QHostInfo
+operator|::
+name|localHostName
+parameter_list|()
+block|{
+return|return
+name|QSysInfo
+operator|::
+name|machineHostName
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \fn QString QHostInfo::localDomainName()      Returns the DNS domain of this machine.      \note DNS domains are not related to domain names found in     Windows networks.      \sa hostName() */
 end_comment

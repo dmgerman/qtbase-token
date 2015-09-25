@@ -2901,8 +2901,8 @@ parameter_list|()
 member_init_list|:
 name|m_platform
 argument_list|(
-name|qApp
-operator|->
+name|QGuiApplication
+operator|::
 name|platformName
 argument_list|()
 operator|.

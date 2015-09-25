@@ -5143,7 +5143,11 @@ literal|"\n\t"
 expr_stmt|;
 name|t
 operator|<<
-literal|"-$(DEL_FILE) $(TARGET)\n\t"
+literal|"-$(DEL_FILE) "
+operator|<<
+name|destdir
+operator|<<
+literal|"$(TARGET)\n\t"
 operator|<<
 name|var
 argument_list|(
@@ -5185,29 +5189,11 @@ argument_list|)
 condition|)
 name|t
 operator|<<
-literal|"\t$(RANLIB) $(TARGET)\n"
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|destdir
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|t
-operator|<<
-literal|"\t-$(DEL_FILE) "
+literal|"\t$(RANLIB) "
 operator|<<
 name|destdir
 operator|<<
 literal|"$(TARGET)\n"
-operator|<<
-literal|"\t-$(MOVE) $(TARGET) "
-operator|<<
-name|destdir
-operator|<<
-literal|" \n"
 expr_stmt|;
 block|}
 else|else
@@ -5328,6 +5314,8 @@ decl_stmt|;
 name|ProString
 name|lib
 init|=
+name|destdir
+operator|+
 name|escapeFilePath
 argument_list|(
 operator|*
@@ -5405,6 +5393,8 @@ block|}
 else|else
 block|{
 name|t
+operator|<<
+name|destdir_d
 operator|<<
 name|escapeDependencyPath
 argument_list|(
@@ -5512,34 +5502,6 @@ operator|<<
 name|lib
 operator|<<
 literal|"\n"
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|destdir
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|t
-operator|<<
-literal|"\t-$(DEL_FILE) "
-operator|<<
-name|destdir
-operator|<<
-name|lib
-operator|<<
-literal|"\n"
-operator|<<
-literal|"\t-$(MOVE) "
-operator|<<
-name|lib
-operator|<<
-literal|' '
-operator|<<
-name|destdir
-operator|<<
-literal|" \n"
 expr_stmt|;
 block|}
 block|}
@@ -6126,8 +6088,6 @@ operator|<<
 name|mkdir_p_asstring
 argument_list|(
 name|destdir
-argument_list|,
-literal|false
 argument_list|)
 operator|<<
 literal|"\n\t"
@@ -6319,6 +6279,16 @@ operator|.
 name|chop
 argument_list|(
 literal|10
+argument_list|)
+expr_stmt|;
+comment|// replace invalid bundle id characters
+name|bundleIdentifier
+operator|.
+name|replace
+argument_list|(
+literal|'_'
+argument_list|,
+literal|'-'
 argument_list|)
 expr_stmt|;
 name|commonSedArgs
@@ -9044,7 +9014,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"$(AR) $(TARGET) $(OBJECTS)"
+literal|"$(AR) $(DESTDIR)$(TARGET) $(OBJECTS)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -10550,14 +10520,6 @@ operator|.
 name|startsWith
 argument_list|(
 literal|'@'
-argument_list|)
-operator|&&
-operator|!
-name|sonameprefix
-operator|.
-name|startsWith
-argument_list|(
-literal|'$'
 argument_list|)
 condition|)
 name|sonameprefix

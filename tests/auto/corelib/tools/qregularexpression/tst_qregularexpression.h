@@ -157,6 +157,10 @@ name|void
 name|JOptionUsage
 argument_list|()
 block|;
+name|void
+name|QStringAndQStringRefEquivalence
+argument_list|()
+block|;
 name|private
 operator|:
 name|void

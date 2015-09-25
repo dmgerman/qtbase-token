@@ -158,7 +158,7 @@ begin_comment
 comment|/*!     \property QStateMachine::globalRestorePolicy      \brief the restore policy for states of this state machine.      The default value of this property is     QState::DontRestoreProperties. */
 end_comment
 begin_comment
-comment|/*!     \property QStateMachine::running     \since 5.4      \brief the running state of this state machine */
+comment|/*!     \property QStateMachine::running     \since 5.4      \brief the running state of this state machine      \sa start(), stop(), started(), stopped(), runningChanged() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -9526,6 +9526,9 @@ argument_list|(
 literal|false
 argument_list|)
 emit|;
+name|exitInterpreter
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -9957,6 +9960,15 @@ name|endMacrostep
 argument_list|(
 name|didChange
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|stopProcessingReason
+operator|==
+name|Finished
+condition|)
+name|exitInterpreter
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -10519,7 +10531,7 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
-comment|/*   This function is called when the state machine has reached a stable   state (no pending events), and has not finished yet.   For each event the state machine receives it is guaranteed that   1) beginMacrostep is called   2) selectTransition is called at least once   3) begin/endMicrostep is called at least once or noMicrostep is called      at least once (possibly both, but at least one)   4) the state machine either enters an infinite loop, or stops (runningChanged(false),      and either finished or stopped are emitted), or processedPendingEvents() is called.   5) if the machine is not in an infinite loop endMacrostep is called    didChange is set to true if at least one microstep was performed, it is possible   that the machine returned to exactly the same state as before, but some transitions   were triggered.    The default implementation does nothing. */
+comment|/*   This function is called when the state machine has reached a stable   state (no pending events), and has not finished yet.   For each event the state machine receives it is guaranteed that   1) beginMacrostep is called   2) selectTransition is called at least once   3) begin/endMicrostep is called at least once or noMicrostep is called      at least once (possibly both, but at least one)   4) the state machine either enters an infinite loop, or stops (runningChanged(false),      and either finished or stopped are emitted), or processedPendingEvents() is called.   5) if the machine is not in an infinite loop endMacrostep is called   6) when the machine is finished and all processing (like signal emission) is done,      exitInterpreter() is called. (This is the same name as the SCXML specification uses.)    didChange is set to true if at least one microstep was performed, it is possible   that the machine returned to exactly the same state as before, but some transitions   were triggered.    The default implementation does nothing. */
 end_comment
 begin_function
 DECL|function|processedPendingEvents
@@ -10565,6 +10577,15 @@ name|didChange
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
+DECL|function|exitInterpreter
+name|void
+name|QStateMachinePrivate
+operator|::
+name|exitInterpreter
+parameter_list|()
+block|{ }
 end_function
 begin_function
 DECL|function|emitStateFinished
@@ -12966,9 +12987,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!   Returns whether this state machine is running.    \sa start(), stop() */
-end_comment
 begin_function
 DECL|function|isRunning
 name|bool
@@ -13159,9 +13177,6 @@ break|break;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!     Convenience functions to start/stop this state machine.      \sa start(), stop(), started(), finished(), stopped() */
-end_comment
 begin_function
 DECL|function|setRunning
 name|void
