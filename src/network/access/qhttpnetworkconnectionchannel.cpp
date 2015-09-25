@@ -1070,6 +1070,10 @@ name|state
 argument_list|()
 decl_stmt|;
 comment|// resend this request after we receive the disconnected signal
+comment|// If !socket->isOpen() then we have already called close() on the socket, but there was still a
+comment|// pending connectToHost() for which we hadn't seen a connected() signal, yet. The connected()
+comment|// has now arrived (as indicated by socketState != ClosingState), but we cannot send anything on
+comment|// such a socket anymore.
 if|if
 condition|(
 name|socketState
@@ -1077,6 +1081,20 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|ClosingState
+operator|||
+operator|(
+name|socketState
+operator|!=
+name|QAbstractSocket
+operator|::
+name|UnconnectedState
+operator|&&
+operator|!
+name|socket
+operator|->
+name|isOpen
+argument_list|()
+operator|)
 condition|)
 block|{
 if|if
