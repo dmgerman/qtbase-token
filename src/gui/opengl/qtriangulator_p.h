@@ -211,6 +211,12 @@ name|other
 operator|.
 name|indices16
 expr_stmt|;
+name|t
+operator|=
+name|other
+operator|.
+name|t
+decl_stmt|;
 end_decl_stmt
 begin_return
 return|return
