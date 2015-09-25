@@ -154,13 +154,21 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Cannot open %s for writing"
+literal|"Cannot open %s for writing: %s\n"
 argument_list|,
 name|qPrintable
 argument_list|(
 name|f
 operator|.
 name|fileName
+argument_list|()
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|f
+operator|.
+name|errorString
 argument_list|()
 argument_list|)
 argument_list|)
