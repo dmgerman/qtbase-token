@@ -7892,12 +7892,6 @@ operator|-
 name|written
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|d
-operator|->
-name|socketEngine
-condition|)
 name|d
 operator|->
 name|socketEngine
