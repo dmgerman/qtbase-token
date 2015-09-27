@@ -8178,11 +8178,6 @@ argument_list|>
 literal|65535
 condition|)
 block|{
-name|port
-operator|=
-operator|-
-literal|1
-expr_stmt|;
 name|d
 operator|->
 name|setError
@@ -8200,6 +8195,11 @@ argument_list|)
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|port
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 name|d
