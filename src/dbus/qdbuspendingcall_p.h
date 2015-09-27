@@ -171,9 +171,6 @@ block|;
 name|QString
 name|expectedReplySignature
 block|;
-name|int
-name|expectedReplyCount
-block|;
 comment|// }
 name|QDBusPendingCallPrivate
 argument_list|(
