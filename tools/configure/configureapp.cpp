@@ -17265,6 +17265,12 @@ index|]
 operator|=
 literal|"4"
 expr_stmt|;
+name|cout
+operator|<<
+literal|"Done running configuration tests."
+operator|<<
+name|endl
+expr_stmt|;
 block|}
 end_function
 begin_function
