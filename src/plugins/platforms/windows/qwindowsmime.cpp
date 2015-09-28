@@ -9217,9 +9217,15 @@ argument_list|()
 condition|)
 block|{
 name|m_mimes
+ifndef|#
+directive|ifndef
+name|QT_NO_IMAGEFORMAT_BMP
 operator|<<
 operator|new
 name|QWindowsMimeImage
+endif|#
+directive|endif
+comment|//QT_NO_IMAGEFORMAT_BMP
 operator|<<
 operator|new
 name|QLastResortMimes
