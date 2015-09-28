@@ -8024,6 +8024,9 @@ name|lineEdit
 operator|=
 name|edit
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_IM
 name|qt_widget_private
 argument_list|(
 name|d
@@ -8035,6 +8038,8 @@ name|inheritsInputMethodHints
 operator|=
 literal|1
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|d
