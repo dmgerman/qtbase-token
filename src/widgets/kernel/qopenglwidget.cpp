@@ -1735,14 +1735,28 @@ condition|)
 name|render
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|resolvedFbo
+condition|)
+block|{
 name|resolveSamples
 argument_list|()
 expr_stmt|;
+name|resolvedFbo
+operator|->
+name|bind
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|q
 operator|->
 name|makeCurrent
 argument_list|()
 expr_stmt|;
+block|}
 name|QImage
 name|res
 init|=
@@ -1772,6 +1786,18 @@ operator|->
 name|devicePixelRatioF
 argument_list|()
 argument_list|)
+expr_stmt|;
+comment|// While we give no guarantees of what is going to be left bound, prefer the
+comment|// multisample fbo instead of the resolved one. Clients may continue to
+comment|// render straight after calling this function.
+if|if
+condition|(
+name|resolvedFbo
+condition|)
+name|q
+operator|->
+name|makeCurrent
+argument_list|()
 expr_stmt|;
 return|return
 name|res
