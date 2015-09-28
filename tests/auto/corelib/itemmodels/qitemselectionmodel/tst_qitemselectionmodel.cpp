@@ -20480,7 +20480,6 @@ parameter_list|(
 specifier|const
 name|QItemSelection
 modifier|&
-name|selected
 parameter_list|,
 specifier|const
 name|QItemSelection
