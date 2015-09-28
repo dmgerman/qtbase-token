@@ -106,14 +106,14 @@ argument_list|,
 operator|&
 name|QFbVtHandler
 operator|::
-name|suspendRequested
+name|aboutToSuspend
 argument_list|,
 name|this
 argument_list|,
 operator|&
 name|QEglFSKmsInterruptHandler
 operator|::
-name|handleSuspendRequest
+name|restoreVideoMode
 argument_list|)
 block|;     }
 specifier|public
@@ -129,21 +129,6 @@ operator|->
 name|restoreMode
 argument_list|()
 block|; }
-DECL|function|handleSuspendRequest
-name|void
-name|handleSuspendRequest
-argument_list|()
-block|{
-name|m_screen
-operator|->
-name|restoreMode
-argument_list|()
-block|;
-name|m_vtHandler
-operator|->
-name|suspend
-argument_list|()
-block|;     }
 specifier|private
 operator|:
 DECL|member|m_vtHandler
