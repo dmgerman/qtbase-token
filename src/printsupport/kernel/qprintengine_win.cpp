@@ -320,7 +320,24 @@ literal|"QWin32PrintEngine::begin: "
 operator|<<
 name|function
 operator|<<
-literal|" failed, document \""
+literal|" failed"
+expr_stmt|;
+if|if
+condition|(
+name|d
+operator|.
+name|lpszDocName
+operator|&&
+name|d
+operator|.
+name|lpszDocName
+index|[
+literal|0
+index|]
+condition|)
+name|str
+operator|<<
+literal|", document \""
 operator|<<
 name|QString
 operator|::
@@ -335,6 +352,10 @@ literal|'"'
 expr_stmt|;
 if|if
 condition|(
+name|d
+operator|.
+name|lpszOutput
+operator|&&
 name|d
 operator|.
 name|lpszOutput
