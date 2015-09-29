@@ -70,10 +70,6 @@ operator|&
 name|lib
 argument_list|)
 block|;
-name|QString
-name|getLibTarget
-argument_list|()
-block|;
 name|virtual
 name|QString
 name|getManifestFileForRcFile

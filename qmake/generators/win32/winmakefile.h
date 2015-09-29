@@ -197,11 +197,6 @@ name|void
 name|processRcFileVar
 argument_list|()
 block|;
-name|virtual
-name|QString
-name|getLibTarget
-argument_list|()
-block|;
 specifier|static
 name|QString
 name|cQuoted
