@@ -464,6 +464,10 @@ name|PE_PanelTipLabel
 block|,
 name|PE_IndicatorTabTear
 block|,
+name|PE_IndicatorTabTearLeft
+operator|=
+name|PE_IndicatorTabTear
+block|,
 name|PE_PanelScrollAreaCorner
 block|,
 name|PE_Widget
@@ -482,6 +486,8 @@ block|,
 name|PE_IndicatorTabClose
 block|,
 name|PE_PanelMenu
+block|,
+name|PE_IndicatorTabTearRight
 block|,
 comment|// do not add any values below/greater this
 name|PE_CustomBase
@@ -688,6 +694,10 @@ name|SE_ViewItemCheckIndicator
 block|,
 name|SE_TabBarTearIndicator
 block|,
+name|SE_TabBarTearIndicatorLeft
+operator|=
+name|SE_TabBarTearIndicator
+block|,
 name|SE_TreeViewDisclosureItem
 block|,
 name|SE_LineEditContents
@@ -746,6 +756,12 @@ block|,
 name|SE_ShapedFrameContents
 block|,
 name|SE_ToolBarHandle
+block|,
+name|SE_TabBarScrollLeftButton
+block|,
+name|SE_TabBarScrollRightButton
+block|,
+name|SE_TabBarTearIndicatorRight
 block|,
 comment|// do not add any values below/greater than this
 name|SE_CustomBase
