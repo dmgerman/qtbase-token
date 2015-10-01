@@ -221,6 +221,11 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|)
+member_init_list|:
+name|verbose
+argument_list|(
+literal|0
+argument_list|)
 block|{
 comment|// Default values for indentation
 name|optionIndent
@@ -2219,6 +2224,32 @@ index|]
 operator|=
 literal|"yes"
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-v"
+operator|||
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-verbose"
+condition|)
+block|{
+operator|++
+name|verbose
+expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -13634,6 +13665,13 @@ argument_list|,
 literal|"Run configure with the same parameters as last time.\n"
 argument_list|)
 expr_stmt|;
+name|desc
+argument_list|(
+literal|"-v, -verbose"
+argument_list|,
+literal|"Run configure tests with verbose output.\n"
+argument_list|)
+expr_stmt|;
 comment|// Qt\Windows CE only options go below here -----------------------------------------------------------------------------
 name|desc
 argument_list|(
@@ -21859,7 +21897,7 @@ name|command
 init|=
 name|QString
 argument_list|(
-literal|"%1 %2 %3 2>&1"
+literal|"%1 %2 %3"
 argument_list|)
 operator|.
 name|arg
@@ -21944,6 +21982,24 @@ name|command
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|verbose
+condition|)
+name|cout
+operator|<<
+name|qPrintable
+argument_list|(
+name|command
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+else|else
+name|command
+operator|+=
+literal|" 2>&1"
+expr_stmt|;
 name|int
 name|code
 init|=
@@ -21998,6 +22054,20 @@ name|command
 operator|+=
 literal|" /NOLOGO"
 expr_stmt|;
+if|if
+condition|(
+name|verbose
+condition|)
+name|cout
+operator|<<
+name|qPrintable
+argument_list|(
+name|command
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+else|else
 name|command
 operator|+=
 literal|" -s 2>&1"

@@ -227,6 +227,9 @@ literal|0
 argument_list|)
 decl|const
 decl_stmt|;
+name|int
+name|verbose
+decl_stmt|;
 comment|// Our variable dictionaries
 name|QMap
 operator|<
