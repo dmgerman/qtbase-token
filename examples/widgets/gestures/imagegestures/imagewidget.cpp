@@ -848,15 +848,6 @@ modifier|&
 name|fileName
 parameter_list|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-name|position
-operator|<<
-name|files
-operator|<<
-name|fileName
-expr_stmt|;
 name|QImageReader
 name|reader
 argument_list|(
