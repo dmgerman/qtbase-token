@@ -6442,10 +6442,10 @@ begin_comment
 comment|/*!     \fn QMetaObject::Connection::Connection&operator=(const Connection&other)      Assigns \a other to this connection and returns a reference to this connection. */
 end_comment
 begin_comment
-comment|/*!     \fn QMetaObject::Connection&QMetaObject::Connection::operator=(Connection&&other)      Move-assigns \a other to this object. */
+comment|/*!     \fn QMetaObject::Connection&QMetaObject::Connection::operator=(Connection&&other)      Move-assigns \a other to this object, and returns a reference. */
 end_comment
 begin_comment
-comment|/*!     \fn QMetaObject::Connection::Connection(Connection&&o)      Move-constructs a Connection instance, making it point to the same object that \a o was pointing to. */
+comment|/*!     \fn QMetaObject::Connection::Connection(Connection&&o)      Move-constructs a Connection instance, making it point to the same object     that \a o was pointing to. */
 end_comment
 begin_comment
 comment|/*!     \class QMetaMethod     \inmodule QtCore      \brief The QMetaMethod class provides meta-data about a member     function.      \ingroup objectmodel      A QMetaMethod has a methodType(), a methodSignature(), a list of     parameterTypes() and parameterNames(), a return typeName(), a     tag(), and an access() specifier. You can use invoke() to invoke     the method on an arbitrary QObject.      \sa QMetaObject, QMetaEnum, QMetaProperty, {Qt's Property System} */

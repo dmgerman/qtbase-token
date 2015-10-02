@@ -932,10 +932,12 @@ expr_stmt|;
 name|QPostEventList
 name|postEventList
 decl_stmt|;
+name|QAtomicPointer
+operator|<
 name|QThread
-modifier|*
+operator|>
 name|thread
-decl_stmt|;
+expr_stmt|;
 name|Qt
 operator|::
 name|HANDLE

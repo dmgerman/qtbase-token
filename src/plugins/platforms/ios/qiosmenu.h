@@ -145,7 +145,7 @@ argument_list|(
 argument|const QKeySequence&
 argument_list|)
 name|Q_DECL_OVERRIDE
-block|{}
+block|;
 name|void
 name|setEnabled
 argument_list|(
@@ -181,6 +181,9 @@ block|;
 name|QIOSMenu
 operator|*
 name|m_menu
+block|;
+name|QKeySequence
+name|m_shortcut
 block|;
 name|private
 operator|:
@@ -448,6 +451,15 @@ name|QIOSMenuItemList
 name|visibleMenuItems
 argument_list|()
 specifier|const
+block|;
+name|QIOSMenuItemList
+name|filterFirstResponderActions
+argument_list|(
+specifier|const
+name|QIOSMenuItemList
+operator|&
+name|menuItems
+argument_list|)
 block|;
 name|void
 name|repositionMenu

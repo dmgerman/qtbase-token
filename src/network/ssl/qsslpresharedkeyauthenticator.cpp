@@ -276,7 +276,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QSslPreSharedKeyAuthenticator     \since 5.5      Returns true if the authenticator object \a lhs is equal to \a rhs; false     otherwise.      Two authenticator objects are equal if and only if they have the same     identity hint, identity, pre shared key, maximum length for the identity     and maximum length for the pre shared key.      \sa operator!=(const QSslPreSharedKeyAuthenticator&lhs, const QSslPreSharedKeyAuthenticator&rhs) */
+comment|/*!     \relates QSslPreSharedKeyAuthenticator     \since 5.5      Returns true if the authenticator object \a lhs is equal to \a rhs; false     otherwise.      Two authenticator objects are equal if and only if they have the same     identity hint, identity, pre shared key, maximum length for the identity     and maximum length for the pre shared key.  */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -373,7 +373,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool operator!=(const QSslPreSharedKeyAuthenticator&lhs, const QSslPreSharedKeyAuthenticator&rhs)     \relates QSslPreSharedKeyAuthenticator     \since 5.5      Returns true if the authenticator object \a lhs is different than \a rhs;     false otherwise.      \sa operator==(const QSslPreSharedKeyAuthenticator&lhs, const QSslPreSharedKeyAuthenticator&rhs) */
+comment|/*!     \fn bool operator!=(const QSslPreSharedKeyAuthenticator&lhs, const QSslPreSharedKeyAuthenticator&rhs)     \relates QSslPreSharedKeyAuthenticator     \since 5.5      Returns true if the authenticator object \a lhs is different than \a rhs;     false otherwise.  */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

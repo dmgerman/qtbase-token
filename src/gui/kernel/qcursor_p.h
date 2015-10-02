@@ -146,6 +146,9 @@ name|hotX
 parameter_list|,
 name|int
 name|hotY
+parameter_list|,
+name|qreal
+name|devicePixelRatio
 parameter_list|)
 function_decl|;
 block|}

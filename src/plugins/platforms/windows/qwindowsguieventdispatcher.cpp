@@ -91,6 +91,14 @@ name|ProcessEventsFlags
 name|flags
 parameter_list|)
 block|{
+specifier|const
+name|QEventLoop
+operator|::
+name|ProcessEventsFlags
+name|oldFlags
+init|=
+name|m_flags
+decl_stmt|;
 name|m_flags
 operator|=
 name|flags
@@ -161,6 +169,10 @@ literal|"returns"
 operator|<<
 name|rc
 expr_stmt|;
+name|m_flags
+operator|=
+name|oldFlags
+expr_stmt|;
 return|return
 name|rc
 return|;
@@ -174,7 +186,7 @@ operator|::
 name|sendPostedEvents
 parameter_list|()
 block|{
-name|QCoreApplication
+name|QEventDispatcherWin32
 operator|::
 name|sendPostedEvents
 argument_list|()

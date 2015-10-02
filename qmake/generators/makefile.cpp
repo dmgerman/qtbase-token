@@ -24209,13 +24209,16 @@ argument_list|(
 name|suffix
 argument_list|)
 expr_stmt|;
+name|t
+operator|<<
+literal|"-framework "
+expr_stmt|;
 name|pkgConfiglibName
 operator|=
-literal|"-framework "
-operator|+
 name|bundle
-operator|+
-literal|" "
+operator|.
+name|toQString
+argument_list|()
 expr_stmt|;
 block|}
 else|else

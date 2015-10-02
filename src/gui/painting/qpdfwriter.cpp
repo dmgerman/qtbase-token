@@ -419,6 +419,16 @@ operator|*
 operator|new
 name|QPdfWriterPrivate
 argument_list|)
+member_init_list|,
+name|QPagedPaintDevice
+argument_list|(
+operator|new
+name|QPdfPagedPaintDevicePrivate
+argument_list|(
+name|d_func
+argument_list|()
+argument_list|)
+argument_list|)
 block|{
 name|Q_D
 argument_list|(

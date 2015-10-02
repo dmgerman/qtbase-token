@@ -107,17 +107,31 @@ block|}
 enum|;
 name|QMimeMagicRule
 argument_list|(
-argument|Type type
+specifier|const
+name|QString
+operator|&
+name|typeStr
 argument_list|,
-argument|const QByteArray&value
+specifier|const
+name|QByteArray
+operator|&
+name|value
 argument_list|,
-argument|int startPos
+specifier|const
+name|QString
+operator|&
+name|offsets
 argument_list|,
-argument|int endPos
+specifier|const
+name|QByteArray
+operator|&
+name|mask
 argument_list|,
-argument|const QByteArray&mask = QByteArray()
+name|QString
+operator|*
+name|errorString
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|QMimeMagicRule
 argument_list|(
 specifier|const

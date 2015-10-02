@@ -20726,6 +20726,17 @@ operator|*
 literal|60
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|dt1
+operator|.
+name|timeZone
+argument_list|()
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|dt1
 operator|=
 name|QDateTime
