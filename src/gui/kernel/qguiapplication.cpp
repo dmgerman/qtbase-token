@@ -442,6 +442,16 @@ name|ApplicationInactive
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|highDpiScalingUpdated
+name|bool
+name|QGuiApplicationPrivate
+operator|::
+name|highDpiScalingUpdated
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|platform_integration
 name|QPlatformIntegration
 modifier|*
@@ -3521,6 +3531,28 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// Many platforms have created QScreens at this point. Finish initializing
+comment|// QHighDpiScaling to be prepared for early calls to qt_defaultDpi().
+if|if
+condition|(
+name|QGuiApplication
+operator|::
+name|primaryScreen
+argument_list|()
+condition|)
+block|{
+name|QGuiApplicationPrivate
+operator|::
+name|highDpiScalingUpdated
+operator|=
+literal|true
+expr_stmt|;
+name|QHighDpiScaling
+operator|::
+name|updateHighDpiScaling
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Create the platform theme:
 comment|// 1) Fetch the platform name from the environment if present.
 name|QStringList
@@ -4425,8 +4457,15 @@ operator|->
 name|initialize
 argument_list|()
 expr_stmt|;
-comment|// Do this here in order to play nice with platforms that add screens only
-comment|// in initialize().
+comment|// All platforms should have added screens at this point. Finish
+comment|// QHighDpiScaling initialization if it has not been done so already.
+if|if
+condition|(
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|highDpiScalingUpdated
+condition|)
 name|QHighDpiScaling
 operator|::
 name|updateHighDpiScaling
