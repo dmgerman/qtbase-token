@@ -531,7 +531,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|//synopsis += QLatin1Char(' ');
 name|QVector
 argument_list|<
 name|Parameter
@@ -588,6 +587,27 @@ operator|)
 operator|.
 name|dataType
 argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+operator|*
+name|p
+operator|)
+operator|.
+name|dataType
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|synopsis
+operator|+=
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if
@@ -675,7 +695,6 @@ operator|++
 name|p
 expr_stmt|;
 block|}
-comment|//synopsis += QLatin1Char(' ');
 block|}
 name|synopsis
 operator|+=
@@ -1747,15 +1766,16 @@ block|{
 if|if
 condition|(
 operator|!
-name|synopsis
+operator|(
+operator|*
+name|p
+operator|)
 operator|.
-name|endsWith
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'('
-argument_list|)
-argument_list|)
+name|dataType
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 name|synopsis
 operator|+=

@@ -18093,7 +18093,7 @@ name|replace
 argument_list|(
 literal|"<@param>"
 argument_list|,
-literal|"<i> "
+literal|"<i>"
 argument_list|)
 expr_stmt|;
 name|marked
@@ -19466,7 +19466,7 @@ name|replace
 argument_list|(
 literal|"<@param>"
 argument_list|,
-literal|"<i> "
+literal|"<i>"
 argument_list|)
 expr_stmt|;
 name|marked
