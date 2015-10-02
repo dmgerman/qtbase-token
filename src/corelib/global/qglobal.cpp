@@ -450,6 +450,30 @@ literal|"Qt assumes that char is 8 bits"
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
+begin_expr_stmt
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|QT_POINTER_SIZE
+operator|==
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
+argument_list|,
+literal|"configure test ptrsize failed to correctly determine QT_POINTER_SIZE"
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \class QFlag     \inmodule QtCore     \brief The QFlag class is a helper data type for QFlags.      It is equivalent to a plain \c int, except with respect to     function overloading and type conversions. You should never need     to use this class in your applications.      \sa QFlags */
 end_comment
