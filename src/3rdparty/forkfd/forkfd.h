@@ -31,11 +31,13 @@ end_include
 begin_comment
 comment|// to get the POSIX flags
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
 name|_POSIX_SPAWN
-end_ifdef
+operator|>
+literal|0
+end_if
 begin_include
 include|#
 directive|include
@@ -119,9 +121,11 @@ name|int
 name|ffd
 parameter_list|)
 function_decl|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
 name|_POSIX_SPAWN
+operator|>
+literal|0
 comment|/* only for spawnfd: */
 DECL|macro|FFD_SPAWN_SEARCH_PATH
 define|#

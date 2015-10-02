@@ -3676,7 +3676,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.5      Determines that images returned by read() should have transformation metadata automatically     applied if \a enabled is \c true.      \sa autoTransform(), read() */
+comment|/*!     \since 5.5      Determines that images returned by read() should have transformation metadata automatically     applied if \a enabled is \c true.      \sa autoTransform(), transformation(), read() */
 end_comment
 begin_function
 DECL|function|setAutoTransform

@@ -5295,6 +5295,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -5306,6 +5308,8 @@ argument_list|,
 name|expectedValue
 argument_list|,
 name|newValue
+argument_list|,
+name|currentValue
 argument_list|)
 return|;
 block|}
@@ -5335,6 +5339,8 @@ argument_list|,
 argument|T expectedValue
 argument_list|,
 argument|T newValue
+argument_list|,
+argument|T *currentValue
 argument_list|)
 name|Q_DECL_NOTHROW
 block|{
@@ -5351,6 +5357,8 @@ argument_list|,
 name|expectedValue
 argument_list|,
 name|newValue
+argument_list|,
+name|currentValue
 argument_list|)
 return|;
 block|}

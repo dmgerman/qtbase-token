@@ -782,10 +782,7 @@ literal|0
 argument_list|,
 name|path
 argument_list|,
-name|clsidForAppDataLocation
-argument_list|(
-name|type
-argument_list|)
+name|CSIDL_COMMON_APPDATA
 argument_list|,
 name|FALSE
 argument_list|)

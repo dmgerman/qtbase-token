@@ -821,15 +821,10 @@ name|void
 name|undoLimit
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
 name|void
 name|commandTextFormat
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|separateUndoText
 parameter_list|()
@@ -10729,11 +10724,6 @@ expr_stmt|;
 comment|// redoChanged
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PROCESS
-end_ifndef
 begin_function
 DECL|function|commandTextFormat
 name|void
@@ -10742,6 +10732,16 @@ operator|::
 name|commandTextFormat
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+name|QSKIP
+argument_list|(
+literal|"No QProcess available"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QString
 name|binDir
 init|=
@@ -11024,12 +11024,10 @@ operator|&
 name|translator
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|separateUndoText
 name|void

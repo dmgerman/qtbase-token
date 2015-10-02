@@ -415,6 +415,9 @@ operator|=
 name|threadData
 operator|->
 name|thread
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
 comment|// TODO: is there a way to reflect the branch's behavior using
 comment|// WinRT API?

@@ -3946,7 +3946,9 @@ comment|// Load the platform integration
 name|QString
 name|platformPluginPath
 init|=
-name|QLatin1String
+name|QString
+operator|::
+name|fromLocal8Bit
 argument_list|(
 name|qgetenv
 argument_list|(
@@ -4108,7 +4110,9 @@ name|argc
 condition|)
 name|platformPluginPath
 operator|=
-name|QLatin1String
+name|QString
+operator|::
+name|fromLocal8Bit
 argument_list|(
 name|argv
 index|[

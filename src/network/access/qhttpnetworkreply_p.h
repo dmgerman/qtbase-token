@@ -408,6 +408,15 @@ modifier|*
 name|userProvidedDownloadBuffer
 parameter_list|()
 function_decl|;
+name|void
+name|abort
+parameter_list|()
+function_decl|;
+name|bool
+name|isAborted
+argument_list|()
+specifier|const
+expr_stmt|;
 name|bool
 name|isFinished
 argument_list|()
@@ -892,6 +901,8 @@ block|,
 name|SPDYHalfClosed
 block|,
 name|SPDYClosed
+block|,
+name|Aborted
 block|}
 name|state
 enum|;

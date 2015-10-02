@@ -189,13 +189,6 @@ operator|::
 name|NetworkSessionRequired
 argument_list|)
 block|,
-name|networkAccessible
-argument_list|(
-name|QNetworkAccessManager
-operator|::
-name|Accessible
-argument_list|)
-block|,
 name|activeReplyCount
 argument_list|(
 literal|0
@@ -227,7 +220,49 @@ name|authenticationManager
 argument_list|(
 argument|QSharedPointer<QNetworkAccessAuthenticationManager>::create()
 argument_list|)
-block|{ }
+block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+comment|// we would need all active configurations to check for
+comment|// d->networkConfigurationManager.isOnline(), which is asynchronous
+comment|// and potentially expensive. We can just check the configuration here
+name|online
+operator|=
+operator|(
+name|networkConfiguration
+operator|.
+name|state
+argument_list|()
+operator|.
+name|testFlag
+argument_list|(
+name|QNetworkConfiguration
+operator|::
+name|Active
+argument_list|)
+operator|)
+block|;
+if|if
+condition|(
+name|online
+condition|)
+name|networkAccessible
+operator|=
+name|QNetworkAccessManager
+operator|::
+name|Accessible
+expr_stmt|;
+else|else
+name|networkAccessible
+operator|=
+name|QNetworkAccessManager
+operator|::
+name|NotAccessible
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 operator|~
 name|QNetworkAccessManagerPrivate
 argument_list|()

@@ -632,7 +632,7 @@ name|errorCode
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"QWindowsPipeReader::completeAsyncRead"
+literal|"QWindowsPipeReader::notified"
 argument_list|)
 argument_list|)
 emit|;

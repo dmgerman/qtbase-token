@@ -795,11 +795,15 @@ name|soff
 init|=
 name|e_shoff
 operator|+
+name|qelfword_t
+argument_list|(
 name|e_shentsize
+argument_list|)
 operator|*
-operator|(
+name|qelfword_t
+argument_list|(
 name|e_shtrndx
-operator|)
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

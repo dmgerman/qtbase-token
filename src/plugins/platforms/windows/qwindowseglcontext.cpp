@@ -867,7 +867,7 @@ operator|=
 name|RESOLVE
 argument_list|(
 operator|(
-name|__eglMustCastToProperFunctionPointerType
+name|QFunctionPointer
 argument_list|(
 name|EGLAPIENTRY
 operator|*

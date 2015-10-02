@@ -141,7 +141,7 @@ operator|)
 operator|+
 name|__UCLIBC_SUBLEVEL__
 operator|>
-literal|0x921
+literal|0x90201
 operator|)
 operator|)
 operator|)
@@ -209,7 +209,7 @@ operator|)
 operator|+
 name|__UCLIBC_SUBLEVEL__
 operator|>
-literal|0x921
+literal|0x90201
 operator|)
 operator|)
 operator|)
@@ -3285,10 +3285,9 @@ end_comment
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
 name|_POSIX_SPAWN
-argument_list|)
+operator|>
+literal|0
 operator|&&
 operator|!
 name|defined

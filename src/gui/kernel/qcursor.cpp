@@ -764,6 +764,11 @@ argument_list|,
 name|hotX
 argument_list|,
 name|hotY
+argument_list|,
+name|pixmap
+operator|.
+name|devicePixelRatio
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|d
@@ -818,6 +823,8 @@ argument_list|,
 name|hotX
 argument_list|,
 name|hotY
+argument_list|,
+literal|1.0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1643,6 +1650,9 @@ name|hotX
 parameter_list|,
 name|int
 name|hotY
+parameter_list|,
+name|qreal
+name|devicePixelRatio
 parameter_list|)
 block|{
 if|if
@@ -1760,6 +1770,8 @@ name|width
 argument_list|()
 operator|/
 literal|2
+operator|/
+name|devicePixelRatio
 expr_stmt|;
 name|d
 operator|->
@@ -1777,6 +1789,8 @@ name|height
 argument_list|()
 operator|/
 literal|2
+operator|/
+name|devicePixelRatio
 expr_stmt|;
 return|return
 name|d

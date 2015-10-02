@@ -78,6 +78,10 @@ argument|quintptr tag =
 literal|0LL
 argument_list|)
 block|;
+operator|~
+name|QDBusPlatformMenuItem
+argument_list|()
+block|;
 name|quintptr
 name|tag
 argument_list|()
