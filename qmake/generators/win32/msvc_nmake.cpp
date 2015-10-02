@@ -2756,6 +2756,10 @@ parameter_list|)
 block|{
 name|t
 operator|<<
+literal|"####### Implicit rules\n\n"
+expr_stmt|;
+name|t
+operator|<<
 literal|".SUFFIXES:"
 expr_stmt|;
 for|for
