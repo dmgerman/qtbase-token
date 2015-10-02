@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<qdesktopservices.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qregularexpression.h>
+end_include
 begin_class
 DECL|class|tst_qdesktopservices
 class|class
@@ -131,13 +136,28 @@ argument_list|(
 name|Q_OS_WINCE
 argument_list|)
 comment|// this test is only valid on windows on other systems it might mean open a new document in the application handling .file
+specifier|const
+name|QRegularExpression
+name|messagePattern
+argument_list|(
+literal|"ShellExecute 'file://invalid\\.file' failed \\(error \\d+\\)\\."
+argument_list|)
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|messagePattern
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"ShellExecute 'file://invalid.file' failed (error 3)."
+name|messagePattern
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
