@@ -3955,8 +3955,6 @@ name|LeftButton
 operator|&&
 name|d
 operator|->
-name|control
-operator|->
 name|inSelection
 argument_list|(
 name|e
