@@ -11812,7 +11812,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes \a value as the property's value to the given \a object. Returns     true if the write succeeded; otherwise returns \c false.      \sa read(), reset(), isWritable() */
+comment|/*!     Writes \a value as the property's value to the given \a object. Returns     true if the write succeeded; otherwise returns \c false.      If \a value is not of the same type type as the property, a conversion     is attempted. An empty QVariant() is equivalent to a call to reset()     if this property is resetable, or setting a default-constructed object     otherwise.      \sa read(), reset(), isWritable() */
 end_comment
 begin_function
 DECL|function|write
@@ -12155,7 +12155,41 @@ name|value
 operator|.
 name|userType
 argument_list|()
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|value
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|isResettable
+argument_list|()
+condition|)
+return|return
+name|reset
+argument_list|(
+name|object
+argument_list|)
+return|;
+name|v
+operator|=
+name|QVariant
+argument_list|(
+name|t
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 operator|!
 name|v
 operator|.
@@ -12164,9 +12198,12 @@ argument_list|(
 name|t
 argument_list|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
+block|}
 block|}
 comment|// the status variable is changed by qt_metacall to indicate what it did
 comment|// this feature is currently only used by Qt D-Bus and should not be depended
