@@ -435,9 +435,9 @@ comment|// window to send events to (always valid if current_target)
 name|xcb_window_t
 name|current_proxy_target
 decl_stmt|;
-name|QXcbScreen
+name|QXcbVirtualDesktop
 modifier|*
-name|current_screen
+name|current_virtual_desktop
 decl_stmt|;
 comment|// 10 minute timer used to discard old XdndDrop transactions
 enum|enum
