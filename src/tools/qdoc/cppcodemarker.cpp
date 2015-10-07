@@ -492,11 +492,8 @@ name|func
 operator|->
 name|returnType
 argument_list|()
-argument_list|)
-operator|+
-name|QLatin1Char
-argument_list|(
-literal|' '
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|synopsis
@@ -590,27 +587,8 @@ operator|)
 operator|.
 name|dataType
 argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
-operator|*
-name|p
-operator|)
-operator|.
-name|dataType
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|synopsis
-operator|+=
-name|QLatin1Char
-argument_list|(
-literal|' '
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -1326,11 +1304,8 @@ name|variable
 operator|->
 name|leftType
 argument_list|()
-argument_list|)
-operator|+
-name|QLatin1Char
-argument_list|(
-literal|' '
+argument_list|,
+literal|true
 argument_list|)
 operator|+
 name|name
@@ -1660,11 +1635,8 @@ name|func
 operator|->
 name|returnType
 argument_list|()
-argument_list|)
-operator|+
-name|QLatin1Char
-argument_list|(
-literal|' '
+argument_list|,
+literal|true
 argument_list|)
 operator|+
 name|name
@@ -1749,6 +1721,8 @@ operator|)
 operator|.
 name|dataType
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -1765,28 +1739,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
-if|if
-condition|(
-operator|!
-operator|(
-operator|*
-name|p
-operator|)
-operator|.
-name|dataType
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|synopsis
-operator|+=
-name|QLatin1Char
-argument_list|(
-literal|' '
-argument_list|)
-expr_stmt|;
 name|synopsis
 operator|+=
 literal|"<@param>"
@@ -1804,7 +1756,6 @@ argument_list|)
 operator|+
 literal|"</@param>"
 expr_stmt|;
-block|}
 name|synopsis
 operator|+=
 name|protect
