@@ -138,13 +138,6 @@ name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
-name|int
-name|findPiece
-argument_list|(
-argument|const QRect&pieceRect
-argument_list|)
-specifier|const
-block|;
 specifier|const
 name|QRect
 name|targetSquare

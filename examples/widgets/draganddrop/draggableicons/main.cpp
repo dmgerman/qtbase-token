@@ -53,6 +53,10 @@ name|horizontalLayout
 init|=
 operator|new
 name|QHBoxLayout
+argument_list|(
+operator|&
+name|mainWidget
+argument_list|)
 decl_stmt|;
 name|horizontalLayout
 operator|->
@@ -68,13 +72,6 @@ name|addWidget
 argument_list|(
 operator|new
 name|DragWidget
-argument_list|)
-expr_stmt|;
-name|mainWidget
-operator|.
-name|setLayout
-argument_list|(
-name|horizontalLayout
 argument_list|)
 expr_stmt|;
 name|mainWidget
