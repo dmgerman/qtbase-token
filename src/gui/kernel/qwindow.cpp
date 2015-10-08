@@ -6559,9 +6559,7 @@ operator|->
 name|platformWindow
 operator|->
 name|isEmbedded
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|)
 condition|)
 block|{
@@ -6629,9 +6627,7 @@ operator|->
 name|platformWindow
 operator|->
 name|isEmbedded
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|)
 condition|)
 block|{

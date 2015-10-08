@@ -211,6 +211,8 @@ specifier|const
 name|QPlatformWindow
 operator|*
 name|parentWindow
+operator|=
+literal|0
 argument_list|)
 decl|const
 name|Q_DECL_OVERRIDE

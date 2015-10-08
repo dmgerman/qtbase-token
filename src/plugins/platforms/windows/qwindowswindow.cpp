@@ -5981,9 +5981,7 @@ condition|(
 name|ww
 operator|->
 name|isEmbedded
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 condition|)
 block|{
 name|HWND
@@ -6420,9 +6418,7 @@ name|parent
 argument_list|()
 operator|->
 name|isEmbedded
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 return|;
 return|return
 name|m_data
