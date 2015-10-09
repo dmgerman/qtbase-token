@@ -6579,8 +6579,7 @@ block|}
 return|return
 name|pos
 operator|+
-name|d_func
-argument_list|()
+name|d
 operator|->
 name|globalPosition
 argument_list|()
@@ -6650,8 +6649,7 @@ block|}
 return|return
 name|pos
 operator|-
-name|d_func
-argument_list|()
+name|d
 operator|->
 name|globalPosition
 argument_list|()
