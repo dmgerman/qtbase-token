@@ -735,16 +735,24 @@ argument_list|(
 name|fd
 argument_list|)
 condition|)
+block|{
+specifier|const
+name|int
+name|errnoSaved
+init|=
+name|errno
+decl_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
 literal|"setNativeLocks failed:"
 operator|<<
-name|strerror
+name|qt_error_string
 argument_list|(
-name|errno
+name|errnoSaved
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|qt_write_loop
