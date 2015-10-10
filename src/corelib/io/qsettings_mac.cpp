@@ -2284,7 +2284,7 @@ name|prepend
 argument_list|(
 name|domainName
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|curPos
 argument_list|,
@@ -2317,7 +2317,7 @@ name|prepend
 argument_list|(
 name|domainName
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|curPos
 argument_list|)

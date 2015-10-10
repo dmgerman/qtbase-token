@@ -3806,12 +3806,15 @@ argument_list|()
 condition|)
 block|{
 specifier|const
-name|QStringList
+name|QVector
+argument_list|<
+name|QStringRef
+argument_list|>
 name|root_segments
 init|=
 name|root
 operator|.
-name|split
+name|splitRef
 argument_list|(
 name|QLatin1Char
 argument_list|(
@@ -3827,7 +3830,7 @@ name|path_segments
 init|=
 name|path
 operator|.
-name|split
+name|splitRef
 argument_list|(
 name|QLatin1Char
 argument_list|(
@@ -3922,6 +3925,9 @@ name|at
 argument_list|(
 name|matched
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 return|return
 literal|true

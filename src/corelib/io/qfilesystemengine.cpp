@@ -715,7 +715,7 @@ argument_list|)
 operator|%
 name|filePath
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|prefixSeparator
 operator|+

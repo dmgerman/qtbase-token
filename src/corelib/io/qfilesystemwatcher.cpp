@@ -786,11 +786,17 @@ name|engine
 init|=
 literal|0
 decl_stmt|;
+specifier|const
+name|QString
+name|on
+init|=
+name|objectName
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
-name|objectName
-argument_list|()
+name|on
 operator|.
 name|startsWith
 argument_list|(
@@ -835,13 +841,13 @@ block|}
 else|else
 block|{
 comment|// Autotest override case - use the explicitly selected engine only
-name|QString
+specifier|const
+name|QStringRef
 name|forceName
 init|=
-name|objectName
-argument_list|()
+name|on
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|26
 argument_list|)

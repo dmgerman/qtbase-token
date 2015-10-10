@@ -112,11 +112,10 @@ condition|)
 return|return
 literal|true
 return|;
-name|localPath
-operator|=
+return|return
 name|localPath
 operator|.
-name|right
+name|rightRef
 argument_list|(
 name|localPath
 operator|.
@@ -130,9 +129,6 @@ argument_list|)
 operator|.
 name|trimmed
 argument_list|()
-expr_stmt|;
-return|return
-name|localPath
 operator|.
 name|isEmpty
 argument_list|()
