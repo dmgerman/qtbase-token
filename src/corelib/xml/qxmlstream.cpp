@@ -10088,6 +10088,14 @@ name|encoder
 argument_list|)
 expr_stmt|;
 comment|// assumes ASCII-compatibility for all 8-bit encodings
+name|QChar
+name|space
+init|=
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+decl_stmt|;
 specifier|const
 name|QByteArray
 name|bytes
@@ -10096,10 +10104,10 @@ name|encoder
 operator|->
 name|fromUnicode
 argument_list|(
-name|QStringLiteral
-argument_list|(
-literal|" "
-argument_list|)
+operator|&
+name|space
+argument_list|,
+literal|1
 argument_list|)
 decl_stmt|;
 name|isCodecASCIICompatible
