@@ -1032,16 +1032,10 @@ name|nd
 operator|.
 name|endsWith
 argument_list|(
-name|QString
-argument_list|(
-name|QChar
-argument_list|(
 name|QDir
 operator|::
 name|separator
 argument_list|()
-argument_list|)
-argument_list|)
 argument_list|)
 condition|)
 name|nd
