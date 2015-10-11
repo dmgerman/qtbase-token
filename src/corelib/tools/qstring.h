@@ -1046,7 +1046,6 @@ operator|&
 operator|)
 name|Q_DECL_NOTHROW
 decl_stmt|;
-specifier|inline
 name|QString
 modifier|&
 name|operator
@@ -8628,42 +8627,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|member|operator
-specifier|inline
-name|QString
-operator|&
-name|QString
-operator|::
-name|operator
-operator|=
-operator|(
-name|QLatin1String
-name|s
-operator|)
-block|{
-operator|*
-name|this
-operator|=
-name|fromLatin1
-argument_list|(
-name|s
-operator|.
-name|latin1
-argument_list|()
-argument_list|,
-name|s
-operator|.
-name|size
-argument_list|()
-argument_list|)
-block|;
-return|return
-operator|*
-name|this
-return|;
-block|}
-end_expr_stmt
-begin_expr_stmt
+DECL|function|clear
 specifier|inline
 name|void
 name|QString
@@ -8686,6 +8650,7 @@ expr_stmt|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|d
 specifier|inline
 name|QString
 operator|::
@@ -8715,6 +8680,7 @@ operator|.
 name|ref
 argument_list|()
 block|; }
+DECL|function|capacity
 specifier|inline
 name|int
 name|QString
@@ -8739,6 +8705,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|setNum
 specifier|inline
 name|QString
 operator|&
@@ -8765,6 +8732,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|setNum
 specifier|inline
 name|QString
 operator|&
@@ -8791,6 +8759,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|setNum
 specifier|inline
 name|QString
 operator|&
@@ -8817,6 +8786,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|setNum
 specifier|inline
 name|QString
 operator|&
@@ -8843,6 +8813,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|setNum
 specifier|inline
 name|QString
 operator|&
@@ -8869,6 +8840,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|setNum
 specifier|inline
 name|QString
 operator|&
@@ -8895,6 +8867,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|setNum
 specifier|inline
 name|QString
 operator|&
@@ -8925,6 +8898,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -8959,6 +8933,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -8993,6 +8968,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9027,6 +9003,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9061,6 +9038,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9095,6 +9073,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9129,6 +9108,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9168,6 +9148,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9212,6 +9193,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9261,6 +9243,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9315,6 +9298,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9374,6 +9358,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9438,6 +9423,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9507,6 +9493,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|arg
 specifier|inline
 name|QString
 name|QString
@@ -9581,6 +9568,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|function|section
 specifier|inline
 name|QString
 name|QString
@@ -9621,6 +9609,7 @@ argument_list|(
 literal|4127
 argument_list|)
 comment|// "conditional expression is constant"
+DECL|function|toWCharArray
 specifier|inline
 namespace|int
 name|QString
@@ -9693,6 +9682,7 @@ block|}
 end_decl_stmt
 begin_expr_stmt
 name|QT_WARNING_POP
+DECL|function|fromWCharArray
 specifier|inline
 name|QString
 name|QString
