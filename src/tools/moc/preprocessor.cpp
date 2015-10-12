@@ -3181,7 +3181,20 @@ condition|(
 name|index
 operator|<
 literal|0
-operator|||
+condition|)
+block|{
+name|that
+operator|->
+name|error
+argument_list|(
+literal|"'#' is not followed by a macro parameter"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+elseif|else
+if|if
+condition|(
 name|index
 operator|>=
 name|arguments
@@ -3194,7 +3207,7 @@ name|that
 operator|->
 name|error
 argument_list|(
-literal|"'#' is not followed by a macro parameter"
+literal|"Macro invoked with too few parameters for a use of '#'"
 argument_list|)
 expr_stmt|;
 continue|continue;
