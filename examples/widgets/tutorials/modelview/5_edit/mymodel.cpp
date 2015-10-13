@@ -219,7 +219,7 @@ index|[
 name|col
 index|]
 operator|+
-literal|" "
+literal|' '
 expr_stmt|;
 block|}
 block|}

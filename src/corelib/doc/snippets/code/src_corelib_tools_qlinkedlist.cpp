@@ -490,7 +490,7 @@ operator|)
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|i
@@ -563,7 +563,7 @@ operator|)
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|list
@@ -604,7 +604,7 @@ operator|)
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|list

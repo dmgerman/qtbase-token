@@ -341,7 +341,7 @@ operator|.
 name|columnNumber
 argument_list|()
 operator|<<
-literal|":"
+literal|':'
 operator|<<
 name|exception
 operator|.

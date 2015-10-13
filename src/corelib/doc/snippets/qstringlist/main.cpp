@@ -201,7 +201,7 @@ name|str
 operator|.
 name|split
 argument_list|(
-literal|","
+literal|','
 argument_list|)
 expr_stmt|;
 comment|// list: ["Arial", "Helvetica", "Times", "Courier"]

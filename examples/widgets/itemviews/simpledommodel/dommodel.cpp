@@ -245,7 +245,7 @@ operator|.
 name|nodeValue
 argument_list|()
 operator|+
-literal|"\""
+literal|'"'
 expr_stmt|;
 block|}
 return|return

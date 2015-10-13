@@ -1770,7 +1770,7 @@ operator|.
 name|back
 argument_list|()
 operator|+=
-literal|"["
+literal|'['
 expr_stmt|;
 name|m_parameterNames
 operator|.
@@ -1786,7 +1786,7 @@ operator|.
 name|back
 argument_list|()
 operator|+=
-literal|"]"
+literal|']'
 expr_stmt|;
 name|int
 name|j

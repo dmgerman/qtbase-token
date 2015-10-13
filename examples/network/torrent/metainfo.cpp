@@ -312,7 +312,7 @@ argument_list|()
 condition|)
 name|path
 operator|+=
-literal|"/"
+literal|'/'
 expr_stmt|;
 name|path
 operator|+=

@@ -1766,9 +1766,9 @@ operator|.
 name|str
 argument_list|)
 operator|+
-name|QStringLiteral
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 name|m_output

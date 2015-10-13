@@ -104,7 +104,7 @@ name|names
 operator|+=
 name|startDir
 operator|+
-literal|"/"
+literal|'/'
 operator|+
 name|file
 expr_stmt|;
@@ -132,7 +132,7 @@ name|findFiles
 argument_list|(
 name|startDir
 operator|+
-literal|"/"
+literal|'/'
 operator|+
 name|subdir
 argument_list|,
@@ -212,7 +212,9 @@ literal|false
 condition|)
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|word
 decl|,
 name|textStream
@@ -222,7 +224,7 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 control|)
 name|wordCount
@@ -294,7 +296,9 @@ literal|false
 condition|)
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|word
 decl|,
 name|textStream
@@ -304,7 +308,7 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 control|)
 name|wordCount

@@ -207,7 +207,7 @@ name|std
 operator|::
 name|cout
 operator|<<
-literal|" "
+literal|' '
 expr_stmt|;
 name|std
 operator|::

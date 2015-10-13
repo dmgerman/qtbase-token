@@ -127,7 +127,7 @@ operator|.
 name|pattern
 argument_list|()
 operator|+
-literal|"T"
+literal|'T'
 operator|+
 name|timeExp
 operator|.
@@ -997,7 +997,7 @@ name|text
 operator|.
 name|split
 argument_list|(
-literal|","
+literal|','
 argument_list|)
 expr_stmt|;
 break|break;
