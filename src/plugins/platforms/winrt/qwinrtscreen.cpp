@@ -6510,7 +6510,9 @@ name|d
 operator|->
 name|eglDisplay
 argument_list|,
-name|EGL_NO_SURFACE
+name|d
+operator|->
+name|eglSurface
 argument_list|,
 name|EGL_DEVICE_EXT
 argument_list|,
