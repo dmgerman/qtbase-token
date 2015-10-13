@@ -1609,20 +1609,37 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
-comment|// The comment is important for mingw32-make.exe on Windows as otherwise trailing slashes
-comment|// would be interpreted as line continuation. The lack of spacing between the value and the
-comment|// comment is also important as otherwise quoted use of "$(DESTDIR)" would include this
-comment|// spacing.
-name|t
-operator|<<
-literal|"DESTDIR       = "
-operator|<<
+name|QString
+name|destd
+init|=
 name|fileVar
 argument_list|(
 literal|"DESTDIR"
 argument_list|)
+decl_stmt|;
+comment|// When building on non-MSys MinGW, the path ends with a backslash, which
+comment|// GNU make will interpret that as a line continuation. Doubling the backslash
+comment|// avoids the problem, at the cost of the variable containing *both* backslashes.
+if|if
+condition|(
+name|destd
+operator|.
+name|endsWith
+argument_list|(
+literal|'\\'
+argument_list|)
+condition|)
+name|destd
+operator|+=
+literal|'\\'
+expr_stmt|;
+name|t
 operator|<<
-literal|"#avoid trailing-slash linebreak\n"
+literal|"DESTDIR       = "
+operator|<<
+name|destd
+operator|<<
+name|endl
 expr_stmt|;
 name|t
 operator|<<
