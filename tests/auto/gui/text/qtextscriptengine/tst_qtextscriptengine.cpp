@@ -351,7 +351,7 @@ operator|.
 name|toLatin1
 argument_list|()
 operator|+
-literal|":"
+literal|':'
 decl_stmt|;
 name|QString
 name|string

@@ -12800,11 +12800,9 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|"1"
+literal|'1'
 argument_list|)
 argument_list|)
 condition|)

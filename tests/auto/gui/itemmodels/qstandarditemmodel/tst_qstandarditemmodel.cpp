@@ -11117,7 +11117,7 @@ define|#
 directive|define
 name|VERIFY_MODEL
 define|\
-value|for (int c = 0; c< col_list.count(); c++) \         for (int r = 0; r< row_list.count(); r++) \             QCOMPARE(model.item(r,c)->text() , row_list[r] + "x" + col_list[c]);
+value|for (int c = 0; c< col_list.count(); c++) \         for (int r = 0; r< row_list.count(); r++) \             QCOMPARE(model.item(r,c)->text() , row_list[r] + QLatin1Char('x') + col_list[c]);
 name|QVector
 argument_list|<
 name|QString
@@ -11198,7 +11198,10 @@ index|[
 name|r
 index|]
 operator|+
-literal|"x"
+name|QLatin1Char
+argument_list|(
+literal|'x'
+argument_list|)
 operator|+
 name|col_list
 index|[
@@ -11335,7 +11338,10 @@ index|[
 literal|6
 index|]
 operator|+
-literal|"x"
+name|QLatin1Char
+argument_list|(
+literal|'x'
+argument_list|)
 operator|+
 name|col_list
 index|[
@@ -11410,7 +11416,10 @@ index|[
 name|r
 index|]
 operator|+
-literal|"x"
+name|QLatin1Char
+argument_list|(
+literal|'x'
+argument_list|)
 operator|+
 name|col_list
 index|[
@@ -11516,7 +11525,10 @@ index|[
 name|r
 index|]
 operator|+
-literal|"x"
+name|QLatin1Char
+argument_list|(
+literal|'x'
+argument_list|)
 operator|+
 name|col_list
 index|[

@@ -11320,7 +11320,10 @@ name|s2
 operator|.
 name|prepend
 argument_list|(
-literal|"C"
+name|QLatin1Char
+argument_list|(
+literal|'C'
+argument_list|)
 argument_list|)
 argument_list|;
 name|QTest

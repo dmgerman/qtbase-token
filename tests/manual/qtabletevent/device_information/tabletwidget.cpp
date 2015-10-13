@@ -1024,7 +1024,10 @@ name|ret
 operator|.
 name|join
 argument_list|(
-literal|"|"
+name|QLatin1Char
+argument_list|(
+literal|'|'
+argument_list|)
 argument_list|)
 return|;
 block|}

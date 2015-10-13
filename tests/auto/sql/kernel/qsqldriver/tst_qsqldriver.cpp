@@ -209,7 +209,10 @@ literal|" (id int not null primary key, name varchar(20), title_key int, another
 operator|+
 name|doubleField
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

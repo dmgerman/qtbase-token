@@ -367,7 +367,10 @@ decl_stmt|;
 return|return
 name|appDir
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|PREFIX
 operator|+

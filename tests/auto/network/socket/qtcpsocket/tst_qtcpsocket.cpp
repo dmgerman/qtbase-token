@@ -9208,7 +9208,10 @@ name|greeting
 operator|.
 name|endsWith
 argument_list|(
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 argument_list|)
 argument_list|,
 name|qPrintable

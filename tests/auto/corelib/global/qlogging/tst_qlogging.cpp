@@ -3822,7 +3822,10 @@ literal|"QT_MESSAGE_PATTERN=\""
 operator|+
 name|pattern
 operator|+
-literal|"\""
+name|QLatin1Char
+argument_list|(
+literal|'"'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|process

@@ -13710,7 +13710,10 @@ name|dirToCreate
 operator|.
 name|startsWith
 argument_list|(
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 argument_list|)
 condition|)
 name|addCommand
@@ -13740,7 +13743,10 @@ name|cd
 argument_list|(
 name|cdDir
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|dirToCreate
 argument_list|)

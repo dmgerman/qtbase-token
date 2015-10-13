@@ -8846,9 +8846,10 @@ name|file
 init|=
 name|tmp
 operator|+
-literal|'/'
-operator|+
-literal|"f"
+name|QLatin1String
+argument_list|(
+literal|"/f"
+argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(

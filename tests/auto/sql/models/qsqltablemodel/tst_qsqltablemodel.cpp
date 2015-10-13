@@ -18130,7 +18130,10 @@ literal|"column1='"
 operator|+
 name|timeString
 operator|+
-literal|"'"
+name|QLatin1Char
+argument_list|(
+literal|'\''
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//filter to get just the newly entered row

@@ -2762,9 +2762,15 @@ argument_list|)
 operator|.
 name|replace
 argument_list|(
-literal|"."
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
 argument_list|,
-literal|"_"
+name|QLatin1Char
+argument_list|(
+literal|'_'
+argument_list|)
 argument_list|)
 operator|+
 literal|".ps"

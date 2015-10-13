@@ -7247,7 +7247,10 @@ name|m_dataPath
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QTest
@@ -7614,7 +7617,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|","
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7635,7 +7641,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|)
 operator|<<
 name|QString
@@ -7645,7 +7654,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|","
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -7672,7 +7684,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
+name|QLatin1Char
+argument_list|(
 literal|','
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

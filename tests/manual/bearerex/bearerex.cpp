@@ -773,9 +773,9 @@ decl_stmt|;
 name|QString
 name|label
 init|=
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|"S"
+literal|'S'
 argument_list|)
 operator|+
 name|QString
@@ -1602,7 +1602,10 @@ operator|->
 name|identifier
 argument_list|()
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1635,7 +1638,10 @@ operator|->
 name|identifier
 argument_list|()
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2217,7 +2223,10 @@ operator|.
 name|identifier
 argument_list|()
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2272,7 +2281,10 @@ operator|.
 name|name
 argument_list|()
 operator|+
-literal|"?"
+name|QLatin1Char
+argument_list|(
+literal|'?'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|msgBox
@@ -2367,9 +2379,9 @@ name|listItem
 operator|->
 name|setText
 argument_list|(
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|"S"
+literal|'S'
 argument_list|)
 operator|+
 name|QString
@@ -2379,14 +2391,9 @@ argument_list|(
 name|m_index
 argument_list|)
 operator|+
-name|QString
+name|QLatin1String
 argument_list|(
-literal|" - "
-argument_list|)
-operator|+
-name|QString
-argument_list|(
-literal|"Opened"
+literal|" - Opened"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2458,7 +2465,10 @@ operator|.
 name|identifier
 argument_list|()
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2600,9 +2610,9 @@ name|listItem
 operator|->
 name|setText
 argument_list|(
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|"S"
+literal|'S'
 argument_list|)
 operator|+
 name|QString
@@ -2612,14 +2622,9 @@ argument_list|(
 name|m_index
 argument_list|)
 operator|+
-name|QString
+name|QLatin1String
 argument_list|(
-literal|" - "
-argument_list|)
-operator|+
-name|QString
-argument_list|(
-literal|"Closed"
+literal|" - Closed"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2817,9 +2822,9 @@ name|listItem
 operator|->
 name|setText
 argument_list|(
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|"S"
+literal|'S'
 argument_list|)
 operator|+
 name|QString
@@ -2829,7 +2834,7 @@ argument_list|(
 name|m_index
 argument_list|)
 operator|+
-name|QString
+name|QLatin1String
 argument_list|(
 literal|" - "
 argument_list|)
@@ -2929,7 +2934,10 @@ operator|.
 name|identifier
 argument_list|()
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|bearerLineEdit
@@ -3086,9 +3094,9 @@ name|listItem
 operator|->
 name|setText
 argument_list|(
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|"S"
+literal|'S'
 argument_list|)
 operator|+
 name|QString

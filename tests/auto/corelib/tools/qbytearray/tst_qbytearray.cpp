@@ -15720,7 +15720,7 @@ name|array
 operator|.
 name|startsWith
 argument_list|(
-literal|"a"
+literal|'a'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15730,7 +15730,7 @@ name|array
 operator|.
 name|endsWith
 argument_list|(
-literal|"b"
+literal|'b'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15780,7 +15780,7 @@ name|copy
 operator|.
 name|startsWith
 argument_list|(
-literal|"a"
+literal|'a'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15790,7 +15790,7 @@ name|copy
 operator|.
 name|endsWith
 argument_list|(
-literal|"b"
+literal|'b'
 argument_list|)
 argument_list|)
 expr_stmt|;

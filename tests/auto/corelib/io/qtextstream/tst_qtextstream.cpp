@@ -9322,20 +9322,20 @@ name|forcepoint
 operator|<<
 literal|1.0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 literal|1
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 literal|0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 literal|1.0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 literal|1
@@ -9370,20 +9370,20 @@ name|forcepoint
 operator|<<
 literal|1.0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 literal|1
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 literal|0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 literal|1.0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 literal|1
@@ -9425,20 +9425,20 @@ name|forcepoint
 operator|<<
 literal|1.0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 literal|1
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 literal|0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 literal|1.0
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 literal|1
@@ -9482,12 +9482,12 @@ name|forcesign
 operator|<<
 literal|1.2
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 literal|1.2
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 literal|0
 expr_stmt|;
@@ -10991,31 +10991,31 @@ operator|<<
 name|qInf
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 name|qInf
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|qQNaN
 argument_list|()
 operator|<<
 name|uppercasedigits
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|qInf
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 operator|-
 name|qInf
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|qQNaN
 argument_list|()
@@ -17366,14 +17366,14 @@ name|stream
 operator|<<
 literal|4.15
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|QByteArray
 argument_list|(
 literal|"abc"
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|QString
 argument_list|(
@@ -17552,14 +17552,14 @@ name|stream
 operator|<<
 literal|4.15
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|QByteArray
 argument_list|(
 literal|"abc"
 argument_list|)
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|QString
 argument_list|(

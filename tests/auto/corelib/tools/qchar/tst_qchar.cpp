@@ -6300,7 +6300,7 @@ name|line
 operator|.
 name|startsWith
 argument_list|(
-literal|"@"
+literal|'@'
 argument_list|)
 condition|)
 block|{

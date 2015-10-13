@@ -314,7 +314,10 @@ expr_stmt|;
 block|}
 name|result
 operator|+=
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 expr_stmt|;
 return|return
 name|result

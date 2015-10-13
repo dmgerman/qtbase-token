@@ -113,7 +113,7 @@ operator|/
 name|total
 operator|)
 operator|<<
-literal|"%"
+literal|'%'
 expr_stmt|;
 else|else
 name|qDebug
@@ -121,7 +121,7 @@ argument_list|()
 operator|<<
 name|sent
 operator|<<
-literal|"B"
+literal|'B'
 expr_stmt|;
 block|}
 end_function

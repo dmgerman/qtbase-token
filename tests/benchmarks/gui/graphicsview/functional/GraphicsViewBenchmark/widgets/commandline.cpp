@@ -422,7 +422,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|"x"
+name|QLatin1Char
+argument_list|(
+literal|'x'
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

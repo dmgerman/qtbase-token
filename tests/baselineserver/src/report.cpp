@@ -1762,7 +1762,7 @@ break|break;
 default|default:
 name|out
 operator|<<
-literal|"?"
+literal|'?'
 expr_stmt|;
 break|break;
 block|}
@@ -2318,7 +2318,10 @@ name|f
 argument_list|(
 name|dir
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|func
 operator|+
@@ -2371,7 +2374,10 @@ block|{
 name|QString
 name|cmt
 init|=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|key
 operator|+

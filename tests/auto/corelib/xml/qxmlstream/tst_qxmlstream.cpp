@@ -438,7 +438,7 @@ argument_list|()
 expr_stmt|;
 name|writeDtd
 operator|<<
-literal|"\'"
+literal|'\''
 expr_stmt|;
 block|}
 else|else
@@ -489,13 +489,13 @@ argument_list|()
 expr_stmt|;
 name|writeDtd
 operator|<<
-literal|"\'"
+literal|'\''
 expr_stmt|;
 block|}
 block|}
 name|writeDtd
 operator|<<
-literal|">"
+literal|'>'
 expr_stmt|;
 name|writeDtd
 operator|<<
@@ -3090,7 +3090,7 @@ operator|.
 name|tokenString
 argument_list|()
 operator|<<
-literal|"("
+literal|'('
 expr_stmt|;
 if|if
 condition|(
@@ -3153,7 +3153,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3178,7 +3178,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3203,7 +3203,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3228,7 +3228,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3253,7 +3253,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3278,7 +3278,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3303,7 +3303,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3328,7 +3328,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3353,7 +3353,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3378,7 +3378,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3403,7 +3403,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3428,7 +3428,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3481,7 +3481,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3506,7 +3506,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3531,7 +3531,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3556,7 +3556,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3581,7 +3581,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 name|writer
 operator|<<
@@ -3642,7 +3642,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3667,7 +3667,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 name|writer
 operator|<<
@@ -3728,7 +3728,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3753,7 +3753,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3778,7 +3778,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 name|writer
 operator|<<
@@ -3839,7 +3839,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3864,7 +3864,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3889,7 +3889,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3914,7 +3914,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -3939,7 +3939,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 name|writer
 operator|<<

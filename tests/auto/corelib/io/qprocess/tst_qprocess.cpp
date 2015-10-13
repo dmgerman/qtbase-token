@@ -8209,16 +8209,25 @@ name|program
 operator|.
 name|contains
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|)
 condition|)
 name|program
 operator|=
-literal|"\""
+name|QLatin1Char
+argument_list|(
+literal|'"'
+argument_list|)
 operator|+
 name|program
 operator|+
-literal|"\""
+name|QLatin1Char
+argument_list|(
+literal|'"'
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8230,11 +8239,9 @@ argument_list|()
 condition|)
 name|program
 operator|+=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|+
 name|stringArgs
@@ -8511,7 +8518,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|"|"
+name|QLatin1Char
+argument_list|(
+literal|'|'
+argument_list|)
 argument_list|)
 decl_stmt|;
 else|#
@@ -8531,7 +8541,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|"|"
+name|QLatin1Char
+argument_list|(
+literal|'|'
+argument_list|)
 argument_list|)
 decl_stmt|;
 endif|#

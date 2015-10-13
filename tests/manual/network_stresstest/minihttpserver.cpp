@@ -577,7 +577,10 @@ name|source
 operator|.
 name|setFileName
 argument_list|(
-literal|":"
+name|QLatin1Char
+argument_list|(
+literal|':'
+argument_list|)
 operator|+
 name|uri
 operator|.

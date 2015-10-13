@@ -1776,7 +1776,7 @@ parameter_list|,
 name|exp_country
 parameter_list|)
 define|\
-value|{ \         QLocale l(req_lc); \         QVERIFY2(l.language() == QLocale::exp_lang \&& l.country() == QLocale::exp_country, \                 QString("requested: \"" + QString(req_lc) + "\", got: " \                 + QLocale::languageToString(l.language()) \                 + "/" + QLocale::countryToString(l.country())).toLatin1().constData()); \         QCOMPARE(l, QLocale(QLocale::exp_lang, QLocale::exp_country)); \         QCOMPARE(qHash(l), qHash(QLocale(QLocale::exp_lang, QLocale::exp_country))); \     }
+value|{ \         QLocale l(req_lc); \         QVERIFY2(l.language() == QLocale::exp_lang \&& l.country() == QLocale::exp_country, \                 QString("requested: \"" + QString(req_lc) + "\", got: " \                 + QLocale::languageToString(l.language()) \                 + QLatin1Char('/') + QLocale::countryToString(l.country())).toLatin1().constData()); \         QCOMPARE(l, QLocale(QLocale::exp_lang, QLocale::exp_country)); \         QCOMPARE(qHash(l), qHash(QLocale(QLocale::exp_lang, QLocale::exp_country))); \     }
 name|QLocale
 operator|::
 name|setDefault
@@ -2139,7 +2139,7 @@ parameter_list|,
 name|exp_country
 parameter_list|)
 define|\
-value|{ \     QLocale l(req_lc); \     QVERIFY2(l.language() == QLocale::exp_lang \&& l.script() == QLocale::exp_script \&& l.country() == QLocale::exp_country, \         QString("requested: \"" + QString(req_lc) + "\", got: " \         + QLocale::languageToString(l.language()) \         + "/" + QLocale::scriptToString(l.script()) \         + "/" + QLocale::countryToString(l.country())).toLatin1().constData()); \     }
+value|{ \     QLocale l(req_lc); \     QVERIFY2(l.language() == QLocale::exp_lang \&& l.script() == QLocale::exp_script \&& l.country() == QLocale::exp_country, \         QString("requested: \"" + QString(req_lc) + "\", got: " \         + QLocale::languageToString(l.language()) \         + QLatin1Char('/') + QLocale::scriptToString(l.script()) \         + QLatin1Char('/') + QLocale::countryToString(l.country())).toLatin1().constData()); \     }
 name|TEST_CTOR
 argument_list|(
 literal|"zh_CN"
@@ -3015,7 +3015,7 @@ parameter_list|,
 name|exp_country
 parameter_list|)
 define|\
-value|{ \         QLocale l(req_lc); \         QVERIFY2(l.language() == QLocale::exp_lang \&& l.country() == QLocale::exp_country, \                 QString("requested: \"" + QString(req_lc) + "\", got: " \                 + QLocale::languageToString(l.language()) \                 + "/" + QLocale::countryToString(l.country())).toLatin1().constData()); \     }
+value|{ \         QLocale l(req_lc); \         QVERIFY2(l.language() == QLocale::exp_lang \&& l.country() == QLocale::exp_country, \                 QString("requested: \"" + QString(req_lc) + "\", got: " \                 + QLocale::languageToString(l.language()) \                 + QLatin1Char('/') + QLocale::countryToString(l.country())).toLatin1().constData()); \     }
 name|TEST_CTOR
 argument_list|(
 literal|"mo_MD"
@@ -12802,7 +12802,10 @@ name|expectedGMTSpecifierBase
 operator|.
 name|append
 argument_list|(
-literal|"+"
+name|QLatin1Char
+argument_list|(
+literal|'+'
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
@@ -12810,7 +12813,10 @@ name|expectedGMTSpecifierBase
 operator|.
 name|append
 argument_list|(
-literal|"-"
+name|QLatin1Char
+argument_list|(
+literal|'-'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QString

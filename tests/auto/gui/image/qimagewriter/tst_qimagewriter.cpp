@@ -223,7 +223,7 @@ name|SKIP_IF_UNSUPPORTED
 parameter_list|(
 name|format
 parameter_list|)
-value|do {                                                          \     if (!QByteArray(format).isEmpty()&& !QImageReader::supportedImageFormats().contains(format)) \         QSKIP("\"" + QByteArray(format) + "\" images are not supported");             \ } while (0)
+value|do {                                                          \     if (!QByteArray(format).isEmpty()&& !QImageReader::supportedImageFormats().contains(format)) \         QSKIP('"' + QByteArray(format) + "\" images are not supported");             \ } while (0)
 end_define
 begin_function
 DECL|function|initializePadding

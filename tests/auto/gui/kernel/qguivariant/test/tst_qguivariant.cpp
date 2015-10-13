@@ -2633,7 +2633,10 @@ literal|0x2318
 argument_list|)
 argument_list|)
 operator|+
-literal|"A"
+name|QLatin1Char
+argument_list|(
+literal|'A'
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

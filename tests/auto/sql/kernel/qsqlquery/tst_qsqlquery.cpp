@@ -6360,12 +6360,13 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|right
+name|endsWith
 argument_list|(
-literal|1
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
-operator|==
-literal|" "
+argument_list|)
 condition|)
 name|QCOMPARE
 argument_list|(
@@ -6454,6 +6455,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
+operator|!
 name|q
 operator|.
 name|value
@@ -6464,12 +6466,13 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|right
+name|endsWith
 argument_list|(
-literal|1
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
-operator|!=
-literal|" "
+argument_list|)
 condition|)
 name|QCOMPARE
 argument_list|(
@@ -22330,7 +22333,10 @@ literal|"{CALL "
 operator|+
 name|procName
 operator|+
-literal|"}"
+name|QLatin1Char
+argument_list|(
+literal|'}'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -22408,7 +22414,10 @@ literal|" IS \n\             \n\             TYPE IntType IS TABLE OF INTEGER   
 operator|+
 name|pkgname
 operator|+
-literal|";"
+name|QLatin1Char
+argument_list|(
+literal|';'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -22426,7 +22435,10 @@ literal|" IS\n\             PROCEDURE P (Inp IN IntType,  Outp OUT VCType)\n\   
 operator|+
 name|pkgname
 operator|+
-literal|";"
+name|QLatin1Char
+argument_list|(
+literal|';'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -23423,7 +23435,10 @@ literal|"select COLUMN_EXPRESSION from ALL_IND_EXPRESSIONS where TABLE_NAME='"
 operator|+
 name|tableName
 operator|+
-literal|"'"
+name|QLatin1Char
+argument_list|(
+literal|'\''
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -23653,7 +23668,10 @@ argument_list|,
 name|db
 argument_list|)
 operator|+
-literal|"}"
+name|QLatin1Char
+argument_list|(
+literal|'}'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -24334,7 +24352,10 @@ literal|"select * from "
 operator|+
 name|tableName
 operator|+
-literal|";"
+name|QLatin1Char
+argument_list|(
+literal|';'
+argument_list|)
 expr_stmt|;
 name|stList
 operator|<<
@@ -28900,7 +28921,7 @@ literal|" (id "
 operator|+
 name|type
 operator|+
-literal|")"
+literal|')'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -29023,7 +29044,10 @@ argument_list|(
 name|v
 argument_list|)
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

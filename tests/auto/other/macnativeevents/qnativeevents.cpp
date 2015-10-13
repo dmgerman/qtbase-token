@@ -1215,7 +1215,7 @@ name|e
 operator|->
 name|eventId
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1248,7 +1248,7 @@ name|e
 operator|->
 name|eventId
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1257,7 +1257,7 @@ operator|.
 name|x
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1266,13 +1266,13 @@ operator|.
 name|y
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|modifiers
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1304,7 +1304,7 @@ name|e
 operator|->
 name|eventId
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1313,7 +1313,7 @@ operator|.
 name|x
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1322,13 +1322,13 @@ operator|.
 name|y
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|modifiers
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1360,7 +1360,7 @@ name|e
 operator|->
 name|eventId
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1369,7 +1369,7 @@ operator|.
 name|x
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1378,25 +1378,25 @@ operator|.
 name|y
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|button
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|clickCount
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|modifiers
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1428,7 +1428,7 @@ name|e
 operator|->
 name|eventId
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1437,7 +1437,7 @@ operator|.
 name|x
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1446,25 +1446,25 @@ operator|.
 name|y
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|button
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|clickCount
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|modifiers
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1496,7 +1496,7 @@ name|e
 operator|->
 name|eventId
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1505,7 +1505,7 @@ operator|.
 name|x
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1514,19 +1514,19 @@ operator|.
 name|y
 argument_list|()
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|delta
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|modifiers
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1558,31 +1558,31 @@ name|e
 operator|->
 name|eventId
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|press
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|nativeKeyCode
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|character
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|modifiers
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
@@ -1614,19 +1614,19 @@ name|e
 operator|->
 name|eventId
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|modifiers
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->
 name|nativeKeyCode
 operator|<<
-literal|" "
+literal|' '
 operator|<<
 name|e
 operator|->

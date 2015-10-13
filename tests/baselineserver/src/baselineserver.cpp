@@ -1303,7 +1303,7 @@ argument_list|(
 name|PI_HostName
 argument_list|)
 operator|<<
-literal|"["
+literal|'['
 operator|<<
 name|qPrintable
 argument_list|(
@@ -1315,7 +1315,7 @@ name|PI_HostAddress
 argument_list|)
 argument_list|)
 operator|<<
-literal|"]"
+literal|']'
 operator|<<
 name|logMsg
 operator|<<

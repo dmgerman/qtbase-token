@@ -3834,7 +3834,7 @@ literal|"QLineEdit"
 argument_list|,
 name|QByteArray
 argument_list|(
-literal|"x"
+literal|'x'
 operator|+
 name|QByteArray
 operator|::
@@ -3858,7 +3858,7 @@ literal|"QLabel"
 argument_list|,
 name|QByteArray
 argument_list|(
-literal|"y"
+literal|'y'
 operator|+
 name|QByteArray
 operator|::
@@ -15022,7 +15022,7 @@ operator|.
 name|latin1
 argument_list|()
 operator|<<
-literal|";"
+literal|';'
 operator|<<
 name|wizard
 operator|.

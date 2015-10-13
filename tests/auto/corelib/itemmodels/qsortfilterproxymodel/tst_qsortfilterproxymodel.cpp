@@ -5933,7 +5933,10 @@ if|if
 condition|(
 name|token
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"<"
+argument_list|)
 condition|)
 block|{
 comment|// start table
@@ -5994,7 +5997,10 @@ if|if
 condition|(
 name|token
 operator|==
+name|QLatin1String
+argument_list|(
 literal|">"
+argument_list|)
 condition|)
 block|{
 comment|// end table
@@ -6150,7 +6156,10 @@ if|if
 condition|(
 name|token
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"<"
+argument_list|)
 condition|)
 block|{
 comment|// start table
@@ -6204,7 +6213,10 @@ if|if
 condition|(
 name|token
 operator|==
+name|QLatin1String
+argument_list|(
 literal|">"
+argument_list|)
 condition|)
 block|{
 comment|// end table
@@ -6427,7 +6439,10 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"9"
+name|QLatin1Char
+argument_list|(
+literal|'9'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15320,7 +15335,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// prepare model
@@ -15769,7 +15787,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|model1
@@ -18557,7 +18578,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|model
@@ -18990,7 +19014,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|model
@@ -19137,7 +19164,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|model

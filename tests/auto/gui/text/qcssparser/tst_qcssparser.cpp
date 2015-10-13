@@ -816,7 +816,7 @@ control|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"("
+literal|'('
 operator|<<
 name|i
 operator|<<
@@ -10011,7 +10011,10 @@ name|css
 operator|.
 name|append
 argument_list|(
-literal|"}"
+name|QLatin1Char
+argument_list|(
+literal|'}'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCss
@@ -11208,7 +11211,10 @@ name|css
 operator|.
 name|append
 argument_list|(
-literal|"}"
+name|QLatin1Char
+argument_list|(
+literal|'}'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCss
@@ -11776,7 +11782,10 @@ name|css
 operator|.
 name|append
 argument_list|(
-literal|"}"
+name|QLatin1Char
+argument_list|(
+literal|'}'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCss
@@ -12415,7 +12424,10 @@ name|css
 operator|.
 name|append
 argument_list|(
-literal|"}"
+name|QLatin1Char
+argument_list|(
+literal|'}'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCss

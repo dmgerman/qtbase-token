@@ -20114,7 +20114,10 @@ name|date
 operator|=
 name|fri
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|december
 operator|+
@@ -20193,7 +20196,10 @@ name|date
 operator|=
 name|thu
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|january
 operator|+

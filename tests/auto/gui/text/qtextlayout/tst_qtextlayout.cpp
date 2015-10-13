@@ -5314,7 +5314,10 @@ name|txt
 operator|.
 name|append
 argument_list|(
-literal|"a"
+name|QLatin1Char
+argument_list|(
+literal|'a'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|txt
@@ -5335,7 +5338,10 @@ name|txt
 operator|.
 name|append
 argument_list|(
-literal|"b"
+name|QLatin1Char
+argument_list|(
+literal|'b'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QTextLayout

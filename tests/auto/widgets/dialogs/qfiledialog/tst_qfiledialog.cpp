@@ -6071,7 +6071,10 @@ operator|.
 name|path
 argument_list|()
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|list
 operator|.

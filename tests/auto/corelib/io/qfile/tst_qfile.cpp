@@ -11401,9 +11401,9 @@ name|newName
 init|=
 name|fileName
 operator|+
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"1"
+literal|'1'
 argument_list|)
 decl_stmt|;
 block|{

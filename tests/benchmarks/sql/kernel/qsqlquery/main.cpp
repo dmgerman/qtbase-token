@@ -1624,7 +1624,10 @@ argument_list|(
 name|i
 argument_list|)
 operator|+
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 expr_stmt|;
 name|expectedSum
 operator|+=

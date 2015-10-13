@@ -784,9 +784,9 @@ name|img
 argument_list|(
 name|path
 operator|+
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"/"
+literal|'/'
 argument_list|)
 operator|+
 name|file

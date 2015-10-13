@@ -2742,7 +2742,10 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|path
 expr_stmt|;
@@ -5493,14 +5496,9 @@ operator|.
 name|absolutePath
 argument_list|()
 operator|+
-name|QChar
-argument_list|(
-literal|'/'
-argument_list|)
-operator|+
 name|QLatin1String
 argument_list|(
-literal|"g"
+literal|"/g"
 argument_list|)
 argument_list|)
 expr_stmt|;

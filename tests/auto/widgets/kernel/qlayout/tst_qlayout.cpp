@@ -1019,7 +1019,7 @@ literal|"error at index"
 operator|<<
 name|expectedIndex
 operator|<<
-literal|":"
+literal|':'
 operator|<<
 name|sizePolicy
 operator|.

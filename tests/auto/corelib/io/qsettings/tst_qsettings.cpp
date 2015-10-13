@@ -815,7 +815,10 @@ name|tempPath
 operator|.
 name|endsWith
 argument_list|(
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 argument_list|)
 condition|)
 name|tempPath

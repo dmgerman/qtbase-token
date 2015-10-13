@@ -122,7 +122,7 @@ name|codecForName
 argument_list|(
 name|c
 operator|+
-literal|"-"
+literal|'-'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -145,7 +145,7 @@ name|codecForName
 argument_list|(
 name|c
 operator|+
-literal|"+"
+literal|'+'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -157,7 +157,7 @@ name|codecForName
 argument_list|(
 name|c
 operator|+
-literal|"*"
+literal|'*'
 argument_list|)
 argument_list|)
 expr_stmt|;

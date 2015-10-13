@@ -732,7 +732,7 @@ name|x
 argument_list|()
 argument_list|)
 operator|+
-literal|" "
+literal|' '
 operator|+
 name|QByteArray
 operator|::

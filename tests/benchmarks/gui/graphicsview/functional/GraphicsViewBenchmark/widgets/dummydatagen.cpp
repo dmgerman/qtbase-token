@@ -317,15 +317,24 @@ decl_stmt|;
 return|return
 name|countryCode
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|areaCode
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|beginNumber
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|endNumber
 return|;

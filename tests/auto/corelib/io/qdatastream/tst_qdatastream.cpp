@@ -1201,7 +1201,10 @@ name|tag
 operator|.
 name|lastIndexOf
 argument_list|(
-literal|"_"
+name|QLatin1Char
+argument_list|(
+literal|'_'
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -1367,7 +1370,10 @@ name|tag
 init|=
 name|device
 operator|+
-literal|"_"
+name|QLatin1Char
+argument_list|(
+literal|'_'
+argument_list|)
 operator|+
 name|byte_order
 decl_stmt|;

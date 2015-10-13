@@ -2093,7 +2093,10 @@ index|]
 condition|)
 name|string
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 expr_stmt|;
 operator|++
 name|i
@@ -5128,7 +5131,7 @@ name|pluginPath
 init|=
 name|validPath
 operator|+
-literal|":"
+literal|':'
 operator|+
 name|nonExistentPath
 decl_stmt|;
@@ -5156,7 +5159,7 @@ name|pluginPath
 init|=
 name|validPath
 operator|+
-literal|";"
+literal|';'
 operator|+
 name|nonExistentPath
 decl_stmt|;
@@ -5177,7 +5180,7 @@ name|pluginPath
 init|=
 name|validPath
 operator|+
-literal|";"
+literal|';'
 operator|+
 name|nonExistentPath
 decl_stmt|;

@@ -156,7 +156,10 @@ literal|"<a href="
 operator|+
 name|path
 operator|+
-literal|">"
+name|QLatin1Char
+argument_list|(
+literal|'>'
+argument_list|)
 operator|+
 name|path
 operator|+

@@ -581,7 +581,10 @@ name|number
 operator|.
 name|contains
 argument_list|(
-literal|"."
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
 argument_list|)
 condition|)
 name|number
@@ -923,7 +926,10 @@ operator|->
 name|name
 argument_list|()
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|QString
 operator|::
@@ -935,7 +941,10 @@ name|width
 argument_list|()
 argument_list|)
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|QString
 operator|::

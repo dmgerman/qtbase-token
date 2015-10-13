@@ -15192,7 +15192,7 @@ operator|->
 name|boundary
 argument_list|()
 operator|+
-literal|"\""
+literal|'"'
 argument_list|)
 decl_stmt|;
 name|request
@@ -16358,7 +16358,7 @@ literal|"\r\nHost: "
 operator|+
 name|hostfield
 operator|+
-literal|":"
+literal|':'
 operator|+
 name|QByteArray
 operator|::
@@ -30858,7 +30858,7 @@ literal|"<="
 operator|<<
 name|maxRate
 operator|<<
-literal|"?"
+literal|'?'
 expr_stmt|;
 comment|// The test takes too long to run if sending enough data to overwhelm the
 comment|// reciever's kernel buffers.
@@ -34695,7 +34695,10 @@ name|cookie
 operator|.
 name|setDomain
 argument_list|(
-literal|"."
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
 operator|+
 name|QtNetworkSettings
 operator|::
@@ -36511,7 +36514,10 @@ name|serverPort
 argument_list|()
 argument_list|)
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|QString
 operator|::

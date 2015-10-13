@@ -1456,7 +1456,7 @@ name|result
 operator|.
 name|startsWith
 argument_list|(
-literal|"a"
+literal|'a'
 argument_list|)
 condition|)
 block|{
@@ -3161,7 +3161,10 @@ name|ReplacementCharacter
 expr_stmt|;
 name|str
 operator|+=
-literal|"e"
+name|QLatin1Char
+argument_list|(
+literal|'e'
+argument_list|)
 expr_stmt|;
 name|str
 operator|+=

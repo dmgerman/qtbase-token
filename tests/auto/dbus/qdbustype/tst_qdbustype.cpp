@@ -1363,7 +1363,10 @@ name|data
 operator|.
 name|prepend
 argument_list|(
-literal|"a"
+name|QLatin1Char
+argument_list|(
+literal|'a'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1400,7 +1403,10 @@ name|data
 operator|.
 name|prepend
 argument_list|(
-literal|"a"
+name|QLatin1Char
+argument_list|(
+literal|'a'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

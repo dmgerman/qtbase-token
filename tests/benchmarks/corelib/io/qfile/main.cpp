@@ -2871,7 +2871,10 @@ name|f
 argument_list|(
 name|tmpDirName
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|QString
 operator|::
@@ -3091,7 +3094,10 @@ name|QFile
 argument_list|(
 name|tmpDirName
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|file
 argument_list|)
@@ -3197,7 +3203,10 @@ name|QFSFileEngine
 argument_list|(
 name|tmpDirName
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|file
 argument_list|)
@@ -3299,7 +3308,10 @@ name|encodeName
 argument_list|(
 name|tmpDirName
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|file
 argument_list|)

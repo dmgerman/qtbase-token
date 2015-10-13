@@ -1312,7 +1312,10 @@ name|f
 argument_list|(
 name|destDir
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|targetName
 argument_list|(

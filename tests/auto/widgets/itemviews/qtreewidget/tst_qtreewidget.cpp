@@ -14600,7 +14600,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|","
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|testWidget

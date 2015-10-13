@@ -7001,9 +7001,9 @@ name|errorStrings
 operator|.
 name|append
 argument_list|(
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"\""
+literal|'"'
 argument_list|)
 operator|+
 name|error
@@ -7011,9 +7011,9 @@ operator|.
 name|errorString
 argument_list|()
 operator|+
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"\""
+literal|'"'
 argument_list|)
 argument_list|)
 expr_stmt|;
