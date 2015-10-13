@@ -78,6 +78,20 @@ name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:
+expr|enum
+name|Flag
+block|{
+name|NoSurfaceless
+operator|=
+literal|0x01
+block|}
+block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|Flags
+argument_list|,
+argument|Flag
+argument_list|)
 name|QEGLPlatformContext
 argument_list|(
 argument|const QSurfaceFormat&format
@@ -90,6 +104,9 @@ argument|EGLConfig *config =
 literal|0
 argument_list|,
 argument|const QVariant&nativeHandle = QVariant()
+argument_list|,
+argument|Flags flags =
+literal|0
 argument_list|)
 block|;
 operator|~
@@ -256,6 +273,9 @@ block|;
 name|int
 name|m_swapIntervalFromEnv
 block|;
+name|Flags
+name|m_flags
+block|;
 name|bool
 name|m_ownsContext
 block|;
@@ -267,6 +287,12 @@ name|m_contextAttrs
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QEGLPlatformContext::Flags
+argument_list|)
+end_macro
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -297,6 +297,9 @@ specifier|const
 name|QVariant
 modifier|&
 name|nativeHandle
+parameter_list|,
+name|Flags
+name|flags
 parameter_list|)
 member_init_list|:
 name|m_eglDisplay
@@ -319,6 +322,11 @@ name|m_swapIntervalFromEnv
 argument_list|(
 operator|-
 literal|1
+argument_list|)
+member_init_list|,
+name|m_flags
+argument_list|(
+name|flags
 argument_list|)
 block|{
 if|if
@@ -1159,6 +1167,13 @@ name|EGL_NO_CONTEXT
 decl_stmt|;
 if|if
 condition|(
+name|m_flags
+operator|.
+name|testFlag
+argument_list|(
+name|NoSurfaceless
+argument_list|)
+operator|||
 operator|!
 name|q_hasEglExtension
 argument_list|(
