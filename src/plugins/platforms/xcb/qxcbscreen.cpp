@@ -3731,7 +3731,7 @@ operator|.
 name|width
 argument_list|()
 operator|<<
-literal|"x"
+literal|'x'
 operator|<<
 name|screen
 operator|->

@@ -566,10 +566,7 @@ name|data
 condition|)
 name|msg
 operator|+=
-name|QByteArrayLiteral
-argument_list|(
-literal|":"
-argument_list|)
+literal|':'
 operator|+
 name|QByteArray
 argument_list|(

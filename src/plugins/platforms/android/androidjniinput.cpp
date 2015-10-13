@@ -1216,7 +1216,7 @@ name|pointerType
 operator|<<
 name|buttonState
 operator|<<
-literal|"@"
+literal|'@'
 operator|<<
 name|x
 operator|<<
@@ -2493,7 +2493,7 @@ literal|"Unhandled key code "
 operator|<<
 name|key
 operator|<<
-literal|"!"
+literal|'!'
 expr_stmt|;
 return|return
 literal|0

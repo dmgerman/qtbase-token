@@ -6144,7 +6144,7 @@ literal|"QWin32PrintEngine::setProperty(PPK_Orientation,"
 operator|<<
 name|orientation
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -6259,7 +6259,7 @@ operator|.
 name|toInt
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -6334,7 +6334,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -6570,7 +6570,7 @@ operator|.
 name|toInt
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -6644,7 +6644,7 @@ operator|.
 name|toInt
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -6719,7 +6719,7 @@ operator|.
 name|toSizeF
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -6834,7 +6834,7 @@ literal|"QWin32PrintEngine::setProperty(PPK_PageMargins,"
 operator|<<
 name|margins
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -6901,7 +6901,7 @@ literal|"QWin32PrintEngine::setProperty(PPK_QPageSize,"
 operator|<<
 name|pageSize
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -6986,7 +6986,7 @@ name|pair
 operator|.
 name|second
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->
@@ -7117,7 +7117,7 @@ literal|"QWin32PrintEngine::setProperty(PPK_QPageLayout,"
 operator|<<
 name|pageLayout
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|d
 operator|->

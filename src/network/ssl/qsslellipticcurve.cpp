@@ -73,7 +73,7 @@ operator|.
 name|shortName
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|debug

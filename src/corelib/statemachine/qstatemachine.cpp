@@ -6170,7 +6170,7 @@ name|object
 operator|<<
 name|propertyName
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 endif|#
 directive|endif
@@ -6350,7 +6350,7 @@ name|propertyName
 operator|<<
 name|value
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 endif|#
 directive|endif
@@ -6454,7 +6454,7 @@ name|object
 operator|<<
 name|propertyName
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 endif|#
 directive|endif

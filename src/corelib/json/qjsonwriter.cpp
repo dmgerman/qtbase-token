@@ -711,7 +711,7 @@ argument_list|)
 expr_stmt|;
 name|json
 operator|+=
-literal|"]"
+literal|']'
 expr_stmt|;
 break|break;
 case|case
@@ -773,7 +773,7 @@ argument_list|)
 expr_stmt|;
 name|json
 operator|+=
-literal|"}"
+literal|'}'
 expr_stmt|;
 break|break;
 case|case

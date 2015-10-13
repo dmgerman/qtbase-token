@@ -2707,7 +2707,7 @@ literal|"response=\""
 operator|+
 name|response
 operator|+
-literal|'\"'
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -2769,7 +2769,7 @@ literal|"cnonce=\""
 operator|+
 name|cnonce
 operator|+
-literal|'\"'
+literal|'"'
 expr_stmt|;
 block|}
 return|return

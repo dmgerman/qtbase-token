@@ -952,7 +952,7 @@ name|mode
 operator|.
 name|vdisplay
 operator|<<
-literal|"@"
+literal|'@'
 operator|<<
 name|mode
 operator|.
@@ -1266,7 +1266,7 @@ literal|"x"
 operator|<<
 name|height
 operator|<<
-literal|"@"
+literal|'@'
 operator|<<
 name|refresh
 operator|<<

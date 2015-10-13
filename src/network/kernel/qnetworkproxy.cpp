@@ -3248,14 +3248,14 @@ break|break;
 block|}
 name|debug
 operator|<<
-literal|"\""
+literal|'"'
 operator|<<
 name|proxy
 operator|.
 name|hostName
 argument_list|()
 operator|<<
-literal|":"
+literal|':'
 operator|<<
 name|proxy
 operator|.
@@ -3354,7 +3354,7 @@ argument_list|)
 expr_stmt|;
 name|debug
 operator|<<
-literal|"["
+literal|'['
 operator|<<
 name|scaps
 operator|.
@@ -3366,7 +3366,7 @@ literal|' '
 argument_list|)
 argument_list|)
 operator|<<
-literal|"]"
+literal|']'
 expr_stmt|;
 return|return
 name|debug

@@ -1739,7 +1739,7 @@ literal|"Native registration unable to find class '"
 operator|<<
 name|QtNativeInputConnectionClassName
 operator|<<
-literal|"'"
+literal|'\''
 expr_stmt|;
 return|return;
 block|}
@@ -1780,7 +1780,7 @@ literal|"RegisterNatives failed for '"
 operator|<<
 name|QtNativeInputConnectionClassName
 operator|<<
-literal|"'"
+literal|'\''
 expr_stmt|;
 return|return;
 block|}
@@ -1807,7 +1807,7 @@ literal|"Native registration unable to find class '"
 operator|<<
 name|QtExtractedTextClassName
 operator|<<
-literal|"'"
+literal|'\''
 expr_stmt|;
 return|return;
 block|}

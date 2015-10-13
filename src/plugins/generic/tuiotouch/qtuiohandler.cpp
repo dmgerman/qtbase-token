@@ -978,7 +978,7 @@ name|i
 operator|<<
 name|arguments
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return;
 block|}

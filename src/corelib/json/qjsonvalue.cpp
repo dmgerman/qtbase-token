@@ -1991,7 +1991,7 @@ operator|.
 name|toBool
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 break|break;
 case|case
@@ -2011,7 +2011,7 @@ operator|.
 name|toDouble
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 break|break;
 case|case
@@ -2031,7 +2031,7 @@ operator|.
 name|toString
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 break|break;
 case|case
@@ -2055,7 +2055,7 @@ argument_list|()
 expr_stmt|;
 name|dbg
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 break|break;
 case|case
@@ -2079,7 +2079,7 @@ argument_list|()
 expr_stmt|;
 name|dbg
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 break|break;
 block|}

@@ -3924,9 +3924,9 @@ argument_list|(
 name|table
 argument_list|)
 operator|+
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|")"
+literal|')'
 argument_list|)
 argument_list|)
 expr_stmt|;

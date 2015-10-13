@@ -852,7 +852,7 @@ literal|"  ###Creating new thread"
 operator|<<
 name|thread
 operator|<<
-literal|"("
+literal|'('
 operator|<<
 operator|(
 name|threads

@@ -1614,14 +1614,14 @@ name|IPv6Protocol
 condition|)
 name|host
 operator|=
-literal|"["
+literal|'['
 operator|+
 name|hostName
 operator|.
 name|toLatin1
 argument_list|()
 operator|+
-literal|"]"
+literal|']'
 expr_stmt|;
 comment|//format the ipv6 in the standard way
 else|else

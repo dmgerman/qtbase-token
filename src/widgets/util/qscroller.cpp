@@ -4105,7 +4105,7 @@ literal|", "
 operator|<<
 name|timestamp
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 struct|struct
 name|statechange
@@ -6181,11 +6181,11 @@ literal|"  Real Delta:"
 operator|<<
 name|lowerSnapPos
 operator|<<
-literal|"-"
+literal|'-'
 operator|<<
 name|nextSnap
 operator|<<
-literal|"-"
+literal|'-'
 operator|<<
 name|higherSnapPos
 expr_stmt|;
@@ -8583,7 +8583,7 @@ argument_list|(
 name|newstate
 argument_list|)
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 switch|switch
 condition|(

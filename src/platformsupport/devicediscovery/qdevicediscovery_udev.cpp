@@ -908,11 +908,9 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|,
 name|QString

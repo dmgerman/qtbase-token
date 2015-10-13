@@ -277,11 +277,9 @@ operator|.
 name|absolutePath
 argument_list|()
 operator|+
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|"/"
+literal|'/'
 argument_list|)
 operator|+
 name|deviceFile
@@ -344,11 +342,9 @@ operator|.
 name|absolutePath
 argument_list|()
 operator|+
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|"/"
+literal|'/'
 argument_list|)
 operator|+
 name|deviceFile
