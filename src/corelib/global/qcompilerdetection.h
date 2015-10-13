@@ -2426,6 +2426,18 @@ directive|undef
 name|Q_COMPILER_UNICODE_STRINGS
 end_undef
 begin_comment
+comment|//       Even though ICC knows about ref-qualified members, MSVC 2013 or lower doesn't, so
+end_comment
+begin_comment
+comment|//       certain member functions (like QString::toUpper) may be missing from the DLLs.
+end_comment
+begin_undef
+DECL|macro|Q_COMPILER_REF_QUALIFIERS
+undef|#
+directive|undef
+name|Q_COMPILER_REF_QUALIFIERS
+end_undef
+begin_comment
 comment|//       Disable constexpr unless the MS headers have constexpr in all the right places too
 end_comment
 begin_comment
