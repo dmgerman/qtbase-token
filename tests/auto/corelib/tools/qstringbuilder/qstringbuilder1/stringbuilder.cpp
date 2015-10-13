@@ -352,6 +352,30 @@ argument|special P string
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// self-assignment:
+name|r
+operator|=
+name|stringref
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+name|r
+operator|=
+name|achar
+operator|+
+name|r
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|r
+argument_list|,
+name|QString
+argument_list|(
+argument|achar P stringref
+argument_list|)
+argument_list|)
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_UNICODE_STRINGS
