@@ -1024,7 +1024,10 @@ name|module
 condition|)
 name|depends
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|i
 operator|.
@@ -1057,7 +1060,10 @@ name|k
 control|)
 name|line
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 expr_stmt|;
 name|line
 operator|+=
@@ -1248,7 +1254,10 @@ argument_list|)
 expr_stmt|;
 name|depends
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|i
 operator|.
@@ -7931,7 +7940,10 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
-literal|"#"
+name|QLatin1Char
+argument_list|(
+literal|'#'
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QString

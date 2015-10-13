@@ -3217,9 +3217,9 @@ name|reconstructed
 init|=
 name|importUri
 operator|+
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|+
 name|version

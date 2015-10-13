@@ -6648,7 +6648,7 @@ block|}
 name|out
 argument_list|()
 operator|<<
-literal|">"
+literal|'>'
 expr_stmt|;
 name|inSectionHeading_
 operator|=
@@ -6843,7 +6843,10 @@ name|p1
 operator|.
 name|contains
 argument_list|(
-literal|"%"
+name|QLatin1Char
+argument_list|(
+literal|'%'
+argument_list|)
 argument_list|)
 condition|)
 name|width
@@ -6880,7 +6883,10 @@ name|p2
 operator|.
 name|contains
 argument_list|(
-literal|"%"
+name|QLatin1Char
+argument_list|(
+literal|'%'
+argument_list|)
 argument_list|)
 condition|)
 name|width
@@ -6895,7 +6901,7 @@ literal|"<div class=\"table\"><table class=\""
 operator|<<
 name|attr
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -6912,7 +6918,7 @@ literal|" width=\""
 operator|<<
 name|width
 operator|<<
-literal|"\""
+literal|'"'
 expr_stmt|;
 name|out
 argument_list|()
@@ -7142,7 +7148,10 @@ name|p
 operator|.
 name|split
 argument_list|(
-literal|","
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -12838,7 +12847,6 @@ operator|*
 name|i
 operator|<<
 literal|":"
-operator|<<
 literal|"</td><td class=\"memItemRight bottomAlign\"> "
 expr_stmt|;
 if|if
@@ -13032,7 +13040,10 @@ operator|->
 name|logicalModuleName
 argument_list|()
 operator|+
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|logicalModuleVersion
 expr_stmt|;
@@ -21963,7 +21974,10 @@ argument_list|)
 expr_stmt|;
 name|link
 operator|+=
-literal|"#"
+name|QLatin1Char
+argument_list|(
+literal|'#'
+argument_list|)
 operator|+
 name|ref
 expr_stmt|;

@@ -7111,7 +7111,10 @@ block|{
 return|return
 name|logicalModuleVersionMajor_
 operator|+
-literal|"."
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
 operator|+
 name|logicalModuleVersionMinor_
 return|;

@@ -8338,7 +8338,10 @@ operator|->
 name|returnType
 argument_list|()
 operator|+
-literal|"("
+name|QLatin1Char
+argument_list|(
+literal|'('
+argument_list|)
 operator|+
 name|func
 operator|->
@@ -8411,7 +8414,10 @@ expr_stmt|;
 block|}
 name|code
 operator|+=
-literal|")"
+name|QLatin1Char
+argument_list|(
+literal|')'
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8515,7 +8521,10 @@ argument_list|()
 condition|)
 name|code
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 expr_stmt|;
 name|code
 operator|+=
