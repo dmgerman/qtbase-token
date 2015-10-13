@@ -7846,10 +7846,10 @@ name|QCOMPARE
 argument_list|(
 name|e
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"String E"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|char
@@ -7873,10 +7873,10 @@ name|QCOMPARE
 argument_list|(
 name|f
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"String f"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|f
@@ -7911,10 +7911,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"A"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -7938,10 +7938,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"AB"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -7965,10 +7965,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8005,10 +8005,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"A"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8032,10 +8032,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"AB"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8059,10 +8059,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8097,10 +8097,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"223"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|a
@@ -8117,20 +8117,20 @@ name|QCOMPARE
 argument_list|(
 name|b
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"456"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"253"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|char
@@ -8151,10 +8151,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"TEXT"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8178,10 +8178,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"XEXT"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8205,10 +8205,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"XEXT"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|a
@@ -8240,15 +8240,10 @@ operator|.
 name|toLatin1
 argument_list|()
 argument_list|,
-operator|(
-operator|(
-name|QString
-operator|)
+name|QByteArrayLiteral
+argument_list|(
 literal|"ABC"
-operator|)
-operator|.
-name|toLatin1
-argument_list|()
+argument_list|)
 argument_list|)
 argument_list|,
 literal|0
@@ -8260,10 +8255,10 @@ name|a
 operator|+=
 literal|"DEF"
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABCDEF"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8272,10 +8267,10 @@ name|a
 operator|+=
 literal|'G'
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABCDEFG"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8293,10 +8288,10 @@ literal|0
 operator|)
 operator|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABCDEFG"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// non-member operators
@@ -8444,11 +8439,11 @@ operator|+
 name|b
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABCABC"
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -8459,11 +8454,11 @@ operator|+
 literal|"XXXX"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABCXXXX"
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -8474,10 +8469,10 @@ operator|+
 literal|'X'
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABCX"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8489,10 +8484,10 @@ operator|+
 name|a
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"XXXXABC"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8504,10 +8499,10 @@ operator|+
 name|a
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"XABC"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|a
@@ -8848,10 +8843,10 @@ name|QCOMPARE
 argument_list|(
 name|d
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"String D"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QString
@@ -9358,10 +9353,10 @@ name|QCOMPARE
 argument_list|(
 name|e
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Stri"
+argument_list|)
 argument_list|)
 argument_list|;
 name|e
@@ -9379,10 +9374,10 @@ name|QCOMPARE
 argument_list|(
 name|e
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 argument_list|;
 name|QVERIFY
@@ -9425,10 +9420,10 @@ name|QCOMPARE
 argument_list|(
 name|e
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"e"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QString
@@ -9447,10 +9442,10 @@ name|QCOMPARE
 argument_list|(
 name|f
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"fff"
+argument_list|)
 argument_list|)
 argument_list|;
 name|f
@@ -9464,10 +9459,10 @@ name|QCOMPARE
 argument_list|(
 name|f
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"FFF"
+argument_list|)
 argument_list|)
 argument_list|; }
 DECL|function|sprintf
@@ -9491,10 +9486,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"COMPARE"
+argument_list|)
 argument_list|)
 argument_list|;
 name|a
@@ -9510,10 +9505,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"%1"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9527,10 +9522,10 @@ argument_list|,
 literal|2
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"X2Y"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9544,10 +9539,10 @@ argument_list|,
 literal|50000
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"X    50000Y"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9561,10 +9556,10 @@ argument_list|,
 literal|"hello"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Xhello    Y"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9578,10 +9573,10 @@ argument_list|,
 literal|50000
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"X50000    Y"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9738,10 +9733,10 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Hel"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9755,10 +9750,10 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"       Hel"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9772,10 +9767,10 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Hello"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9789,10 +9784,10 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"     Hello"
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9806,10 +9801,10 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Hello     "
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9823,10 +9818,10 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Hel       "
+argument_list|)
 argument_list|)
 argument_list|;
 name|QCOMPARE
@@ -9840,10 +9835,10 @@ argument_list|,
 literal|"Hello"
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Hello"
+argument_list|)
 argument_list|)
 argument_list|;
 comment|// Check utf8 conversion for %s
@@ -15909,10 +15904,10 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QVERIFY
@@ -15938,10 +15933,10 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|QString
@@ -16044,10 +16039,10 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QVERIFY
@@ -16078,10 +16073,10 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|QString
@@ -16196,10 +16191,10 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"EFG"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -16211,10 +16206,10 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|QString
@@ -16304,10 +16299,10 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"EFG"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -16322,10 +16317,10 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|QString
@@ -16426,10 +16421,10 @@ argument_list|,
 literal|3
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"DEF"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -16443,10 +16438,10 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|QVERIFY
@@ -17498,10 +17493,10 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"DEF"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -17518,10 +17513,10 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|QVERIFY
@@ -19049,10 +19044,10 @@ argument_list|,
 literal|'-'
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC--"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19066,10 +19061,10 @@ argument_list|,
 literal|'-'
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC-"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19081,10 +19076,10 @@ argument_list|(
 literal|4
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC "
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19096,10 +19091,10 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19111,10 +19106,10 @@ argument_list|(
 literal|2
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19126,10 +19121,10 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19141,10 +19136,10 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QString
@@ -19177,10 +19172,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC "
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19196,10 +19191,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19215,10 +19210,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"AB"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19234,10 +19229,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"A"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19253,10 +19248,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|; }
 DECL|function|rightJustified
@@ -19285,10 +19280,10 @@ argument_list|,
 literal|'-'
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"--ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19302,10 +19297,10 @@ argument_list|,
 literal|'-'
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"-ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19317,10 +19312,10 @@ argument_list|(
 literal|4
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|" ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19332,10 +19327,10 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19347,10 +19342,10 @@ argument_list|(
 literal|2
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19362,10 +19357,10 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19377,10 +19372,10 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QString
@@ -19413,10 +19408,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"-ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19432,10 +19427,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|" ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19451,10 +19446,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19470,10 +19465,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"AB"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19489,10 +19484,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"A"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -19508,20 +19503,20 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"ABC"
+argument_list|)
 argument_list|)
 block|; }
 DECL|function|toUpper
@@ -21381,10 +21376,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Text"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -21394,20 +21389,20 @@ operator|.
 name|trimmed
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Text"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Text"
+argument_list|)
 argument_list|)
 block|;
 name|a
@@ -21421,20 +21416,20 @@ operator|.
 name|trimmed
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|" "
+argument_list|)
 argument_list|)
 block|;
 name|a
@@ -21448,10 +21443,10 @@ operator|.
 name|trimmed
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"a"
+argument_list|)
 argument_list|)
 block|;
 name|a
@@ -21468,10 +21463,10 @@ operator|.
 name|trimmed
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"Text"
+argument_list|)
 argument_list|)
 block|;
 name|a
@@ -21488,10 +21483,10 @@ operator|.
 name|trimmed
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|""
+argument_list|)
 argument_list|)
 block|;
 name|a
@@ -21508,10 +21503,10 @@ operator|.
 name|trimmed
 argument_list|()
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"a"
+argument_list|)
 argument_list|)
 block|; }
 DECL|function|simplified_data
@@ -22608,6 +22603,15 @@ name|a
 operator|=
 literal|"Meal"
 block|;
+specifier|const
+name|QString
+name|montreal
+operator|=
+name|QStringLiteral
+argument_list|(
+literal|"Montreal"
+argument_list|)
+block|;
 name|QCOMPARE
 argument_list|(
 name|a
@@ -22622,10 +22626,7 @@ literal|"ontr"
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"Montreal"
-argument_list|)
+name|montreal
 argument_list|)
 block|;
 name|QCOMPARE
@@ -22639,10 +22640,7 @@ argument_list|,
 literal|""
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"Montreal"
-argument_list|)
+name|montreal
 argument_list|)
 block|;
 name|QCOMPARE
@@ -22659,10 +22657,7 @@ literal|""
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"Montreal"
-argument_list|)
+name|montreal
 argument_list|)
 block|;
 name|QCOMPARE
@@ -22679,10 +22674,7 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"Montreal"
-argument_list|)
+name|montreal
 argument_list|)
 block|;
 name|QCOMPARE
@@ -22704,10 +22696,7 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
-argument_list|(
-literal|"Montreal"
-argument_list|)
+name|montreal
 argument_list|)
 block|;
 name|QCOMPARE
@@ -22724,7 +22713,7 @@ literal|"a"
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"aMontreal"
 argument_list|)
@@ -29673,10 +29662,10 @@ argument_list|(
 literal|123
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"123"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -29689,10 +29678,10 @@ operator|-
 literal|123
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"-123"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -29706,10 +29695,10 @@ argument_list|,
 literal|16
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"123"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -29724,10 +29713,10 @@ operator|)
 literal|123
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"123"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -29739,10 +29728,10 @@ argument_list|(
 literal|123L
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"123"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -29754,10 +29743,10 @@ argument_list|(
 literal|123UL
 argument_list|)
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"123"
+argument_list|)
 argument_list|)
 block|;
 name|QCOMPARE
@@ -32489,10 +32478,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"COMPARE Text"
+argument_list|)
 argument_list|)
 block|;     }
 block|}
@@ -32549,10 +32538,10 @@ name|QCOMPARE
 argument_list|(
 name|a
 argument_list|,
-operator|(
-name|QString
-operator|)
+name|QLatin1String
+argument_list|(
 literal|"This"
+argument_list|)
 argument_list|)
 block|;     }
 block|}
@@ -37513,7 +37502,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo]"
 argument_list|)
@@ -37528,7 +37517,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo]"
 argument_list|)
@@ -37543,7 +37532,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo]"
 argument_list|)
@@ -37558,7 +37547,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo]"
 argument_list|)
@@ -37573,7 +37562,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo %1]"
 argument_list|)
@@ -37593,7 +37582,7 @@ argument_list|(
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo bar]"
 argument_list|)
@@ -37610,7 +37599,7 @@ argument_list|,
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo bar]"
 argument_list|)
@@ -37625,7 +37614,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo %3]"
 argument_list|)
@@ -37645,7 +37634,7 @@ argument_list|(
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo bar]"
 argument_list|)
@@ -37662,7 +37651,7 @@ argument_list|,
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo bar]"
 argument_list|)
@@ -37677,7 +37666,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo %2 %3]"
 argument_list|)
@@ -37697,7 +37686,7 @@ argument_list|(
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo bar %3]"
 argument_list|)
@@ -37714,7 +37703,7 @@ argument_list|,
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo bar %3]"
 argument_list|)
@@ -37739,7 +37728,7 @@ argument_list|(
 literal|"baz"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo bar baz]"
 argument_list|)
@@ -37758,7 +37747,7 @@ argument_list|,
 literal|"baz"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo bar baz]"
 argument_list|)
@@ -37773,7 +37762,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[%9 %3 foo]"
 argument_list|)
@@ -37793,7 +37782,7 @@ argument_list|(
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[%9 bar foo]"
 argument_list|)
@@ -37810,7 +37799,7 @@ argument_list|,
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[%9 bar foo]"
 argument_list|)
@@ -37835,7 +37824,7 @@ argument_list|(
 literal|"baz"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[baz bar foo]"
 argument_list|)
@@ -37854,7 +37843,7 @@ argument_list|,
 literal|"baz"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[baz bar foo]"
 argument_list|)
@@ -37889,7 +37878,7 @@ argument_list|(
 literal|"e"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[e b c e a d]"
 argument_list|)
@@ -37915,7 +37904,7 @@ argument_list|(
 literal|"e"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[e b c e a d]"
 argument_list|)
@@ -37941,7 +37930,7 @@ argument_list|,
 literal|"e"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[e b c e a d]"
 argument_list|)
@@ -37961,7 +37950,7 @@ argument_list|(
 literal|"beta"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"alpha% %x%cbeta %dbeta-%"
 argument_list|)
@@ -37978,7 +37967,7 @@ argument_list|,
 literal|"beta"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"alpha% %x%cbeta %dbeta-%"
 argument_list|)
@@ -37997,7 +37986,7 @@ argument_list|,
 literal|"c"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"abc"
 argument_list|)
@@ -38017,7 +38006,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo foo]"
 argument_list|)
@@ -38034,7 +38023,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[%1 foo]"
 argument_list|)
@@ -38051,7 +38040,7 @@ argument_list|,
 literal|2
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo]"
 argument_list|)
@@ -38069,7 +38058,7 @@ operator|-
 literal|2
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo]"
 argument_list|)
@@ -38086,7 +38075,7 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[       foo]"
 argument_list|)
@@ -38104,7 +38093,7 @@ operator|-
 literal|10
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[foo       ]"
 argument_list|)
@@ -38144,7 +38133,7 @@ name|QCOMPARE
 argument_list|(
 name|fullName
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"My name is Bond, James Bond"
 argument_list|)
@@ -38160,7 +38149,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[0]"
 argument_list|)
@@ -38176,7 +38165,7 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[-1]"
 argument_list|)
@@ -38191,7 +38180,7 @@ argument_list|(
 literal|4294967295UL
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[4294967295]"
 argument_list|)
@@ -38211,7 +38200,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 comment|// LLONG_MAX
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[9223372036854775807]"
 argument_list|)
@@ -38288,7 +38277,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|" "
 argument_list|)
@@ -38315,7 +38304,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"%"
 argument_list|)
@@ -38342,7 +38331,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"%%"
 argument_list|)
@@ -38369,7 +38358,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"%%%"
 argument_list|)
@@ -38392,7 +38381,7 @@ argument_list|(
 literal|"bar"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"%%foo%%bar"
 argument_list|)
@@ -38413,7 +38402,7 @@ operator|-
 literal|10
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"hello     "
 argument_list|)
@@ -38434,7 +38423,7 @@ operator|-
 literal|5
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"hello"
 argument_list|)
@@ -38455,7 +38444,7 @@ operator|-
 literal|2
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"hello"
 argument_list|)
@@ -38475,7 +38464,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"hello"
 argument_list|)
@@ -38495,7 +38484,7 @@ argument_list|,
 literal|2
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"hello"
 argument_list|)
@@ -38515,7 +38504,7 @@ argument_list|,
 literal|5
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"hello"
 argument_list|)
@@ -38535,7 +38524,7 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"     hello"
 argument_list|)
@@ -38553,7 +38542,7 @@ argument_list|(
 literal|"hello"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"hellohello"
 argument_list|)
@@ -38571,7 +38560,7 @@ argument_list|(
 literal|"hello"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"%2hello"
 argument_list|)
@@ -38591,7 +38580,7 @@ operator|::
 name|null
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|""
 argument_list|)
@@ -38609,7 +38598,7 @@ argument_list|(
 literal|""
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"%2"
 argument_list|)
@@ -38632,7 +38621,7 @@ argument_list|(
 literal|12345.6789
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"12345.7 12.345,7"
 argument_list|)
@@ -38659,7 +38648,7 @@ argument_list|,
 literal|9
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[  12345.7] [ 12.345,7]"
 argument_list|)
@@ -38694,7 +38683,7 @@ argument_list|,
 literal|7
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[ 12345.68] [12.345,68]"
 argument_list|)
@@ -38739,7 +38728,7 @@ literal|'0'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[0012345.68] [012.345,68]"
 argument_list|)
@@ -38762,7 +38751,7 @@ argument_list|(
 literal|123456789
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"123456789 123.456.789"
 argument_list|)
@@ -38789,7 +38778,7 @@ argument_list|,
 literal|12
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[   123456789] [ 123.456.789]"
 argument_list|)
@@ -38830,7 +38819,7 @@ literal|'0'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[000123456789] [00123.456.789]"
 argument_list|)
@@ -38871,7 +38860,7 @@ literal|'0'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"[0000075bcd15] [00000075bcd15]"
 argument_list|)
@@ -38899,7 +38888,7 @@ argument_list|(
 literal|'c'
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"123.456.789 12.345,7 c"
 argument_list|)
@@ -39000,7 +38989,7 @@ name|QCOMPARE
 argument_list|(
 name|input
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"%%A B C D E f g h i %%% j0 k l m n o88 p99 %%%%%%%L"
 argument_list|)
@@ -39052,7 +39041,7 @@ name|QCOMPARE
 argument_list|(
 name|str
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"one 2 3 4 5 6 7 8 9 foo ahoy there bar"
 argument_list|)
@@ -39087,7 +39076,7 @@ name|QCOMPARE
 argument_list|(
 name|str2
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"A B C D E F %1000 %1230"
 argument_list|)
@@ -39115,7 +39104,7 @@ literal|'0'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-01"
 argument_list|)
@@ -39143,7 +39132,7 @@ literal|'0'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-100"
 argument_list|)
@@ -39171,7 +39160,7 @@ literal|' '
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|" -1"
 argument_list|)
@@ -39199,7 +39188,7 @@ literal|' '
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-100"
 argument_list|)
@@ -39226,7 +39215,7 @@ literal|' '
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"  1"
 argument_list|)
@@ -39253,7 +39242,7 @@ literal|' '
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"1000"
 argument_list|)
@@ -39281,7 +39270,7 @@ literal|'x'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"x-1"
 argument_list|)
@@ -39309,7 +39298,7 @@ literal|'x'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-100"
 argument_list|)
@@ -39336,7 +39325,7 @@ literal|'x'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"xx1"
 argument_list|)
@@ -39363,7 +39352,7 @@ literal|'x'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"1000"
 argument_list|)
@@ -39394,7 +39383,7 @@ literal|'0'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-01"
 argument_list|)
@@ -39425,7 +39414,7 @@ literal|'0'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-100"
 argument_list|)
@@ -39456,7 +39445,7 @@ literal|' '
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|" -1"
 argument_list|)
@@ -39487,7 +39476,7 @@ literal|' '
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-100"
 argument_list|)
@@ -39517,7 +39506,7 @@ literal|'x'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"xx1"
 argument_list|)
@@ -39547,7 +39536,7 @@ literal|'x'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"1000"
 argument_list|)
@@ -39578,7 +39567,7 @@ literal|'x'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"x-1"
 argument_list|)
@@ -39609,7 +39598,7 @@ literal|'x'
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-100"
 argument_list|)
@@ -39715,7 +39704,7 @@ literal|0
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"0"
 argument_list|)
@@ -39736,7 +39725,7 @@ literal|11
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"11"
 argument_list|)
@@ -39752,7 +39741,7 @@ operator|-
 literal|22L
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-22"
 argument_list|)
@@ -39767,7 +39756,7 @@ argument_list|(
 literal|333UL
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"333"
 argument_list|)
@@ -39782,7 +39771,7 @@ argument_list|(
 literal|4.4
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"4.4"
 argument_list|)
@@ -39801,7 +39790,7 @@ literal|555
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"-555"
 argument_list|)
@@ -39819,7 +39808,7 @@ literal|6666
 argument_list|)
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"6666"
 argument_list|)

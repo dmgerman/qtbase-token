@@ -4371,12 +4371,15 @@ name|k
 argument_list|)
 expr_stmt|;
 comment|// #endif
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 operator|*
 name|i
-operator|==
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"foo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

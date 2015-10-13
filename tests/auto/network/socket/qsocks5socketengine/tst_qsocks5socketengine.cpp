@@ -2700,7 +2700,7 @@ literal|5000
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QString
+name|QByteArray
 name|s
 init|=
 name|socket
@@ -2715,15 +2715,9 @@ operator|::
 name|compareReplyIMAP
 argument_list|(
 name|s
-operator|.
-name|toLatin1
-argument_list|()
 argument_list|)
 argument_list|,
 name|s
-operator|.
-name|toLatin1
-argument_list|()
 operator|.
 name|constData
 argument_list|()
@@ -2776,14 +2770,11 @@ expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|s
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
+name|QByteArrayLiteral
+argument_list|(
 literal|"1 OK Completed\r\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Write LOGOUT
@@ -2833,14 +2824,11 @@ expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|s
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
+name|QByteArrayLiteral
+argument_list|(
 literal|"* BYE LOGOUT received\r\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2871,14 +2859,11 @@ expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|s
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
+name|QByteArrayLiteral
+argument_list|(
 literal|"2 OK Completed\r\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Close the socket
@@ -3302,14 +3287,11 @@ name|at
 argument_list|(
 literal|0
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"1 OK Completed\r\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|tcpSocketNonBlocking_data

@@ -5047,14 +5047,11 @@ name|queryItemValue
 argument_list|(
 literal|"4"
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"a b"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -5065,14 +5062,11 @@ name|queryItemValue
 argument_list|(
 literal|"5"
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"&"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -5083,14 +5077,11 @@ name|queryItemValue
 argument_list|(
 literal|"tex"
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"a + b = c"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -5101,14 +5092,11 @@ name|queryItemValue
 argument_list|(
 literal|"foo bar"
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"hello world"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//url.setUrl("http://www.google.com/search?q=a+b");
@@ -5128,7 +5116,7 @@ argument_list|(
 literal|"q"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"a+b"
 argument_list|)
@@ -5151,7 +5139,7 @@ argument_list|(
 literal|"q"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"a=b"
 argument_list|)

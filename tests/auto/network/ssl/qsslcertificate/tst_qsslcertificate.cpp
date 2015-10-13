@@ -5561,7 +5561,10 @@ name|QVERIFY
 argument_list|(
 name|cn
 operator|!=
+name|QLatin1String
+argument_list|(
 literal|"www.bank.com"
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|static

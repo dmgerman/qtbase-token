@@ -5532,7 +5532,10 @@ operator|.
 name|name
 argument_list|()
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"A"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|int
@@ -5560,7 +5563,10 @@ operator|.
 name|name
 argument_list|()
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"B"
+argument_list|)
 argument_list|)
 expr_stmt|;
 operator|++

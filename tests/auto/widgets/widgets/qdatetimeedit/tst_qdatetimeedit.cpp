@@ -27833,7 +27833,10 @@ operator|->
 name|objectName
 argument_list|()
 operator|!=
+name|QLatin1String
+argument_list|(
 literal|"cw1"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

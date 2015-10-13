@@ -9382,7 +9382,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"123"
 argument_list|)
@@ -9409,7 +9409,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"456"
 argument_list|)
@@ -9436,7 +9436,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"bubloo"
 argument_list|)
@@ -9461,7 +9461,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"bubloo"
 argument_list|)
@@ -9488,7 +9488,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"789"
 argument_list|)

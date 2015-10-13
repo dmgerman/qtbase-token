@@ -614,7 +614,10 @@ argument_list|(
 name|errorString
 argument_list|()
 operator|!=
+name|QLatin1String
+argument_list|(
 literal|"Unknown error"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

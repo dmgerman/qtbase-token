@@ -382,9 +382,7 @@ argument_list|,
 literal|"Hello world!"
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo Welt!"
 argument_list|)
@@ -469,9 +467,7 @@ argument_list|,
 literal|"Hello world!"
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo Welt!"
 argument_list|)
@@ -528,9 +524,7 @@ argument_list|,
 literal|"Hello world!"
 argument_list|)
 operator|!=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo Welt!"
 argument_list|)
@@ -912,9 +906,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo 0 Welten!"
 argument_list|)
@@ -935,9 +927,7 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo 1 Welt!"
 argument_list|)
@@ -958,9 +948,7 @@ argument_list|,
 literal|2
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo 2 Welten!"
 argument_list|)
@@ -1146,9 +1134,7 @@ argument_list|,
 literal|"Hello world!"
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo Welt!"
 argument_list|)
@@ -1250,9 +1236,7 @@ argument_list|,
 literal|"Hello world!"
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo Welt!"
 argument_list|)
@@ -1282,9 +1266,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo 0 Welten!"
 argument_list|)
@@ -1305,9 +1287,7 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo 1 Welt!"
 argument_list|)
@@ -1328,9 +1308,7 @@ argument_list|,
 literal|2
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo 2 Welten!"
 argument_list|)
@@ -1348,9 +1326,7 @@ argument_list|,
 literal|"It's a small world"
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Es ist eine kleine Welt"
 argument_list|)
@@ -1427,9 +1403,7 @@ argument_list|,
 literal|"Hello world!"
 argument_list|)
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
 literal|"Hallo Welt!"
 argument_list|)

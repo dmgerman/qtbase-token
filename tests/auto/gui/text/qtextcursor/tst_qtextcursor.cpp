@@ -429,14 +429,17 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|doc
 operator|->
 name|toPlainText
 argument_list|()
-operator|==
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"Hello World"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|cursor
@@ -612,14 +615,17 @@ operator|->
 name|undo
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|doc
 operator|->
 name|toPlainText
 argument_list|()
-operator|==
+argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"Hello World"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|cursor

@@ -11018,7 +11018,7 @@ argument_list|,
 literal|"t"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"UTC+01:00"
 argument_list|)
@@ -11066,7 +11066,7 @@ argument_list|,
 literal|"t"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"UTC-01:00"
 argument_list|)
@@ -11109,7 +11109,7 @@ argument_list|,
 literal|"t"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"UTC"
 argument_list|)
@@ -11174,7 +11174,7 @@ argument_list|,
 literal|"t"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"CET"
 argument_list|)
@@ -11233,7 +11233,7 @@ argument_list|,
 literal|"t"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"CEST"
 argument_list|)
@@ -11300,7 +11300,7 @@ argument_list|,
 literal|"t"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"CET"
 argument_list|)
@@ -11358,7 +11358,7 @@ argument_list|,
 literal|"t"
 argument_list|)
 argument_list|,
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"CEST"
 argument_list|)
