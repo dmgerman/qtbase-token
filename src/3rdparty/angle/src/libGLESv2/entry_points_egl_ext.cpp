@@ -188,6 +188,10 @@ name|attribute
 condition|)
 block|{
 case|case
+name|EGL_DEVICE_EXT
+case|:
+break|break;
+case|case
 name|EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE
 case|:
 if|if
