@@ -458,15 +458,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1005,7 +1002,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -2818,7 +2815,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -3154,15 +3151,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3217,7 +3211,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -3507,15 +3501,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3604,7 +3595,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -3922,15 +3913,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3985,7 +3973,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -4317,15 +4305,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4516,7 +4501,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -5107,15 +5092,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5238,7 +5220,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -5641,15 +5623,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5704,7 +5683,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -5996,15 +5975,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -6127,7 +6103,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -6562,7 +6538,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -6912,7 +6888,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -7227,15 +7203,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -7322,7 +7295,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -7712,15 +7685,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -7775,7 +7745,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -8099,7 +8069,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -8404,15 +8374,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -8467,7 +8434,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -9147,7 +9114,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -10388,7 +10355,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -10688,15 +10655,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -10751,7 +10715,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -11059,7 +11023,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -11461,15 +11425,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -11524,7 +11485,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -11834,15 +11795,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -11897,7 +11855,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -12194,7 +12152,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -12736,15 +12694,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -12901,7 +12856,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -13660,15 +13615,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -13819,7 +13771,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -14473,7 +14425,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -14823,7 +14775,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -15211,15 +15163,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -15342,7 +15291,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -16088,15 +16037,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -16603,7 +16549,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -17851,15 +17797,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -17948,7 +17891,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -18298,15 +18241,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -18430,7 +18370,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -18892,15 +18832,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -18987,7 +18924,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -19815,15 +19752,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -19912,7 +19846,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -20579,15 +20513,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -20738,7 +20669,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -21265,15 +21196,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -21360,7 +21288,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -21810,7 +21738,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -22311,7 +22239,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -23124,7 +23052,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -24060,7 +23988,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -24540,7 +24468,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -25054,15 +24982,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -25117,7 +25042,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -25449,15 +25374,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -25604,7 +25526,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -26174,7 +26096,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -26617,7 +26539,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -27121,7 +27043,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -27718,7 +27640,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -28390,15 +28312,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -28475,7 +28394,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -28860,15 +28779,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -28923,7 +28839,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -29341,15 +29257,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -29660,7 +29573,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -30756,15 +30669,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -30819,7 +30729,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -31163,7 +31073,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -31651,7 +31561,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -32207,7 +32117,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -32596,7 +32506,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -32932,7 +32842,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -33650,15 +33560,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -34646,7 +34553,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -37336,7 +37243,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -37758,7 +37665,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -38368,7 +38275,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -38684,15 +38591,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -38793,7 +38697,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -39203,15 +39107,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -39266,7 +39167,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -39585,7 +39486,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -39935,7 +39836,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -40295,7 +40196,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -40756,7 +40657,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -41123,15 +41024,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -41186,7 +41084,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
@@ -41499,15 +41397,12 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected attribute "
 argument_list|)
 operator|+
 name|name
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -41562,7 +41457,7 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Unexpected element "
 argument_list|)
