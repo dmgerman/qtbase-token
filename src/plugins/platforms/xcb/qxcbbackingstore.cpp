@@ -591,9 +591,14 @@ literal|1
 condition|)
 name|qWarning
 argument_list|(
-literal|"QXcbShmImage: shmget() failed (%d) for size %d (%dx%d)"
+literal|"QXcbShmImage: shmget() failed (%d: %s) for size %d (%dx%d)"
 argument_list|,
 name|errno
+argument_list|,
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
 argument_list|,
 name|segmentSize
 argument_list|,
