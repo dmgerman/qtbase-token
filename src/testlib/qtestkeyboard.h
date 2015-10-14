@@ -135,7 +135,7 @@ end_decl_stmt
 begin_decl_stmt
 name|Q_GUI_EXPORT
 name|bool
-name|qt_sendShortcutOverrideEvent
+name|qt_handleShortcutEvent
 argument_list|(
 name|QObject
 operator|*
@@ -383,7 +383,7 @@ name|timestamp
 init|=
 literal|0
 decl_stmt|;
-name|qt_sendShortcutOverrideEvent
+name|qt_handleShortcutEvent
 argument_list|(
 name|window
 argument_list|,
@@ -1278,7 +1278,7 @@ if|if
 condition|(
 name|press
 operator|&&
-name|qt_sendShortcutOverrideEvent
+name|qt_handleShortcutEvent
 argument_list|(
 name|widget
 argument_list|,

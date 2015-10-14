@@ -772,12 +772,6 @@ literal|2
 block|;
 name|mutable
 name|uint
-name|could_stat
-operator|:
-literal|1
-block|;
-name|mutable
-name|uint
 name|tried_stat
 operator|:
 literal|1

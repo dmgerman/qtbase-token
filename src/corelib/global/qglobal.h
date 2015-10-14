@@ -3083,9 +3083,8 @@ name|private
 label|:
 name|Q_DISABLE_COPY
 argument_list|(
-name|QMacAutoReleasePool
+argument|QMacAutoReleasePool
 argument_list|)
-expr_stmt|;
 name|NSAutoreleasePool
 modifier|*
 name|pool

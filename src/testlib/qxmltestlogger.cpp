@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtTest/private/qtestlog_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtTest/private/qxmltestlogger_p.h>
 end_include
 begin_include
@@ -360,11 +365,6 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|m_totalTime
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -387,12 +387,10 @@ name|buf
 argument_list|,
 literal|"<Duration msecs=\"%f\"/>\n"
 argument_list|,
-name|m_totalTime
-operator|.
-name|nsecsElapsed
+name|QTestLog
+operator|::
+name|msecsTotalTime
 argument_list|()
-operator|/
-literal|1000000.
 argument_list|)
 expr_stmt|;
 name|outputString
@@ -475,11 +473,6 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|m_functionTime
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -503,12 +496,10 @@ argument_list|,
 literal|"<Duration msecs=\"%f\"/>\n"
 literal|"</TestFunction>\n"
 argument_list|,
-name|m_functionTime
-operator|.
-name|nsecsElapsed
+name|QTestLog
+operator|::
+name|msecsFunctionTime
 argument_list|()
-operator|/
-literal|1000000.
 argument_list|)
 expr_stmt|;
 name|outputString

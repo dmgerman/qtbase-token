@@ -1605,7 +1605,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.6      Constructs a new DBus message with the given \a path, \a interface     and \a name, representing a signal emission to \a destination.      A DBus signal is emitted from one application and is received only by     the application owning the destination service name.      The QDBusMessage object that is returned can be sent using the     QDBusConnection::send() function. */
+comment|/*!     \since 5.6      Constructs a new DBus message with the given \a path, \a interface     and \a name, representing a signal emission to a specific destination.      A DBus signal is emitted from one application and is received only by     the application owning the destination \a service name.      The QDBusMessage object that is returned can be sent using the     QDBusConnection::send() function. */
 end_comment
 begin_function
 DECL|function|createTargetedSignal

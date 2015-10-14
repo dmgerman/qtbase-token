@@ -277,6 +277,16 @@ specifier|static
 name|QStringList
 name|c_ext
 decl_stmt|;
+DECL|member|objc_ext
+specifier|static
+name|QString
+name|objc_ext
+decl_stmt|;
+DECL|member|objcpp_ext
+specifier|static
+name|QString
+name|objcpp_ext
+decl_stmt|;
 DECL|member|cpp_moc_ext
 specifier|static
 name|QString

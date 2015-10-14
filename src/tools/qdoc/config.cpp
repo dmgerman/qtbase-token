@@ -2565,7 +2565,10 @@ name|setPath
 argument_list|(
 name|d
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|path
 argument_list|)
@@ -4644,7 +4647,10 @@ name|Config
 operator|::
 name|installDir
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|fileName
 operator|.
@@ -4922,7 +4928,10 @@ name|Config
 operator|::
 name|installDir
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|fileName
 operator|.

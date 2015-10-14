@@ -44,9 +44,12 @@ name|window
 decl_stmt|;
 name|window
 operator|.
-name|openImage
+name|loadImage
+argument_list|(
+name|QStringLiteral
 argument_list|(
 literal|":/images/example.jpg"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|window

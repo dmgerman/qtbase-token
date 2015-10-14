@@ -12458,9 +12458,6 @@ name|at
 argument_list|(
 name|c
 argument_list|)
-operator|.
-name|trimmed
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

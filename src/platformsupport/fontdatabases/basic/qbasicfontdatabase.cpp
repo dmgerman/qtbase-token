@@ -811,7 +811,7 @@ literal|"FT_New_Face failed with index"
 operator|<<
 name|index
 operator|<<
-literal|":"
+literal|':'
 operator|<<
 name|hex
 operator|<<

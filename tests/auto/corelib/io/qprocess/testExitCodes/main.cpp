@@ -13,7 +13,7 @@ name|int
 name|main
 parameter_list|(
 name|int
-comment|/* argc */
+name|argc
 parameter_list|,
 name|char
 modifier|*
@@ -22,6 +22,10 @@ name|argv
 parameter_list|)
 block|{
 return|return
+name|argc
+operator|>=
+literal|2
+condition|?
 name|atoi
 argument_list|(
 name|argv
@@ -29,6 +33,9 @@ index|[
 literal|1
 index|]
 argument_list|)
+else|:
+operator|-
+literal|1
 return|;
 block|}
 end_function

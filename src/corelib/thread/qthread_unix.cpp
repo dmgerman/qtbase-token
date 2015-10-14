@@ -860,6 +860,9 @@ operator|=
 name|data
 operator|->
 name|thread
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
 block|}
 return|return

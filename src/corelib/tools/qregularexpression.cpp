@@ -5167,7 +5167,7 @@ operator|.
 name|patternOptions
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|debug
@@ -5377,7 +5377,7 @@ literal|"QRegularExpression::PatternOptions("
 operator|<<
 name|flags
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|debug
@@ -5497,7 +5497,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 if|if
 condition|(
@@ -5552,7 +5552,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 block|}
 else|else
@@ -5564,7 +5564,7 @@ expr_stmt|;
 block|}
 name|debug
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|debug

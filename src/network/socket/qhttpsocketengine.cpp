@@ -2164,7 +2164,7 @@ name|method
 decl_stmt|;
 name|data
 operator|+=
-literal|" "
+literal|' '
 expr_stmt|;
 name|data
 operator|+=

@@ -117,11 +117,6 @@ argument_list|)
 block|;
 name|virtual
 name|QString
-name|getPdbTarget
-argument_list|()
-block|;
-name|virtual
-name|QString
 name|defaultInstall
 argument_list|(
 specifier|const

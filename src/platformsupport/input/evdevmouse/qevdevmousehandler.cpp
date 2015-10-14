@@ -723,7 +723,7 @@ literal|"hardware scalers x"
 operator|<<
 name|m_hardwareScalerX
 operator|<<
-literal|"y"
+literal|'y'
 operator|<<
 name|m_hardwareScalerY
 expr_stmt|;

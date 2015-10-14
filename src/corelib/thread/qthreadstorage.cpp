@@ -414,6 +414,9 @@ argument_list|,
 name|data
 operator|->
 name|thread
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -523,6 +526,9 @@ argument_list|,
 name|data
 operator|->
 name|thread
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QMutexLocker
@@ -599,6 +605,9 @@ argument_list|,
 name|data
 operator|->
 name|thread
+operator|.
+name|load
+argument_list|()
 argument_list|,
 name|p
 argument_list|)

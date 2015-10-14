@@ -13687,7 +13687,7 @@ literal|", "
 operator|<<
 name|column
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 literal|false
@@ -13846,7 +13846,7 @@ literal|"WARNING: AtSpiAdaptor::GetIndexAt("
 operator|<<
 name|row
 operator|<<
-literal|","
+literal|','
 operator|<<
 name|column
 operator|<<

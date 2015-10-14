@@ -9714,7 +9714,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QValidator
 argument_list|,
-argument|QtWidgets
+argument|QtGui
 argument_list|,
 argument|qvalidator.h
 argument_list|)
@@ -9724,7 +9724,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QIntValidator
 argument_list|,
-argument|QtWidgets
+argument|QtGui
 argument_list|,
 argument|qvalidator.h
 argument_list|)
@@ -9734,7 +9734,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QDoubleValidator
 argument_list|,
-argument|QtWidgets
+argument|QtGui
 argument_list|,
 argument|qvalidator.h
 argument_list|)
@@ -9744,7 +9744,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QRegExpValidator
 argument_list|,
-argument|QtWidgets
+argument|QtGui
 argument_list|,
 argument|qvalidator.h
 argument_list|)

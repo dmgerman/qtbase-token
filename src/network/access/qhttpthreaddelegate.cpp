@@ -1852,6 +1852,11 @@ condition|(
 name|httpReply
 condition|)
 block|{
+name|httpReply
+operator|->
+name|abort
+argument_list|()
+expr_stmt|;
 operator|delete
 name|httpReply
 expr_stmt|;

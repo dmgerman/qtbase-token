@@ -2127,13 +2127,13 @@ name|out
 operator|<<
 literal|"BEGIN:VCARD"
 operator|<<
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|out
 operator|<<
 literal|"VERSION:2.1"
 operator|<<
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|out
 operator|<<
@@ -2141,11 +2141,11 @@ literal|"N:"
 operator|<<
 name|lastName
 operator|<<
-literal|";"
+literal|';'
 operator|<<
 name|firstName
 operator|<<
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 if|if
 condition|(
@@ -2166,7 +2166,7 @@ argument_list|(
 literal|' '
 argument_list|)
 operator|<<
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 else|else
 name|out
@@ -2175,7 +2175,7 @@ literal|"FN:"
 operator|<<
 name|firstName
 operator|<<
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 comment|//! [export function part3]
 comment|//! [export function part4]
@@ -2196,7 +2196,7 @@ name|address
 operator|.
 name|replace
 argument_list|(
-literal|"\n"
+literal|'\n'
 argument_list|,
 literal|";"
 argument_list|,
@@ -2224,13 +2224,13 @@ literal|"ADR;HOME:;"
 operator|<<
 name|address
 operator|<<
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|out
 operator|<<
 literal|"END:VCARD"
 operator|<<
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|QMessageBox
 operator|::

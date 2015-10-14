@@ -66,7 +66,10 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
+name|QStringLiteral
+argument_list|(
 literal|"-small-screen"
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

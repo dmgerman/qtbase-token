@@ -221,6 +221,11 @@ modifier|*
 modifier|*
 name|argv
 parameter_list|)
+member_init_list|:
+name|verbose
+argument_list|(
+literal|0
+argument_list|)
 block|{
 comment|// Default values for indentation
 name|optionIndent
@@ -2219,6 +2224,32 @@ index|]
 operator|=
 literal|"yes"
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-v"
+operator|||
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-verbose"
+condition|)
+block|{
+operator|++
+name|verbose
+expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -5905,7 +5936,7 @@ index|[
 literal|"DBUS"
 index|]
 operator|=
-literal|"yes"
+literal|"auto"
 expr_stmt|;
 block|}
 elseif|else
@@ -5947,7 +5978,7 @@ index|[
 literal|"DBUS"
 index|]
 operator|=
-literal|"yes"
+literal|"auto"
 expr_stmt|;
 block|}
 elseif|else
@@ -5969,6 +6000,27 @@ literal|"DBUS"
 index|]
 operator|=
 literal|"linked"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-dbus-runtime"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"DBUS"
+index|]
+operator|=
+literal|"runtime"
 expr_stmt|;
 block|}
 elseif|else
@@ -13396,22 +13448,22 @@ name|desc
 argument_list|(
 literal|"DBUS"
 argument_list|,
-literal|"yes"
+literal|"linked"
 argument_list|,
-literal|"-dbus"
+literal|"-dbus-linked"
 argument_list|,
-literal|"Compile in D-Bus support and load libdbus-1\ndynamically."
+literal|"Compile in D-Bus support and link to libdbus-1.\n"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
 literal|"DBUS"
 argument_list|,
-literal|"linked"
+literal|"runtime"
 argument_list|,
-literal|"-dbus-linked"
+literal|"-dbus-runtime"
 argument_list|,
-literal|"Compile in D-Bus support and link to libdbus-1.\n"
+literal|"Compile in D-Bus support and load libdbus-1\ndynamically."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -13681,6 +13733,13 @@ argument_list|(
 literal|"-redo"
 argument_list|,
 literal|"Run configure with the same parameters as last time.\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-v, -verbose"
+argument_list|,
+literal|"Run configure tests with verbose output.\n"
 argument_list|)
 expr_stmt|;
 comment|// Qt\Windows CE only options go below here -----------------------------------------------------------------------------
@@ -16882,9 +16941,9 @@ argument_list|(
 literal|"DBUS"
 argument_list|)
 condition|?
-literal|"yes"
+literal|"linked"
 else|:
-literal|"no"
+literal|"runtime"
 expr_stmt|;
 if|if
 condition|(
@@ -17474,6 +17533,12 @@ literal|"QT_POINTER_SIZE"
 index|]
 operator|=
 literal|"4"
+expr_stmt|;
+name|cout
+operator|<<
+literal|"Done running configuration tests."
+operator|<<
+name|endl
 expr_stmt|;
 block|}
 end_function
@@ -19483,7 +19548,7 @@ index|[
 literal|"DBUS"
 index|]
 operator|==
-literal|"yes"
+literal|"runtime"
 condition|)
 name|qtConfig
 operator|+=
@@ -20040,8 +20105,8 @@ name|dictionary
 index|[
 literal|"DBUS"
 index|]
-operator|!=
-literal|"no"
+operator|==
+literal|"linked"
 condition|)
 block|{
 if|if
@@ -22062,7 +22127,7 @@ name|command
 init|=
 name|QString
 argument_list|(
-literal|"%1 %2 %3 2>&1"
+literal|"%1 %2 %3"
 argument_list|)
 operator|.
 name|arg
@@ -22147,6 +22212,24 @@ name|command
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|verbose
+condition|)
+name|cout
+operator|<<
+name|qPrintable
+argument_list|(
+name|command
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+else|else
+name|command
+operator|+=
+literal|" 2>&1"
+expr_stmt|;
 name|int
 name|code
 init|=
@@ -22201,6 +22284,20 @@ name|command
 operator|+=
 literal|" /NOLOGO"
 expr_stmt|;
+if|if
+condition|(
+name|verbose
+condition|)
+name|cout
+operator|<<
+name|qPrintable
+argument_list|(
+name|command
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+else|else
 name|command
 operator|+=
 literal|" -s 2>&1"

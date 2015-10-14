@@ -378,9 +378,11 @@ operator|<
 name|QGesture
 operator|*
 operator|,
+name|QPointer
+operator|<
 name|QWidget
-operator|*
 operator|>
+expr|>
 name|m_gestureTargets
 expr_stmt|;
 end_expr_stmt

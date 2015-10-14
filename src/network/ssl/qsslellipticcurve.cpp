@@ -23,15 +23,15 @@ directive|endif
 end_endif
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QSslEllipticCurve     \since 5.5      \brief Represents an elliptic curve for use by elliptic-curve cipher algorithms.      \reentrant     \ingroup network     \ingroup ssl     \inmodule QtNetwork      The class QSslEllipticCurve represents an elliptic curve for use by     elliptic-curve cipher algorithms.      Elliptic curves can be constructed from a "short name" (SN) (fromShortName()),     and by a call to QSslSocket::supportedEllipticCurves().      QSslEllipticCurve instances can be compared for equality and can be used as keys     in QHash and QSet. They cannot be used as key in a QMap. */
-comment|/*!     \fn QSslEllipticCurve::QSslEllipticCurve()      Constructs an invalid elliptic curve.      \sa isValid(), QSslSocket::supportedEllipticCurves() */
+comment|/*!     \class QSslEllipticCurve     \since 5.5      \brief Represents an elliptic curve for use by elliptic-curve cipher algorithms.      \reentrant     \ingroup network     \ingroup ssl     \inmodule QtNetwork      The class QSslEllipticCurve represents an elliptic curve for use by     elliptic-curve cipher algorithms.      Elliptic curves can be constructed from a "short name" (SN) (fromShortName()),     and by a call to QSslConfiguration::supportedEllipticCurves().      QSslEllipticCurve instances can be compared for equality and can be used as keys     in QHash and QSet. They cannot be used as key in a QMap. */
+comment|/*!     \fn QSslEllipticCurve::QSslEllipticCurve()      Constructs an invalid elliptic curve.      \sa isValid(), QSslConfiguration::supportedEllipticCurves() */
 comment|/*!     \fn QSslEllipticCurve QSslEllipticCurve::fromShortName(const QString&name)      Returns an QSslEllipticCurve instance representing the     named curve \a name. The \a name is the conventional short     name for the curve, as represented by RFC 4492 (for instance \c{secp521r1}),     or as NIST short names (for instance \c{P-256}). The actual set of     recognized names depends on the SSL implementation.      If the given \a name is not supported, returns an invalid QSslEllipticCurve instance.      \note The OpenSSL implementation of this function treats the name case-sensitively.      \sa shortName() */
 comment|/*!     \fn QSslEllipticCurve QSslEllipticCurve::fromLongName(const QString&name)      Returns an QSslEllipticCurve instance representing the named curve \a name.     The \a name is a long name for the curve, whose exact spelling depends on the     SSL implementation.      If the given \a name is not supported, returns an invalid QSslEllipticCurve instance.      \note The OpenSSL implementation of this function treats the name case-sensitively.      \sa longName() */
 comment|/*!     \fn QString QSslEllipticCurve::shortName() const      Returns the conventional short name for this curve. If this     curve is invalid, returns an empty string.      \sa longName() */
 comment|/*!     \fn QString QSslEllipticCurve::longName() const      Returns the conventional long name for this curve. If this     curve is invalid, returns an empty string.      \sa shortName() */
 comment|/*!     \fn bool QSslEllipticCurve::isValid() const      Returns true if this elliptic curve is a valid curve, false otherwise. */
 comment|/*!     \fn bool QSslEllipticCurve::isTlsNamedCurve() const      Returns true if this elliptic curve is one of the named curves that can be     used in the key exchange when using an elliptic curve cipher with TLS;     false otherwise. */
-comment|/*!     \fn bool operator==(QSslEllipticCurve lhs, QSslEllipticCurve rhs)     \since 5.5     \relates QSslEllipticCurve      Returns true if the curve \a lhs represents the same curve of \a rhs;     false otherwise. */
+comment|/*!     \fn bool operator==(QSslEllipticCurve lhs, QSslEllipticCurve rhs)     \since 5.5     \relates QSslEllipticCurve      Returns true if the curve \a lhs represents the same curve of \a rhs; */
 comment|/*!     \fn bool operator!=(QSslEllipticCurve lhs, QSslEllipticCurve rhs)     \since 5.5     \relates QSslEllipticCurve      Returns true if the curve \a lhs represents a different curve than \a rhs;     false otherwise. */
 comment|/*!     \fn uint qHash(QSslEllipticCurve curve, uint seed)     \since 5.5     \relates QHash      Returns an hash value for the curve \a curve, using \a seed to seed     the calculation. */
 ifndef|#
@@ -73,7 +73,7 @@ operator|.
 name|shortName
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|debug

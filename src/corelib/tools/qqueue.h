@@ -43,6 +43,7 @@ name|swap
 argument_list|(
 argument|QQueue<T>&other
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|QList
 operator|<

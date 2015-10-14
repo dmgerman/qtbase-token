@@ -2539,6 +2539,8 @@ block|}
 name|ulong
 name|expectedSize
 init|=
+name|uint
+argument_list|(
 operator|(
 name|data
 index|[
@@ -2572,6 +2574,7 @@ index|[
 literal|3
 index|]
 operator|)
+argument_list|)
 decl_stmt|;
 name|ulong
 name|len

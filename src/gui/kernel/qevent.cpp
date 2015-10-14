@@ -1300,7 +1300,7 @@ begin_comment
 comment|/*!     \fn Qt::ScrollPhase QWheelEvent::phase() const     \since 5.2      Returns the scrolling phase of this wheel event.      \note The Qt::ScrollBegin and Qt::ScrollEnd phases are currently     supported only on OS X. */
 end_comment
 begin_comment
-comment|/*!     \class QKeyEvent     \brief The QKeyEvent class describes a key event.      \ingroup events     \inmodule QtGui      Key events are sent to the widget with keyboard input focus     when keys are pressed or released.      A key event contains a special accept flag that indicates whether     the receiver will handle the key event. This flag is set by default,     so there is no need to call accept() when acting on a key event.     Calling ignore() on a key event will propagate it to the parent widget.     The event is propagated up the parent widget chain until a widget     accepts it or an event filter consumes it.      The QWidget::setEnable() function can be used to enable or disable     mouse and keyboard events for a widget.      The event handlers QWidget::keyPressEvent(), QWidget::keyReleaseEvent(),     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent()     receive key events.      \sa QFocusEvent, QWidget::grabKeyboard() */
+comment|/*!     \class QKeyEvent     \brief The QKeyEvent class describes a key event.      \ingroup events     \inmodule QtGui      Key events are sent to the widget with keyboard input focus     when keys are pressed or released.      A key event contains a special accept flag that indicates whether     the receiver will handle the key event. This flag is set by default     for QEvent::KeyPress and QEvent::KeyRelease, so there is no need to     call accept() when acting on a key event. For QEvent::ShortcutOverride     the receiver needs to explicitly accept the event to trigger the override.     Calling ignore() on a key event will propagate it to the parent widget.     The event is propagated up the parent widget chain until a widget     accepts it or an event filter consumes it.      The QWidget::setEnable() function can be used to enable or disable     mouse and keyboard events for a widget.      The event handlers QWidget::keyPressEvent(), QWidget::keyReleaseEvent(),     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent()     receive key events.      \sa QFocusEvent, QWidget::grabKeyboard() */
 end_comment
 begin_comment
 comment|/*!     Constructs a key event object.      The \a type parameter must be QEvent::KeyPress, QEvent::KeyRelease,     or QEvent::ShortcutOverride.      Int \a key is the code for the Qt::Key that the event loop should listen     for. If \a key is 0, the event is not a result of a known key; for     example, it may be the result of a compose sequence or keyboard macro.     The \a modifiers holds the keyboard modifiers, and the given \a text     is the Unicode text that the key generated. If \a autorep is true,     isAutoRepeat() will be true. \a count is the number of keys involved     in the event. */
@@ -1375,7 +1375,19 @@ name|autor
 argument_list|(
 name|autorep
 argument_list|)
-block|{ }
+block|{
+if|if
+condition|(
+name|type
+operator|==
+name|QEvent
+operator|::
+name|ShortcutOverride
+condition|)
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_comment
 comment|/*!     Constructs a key event object.      The \a type parameter must be QEvent::KeyPress, QEvent::KeyRelease,     or QEvent::ShortcutOverride.      Int \a key is the code for the Qt::Key that the event loop should listen     for. If \a key is 0, the event is not a result of a known key; for     example, it may be the result of a compose sequence or keyboard macro.     The \a modifiers holds the keyboard modifiers, and the given \a text     is the Unicode text that the key generated. If \a autorep is true,     isAutoRepeat() will be true. \a count is the number of keys involved     in the event.      In addition to the normal key event data, also contains \a nativeScanCode,     \a nativeVirtualKey and \a nativeModifiers. This extra data is used by the     shortcut system, to determine which shortcuts to trigger. */
@@ -1459,7 +1471,19 @@ name|autor
 argument_list|(
 name|autorep
 argument_list|)
-block|{ }
+block|{
+if|if
+condition|(
+name|type
+operator|==
+name|QEvent
+operator|::
+name|ShortcutOverride
+condition|)
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_comment
 comment|/*!   \internal */

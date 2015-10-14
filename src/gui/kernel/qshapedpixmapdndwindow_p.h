@@ -69,8 +69,15 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QShapedPixmapWindow
-argument_list|()
+argument_list|(
+name|QScreen
+operator|*
+name|screen
+operator|=
+literal|0
+argument_list|)
 block|;
 operator|~
 name|QShapedPixmapWindow

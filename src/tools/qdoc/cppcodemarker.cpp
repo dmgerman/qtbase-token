@@ -492,11 +492,8 @@ name|func
 operator|->
 name|returnType
 argument_list|()
-argument_list|)
-operator|+
-name|QLatin1Char
-argument_list|(
-literal|' '
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|synopsis
@@ -517,7 +514,10 @@ condition|)
 block|{
 name|synopsis
 operator|+=
-literal|"("
+name|QLatin1Char
+argument_list|(
+literal|'('
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -531,7 +531,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|//synopsis += QLatin1Char(' ');
 name|QVector
 argument_list|<
 name|Parameter
@@ -588,6 +587,8 @@ operator|)
 operator|.
 name|dataType
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -675,7 +676,6 @@ operator|++
 name|p
 expr_stmt|;
 block|}
-comment|//synopsis += QLatin1Char(' ');
 block|}
 name|synopsis
 operator|+=
@@ -1304,11 +1304,8 @@ name|variable
 operator|->
 name|leftType
 argument_list|()
-argument_list|)
-operator|+
-name|QLatin1Char
-argument_list|(
-literal|' '
+argument_list|,
+literal|true
 argument_list|)
 operator|+
 name|name
@@ -1638,11 +1635,8 @@ name|func
 operator|->
 name|returnType
 argument_list|()
-argument_list|)
-operator|+
-name|QLatin1Char
-argument_list|(
-literal|' '
+argument_list|,
+literal|true
 argument_list|)
 operator|+
 name|name
@@ -1727,6 +1721,8 @@ operator|)
 operator|.
 name|dataType
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -1743,27 +1739,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|synopsis
-operator|.
-name|endsWith
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'('
-argument_list|)
-argument_list|)
-condition|)
-name|synopsis
-operator|+=
-name|QLatin1Char
-argument_list|(
-literal|' '
-argument_list|)
-expr_stmt|;
 name|synopsis
 operator|+=
 literal|"<@param>"
@@ -1781,7 +1756,6 @@ argument_list|)
 operator|+
 literal|"</@param>"
 expr_stmt|;
-block|}
 name|synopsis
 operator|+=
 name|protect

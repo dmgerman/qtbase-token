@@ -794,12 +794,12 @@ if|if
 condition|(
 name|ke
 operator|->
-name|key
-argument_list|()
-operator|==
-name|Qt
+name|matches
+argument_list|(
+name|QKeySequence
 operator|::
-name|Key_Escape
+name|Cancel
+argument_list|)
 condition|)
 block|{
 name|showWidget

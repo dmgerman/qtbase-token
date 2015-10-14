@@ -22243,6 +22243,20 @@ operator|.
 name|topLeft
 argument_list|()
 expr_stmt|;
+specifier|const
+name|qreal
+name|dpr
+init|=
+name|context
+operator|->
+name|painter
+operator|->
+name|device
+argument_list|()
+operator|->
+name|devicePixelRatio
+argument_list|()
+decl_stmt|;
 name|QPixmap
 name|pixmap
 argument_list|(
@@ -22250,8 +22264,17 @@ name|effectRect
 operator|.
 name|size
 argument_list|()
+operator|*
+name|dpr
 argument_list|)
 decl_stmt|;
+name|pixmap
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+name|dpr
+argument_list|)
+expr_stmt|;
 name|pixmap
 operator|.
 name|fill
@@ -36667,7 +36690,7 @@ begin_comment
 comment|// QT_NO_TABLETEVENT
 end_comment
 begin_comment
-comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive key press events for the widget.      A widget must call setFocusPolicy() to accept focus initially and     have focus in order to receive a key press event.      If you reimplement this handler, it is very important that you     call the base class implementation if you do not act upon the key.      The default implementation closes popup widgets if the user     presses Esc. Otherwise the event is ignored, so that the widget's     parent can interpret it.      Note that QKeyEvent starts with isAccepted() == true, so you do not     need to call QKeyEvent::accept() - just do not call the base class     implementation if you act upon the key.      \sa keyReleaseEvent(), setFocusPolicy(),     focusInEvent(), focusOutEvent(), event(), QKeyEvent, {Tetrix Example} */
+comment|/*!     This event handler, for event \a event, can be reimplemented in a     subclass to receive key press events for the widget.      A widget must call setFocusPolicy() to accept focus initially and     have focus in order to receive a key press event.      If you reimplement this handler, it is very important that you     call the base class implementation if you do not act upon the key.      The default implementation closes popup widgets if the user     presses the key sequence for QKeySequence::Cancel (typically the     Escape key). Otherwise the event is ignored, so that the widget's     parent can interpret it.      Note that QKeyEvent starts with isAccepted() == true, so you do not     need to call QKeyEvent::accept() - just do not call the base class     implementation if you act upon the key.      \sa keyReleaseEvent(), setFocusPolicy(),     focusInEvent(), focusOutEvent(), event(), QKeyEvent, {Tetrix Example} */
 end_comment
 begin_function
 DECL|function|keyPressEvent
@@ -36694,12 +36717,12 @@ operator|)
 operator|&&
 name|event
 operator|->
-name|key
-argument_list|()
-operator|==
-name|Qt
+name|matches
+argument_list|(
+name|QKeySequence
 operator|::
-name|Key_Escape
+name|Cancel
+argument_list|)
 condition|)
 block|{
 name|event

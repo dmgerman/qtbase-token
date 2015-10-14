@@ -270,7 +270,7 @@ name|endCompositing
 argument_list|()
 name|Q_DECL_OVERRIDE
 expr_stmt|;
-name|private
+name|protected
 label|:
 name|QOpenGLCompositorBackingStore
 modifier|*

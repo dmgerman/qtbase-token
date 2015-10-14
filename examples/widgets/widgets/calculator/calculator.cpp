@@ -1449,7 +1449,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"."
+literal|'.'
 argument_list|)
 condition|)
 name|display

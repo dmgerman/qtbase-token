@@ -78,10 +78,6 @@ operator|~
 name|QFbVtHandler
 argument_list|()
 block|;
-name|void
-name|suspend
-argument_list|()
-block|;
 name|signals
 operator|:
 name|void
@@ -89,7 +85,7 @@ name|interrupted
 argument_list|()
 block|;
 name|void
-name|suspendRequested
+name|aboutToSuspend
 argument_list|()
 block|;
 name|void
@@ -106,12 +102,21 @@ block|;
 name|private
 operator|:
 name|void
-name|restoreKeyboard
-argument_list|()
+name|setKeyboardEnabled
+argument_list|(
+argument|bool enable
+argument_list|)
 block|;
 name|void
 name|handleInt
 argument_list|()
+block|;
+specifier|static
+name|void
+name|signalHandler
+argument_list|(
+argument|int sigNo
+argument_list|)
 block|;
 name|int
 name|m_tty
@@ -120,7 +125,10 @@ name|int
 name|m_oldKbdMode
 block|;
 name|int
-name|m_signalFd
+name|m_sigFd
+index|[
+literal|2
+index|]
 block|;
 name|QSocketNotifier
 operator|*

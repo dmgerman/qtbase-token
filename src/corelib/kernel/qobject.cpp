@@ -4452,18 +4452,27 @@ argument_list|,
 name|currentData
 operator|->
 name|thread
+operator|.
+name|load
+argument_list|()
 argument_list|,
 name|d
 operator|->
 name|threadData
 operator|->
 name|thread
+operator|.
+name|load
+argument_list|()
 argument_list|,
 name|targetData
 condition|?
 name|targetData
 operator|->
 name|thread
+operator|.
+name|load
+argument_list|()
 else|:
 name|Q_NULLPTR
 argument_list|)
@@ -13657,7 +13666,7 @@ directive|ifndef
 name|QT_NO_PROPERTIES
 end_ifndef
 begin_comment
-comment|/*!   Sets the value of the object's \a name property to \a value.    If the property is defined in the class using Q_PROPERTY then   true is returned on success and false otherwise. If the property   is not defined using Q_PROPERTY, and therefore not listed in the   meta-object, it is added as a dynamic property and false is returned.    Information about all available properties is provided through the   metaObject() and dynamicPropertyNames().    Dynamic properties can be queried again using property() and can be   removed by setting the property value to an invalid QVariant.   Changing the value of a dynamic property causes a QDynamicPropertyChangeEvent   to be sent to the object.    \b{Note:} Dynamic properties starting with "_q_" are reserved for internal   purposes.    \sa property(), metaObject(), dynamicPropertyNames() */
+comment|/*!   Sets the value of the object's \a name property to \a value.    If the property is defined in the class using Q_PROPERTY then   true is returned on success and false otherwise. If the property   is not defined using Q_PROPERTY, and therefore not listed in the   meta-object, it is added as a dynamic property and false is returned.    Information about all available properties is provided through the   metaObject() and dynamicPropertyNames().    Dynamic properties can be queried again using property() and can be   removed by setting the property value to an invalid QVariant.   Changing the value of a dynamic property causes a QDynamicPropertyChangeEvent   to be sent to the object.    \b{Note:} Dynamic properties starting with "_q_" are reserved for internal   purposes.    \sa property(), metaObject(), dynamicPropertyNames(), QMetaProperty::write() */
 end_comment
 begin_function
 DECL|function|setProperty

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2015 The Qt Company Ltd. ** Copyright (C) 2014 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt.io/licensing/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and The Qt Company. For licensing terms ** and conditions see http://www.qt.io/terms-conditions. For further ** information use the contact form at http://www.qt.io/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** As a special exception, The Qt Company gives you certain additional ** rights. These rights are described in The Qt Company LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2015 The Qt Company Ltd. ** Copyright (C) 2015 Olivier Goffart<ogoffart@woboq.com> ** Contact: http://www.qt.io/licensing/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL21$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and The Qt Company. For licensing terms ** and conditions see http://www.qt.io/terms-conditions. For further ** information use the contact form at http://www.qt.io/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 or version 3 as published by the Free ** Software Foundation and appearing in the file LICENSE.LGPLv21 and ** LICENSE.LGPLv3 included in the packaging of this file. Please review the ** following information to ensure the GNU Lesser General Public License ** requirements will be met: https://www.gnu.org/licenses/lgpl.html and ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** As a special exception, The Qt Company gives you certain additional ** rights. These rights are described in The Qt Company LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -6442,10 +6442,10 @@ begin_comment
 comment|/*!     \fn QMetaObject::Connection::Connection&operator=(const Connection&other)      Assigns \a other to this connection and returns a reference to this connection. */
 end_comment
 begin_comment
-comment|/*!     \fn QMetaObject::Connection&QMetaObject::Connection::operator=(Connection&&other)      Move-assigns \a other to this object. */
+comment|/*!     \fn QMetaObject::Connection&QMetaObject::Connection::operator=(Connection&&other)      Move-assigns \a other to this object, and returns a reference. */
 end_comment
 begin_comment
-comment|/*!     \fn QMetaObject::Connection::Connection(Connection&&o)      Move-constructs a Connection instance, making it point to the same object that \a o was pointing to. */
+comment|/*!     \fn QMetaObject::Connection::Connection(Connection&&o)      Move-constructs a Connection instance, making it point to the same object     that \a o was pointing to. */
 end_comment
 begin_comment
 comment|/*!     \class QMetaMethod     \inmodule QtCore      \brief The QMetaMethod class provides meta-data about a member     function.      \ingroup objectmodel      A QMetaMethod has a methodType(), a methodSignature(), a list of     parameterTypes() and parameterNames(), a return typeName(), a     tag(), and an access() specifier. You can use invoke() to invoke     the method on an arbitrary QObject.      \sa QMetaObject, QMetaEnum, QMetaProperty, {Qt's Property System} */
@@ -11812,7 +11812,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes \a value as the property's value to the given \a object. Returns     true if the write succeeded; otherwise returns \c false.      \sa read(), reset(), isWritable() */
+comment|/*!     Writes \a value as the property's value to the given \a object. Returns     true if the write succeeded; otherwise returns \c false.      If \a value is not of the same type type as the property, a conversion     is attempted. An empty QVariant() is equivalent to a call to reset()     if this property is resetable, or setting a default-constructed object     otherwise.      \sa read(), reset(), isWritable() */
 end_comment
 begin_function
 DECL|function|write
@@ -12146,40 +12146,64 @@ name|QMetaType
 operator|::
 name|QVariant
 operator|&&
+name|int
+argument_list|(
 name|t
+argument_list|)
 operator|!=
-operator|(
-name|uint
-operator|)
 name|value
 operator|.
 name|userType
 argument_list|()
-operator|&&
-operator|(
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|value
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|isResettable
+argument_list|()
+condition|)
+return|return
+name|reset
+argument_list|(
+name|object
+argument_list|)
+return|;
+name|v
+operator|=
+name|QVariant
+argument_list|(
 name|t
-operator|<
-name|QMetaType
-operator|::
-name|User
-operator|&&
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 operator|!
 name|v
 operator|.
 name|convert
 argument_list|(
-operator|(
-name|QVariant
-operator|::
-name|Type
-operator|)
 name|t
 argument_list|)
-operator|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
+block|}
 block|}
 comment|// the status variable is changed by qt_metacall to indicate what it did
 comment|// this feature is currently only used by Qt D-Bus and should not be depended

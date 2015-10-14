@@ -1035,7 +1035,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|i
@@ -1112,7 +1112,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|hash
@@ -1153,7 +1153,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|hash

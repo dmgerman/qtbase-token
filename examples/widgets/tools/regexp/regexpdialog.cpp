@@ -853,14 +853,14 @@ name|escaped
 operator|.
 name|prepend
 argument_list|(
-literal|"\""
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|escaped
 operator|.
 name|append
 argument_list|(
-literal|"\""
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|escapedPatternLineEdit

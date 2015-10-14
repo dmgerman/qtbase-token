@@ -780,6 +780,11 @@ specifier|const
 name|QString
 modifier|&
 name|string
+parameter_list|,
+name|bool
+name|trailingSpace
+init|=
+name|false
 parameter_list|)
 function_decl|;
 name|protected

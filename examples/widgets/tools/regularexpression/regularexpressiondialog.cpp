@@ -475,9 +475,9 @@ name|escaped
 operator|.
 name|prepend
 argument_list|(
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"\""
+literal|'"'
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -485,9 +485,9 @@ name|escaped
 operator|.
 name|append
 argument_list|(
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"\""
+literal|'"'
 argument_list|)
 argument_list|)
 expr_stmt|;

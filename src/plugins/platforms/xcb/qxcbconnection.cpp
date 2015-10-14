@@ -2441,7 +2441,7 @@ operator|->
 name|isPrimary
 argument_list|()
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 name|integration
 operator|->

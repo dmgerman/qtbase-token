@@ -376,7 +376,7 @@ argument_list|)
 expr_stmt|;
 name|ba
 operator|+=
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|qstrdup

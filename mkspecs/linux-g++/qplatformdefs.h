@@ -177,7 +177,7 @@ argument_list|)
 operator|&&
 operator|(
 name|__GLIBC__
-operator|>=
+operator|<
 literal|2
 operator|)
 end_if
@@ -186,7 +186,7 @@ DECL|macro|QT_SOCKLEN_T
 define|#
 directive|define
 name|QT_SOCKLEN_T
-value|socklen_t
+value|int
 end_define
 begin_else
 else|#
@@ -197,7 +197,7 @@ DECL|macro|QT_SOCKLEN_T
 define|#
 directive|define
 name|QT_SOCKLEN_T
-value|int
+value|socklen_t
 end_define
 begin_endif
 endif|#

@@ -46,6 +46,11 @@ argument|QEventLoop::ProcessEventsFlags flags
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|bool
+name|processPostedEvents
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 name|void
 name|handleRunLoopExit
 argument_list|(

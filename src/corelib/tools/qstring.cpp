@@ -4224,12 +4224,14 @@ literal|0
 expr_stmt|;
 while|while
 condition|(
+operator|!
 name|unicode
 index|[
 name|size
 index|]
-operator|!=
-literal|0
+operator|.
+name|isNull
+argument_list|()
 condition|)
 operator|++
 name|size

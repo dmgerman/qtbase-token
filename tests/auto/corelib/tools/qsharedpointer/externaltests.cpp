@@ -2394,6 +2394,8 @@ name|char
 name|makes
 index|[]
 init|=
+literal|"jom.exe\0"
+comment|//preferred for visual c++ or mingw
 literal|"nmake.exe\0"
 comment|//for visual c++
 literal|"mingw32-make.exe\0"

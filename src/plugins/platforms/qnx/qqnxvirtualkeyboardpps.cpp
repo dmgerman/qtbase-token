@@ -344,7 +344,7 @@ literal|": Unable to open"
 operator|<<
 name|ms_PPSPath
 operator|<<
-literal|":"
+literal|':'
 operator|<<
 name|strerror
 argument_list|(

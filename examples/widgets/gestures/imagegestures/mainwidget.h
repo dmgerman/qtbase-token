@@ -71,15 +71,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|bool
-name|loadImage
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|fileName
-argument_list|)
-block|;
 name|ImageWidget
 operator|*
 name|imageWidget

@@ -222,7 +222,7 @@ expr_stmt|;
 comment|// Get the unix key for the created file
 name|unix_key
 operator|=
-name|ftok
+name|qt_safe_ftok
 argument_list|(
 name|QFile
 operator|::
@@ -230,9 +230,6 @@ name|encodeName
 argument_list|(
 name|fileName
 argument_list|)
-operator|.
-name|constData
-argument_list|()
 argument_list|,
 literal|'Q'
 argument_list|)

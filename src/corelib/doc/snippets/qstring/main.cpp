@@ -2899,7 +2899,7 @@ name|str
 operator|.
 name|split
 argument_list|(
-literal|","
+literal|','
 argument_list|)
 decl_stmt|;
 comment|// list1: [ "a", "", "b", "c" ]
@@ -2910,7 +2910,7 @@ name|str
 operator|.
 name|split
 argument_list|(
-literal|","
+literal|','
 argument_list|,
 name|QString
 operator|::

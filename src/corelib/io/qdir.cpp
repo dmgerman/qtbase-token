@@ -616,8 +616,9 @@ block|{
 if|if
 condition|(
 name|sep
-operator|==
-literal|0
+operator|.
+name|isNull
+argument_list|()
 condition|)
 name|sep
 operator|=

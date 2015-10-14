@@ -4607,7 +4607,10 @@ operator|.
 name|key
 argument_list|()
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|contextPart
 decl_stmt|;
@@ -5563,7 +5566,10 @@ operator|.
 name|key
 argument_list|()
 operator|+
-literal|"/"
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 operator|+
 name|contextPart
 decl_stmt|;

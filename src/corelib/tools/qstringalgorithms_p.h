@@ -400,16 +400,6 @@ name|str
 return|;
 if|if
 condition|(
-name|begin
-operator|==
-name|end
-condition|)
-return|return
-name|StringType
-argument_list|()
-return|;
-if|if
-condition|(
 operator|!
 name|isConst
 operator|&&

@@ -385,7 +385,7 @@ name|d
 operator|->
 name|type
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 block|}
 block|}

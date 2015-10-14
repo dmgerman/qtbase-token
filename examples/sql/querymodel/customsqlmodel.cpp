@@ -92,7 +92,7 @@ argument_list|()
 operator|.
 name|prepend
 argument_list|(
-literal|"#"
+literal|'#'
 argument_list|)
 return|;
 elseif|else

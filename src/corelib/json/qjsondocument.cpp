@@ -1956,7 +1956,7 @@ name|constData
 argument_list|()
 comment|// print as utf-8 string without extra quotation marks
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|dbg

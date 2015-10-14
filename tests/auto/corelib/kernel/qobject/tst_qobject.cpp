@@ -14120,7 +14120,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|object
 operator|.
 name|setProperty
@@ -15159,7 +15158,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|object
 operator|.
 name|setProperty

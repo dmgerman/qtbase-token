@@ -802,9 +802,9 @@ name|descriptionOneLine
 operator|.
 name|split
 argument_list|(
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 argument_list|,
 name|QString
@@ -1426,7 +1426,7 @@ operator|.
 name|effectiveDate
 argument_list|()
 operator|<<
-literal|"-"
+literal|'-'
 operator|<<
 name|cert
 operator|.

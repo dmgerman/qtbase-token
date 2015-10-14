@@ -510,24 +510,7 @@ name|thread
 argument_list|()
 condition|)
 block|{
-comment|// We need the invocation to happen in the receiver object's thread.
-comment|// So, move QSingleShotTimer to the correct thread. Before that occurs, we
-comment|// shall remove the parent from the object.
-name|setParent
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|moveToThread
-argument_list|(
-name|r
-operator|->
-name|thread
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// Given we're also parentless now, we should take defence against leaks
-comment|// in case the application quits before we expire.
+comment|// Avoid leaking the QSingleShotTimer instance in case the application exits before the timer fires
 name|connect
 argument_list|(
 name|QCoreApplication
@@ -546,6 +529,19 @@ operator|&
 name|QObject
 operator|::
 name|deleteLater
+argument_list|)
+expr_stmt|;
+name|setParent
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|moveToThread
+argument_list|(
+name|r
+operator|->
+name|thread
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

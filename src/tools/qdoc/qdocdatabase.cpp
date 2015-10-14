@@ -1024,7 +1024,10 @@ name|module
 condition|)
 name|depends
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|i
 operator|.
@@ -1057,7 +1060,10 @@ name|k
 control|)
 name|line
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 expr_stmt|;
 name|line
 operator|+=
@@ -1248,7 +1254,10 @@ argument_list|)
 expr_stmt|;
 name|depends
 operator|+=
-literal|" "
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
 operator|+
 name|i
 operator|.
@@ -6054,6 +6063,16 @@ name|destroyQDocIndexFiles
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|Generator
+operator|::
+name|generating
+argument_list|()
+condition|)
+name|resolveNamespaces
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -6211,6 +6230,7 @@ decl|,
 name|nodes
 control|)
 block|{
+comment|// Treat public namespaces from index trees as 'seen'
 if|if
 condition|(
 name|n
@@ -6218,10 +6238,28 @@ operator|->
 name|isNamespace
 argument_list|()
 operator|&&
+operator|(
 name|n
 operator|->
 name|wasSeen
 argument_list|()
+operator|||
+operator|(
+name|n
+operator|->
+name|isIndexNode
+argument_list|()
+operator|&&
+name|n
+operator|->
+name|access
+argument_list|()
+operator|==
+name|Node
+operator|::
+name|Public
+operator|)
+operator|)
 condition|)
 block|{
 name|ns
@@ -6234,6 +6272,11 @@ argument_list|>
 argument_list|(
 name|n
 argument_list|)
+expr_stmt|;
+name|ns
+operator|->
+name|markSeen
+argument_list|()
 expr_stmt|;
 break|break;
 block|}
@@ -7897,7 +7940,10 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
-literal|"#"
+name|QLatin1Char
+argument_list|(
+literal|'#'
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QString

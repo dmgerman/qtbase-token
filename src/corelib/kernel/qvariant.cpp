@@ -2165,8 +2165,6 @@ case|:
 operator|*
 name|str
 operator|=
-name|QString
-argument_list|(
 operator|*
 name|v_cast
 argument_list|<
@@ -2174,7 +2172,6 @@ name|QChar
 argument_list|>
 argument_list|(
 name|d
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;

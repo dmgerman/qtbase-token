@@ -1299,7 +1299,7 @@ operator|::
 name|ShowIsFullScreen
 case|:
 return|return
-literal|true
+literal|false
 return|;
 case|case
 name|QPlatformIntegration
@@ -1367,7 +1367,7 @@ operator|::
 name|ShowIsMaximized
 case|:
 return|return
-literal|false
+literal|true
 return|;
 case|case
 name|QPlatformIntegration

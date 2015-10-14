@@ -788,6 +788,70 @@ block|}
 block|}
 end_function
 begin_function
+DECL|function|abort
+name|void
+name|QHttpNetworkConnectionChannel
+operator|::
+name|abort
+parameter_list|()
+block|{
+if|if
+condition|(
+operator|!
+name|socket
+condition|)
+name|state
+operator|=
+name|QHttpNetworkConnectionChannel
+operator|::
+name|IdleState
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|socket
+operator|->
+name|state
+argument_list|()
+operator|==
+name|QAbstractSocket
+operator|::
+name|UnconnectedState
+condition|)
+name|state
+operator|=
+name|QHttpNetworkConnectionChannel
+operator|::
+name|IdleState
+expr_stmt|;
+else|else
+name|state
+operator|=
+name|QHttpNetworkConnectionChannel
+operator|::
+name|ClosingState
+expr_stmt|;
+comment|// pendingEncrypt must only be true in between connected and encrypted states
+name|pendingEncrypt
+operator|=
+literal|false
+expr_stmt|;
+if|if
+condition|(
+name|socket
+condition|)
+block|{
+comment|// socket can be 0 since the host lookup is done from qhttpnetworkconnection.cpp while
+comment|// there is no socket yet.
+name|socket
+operator|->
+name|abort
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_function
 DECL|function|sendRequest
 name|bool
 name|QHttpNetworkConnectionChannel
@@ -1006,6 +1070,10 @@ name|state
 argument_list|()
 decl_stmt|;
 comment|// resend this request after we receive the disconnected signal
+comment|// If !socket->isOpen() then we have already called close() on the socket, but there was still a
+comment|// pending connectToHost() for which we hadn't seen a connected() signal, yet. The connected()
+comment|// has now arrived (as indicated by socketState != ClosingState), but we cannot send anything on
+comment|// such a socket anymore.
 if|if
 condition|(
 name|socketState
@@ -1013,6 +1081,20 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|ClosingState
+operator|||
+operator|(
+name|socketState
+operator|!=
+name|QAbstractSocket
+operator|::
+name|UnconnectedState
+operator|&&
+operator|!
+name|socket
+operator|->
+name|isOpen
+argument_list|()
+operator|)
 condition|)
 block|{
 if|if
@@ -4816,6 +4898,21 @@ argument_list|(
 name|socket
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|reply
+condition|)
+comment|// a reply was actually dequeued.
+name|reply
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|connectionChannel
+operator|=
+name|this
+expr_stmt|;
+comment|// set correct channel like in sendRequest() and queueRequest();
 if|if
 condition|(
 name|connection

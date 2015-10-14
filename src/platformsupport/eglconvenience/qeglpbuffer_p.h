@@ -53,6 +53,11 @@ include|#
 directive|include
 file|<qpa/qplatformoffscreensurface.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtPlatformSupport/private/qeglplatformcontext_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -70,6 +75,9 @@ argument_list|,
 argument|const QSurfaceFormat&format
 argument_list|,
 argument|QOffscreenSurface *offscreenSurface
+argument_list|,
+argument|QEGLPlatformContext::Flags flags =
+literal|0
 argument_list|)
 block|;
 operator|~

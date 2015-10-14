@@ -197,7 +197,7 @@ literal|"  Title: \""
 operator|<<
 name|title
 operator|<<
-literal|"\""
+literal|'"'
 operator|<<
 name|endl
 operator|<<

@@ -14104,9 +14104,9 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-name|QLatin1String
+name|QLatin1Char
 argument_list|(
-literal|"."
+literal|'.'
 argument_list|)
 operator|+
 name|t

@@ -1348,7 +1348,6 @@ name|QFontEngine
 operator|::
 name|Format_A8
 case|:
-block|{
 name|m_image
 operator|=
 name|QImage
@@ -1363,7 +1362,6 @@ name|Format_Alpha8
 argument_list|)
 expr_stmt|;
 break|break;
-block|}
 case|case
 name|QFontEngine
 operator|::

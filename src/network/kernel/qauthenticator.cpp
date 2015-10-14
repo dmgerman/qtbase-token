@@ -172,10 +172,10 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!   \class QAuthenticator   \brief The QAuthenticator class provides an authentication object.   \since 4.3    \reentrant   \ingroup network   \inmodule QtNetwork    The QAuthenticator class is usually used in the   \l{QNetworkAccessManager::}{authenticationRequired()} and   \l{QNetworkAccessManager::}{proxyAuthenticationRequired()} signals of QNetworkAccessManager and   QAbstractSocket. The class provides a way to pass back the required   authentication information to the socket when accessing services that   require authentication.    QAuthenticator supports the following authentication methods:   \list     \li Basic     \li NTLM version 2     \li Digest-MD5   \endlist    \section1 Options    In addition to the username and password required for authentication, a   QAuthenticator object can also contain additional options. The   options() function can be used to query incoming options sent by   the server; the setOption() function can   be used to set outgoing options, to be processed by the authenticator   calculation. The options accepted and provided depend on the authentication   type (see method()).    The following tables list known incoming options as well as accepted   outgoing options. The list of incoming options is not exhaustive, since   servers may include additional information at any time. The list of   outgoing options is exhaustive, however, and no unknown options will be   treated or sent back to the server.    \section2 Basic    \table     \header \li Option \li Direction \li Description     \row \li \tt{realm} \li Incoming \li Contains the realm of the authentication, the same as realm()   \endtable    The Basic authentication mechanism supports no outgoing options.    \section2 NTLM version 2    The NTLM authentication mechanism currently supports no incoming or outgoing options.   On Windows, if no \a user has been set, domain\\user credentials will be searched for on the   local system to enable Single-Sign-On functionality.    \section2 Digest-MD5    \table     \header \li Option \li Direction \li Description     \row \li \tt{realm} \li Incoming \li Contains the realm of the authentication, the same as realm()   \endtable    The Digest-MD5 authentication mechanism supports no outgoing options.    \sa QSslSocket */
+comment|/*!   \class QAuthenticator   \brief The QAuthenticator class provides an authentication object.   \since 4.3    \reentrant   \ingroup network   \inmodule QtNetwork    The QAuthenticator class is usually used in the   \l{QNetworkAccessManager::}{authenticationRequired()} and   \l{QNetworkAccessManager::}{proxyAuthenticationRequired()} signals of QNetworkAccessManager and   QAbstractSocket. The class provides a way to pass back the required   authentication information to the socket when accessing services that   require authentication.    QAuthenticator supports the following authentication methods:   \list     \li Basic     \li NTLM version 2     \li Digest-MD5   \endlist    \target qauthenticator-options   \section1 Options    In addition to the username and password required for authentication, a   QAuthenticator object can also contain additional options. The   options() function can be used to query incoming options sent by   the server; the setOption() function can   be used to set outgoing options, to be processed by the authenticator   calculation. The options accepted and provided depend on the authentication   type (see method()).    The following tables list known incoming options as well as accepted   outgoing options. The list of incoming options is not exhaustive, since   servers may include additional information at any time. The list of   outgoing options is exhaustive, however, and no unknown options will be   treated or sent back to the server.    \section2 Basic    \table     \header \li Option \li Direction \li Type \li Description     \row \li \tt{realm} \li Incoming \li QString \li Contains the realm of the authentication, the same as realm()   \endtable    The Basic authentication mechanism supports no outgoing options.    \section2 NTLM version 2    The NTLM authentication mechanism currently supports no incoming or outgoing options.   On Windows, if no \a user has been set, domain\\user credentials will be searched for on the   local system to enable Single-Sign-On functionality.    \section2 Digest-MD5    \table     \header \li Option \li Direction \li Type \li Description     \row \li \tt{realm} \li Incoming \li QString \li Contains the realm of the authentication, the same as realm()   \endtable    The Digest-MD5 authentication mechanism supports no outgoing options.    \sa QSslSocket */
 end_comment
 begin_comment
-comment|/*!   Constructs an empty authentication object */
+comment|/*!   Constructs an empty authentication object. */
 end_comment
 begin_constructor
 DECL|function|QAuthenticator
@@ -191,7 +191,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!   Destructs the object */
+comment|/*!   Destructs the object. */
 end_comment
 begin_destructor
 DECL|function|~QAuthenticator
@@ -479,7 +479,7 @@ begin_comment
 comment|/*!     \fn bool QAuthenticator::operator!=(const QAuthenticator&other) const      Returns \c true if this authenticator is different from \a other; otherwise     returns \c false. */
 end_comment
 begin_comment
-comment|/*!   returns the user used for authentication. */
+comment|/*!   Returns the user used for authentication. */
 end_comment
 begin_function
 DECL|function|user
@@ -535,7 +535,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   returns the password used for authentication. */
+comment|/*!   Returns the password used for authentication. */
 end_comment
 begin_function
 DECL|function|password
@@ -630,7 +630,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   returns the realm requiring authentication. */
+comment|/*!   Returns the realm requiring authentication. */
 end_comment
 begin_function
 DECL|function|realm
@@ -681,7 +681,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7     Returns the value related to option \a opt if it was set by the server.     See \l{QAuthenticator#Options} for more information on incoming options.     If option \a opt isn't found, an invalid QVariant will be returned.      \sa options(), QAuthenticator#Options */
+comment|/*!     \since 4.7     Returns the value related to option \a opt if it was set by the server.     See the \l{QAuthenticator#qauthenticator-options}{Options section} for     more information on incoming options.     If option \a opt isn't found, an invalid QVariant will be returned.      \sa options(), {QAuthenticator#qauthenticator-options}{QAuthenticator options} */
 end_comment
 begin_function
 DECL|function|option
@@ -715,7 +715,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7     Returns all incoming options set in this QAuthenticator object by parsing     the server reply. See \l{QAuthenticator#Options} for more information     on incoming options.      \sa option(), QAuthenticator#Options */
+comment|/*!     \since 4.7     Returns all incoming options set in this QAuthenticator object by parsing     the server reply. See the \l{QAuthenticator#qauthenticator-options}{Options section}     for more information on incoming options.      \sa option(), {QAuthenticator#qauthenticator-options}{QAuthenticator options} */
 end_comment
 begin_function
 DECL|function|options
@@ -739,7 +739,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.7      Sets the outgoing option \a opt to value \a value.     See \l{QAuthenticator#Options} for more information on outgoing options.      \sa options(), option(), QAuthenticator#Options */
+comment|/*!     \since 4.7      Sets the outgoing option \a opt to value \a value.     See the \l{QAuthenticator#qauthenticator-options}{Options section} for more information on outgoing options.      \sa options(), option(), {QAuthenticator#qauthenticator-options}{QAuthenticator options} */
 end_comment
 begin_function
 DECL|function|setOption
@@ -776,7 +776,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the authenticator is null. */
+comment|/*!     Returns \c true if the object has not been initialized. Returns     \c false if non-const member functions have been called, or     the content was constructed or copied from another initialized     QAuthenticator object. */
 end_comment
 begin_function
 DECL|function|isNull
@@ -2707,7 +2707,7 @@ literal|"response=\""
 operator|+
 name|response
 operator|+
-literal|'\"'
+literal|'"'
 expr_stmt|;
 if|if
 condition|(
@@ -2769,7 +2769,7 @@ literal|"cnonce=\""
 operator|+
 name|cnonce
 operator|+
-literal|'\"'
+literal|'"'
 expr_stmt|;
 block|}
 return|return

@@ -1194,9 +1194,9 @@ decl_stmt|;
 return|return
 name|manufacturer
 operator|+
-name|QStringLiteral
+name|QLatin1Char
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 operator|+
 name|model

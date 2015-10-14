@@ -856,11 +856,6 @@ argument_list|)
 block|;
 name|virtual
 name|void
-name|processPrlFiles
-argument_list|()
-block|;
-name|virtual
-name|void
 name|writePrlFile
 argument_list|(
 name|QTextStream
@@ -871,7 +866,11 @@ comment|//make sure libraries are found
 name|virtual
 name|bool
 name|findLibraries
-argument_list|()
+argument_list|(
+argument|bool linkPrl
+argument_list|,
+argument|bool mergeLflags
+argument_list|)
 block|;
 comment|//for retrieving values and lists of values
 name|virtual
@@ -1013,6 +1012,31 @@ argument_list|,
 specifier|const
 name|QString
 operator|&
+argument_list|)
+block|;      enum
+name|LibFlagType
+block|{
+name|LibFlagLib
+block|,
+name|LibFlagPath
+block|,
+name|LibFlagFile
+block|,
+name|LibFlagOther
+block|}
+block|;
+name|virtual
+name|LibFlagType
+name|parseLibFlag
+argument_list|(
+specifier|const
+name|ProString
+operator|&
+name|flag
+argument_list|,
+name|ProString
+operator|*
+name|arg
 argument_list|)
 block|;
 name|ProStringList
@@ -1331,7 +1355,11 @@ name|bool
 name|MakefileGenerator
 operator|::
 name|findLibraries
-argument_list|()
+argument_list|(
+argument|bool
+argument_list|,
+argument|bool
+argument_list|)
 block|{
 return|return
 name|true

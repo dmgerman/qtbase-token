@@ -88,11 +88,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qt_windows.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<limits.h>
 end_include
 begin_if

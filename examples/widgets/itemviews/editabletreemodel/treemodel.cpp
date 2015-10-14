@@ -1040,14 +1040,12 @@ index|[
 name|number
 index|]
 operator|.
-name|mid
+name|at
 argument_list|(
 name|position
-argument_list|,
-literal|1
 argument_list|)
 operator|!=
-literal|" "
+literal|' '
 condition|)
 break|break;
 operator|++

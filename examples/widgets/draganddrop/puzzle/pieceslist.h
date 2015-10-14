@@ -45,6 +45,18 @@ argument_list|,
 argument|QPoint location
 argument_list|)
 block|;
+specifier|static
+name|QString
+name|puzzleMimeType
+argument_list|()
+block|{
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"image/x-puzzle-piece"
+argument_list|)
+return|;
+block|}
 name|protected
 operator|:
 name|void

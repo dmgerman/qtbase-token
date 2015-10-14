@@ -521,7 +521,7 @@ name|line
 operator|.
 name|split
 argument_list|(
-literal|","
+literal|','
 argument_list|,
 name|QString
 operator|::

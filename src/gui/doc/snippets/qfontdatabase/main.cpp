@@ -148,7 +148,7 @@ argument_list|(
 name|points
 argument_list|)
 operator|+
-literal|" "
+literal|' '
 expr_stmt|;
 name|styleItem
 operator|->

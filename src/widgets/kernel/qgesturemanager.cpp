@@ -2187,6 +2187,12 @@ argument_list|(
 name|originatingWidget
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|originatingWidget
+condition|)
+return|return;
 comment|// iterate over all active gestures and all maybe gestures
 comment|// for each find the owner
 comment|// if the owner is part of our sub-hierarchy, cancel it.
@@ -3302,6 +3308,10 @@ argument_list|(
 name|receiver
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|receiver
+condition|)
 name|gestureByTypes
 index|[
 name|gesture

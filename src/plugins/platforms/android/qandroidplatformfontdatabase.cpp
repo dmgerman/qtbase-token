@@ -191,7 +191,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|";"
+name|QLatin1Char
+argument_list|(
+literal|';'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -218,7 +221,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|";"
+name|QLatin1Char
+argument_list|(
+literal|';'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -237,7 +243,10 @@ argument_list|)
 operator|.
 name|split
 argument_list|(
-literal|";"
+name|QLatin1Char
+argument_list|(
+literal|';'
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

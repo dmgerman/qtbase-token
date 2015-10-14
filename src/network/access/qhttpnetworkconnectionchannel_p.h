@@ -483,6 +483,10 @@ name|void
 name|close
 argument_list|()
 block|;
+name|void
+name|abort
+argument_list|()
+block|;
 name|bool
 name|sendRequest
 argument_list|()

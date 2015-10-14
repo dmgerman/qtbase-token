@@ -7076,8 +7076,10 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|if
-condition|(
+name|MYSQL
+modifier|*
+name|mysql
+init|=
 name|mysql_real_connect
 argument_list|(
 name|d
@@ -7212,6 +7214,14 @@ argument_list|()
 argument_list|,
 name|optionFlags
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mysql
+operator|==
+name|d
+operator|->
+name|mysql
 condition|)
 block|{
 if|if

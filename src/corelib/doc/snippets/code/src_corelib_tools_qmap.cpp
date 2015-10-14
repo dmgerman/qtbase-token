@@ -1169,7 +1169,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|i
@@ -1246,7 +1246,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|map
@@ -1287,7 +1287,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"_"
+literal|'_'
 argument_list|)
 condition|)
 name|map

@@ -1290,6 +1290,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_SHORTCUT
+comment|// FIXME: This only registers the primary key sequence of the cancel action
 name|d
 operator|->
 name|escapeShortcut
@@ -1297,9 +1298,9 @@ operator|=
 operator|new
 name|QShortcut
 argument_list|(
-name|Qt
+name|QKeySequence
 operator|::
-name|Key_Escape
+name|Cancel
 argument_list|,
 name|this
 argument_list|,

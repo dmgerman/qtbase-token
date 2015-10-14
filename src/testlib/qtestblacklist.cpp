@@ -178,6 +178,13 @@ if|#
 directive|if
 name|_MSC_VER
 operator|==
+literal|1900
+operator|<<
+literal|"msvc-2015"
+elif|#
+directive|elif
+name|_MSC_VER
+operator|==
 literal|1800
 operator|<<
 literal|"msvc-2013"
@@ -559,10 +566,7 @@ name|data
 condition|)
 name|msg
 operator|+=
-name|QByteArrayLiteral
-argument_list|(
-literal|":"
-argument_list|)
+literal|':'
 operator|+
 name|QByteArray
 argument_list|(

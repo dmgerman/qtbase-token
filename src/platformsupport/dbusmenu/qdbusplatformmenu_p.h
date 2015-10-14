@@ -26,6 +26,36 @@ begin_comment
 comment|//
 end_comment
 begin_comment
+comment|// This file is not part of the Qt API.  It exists purely as an
+end_comment
+begin_comment
+comment|// implementation detail.  This header file may change from version to
+end_comment
+begin_comment
+comment|// version without notice, or even be removed.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// We mean it.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//  W A R N I N G
+end_comment
+begin_comment
+comment|//  -------------
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
 comment|// This file is part of the DBus menu support and is not meant to be used
 end_comment
 begin_comment
@@ -77,6 +107,10 @@ argument_list|(
 argument|quintptr tag =
 literal|0LL
 argument_list|)
+block|;
+operator|~
+name|QDBusPlatformMenuItem
+argument_list|()
 block|;
 name|quintptr
 name|tag

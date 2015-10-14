@@ -7024,6 +7024,30 @@ name|int
 name|signum
 parameter_list|)
 block|{
+specifier|const
+name|int
+name|msecsFunctionTime
+init|=
+name|qRound
+argument_list|(
+name|QTestLog
+operator|::
+name|msecsFunctionTime
+argument_list|()
+argument_list|)
+decl_stmt|;
+specifier|const
+name|int
+name|msecsTotalTime
+init|=
+name|qRound
+argument_list|(
+name|QTestLog
+operator|::
+name|msecsTotalTime
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|signum
@@ -7035,9 +7059,14 @@ argument_list|()
 expr_stmt|;
 name|qFatal
 argument_list|(
-literal|"Received signal %d"
+literal|"Received signal %d\n"
+literal|"         Function time: %dms Total time: %dms"
 argument_list|,
 name|signum
+argument_list|,
+name|msecsFunctionTime
+argument_list|,
+name|msecsTotalTime
 argument_list|)
 expr_stmt|;
 if|#
@@ -7998,6 +8027,30 @@ operator|=
 literal|0
 expr_stmt|;
 specifier|const
+name|int
+name|msecsFunctionTime
+init|=
+name|qRound
+argument_list|(
+name|QTestLog
+operator|::
+name|msecsFunctionTime
+argument_list|()
+argument_list|)
+decl_stmt|;
+specifier|const
+name|int
+name|msecsTotalTime
+init|=
+name|qRound
+argument_list|(
+name|QTestLog
+operator|::
+name|msecsTotalTime
+argument_list|()
+argument_list|)
+decl_stmt|;
+specifier|const
 name|void
 modifier|*
 name|exceptionAddress
@@ -8010,11 +8063,16 @@ name|ExceptionAddress
 decl_stmt|;
 name|printf
 argument_list|(
-literal|"A crash occurred in %s.\n\n"
+literal|"A crash occurred in %s.\n"
+literal|"Function time: %dms Total time: %dms\n\n"
 literal|"Exception address: 0x%p\n"
 literal|"Exception code   : 0x%lx\n"
 argument_list|,
 name|appName
+argument_list|,
+name|msecsFunctionTime
+argument_list|,
+name|msecsTotalTime
 argument_list|,
 name|exceptionAddress
 argument_list|,

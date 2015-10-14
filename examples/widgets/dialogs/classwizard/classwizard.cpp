@@ -217,7 +217,7 @@ operator|.
 name|toLatin1
 argument_list|()
 operator|+
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
@@ -225,7 +225,7 @@ literal|"*/\n"
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 block|}
 if|if
@@ -245,7 +245,7 @@ literal|"#ifndef "
 operator|+
 name|macroName
 operator|+
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
@@ -253,11 +253,11 @@ literal|"#define "
 operator|+
 name|macroName
 operator|+
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 block|}
 if|if
@@ -277,11 +277,11 @@ literal|"#include "
 operator|+
 name|baseInclude
 operator|+
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 block|}
 name|block
@@ -306,7 +306,7 @@ name|baseClass
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
@@ -330,7 +330,7 @@ literal|"    Q_OBJECT\n"
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 block|}
 name|block
@@ -423,7 +423,7 @@ literal|"&other);\n"
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
@@ -458,7 +458,7 @@ condition|)
 block|{
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
@@ -470,7 +470,7 @@ name|headerFile
 argument_list|(
 name|outputDir
 operator|+
-literal|"/"
+literal|'/'
 operator|+
 name|header
 argument_list|)
@@ -567,7 +567,7 @@ operator|.
 name|toLatin1
 argument_list|()
 operator|+
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
@@ -575,7 +575,7 @@ literal|"*/\n"
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 block|}
 name|block
@@ -591,7 +591,7 @@ literal|"\"\n"
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 if|if
 condition|(
@@ -747,7 +747,7 @@ literal|"}\n"
 expr_stmt|;
 name|block
 operator|+=
-literal|"\n"
+literal|'\n'
 expr_stmt|;
 name|block
 operator|+=
@@ -802,7 +802,7 @@ name|implementationFile
 argument_list|(
 name|outputDir
 operator|+
-literal|"/"
+literal|'/'
 operator|+
 name|implementation
 argument_list|)
@@ -1825,11 +1825,11 @@ name|baseIncludeLineEdit
 operator|->
 name|setText
 argument_list|(
-literal|"<"
+literal|'<'
 operator|+
 name|baseClass
 operator|+
-literal|">"
+literal|'>'
 argument_list|)
 expr_stmt|;
 block|}
@@ -1839,7 +1839,7 @@ name|baseIncludeLineEdit
 operator|->
 name|setText
 argument_list|(
-literal|"\""
+literal|'"'
 operator|+
 name|baseClass
 operator|.

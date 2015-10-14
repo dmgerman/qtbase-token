@@ -3012,7 +3012,7 @@ break|break;
 case|case
 name|QImage
 operator|::
-name|Format_Indexed8
+name|Format_Alpha8
 case|:
 name|desc
 operator|.

@@ -1282,7 +1282,7 @@ name|item
 operator|.
 name|m_properties
 operator|<<
-literal|")"
+literal|')'
 expr_stmt|;
 return|return
 name|d

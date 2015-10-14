@@ -1458,10 +1458,10 @@ argument_list|)
 operator|&&
 name|Q_CC_MSVC
 operator|<
-literal|1900
+literal|2000
 name|QSKIP
 argument_list|(
-literal|"Test disabled, this test generates an Internal Compiler Error compiling"
+literal|"Test disabled, this test generates an Internal Compiler Error compiling in release mode"
 argument_list|)
 expr_stmt|;
 else|#

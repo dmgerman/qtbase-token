@@ -17,6 +17,22 @@ include|#
 directive|include
 file|<QtWidgets>
 end_include
+begin_function
+DECL|function|fridgetMagnetsMimeType
+specifier|static
+specifier|inline
+name|QString
+name|fridgetMagnetsMimeType
+parameter_list|()
+block|{
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"application/x-fridgemagnet"
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|//! [0]
 end_comment
@@ -39,7 +55,10 @@ block|{
 name|QFile
 name|dictionaryFile
 argument_list|(
+name|QStringLiteral
+argument_list|(
 literal|":/dictionary/words.txt"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|dictionaryFile
@@ -164,7 +183,6 @@ block|}
 block|}
 comment|//! [1]
 comment|//! [2]
-comment|//Fridge magnets is used for demoing Qt on S60 and themed backgrounds look better than white
 name|QPalette
 name|newPalette
 init|=
@@ -245,7 +263,8 @@ argument_list|()
 operator|->
 name|hasFormat
 argument_list|(
-literal|"application/x-fridgemagnet"
+name|fridgetMagnetsMimeType
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -344,7 +363,8 @@ argument_list|()
 operator|->
 name|hasFormat
 argument_list|(
-literal|"application/x-fridgemagnet"
+name|fridgetMagnetsMimeType
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -441,7 +461,8 @@ argument_list|()
 operator|->
 name|hasFormat
 argument_list|(
-literal|"application/x-fridgemagnet"
+name|fridgetMagnetsMimeType
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -463,7 +484,8 @@ name|mime
 operator|->
 name|data
 argument_list|(
-literal|"application/x-fridgemagnet"
+name|fridgetMagnetsMimeType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|QDataStream
@@ -589,9 +611,12 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
-name|QRegExp
+name|QRegularExpression
+argument_list|(
+name|QStringLiteral
 argument_list|(
 literal|"\\s+"
+argument_list|)
 argument_list|)
 argument_list|,
 name|QString
@@ -609,7 +634,9 @@ argument_list|()
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|piece
 decl|,
 name|pieces
@@ -774,7 +801,8 @@ name|mimeData
 operator|->
 name|setData
 argument_list|(
-literal|"application/x-fridgemagnet"
+name|fridgetMagnetsMimeType
+argument_list|()
 argument_list|,
 name|itemData
 argument_list|)

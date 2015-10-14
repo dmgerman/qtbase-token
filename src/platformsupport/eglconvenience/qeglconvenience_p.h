@@ -320,8 +320,6 @@ name|config
 argument_list|)
 decl|const
 decl_stmt|;
-name|private
-label|:
 name|QSurfaceFormat
 name|m_format
 decl_stmt|;

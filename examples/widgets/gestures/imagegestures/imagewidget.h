@@ -164,10 +164,6 @@ operator|*
 argument_list|)
 block|;
 comment|//! [class definition begin]
-name|void
-name|updateImage
-argument_list|()
-block|;
 name|QImage
 name|loadImage
 argument_list|(

@@ -773,7 +773,7 @@ operator|.
 name|key
 argument_list|()
 operator|<<
-literal|":"
+literal|':'
 operator|<<
 name|i
 operator|.
@@ -1063,7 +1063,7 @@ argument_list|()
 operator|<<
 name|str
 operator|<<
-literal|":"
+literal|':'
 operator|<<
 name|map
 operator|.
@@ -1125,7 +1125,7 @@ argument_list|()
 operator|<<
 name|str
 operator|<<
-literal|":"
+literal|':'
 operator|<<
 name|i
 expr_stmt|;

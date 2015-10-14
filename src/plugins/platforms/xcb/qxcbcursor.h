@@ -273,9 +273,10 @@ name|QXcbConnection
 modifier|*
 name|c
 parameter_list|,
-name|xcb_window_t
+name|QXcbVirtualDesktop
 modifier|*
-name|rootWin
+modifier|*
+name|virtualDesktop
 parameter_list|,
 name|QPoint
 modifier|*

@@ -572,7 +572,10 @@ operator|+
 operator|*
 name|t
 operator|+
-literal|","
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
 expr_stmt|;
 operator|++
 name|t
