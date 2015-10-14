@@ -25,9 +25,6 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
-name|gst_is_initialized
-argument_list|()
-expr_stmt|;
 return|return
 literal|0
 return|;

@@ -232,6 +232,9 @@ else|:
 literal|0
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 name|void
 name|changeCursor
 parameter_list|(
@@ -256,6 +259,8 @@ name|window
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 private|private:
 DECL|member|m_pos
 name|QPoint
