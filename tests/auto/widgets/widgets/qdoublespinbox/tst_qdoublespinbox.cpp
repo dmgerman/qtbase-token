@@ -732,6 +732,8 @@ literal|"10.50"
 operator|<<
 literal|false
 expr_stmt|;
+comment|// 10.5 is rounded correctly to 11 when using libdouble-conversion, or incorrectly to 10 when
+comment|// using snprintf. This is not the point of this test, though.
 name|QTest
 operator|::
 name|newRow
@@ -744,7 +746,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|10.5
+literal|10.4
 operator|<<
 literal|0
 operator|<<
@@ -832,7 +834,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|10.5
+literal|10.4
 operator|<<
 literal|0
 operator|<<

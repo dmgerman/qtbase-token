@@ -539,6 +539,52 @@ modifier|*
 name|c
 parameter_list|()
 function_decl|;
+comment|// Maximum number of significant digits needed to represent a double.
+comment|// We cannot use std::numeric_limits here without constexpr.
+DECL|member|DoubleMantissaBits
+specifier|static
+specifier|const
+name|int
+name|DoubleMantissaBits
+init|=
+literal|53
+decl_stmt|;
+DECL|member|Log10_2_100000
+specifier|static
+specifier|const
+name|int
+name|Log10_2_100000
+init|=
+literal|30103
+decl_stmt|;
+comment|// log10(2) * 100000
+comment|// same as C++11 std::numeric_limits<T>::max_digits10
+DECL|member|DoubleMaxSignificant
+specifier|static
+specifier|const
+name|int
+name|DoubleMaxSignificant
+init|=
+operator|(
+name|DoubleMantissaBits
+operator|*
+name|Log10_2_100000
+operator|)
+operator|/
+literal|100000
+operator|+
+literal|2
+decl_stmt|;
+comment|// Maximum number of digits before decimal point to represent a double
+comment|// Same as std::numeric_limits<double>::max_exponent10 + 1
+DECL|member|DoubleMaxDigitsBeforeDecimal
+specifier|static
+specifier|const
+name|int
+name|DoubleMaxDigitsBeforeDecimal
+init|=
+literal|309
+decl_stmt|;
 DECL|enum|DoubleForm
 enum|enum
 name|DoubleForm
