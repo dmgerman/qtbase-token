@@ -466,6 +466,13 @@ name|int
 name|len
 parameter_list|)
 function_decl|;
+name|void
+name|write
+parameter_list|(
+name|QLatin1String
+name|data
+parameter_list|)
+function_decl|;
 specifier|inline
 name|void
 name|putString
@@ -514,6 +521,18 @@ init|=
 name|false
 parameter_list|)
 function_decl|;
+name|void
+name|putString
+parameter_list|(
+name|QLatin1String
+name|data
+parameter_list|,
+name|bool
+name|number
+init|=
+name|false
+parameter_list|)
+function_decl|;
 specifier|inline
 name|void
 name|putChar
@@ -544,9 +563,9 @@ block|}
 enum|;
 comment|// typical line length
 name|int
-name|right
-decl_stmt|,
 name|left
+decl_stmt|,
+name|right
 decl_stmt|;
 name|QVarLengthArray
 operator|<
