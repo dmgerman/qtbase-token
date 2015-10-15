@@ -16034,10 +16034,6 @@ if|#
 directive|if
 name|defined
 name|QT_BUILD_INTERNAL
-operator|&&
-operator|!
-name|defined
-name|Q_OS_BLACKBERRY
 name|QFrame
 modifier|*
 name|container

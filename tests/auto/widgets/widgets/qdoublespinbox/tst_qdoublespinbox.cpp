@@ -6355,13 +6355,14 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
+comment|// On some platforms this is our root window
+comment|// we need to show it again otherwise subsequent
+comment|// tests will fail
 name|testFocusWidget
 operator|->
 name|show
 argument_list|()
 expr_stmt|;
-comment|// On BlackBerry this is our root window we need to show it again
-comment|// otherwise subsequent tests will fail
 block|}
 end_function
 begin_function

@@ -244,11 +244,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|QQNXBUTTON_DEBUG
 argument_list|)
 name|qWarning

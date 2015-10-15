@@ -2632,12 +2632,6 @@ directive|if
 operator|(
 operator|!
 name|defined
-name|Q_OS_BLACKBERRY
-operator|)
-operator|&&
-operator|(
-operator|!
-name|defined
 name|Q_OS_WIN
 operator|)
 operator|&&

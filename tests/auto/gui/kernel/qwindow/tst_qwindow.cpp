@@ -1808,30 +1808,6 @@ argument_list|(
 name|m_testWindowSize
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-comment|// "window" is the "root" window and will always be shown fullscreen
-comment|// so we only expect one resize event
-name|QTRY_COMPARE
-argument_list|(
-name|window
-operator|.
-name|received
-argument_list|(
-name|QEvent
-operator|::
-name|Resize
-argument_list|)
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QTRY_COMPARE
 argument_list|(
 name|window
@@ -1846,8 +1822,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -2274,14 +2248,6 @@ operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
-comment|// On BB10 the window is the root window and fullscreen, so nothing is resized.
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
 name|QTRY_VERIFY
 argument_list|(
 name|window
@@ -2296,8 +2262,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|qWait
@@ -2324,14 +2288,6 @@ operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
-comment|// On BB10 the window is the root window and fullscreen, so nothing is resized.
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
 name|QTRY_VERIFY
 argument_list|(
 name|window
@@ -2346,8 +2302,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|qWait
@@ -10864,35 +10818,6 @@ operator|.
 name|showNormal
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-comment|// "window" is the "root" window and will always be shown fullscreen
-comment|// so we only expect one resize event
-name|QTRY_COMPARE
-argument_list|(
-name|w
-operator|.
-name|width
-argument_list|()
-argument_list|,
-name|qGuiApp
-operator|->
-name|primaryScreen
-argument_list|()
-operator|->
-name|availableGeometry
-argument_list|()
-operator|.
-name|width
-argument_list|()
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QTRY_COMPARE
 argument_list|(
 name|w
@@ -10906,8 +10831,6 @@ name|width
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_VERIFY
 argument_list|(
 name|w
@@ -10947,39 +10870,12 @@ operator|.
 name|showNormal
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-comment|// "window" is the "root" window and will always be shown fullscreen
-comment|// so we only expect one resize event
-specifier|const
-name|QSize
-name|expectedSize
-init|=
-name|QGuiApplication
-operator|::
-name|primaryScreen
-argument_list|()
-operator|->
-name|availableGeometry
-argument_list|()
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
-else|#
-directive|else
 specifier|const
 name|QSize
 name|expectedSize
 init|=
 name|testSize
 decl_stmt|;
-endif|#
-directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|w

@@ -836,11 +836,6 @@ name|defined
 argument_list|(
 name|Q_OS_LINUX
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
 name|QCOMPARE
 argument_list|(
 name|rootCertLoadingAllowed

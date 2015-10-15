@@ -8655,37 +8655,6 @@ argument_list|,
 literal|150
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-name|Q_OS_BLACKBERRY
-name|QFont
-name|font
-init|=
-name|lv
-operator|.
-name|font
-argument_list|()
-decl_stmt|;
-comment|// On BB10 the root window is stretched over the whole screen
-comment|// This makes sure that the text will be long enough to produce
-comment|// a vertical scrollbar
-name|font
-operator|.
-name|setPixelSize
-argument_list|(
-literal|50
-argument_list|)
-expr_stmt|;
-name|lv
-operator|.
-name|setFont
-argument_list|(
-name|font
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|lv
 operator|.
 name|showNormal
@@ -12911,22 +12880,6 @@ operator|::
 name|taskQTBUG_21115_scrollToAndHiddenItems
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-name|Q_OS_BLACKBERRY
-comment|// On BB10 we need to create a root window which is automatically stretched
-comment|// over the whole screen
-name|QWindow
-name|rootWindow
-decl_stmt|;
-name|rootWindow
-operator|.
-name|show
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|int
@@ -14306,22 +14259,6 @@ operator|::
 name|testScrollToWithHidden
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-name|Q_OS_BLACKBERRY
-comment|// On BB10 we need to create a root window which is automatically stretched
-comment|// over the whole screen
-name|QWindow
-name|rootWindow
-decl_stmt|;
-name|rootWindow
-operator|.
-name|show
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 name|QListView
 name|lv
 decl_stmt|;

@@ -297,11 +297,6 @@ name|defined
 argument_list|(
 name|Q_OS_NACL
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
 comment|// do nothing.
 elif|#
 directive|elif
@@ -571,11 +566,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_NACL
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
 argument_list|)
 comment|// do nothing.
 elif|#

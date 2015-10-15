@@ -9952,11 +9952,6 @@ name|defined
 argument_list|(
 name|Q_OS_QNX
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
 comment|//update visibility
 if|if
 condition|(
@@ -48302,12 +48297,6 @@ name|defined
 argument_list|(
 name|Q_OS_QNX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Platform does not support showMinimized()"
@@ -52308,12 +52297,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_QNX
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
 argument_list|)
 name|QEXPECT_FAIL
 argument_list|(

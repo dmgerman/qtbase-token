@@ -1762,21 +1762,6 @@ name|QString
 argument_list|()
 argument_list|)
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_BLACKBERRY
-name|QList
-operator|<
-name|QSocketNotifier
-operator|*
-operator|>
-name|defaultNotifiers
-argument_list|()
-specifier|const
-expr_stmt|;
-endif|#
-directive|endif
-comment|// Q_OS_BLACKBERRY
 block|}
 end_decl_stmt
 begin_empty_stmt

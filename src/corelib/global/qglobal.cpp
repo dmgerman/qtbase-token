@@ -293,23 +293,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-end_if
-begin_include
-include|#
-directive|include
-file|<bps/deviceinfo.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
 name|Q_OS_SOLARIS
 argument_list|)
 end_if
@@ -3886,7 +3869,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.4      Returns the type of the operating system kernel Qt was compiled for. It's     also the kernel the application is running on, unless the host operating     system is running a form of compatibility or virtualization layer.      Values returned by this function are stable and will not change over time,     so applications can rely on the returned value as an identifier, except     that new OS kernel types may be added over time.      On Windows, this function returns the type of Windows kernel, like "wince"     or "winnt". On Unix systems, it returns the same as the output of \c{uname     -s} (lowercased).      Note that this function may return surprising values: it returns "linux"     for all operating systems running Linux (including Android), "qnx" for all     operating systems running QNX (including BlackBerry 10), "freebsd" for     Debian/kFreeBSD, and "darwin" for OS X and iOS. For information on the type     of product the application is running on, see productType().      \sa QFileSelector, kernelVersion(), productType(), productVersion(), prettyProductName() */
+comment|/*!     \since 5.4      Returns the type of the operating system kernel Qt was compiled for. It's     also the kernel the application is running on, unless the host operating     system is running a form of compatibility or virtualization layer.      Values returned by this function are stable and will not change over time,     so applications can rely on the returned value as an identifier, except     that new OS kernel types may be added over time.      On Windows, this function returns the type of Windows kernel, like "wince"     or "winnt". On Unix systems, it returns the same as the output of \c{uname     -s} (lowercased).      Note that this function may return surprising values: it returns "linux"     for all operating systems running Linux (including Android), "qnx" for all     operating systems running QNX, "freebsd" for     Debian/kFreeBSD, and "darwin" for OS X and iOS. For information on the type     of product the application is running on, see productType().      \sa QFileSelector, kernelVersion(), productType(), productVersion(), prettyProductName() */
 end_comment
 begin_function
 DECL|function|kernelType
@@ -3962,7 +3945,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.4      Returns the release version of the operating system kernel. On Windows, it     returns the version of the NT or CE kernel. On Unix systems, including     Android, BlackBerry and OS X, it returns the same as the \c{uname -r}     command would return.      If the version could not be determined, this function may return an empty     string.      \sa kernelType(), productType(), productVersion(), prettyProductName() */
+comment|/*!     \since 5.4      Returns the release version of the operating system kernel. On Windows, it     returns the version of the NT or CE kernel. On Unix systems, including     Android and OS X, it returns the same as the \c{uname -r}     command would return.      If the version could not be determined, this function may return an empty     string.      \sa kernelType(), productType(), productVersion(), prettyProductName() */
 end_comment
 begin_function
 DECL|function|kernelVersion
@@ -4064,7 +4047,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.4      Returns the product name of the operating system this application is     running in. If the application is running on some sort of emulation or     virtualization layer (such as WINE on a Unix system), this function will     inspect the emulation / virtualization layer.      Values returned by this function are stable and will not change over time,     so applications can rely on the returned value as an identifier, except     that new OS types may be added over time.      \b{Linux and Android note}: this function returns "android" for Linux     systems running Android userspace, notably when using the Bionic library.     For all other Linux systems, regardless of C library being used, it tries     to determine the distribution name and returns that. If determining the     distribution name failed, it returns "unknown".      \b{BlackBerry note}: this function returns "blackberry" for QNX systems     running the BlackBerry userspace, but "qnx" for all other QNX-based     systems.      \b{Darwin, OS X and iOS note}: this function returns "osx" for OS X     systems, "ios" for iOS systems and "darwin" in case the system could not be     determined.      \b{FreeBSD note}: this function returns "debian" for Debian/kFreeBSD and     "unknown" otherwise.      \b{Windows note}: this function returns "winphone" for builds for Windows     Phone, "winrt" for WinRT builds, "wince" for Windows CE and Embedded     Compact builds, and "windows" for normal desktop builds.      For other Unix-type systems, this function usually returns "unknown".      \sa QFileSelector, kernelType(), kernelVersion(), productVersion(), prettyProductName() */
+comment|/*!     \since 5.4      Returns the product name of the operating system this application is     running in. If the application is running on some sort of emulation or     virtualization layer (such as WINE on a Unix system), this function will     inspect the emulation / virtualization layer.      Values returned by this function are stable and will not change over time,     so applications can rely on the returned value as an identifier, except     that new OS types may be added over time.      \b{Linux and Android note}: this function returns "android" for Linux     systems running Android userspace, notably when using the Bionic library.     For all other Linux systems, regardless of C library being used, it tries     to determine the distribution name and returns that. If determining the     distribution name failed, it returns "unknown".      \b{Darwin, OS X and iOS note}: this function returns "osx" for OS X     systems, "ios" for iOS systems and "darwin" in case the system could not be     determined.      \b{FreeBSD note}: this function returns "debian" for Debian/kFreeBSD and     "unknown" otherwise.      \b{Windows note}: this function returns "winphone" for builds for Windows     Phone, "winrt" for WinRT builds, "wince" for Windows CE and Embedded     Compact builds, and "windows" for normal desktop builds.      For other Unix-type systems, this function usually returns "unknown".      \sa QFileSelector, kernelType(), kernelVersion(), productVersion(), prettyProductName() */
 end_comment
 begin_function
 DECL|function|productType
@@ -4121,18 +4104,6 @@ return|return
 name|QStringLiteral
 argument_list|(
 literal|"windows"
-argument_list|)
-return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-return|return
-name|QStringLiteral
-argument_list|(
-literal|"blackberry"
 argument_list|)
 return|;
 elif|#
@@ -4234,7 +4205,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.4      Returns the product version of the operating system in string form. If the     version could not be determined, this function returns "unknown".      It will return the Android, BlackBerry, iOS, OS X, Windows full-product     versions on those systems. In particular, on OS X, iOS and Windows, the     returned string is similar to the macVersion() or windowsVersion() enums.      On Linux systems, it will try to determine the distribution version and will     return that. This is also done on Debian/kFreeBSD, so this function will     return Debian version in that case.      In all other Unix-type systems, this function always returns "unknown".      \note The version string returned from this function is only guaranteed to     be orderable on Android, BlackBerry, OS X and iOS. On Windows, some Windows     versions are text ("XP" and "Vista", for example). On Linux, the version of     the distribution may jump unexpectedly, please refer to the distribution's     documentation for versioning practices.      \sa kernelType(), kernelVersion(), productType(), prettyProductName() */
+comment|/*!     \since 5.4      Returns the product version of the operating system in string form. If the     version could not be determined, this function returns "unknown".      It will return the Android, iOS, OS X, Windows full-product     versions on those systems. In particular, on OS X, iOS and Windows, the     returned string is similar to the macVersion() or windowsVersion() enums.      On Linux systems, it will try to determine the distribution version and will     return that. This is also done on Debian/kFreeBSD, so this function will     return Debian version in that case.      In all other Unix-type systems, this function always returns "unknown".      \note The version string returned from this function is only guaranteed to     be orderable on Android, OS X and iOS. On Windows, some Windows     versions are text ("XP" and "Vista", for example). On Linux, the version of     the distribution may jump unexpectedly, please refer to the distribution's     documentation for versioning practices.      \sa kernelType(), kernelVersion(), productType(), prettyProductName() */
 end_comment
 begin_function
 DECL|function|productVersion
@@ -4311,7 +4282,7 @@ name|toLower
 argument_list|()
 return|;
 comment|// fall through
-comment|// Android and Blackberry should not fall through to the Unix code
+comment|// Android should not fall through to the Unix code
 elif|#
 directive|elif
 name|defined
@@ -4347,50 +4318,6 @@ name|Q_OS_ANDROID
 argument_list|)
 comment|// Q_OS_ANDROID_NO_SDK
 comment|// TBD
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-name|deviceinfo_details_t
-modifier|*
-name|deviceInfo
-decl_stmt|;
-if|if
-condition|(
-name|deviceinfo_get_details
-argument_list|(
-operator|&
-name|deviceInfo
-argument_list|)
-operator|==
-name|BPS_SUCCESS
-condition|)
-block|{
-name|QString
-name|bbVersion
-init|=
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|deviceinfo_details_get_device_os_version
-argument_list|(
-name|deviceInfo
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|deviceinfo_free_details
-argument_list|(
-operator|&
-name|deviceInfo
-argument_list|)
-expr_stmt|;
-return|return
-name|bbVersion
-return|;
-block|}
 elif|#
 directive|elif
 name|defined
@@ -4630,21 +4557,6 @@ return|return
 name|QLatin1String
 argument_list|(
 literal|"Android "
-argument_list|)
-operator|+
-name|productVersion
-argument_list|()
-return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_BLACKBERRY
-argument_list|)
-return|return
-name|QLatin1String
-argument_list|(
-literal|"BlackBerry "
 argument_list|)
 operator|+
 name|productVersion
@@ -7588,19 +7500,19 @@ begin_comment
 comment|/*!     \macro Q_DECL_RELAXED_CONSTEXPR     \relates<QtGlobal>      This macro can be used to declare an inline function that can be computed     at compile-time according to the relaxed rules from C++14.      It expands to "constexpr" if your compiler supports C++14 relaxed constant     expressions, or to nothing otherwise.      \sa Q_DECL_CONSTEXPR */
 end_comment
 begin_comment
-comment|/*!     \macro qDebug(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the debug message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows the message is sent to the console, if it is a     console application; otherwise, it is sent to the debugger. On Blackberry, the     message is sent to slogger2. This function does nothing if \c QT_NO_DEBUG_OUTPUT     was defined during compilation.      If you pass the function a format string and a list of arguments,     it works in similar way to the C printf() function. The format     should be a Latin-1 string.      Example:      \snippet code/src_corelib_global_qglobal.cpp 24      If you include \c<QtDebug>, a more convenient syntax is also     available:      \snippet code/src_corelib_global_qglobal.cpp 25      With this syntax, the function returns a QDebug object that is     configured to use the QtDebugMsg message type. It automatically     puts a single space between each item, and outputs a newline at     the end. It supports many C++ and Qt types.      To suppress the output at run-time, install your own message handler     with qInstallMessageHandler().      \sa qInfo(), qWarning(), qCritical(), qFatal(), qInstallMessageHandler(),         {Debugging Techniques} */
+comment|/*!     \macro qDebug(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the debug message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows the message is sent to the console, if it is a     console application; otherwise, it is sent to the debugger. On QNX, the     message is sent to slogger2. This function does nothing if \c QT_NO_DEBUG_OUTPUT     was defined during compilation.      If you pass the function a format string and a list of arguments,     it works in similar way to the C printf() function. The format     should be a Latin-1 string.      Example:      \snippet code/src_corelib_global_qglobal.cpp 24      If you include \c<QtDebug>, a more convenient syntax is also     available:      \snippet code/src_corelib_global_qglobal.cpp 25      With this syntax, the function returns a QDebug object that is     configured to use the QtDebugMsg message type. It automatically     puts a single space between each item, and outputs a newline at     the end. It supports many C++ and Qt types.      To suppress the output at run-time, install your own message handler     with qInstallMessageHandler().      \sa qInfo(), qWarning(), qCritical(), qFatal(), qInstallMessageHandler(),         {Debugging Techniques} */
 end_comment
 begin_comment
-comment|/*!     \macro qInfo(const char *message, ...)     \relates<QtGlobal>     \since 5.5      Calls the message handler with the informational message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the console, if it is a     console application; otherwise, it is sent to the debugger. On Blackberry the     message is sent to slogger2. This function does nothing if \c QT_NO_INFO_OUTPUT     was defined during compilation.      If you pass the function a format string and a list of arguments,     it works in similar way to the C printf() function. The format     should be a Latin-1 string.      Example:      \snippet code/src_corelib_global_qglobal.cpp qInfo_printf      If you include \c<QtDebug>, a more convenient syntax is also     available:      \snippet code/src_corelib_global_qglobal.cpp qInfo_stream      With this syntax, the function returns a QDebug object that is     configured to use the QtInfoMsg message type. It automatically     puts a single space between each item, and outputs a newline at     the end. It supports many C++ and Qt types.      To suppress the output at run-time, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qWarning(), qCritical(), qFatal(), qInstallMessageHandler(),         {Debugging Techniques} */
+comment|/*!     \macro qInfo(const char *message, ...)     \relates<QtGlobal>     \since 5.5      Calls the message handler with the informational message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the console, if it is a     console application; otherwise, it is sent to the debugger. On QNX the     message is sent to slogger2. This function does nothing if \c QT_NO_INFO_OUTPUT     was defined during compilation.      If you pass the function a format string and a list of arguments,     it works in similar way to the C printf() function. The format     should be a Latin-1 string.      Example:      \snippet code/src_corelib_global_qglobal.cpp qInfo_printf      If you include \c<QtDebug>, a more convenient syntax is also     available:      \snippet code/src_corelib_global_qglobal.cpp qInfo_stream      With this syntax, the function returns a QDebug object that is     configured to use the QtInfoMsg message type. It automatically     puts a single space between each item, and outputs a newline at     the end. It supports many C++ and Qt types.      To suppress the output at run-time, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qWarning(), qCritical(), qFatal(), qInstallMessageHandler(),         {Debugging Techniques} */
 end_comment
 begin_comment
-comment|/*!     \macro qWarning(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the warning message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the debugger.     On Blackberry the message is sent to slogger2. This     function does nothing if \c QT_NO_WARNING_OUTPUT was defined     during compilation; it exits if the environment variable \c     QT_FATAL_WARNINGS is not empty.      This function takes a format string and a list of arguments,     similar to the C printf() function. The format should be a Latin-1     string.      Example:     \snippet code/src_corelib_global_qglobal.cpp 26      If you include<QtDebug>, a more convenient syntax is     also available:      \snippet code/src_corelib_global_qglobal.cpp 27      This syntax inserts a space between each item, and     appends a newline at the end.      To suppress the output at runtime, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qInfo(), qCritical(), qFatal(), qInstallMessageHandler(),         {Debugging Techniques} */
+comment|/*!     \macro qWarning(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the warning message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the debugger.     On QNX the message is sent to slogger2. This     function does nothing if \c QT_NO_WARNING_OUTPUT was defined     during compilation; it exits if the environment variable \c     QT_FATAL_WARNINGS is not empty.      This function takes a format string and a list of arguments,     similar to the C printf() function. The format should be a Latin-1     string.      Example:     \snippet code/src_corelib_global_qglobal.cpp 26      If you include<QtDebug>, a more convenient syntax is     also available:      \snippet code/src_corelib_global_qglobal.cpp 27      This syntax inserts a space between each item, and     appends a newline at the end.      To suppress the output at runtime, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qInfo(), qCritical(), qFatal(), qInstallMessageHandler(),         {Debugging Techniques} */
 end_comment
 begin_comment
-comment|/*!     \macro qCritical(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the critical message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the debugger.     On Blackberry the message is sent to slogger2.      It exits if the environment variable QT_FATAL_CRITICALS is not empty.      This function takes a format string and a list of arguments,     similar to the C printf() function. The format should be a Latin-1     string.      Example:     \snippet code/src_corelib_global_qglobal.cpp 28      If you include<QtDebug>, a more convenient syntax is     also available:      \snippet code/src_corelib_global_qglobal.cpp 29      A space is inserted between the items, and a newline is     appended at the end.      To suppress the output at runtime, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qInfo(), qWarning(), qFatal(), qInstallMessageHandler(),         {Debugging Techniques} */
+comment|/*!     \macro qCritical(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the critical message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the debugger.     On QNX the message is sent to slogger2      It exits if the environment variable QT_FATAL_CRITICALS is not empty.      This function takes a format string and a list of arguments,     similar to the C printf() function. The format should be a Latin-1     string.      Example:     \snippet code/src_corelib_global_qglobal.cpp 28      If you include<QtDebug>, a more convenient syntax is     also available:      \snippet code/src_corelib_global_qglobal.cpp 29      A space is inserted between the items, and a newline is     appended at the end.      To suppress the output at runtime, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qInfo(), qWarning(), qFatal(), qInstallMessageHandler(),         {Debugging Techniques} */
 end_comment
 begin_comment
-comment|/*!     \macro qFatal(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the fatal message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the debugger.     On Blackberry the message is sent to slogger2.      If you are using the \b{default message handler} this function will     abort on Unix systems to create a core dump. On Windows, for debug builds,     this function will report a _CRT_ERROR enabling you to connect a debugger     to the application.      This function takes a format string and a list of arguments,     similar to the C printf() function.      Example:     \snippet code/src_corelib_global_qglobal.cpp 30      To suppress the output at runtime, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qInfo(), qWarning(), qCritical(), qInstallMessageHandler(),         {Debugging Techniques} */
+comment|/*!     \macro qFatal(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the fatal message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the debugger.     On QNX the message is sent to slogger2      If you are using the \b{default message handler} this function will     abort on Unix systems to create a core dump. On Windows, for debug builds,     this function will report a _CRT_ERROR enabling you to connect a debugger     to the application.      This function takes a format string and a list of arguments,     similar to the C printf() function.      Example:     \snippet code/src_corelib_global_qglobal.cpp 30      To suppress the output at runtime, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qInfo(), qWarning(), qCritical(), qInstallMessageHandler(),         {Debugging Techniques} */
 end_comment
 begin_comment
 comment|/*!     \macro qMove(x)     \relates<QtGlobal>      It expands to "std::move" if your compiler supports that C++11 function, or to nothing     otherwise.      qMove takes an rvalue reference to its parameter \a x, and converts it to an xvalue. */

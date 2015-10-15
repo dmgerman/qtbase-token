@@ -1098,19 +1098,6 @@ name|dummySlot
 parameter_list|()
 block|{}
 private|private:
-if|#
-directive|if
-name|defined
-name|Q_OS_BLACKBERRY
-DECL|member|rootWindow
-name|QScopedPointer
-argument_list|<
-name|QWidget
-argument_list|>
-name|rootWindow
-decl_stmt|;
-endif|#
-directive|endif
 DECL|member|platformName
 name|QString
 name|platformName
@@ -1136,27 +1123,6 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-name|Q_OS_BLACKBERRY
-comment|// On BlackBerry first window is always shown full screen. However, many tests rely on specific
-comment|// window sizes. Create a dummy full screen window, so subsequent windows have correct size.
-name|rootWindow
-operator|.
-name|reset
-argument_list|(
-operator|new
-name|QWidget
-argument_list|)
-expr_stmt|;
-name|rootWindow
-operator|->
-name|show
-argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
