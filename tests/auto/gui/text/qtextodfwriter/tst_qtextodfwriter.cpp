@@ -504,18 +504,22 @@ argument_list|(
 literal|"linefeed"
 argument_list|)
 operator|<<
-name|QString
+operator|(
+name|QStringLiteral
 argument_list|(
-literal|"line1%1line2"
+literal|"line1"
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|QChar
 argument_list|(
 literal|0x2028
 argument_list|)
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"line2"
 argument_list|)
+operator|)
 operator|<<
 literal|"<text:p text:style-name=\"p1\"><text:span text:style-name=\"c0\">line1<text:line-break/>line2</text:span></text:p>"
 expr_stmt|;

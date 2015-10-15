@@ -1411,18 +1411,19 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|qPrintable
-argument_list|(
-name|QString
-argument_list|(
-literal|"inside_ellipse %1"
-argument_list|)
-operator|.
-name|arg
+operator|(
+literal|"inside_ellipse "
+operator|+
+name|QByteArray
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
-argument_list|)
+operator|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|<<
 name|path
@@ -1488,18 +1489,19 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|qPrintable
-argument_list|(
-name|QString
-argument_list|(
-literal|"outside_ellipse %1"
-argument_list|)
-operator|.
-name|arg
+operator|(
+literal|"outside_ellipse "
+operator|+
+name|QByteArray
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
-argument_list|)
+operator|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|<<
 name|path
@@ -6813,6 +6815,17 @@ operator|++
 name|domain
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|dB
+init|=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|domain
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -6833,23 +6846,23 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|qPrintable
-argument_list|(
-name|QString
-argument_list|(
-literal|"test %1 %2"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|domain
-argument_list|)
-operator|.
-name|arg
+operator|(
+literal|"test "
+operator|+
+name|dB
+operator|+
+literal|' '
+operator|+
+name|QByteArray
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
-argument_list|)
+operator|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|<<
 name|rects

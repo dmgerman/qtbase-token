@@ -444,18 +444,26 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QString
-name|text
+name|iS
 init|=
 name|QString
-argument_list|(
-literal|"text %0"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
+decl_stmt|;
+name|QString
+name|text
+init|=
+name|QLatin1String
+argument_list|(
+literal|"text "
+argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|item
 operator|.
@@ -527,15 +535,12 @@ expr_stmt|;
 name|QString
 name|toolTip
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"toolTip %0"
+literal|"toolTip "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|item
 operator|.
@@ -557,15 +562,12 @@ expr_stmt|;
 name|QString
 name|statusTip
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"statusTip %0"
+literal|"statusTip "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|item
 operator|.
@@ -587,15 +589,12 @@ expr_stmt|;
 name|QString
 name|whatsThis
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"whatsThis %0"
+literal|"whatsThis "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|item
 operator|.
@@ -820,15 +819,12 @@ expr_stmt|;
 name|QString
 name|accessibleText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"accessibleText %0"
+literal|"accessibleText "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|item
 operator|.
@@ -850,15 +846,12 @@ expr_stmt|;
 name|QString
 name|accessibleDescription
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"accessibleDescription %0"
+literal|"accessibleDescription "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|item
 operator|.

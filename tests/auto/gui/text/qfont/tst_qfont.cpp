@@ -3644,17 +3644,12 @@ argument|acceptableFamilies
 argument_list|)
 name|res
 operator|+=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"\n %1"
+literal|"\n "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|family
-argument_list|)
 expr_stmt|;
 return|return
 name|res
