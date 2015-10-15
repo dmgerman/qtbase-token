@@ -139,6 +139,15 @@ name|android
 operator|.
 name|view
 operator|.
+name|KeyEvent
+import|;
+end_import
+begin_import
+import|import
+name|android
+operator|.
+name|view
+operator|.
 name|Menu
 import|;
 end_import
@@ -3046,6 +3055,30 @@ name|visibility
 parameter_list|)
 function_decl|;
 comment|// keyboard methods
+comment|// dispatch events methods
+DECL|method|dispatchGenericMotionEvent
+specifier|public
+specifier|static
+specifier|native
+name|boolean
+name|dispatchGenericMotionEvent
+parameter_list|(
+name|MotionEvent
+name|ev
+parameter_list|)
+function_decl|;
+DECL|method|dispatchKeyEvent
+specifier|public
+specifier|static
+specifier|native
+name|boolean
+name|dispatchKeyEvent
+parameter_list|(
+name|KeyEvent
+name|event
+parameter_list|)
+function_decl|;
+comment|// dispatch events methods
 comment|// surface methods
 DECL|method|setSurface
 specifier|public
