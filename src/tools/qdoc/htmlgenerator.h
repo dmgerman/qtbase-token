@@ -409,19 +409,15 @@ block|;
 name|void
 name|generateNavigationBar
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|title
+argument|const QString&title
 argument_list|,
-specifier|const
-name|Node
-operator|*
-name|node
+argument|const Node *node
 argument_list|,
-name|CodeMarker
-operator|*
-name|marker
+argument|CodeMarker *marker
+argument_list|,
+argument|const QString&buildversion
+argument_list|,
+argument|bool tableItems = false
 argument_list|)
 block|;
 name|void
