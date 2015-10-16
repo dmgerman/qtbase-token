@@ -22,10 +22,9 @@ include|#
 directive|include
 file|<QtCore/qthread.h>
 end_include
-begin_comment
-comment|/**************************************************************************     Socket Notifiers  *************************************************************************/
-end_comment
 begin_function
+name|QT_BEGIN_NAMESPACE
+comment|/**************************************************************************     Socket Notifiers  *************************************************************************/
 DECL|function|qt_mac_socket_callback
 name|void
 name|qt_mac_socket_callback
@@ -1277,4 +1276,7 @@ block|}
 block|}
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
