@@ -819,6 +819,13 @@ argument_list|(
 name|hr
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|platformServices
+operator|=
+operator|new
+name|QWinRTServices
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
