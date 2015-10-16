@@ -875,10 +875,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|platformWindow
 condition|)
-block|{
+return|return;
 name|platformWindow
 operator|=
 name|QGuiApplicationPrivate
@@ -891,6 +890,33 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|platformWindow
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|platformWindow
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Failed to create platform window for"
+operator|<<
+name|q
+operator|<<
+literal|"with flags"
+operator|<<
+name|q
+operator|->
+name|flags
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 name|QObjectList
 name|childObjects
 init|=
@@ -986,11 +1012,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|platformWindow
-condition|)
-block|{
 name|QPlatformSurfaceEvent
 name|e
 argument_list|(
@@ -1009,8 +1030,6 @@ operator|&
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 end_function
 begin_function
