@@ -1888,8 +1888,19 @@ name|s
 operator|<<
 literal|']'
 expr_stmt|;
-comment|//qDebug()<< "dasharray: pen has"<< dasharray;
-comment|//qDebug()<< "  => "<< result;
+name|s
+operator|<<
+name|pen
+operator|.
+name|dashOffset
+argument_list|()
+operator|*
+name|w
+expr_stmt|;
+name|s
+operator|<<
+literal|" d\n"
+expr_stmt|;
 return|return
 name|result
 return|;
@@ -6514,8 +6525,6 @@ name|d
 operator|->
 name|pen
 argument_list|)
-operator|<<
-literal|" 0 d\n"
 expr_stmt|;
 block|}
 end_function
