@@ -1539,9 +1539,13 @@ name|AA_SetPalette
 init|=
 literal|19
 block|,
-name|AA_NoHighDpiScaling
+name|AA_EnableHighDpiScaling
 init|=
 literal|20
+block|,
+name|AA_DisableHighDpiScaling
+init|=
+literal|21
 block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
