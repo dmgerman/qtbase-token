@@ -105,6 +105,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qlocale_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"tst_qvariant_common.h"
 end_include
 begin_class_decl
@@ -8891,6 +8896,8 @@ argument_list|(
 literal|"123.456"
 argument_list|)
 expr_stmt|;
+comment|// Conversion from float to double adds bits of which the double-to-string converter doesn't
+comment|// know they're insignificant
 name|QTest
 operator|::
 name|newRow
@@ -8905,7 +8912,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"123.456001"
+literal|"123.45600128173828"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -9152,6 +9159,8 @@ argument_list|(
 literal|"123.456"
 argument_list|)
 expr_stmt|;
+comment|// Conversion from float to double adds bits of which the double-to-string converter doesn't
+comment|// know they're insignificant
 name|QTest
 operator|::
 name|newRow
@@ -9166,7 +9175,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"123.456001"
+literal|"123.45600128173828"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -12187,6 +12196,10 @@ argument_list|(
 literal|42.11
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_NO_DOUBLECONVERSION
+comment|// Without libdouble-conversion we don't get the shortest possible representation.
 name|QVariant
 name|mDoubleString
 argument_list|(
@@ -12199,24 +12212,54 @@ decl_stmt|;
 name|QVariant
 name|mDoubleQString
 argument_list|(
-name|QString
+name|QByteArray
 argument_list|(
 literal|"42.109999999999999"
 argument_list|)
 argument_list|)
 decl_stmt|;
+else|#
+directive|else
+comment|// You cannot fool the double-to-string conversion into producing insignificant digits with
+comment|// libdouble-conversion. You can, of course, add insignificant digits to the string and fool
+comment|// the double-to-double comparison after converting the string to a double.
+name|QVariant
+name|mDoubleString
+argument_list|(
+name|QByteArray
+argument_list|(
+literal|"42.11"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|QVariant
+name|mDoubleQString
+argument_list|(
+name|QString
+argument_list|(
+literal|"42.11"
+argument_list|)
+argument_list|)
+decl_stmt|;
+endif|#
+directive|endif
+comment|// Float-to-double conversion produces insignificant extra bits.
 name|QVariant
 name|mFloat
 argument_list|(
 literal|42.11f
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_NO_DOUBLECONVERSION
+comment|// The trailing '2' is not significant, but snprintf doesn't know this.
 name|QVariant
 name|mFloatString
 argument_list|(
 name|QByteArray
 argument_list|(
-literal|"42.1100006"
+literal|"42.110000610351562"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -12225,10 +12268,32 @@ name|mFloatQString
 argument_list|(
 name|QString
 argument_list|(
-literal|"42.1100006"
+literal|"42.110000610351562"
 argument_list|)
 argument_list|)
 decl_stmt|;
+else|#
+directive|else
+name|QVariant
+name|mFloatString
+argument_list|(
+name|QByteArray
+argument_list|(
+literal|"42.11000061035156"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|QVariant
+name|mFloatQString
+argument_list|(
+name|QString
+argument_list|(
+literal|"42.11000061035156"
+argument_list|)
+argument_list|)
+decl_stmt|;
+endif|#
+directive|endif
 name|QVariant
 name|mLongLong
 argument_list|(
@@ -27890,16 +27955,9 @@ name|num
 argument_list|,
 literal|'g'
 argument_list|,
-name|DBL_MANT_DIG
-operator|*
-name|std
+name|QLocale
 operator|::
-name|log10
-argument_list|(
-literal|2.
-argument_list|)
-operator|+
-literal|2
+name|FloatingPointShortest
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -27927,16 +27985,9 @@ argument_list|)
 argument_list|,
 literal|'g'
 argument_list|,
-name|FLT_MANT_DIG
-operator|*
-name|std
+name|QLocale
 operator|::
-name|log10
-argument_list|(
-literal|2.
-argument_list|)
-operator|+
-literal|2
+name|FloatingPointShortest
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -29450,6 +29501,10 @@ literal|0
 argument_list|)
 argument_list|;
 block|{
+ifdef|#
+directive|ifdef
+name|QT_NO_DOUBLECONVERSION
+comment|// snprintf cannot do "shortest" conversion and always adds noise.
 name|PLAY_WITH_VARIANT
 argument_list|(
 literal|12.12
@@ -29463,13 +29518,32 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
+else|#
+directive|else
+comment|// Double can be printed exactly with libdouble-conversion
+name|PLAY_WITH_VARIANT
+argument_list|(
+literal|12.12
+argument_list|,
+literal|false
+argument_list|,
+literal|"12.12"
+argument_list|,
+literal|12.12
+argument_list|,
+literal|true
+argument_list|)
+block|;
+endif|#
+directive|endif
+comment|// Float is converted to double, adding insignificant bits
 name|PLAY_WITH_VARIANT
 argument_list|(
 literal|12.12f
 argument_list|,
 literal|false
 argument_list|,
-literal|"12.1199999"
+literal|"12.119999885559082"
 argument_list|,
 literal|12.12f
 argument_list|,

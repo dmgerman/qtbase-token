@@ -3221,6 +3221,15 @@ argument_list|,
 name|NumberOption
 argument_list|)
 expr|enum
+name|FloatingPointPrecisionOption
+block|{
+name|FloatingPointShortest
+operator|=
+operator|-
+literal|128
+block|}
+expr_stmt|;
+enum|enum
 name|CurrencySymbolFormat
 block|{
 name|CurrencyIsoCode
@@ -3229,7 +3238,7 @@ name|CurrencySymbol
 block|,
 name|CurrencyDisplayName
 block|}
-expr_stmt|;
+enum|;
 name|QLocale
 argument_list|()
 expr_stmt|;

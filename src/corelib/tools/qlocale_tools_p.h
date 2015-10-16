@@ -290,7 +290,7 @@ parameter_list|,
 name|int
 name|decpt
 parameter_list|,
-name|uint
+name|int
 name|precision
 parameter_list|,
 name|PrecisionMode
@@ -334,7 +334,7 @@ parameter_list|,
 name|int
 name|decpt
 parameter_list|,
-name|uint
+name|int
 name|precision
 parameter_list|,
 name|PrecisionMode
