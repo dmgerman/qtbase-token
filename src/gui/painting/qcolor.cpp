@@ -8003,7 +8003,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QColor::fromHsv: HSV parameters out of range"
+literal|"QColor::fromHsl: HSL parameters out of range"
 argument_list|)
 expr_stmt|;
 return|return
@@ -8196,7 +8196,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QColor::fromHsvF: HSV parameters out of range"
+literal|"QColor::fromHslF: HSL parameters out of range"
 argument_list|)
 expr_stmt|;
 return|return
