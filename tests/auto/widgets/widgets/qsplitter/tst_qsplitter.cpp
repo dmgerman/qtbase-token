@@ -4655,14 +4655,11 @@ name|newRow
 argument_list|(
 name|qPrintable
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1 1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
 name|className
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" 1"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4679,14 +4676,11 @@ name|newRow
 argument_list|(
 name|qPrintable
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1 2"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
 name|className
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" 2"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4703,14 +4697,11 @@ name|newRow
 argument_list|(
 name|qPrintable
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1 3"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
 name|className
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" 3"
 argument_list|)
 argument_list|)
 argument_list|)

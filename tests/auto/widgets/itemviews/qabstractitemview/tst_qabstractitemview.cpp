@@ -5124,7 +5124,7 @@ directive|if
 literal|0
 end_if
 begin_comment
-unit|static void sendMouseMove(QWidget *widget, QPoint pos = QPoint()) {     if (pos.isNull())         pos = widget->rect().center();     QMouseEvent event(QEvent::MouseMove, pos, widget->mapToGlobal(pos), Qt::NoButton, 0, 0);     QCursor::setPos(widget->mapToGlobal(pos));     qApp->processEvents();     QVERIFY(QTest::qWaitForWindowExposed(widget));     QApplication::sendEvent(widget,&event); }  static void sendMousePress(     QWidget *widget, QPoint pos = QPoint(), Qt::MouseButton button = Qt::LeftButton) {     if (pos.isNull())          pos = widget->rect().center();     QMouseEvent event(QEvent::MouseButtonPress, pos, widget->mapToGlobal(pos), button, 0, 0);     QApplication::sendEvent(widget,&event); }  static void sendMouseRelease(     QWidget *widget, QPoint pos = QPoint(), Qt::MouseButton button = Qt::LeftButton) {     if (pos.isNull())          pos = widget->rect().center();     QMouseEvent event(QEvent::MouseButtonRelease, pos, widget->mapToGlobal(pos), button, 0, 0);     QApplication::sendEvent(widget,&event); }  class DnDTestModel : public QStandardItemModel {     Q_OBJECT     bool dropMimeData(const QMimeData *md, Qt::DropAction action, int r, int c, const QModelIndex&p)     {         dropAction_result = action;         QStandardItemModel::dropMimeData(md, action, r, c, p);         return true;     }     Qt::DropActions supportedDropActions() const { return Qt::CopyAction | Qt::MoveAction; }      Qt::DropAction dropAction_result; public:     DnDTestModel() : QStandardItemModel(20, 20), dropAction_result(Qt::IgnoreAction) {         for (int i = 0; i< rowCount(); ++i)             setData(index(i, 0), QString("%1").arg(i));     }     Qt::DropAction dropAction() const { return dropAction_result; } };  class DnDTestView : public QTreeView {     Q_OBJECT      QPoint dropPoint;     Qt::DropAction dropAction;      void dragEnterEvent(QDragEnterEvent *event)     {         QAbstractItemView::dragEnterEvent(event);     }      void dropEvent(QDropEvent *event)     {         event->setDropAction(dropAction);         QTreeView::dropEvent(event);     }      void timerEvent(QTimerEvent *event)     {         killTimer(event->timerId());         sendMouseMove(this, dropPoint);         sendMouseRelease(this);     }      void mousePressEvent(QMouseEvent *e)     {         QTreeView::mousePressEvent(e);          startTimer(0);         setState(DraggingState);         startDrag(dropAction);     }  public:     DnDTestView(Qt::DropAction dropAction, QAbstractItemModel *model)         : dropAction(dropAction)     {         header()->hide();         setModel(model);         setDragDropMode(QAbstractItemView::DragDrop);         setAcceptDrops(true);         setDragEnabled(true);     }      void dragAndDrop(QPoint drag, QPoint drop)     {         dropPoint = drop;         setCurrentIndex(indexAt(drag));         sendMousePress(viewport(), drag);     } };  class DnDTestWidget : public QWidget {     Q_OBJECT      Qt::DropAction dropAction_request;     Qt::DropAction dropAction_result;     QWidget *dropTarget;      void timerEvent(QTimerEvent *event)     {         killTimer(event->timerId());         sendMouseMove(dropTarget);         sendMouseRelease(dropTarget);     }      void mousePressEvent(QMouseEvent *)     {         QDrag *drag = new QDrag(this);         QMimeData *mimeData = new QMimeData;         mimeData->setData("application/x-qabstractitemmodeldatalist", QByteArray(""));         drag->setMimeData(mimeData);         startTimer(0);         dropAction_result = drag->start(dropAction_request);     }  public:     Qt::DropAction dropAction() const { return dropAction_result; }      void dragAndDrop(QWidget *dropTarget, Qt::DropAction dropAction)     {         this->dropTarget = dropTarget;         dropAction_request = dropAction;         sendMousePress(this);     } };  void tst_QAbstractItemView::dragAndDrop() {
+unit|static void sendMouseMove(QWidget *widget, QPoint pos = QPoint()) {     if (pos.isNull())         pos = widget->rect().center();     QMouseEvent event(QEvent::MouseMove, pos, widget->mapToGlobal(pos), Qt::NoButton, 0, 0);     QCursor::setPos(widget->mapToGlobal(pos));     qApp->processEvents();     QVERIFY(QTest::qWaitForWindowExposed(widget));     QApplication::sendEvent(widget,&event); }  static void sendMousePress(     QWidget *widget, QPoint pos = QPoint(), Qt::MouseButton button = Qt::LeftButton) {     if (pos.isNull())          pos = widget->rect().center();     QMouseEvent event(QEvent::MouseButtonPress, pos, widget->mapToGlobal(pos), button, 0, 0);     QApplication::sendEvent(widget,&event); }  static void sendMouseRelease(     QWidget *widget, QPoint pos = QPoint(), Qt::MouseButton button = Qt::LeftButton) {     if (pos.isNull())          pos = widget->rect().center();     QMouseEvent event(QEvent::MouseButtonRelease, pos, widget->mapToGlobal(pos), button, 0, 0);     QApplication::sendEvent(widget,&event); }  class DnDTestModel : public QStandardItemModel {     Q_OBJECT     bool dropMimeData(const QMimeData *md, Qt::DropAction action, int r, int c, const QModelIndex&p)     {         dropAction_result = action;         QStandardItemModel::dropMimeData(md, action, r, c, p);         return true;     }     Qt::DropActions supportedDropActions() const { return Qt::CopyAction | Qt::MoveAction; }      Qt::DropAction dropAction_result; public:     DnDTestModel() : QStandardItemModel(20, 20), dropAction_result(Qt::IgnoreAction) {         for (int i = 0; i< rowCount(); ++i)             setData(index(i, 0), QString::number(i));     }     Qt::DropAction dropAction() const { return dropAction_result; } };  class DnDTestView : public QTreeView {     Q_OBJECT      QPoint dropPoint;     Qt::DropAction dropAction;      void dragEnterEvent(QDragEnterEvent *event)     {         QAbstractItemView::dragEnterEvent(event);     }      void dropEvent(QDropEvent *event)     {         event->setDropAction(dropAction);         QTreeView::dropEvent(event);     }      void timerEvent(QTimerEvent *event)     {         killTimer(event->timerId());         sendMouseMove(this, dropPoint);         sendMouseRelease(this);     }      void mousePressEvent(QMouseEvent *e)     {         QTreeView::mousePressEvent(e);          startTimer(0);         setState(DraggingState);         startDrag(dropAction);     }  public:     DnDTestView(Qt::DropAction dropAction, QAbstractItemModel *model)         : dropAction(dropAction)     {         header()->hide();         setModel(model);         setDragDropMode(QAbstractItemView::DragDrop);         setAcceptDrops(true);         setDragEnabled(true);     }      void dragAndDrop(QPoint drag, QPoint drop)     {         dropPoint = drop;         setCurrentIndex(indexAt(drag));         sendMousePress(viewport(), drag);     } };  class DnDTestWidget : public QWidget {     Q_OBJECT      Qt::DropAction dropAction_request;     Qt::DropAction dropAction_result;     QWidget *dropTarget;      void timerEvent(QTimerEvent *event)     {         killTimer(event->timerId());         sendMouseMove(dropTarget);         sendMouseRelease(dropTarget);     }      void mousePressEvent(QMouseEvent *)     {         QDrag *drag = new QDrag(this);         QMimeData *mimeData = new QMimeData;         mimeData->setData("application/x-qabstractitemmodeldatalist", QByteArray(""));         drag->setMimeData(mimeData);         startTimer(0);         dropAction_result = drag->start(dropAction_request);     }  public:     Qt::DropAction dropAction() const { return dropAction_result; }      void dragAndDrop(QWidget *dropTarget, Qt::DropAction dropAction)     {         this->dropTarget = dropTarget;         dropAction_request = dropAction;         sendMousePress(this);     } };  void tst_QAbstractItemView::dragAndDrop() {
 comment|// From Task 137729
 end_comment
 begin_comment
@@ -6823,12 +6823,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QStringLiteral
 argument_list|(
-literal|"Item number %1"
+literal|"Item number "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -6856,12 +6858,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QStringLiteral
 argument_list|(
-literal|"Child Item number %1"
+literal|"Child Item number "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|j
 argument_list|)
@@ -7466,11 +7470,8 @@ operator|new
 name|QStandardItem
 argument_list|(
 name|QString
-argument_list|(
-literal|"%1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -7746,11 +7747,8 @@ operator|new
 name|QStandardItem
 argument_list|(
 name|QString
-argument_list|(
-literal|"%1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -8366,11 +8364,8 @@ operator|new
 name|QStandardItem
 argument_list|(
 name|QString
-argument_list|(
-literal|"%1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)

@@ -37559,14 +37559,14 @@ name|popup
 operator|->
 name|setObjectName
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"tst_qwidget setToolTip #"
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"tst_qwidget setToolTip #%1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|pass
 argument_list|)

@@ -2246,14 +2246,14 @@ argument_list|()
 operator|->
 name|setWindowTitle
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"Window "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"Window %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -2436,24 +2436,17 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|mainWindow
-operator|.
-name|windowTitle
-argument_list|()
-argument_list|,
+specifier|const
 name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"%1 - [%2]"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+name|expectedTitle
+init|=
 name|originalWindowTitle
-argument_list|,
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" - ["
+argument_list|)
+operator|+
 name|window
 operator|->
 name|widget
@@ -2461,7 +2454,20 @@ argument_list|()
 operator|->
 name|windowTitle
 argument_list|()
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|']'
 argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|mainWindow
+operator|.
+name|windowTitle
+argument_list|()
+argument_list|,
+name|expectedTitle
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2501,14 +2507,14 @@ argument_list|()
 operator|->
 name|setWindowTitle
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"NestedWindow "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"NestedWindow %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 argument_list|)

@@ -2901,21 +2901,30 @@ operator|==
 literal|0
 operator|)
 decl_stmt|;
+specifier|const
+name|char
+name|fromObjectC
+init|=
+name|fromObject
+condition|?
+literal|'1'
+else|:
+literal|'0'
+decl_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
+operator|(
+name|QByteArrayLiteral
 argument_list|(
-literal|"resize %1"
+literal|"resize "
 argument_list|)
+operator|+
+name|fromObjectC
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|fromObject
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2929,17 +2938,16 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
+operator|(
+name|QByteArrayLiteral
 argument_list|(
-literal|"move %1"
+literal|"move "
 argument_list|)
+operator|+
+name|fromObjectC
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|fromObject
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2953,17 +2961,16 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
+operator|(
+name|QByteArrayLiteral
 argument_list|(
-literal|"hide %1"
+literal|"hide "
 argument_list|)
+operator|+
+name|fromObjectC
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|fromObject
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2977,17 +2984,16 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
+operator|(
+name|QByteArrayLiteral
 argument_list|(
-literal|"show %1"
+literal|"show "
 argument_list|)
+operator|+
+name|fromObjectC
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|fromObject
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3001,17 +3007,16 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
+operator|(
+name|QByteArrayLiteral
 argument_list|(
-literal|"enabled %1"
+literal|"enabled "
 argument_list|)
+operator|+
+name|fromObjectC
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|fromObject
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3025,17 +3030,16 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
+operator|(
+name|QByteArrayLiteral
 argument_list|(
-literal|"focusIn %1"
+literal|"focusIn "
 argument_list|)
+operator|+
+name|fromObjectC
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|fromObject
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3049,17 +3053,16 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
+operator|(
+name|QByteArrayLiteral
 argument_list|(
-literal|"focusOut %1"
+literal|"focusOut "
 argument_list|)
+operator|+
+name|fromObjectC
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|fromObject
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3073,17 +3076,16 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
+operator|(
+name|QByteArrayLiteral
 argument_list|(
-literal|"keyPress %1"
+literal|"keyPress "
 argument_list|)
+operator|+
+name|fromObjectC
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|fromObject
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -4212,33 +4214,51 @@ name|hasScene
 operator|&&
 name|hasWidget
 decl_stmt|;
-name|QString
+name|QByteArray
 name|name
 init|=
-name|QString
+name|QByteArrayLiteral
 argument_list|(
-literal|"Forward: %1, hasWidget: %2, hasScene: %3, result: %4"
+literal|"Forward: "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
+operator|(
 name|next
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+condition|?
+literal|'1'
+else|:
+literal|'0'
+operator|)
+operator|+
+literal|", hasWidget: "
+operator|+
+operator|(
 name|hasWidget
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+condition|?
+literal|'1'
+else|:
+literal|'0'
+operator|)
+operator|+
+literal|", hasScene: "
+operator|+
+operator|(
 name|hasScene
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+condition|?
+literal|'1'
+else|:
+literal|'0'
+operator|)
+operator|+
+literal|", result: "
+operator|+
+operator|(
 name|result
-argument_list|)
+condition|?
+literal|'1'
+else|:
+literal|'0'
+operator|)
 decl_stmt|;
 name|QTest
 operator|::
@@ -4246,7 +4266,7 @@ name|newRow
 argument_list|(
 name|name
 operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -5596,33 +5616,51 @@ operator|==
 literal|0
 operator|)
 decl_stmt|;
-name|QString
+name|QByteArray
 name|name
 init|=
-name|QString
+name|QByteArrayLiteral
 argument_list|(
-literal|"hasWidget:%1, hover:%2, mouseTracking:%3, mouseDown: %4"
+literal|"hasWidget:"
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
+operator|(
 name|hasWidget
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+condition|?
+literal|'1'
+else|:
+literal|'0'
+operator|)
+operator|+
+literal|", hover:"
+operator|+
+operator|(
 name|hoverEnabled
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+condition|?
+literal|'1'
+else|:
+literal|'0'
+operator|)
+operator|+
+literal|", mouseTracking:"
+operator|+
+operator|(
 name|mouseTracking
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+condition|?
+literal|'1'
+else|:
+literal|'0'
+operator|)
+operator|+
+literal|", mouseDown: "
+operator|+
+operator|(
 name|mouseDown
-argument_list|)
+condition|?
+literal|'1'
+else|:
+literal|'0'
+operator|)
 decl_stmt|;
 name|QTest
 operator|::
@@ -5630,7 +5668,7 @@ name|newRow
 argument_list|(
 name|name
 operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<

@@ -609,12 +609,14 @@ argument_list|(
 operator|new
 name|QLabel
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"Label %1"
+literal|"Label "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 operator|+

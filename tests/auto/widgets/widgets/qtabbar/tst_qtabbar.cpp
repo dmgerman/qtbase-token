@@ -4279,11 +4279,8 @@ argument_list|(
 literal|0
 argument_list|,
 name|QString
-argument_list|(
-literal|"%1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|count
 argument_list|)

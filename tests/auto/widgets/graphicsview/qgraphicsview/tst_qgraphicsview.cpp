@@ -3310,12 +3310,14 @@ name|scene
 operator|.
 name|addText
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"(0, %1)"
+literal|"(0, "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 operator|(
 name|i

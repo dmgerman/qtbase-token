@@ -11930,12 +11930,14 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"set page %1"
+literal|"set page "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|page
 argument_list|)
@@ -11995,12 +11997,14 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"set style %1"
+literal|"set style "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|style
 argument_list|)
@@ -12453,13 +12457,11 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"set opt %1 %2"
+literal|"set opt "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|OptionInfo
 operator|::
 name|instance
@@ -12469,11 +12471,14 @@ name|tag
 argument_list|(
 name|option
 argument_list|)
-argument_list|)
-operator|.
-name|arg
+operator|+
+name|QLatin1Char
 argument_list|(
 name|on
+condition|?
+literal|'1'
+else|:
+literal|'0'
 argument_list|)
 return|;
 block|}
@@ -12644,22 +12649,21 @@ name|newRow
 argument_list|(
 operator|(
 name|name
-operator|+
-name|QString
-argument_list|(
-literal|", row %1"
-argument_list|)
 operator|.
-name|arg
+name|toLatin1
+argument_list|()
+operator|+
+literal|", row "
+operator|+
+name|QByteArray
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
 operator|)
 operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|data
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -13127,17 +13131,19 @@ argument_list|)
 expr_stmt|;
 name|opsDescr
 operator|+=
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|"(%1) "
+literal|'('
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|op
 operator|->
 name|describe
 argument_list|()
+operator|+
+name|QLatin1String
+argument_list|(
+literal|") "
 argument_list|)
 expr_stmt|;
 block|}

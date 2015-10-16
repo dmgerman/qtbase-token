@@ -151,6 +151,27 @@ operator|++
 name|row
 control|)
 block|{
+specifier|const
+name|QString
+name|prefix
+init|=
+name|QLatin1String
+argument_list|(
+literal|"item "
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|row
+argument_list|)
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -178,17 +199,11 @@ argument_list|,
 name|col
 argument_list|)
 argument_list|,
+name|prefix
+operator|+
 name|QString
-argument_list|(
-literal|"item %1 %2"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|row
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|col
 argument_list|)

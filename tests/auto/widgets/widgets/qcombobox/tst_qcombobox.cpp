@@ -15476,6 +15476,22 @@ operator|++
 name|row
 control|)
 block|{
+specifier|const
+name|QString
+name|rowS
+init|=
+name|QLatin1String
+argument_list|(
+literal|"row "
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|row
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -15494,27 +15510,22 @@ operator|++
 name|column
 control|)
 block|{
-name|QStandardItem
-modifier|*
-name|item
-init|=
-operator|new
-name|QStandardItem
-argument_list|(
+specifier|const
 name|QString
+name|text
+init|=
+name|rowS
+operator|+
+name|QLatin1String
 argument_list|(
-literal|"row %0, column %1"
+literal|", column "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|row
-argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|column
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|model
@@ -15525,7 +15536,11 @@ name|row
 argument_list|,
 name|column
 argument_list|,
-name|item
+operator|new
+name|QStandardItem
+argument_list|(
+name|text
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -19073,6 +19088,17 @@ name|i
 operator|++
 control|)
 block|{
+specifier|const
+name|QString
+name|iS
+init|=
+name|QString
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 name|model
 operator|.
 name|setItem
@@ -19084,15 +19110,12 @@ argument_list|,
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"Employee Nr %1"
+literal|"Employee Nr "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19107,15 +19130,12 @@ argument_list|,
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"Street Nr %1"
+literal|"Street Nr "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19130,15 +19150,12 @@ argument_list|,
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"Town Nr %1"
+literal|"Town Nr "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19153,15 +19170,12 @@ argument_list|,
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"Phone Nr %1"
+literal|"Phone Nr "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19421,12 +19435,14 @@ block|{
 name|QString
 name|itemText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item text %1"
+literal|"item text "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -19457,12 +19473,14 @@ block|{
 name|QString
 name|itemText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item text %1"
+literal|"item text "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -19593,31 +19611,26 @@ condition|;
 operator|++
 name|i
 control|)
-block|{
 comment|// now change by using setItemText
-name|QString
-name|itemText
-init|=
-name|QString
-argument_list|(
-literal|"setItemText %1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
 name|comboBox
 operator|.
 name|setItemText
 argument_list|(
 name|i
 argument_list|,
-name|itemText
+name|QLatin1String
+argument_list|(
+literal|"setItemText "
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -19636,12 +19649,14 @@ block|{
 name|QString
 name|itemText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"setItemText %1"
+literal|"setItemText "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -19777,12 +19792,14 @@ comment|// now change by changing the DisplayRole's data
 name|QString
 name|itemText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"setItemData(DisplayRole) %1"
+literal|"setItemData(DisplayRole) "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -19822,12 +19839,14 @@ block|{
 name|QString
 name|itemText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"setItemData(DisplayRole) %1"
+literal|"setItemData(DisplayRole) "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -19963,12 +19982,14 @@ comment|// now change by changing the EditRole's data
 name|QString
 name|itemText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"setItemData(EditRole) %1"
+literal|"setItemData(EditRole) "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -20008,12 +20029,14 @@ block|{
 name|QString
 name|itemText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"setItemData(EditRole) %1"
+literal|"setItemData(EditRole) "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -20151,28 +20174,13 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QString
-name|itemText
+name|iS
 init|=
 name|QString
-argument_list|(
-literal|"item text %1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-name|QString
-name|itemDataText
-init|=
-name|QString
-argument_list|(
-literal|"item data %1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -20181,11 +20189,21 @@ name|comboBox
 operator|.
 name|addItem
 argument_list|(
-name|itemText
+name|QLatin1String
+argument_list|(
+literal|"item text "
+argument_list|)
+operator|+
+name|iS
 argument_list|,
 name|QVariant
 argument_list|(
-name|itemDataText
+name|QLatin1String
+argument_list|(
+literal|"item data "
+argument_list|)
+operator|+
+name|iS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -20205,31 +20223,36 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QString
-name|itemText
+name|iS
 init|=
 name|QString
-argument_list|(
-literal|"item text %1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
 name|QString
+name|itemText
+init|=
+name|QLatin1String
+argument_list|(
+literal|"item text "
+argument_list|)
+operator|+
+name|iS
+decl_stmt|;
+name|QString
 name|itemDataText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item data %1"
+literal|"item data "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -20392,31 +20415,36 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QString
-name|itemText
+name|iS
 init|=
 name|QString
-argument_list|(
-literal|"item text %1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
 name|QString
+name|itemText
+init|=
+name|QLatin1String
+argument_list|(
+literal|"item text "
+argument_list|)
+operator|+
+name|iS
+decl_stmt|;
+name|QString
 name|itemDataText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item data %1"
+literal|"item data "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|double
 name|d
@@ -20500,31 +20528,36 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
 name|QString
-name|itemText
+name|iS
 init|=
 name|QString
-argument_list|(
-literal|"item text %1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
 name|QString
+name|itemText
+init|=
+name|QLatin1String
+argument_list|(
+literal|"item text "
+argument_list|)
+operator|+
+name|iS
+decl_stmt|;
+name|QString
 name|itemDataText
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item data %1"
+literal|"item data "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 decl_stmt|;
 name|double
 name|d

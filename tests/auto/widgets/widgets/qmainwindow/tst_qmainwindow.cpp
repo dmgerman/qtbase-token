@@ -12888,14 +12888,14 @@ specifier|const
 name|QString
 name|name
 init|=
+name|QStringLiteral
+argument_list|(
+literal|"dock "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"dock %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 argument_list|)

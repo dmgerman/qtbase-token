@@ -1786,7 +1786,7 @@ name|ROWNAME
 parameter_list|(
 name|name
 parameter_list|)
-value|(qPrintable(QString("%1 %2").arg(name).arg(i)))
+value|((QByteArray(name) + ' ' + QByteArray::number(i)).constData())
 for|for
 control|(
 name|int
@@ -7918,11 +7918,8 @@ operator|new
 name|QStandardItem
 argument_list|(
 name|QString
-argument_list|(
-literal|"%1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -8609,17 +8606,11 @@ name|i
 control|)
 name|strings
 operator|<<
-name|QString
-argument_list|(
-literal|"%1%2"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
 name|prefix
-argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -10787,6 +10778,27 @@ name|i
 operator|++
 control|)
 block|{
+specifier|const
+name|QString
+name|prefix
+init|=
+name|QLatin1String
+argument_list|(
+literal|"row "
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" column "
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -10801,7 +10813,6 @@ condition|;
 name|j
 operator|++
 control|)
-block|{
 name|model
 operator|.
 name|setItem
@@ -10813,24 +10824,17 @@ argument_list|,
 operator|new
 name|QStandardItem
 argument_list|(
+name|prefix
+operator|+
 name|QString
-argument_list|(
-literal|"row %1 column %2"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|j
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|QCompleter
 name|completer

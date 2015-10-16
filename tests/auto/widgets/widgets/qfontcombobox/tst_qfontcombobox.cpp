@@ -1246,18 +1246,19 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|qPrintable
-argument_list|(
-name|QString
-argument_list|(
-literal|"enum %1"
-argument_list|)
-operator|.
-name|arg
+operator|(
+literal|"enum "
+operator|+
+name|QByteArray
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
-argument_list|)
+operator|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|<<
 operator|(

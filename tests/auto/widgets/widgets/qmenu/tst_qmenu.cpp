@@ -3694,12 +3694,14 @@ name|l
 operator|->
 name|addItem
 argument_list|(
-name|QString
+name|QStringLiteral
 argument_list|(
-literal|"item%1"
+literal|"item"
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -4971,12 +4973,14 @@ expr|main
 operator|.
 name|addAction
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"Item %1"
+literal|"Item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -6943,12 +6947,14 @@ index|]
 operator|=
 name|addAction
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"dialog %1"
+literal|"dialog "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)

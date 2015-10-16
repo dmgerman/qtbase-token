@@ -2067,21 +2067,28 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|iB
+init|=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1, 0, 0"
-argument_list|)
+operator|(
+name|iB
+operator|+
+literal|", 0, 0"
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2093,17 +2100,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1, 0, 5"
-argument_list|)
+operator|(
+name|iB
+operator|+
+literal|", 0, 5"
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2115,17 +2118,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1, 5, 0"
-argument_list|)
+operator|(
+name|iB
+operator|+
+literal|", 5, 0"
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2137,17 +2136,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1, 5, 5"
-argument_list|)
+operator|(
+name|iB
+operator|+
+literal|", 5, 5"
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2901,6 +2896,17 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|iB
+init|=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2916,26 +2922,32 @@ operator|++
 name|j
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|postFix
+init|=
+name|iB
+operator|+
+literal|' '
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|j
+argument_list|)
+decl_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"0, 0, %1 %2"
-argument_list|)
+operator|(
+literal|"0, 0, "
+operator|+
+name|postFix
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2954,22 +2966,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"1, 0, %1 %2"
-argument_list|)
+operator|(
+literal|"1, 0, "
+operator|+
+name|postFix
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -2988,22 +2991,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"0, 1, %1 %2"
-argument_list|)
+operator|(
+literal|"0, 1, "
+operator|+
+name|postFix
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3022,22 +3016,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"2, 2, %1 %2"
-argument_list|)
+operator|(
+literal|"2, 2, "
+operator|+
+name|postFix
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3371,6 +3356,17 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|iB
+init|=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3386,26 +3382,32 @@ operator|++
 name|j
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|postFix
+init|=
+name|iB
+operator|+
+literal|' '
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|j
+argument_list|)
+decl_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"0, 0, %1 %2"
-argument_list|)
+operator|(
+literal|"0, 0, "
+operator|+
+name|postFix
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3421,22 +3423,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"1, 0, %1 %2"
-argument_list|)
+operator|(
+literal|"1, 0, "
+operator|+
+name|postFix
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3452,22 +3445,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"0, 1, %1 %2"
-argument_list|)
+operator|(
+literal|"0, 1, "
+operator|+
+name|postFix
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -3483,22 +3467,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"2, 2, %1 %2"
-argument_list|)
+operator|(
+literal|"2, 2, "
+operator|+
+name|postFix
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -4950,6 +4925,17 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|iB
+init|=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -4988,17 +4974,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"0, 0, %1"
-argument_list|)
+operator|(
+literal|"0, 0, "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -5014,17 +4996,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"1, 0, %1"
-argument_list|)
+operator|(
+literal|"1, 0, "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -5040,17 +5018,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"0, 1, %1"
-argument_list|)
+operator|(
+literal|"0, 1, "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -5066,17 +5040,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"2, 2, %1"
-argument_list|)
+operator|(
+literal|"2, 2, "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -5427,21 +5397,28 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|iB
+init|=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"0, 0, %1"
-argument_list|)
+operator|(
+literal|"0, 0, "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -5455,17 +5432,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"1, 0, %1"
-argument_list|)
+operator|(
+literal|"1, 0, "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -5479,17 +5452,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"0, 1, %1"
-argument_list|)
+operator|(
+literal|"0, 1, "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -5503,17 +5472,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"2, 2, %1"
-argument_list|)
+operator|(
+literal|"2, 2, "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<

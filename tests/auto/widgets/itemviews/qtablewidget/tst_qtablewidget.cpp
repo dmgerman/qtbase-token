@@ -10016,12 +10016,14 @@ argument_list|,
 operator|new
 name|QTableWidgetItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item %1"
+literal|"item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)

@@ -303,6 +303,28 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
+name|QString
+name|iS
+init|=
+name|QString
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+specifier|const
+name|QString
+name|itemText
+init|=
+name|QLatin1String
+argument_list|(
+literal|"item "
+argument_list|)
+operator|+
+name|iS
+decl_stmt|;
 name|QStandardItem
 modifier|*
 name|item
@@ -310,15 +332,7 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
-argument_list|(
-literal|"item %0"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+name|itemText
 argument_list|)
 decl_stmt|;
 name|parentItem
@@ -335,15 +349,7 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
-argument_list|(
-literal|"item %0"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+name|itemText
 argument_list|)
 decl_stmt|;
 name|parentItem
@@ -360,15 +366,7 @@ argument_list|(
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
-argument_list|(
-literal|"item %0"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+name|itemText
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -379,15 +377,12 @@ argument_list|(
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"file %0"
+literal|"file "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+operator|+
+name|iS
 argument_list|)
 argument_list|)
 expr_stmt|;

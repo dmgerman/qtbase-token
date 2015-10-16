@@ -1507,21 +1507,16 @@ name|action
 operator|->
 name|setToolTip
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1 (%2)"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
 name|action
 operator|->
 name|text
 argument_list|()
-argument_list|)
-operator|.
-name|arg
+operator|+
+name|QLatin1String
 argument_list|(
+literal|" ("
+argument_list|)
+operator|+
 name|action
 operator|->
 name|shortcut
@@ -1529,19 +1524,21 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|')'
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|QString
 name|ref
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"foo (%1)"
+literal|"foo ("
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|QKeySequence
 argument_list|(
 name|shortcut
@@ -1549,6 +1546,10 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|')'
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
