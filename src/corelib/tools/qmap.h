@@ -6493,9 +6493,9 @@ name|begin
 argument_list|()
 block|;
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"map dump:"
+argument_list|)
 block|;
 while|while
 condition|(
@@ -6611,9 +6611,8 @@ end_expr_stmt
 begin_expr_stmt
 unit|}     qDebug
 operator|(
-operator|)
-operator|<<
 literal|"---------"
+operator|)
 expr_stmt|;
 end_expr_stmt
 begin_endif

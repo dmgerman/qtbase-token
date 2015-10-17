@@ -3190,9 +3190,9 @@ ifdef|#
 directive|ifdef
 name|QT_NO_XMLSTREAMREADER
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Cannot load mime type since QXmlStreamReader is not available."
+argument_list|)
 expr_stmt|;
 return|return;
 else|#

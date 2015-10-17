@@ -372,9 +372,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeData: pps_decoder_push failed"
+argument_list|)
 expr_stmt|;
 return|return
 name|false
@@ -413,9 +413,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeData: pps_decoder_pop failed"
+argument_list|)
 expr_stmt|;
 return|return
 name|false

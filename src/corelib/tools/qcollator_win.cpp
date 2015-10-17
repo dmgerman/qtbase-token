@@ -133,9 +133,9 @@ name|SORT_DIGITSASNUMBERS
 expr_stmt|;
 else|else
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Numeric sorting unsupported on Windows versions older than Windows 7."
+argument_list|)
 expr_stmt|;
 block|}
 if|if

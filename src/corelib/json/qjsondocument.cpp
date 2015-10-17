@@ -327,9 +327,9 @@ literal|3
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QJsonDocument::fromRawData: data has to have 4 byte alignment"
+argument_list|)
 expr_stmt|;
 return|return
 name|QJsonDocument

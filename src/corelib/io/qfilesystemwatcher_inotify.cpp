@@ -1546,7 +1546,7 @@ operator|::
 name|readFromInotify
 parameter_list|()
 block|{
-comment|// qDebug()<< "QInotifyFileSystemWatcherEngine::readFromInotify";
+comment|// qDebug("QInotifyFileSystemWatcherEngine::readFromInotify");
 name|int
 name|buffSize
 init|=

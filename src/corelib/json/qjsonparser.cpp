@@ -715,9 +715,9 @@ operator|=
 literal|0
 expr_stmt|;
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|">>>>> parser begin"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -922,9 +922,9 @@ ifdef|#
 directive|ifdef
 name|PARSER_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|">>>>> parser error"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

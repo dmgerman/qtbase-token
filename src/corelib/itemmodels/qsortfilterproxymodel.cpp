@@ -2080,9 +2080,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QSortFilterProxyModel: index from wrong model passed to mapToSource"
+argument_list|)
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(
@@ -2233,9 +2233,9 @@ name|model
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QSortFilterProxyModel: index from wrong model passed to mapFromSource"
+argument_list|)
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(

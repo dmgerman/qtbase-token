@@ -124,9 +124,9 @@ literal|1
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"qppsobject.cpp: qt_safe_open failed"
+argument_list|)
 expr_stmt|;
 name|value
 operator|=
@@ -285,9 +285,9 @@ block|}
 else|else
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decode: pps_decoder_initialize failed"
+argument_list|)
 expr_stmt|;
 operator|*
 name|ok
@@ -518,9 +518,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeString: PPS_DECODER_GET_STRING failed"
+argument_list|)
 expr_stmt|;
 return|return
 name|QPpsAttribute
@@ -655,9 +655,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeNumber: failed to decode integer"
+argument_list|)
 expr_stmt|;
 return|return
 name|QPpsAttribute
@@ -683,9 +683,9 @@ argument_list|)
 return|;
 default|default:
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeNumber: pps_decoder_get_int failed"
+argument_list|)
 expr_stmt|;
 return|return
 name|QPpsAttribute
@@ -716,9 +716,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeNumber: pps_decoder_get_double failed"
+argument_list|)
 expr_stmt|;
 return|return
 name|QPpsAttribute
@@ -781,9 +781,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeBool: pps_decoder_get_bool failed"
+argument_list|)
 expr_stmt|;
 return|return
 name|QPpsAttribute
@@ -1051,9 +1051,9 @@ name|PPS_TYPE_UNKNOWN
 case|:
 default|default:
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeData: invalid pps_node_type"
+argument_list|)
 expr_stmt|;
 return|return
 name|QPpsAttribute
@@ -1123,9 +1123,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeArray: pps_decoder_goto_index failed"
+argument_list|)
 expr_stmt|;
 operator|*
 name|ok
@@ -1240,9 +1240,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::decodeObject: pps_decoder_goto_index failed"
+argument_list|)
 expr_stmt|;
 operator|*
 name|ok
@@ -1480,9 +1480,9 @@ name|None
 case|:
 default|default:
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::variantFromPpsAttribute: invalid attribute parameter"
+argument_list|)
 expr_stmt|;
 return|return
 name|QVariant
@@ -1559,9 +1559,9 @@ name|rawData
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::encode: pps_encoder_buffer failed"
+argument_list|)
 expr_stmt|;
 operator|*
 name|ok
@@ -1912,9 +1912,9 @@ expr_stmt|;
 break|break;
 default|default:
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObjectPrivate::encodeData: the type of the parameter data is invalid"
+argument_list|)
 expr_stmt|;
 operator|*
 name|ok
@@ -2903,9 +2903,9 @@ literal|1
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPpsObject::read: maxSize is equal to -1"
+argument_list|)
 expr_stmt|;
 name|safeAssign
 argument_list|(

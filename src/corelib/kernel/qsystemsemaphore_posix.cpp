@@ -370,9 +370,6 @@ directive|if
 name|defined
 name|QSYSTEMSEMAPHORE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
-name|QLatin1String
 argument_list|(
 literal|"QSystemSemaphore::cleanHandle sem_close failed."
 argument_list|)
@@ -427,9 +424,6 @@ directive|if
 name|defined
 name|QSYSTEMSEMAPHORE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
-name|QLatin1String
 argument_list|(
 literal|"QSystemSemaphore::cleanHandle sem_unlink failed."
 argument_list|)

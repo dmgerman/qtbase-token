@@ -81,9 +81,9 @@ operator|!=
 literal|0
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"couldn't initialize the locale"
+argument_list|)
 expr_stmt|;
 name|UInt32
 name|options
@@ -142,9 +142,9 @@ operator|!=
 literal|0
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Couldn't initialize the collator"
+argument_list|)
 expr_stmt|;
 name|dirty
 operator|=

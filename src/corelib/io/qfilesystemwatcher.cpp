@@ -863,9 +863,9 @@ argument_list|)
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QFileSystemWatcher: skipping native engine, using only polling engine"
+argument_list|)
 expr_stmt|;
 name|d_func
 argument_list|()
@@ -892,9 +892,9 @@ argument_list|)
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QFileSystemWatcher: skipping polling engine, using only native engine"
+argument_list|)
 expr_stmt|;
 name|engine
 operator|=

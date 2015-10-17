@@ -480,9 +480,9 @@ ifdef|#
 directive|ifdef
 name|QTIMELINE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QTimeLinePrivate::setCurrentTime: transitionframe"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

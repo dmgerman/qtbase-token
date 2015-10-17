@@ -316,9 +316,6 @@ directive|if
 name|defined
 name|QSYSTEMSEMAPHORE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
-name|QLatin1String
 argument_list|(
 literal|"QSystemSemaphorePrivate::CloseHandle: sem failed"
 argument_list|)
@@ -387,9 +384,6 @@ directive|if
 name|defined
 name|QSYSTEMSEMAPHORE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
-name|QLatin1String
 argument_list|(
 literal|"QSystemSemaphore::modifySemaphore ReleaseSemaphore failed"
 argument_list|)
@@ -453,9 +447,6 @@ directive|if
 name|defined
 name|QSYSTEMSEMAPHORE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
-name|QLatin1String
 argument_list|(
 literal|"QSystemSemaphore::modifySemaphore WaitForSingleObject failed"
 argument_list|)

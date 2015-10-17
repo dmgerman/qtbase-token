@@ -505,9 +505,6 @@ directive|if
 name|defined
 name|QSYSTEMSEMAPHORE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
-name|QLatin1String
 argument_list|(
 literal|"QSystemSemaphore::cleanHandle semctl failed."
 argument_list|)
