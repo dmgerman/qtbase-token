@@ -295,9 +295,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QSimplex: No feasible solution!"
+argument_list|)
 expr_stmt|;
 name|clearDataStructures
 argument_list|()
@@ -691,9 +691,9 @@ name|matrix
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QSimplex: Unable to allocate memory!"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -1003,9 +1003,9 @@ operator|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QSimplex: No feasible solution!"
+argument_list|)
 expr_stmt|;
 name|clearDataStructures
 argument_list|()
@@ -1758,9 +1758,9 @@ literal|1
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QSimplex: Unbounded problem!"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

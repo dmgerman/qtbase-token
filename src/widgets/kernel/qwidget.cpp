@@ -46351,9 +46351,9 @@ name|window
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Asking for share context for widget that does not have a window handle"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0

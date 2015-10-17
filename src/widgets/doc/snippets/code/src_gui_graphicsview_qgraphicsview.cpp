@@ -236,9 +236,9 @@ comment|//! [5]
 comment|//! [6]
 argument|void CustomView::mousePressEvent(QMouseEvent *event) {     if (QGraphicsItem *item = itemAt(event->pos())) {         qDebug()<<
 literal|"You clicked on item"
-argument|<< item;     } else {         qDebug()<<
+argument|<< item;     } else {         qDebug(
 literal|"You didn't click on an item."
-argument|;     } }
+argument|);     } }
 comment|//! [6]
 comment|//! [7]
 argument|QGraphicsScene scene; scene.addText(

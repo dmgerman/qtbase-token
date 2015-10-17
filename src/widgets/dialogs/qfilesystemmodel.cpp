@@ -1938,7 +1938,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// qDebug()<< "yah!, you saved a little gerbil soul";
+comment|// qDebug("yah!, you saved a little gerbil soul");
 block|}
 block|}
 endif|#
