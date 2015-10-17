@@ -4445,9 +4445,9 @@ name|to
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPrinter::setFromTo: 'from' must be less than or equal to 'to'"
+argument_list|)
 expr_stmt|;
 name|from
 operator|=

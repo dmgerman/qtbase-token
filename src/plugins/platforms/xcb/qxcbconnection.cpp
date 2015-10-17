@@ -9917,9 +9917,9 @@ name|present
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Qt: XKEYBOARD extension not present on the X server."
+argument_list|)
 expr_stmt|;
 name|xkb_first_event
 operator|=
@@ -10107,9 +10107,9 @@ name|error
 argument_list|)
 expr_stmt|;
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Qt: failed to select notify events from xcb-xkb"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

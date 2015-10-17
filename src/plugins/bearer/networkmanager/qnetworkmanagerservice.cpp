@@ -498,7 +498,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|//qWarning()<< "using blocking call!";
+comment|//qWarning("using blocking call!");
 name|QDBusReply
 argument_list|<
 name|QList
@@ -3096,7 +3096,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|//qWarning()<< "Using blocking call!";
+comment|//qWarning("Using blocking call!");
 name|QDBusReply
 argument_list|<
 name|QList
@@ -3913,7 +3913,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|//qWarning()<< "Using blocking call!";
+comment|//qWarning("Using blocking call!");
 name|QDBusReply
 argument_list|<
 name|QList
@@ -4242,7 +4242,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|//qWarning()<< "Using blocking call!";
+comment|//qWarning("Using blocking call!");
 name|QDBusReply
 argument_list|<
 name|QNmSettingsMap

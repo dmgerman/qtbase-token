@@ -372,15 +372,15 @@ expr_stmt|;
 break|break;
 default|default:
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"UNKNOWN BLOB TYPE"
+argument_list|)
 expr_stmt|;
 block|}
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"===== END NLA_BLOB ====="
+argument_list|)
 expr_stmt|;
 block|}
 end_function

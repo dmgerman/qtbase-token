@@ -3579,9 +3579,9 @@ name|xkb_context
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Current XKB configuration data search paths are: "
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -3613,11 +3613,11 @@ argument_list|)
 expr_stmt|;
 block|}
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Use QT_XKB_CONFIG_ROOT environmental variable to provide an additional search path, "
 literal|"add ':' as separator to provide several search paths and/or make sure that XKB configuration data "
 literal|"directory contains recent enough contents, to update please see http://cgit.freedesktop.org/xkeyboard-config/ ."
+argument_list|)
 expr_stmt|;
 block|}
 end_function

@@ -817,9 +817,9 @@ operator|-
 literal|1
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QXcbBackingStore: Error while marking the shared memory segment to be destroyed"
+argument_list|)
 expr_stmt|;
 block|}
 name|m_hasAlpha

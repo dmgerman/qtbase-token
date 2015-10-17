@@ -178,9 +178,9 @@ argument_list|)
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"screen: eglMakeCurrent FAILED"
+argument_list|)
 expr_stmt|;
 block|}
 name|glGenFramebuffers

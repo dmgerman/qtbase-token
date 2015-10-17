@@ -185,9 +185,9 @@ parameter_list|()
 block|{
 comment|//don't delete screens since they are deleted by the devices
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"deleting platform integration"
+argument_list|)
 expr_stmt|;
 for|for
 control|(

@@ -953,9 +953,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Unable to set queue size on tablet. The tablet will not work."
+argument_list|)
 expr_stmt|;
 name|QWindowsTabletSupport
 operator|::

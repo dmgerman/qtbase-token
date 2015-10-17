@@ -7743,7 +7743,7 @@ comment|//        isc_database_info(d->status,&d->ibase, sizeof(sizeInfo), sizeI
 block|for(int i = 0; i< 66; ++i)             qDebug()<< QString::number(buf[i]);          for (char* c = buf + 3; *c != isc_info_end;
 comment|/*nothing*/
 block|) {             ct = *(c++);             len = isc_vax_integer(c, 2);             c += 2;             val = isc_vax_integer(c, len);             c += len;             qDebug()<< "size"<< val;             if (ct == isc_info_req_select_count)                 return val;         }
-comment|//qDebug()<< "size -1";
+comment|//qDebug("size -1");
 block|return -1;          unsigned int i, result_size;         if (buf[0] == isc_info_sql_records) {             i = 3;             result_size = isc_vax_integer(&buf[1],2);             while (buf[i] != isc_info_end&& i< result_size) {                 len = (short)isc_vax_integer(&buf[i+1],2);                 if (buf[i] == isc_info_req_select_count)                      return (isc_vax_integer(&buf[i+3],len));                 i += len+3;            }         }
 comment|//    }
 block|return -1;

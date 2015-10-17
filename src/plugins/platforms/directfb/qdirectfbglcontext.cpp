@@ -267,9 +267,9 @@ parameter_list|()
 block|{
 comment|//    m_dfbGlContext->Unlock(m_dfbGlContext); //maybe not in doneCurrent()
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Swap buffers"
+argument_list|)
 expr_stmt|;
 block|}
 end_function

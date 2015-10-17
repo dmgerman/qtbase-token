@@ -2289,9 +2289,9 @@ name|program
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QGLShaderProgram: could not create shader program"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -2328,9 +2328,9 @@ block|}
 else|else
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QGLShaderProgram: shader programs are not supported"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

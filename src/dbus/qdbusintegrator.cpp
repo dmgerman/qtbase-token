@@ -9852,9 +9852,9 @@ argument_list|)
 expr_stmt|;
 else|else
 name|qDBusDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Deliver failed!"
+argument_list|)
 expr_stmt|;
 block|}
 if|if

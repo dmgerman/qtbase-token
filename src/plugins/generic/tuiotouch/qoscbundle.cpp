@@ -352,9 +352,9 @@ block|{
 comment|// empty bundle; these are valid, but should they be allowed? the
 comment|// spec is unclear on this...
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Empty bundle?"
+argument_list|)
 expr_stmt|;
 name|m_isValid
 operator|=
@@ -460,9 +460,9 @@ block|}
 else|else
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Invalid sub-message"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -521,9 +521,9 @@ block|}
 else|else
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Malformed sub-data!"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

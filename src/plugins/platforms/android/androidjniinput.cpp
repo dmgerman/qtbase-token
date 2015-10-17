@@ -247,9 +247,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@ RESETSOFTWAREKEYBOARD"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -276,9 +276,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@ HIDESOFTWAREKEYBOARD"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

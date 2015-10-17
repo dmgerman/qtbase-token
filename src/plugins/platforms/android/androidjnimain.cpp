@@ -2293,9 +2293,9 @@ block|}
 else|else
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"No main library was specified; searching entire process (this is slow!)"
+argument_list|)
 expr_stmt|;
 name|m_main
 operator|=

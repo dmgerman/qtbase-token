@@ -215,9 +215,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@ BEGINBATCH"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -258,9 +258,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@ ENDBATCH"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -457,9 +457,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@ FINISH"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1230,9 +1230,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@ SELALL"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1270,9 +1270,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1310,9 +1310,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1350,9 +1350,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1390,9 +1390,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1430,9 +1430,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_ANDROID_IM_PROTOCOL
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"@@@ UPDATECURSORPOS"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1856,9 +1856,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"GetMethodID failed"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1885,9 +1885,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Can't find field partialEndOffset"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1914,9 +1914,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Can't find field partialStartOffset"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1943,9 +1943,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Can't find field selectionEnd"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1972,9 +1972,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Can't find field selectionStart"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -2001,9 +2001,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Can't find field startOffset"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -2030,9 +2030,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Can't find field text"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

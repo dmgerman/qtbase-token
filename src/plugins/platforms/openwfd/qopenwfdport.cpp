@@ -208,9 +208,9 @@ name|actualNumberOfPortModes
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"didn't find any available port modes"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -287,9 +287,9 @@ argument_list|()
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Could not set native resolution mode in QOpenWFPort"
+argument_list|)
 expr_stmt|;
 block|}
 name|WFDfloat

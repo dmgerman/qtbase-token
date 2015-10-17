@@ -698,9 +698,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"PropertyChanged not connected"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -772,9 +772,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"servicesChanged not connected"
+argument_list|)
 expr_stmt|;
 block|}
 block|}

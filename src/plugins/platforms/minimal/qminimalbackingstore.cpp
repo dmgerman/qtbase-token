@@ -105,9 +105,9 @@ condition|(
 name|mDebug
 condition|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QMinimalBackingStore::paintDevice"
+argument_list|)
 expr_stmt|;
 return|return
 operator|&

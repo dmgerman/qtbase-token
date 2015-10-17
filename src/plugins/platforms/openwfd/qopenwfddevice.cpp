@@ -82,9 +82,9 @@ operator|==
 name|WFD_INVALID_HANDLE
 condition|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"failed to create device"
+argument_list|)
 expr_stmt|;
 name|mEvent
 operator|=
@@ -102,9 +102,9 @@ operator|==
 name|WFD_INVALID_HANDLE
 condition|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"failed to create event handle"
+argument_list|)
 expr_stmt|;
 comment|//initialize pipelines for device.
 name|wfdEnumeratePipelines
@@ -637,9 +637,9 @@ case|case
 name|WFD_EVENT_DESTROYED
 case|:
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Event or Device destoryed!"
+argument_list|)
 expr_stmt|;
 return|return;
 case|case
@@ -653,9 +653,9 @@ case|case
 name|WFD_EVENT_PORT_PROTECTION_FAILURE
 case|:
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Port protection event handling not implemented"
+argument_list|)
 expr_stmt|;
 break|break;
 case|case
@@ -669,16 +669,16 @@ case|case
 name|WFD_EVENT_PIPELINE_BIND_MASK_COMPLETE
 case|:
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Pipeline bind mask event handling not implemented"
+argument_list|)
 expr_stmt|;
 break|break;
 default|default:
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Not recognised event type"
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -693,9 +693,9 @@ name|initializeGbmAndEgl
 parameter_list|()
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"initializing GBM and EGL"
+argument_list|)
 expr_stmt|;
 name|int
 name|fd
@@ -715,9 +715,9 @@ literal|0
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"failed to get WFD_DEVICE_ID"
+argument_list|)
 expr_stmt|;
 block|}
 name|mGbmDevice
@@ -764,9 +764,9 @@ argument_list|)
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"failed to initialize egl"
+argument_list|)
 expr_stmt|;
 block|}
 name|QByteArray
@@ -791,9 +791,9 @@ argument_list|)
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"This egl implementation does not have the required EGL extension EGL_KHR_surfaceless_opengl"
+argument_list|)
 expr_stmt|;
 block|}
 name|eglBindAPI
@@ -834,9 +834,9 @@ name|EGL_NO_CONTEXT
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Failed to create EGL context"
+argument_list|)
 expr_stmt|;
 block|}
 name|eglCreateImage
@@ -997,9 +997,9 @@ operator|=
 name|i
 expr_stmt|;
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"found index to attach"
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -1149,9 +1149,9 @@ name|WFD_TRUE
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"PIPELINE_BIND_QUEUE_OVERFLOW event occurred"
+argument_list|)
 expr_stmt|;
 block|}
 name|WFDint

@@ -208,9 +208,9 @@ argument_list|)
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"could not delete eglImage"
+argument_list|)
 expr_stmt|;
 block|}
 name|gbm_bo_destroy
@@ -258,9 +258,9 @@ name|GL_FRAMEBUFFER_COMPLETE
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"framebuffer not ready!"
+argument_list|)
 expr_stmt|;
 block|}
 block|}

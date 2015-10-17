@@ -2401,9 +2401,9 @@ block|}
 else|else
 block|{
 name|qAtspiDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Could not query active accessibility event listeners."
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3344,9 +3344,9 @@ argument_list|()
 condition|)
 block|{
 name|qAtspiDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Received text event for invalid interface."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -3893,9 +3893,9 @@ name|iface
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ValueChanged event from invalid accessible."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -4102,9 +4102,9 @@ name|iface
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Selection event from invalid accessible."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -4226,9 +4226,9 @@ name|iface
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"StateChanged event from invalid accessible."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -7024,9 +7024,9 @@ name|ACCESSIBLE_CREATION_DEBUG
 else|else
 block|{
 name|qAtspiDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|" IS NOT a component"
+argument_list|)
 expr_stmt|;
 block|}
 endif|#
@@ -7313,9 +7313,9 @@ argument_list|)
 condition|)
 block|{
 name|qAtspiDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"AtSpiAdaptor::pathForObject: warning: creating path with QAction as object."
+argument_list|)
 expr_stmt|;
 block|}
 name|QAccessibleInterface
@@ -8273,9 +8273,9 @@ comment|//        int width = message.arguments().at(2).toInt();
 comment|//        int height = message.arguments().at(3).toInt();
 comment|//        uint coordinateType = message.arguments().at(4).toUInt();
 name|qAtspiDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"SetExtents is not implemented."
+argument_list|)
 expr_stmt|;
 name|sendReply
 argument_list|(
@@ -8302,9 +8302,9 @@ comment|//        int x = message.arguments().at(0).toInt();
 comment|//        int y = message.arguments().at(1).toInt();
 comment|//        uint coordinateType = message.arguments().at(2).toUInt();
 name|qAtspiDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"SetPosition is not implemented."
+argument_list|)
 expr_stmt|;
 name|sendReply
 argument_list|(
@@ -8330,9 +8330,9 @@ block|{
 comment|//        int width = message.arguments().at(0).toInt();
 comment|//        int height = message.arguments().at(1).toInt();
 name|qAtspiDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"SetSize is not implemented."
+argument_list|)
 expr_stmt|;
 name|sendReply
 argument_list|(

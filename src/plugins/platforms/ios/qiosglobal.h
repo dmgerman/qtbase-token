@@ -50,11 +50,8 @@ DECL|macro|qImDebug
 define|#
 directive|define
 name|qImDebug
-parameter_list|(
-modifier|...
-parameter_list|)
 define|\
-value|for (bool qt_category_enabled = lcQpaInputMethods().isDebugEnabled(); qt_category_enabled; qt_category_enabled = false) \         QMessageLogger(QT_MESSAGELOG_FILE, QT_MESSAGELOG_LINE, QT_MESSAGELOG_FUNC, lcQpaInputMethods().categoryName()).debug(__VA_ARGS__)
+value|for (bool qt_category_enabled = lcQpaInputMethods().isDebugEnabled(); qt_category_enabled; qt_category_enabled = false) \         QMessageLogger(QT_MESSAGELOG_FILE, QT_MESSAGELOG_LINE, QT_MESSAGELOG_FUNC, lcQpaInputMethods().categoryName()).debug
 end_define
 begin_else
 else|#
@@ -65,8 +62,7 @@ DECL|macro|qImDebug
 define|#
 directive|define
 name|qImDebug
-parameter_list|()
-value|QT_NO_QDEBUG_MACRO()
+value|QT_NO_QDEBUG_MACRO
 end_define
 begin_endif
 endif|#

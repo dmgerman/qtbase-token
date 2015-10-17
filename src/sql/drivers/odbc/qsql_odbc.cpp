@@ -11986,9 +11986,9 @@ operator|=
 literal|false
 expr_stmt|;
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QODBCDriver::checkHasSQLFetchScroll: Warning - Driver doesn't support scrollable result sets, use forward only mode for queries"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -12235,9 +12235,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QODBCDriver::beginTransaction: Database not open"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -12328,9 +12328,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QODBCDriver::commitTransaction: Database not open"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -12405,9 +12405,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QODBCDriver::rollbackTransaction: Database not open"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

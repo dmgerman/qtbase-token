@@ -465,9 +465,9 @@ ifdef|#
 directive|ifdef
 name|Q_XCB_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"======== updateVirtualRoots"
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -503,9 +503,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"======== updateVirtualRoots"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

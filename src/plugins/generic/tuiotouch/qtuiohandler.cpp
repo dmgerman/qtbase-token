@@ -739,9 +739,9 @@ literal|0
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Ignoring TUIO message with no arguments"
+argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
@@ -897,9 +897,9 @@ name|QByteArray
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Ignoring malformed TUIO source message (bad argument type)"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

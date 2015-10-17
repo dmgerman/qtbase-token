@@ -566,9 +566,9 @@ expr_stmt|;
 break|break;
 default|default:
 name|qButtonDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Unknown hardware button"
+argument_list|)
 expr_stmt|;
 continue|continue;
 block|}

@@ -1196,9 +1196,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Style.json does not contain a valid style."
+argument_list|)
 expr_stmt|;
 return|return
 name|QJsonObject

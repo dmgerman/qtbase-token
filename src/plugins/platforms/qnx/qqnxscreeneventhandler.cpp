@@ -2464,9 +2464,9 @@ condition|)
 comment|//If screen size is invalid, wait for the next event
 return|return;
 name|qScreenEventDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"creating new QQnxScreen for newly attached display"
+argument_list|)
 expr_stmt|;
 name|m_qnxIntegration
 operator|->
@@ -2504,9 +2504,9 @@ condition|)
 block|{
 comment|// libscreen display is deactivated, let's remove the QQnxScreen / QScreen
 name|qScreenEventDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"removing display"
+argument_list|)
 expr_stmt|;
 name|m_qnxIntegration
 operator|->

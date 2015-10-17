@@ -1670,9 +1670,9 @@ name|this
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Application window cannot be reparented"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

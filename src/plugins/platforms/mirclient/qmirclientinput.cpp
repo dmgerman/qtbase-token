@@ -891,9 +891,9 @@ operator|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Attempted to deliver an event to a non-existent window, ignoring."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

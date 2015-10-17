@@ -737,9 +737,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_METRICS
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QWin32PrintEngine::begin()"
+argument_list|)
 expr_stmt|;
 name|d
 operator|->
@@ -1012,9 +1012,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_METRICS
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QWin32PrintEngine::newPage()"
+argument_list|)
 expr_stmt|;
 name|d
 operator|->
@@ -5169,9 +5169,9 @@ operator|||
 name|defined
 name|QT_DEBUG_METRICS
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QWin32PrintEngine::initialize()"
+argument_list|)
 expr_stmt|;
 name|debugMetrics
 argument_list|()
@@ -5459,9 +5459,9 @@ name|hdc
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ResetDC() called with null hdc."
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -8354,9 +8354,9 @@ operator|||
 name|defined
 name|QT_DEBUG_METRICS
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QWin32PrintEngine::setGlobalDevMode()"
+argument_list|)
 expr_stmt|;
 name|debugMetrics
 argument_list|()

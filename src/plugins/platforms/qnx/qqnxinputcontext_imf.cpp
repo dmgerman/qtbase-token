@@ -1444,9 +1444,9 @@ name|editor_action
 argument_list|)
 expr_stmt|;
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ic_perform_editor_action not implemented"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -1477,9 +1477,9 @@ name|enabled
 argument_list|)
 expr_stmt|;
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ic_report_fullscreen_mode not implemented"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -1520,9 +1520,9 @@ name|flags
 argument_list|)
 expr_stmt|;
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ic_get_extracted_text not implemented"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -1554,9 +1554,9 @@ name|flags
 argument_list|)
 expr_stmt|;
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ic_get_selected_text not implemented"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -1587,9 +1587,9 @@ name|req_modes
 argument_list|)
 expr_stmt|;
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ic_get_cursor_caps_mode not implemented"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -1620,9 +1620,9 @@ name|states
 argument_list|)
 expr_stmt|;
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ic_clear_meta_key_states not implemented"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -1661,9 +1661,9 @@ name|end
 argument_list|)
 expr_stmt|;
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"ic_set_selection not implemented"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0

@@ -638,9 +638,9 @@ name|underDebugger
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Both -nograb and -dograb command line arguments specified. Please pick one. -nograb takes prcedence"
+argument_list|)
 expr_stmt|;
 name|doGrabArg
 operator|=

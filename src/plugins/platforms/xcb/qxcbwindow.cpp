@@ -1635,9 +1635,9 @@ operator|!
 name|visual
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Could not use default visual id. Falling back to root_visual for screen."
+argument_list|)
 expr_stmt|;
 block|}
 if|if

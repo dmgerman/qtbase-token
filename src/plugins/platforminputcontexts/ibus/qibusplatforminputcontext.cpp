@@ -1195,9 +1195,9 @@ condition|(
 name|debug
 condition|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"surroundingTextRequired"
+argument_list|)
 expr_stmt|;
 name|d
 operator|->

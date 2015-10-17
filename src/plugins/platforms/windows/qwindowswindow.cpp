@@ -3709,9 +3709,9 @@ operator|::
 name|WindowStaysOnBottomHint
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QWidget: Incompatible window flags: the window can't be on top and on bottom at the same time"
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -12013,9 +12013,9 @@ name|screen
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"window()->screen() returned a null screen"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
