@@ -1149,9 +1149,9 @@ argument_list|(
 name|DEBUG_FONTENGINE
 argument_list|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"verifyHeader failed!"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

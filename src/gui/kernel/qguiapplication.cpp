@@ -5498,9 +5498,9 @@ argument_list|)
 condition|)
 block|{
 name|qCritical
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Library qttestability resolve failed!"
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -5874,9 +5874,9 @@ name|pi
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QGuiApplication::platformFunction(): Must construct a QGuiApplication before accessing a platform function"
+argument_list|)
 expr_stmt|;
 return|return
 name|Q_NULLPTR

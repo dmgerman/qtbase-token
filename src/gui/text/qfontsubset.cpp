@@ -4533,7 +4533,7 @@ block|}
 else|else
 block|{
 comment|// need to split
-comment|//                     qDebug()<< "  -> splitting";
+comment|//                     qDebug("  -> splitting");
 name|qint16
 name|a
 decl_stmt|,
@@ -5121,7 +5121,7 @@ name|points
 parameter_list|)
 block|{
 comment|// convert points to relative and setup flags
-comment|//     qDebug()<< "relative points:";
+comment|//     qDebug("relative points:");
 name|qint16
 name|prev_x
 init|=
@@ -5921,7 +5921,7 @@ expr_stmt|;
 comment|//     qDebug()<< "number of contours="<< endPoints.size();
 comment|//     for (int i = 0; i< points.size(); ++i)
 comment|//         qDebug()<< "  point["<< i<< "] = "<< QPoint(points.at(i).x, points.at(i).y)<< " flags="<< points.at(i).flags;
-comment|//     qDebug()<< "endPoints:";
+comment|//     qDebug("endPoints:");
 comment|//     for (int i = 0; i< endPoints.size(); ++i)
 comment|//         qDebug()<< endPoints.at(i);
 name|getBounds

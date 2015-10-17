@@ -2552,9 +2552,9 @@ name|surface
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QOpenGLContext::swapBuffers() called with null argument"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -2568,9 +2568,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QOpenGLContext::swapBuffers() called with non-opengl surface"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -2602,9 +2602,9 @@ name|receivedExpose
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QOpenGLContext::swapBuffers() called with non-exposed window, behavior is undefined"
+argument_list|)
 expr_stmt|;
 block|}
 name|QPlatformSurface
@@ -2642,9 +2642,9 @@ literal|false
 argument_list|)
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QOpenGLContext::swapBuffers() called without corresponding makeCurrent()"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

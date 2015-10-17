@@ -10507,7 +10507,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|//    qDebug()<< "layoutCell done";
+comment|//    qDebug("layoutCell done");
 return|return
 name|layoutStruct
 return|;
@@ -13562,7 +13562,7 @@ argument_list|(
 name|frame
 argument_list|)
 expr_stmt|;
-comment|//             qDebug()<< "    adding to pending list";
+comment|//             qDebug("    adding to pending list");
 return|return;
 block|}
 block|}
@@ -17030,7 +17030,7 @@ name|atEnd
 argument_list|()
 condition|)
 block|{
-comment|//qDebug()<< "layout done!";
+comment|//qDebug("layout done!");
 name|currentLazyLayoutPosition
 operator|=
 operator|-

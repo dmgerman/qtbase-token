@@ -1816,9 +1816,9 @@ ifdef|#
 directive|ifdef
 name|QIMAGEREADER_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QImageReader::createReadHandler: no handlers found. giving up."
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

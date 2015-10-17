@@ -82,9 +82,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Must construct a QGuiApplication before accessing a platform theme hint."
+argument_list|)
 expr_stmt|;
 return|return
 name|QVariant

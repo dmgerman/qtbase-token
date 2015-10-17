@@ -10291,9 +10291,9 @@ block|}
 else|else
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QStandardItemModel::mimeData: No item associated with invalid index"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0

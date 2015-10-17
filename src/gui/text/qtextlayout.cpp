@@ -14303,7 +14303,7 @@ return|;
 block|}
 block|}
 comment|// right of last item
-comment|//     qDebug()<< "right of last";
+comment|//     qDebug("right of last");
 name|int
 name|item
 init|=

@@ -462,9 +462,9 @@ block|}
 else|else
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"header verification of QPF2 font failed. maybe it is corrupt?"
+argument_list|)
 expr_stmt|;
 block|}
 block|}

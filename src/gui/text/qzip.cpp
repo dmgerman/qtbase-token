@@ -3128,9 +3128,9 @@ literal|0x04034b50
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QZip: not a zip file!"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -3193,9 +3193,9 @@ literal|65535
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QZip: EndOfDirectory not found"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -3284,9 +3284,9 @@ operator|!=
 name|i
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QZip: failed to parse zip file."
+argument_list|)
 expr_stmt|;
 name|comment
 operator|=
@@ -3362,9 +3362,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QZip: Failed to read complete header, index may be incomplete"
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -3383,9 +3383,9 @@ literal|0x02014b50
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QZip: invalid header signature, index may be incomplete"
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -3425,9 +3425,9 @@ name|l
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QZip: Failed to read filename from zip index, index may be incomplete"
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -3466,9 +3466,9 @@ name|l
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QZip: Failed to read extra field in zip file, skipping file, index may be incomplete"
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -3507,9 +3507,9 @@ name|l
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QZip: Failed to read read file comment, index may be incomplete"
+argument_list|)
 expr_stmt|;
 break|break;
 block|}

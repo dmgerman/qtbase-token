@@ -669,9 +669,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QTextDocumentWriter::write: the device can not be opened for writing"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -761,9 +761,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QTextDocumentWriter::write: the device can not be opened for writing"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

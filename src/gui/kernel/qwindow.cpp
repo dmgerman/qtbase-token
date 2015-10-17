@@ -2929,9 +2929,9 @@ name|WindowActive
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QWindow::setWindowState does not accept Qt::WindowActive"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -7089,9 +7089,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QWindow::fromWinId(): platform plugin does not support foreign windows."
+argument_list|)
 expr_stmt|;
 return|return
 literal|0

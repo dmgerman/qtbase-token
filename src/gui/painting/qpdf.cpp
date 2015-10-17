@@ -10187,7 +10187,7 @@ condition|(
 name|dct
 condition|)
 block|{
-comment|//qDebug()<< "DCT";
+comment|//qDebug("DCT");
 name|xprintf
 argument_list|(
 literal|"/Filter /DCTDecode\n>>\nstream\n"
@@ -12130,9 +12130,9 @@ name|ConicalGradient
 case|:
 default|default:
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Implement me!"
+argument_list|)
 expr_stmt|;
 block|}
 return|return

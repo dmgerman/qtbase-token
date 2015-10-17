@@ -5696,9 +5696,9 @@ ifdef|#
 directive|ifdef
 name|QT_DEBUG_DRAW
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|" --- optimizing vector clip to rect clip..."
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

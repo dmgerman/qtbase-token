@@ -545,9 +545,9 @@ name|shader
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QOpenGLShader: could not create shader"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -2694,9 +2694,9 @@ name|program
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QOpenGLShaderProgram: could not create shader program"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

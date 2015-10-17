@@ -316,9 +316,9 @@ argument_list|)
 expr_stmt|;
 else|else
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QOpenGLFunctions created with non-current context"
+argument_list|)
 expr_stmt|;
 block|}
 end_constructor

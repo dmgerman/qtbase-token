@@ -206,9 +206,9 @@ ifdef|#
 directive|ifdef
 name|QT_PICTURE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPicturePaintEngine::begin()"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -475,9 +475,9 @@ ifdef|#
 directive|ifdef
 name|QT_PICTURE_DEBUG
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPicturePaintEngine::end()"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

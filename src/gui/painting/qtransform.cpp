@@ -62,9 +62,39 @@ include|#
 directive|include
 file|<private/qbezier_p.h>
 end_include
-begin_macro
+begin_function
 name|QT_BEGIN_NAMESPACE
-end_macro
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
+name|Q_NEVER_INLINE
+DECL|function|nanWarning
+specifier|static
+name|void
+name|nanWarning
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|func
+parameter_list|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QTransform::%s with NaN called"
+argument_list|,
+name|func
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_DEBUG
+end_comment
 begin_define
 DECL|macro|Q_NEAR_CLIP
 define|#
@@ -935,10 +965,10 @@ name|dy
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QTransform::translate with NaN called"
+name|nanWarning
+argument_list|(
+literal|"translate"
+argument_list|)
 expr_stmt|;
 return|return
 operator|*
@@ -1112,10 +1142,10 @@ name|dy
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QTransform::fromTranslate with NaN called"
+name|nanWarning
+argument_list|(
+literal|"fromTranslate"
+argument_list|)
 expr_stmt|;
 return|return
 name|QTransform
@@ -1230,10 +1260,10 @@ name|sy
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QTransform::scale with NaN called"
+name|nanWarning
+argument_list|(
+literal|"scale"
+argument_list|)
 expr_stmt|;
 return|return
 operator|*
@@ -1364,10 +1394,10 @@ name|sy
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QTransform::fromScale with NaN called"
+name|nanWarning
+argument_list|(
+literal|"fromScale"
+argument_list|)
 expr_stmt|;
 return|return
 name|QTransform
@@ -1482,10 +1512,10 @@ name|sv
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QTransform::shear with NaN called"
+name|nanWarning
+argument_list|(
+literal|"shear"
+argument_list|)
 expr_stmt|;
 return|return
 operator|*
@@ -1725,10 +1755,10 @@ name|a
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QTransform::rotate with NaN called"
+name|nanWarning
+argument_list|(
+literal|"rotate"
+argument_list|)
 expr_stmt|;
 return|return
 operator|*
@@ -2179,10 +2209,10 @@ name|a
 argument_list|)
 condition|)
 block|{
-name|qWarning
-argument_list|()
-operator|<<
-literal|"QTransform::rotateRadians with NaN called"
+name|nanWarning
+argument_list|(
+literal|"rotateRadians"
+argument_list|)
 expr_stmt|;
 return|return
 operator|*

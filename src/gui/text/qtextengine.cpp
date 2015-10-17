@@ -4331,7 +4331,7 @@ name|BIDI_DEBUG
 operator|>=
 literal|1
 operator|)
-comment|//     qDebug()<< "visual order is:";
+comment|//     qDebug("visual order is:");
 comment|//     for (i = 0; i< numItems; i++)
 comment|//         qDebug()<< visualOrder[i];
 endif|#
