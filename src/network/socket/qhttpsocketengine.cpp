@@ -2317,7 +2317,7 @@ literal|"\r\n"
 expr_stmt|;
 comment|//     qDebug()<< ">>>>>>>> sending request"<< this;
 comment|//     qDebug()<< data;
-comment|//     qDebug()<< ">>>>>>>";
+comment|//     qDebug(">>>>>>>");
 name|d
 operator|->
 name|socket

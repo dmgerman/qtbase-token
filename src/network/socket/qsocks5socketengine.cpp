@@ -1676,7 +1676,7 @@ name|socketDescriptor
 argument_list|)
 condition|)
 block|{
-comment|// qDebug()<< "delete it";
+comment|// qDebug("delete it");
 block|}
 name|bindData
 operator|->
@@ -5952,7 +5952,7 @@ name|buf
 argument_list|)
 condition|)
 block|{
-comment|// qDebug()<< "unseal error maybe need to wait for more data";
+comment|// qDebug("unseal error maybe need to wait for more data");
 block|}
 if|if
 condition|(

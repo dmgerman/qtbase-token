@@ -948,9 +948,9 @@ condition|)
 block|{
 comment|// heh, how should that happen!
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QAbstractProtocolHandler::sendRequest() called without QHttpNetworkReply"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

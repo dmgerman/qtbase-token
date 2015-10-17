@@ -1736,9 +1736,9 @@ name|reply
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QHttpNetworkConnectionChannel::allDone() called without reply. Please report at http://bugreports.qt.io/"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

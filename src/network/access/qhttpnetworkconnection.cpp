@@ -1051,9 +1051,9 @@ operator|::
 name|Unknown
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"We got a connection error when networkLayerState is Unknown"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -6202,9 +6202,9 @@ else|else
 block|{
 comment|// Should not happen
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QHttpNetworkConnectionPrivate::_q_hostLookupFinished could not dequeu request"
+argument_list|)
 expr_stmt|;
 name|networkLayerState
 operator|=

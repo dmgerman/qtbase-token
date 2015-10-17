@@ -319,9 +319,9 @@ argument_list|(
 name|QNETWORKDISKCACHE_DEBUG
 argument_list|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QNetworkDiskCache::cacheSize()"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -462,9 +462,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QNetworkDiskCache::prepare() The cache directory is not set"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -635,9 +635,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QNetworkDiskCache::prepare() unable to open temporary file"
+argument_list|)
 expr_stmt|;
 name|cacheItem
 operator|.
@@ -1921,9 +1921,9 @@ argument_list|(
 name|QNETWORKDISKCACHE_DEBUG
 argument_list|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QNetworkDiskCache::updateMetaData(), no device!"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -2128,9 +2128,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QNetworkDiskCache::expire() The cache directory is not set"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -2451,9 +2451,9 @@ argument_list|(
 name|QNETWORKDISKCACHE_DEBUG
 argument_list|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QNetworkDiskCache::clear()"
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

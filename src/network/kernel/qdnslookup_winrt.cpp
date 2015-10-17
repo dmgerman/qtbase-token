@@ -165,9 +165,9 @@ name|isNull
 argument_list|()
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Ignoring nameserver as its currently not supported on WinRT"
+argument_list|)
 expr_stmt|;
 comment|// TODO: is there any way to do "proper" dns lookup?
 if|if
