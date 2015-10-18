@@ -156,13 +156,10 @@ specifier|const
 name|int
 name|result
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 name|panTouchPointVariable
-argument_list|)
-operator|.
-name|toInt
-argument_list|(
+argument_list|,
 operator|&
 name|ok
 argument_list|)
