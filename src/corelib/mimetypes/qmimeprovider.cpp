@@ -3409,7 +3409,7 @@ block|{
 continue|continue;
 block|}
 specifier|const
-name|QString
+name|QStringRef
 name|name
 init|=
 name|xml
@@ -3424,9 +3424,6 @@ argument_list|(
 literal|"type"
 argument_list|)
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
