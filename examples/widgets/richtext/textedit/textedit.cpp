@@ -501,6 +501,9 @@ name|isRedoAvailable
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|actionCut
 operator|->
 name|setEnabled
@@ -515,9 +518,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_CLIPBOARD
 name|connect
 argument_list|(
 name|QApplication
@@ -1211,6 +1211,9 @@ operator|->
 name|addSeparator
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 specifier|const
 name|QIcon
 name|cutIcon
@@ -1403,9 +1406,6 @@ argument_list|(
 name|actionPaste
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_CLIPBOARD
 if|if
 condition|(
 specifier|const
