@@ -1829,8 +1829,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|isVisible
+name|isVisibleTo
+argument_list|(
+name|parentWidget
 argument_list|()
+argument_list|)
 operator|!=
 name|action
 operator|->
@@ -2433,7 +2436,7 @@ if|if
 condition|(
 name|e
 operator|.
-name|widget
+name|action
 operator|->
 name|isVisible
 argument_list|()
@@ -2494,7 +2497,7 @@ if|if
 condition|(
 name|e
 operator|.
-name|widget
+name|action
 operator|->
 name|isVisible
 argument_list|()
