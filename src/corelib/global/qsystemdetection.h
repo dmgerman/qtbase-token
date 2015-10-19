@@ -268,7 +268,7 @@ elif|#
 directive|elif
 name|WINAPI_FAMILY
 operator|==
-name|WINAPI_FAMILY_APP
+name|WINAPI_FAMILY_PC_APP
 end_elif
 begin_define
 DECL|macro|Q_OS_WINRT
