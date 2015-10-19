@@ -3205,6 +3205,10 @@ expr_stmt|;
 enum|enum
 name|NumberOption
 block|{
+name|DefaultNumberOptions
+init|=
+literal|0x0
+block|,
 name|OmitGroupSeparator
 init|=
 literal|0x01
@@ -3212,6 +3216,14 @@ block|,
 name|RejectGroupSeparator
 init|=
 literal|0x02
+block|,
+name|OmitLeadingZeroInExponent
+init|=
+literal|0x04
+block|,
+name|RejectLeadingZeroInExponent
+init|=
+literal|0x08
 block|}
 enum|;
 name|Q_DECLARE_FLAGS

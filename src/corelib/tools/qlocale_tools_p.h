@@ -342,6 +342,9 @@ name|pm
 parameter_list|,
 name|bool
 name|always_show_decpt
+parameter_list|,
+name|bool
+name|leading_zero_in_exponent
 parameter_list|)
 function_decl|;
 end_function_decl

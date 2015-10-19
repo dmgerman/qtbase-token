@@ -435,10 +435,6 @@ argument_list|()
 operator|.
 name|numberOptions
 argument_list|()
-operator|&
-name|QLocale
-operator|::
-name|RejectGroupSeparator
 argument_list|)
 condition|)
 block|{
@@ -676,10 +672,6 @@ argument_list|()
 operator|.
 name|numberOptions
 argument_list|()
-operator|&
-name|QLocale
-operator|::
-name|RejectGroupSeparator
 argument_list|)
 condition|)
 block|{
@@ -1229,10 +1221,6 @@ name|locale
 operator|.
 name|numberOptions
 argument_list|()
-operator|&
-name|QLocale
-operator|::
-name|RejectGroupSeparator
 argument_list|)
 condition|)
 block|{

@@ -11164,7 +11164,9 @@ decl_stmt|;
 name|uint
 name|flags
 init|=
-literal|0
+name|QLocaleData
+operator|::
+name|ZeroPadExponent
 decl_stmt|;
 if|if
 condition|(
@@ -11174,7 +11176,7 @@ name|f
 argument_list|)
 condition|)
 name|flags
-operator|=
+operator||=
 name|QLocaleData
 operator|::
 name|CapitalEorX

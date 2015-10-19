@@ -2375,6 +2375,9 @@ name|pm
 parameter_list|,
 name|bool
 name|always_show_decpt
+parameter_list|,
+name|bool
+name|leading_zero_in_exponent
 parameter_list|)
 block|{
 name|int
@@ -2500,7 +2503,11 @@ name|minus
 argument_list|,
 name|exp
 argument_list|,
+name|leading_zero_in_exponent
+condition|?
 literal|2
+else|:
+literal|1
 argument_list|,
 literal|10
 argument_list|,
