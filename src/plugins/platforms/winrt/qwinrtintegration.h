@@ -188,6 +188,11 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|initialize
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
