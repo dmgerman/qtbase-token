@@ -2479,13 +2479,6 @@ expr_stmt|;
 name|mailExchanges
 operator|<<
 name|QString
-argument_list|(
-literal|"%1 %2"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
 operator|::
 name|number
 argument_list|(
@@ -2494,12 +2487,16 @@ operator|.
 name|preference
 argument_list|()
 argument_list|)
-argument_list|,
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+operator|+
 name|record
 operator|.
 name|exchange
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 name|QVERIFY2
@@ -2688,13 +2685,7 @@ argument_list|)
 expr_stmt|;
 name|services
 operator|<<
-name|QString
-argument_list|(
-literal|"%1 %2 %3 %4"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|(
 name|QString
 operator|::
 name|number
@@ -2704,7 +2695,12 @@ operator|.
 name|priority
 argument_list|()
 argument_list|)
-argument_list|,
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+operator|+
 name|QString
 operator|::
 name|number
@@ -2714,7 +2710,12 @@ operator|.
 name|weight
 argument_list|()
 argument_list|)
-argument_list|,
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+operator|+
 name|QString
 operator|::
 name|number
@@ -2724,12 +2725,17 @@ operator|.
 name|port
 argument_list|()
 argument_list|)
-argument_list|,
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
+argument_list|)
+operator|+
 name|record
 operator|.
 name|target
 argument_list|()
-argument_list|)
+operator|)
 expr_stmt|;
 block|}
 name|QVERIFY2

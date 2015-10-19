@@ -1637,21 +1637,28 @@ name|connections
 operator|=
 literal|5
 expr_stmt|;
+specifier|const
+name|QByteArray
+name|iB
+init|=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"null %1"
-argument_list|)
+operator|(
+literal|"null "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<
@@ -1666,17 +1673,13 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-argument_list|(
-literal|"tst_localsocket %1"
-argument_list|)
+operator|(
+literal|"tst_localsocket "
+operator|+
+name|iB
+operator|)
 operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<

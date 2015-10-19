@@ -412,16 +412,11 @@ return|return
 name|SESSION_OPEN_ERROR
 return|;
 block|}
-name|QString
+name|QByteArray
 name|output
 init|=
-name|QString
-argument_list|(
-literal|"Started session for %1\n"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+literal|"Started session for "
+operator|+
 name|session
 operator|->
 name|configuration
@@ -429,16 +424,17 @@ argument_list|()
 operator|.
 name|identifier
 argument_list|()
-argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+operator|+
+literal|'\n'
 decl_stmt|;
 name|oopSocket
 operator|.
 name|write
 argument_list|(
 name|output
-operator|.
-name|toLatin1
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|oopSocket

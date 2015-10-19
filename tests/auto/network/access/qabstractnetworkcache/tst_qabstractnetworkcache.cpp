@@ -56,7 +56,7 @@ DECL|macro|TESTFILE
 define|#
 directive|define
 name|TESTFILE
-value|QString("http://%1/qtest/cgi-bin/").arg(QtNetworkSettings::serverName())
+value|QLatin1String("http://") + QtNetworkSettings::serverName() + QLatin1String("/qtest/cgi-bin/")
 end_define
 begin_class
 DECL|class|tst_QAbstractNetworkCache
