@@ -237,15 +237,6 @@ block|;
 DECL|member|loadedPaths
 name|QStringList
 name|loadedPaths
-block|;
-name|void
-name|unloadPath
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|path
-argument_list|)
 block|; }
 expr_stmt|;
 end_expr_stmt
