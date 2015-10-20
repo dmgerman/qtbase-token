@@ -908,14 +908,13 @@ name|Q_OS_ANDROID
 argument_list|)
 end_elif
 begin_decl_stmt
-DECL|variable|pathMounted
 specifier|static
 specifier|const
-name|char
+name|QLatin1String
 name|pathMounted
-index|[]
-init|=
+argument_list|(
 literal|"/proc/mounts"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_constructor
