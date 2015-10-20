@@ -144,6 +144,7 @@ argument_list|(
 argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|styleHint
@@ -151,6 +152,7 @@ argument_list|(
 argument|StyleHint hint
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformWindow
 operator|*
@@ -159,6 +161,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformBackingStore
 operator|*
@@ -167,6 +170,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformOpenGLContext
 operator|*
@@ -175,30 +179,35 @@ argument_list|(
 argument|QOpenGLContext *context
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QAbstractEventDispatcher
 operator|*
 name|createEventDispatcher
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformInputContext
 operator|*
 name|inputContext
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformServices
 operator|*
 name|services
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|Qt
 operator|::
@@ -206,11 +215,13 @@ name|KeyboardModifiers
 name|queryKeyboardModifiers
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QStringList
 name|themeNames
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformTheme
 operator|*
@@ -219,6 +230,7 @@ argument_list|(
 argument|const QString&name
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
