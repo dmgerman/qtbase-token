@@ -3006,14 +3006,14 @@ argument_list|(
 operator|new
 name|QPushButton
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"widget text "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"widget text %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 operator|++
@@ -3133,14 +3133,14 @@ argument_list|(
 operator|new
 name|QGroupBox
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"widget text "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"widget text %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 operator|++
@@ -3168,14 +3168,14 @@ argument_list|(
 operator|new
 name|QLineEdit
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"widget text "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"widget text %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 operator|++
@@ -3214,14 +3214,14 @@ argument_list|(
 operator|new
 name|QCheckBox
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"widget text "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"widget text %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 operator|++
@@ -3238,14 +3238,14 @@ argument_list|(
 operator|new
 name|QRadioButton
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"widget text "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"widget text %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 operator|++
@@ -3328,14 +3328,14 @@ argument_list|(
 operator|new
 name|QLabel
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"widget text "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"widget text %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 operator|++
@@ -3385,14 +3385,14 @@ argument_list|(
 operator|new
 name|QLabel
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"widget text "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"widget text %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 operator|++
@@ -3409,14 +3409,14 @@ argument_list|(
 operator|new
 name|QTextEdit
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"widget text "
+argument_list|)
+operator|+
 name|QString
 operator|::
-name|fromLatin1
-argument_list|(
-literal|"widget text %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 operator|++
@@ -16469,24 +16469,26 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
+name|QByteArray
+name|iB
+init|=
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"line before %1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLocal8Bit
-argument_list|()
+operator|(
+literal|"line before "
+operator|+
+name|iB
+operator|)
 operator|.
 name|constData
 argument_list|()
@@ -16519,20 +16521,11 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"line at %1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLocal8Bit
-argument_list|()
+operator|(
+literal|"line at "
+operator|+
+name|iB
+operator|)
 operator|.
 name|constData
 argument_list|()
@@ -16563,20 +16556,11 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"line after %1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|toLocal8Bit
-argument_list|()
+operator|(
+literal|"line after "
+operator|+
+name|iB
+operator|)
 operator|.
 name|constData
 argument_list|()
