@@ -708,12 +708,14 @@ name|writer
 operator|.
 name|writeEntityReference
 argument_list|(
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|"#%1"
+literal|'#'
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|text
 operator|.
@@ -1551,17 +1553,12 @@ name|qMakePair
 argument_list|(
 name|id
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"Failed to open input file %1"
+literal|"Failed to open input file "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|inputFilePath
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1598,16 +1595,16 @@ name|qMakePair
 argument_list|(
 name|id
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"Failed to flag %1 as not well-formed."
+literal|"Failed to flag "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|inputFilePath
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" as not well-formed."
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1644,16 +1641,16 @@ name|qMakePair
 argument_list|(
 name|id
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"Failed to flag %1 as not well-formed with incremental parsing."
+literal|"Failed to flag "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|inputFilePath
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" as not well-formed with incremental parsing."
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1739,17 +1736,12 @@ name|qMakePair
 argument_list|(
 name|id
 argument_list|,
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"Failed to open baseline %1"
+literal|"Failed to open baseline "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|expectedFilePath
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2963,24 +2955,20 @@ condition|;
 operator|++
 name|i
 control|)
-name|QTest
+block|{
+specifier|const
+name|QByteArray
+name|testName
+init|=
+name|QByteArray
 operator|::
-name|newRow
-argument_list|(
-name|qPrintable
-argument_list|(
-name|QString
-argument_list|(
-literal|"%1. %2"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
+literal|". "
+operator|+
 name|m_handler
 operator|.
 name|successes
@@ -2989,12 +2977,23 @@ name|at
 argument_list|(
 name|i
 argument_list|)
-argument_list|)
-argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+decl_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+name|testName
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|<<
 literal|false
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|len
@@ -5169,19 +5168,21 @@ expr_stmt|;
 name|QString
 name|s
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><A attribute=\"value%1\"/>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><A attribute=\"value"
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|QChar
 argument_list|(
 name|QChar
 operator|::
 name|Nbsp
 argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"\"/>\n"
 argument_list|)
 decl_stmt|;
 name|QCOMPARE

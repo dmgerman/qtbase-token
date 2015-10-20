@@ -630,18 +630,14 @@ name|inData
 operator|.
 name|write
 argument_list|(
-name|QString
-argument_list|(
-literal|"Number %1"
-argument_list|)
-operator|.
-name|arg
+literal|"Number "
+operator|+
+name|QByteArray
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
-operator|.
-name|toUtf8
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|inData

@@ -255,7 +255,7 @@ parameter_list|(
 name|string
 parameter_list|)
 define|\
-value|const QString padded = QString::fromLatin1(" %1 ").arg(string);     \     QStringRef ref = padded.midRef(1, padded.size() - 2);
+value|const QString padded = QLatin1Char(' ') + string + QLatin1Char(' ');     \     QStringRef ref = padded.midRef(1, padded.size() - 2);
 end_define
 begin_typedef
 DECL|typedef|IntList
@@ -2710,32 +2710,32 @@ specifier|const
 name|QString
 name|haystackPadded
 init|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|" %1 "
+literal|' '
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|haystack
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
 decl_stmt|;
 specifier|const
 name|QString
 name|needlePadded
 init|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|" %1 "
+literal|' '
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|needle
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -3855,32 +3855,32 @@ specifier|const
 name|QString
 name|haystackPadded
 init|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|" %1 "
+literal|' '
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|haystack
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
 decl_stmt|;
 specifier|const
 name|QString
 name|needlePadded
 init|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|" %1 "
+literal|' '
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|needle
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -4885,32 +4885,32 @@ specifier|const
 name|QString
 name|haystackPadded
 init|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|" %1 "
+literal|' '
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|haystack
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
 decl_stmt|;
 specifier|const
 name|QString
 name|needlePadded
 init|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1Char
 argument_list|(
-literal|" %1 "
+literal|' '
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|needle
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|' '
 argument_list|)
 decl_stmt|;
 specifier|const

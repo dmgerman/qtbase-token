@@ -763,23 +763,25 @@ name|part
 expr_stmt|;
 block|}
 block|}
-name|QString
+specifier|const
+name|QByteArray
 name|nm
 init|=
-name|QString
-argument_list|(
-literal|"line #%1: %2"
-argument_list|)
-operator|.
-name|arg
+literal|"line #"
+operator|+
+name|QByteArray
+operator|::
+name|number
 argument_list|(
 name|linenum
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
+literal|": "
+operator|+
 name|comments
-argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
 decl_stmt|;
 name|QTest
 operator|::
@@ -787,7 +789,7 @@ name|newRow
 argument_list|(
 name|nm
 operator|.
-name|toLatin1
+name|constData
 argument_list|()
 argument_list|)
 operator|<<

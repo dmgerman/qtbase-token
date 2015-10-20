@@ -173,7 +173,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|const
-name|QString
+name|QByteArray
 name|debugString
 init|=
 name|dt
@@ -185,6 +185,19 @@ argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss.zzz t"
 argument_list|)
 argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+decl_stmt|;
+specifier|const
+name|QByteArray
+name|message
+init|=
+literal|"QDateTime("
+operator|+
+name|debugString
+operator|+
+literal|" Qt::TimeSpec(LocalTime))"
 decl_stmt|;
 name|QTest
 operator|::
@@ -192,20 +205,10 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-name|qPrintable
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"QDateTime(%1 Qt::TimeSpec(LocalTime))"
-argument_list|)
+name|message
 operator|.
-name|arg
-argument_list|(
-name|debugString
-argument_list|)
-argument_list|)
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|qWarning

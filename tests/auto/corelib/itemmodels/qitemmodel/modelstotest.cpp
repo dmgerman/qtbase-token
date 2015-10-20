@@ -1287,12 +1287,14 @@ block|{
 name|QString
 name|subdir
 init|=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"test/foo_%1"
+literal|"test/foo_"
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -1544,12 +1546,14 @@ name|listWidget
 operator|->
 name|addItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item %1"
+literal|"item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|items
 argument_list|)
@@ -1639,6 +1643,17 @@ name|topItems
 operator|--
 condition|)
 block|{
+specifier|const
+name|QString
+name|tS
+init|=
+name|QString
+operator|::
+name|number
+argument_list|(
+name|topItems
+argument_list|)
+decl_stmt|;
 name|parent
 operator|=
 operator|new
@@ -1648,15 +1663,12 @@ name|treeWidget
 argument_list|,
 name|QStringList
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"top %1"
+literal|"top "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|topItems
-argument_list|)
+operator|+
+name|tS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1681,15 +1693,12 @@ name|parent
 argument_list|,
 name|QStringList
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"child %1"
+literal|"child "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|topItems
-argument_list|)
+operator|+
+name|tS
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1769,12 +1778,14 @@ block|{
 name|QString
 name|subdir
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"test/foo_%1"
+literal|"test/foo_"
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)

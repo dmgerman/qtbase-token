@@ -901,26 +901,12 @@ index|]
 condition|)
 block|{
 return|return
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
 literal|"*** Failed to replace null-terminator in "
-literal|"result ('%1') ***"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
+literal|"result ('"
+operator|+
 name|ba
-argument_list|)
-argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
+operator|+
+literal|"') ***"
 return|;
 block|}
 if|if
@@ -931,26 +917,12 @@ name|baCopy
 condition|)
 block|{
 return|return
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"*** Result ('%1') differs from its copy "
-literal|"after null-terminator was replaced ***"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
+literal|"*** Result ('"
+operator|+
 name|ba
-argument_list|)
-argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
+operator|+
+literal|"') differs from its copy "
+literal|"after null-terminator was replaced ***"
 return|;
 block|}
 cast|const_cast

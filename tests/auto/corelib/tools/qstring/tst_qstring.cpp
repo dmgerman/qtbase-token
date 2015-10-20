@@ -149,7 +149,7 @@ parameter_list|(
 name|string
 parameter_list|)
 define|\
-value|const QString padded = QString::fromLatin1(" %1 ").arg(string);     \     QStringRef ref = padded.midRef(1, padded.size() - 2);
+value|const QString padded = QLatin1Char(' ') + string +  QLatin1Char(' '); \     QStringRef ref = padded.midRef(1, padded.size() - 2);
 end_define
 begin_namespace
 namespace|namespace

@@ -648,12 +648,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item %0"
+literal|"item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -1023,12 +1025,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item %0"
+literal|"item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)

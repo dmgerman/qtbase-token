@@ -1123,12 +1123,14 @@ name|list
 operator|.
 name|append
 argument_list|(
-name|QString
+name|QStringLiteral
 argument_list|(
-literal|"Number: %1"
+literal|"Number: "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -14826,6 +14828,27 @@ name|r
 operator|++
 control|)
 block|{
+specifier|const
+name|QString
+name|prefix
+init|=
+name|QLatin1String
+argument_list|(
+literal|"Row:"
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|r
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+literal|", Column:"
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -14848,17 +14871,11 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
+name|prefix
+operator|+
 name|QString
-argument_list|(
-literal|"Row:%0, Column:%1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|r
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|c
 argument_list|)
@@ -14886,12 +14903,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"Item %0"
+literal|"Item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -16621,25 +16640,39 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|QString
+name|QLatin1Char
 argument_list|(
-literal|"[%1,%2]"
+literal|'['
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|idx
 operator|.
 name|row
 argument_list|()
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|idx
 operator|.
 name|column
 argument_list|()
+argument_list|)
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|']'
 argument_list|)
 return|;
 block|}
@@ -17834,12 +17867,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"model1 item %0"
+literal|"model1 item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -17895,12 +17930,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"model2 item %0"
+literal|"model2 item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -20870,12 +20907,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item %0"
+literal|"item "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -20897,12 +20936,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"item 1%0"
+literal|"item 1"
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -22802,6 +22843,22 @@ operator|++
 name|i
 control|)
 block|{
+specifier|const
+name|QString
+name|rowText
+init|=
+name|QLatin1String
+argument_list|(
+literal|"Row "
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
 name|QStandardItem
 modifier|*
 name|child
@@ -22809,15 +22866,7 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
-argument_list|(
-literal|"Row %1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
+name|rowText
 argument_list|)
 decl_stmt|;
 for|for
@@ -22842,17 +22891,16 @@ argument_list|(
 operator|new
 name|QStandardItem
 argument_list|(
+name|rowText
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
+operator|+
 name|QString
-argument_list|(
-literal|"Row %1/%2"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|j
 argument_list|)
@@ -23073,12 +23121,14 @@ init|=
 operator|new
 name|QStandardItem
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
-literal|"Row %1"
+literal|"Row "
 argument_list|)
-operator|.
-name|arg
+operator|+
+name|QString
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)

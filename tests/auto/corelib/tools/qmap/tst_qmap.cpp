@@ -7382,11 +7382,8 @@ argument_list|(
 name|i
 argument_list|,
 name|QString
-argument_list|(
-literal|"%1"
-argument_list|)
-operator|.
-name|arg
+operator|::
+name|number
 argument_list|(
 name|i
 argument_list|)
