@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QPointer>
+end_include
+begin_include
+include|#
+directive|include
 file|<EGL/egl.h>
 end_include
 begin_decl_stmt
@@ -170,8 +175,10 @@ block|;
 name|EGLDisplay
 name|m_dpy
 block|;
+name|QPointer
+operator|<
 name|QWindow
-operator|*
+operator|>
 name|m_pointerWindow
 block|;
 name|EGLSurface
