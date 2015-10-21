@@ -1170,6 +1170,16 @@ name|int
 name|size
 parameter_list|)
 function_decl|;
+name|void
+name|resize
+parameter_list|(
+name|int
+name|size
+parameter_list|,
+name|QChar
+name|fillChar
+parameter_list|)
+function_decl|;
 name|QString
 modifier|&
 name|fill
