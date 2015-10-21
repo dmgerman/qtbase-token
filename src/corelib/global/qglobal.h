@@ -3926,7 +3926,7 @@ define|#
 directive|define
 name|Q_UNIMPLEMENTED
 parameter_list|()
-value|qWarning("%s:%d: %s: Unimplemented code.", __FILE__, __LINE__, Q_FUNC_INFO)
+value|qWarning("Unimplemented code.")
 end_define
 begin_endif
 endif|#
