@@ -195,7 +195,7 @@ end_typedef
 begin_if
 if|#
 directive|if
-name|QT_POINTER_SIZE
+name|Q_PROCESSOR_WORDSIZE
 operator|==
 literal|8
 end_if
