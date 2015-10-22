@@ -182,6 +182,9 @@ block|;
 name|NSEvent
 operator|*
 name|m_currentlyInterpretedKeyEvent
+block|;
+name|bool
+name|m_isMenuView
 block|; }
 operator|-
 operator|(
