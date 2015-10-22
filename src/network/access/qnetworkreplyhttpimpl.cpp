@@ -8015,6 +8015,10 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
+if|if
+condition|(
+name|session
+condition|)
 name|QObject
 operator|::
 name|connect
