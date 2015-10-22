@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QLocale>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QPointer>
 end_include
 begin_decl_stmt
@@ -57,6 +62,20 @@ name|reset
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+name|QLocale
+name|locale
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|{
+return|return
+name|m_locale
+return|;
+block|}
+name|void
+name|updateLocale
+argument_list|()
+block|;
 name|private
 name|Q_SLOTS
 operator|:
@@ -79,6 +98,9 @@ operator|<
 name|QWindow
 operator|>
 name|mWindow
+block|;
+name|QLocale
+name|m_locale
 block|; }
 decl_stmt|;
 end_decl_stmt
