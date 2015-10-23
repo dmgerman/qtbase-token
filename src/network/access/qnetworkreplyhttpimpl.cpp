@@ -2142,7 +2142,7 @@ name|currentDateTime
 init|=
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 decl_stmt|;
 name|QDateTime
@@ -2252,9 +2252,6 @@ name|int
 name|now
 init|=
 name|currentDateTime
-operator|.
-name|toUTC
-argument_list|()
 operator|.
 name|toTime_t
 argument_list|()
