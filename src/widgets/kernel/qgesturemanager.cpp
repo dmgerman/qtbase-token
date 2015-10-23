@@ -338,9 +338,6 @@ block|{
 name|qDeleteAll
 argument_list|(
 name|m_recognizers
-operator|.
-name|values
-argument_list|()
 argument_list|)
 expr_stmt|;
 foreach|foreach
