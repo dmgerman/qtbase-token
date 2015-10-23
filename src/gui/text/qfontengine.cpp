@@ -6002,6 +6002,15 @@ comment|// the baseline
 name|QPainterPath
 name|path
 decl_stmt|;
+name|path
+operator|.
+name|setFillRule
+argument_list|(
+name|Qt
+operator|::
+name|WindingFill
+argument_list|)
+expr_stmt|;
 name|QImage
 name|im
 argument_list|(
