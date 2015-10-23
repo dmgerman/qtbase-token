@@ -12110,6 +12110,14 @@ name|QOpenGLContext
 operator|::
 name|currentContext
 argument_list|()
+operator|||
+operator|!
+name|d
+operator|->
+name|device
+operator|->
+name|context
+argument_list|()
 condition|)
 block|{
 name|qWarning

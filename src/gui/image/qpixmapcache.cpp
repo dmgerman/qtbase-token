@@ -2342,8 +2342,14 @@ parameter_list|()
 block|{
 name|QT_TRY
 block|{
+if|if
+condition|(
 name|pm_cache
+operator|.
+name|exists
 argument_list|()
+condition|)
+name|pm_cache
 operator|->
 name|clear
 argument_list|()

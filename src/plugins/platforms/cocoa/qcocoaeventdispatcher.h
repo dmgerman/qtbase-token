@@ -69,12 +69,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/private/qtimerinfo_unix_p.h>
+file|<QtCore/private/qcfsocketnotifier_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qcfsocketnotifier_p.h>
+file|<QtCore/private/qtimerinfo_unix_p.h>
 end_include
 begin_include
 include|#

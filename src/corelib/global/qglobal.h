@@ -32,13 +32,6 @@ include|#
 directive|include
 file|<stddef.h>
 end_include
-begin_define
-DECL|macro|QT_VERSION_STR
-define|#
-directive|define
-name|QT_VERSION_STR
-value|"5.7.0"
-end_define
 begin_comment
 comment|/*    QT_VERSION is (major<< 16) + (minor<< 8) + patch. */
 end_comment
@@ -47,7 +40,7 @@ DECL|macro|QT_VERSION
 define|#
 directive|define
 name|QT_VERSION
-value|0x050700
+value|QT_VERSION_CHECK(QT_VERSION_MAJOR, QT_VERSION_MINOR, QT_VERSION_PATCH)
 end_define
 begin_comment
 comment|/*    can be used like #if (QT_VERSION>= QT_VERSION_CHECK(4, 4, 0)) */
@@ -6022,6 +6015,11 @@ begin_include
 include|#
 directive|include
 file|<QtCore/qnumeric.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qversiontagging.h>
 end_include
 begin_endif
 endif|#

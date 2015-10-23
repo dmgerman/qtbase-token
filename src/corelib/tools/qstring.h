@@ -217,19 +217,33 @@ name|public
 label|:
 name|Q_DECL_CONSTEXPR
 specifier|inline
+name|QLatin1String
+argument_list|()
+name|Q_DECL_NOTHROW
+operator|:
+name|m_size
+argument_list|(
+literal|0
+argument_list|)
+operator|,
+name|m_data
+argument_list|(
+argument|Q_NULLPTR
+argument_list|)
+block|{}
+name|Q_DECL_CONSTEXPR
+specifier|inline
 name|explicit
 name|QLatin1String
 argument_list|(
-specifier|const
-name|char
-operator|*
-name|s
+argument|const char *s
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|m_size
 argument_list|(
 name|s
-condition|?
+operator|?
 name|int
 argument_list|(
 name|strlen
@@ -237,7 +251,7 @@ argument_list|(
 name|s
 argument_list|)
 argument_list|)
-else|:
+operator|:
 literal|0
 argument_list|)
 operator|,
@@ -255,6 +269,7 @@ argument|const char *s
 argument_list|,
 argument|int sz
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|m_size
 argument_list|(
@@ -270,11 +285,9 @@ specifier|inline
 name|explicit
 name|QLatin1String
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|s
+argument|const QByteArray&s
 argument_list|)
+name|Q_DECL_NOTHROW
 operator|:
 name|m_size
 argument_list|(
@@ -289,35 +302,38 @@ argument_list|(
 argument|s.constData()
 argument_list|)
 block|{}
-specifier|inline
+name|Q_DECL_CONSTEXPR
 specifier|const
 name|char
 operator|*
 name|latin1
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_data
 return|;
 block|}
-specifier|inline
+name|Q_DECL_CONSTEXPR
 name|int
 name|size
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_size
 return|;
 block|}
-specifier|inline
+name|Q_DECL_CONSTEXPR
 specifier|const
 name|char
 operator|*
 name|data
 argument_list|()
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|m_data
@@ -334,6 +350,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|bool
@@ -346,6 +363,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|bool
@@ -358,6 +376,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|bool
@@ -370,6 +389,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|bool
@@ -382,6 +402,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 specifier|inline
 name|bool
@@ -394,6 +415,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 if|#
 directive|if
@@ -11577,7 +11599,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -11589,6 +11610,7 @@ operator|,
 name|QLatin1String
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -11625,7 +11647,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -11637,6 +11658,7 @@ operator|,
 name|QLatin1String
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -11672,7 +11694,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -11684,6 +11705,7 @@ operator|,
 name|QLatin1String
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|r
@@ -11752,6 +11774,7 @@ operator|,
 name|QLatin1String
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|r
@@ -11819,6 +11842,7 @@ operator|,
 name|QLatin1String
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|r
@@ -11886,6 +11910,7 @@ operator|,
 name|QLatin1String
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 name|int
 name|r
@@ -11955,6 +11980,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s
@@ -11978,6 +12004,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s
@@ -12001,6 +12028,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s
@@ -12024,6 +12052,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s
@@ -12047,6 +12076,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s
@@ -12070,6 +12100,7 @@ operator|&
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s

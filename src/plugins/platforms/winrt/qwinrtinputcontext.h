@@ -92,9 +92,12 @@ name|isInputPanelVisible
 argument_list|()
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINPHONE
+if|#
+directive|if
+name|WINAPI_FAMILY_PARTITION
+argument_list|(
+name|WINAPI_PARTITION_PHONE_APP
+argument_list|)
 name|void
 name|showInputPanel
 argument_list|()

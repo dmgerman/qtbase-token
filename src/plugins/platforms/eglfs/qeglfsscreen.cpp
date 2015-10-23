@@ -60,11 +60,6 @@ argument_list|(
 name|dpy
 argument_list|)
 member_init_list|,
-name|m_pointerWindow
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
 name|m_surface
 argument_list|(
 name|EGL_NO_SURFACE

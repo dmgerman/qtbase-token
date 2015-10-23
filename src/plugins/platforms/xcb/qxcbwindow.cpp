@@ -1844,6 +1844,16 @@ directive|ifdef
 name|XCB_USE_XLIB
 if|if
 condition|(
+name|window
+argument_list|()
+operator|->
+name|surfaceType
+argument_list|()
+operator|!=
+name|QSurface
+operator|::
+name|RasterSurface
+operator|&&
 name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration

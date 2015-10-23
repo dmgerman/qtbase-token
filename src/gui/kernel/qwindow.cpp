@@ -875,10 +875,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|platformWindow
 condition|)
-block|{
+return|return;
 name|platformWindow
 operator|=
 name|QGuiApplicationPrivate
@@ -891,6 +890,33 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|platformWindow
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|platformWindow
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Failed to create platform window for"
+operator|<<
+name|q
+operator|<<
+literal|"with flags"
+operator|<<
+name|q
+operator|->
+name|flags
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 name|QObjectList
 name|childObjects
 init|=
@@ -986,11 +1012,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|platformWindow
-condition|)
-block|{
 name|QPlatformSurfaceEvent
 name|e
 argument_list|(
@@ -1009,8 +1030,6 @@ operator|&
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 end_function
 begin_function
@@ -1512,7 +1531,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the \a parent Window. This will lead to the windowing system managing     the clip of the window, so it will be clipped to the \a parent window.      Setting \a parent to be 0 will make the window become a top level window.      If \a parent is a window created by fromWinId(), then the current window     will be embedded inside \a parent, if the platform supports it. Window     embedding is currently supported only by the X11 platform plugin. */
+comment|/*!     Sets the \a parent Window. This will lead to the windowing system managing     the clip of the window, so it will be clipped to the \a parent window.      Setting \a parent to be 0 will make the window become a top level window.      If \a parent is a window created by fromWinId(), then the current window     will be embedded inside \a parent, if the platform supports it. */
 end_comment
 begin_function
 DECL|function|setParent
@@ -6559,9 +6578,7 @@ operator|->
 name|platformWindow
 operator|->
 name|isEmbedded
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|)
 condition|)
 block|{
@@ -6579,8 +6596,7 @@ block|}
 return|return
 name|pos
 operator|+
-name|d_func
-argument_list|()
+name|d
 operator|->
 name|globalPosition
 argument_list|()
@@ -6630,9 +6646,7 @@ operator|->
 name|platformWindow
 operator|->
 name|isEmbedded
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|)
 condition|)
 block|{
@@ -6650,8 +6664,7 @@ block|}
 return|return
 name|pos
 operator|-
-name|d_func
-argument_list|()
+name|d
 operator|->
 name|globalPosition
 argument_list|()
@@ -6894,7 +6907,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates a local representation of a window created by another process or by     using native libraries below Qt.      Given the handle \a id to a native window, this method creates a QWindow     object which can be used to represent the window when invoking methods like     setParent() and setTransientParent().     This can be used, on platforms which support it, to embed a window inside a     container or to make a window stick on top of a window created by another     process.      \sa setParent()     \sa setTransientParent() */
+comment|/*!     Creates a local representation of a window created by another process or by     using native libraries below Qt.      Given the handle \a id to a native window, this method creates a QWindow     object which can be used to represent the window when invoking methods like     setParent() and setTransientParent().      This can be used, on platforms which support it, to embed a QWindow inside a     native window, or to embed a native window inside a QWindow.      If foreign windows are not supported, this function returns 0.      \note The resulting QWindow should not be used to manipulate the underlying     native window (besides re-parenting), or to observe state changes of the     native window. Any support for these kind of operations is incidental, highly     platform dependent and untested.      \sa setParent()     \sa setTransientParent() */
 end_comment
 begin_function
 DECL|function|fromWinId

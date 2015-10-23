@@ -593,7 +593,8 @@ block|;
 name|bool
 name|isEmbedded
 argument_list|(
-argument|const QPlatformWindow *parentWindow
+argument|const QPlatformWindow *parentWindow =
+literal|0
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE

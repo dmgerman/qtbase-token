@@ -387,10 +387,6 @@ modifier|*
 name|types
 parameter_list|)
 block|{
-name|expectedReplyCount
-operator|=
-name|count
-expr_stmt|;
 if|if
 condition|(
 name|count

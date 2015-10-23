@@ -2816,7 +2816,10 @@ name|f
 operator|&=
 operator|~
 operator|(
+name|Q_UINT64_C
+argument_list|(
 literal|1
+argument_list|)
 operator|<<
 name|i
 operator|)

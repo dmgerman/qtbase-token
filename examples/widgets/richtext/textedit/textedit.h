@@ -324,6 +324,9 @@ name|QAction
 operator|*
 name|actionRedo
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|QAction
 operator|*
 name|actionCut
@@ -336,6 +339,8 @@ name|QAction
 operator|*
 name|actionPaste
 block|;
+endif|#
+directive|endif
 name|QComboBox
 operator|*
 name|comboStyle

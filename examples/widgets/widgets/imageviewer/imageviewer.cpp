@@ -203,12 +203,12 @@ name|toNativeSeparators
 argument_list|(
 name|fileName
 argument_list|)
-argument_list|)
 argument_list|,
 name|reader
 operator|.
 name|errorString
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

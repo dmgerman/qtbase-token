@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QLocale>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QPointer>
 end_include
 begin_include
@@ -104,6 +109,16 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QLocale
+name|locale
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|{
+return|return
+name|m_locale
+return|;
+block|}
 name|void
 name|reset
 argument_list|()
@@ -182,6 +197,14 @@ argument_list|,
 argument|LRESULT *result
 argument_list|)
 block|;
+name|void
+name|handleInputLanguageChanged
+argument_list|(
+argument|WPARAM wparam
+argument_list|,
+argument|LPARAM lparam
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
@@ -228,6 +251,12 @@ name|m_compositionContext
 block|;
 name|bool
 name|m_endCompositionRecursionGuard
+block|;
+name|LCID
+name|m_languageId
+block|;
+name|QLocale
+name|m_locale
 block|; }
 decl_stmt|;
 end_decl_stmt

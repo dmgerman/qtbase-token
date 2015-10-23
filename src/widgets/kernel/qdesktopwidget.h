@@ -50,7 +50,7 @@ argument|int screenCount READ screenCount NOTIFY screenCountChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int primaryScreen READ primaryScreen
+argument|int primaryScreen READ primaryScreen NOTIFY primaryScreenChanged
 argument_list|)
 name|public
 operator|:

@@ -449,6 +449,16 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|bool
+name|inSelection
+argument_list|(
+name|int
+name|x
+argument_list|)
+decl|const
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|QRect
 name|cursorRect

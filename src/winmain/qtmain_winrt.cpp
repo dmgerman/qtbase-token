@@ -756,6 +756,15 @@ argument_list|(
 name|hr
 argument_list|)
 expr_stmt|;
+name|WaitForSingleObjectEx
+argument_list|(
+name|mainThread
+argument_list|,
+name|INFINITE
+argument_list|,
+name|FALSE
+argument_list|)
+expr_stmt|;
 name|DWORD
 name|exitCode
 decl_stmt|;

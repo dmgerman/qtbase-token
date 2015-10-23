@@ -798,6 +798,17 @@ name|operator
 operator|<<
 operator|(
 specifier|const
+name|QStringRef
+operator|&
+name|s
+operator|)
+expr_stmt|;
+name|QTextStream
+operator|&
+name|operator
+operator|<<
+operator|(
+specifier|const
 name|QByteArray
 operator|&
 name|array

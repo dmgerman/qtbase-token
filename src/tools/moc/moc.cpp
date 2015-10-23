@@ -5538,6 +5538,23 @@ argument_list|(
 name|RPAREN
 argument_list|)
 expr_stmt|;
+name|v
+operator|=
+name|v
+operator|.
+name|mid
+argument_list|(
+literal|1
+argument_list|,
+name|v
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|2
+argument_list|)
+expr_stmt|;
+comment|// removes the '(' and ')'
 block|}
 elseif|else
 if|if

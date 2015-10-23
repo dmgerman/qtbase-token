@@ -32,20 +32,25 @@ directive|include
 file|<QtCore/qatomic_bootstrap.h>
 end_include
 begin_comment
-comment|// The following two are used for testing only.
-end_comment
-begin_comment
-comment|// Note that we don't check the compiler support -- you had better
-end_comment
-begin_comment
-comment|// know what you're doing if you set them
+comment|// If C++11 atomics are supported, use them!
 end_comment
 begin_elif
 elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ATOMIC_FORCE_CXX11
+name|Q_COMPILER_ATOMICS
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_COMPILER_CONSTEXPR
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_ATOMIC_FORCE_NO_CXX11
 argument_list|)
 end_elif
 begin_include
@@ -53,6 +58,15 @@ include|#
 directive|include
 file|<QtCore/qatomic_cxx11.h>
 end_include
+begin_comment
+comment|// The following is used for testing only.
+end_comment
+begin_comment
+comment|// Note that we don't check the compiler support -- you had better
+end_comment
+begin_comment
+comment|// know what you're doing if you set it
+end_comment
 begin_elif
 elif|#
 directive|elif
@@ -181,24 +195,6 @@ end_include
 begin_comment
 comment|// Fallback compiler dependent implementation
 end_comment
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_COMPILER_ATOMICS
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|Q_COMPILER_CONSTEXPR
-argument_list|)
-end_elif
-begin_include
-include|#
-directive|include
-file|<QtCore/qatomic_cxx11.h>
-end_include
 begin_elif
 elif|#
 directive|elif

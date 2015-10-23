@@ -45,14 +45,6 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
-argument_list|,
-specifier|const
-name|QString
-operator|&
-argument_list|,
-specifier|const
-name|QString
-operator|&
 argument_list|)
 block|;
 name|public

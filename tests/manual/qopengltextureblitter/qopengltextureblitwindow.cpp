@@ -141,6 +141,16 @@ operator|.
 name|create
 argument_list|()
 expr_stmt|;
+name|qDebug
+argument_list|(
+literal|"GL_TEXTURE_EXTERNAL_OES support: %d"
+argument_list|,
+name|m_blitter
+operator|.
+name|supportsExternalOESTarget
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_function
@@ -812,6 +822,28 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|m_blitter
+operator|.
+name|supportsExternalOESTarget
+argument_list|()
+condition|)
+block|{
+comment|// Cannot do much testing here, just verify that bind and release work, meaning that the program is present.
+name|m_blitter
+operator|.
+name|bind
+argument_list|(
+literal|0x8D65
+argument_list|)
+expr_stmt|;
+name|m_blitter
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
+block|}
 name|m_context
 operator|->
 name|swapBuffers

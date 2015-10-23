@@ -240,6 +240,11 @@ name|m_drag_icon_window
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_useCompositing
+argument_list|(
+literal|true
+argument_list|)
 block|{ }
 end_constructor
 begin_destructor
@@ -827,6 +832,13 @@ operator|new
 name|QShapedPixmapWindow
 argument_list|(
 name|screen
+argument_list|)
+expr_stmt|;
+name|m_drag_icon_window
+operator|->
+name|setUseCompositing
+argument_list|(
+name|m_useCompositing
 argument_list|)
 expr_stmt|;
 name|m_drag_icon_window

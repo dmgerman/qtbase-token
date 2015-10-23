@@ -56,6 +56,11 @@ name|QObject
 argument_list|(
 name|parent
 argument_list|)
+member_init_list|,
+name|d
+argument_list|(
+literal|0
+argument_list|)
 block|{
 if|if
 condition|(
@@ -71,13 +76,7 @@ operator|!
 name|qdbus_loadLibDBus
 argument_list|()
 condition|)
-block|{
-name|d
-operator|=
-literal|0
-expr_stmt|;
 return|return;
-block|}
 emit|emit
 name|QDBusConnectionManager
 operator|::

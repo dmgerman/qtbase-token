@@ -235,7 +235,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for a cubic (t^3) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
+comment|/**  * Easing equation function for a cubic (t^3) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutCubic
@@ -391,7 +391,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for a quartic (t^4) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
+comment|/**  * Easing equation function for a quartic (t^4) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutQuart
@@ -557,7 +557,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for a quintic (t^5) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
+comment|/**  * Easing equation function for a quintic (t^5) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutQuint
@@ -731,7 +731,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for a sinusoidal (sin(t)) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
+comment|/**  * Easing equation function for a sinusoidal (sin(t)) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutSine
@@ -878,7 +878,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for an exponential (2^t) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
+comment|/**  * Easing equation function for an exponential (2^t) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutExpo
@@ -1095,7 +1095,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for a circular (sqrt(1-t^2)) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
+comment|/**  * Easing equation function for a circular (sqrt(1-t^2)) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutCirc
@@ -1556,7 +1556,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for an elastic (exponentially decaying sine wave) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @param a		Amplitude.  * @param p		Period.  * @return		The correct value.  */
+comment|/**  * Easing equation function for an elastic (exponentially decaying sine wave) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @param a		Amplitude.  * @param p		Period.  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutElastic
@@ -1868,7 +1868,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for a back (overshooting cubic easing: (s+1)*t^3 - s*t^2) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @param s		Overshoot ammount: higher s means greater overshoot (0 produces cubic easing with no overshoot, and the default value of 1.70158 produces an overshoot of 10 percent).  * @return		The correct value.  */
+comment|/**  * Easing equation function for a back (overshooting cubic easing: (s+1)*t^3 - s*t^2) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @param s		Overshoot ammount: higher s means greater overshoot (0 produces cubic easing with no overshoot, and the default value of 1.70158 produces an overshoot of 10 percent).  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutBack
@@ -2216,7 +2216,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/**  * Easing equation function for a bounce (exponentially decaying parabolic bounce) easing out: decelerating from zero velocity.  *  * @param t		Current time (in frames or seconds).  * @param a		Amplitude.  * @return		The correct value.  */
+comment|/**  * Easing equation function for a bounce (exponentially decaying parabolic bounce) easing out: decelerating to zero velocity.  *  * @param t		Current time (in frames or seconds).  * @param a		Amplitude.  * @return		The correct value.  */
 end_comment
 begin_function
 DECL|function|easeOutBounce

@@ -296,24 +296,96 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|//ndef QT_NO_DEBUG_STREAM
-end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Dump_QShortcutMap
+end_ifdef
 begin_comment
 comment|/*! \internal     QDebug operator<< for easy debug output of the shortcut entries. */
 end_comment
+begin_function
+DECL|function|operator <<
+specifier|static
+name|QDebug
+modifier|&
+name|operator
+name|<<
+parameter_list|(
+name|QDebug
+modifier|&
+name|dbg
+parameter_list|,
+specifier|const
+name|QShortcutEntry
+modifier|*
+name|se
+parameter_list|)
+block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|dbg
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|se
+condition|)
+return|return
+name|dbg
+operator|<<
+literal|"QShortcutEntry(0x0)"
+return|;
+name|dbg
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"QShortcutEntry("
+operator|<<
+name|se
+operator|->
+name|keyseq
+operator|<<
+literal|"), id("
+operator|<<
+name|se
+operator|->
+name|id
+operator|<<
+literal|"), enabled("
+operator|<<
+name|se
+operator|->
+name|enabled
+operator|<<
+literal|"), autorepeat("
+operator|<<
+name|se
+operator|->
+name|autorepeat
+operator|<<
+literal|"), owner("
+operator|<<
+name|se
+operator|->
+name|owner
+operator|<<
+literal|')'
+expr_stmt|;
+return|return
+name|dbg
+return|;
+block|}
+end_function
 begin_endif
-unit|static QDebug&operator<<(QDebug&dbg, const QShortcutEntry *se) {     QDebugStateSaver saver(dbg);     if (!se)         return dbg<< "QShortcutEntry(0x0)";     dbg.nospace()<< "QShortcutEntry("<< se->keyseq<< "), id("<< se->id<< "), enabled("<< se->enabled<< "), autorepeat("<< se->autorepeat<< "), owner("<< se->owner<< ')';     return dbg; }
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_DEBUGSTREAM
+comment|// Dump_QShortcutMap
 end_comment
 begin_comment
 comment|/* \internal     Private data for QShortcutMap */
