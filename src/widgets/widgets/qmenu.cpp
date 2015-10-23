@@ -16946,7 +16946,7 @@ name|sloppyEventResult
 operator|==
 name|QMenuSloppyState
 operator|::
-name|EventShouldBePropogated
+name|EventShouldBePropagated
 condition|)
 block|{
 name|d
