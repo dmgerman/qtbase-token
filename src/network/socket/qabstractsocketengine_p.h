@@ -159,7 +159,7 @@ decl_stmt|;
 name|uint
 name|ifindex
 decl_stmt|;
-name|qint16
+name|int
 name|hopLimit
 decl_stmt|;
 name|quint16
