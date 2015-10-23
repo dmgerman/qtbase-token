@@ -189,6 +189,9 @@ decl_stmt|;
 name|QImage
 name|m_rgbImage
 decl_stmt|;
+name|QSize
+name|m_size
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
