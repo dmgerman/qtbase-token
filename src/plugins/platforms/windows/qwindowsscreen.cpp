@@ -934,6 +934,11 @@ name|result
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_STREAM
+end_ifndef
 begin_function
 DECL|function|operator <<
 specifier|static
@@ -1139,6 +1144,13 @@ name|dbg
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_DEBUG_STREAM
+end_comment
 begin_comment
 comment|// Return the cursor to be shared by all screens (virtual desktop).
 end_comment

@@ -1893,7 +1893,7 @@ name|Unstretched
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_DEBUG_OUTPUT
+name|QT_NO_DEBUG_STREAM
 if|if
 condition|(
 name|QWindowsContext

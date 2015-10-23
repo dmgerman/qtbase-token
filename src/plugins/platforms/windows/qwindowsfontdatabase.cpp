@@ -2786,6 +2786,11 @@ end_comment
 begin_comment
 comment|/*!     \class QWindowsFontDatabase     \brief Font database for Windows      \note The Qt 4.8 WIndows font database employed a mechanism of     delayed population of the database again passing a font name     to EnumFontFamiliesEx(), working around the fact that     EnumFontFamiliesEx() does not list all fonts by default.     This should be introduced to Lighthouse as well?      \internal     \ingroup qt-lighthouse-win */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_STREAM
+end_ifndef
 begin_function
 DECL|function|operator <<
 name|QDebug
@@ -2867,6 +2872,13 @@ name|d
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_DEBUG_STREAM
+end_comment
 begin_function
 DECL|function|writingSystemFromCharSet
 specifier|static

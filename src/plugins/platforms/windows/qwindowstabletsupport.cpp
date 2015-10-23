@@ -1517,6 +1517,11 @@ name|UnknownPointer
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_STREAM
+end_ifndef
 begin_function
 DECL|function|operator <<
 name|QDebug
@@ -1532,6 +1537,17 @@ modifier|&
 name|t
 parameter_list|)
 block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
+name|d
+operator|.
+name|nospace
+argument_list|()
+expr_stmt|;
 name|d
 operator|<<
 literal|"TabletDevice id:"
@@ -1609,6 +1625,13 @@ name|d
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_DEBUG_STREAM
+end_comment
 begin_function
 DECL|function|tabletInit
 name|QWindowsTabletDeviceData

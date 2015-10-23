@@ -409,6 +409,11 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_STREAM
+end_ifndef
 begin_function
 DECL|function|operator <<
 name|QDebug
@@ -494,6 +499,13 @@ name|d
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_DEBUG_STREAM
+end_comment
 begin_comment
 comment|// Return printable string formatted like the output of the dxdiag tool.
 end_comment
