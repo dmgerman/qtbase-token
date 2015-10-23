@@ -11215,8 +11215,9 @@ name|vb
 decl_stmt|,
 name|va
 decl_stmt|;
-if|if
-condition|(
+for|for
+control|(
+init|;
 name|i
 operator|<
 name|count
@@ -11227,8 +11228,11 @@ name|uintptr_t
 operator|)
 name|buffer
 operator|&
-literal|0x8
-condition|)
+literal|0xF
+condition|;
+operator|++
+name|i
+control|)
 block|{
 operator|*
 name|dest
@@ -11243,9 +11247,6 @@ operator|*
 name|buffer
 operator|++
 argument_list|)
-expr_stmt|;
-operator|++
-name|i
 expr_stmt|;
 block|}
 for|for
