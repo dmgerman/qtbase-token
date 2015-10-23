@@ -7498,7 +7498,7 @@ name|dt
 init|=
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 decl_stmt|;
 name|dt
