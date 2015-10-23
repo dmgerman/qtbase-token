@@ -426,7 +426,7 @@ begin_comment
 comment|/*!     \fn QString QSslCertificate::toText() const      Returns this certificate converted to a human-readable text     representation.      \since 5.0 */
 end_comment
 begin_comment
-comment|/*!     Searches all files in the \a path for certificates encoded in the     specified \a format and returns them in a list. \e must be a file or a     pattern matching one or more files, as specified by \a syntax.      Example:      \snippet code/src_network_ssl_qsslcertificate.cpp 0      \sa fromData() */
+comment|/*!     Searches all files in the \a path for certificates encoded in the     specified \a format and returns them in a list. \a path must be a file     or a pattern matching one or more files, as specified by \a syntax.      Example:      \snippet code/src_network_ssl_qsslcertificate.cpp 0      \sa fromData() */
 end_comment
 begin_function
 DECL|function|fromPath

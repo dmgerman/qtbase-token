@@ -2516,7 +2516,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Searches all files in the \a path for certificates encoded in the   specified \a format and adds them to this socket's CA certificate   database. \a path can be explicit, or it can contain wildcards in   the format specified by \a syntax. Returns \c true if one or more   certificates are added to the socket's CA certificate database;   otherwise returns \c false.    The CA certificate database is used by the socket during the   handshake phase to validate the peer's certificate.    For more precise control, use addCaCertificate().    \sa addCaCertificate(), QSslCertificate::fromPath() */
+comment|/*!   Searches all files in the \a path for certificates encoded in the   specified \a format and adds them to this socket's CA certificate   database. \a path must be a file or a pattern matching one or more   files, as specified by \a syntax. Returns \c true if one or more   certificates are added to the socket's CA certificate database;   otherwise returns \c false.    The CA certificate database is used by the socket during the   handshake phase to validate the peer's certificate.    For more precise control, use addCaCertificate().    \sa addCaCertificate(), QSslCertificate::fromPath() */
 end_comment
 begin_function
 DECL|function|addCaCertificates
