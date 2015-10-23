@@ -336,7 +336,7 @@ name|currentTime
 operator|=
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 block|;
 return|return

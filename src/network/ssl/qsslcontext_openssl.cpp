@@ -836,6 +836,15 @@ return|return
 name|sslContext
 return|;
 block|}
+specifier|const
+name|QDateTime
+name|now
+init|=
+name|QDateTime
+operator|::
+name|currentDateTimeUtc
+argument_list|()
+decl_stmt|;
 comment|// Add all our CAs to this store.
 foreach|foreach
 control|(
@@ -870,10 +879,7 @@ operator|.
 name|expiryDate
 argument_list|()
 operator|>=
-name|QDateTime
-operator|::
-name|currentDateTime
-argument_list|()
+name|now
 condition|)
 block|{
 name|q_X509_STORE_add_cert
