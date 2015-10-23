@@ -2645,7 +2645,7 @@ name|pseed
 operator|=
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 operator|.
 name|toTime_t
@@ -2690,7 +2690,7 @@ name|qsrand
 argument_list|(
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 operator|.
 name|toTime_t
