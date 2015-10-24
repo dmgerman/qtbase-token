@@ -30951,11 +30951,9 @@ name|funcSolid64
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"unsupported 64bit blend attempted"
+argument_list|)
 expr_stmt|;
 return|return
 name|blend_color_generic
@@ -32822,11 +32820,9 @@ name|func64
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"Unsupported blend"
+argument_list|)
 expr_stmt|;
 return|return
 name|blend_untransformed_generic

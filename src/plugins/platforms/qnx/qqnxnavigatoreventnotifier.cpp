@@ -178,11 +178,9 @@ name|m_fd
 argument_list|)
 expr_stmt|;
 name|qNavigatorEventNotifierDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"navigator event notifier stopped"
+argument_list|)
 expr_stmt|;
 block|}
 end_destructor
@@ -195,11 +193,9 @@ name|start
 parameter_list|()
 block|{
 name|qNavigatorEventNotifierDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"navigator event notifier started"
+argument_list|)
 expr_stmt|;
 comment|// open connection to navigator
 name|errno
@@ -226,9 +222,7 @@ block|{
 name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|": failed to open navigator pps:"
+literal|"failed to open navigator pps:"
 operator|<<
 name|strerror
 argument_list|(
@@ -299,8 +293,6 @@ parameter_list|)
 block|{
 name|qNavigatorEventNotifierDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"data="
 operator|<<
@@ -384,8 +376,6 @@ decl_stmt|;
 name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"attr="
 operator|<<
 name|attr
@@ -461,16 +451,12 @@ decl_stmt|;
 name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"key="
 operator|<<
 name|key
 expr_stmt|;
 name|qNavigatorEventNotifierDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"val="
 operator|<<
@@ -589,8 +575,6 @@ expr_stmt|;
 name|qNavigatorEventNotifierDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"reply="
 operator|<<
 name|ppsData
@@ -659,8 +643,6 @@ parameter_list|)
 block|{
 name|qNavigatorEventNotifierDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"msg="
 operator|<<
@@ -810,11 +792,9 @@ name|readData
 parameter_list|()
 block|{
 name|qNavigatorEventNotifierDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"reading navigator data"
+argument_list|)
 expr_stmt|;
 comment|// allocate buffer for pps data
 name|char

@@ -1891,9 +1891,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Invalid parameters #%d, %p"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Invalid parameters #%d, %p"
 argument_list|,
 name|theme
 argument_list|,
@@ -1945,9 +1943,7 @@ index|]
 condition|)
 name|qErrnoWarning
 argument_list|(
-literal|"%s: OpenThemeData() failed for theme %d (%s)."
-argument_list|,
-name|Q_FUNC_INFO
+literal|"OpenThemeData() failed for theme %d (%s)."
 argument_list|,
 name|theme
 argument_list|,

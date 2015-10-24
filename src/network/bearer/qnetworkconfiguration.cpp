@@ -103,8 +103,6 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"failed to open"
 operator|<<
 name|cellularStatusFile
@@ -141,8 +139,6 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"read from PPS file failed:"
 operator|<<
 name|strerror
@@ -176,11 +172,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"failed to initialize PPS decoder"
+argument_list|)
 expr_stmt|;
 name|qt_safe_close
 argument_list|(
@@ -214,8 +208,6 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"pps_decoder_push failed"
 operator|<<
 name|err
@@ -248,11 +240,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"field has not the expected data type"
+argument_list|)
 expr_stmt|;
 name|pps_decoder_cleanup
 argument_list|(
@@ -290,11 +280,9 @@ name|PPS_DECODER_OK
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"could not read bearer type from PPS"
+argument_list|)
 expr_stmt|;
 name|pps_decoder_cleanup
 argument_list|(
@@ -373,8 +361,6 @@ break|break;
 default|default:
 name|qWarning
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"unhandled bearer type"
 operator|<<

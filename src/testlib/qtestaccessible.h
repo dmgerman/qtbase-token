@@ -752,9 +752,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Timeout waiting for accessibility event."
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Timeout waiting for accessibility event."
 argument_list|)
 expr_stmt|;
 return|return
@@ -782,9 +780,7 @@ name|res
 condition|)
 name|qWarning
 argument_list|(
-literal|"%s: %s"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"%s"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -912,9 +908,7 @@ name|app
 condition|)
 name|qWarning
 argument_list|(
-literal|"%s: root Object is not a QGuiApplication!"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"root Object is not a QGuiApplication!"
 argument_list|)
 expr_stmt|;
 block|}
@@ -922,9 +916,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: root Object called with 0 pointer"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"root Object called with 0 pointer"
 argument_list|)
 expr_stmt|;
 block|}

@@ -1480,12 +1480,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"Could not open application metafile for reading"
-expr_stmt|;
+argument_list|)
 block|}
 else|else
 block|{

@@ -73,11 +73,9 @@ literal|0
 argument_list|)
 block|{
 name|qBufferDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"empty"
+argument_list|)
 expr_stmt|;
 block|}
 end_constructor
@@ -97,11 +95,9 @@ name|buffer
 argument_list|)
 block|{
 name|qBufferDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"normal"
+argument_list|)
 expr_stmt|;
 comment|// Get size of buffer
 name|int
@@ -341,11 +337,9 @@ name|m_image
 argument_list|)
 block|{
 name|qBufferDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"copy"
+argument_list|)
 expr_stmt|;
 block|}
 end_constructor
@@ -359,8 +353,6 @@ parameter_list|()
 block|{
 name|qBufferDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 block|}
 end_destructor
@@ -374,8 +366,6 @@ parameter_list|()
 block|{
 name|qBufferDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Verify native buffer exists
 if|if

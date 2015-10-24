@@ -204,11 +204,9 @@ name|start
 parameter_list|()
 block|{
 name|qButtonDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"starting hardware button event processing"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -300,8 +298,6 @@ expr_stmt|;
 name|qButtonDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"successfully connected to Navigator. fd ="
 operator|<<
 name|m_fd
@@ -386,8 +382,6 @@ literal|'\0'
 expr_stmt|;
 name|qButtonDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"received PPS message:\n"
 operator|<<
@@ -762,8 +756,6 @@ argument_list|)
 decl_stmt|;
 name|qButtonDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"attr="
 operator|<<

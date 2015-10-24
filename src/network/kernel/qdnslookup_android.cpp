@@ -55,11 +55,9 @@ name|reply
 argument_list|)
 expr_stmt|;
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"Not yet supported on Android"
+argument_list|)
 expr_stmt|;
 name|reply
 operator|->

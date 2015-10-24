@@ -160,8 +160,6 @@ parameter_list|()
 block|{
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Clear any previous results
 name|m_dialog
@@ -241,8 +239,6 @@ argument_list|)
 expr_stmt|;
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Create dialog
 specifier|const
@@ -444,8 +440,6 @@ parameter_list|()
 block|{
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|m_dialog
 operator|->
@@ -465,8 +459,6 @@ specifier|const
 block|{
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 return|return
 literal|false
@@ -509,8 +501,6 @@ specifier|const
 block|{
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(
@@ -582,8 +572,6 @@ specifier|const
 block|{
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QList
 argument_list|<
@@ -633,8 +621,6 @@ block|{
 comment|// No native api to support setting a filter from QDir::Filters
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 block|}
 end_function
@@ -653,8 +639,6 @@ parameter_list|)
 block|{
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"filter ="
 operator|<<
@@ -680,8 +664,6 @@ comment|// For now there is no way for the user to change the selected filter
 comment|// so this just reflects what the developer has set programmatically.
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 return|return
 name|m_selectedFilter
@@ -733,8 +715,6 @@ block|{
 name|qFileDialogHelperDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"filter ="
 operator|<<
 name|filter
@@ -766,8 +746,6 @@ parameter_list|)
 block|{
 name|qFileDialogHelperDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"filters ="
 operator|<<

@@ -195,8 +195,6 @@ block|{
 name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"dispatcher="
 operator|<<
 name|dispatcher
@@ -419,8 +417,6 @@ decl_stmt|;
 name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"event="
 operator|<<
 name|event
@@ -535,8 +531,6 @@ decl_stmt|;
 name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"ORIENTATION CHECK event. angle="
 operator|<<
 name|angle
@@ -554,8 +548,6 @@ argument_list|)
 decl_stmt|;
 name|qBpsEventFilterDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"ORIENTATION CHECK event. result="
 operator|<<
@@ -587,8 +579,6 @@ decl_stmt|;
 name|qBpsEventFilterDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"ORIENTATION event. angle="
 operator|<<
 name|angle
@@ -611,11 +601,9 @@ case|case
 name|NAVIGATOR_SWIPE_DOWN
 case|:
 name|qBpsEventFilterDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"SWIPE DOWN event"
+argument_list|)
 expr_stmt|;
 name|m_navigatorEventHandler
 operator|->
@@ -627,11 +615,9 @@ case|case
 name|NAVIGATOR_EXIT
 case|:
 name|qBpsEventFilterDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"EXIT event"
+argument_list|)
 expr_stmt|;
 name|m_navigatorEventHandler
 operator|->
@@ -644,11 +630,9 @@ name|NAVIGATOR_WINDOW_STATE
 case|:
 block|{
 name|qBpsEventFilterDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"WINDOW STATE event"
+argument_list|)
 expr_stmt|;
 specifier|const
 name|navigator_window_state_t
@@ -716,11 +700,9 @@ name|NAVIGATOR_WINDOW_ACTIVE
 case|:
 block|{
 name|qBpsEventFilterDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"WINDOW ACTIVE event"
+argument_list|)
 expr_stmt|;
 specifier|const
 name|QByteArray
@@ -746,11 +728,9 @@ name|NAVIGATOR_WINDOW_INACTIVE
 case|:
 block|{
 name|qBpsEventFilterDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"WINDOW INACTIVE event"
+argument_list|)
 expr_stmt|;
 specifier|const
 name|QByteArray
@@ -792,8 +772,6 @@ return|;
 default|default:
 name|qBpsEventFilterDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Unhandled navigator event. code="
 operator|<<

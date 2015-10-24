@@ -681,8 +681,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -751,8 +749,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -836,8 +832,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -884,8 +878,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -939,8 +931,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -1009,8 +999,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -1076,8 +1064,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|imfEvent
@@ -1136,8 +1122,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// There's no difference from our point of view between ic_send_event& ic_send_async_event
 name|QQnxImfRequest
@@ -1199,8 +1183,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -1271,8 +1253,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -1339,8 +1319,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -1399,8 +1377,6 @@ parameter_list|)
 block|{
 name|qInputContextIMFRequestDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxImfRequest
 name|event
@@ -1856,8 +1832,6 @@ block|{
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 name|text
 expr_stmt|;
 name|spannable_string_t
@@ -2248,11 +2222,9 @@ block|}
 else|else
 block|{
 name|qCritical
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"libinput_client.so.1 is not present - IMF services are disabled."
+argument_list|)
 expr_stmt|;
 name|s_imfDisabled
 operator|=
@@ -2291,11 +2263,9 @@ operator|=
 literal|true
 expr_stmt|;
 name|qCritical
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"libinput_client.so.1 did not contain the correct symbols, library mismatch? IMF services are disabled."
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -2373,8 +2343,6 @@ argument_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(
@@ -2490,8 +2458,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(
@@ -2838,8 +2804,6 @@ block|{
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 name|event
 expr_stmt|;
 switch|switch
@@ -2936,8 +2900,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|endComposition
 argument_list|()
@@ -2954,8 +2916,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|endComposition
 argument_list|()
@@ -2977,8 +2937,6 @@ parameter_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 name|queries
 expr_stmt|;
@@ -3051,8 +3009,6 @@ expr_stmt|;
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"ictrl_dispatch_event caret changed"
 operator|<<
 name|lastCaret
@@ -3081,8 +3037,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(
@@ -3153,8 +3107,6 @@ argument_list|)
 expr_stmt|;
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 return|return
 name|sInputSession
@@ -3251,8 +3203,6 @@ block|{
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"requesting keyboard"
 operator|<<
 name|m_inputPanelVisible
@@ -3277,8 +3227,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"hiding keyboard"
 operator|<<
@@ -3490,8 +3438,6 @@ block|}
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"ictrl_dispatch_event focus gain style:"
 operator|<<
 name|focusEvent
@@ -3528,11 +3474,9 @@ argument_list|()
 condition|)
 block|{
 name|qInputContextDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"ictrl_dispatch_event focus lost"
+argument_list|)
 expr_stmt|;
 name|focus_event_t
 name|focusEvent
@@ -3798,8 +3742,6 @@ expr_stmt|;
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"ictrl_dispatch_even navigation"
 operator|<<
 name|key
@@ -3879,8 +3821,6 @@ expr_stmt|;
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"ictrl_dispatch_even key"
 operator|<<
 name|key
@@ -3949,8 +3889,6 @@ expr_stmt|;
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 name|m_caretPosition
 expr_stmt|;
 block|}
@@ -4001,11 +3939,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|qInputContextDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"ictrl_dispatch_even end composition"
+argument_list|)
 expr_stmt|;
 name|p_ictrl_dispatch_event
 argument_list|(
@@ -4083,8 +4019,6 @@ literal|true
 expr_stmt|;
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 name|m_composingText
 operator|<<
@@ -4423,8 +4357,6 @@ condition|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 name|m_composingText
 expr_stmt|;
@@ -4779,11 +4711,9 @@ name|EVENT_SPELL_CHECK
 case|:
 block|{
 name|qInputContextDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"EVENT_SPELL_CHECK"
+argument_list|)
 expr_stmt|;
 name|result
 operator|=
@@ -4806,11 +4736,9 @@ name|EVENT_NAVIGATION
 case|:
 block|{
 name|qInputContextDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"EVENT_NAVIGATION"
+argument_list|)
 expr_stmt|;
 name|int
 name|key
@@ -4967,8 +4895,6 @@ expr_stmt|;
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"EVENT_KEY"
 operator|<<
 name|flags
@@ -5022,8 +4948,6 @@ case|:
 name|qCritical
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"Unsupported event type: "
 operator|<<
 name|event
@@ -5034,8 +4958,6 @@ break|break;
 default|default:
 name|qCritical
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Unknown event type: "
 operator|<<
@@ -5103,8 +5025,6 @@ parameter_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"L:"
 operator|<<
@@ -5214,8 +5134,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QObject
 modifier|*
@@ -5264,8 +5182,6 @@ argument_list|)
 expr_stmt|;
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QObject
 modifier|*
@@ -5375,8 +5291,6 @@ argument_list|)
 expr_stmt|;
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QObject
 modifier|*
@@ -5500,8 +5414,6 @@ parameter_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 return|return
 name|processEvent
@@ -5595,8 +5507,6 @@ argument_list|()
 expr_stmt|;
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 name|text
 expr_stmt|;
@@ -5791,8 +5701,6 @@ expr_stmt|;
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 operator|*
 name|pIsSelected
 expr_stmt|;
@@ -5889,8 +5797,6 @@ expr_stmt|;
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 operator|*
 name|pIsSelected
 expr_stmt|;
@@ -5909,8 +5815,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|dispatchRequestSoftwareInputPanel
 argument_list|()
@@ -5927,8 +5831,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|dispatchCloseSoftwareInputPanel
 argument_list|()
@@ -5977,8 +5879,6 @@ block|{
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"visible="
 operator|<<
 name|visible
@@ -6015,8 +5915,6 @@ parameter_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"locale="
 operator|<<
@@ -6057,8 +5955,6 @@ parameter_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"setHighlightColor"
 operator|<<
@@ -6165,8 +6061,6 @@ parameter_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"input item="
 operator|<<
@@ -6344,8 +6238,6 @@ parameter_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"text"
 operator|<<

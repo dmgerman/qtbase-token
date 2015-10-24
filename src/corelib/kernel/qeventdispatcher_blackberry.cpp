@@ -264,8 +264,6 @@ name|data
 parameter_list|)
 block|{
 name|qEventDispatcherDebug
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// decode callback payload
 name|bpsIOHandlerData
@@ -745,8 +743,6 @@ argument_list|()
 decl_stmt|;
 name|qEventDispatcherDebug
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"fd ="
 operator|<<
 name|sockfd
@@ -928,8 +924,6 @@ name|socket
 argument_list|()
 decl_stmt|;
 name|qEventDispatcherDebug
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"fd ="
 operator|<<

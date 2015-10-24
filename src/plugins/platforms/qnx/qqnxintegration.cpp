@@ -618,8 +618,6 @@ argument_list|)
 expr_stmt|;
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Open connection to QNX composition manager
 name|Q_SCREEN_CRITICALERROR
@@ -988,11 +986,9 @@ name|QQnxIntegration
 parameter_list|()
 block|{
 name|qIntegrationDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"platform plugin shutdown begin"
+argument_list|)
 expr_stmt|;
 operator|delete
 name|m_nativeInterface
@@ -1147,11 +1143,9 @@ operator|delete
 name|m_navigator
 expr_stmt|;
 name|qIntegrationDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"platform plugin shutdown end"
+argument_list|)
 expr_stmt|;
 block|}
 end_destructor
@@ -1171,8 +1165,6 @@ specifier|const
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 switch|switch
 condition|(
@@ -1237,8 +1229,6 @@ specifier|const
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QSurface
 operator|::
@@ -1333,8 +1323,6 @@ specifier|const
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 return|return
 operator|new
@@ -1370,8 +1358,6 @@ specifier|const
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 return|return
 operator|new
@@ -1406,8 +1392,6 @@ specifier|const
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 return|return
 name|m_inputContext
@@ -1435,8 +1419,6 @@ parameter_list|)
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"w ="
 operator|<<
@@ -1497,8 +1479,6 @@ specifier|const
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// We transfer ownersip of the event-dispatcher to QtCoreApplication
 name|QAbstractEventDispatcher
@@ -1552,8 +1532,6 @@ specifier|const
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|#
 directive|if
@@ -1626,8 +1604,6 @@ specifier|const
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(
@@ -1717,8 +1693,6 @@ block|{
 name|qIntegrationDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"name ="
 operator|<<
 name|name
@@ -1762,8 +1736,6 @@ parameter_list|)
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QMutexLocker
 name|locker
@@ -1806,8 +1778,6 @@ parameter_list|)
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QMutexLocker
 name|locker
@@ -1845,8 +1815,6 @@ parameter_list|)
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QMutexLocker
 name|locker
@@ -1879,8 +1847,6 @@ parameter_list|()
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Query number of displays
 name|int
@@ -2030,8 +1996,6 @@ block|{
 name|qIntegrationDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"Skipping non-attached display"
 operator|<<
 name|i
@@ -2040,8 +2004,6 @@ continue|continue;
 block|}
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Creating screen for display"
 operator|<<
@@ -2322,8 +2284,6 @@ parameter_list|()
 block|{
 name|qIntegrationDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|Q_FOREACH
 argument_list|(

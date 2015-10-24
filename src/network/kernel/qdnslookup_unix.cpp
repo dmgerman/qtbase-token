@@ -835,11 +835,9 @@ block|}
 else|#
 directive|else
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"IPv6 addresses for nameservers is currently not supported"
+argument_list|)
 expr_stmt|;
 name|reply
 operator|->

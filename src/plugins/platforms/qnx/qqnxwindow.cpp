@@ -187,8 +187,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -461,8 +459,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -601,8 +597,6 @@ parameter_list|)
 block|{
 name|qWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"window ="
 operator|<<
@@ -770,8 +764,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -932,8 +924,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"parentVisible ="
 operator|<<
 name|parentVisible
@@ -1003,8 +993,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -1064,8 +1052,6 @@ parameter_list|)
 block|{
 name|qWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"window ="
 operator|<<
@@ -1148,8 +1134,6 @@ parameter_list|)
 block|{
 name|qWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"window ="
 operator|<<
@@ -1394,8 +1378,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -1447,11 +1429,9 @@ name|m_screen
 condition|)
 block|{
 name|qWindowDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"Moving window to different screen"
+argument_list|)
 expr_stmt|;
 name|m_screen
 operator|->
@@ -1593,8 +1573,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -1659,8 +1637,6 @@ parameter_list|)
 block|{
 name|qWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"window ="
 operator|<<
@@ -1800,8 +1776,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -1858,8 +1832,6 @@ parameter_list|()
 block|{
 name|qWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"window ="
 operator|<<
@@ -2226,8 +2198,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"state ="
 operator|<<
 name|state
@@ -2263,11 +2233,9 @@ parameter_list|()
 block|{
 comment|// nothing to do; silence base class warning
 name|qWindowDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|": ignored"
+argument_list|(
+literal|"ignored"
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -2395,8 +2363,6 @@ name|Q_OS_BLACKBERRY
 argument_list|)
 name|qWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|pps_encoder_t
 name|encoder
@@ -2442,8 +2408,6 @@ block|{
 name|qWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"navigator_raw_write failed:"
 operator|<<
 name|strerror
@@ -2482,8 +2446,6 @@ parameter_list|)
 block|{
 name|qWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"angle ="
 operator|<<
@@ -2837,8 +2799,6 @@ literal|false
 decl_stmt|;
 name|qWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"group:"
 operator|<<

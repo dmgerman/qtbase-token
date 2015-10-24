@@ -3652,9 +3652,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Attempted to use GDI functions with a non-opengl32.dll library"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Attempted to use GDI functions with a non-opengl32.dll library"
 argument_list|)
 expr_stmt|;
 return|return
@@ -6777,9 +6775,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Failed to load and resolve WGL/OpenGL functions"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Failed to load and resolve WGL/OpenGL functions"
 argument_list|)
 expr_stmt|;
 return|return

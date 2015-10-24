@@ -803,11 +803,9 @@ name|isEmpty
 argument_list|()
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"QHighDpiScaling::setFactor: Should only be called when no windows exist."
+argument_list|)
 expr_stmt|;
 name|m_globalScalingActive
 operator|=

@@ -84,11 +84,11 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Failed to bind graphicsbuffer to texture"
+argument_list|(
+literal|"Failed to bind %sgraphicsbuffer to texture"
+argument_list|,
+literal|""
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -131,11 +131,11 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Failed to bind SW graphcisbuffer to texture"
+argument_list|(
+literal|"Failed to bind %sgraphicsbuffer to texture"
+argument_list|,
+literal|"SW "
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -145,11 +145,9 @@ block|}
 else|else
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"Failed to lock"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

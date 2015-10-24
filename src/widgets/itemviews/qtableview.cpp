@@ -967,11 +967,6 @@ name|DEBUG_SPAN_UPDATE
 name|qDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
 name|start
 operator|<<
 name|end
@@ -1210,11 +1205,6 @@ block|{
 ifdef|#
 directive|ifdef
 name|DEBUG_SPAN_UPDATE
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
@@ -1641,11 +1631,6 @@ block|{
 ifdef|#
 directive|ifdef
 name|DEBUG_SPAN_UPDATE
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
@@ -2405,11 +2390,6 @@ block|{
 ifdef|#
 directive|ifdef
 name|DEBUG_SPAN_UPDATE
-name|qDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<

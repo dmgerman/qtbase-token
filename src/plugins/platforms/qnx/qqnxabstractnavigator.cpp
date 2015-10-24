@@ -125,8 +125,6 @@ decl_stmt|;
 name|qNavigatorDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"url="
 operator|<<
 name|url

@@ -7025,8 +7025,6 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"No item at"
 operator|<<
 name|path

@@ -773,8 +773,6 @@ argument_list|()
 operator|<<
 name|this
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|'('
 operator|<<
 name|newScreen
@@ -1587,8 +1585,6 @@ name|qWarning
 argument_list|()
 operator|<<
 name|this
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|'('
 operator|<<
@@ -2959,8 +2955,6 @@ condition|)
 block|{
 name|qWarning
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 name|parent
 operator|<<

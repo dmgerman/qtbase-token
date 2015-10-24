@@ -98,8 +98,6 @@ comment|// TODO: check if top window flags prohibit orientation change
 name|qNavigatorEventHandlerDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"angle="
 operator|<<
 name|angle
@@ -124,8 +122,6 @@ comment|// update screen geometry and reply to navigator that we're ready
 name|qNavigatorEventHandlerDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"angle="
 operator|<<
 name|angle
@@ -148,8 +144,6 @@ parameter_list|()
 block|{
 name|qNavigatorEventHandlerDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|Q_EMIT
 name|swipeDown
@@ -168,8 +162,6 @@ block|{
 comment|// shutdown everything
 name|qNavigatorEventHandlerDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QCoreApplication
 operator|::
@@ -193,8 +185,6 @@ parameter_list|)
 block|{
 name|qNavigatorEventHandlerDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 name|id
 expr_stmt|;
@@ -221,8 +211,6 @@ parameter_list|)
 block|{
 name|qNavigatorEventHandlerDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 name|id
 expr_stmt|;
@@ -254,8 +242,6 @@ parameter_list|)
 block|{
 name|qNavigatorEventHandlerDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 name|id
 expr_stmt|;

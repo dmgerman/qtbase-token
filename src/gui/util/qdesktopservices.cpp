@@ -374,9 +374,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: The platform plugin does not support services."
-argument_list|,
-name|Q_FUNC_INFO
+literal|"The platform plugin does not support services."
 argument_list|)
 expr_stmt|;
 return|return

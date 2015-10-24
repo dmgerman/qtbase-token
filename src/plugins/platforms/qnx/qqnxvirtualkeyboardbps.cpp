@@ -211,8 +211,6 @@ block|{
 name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"current visibility="
 operator|<<
 name|isVisible
@@ -246,8 +244,6 @@ parameter_list|()
 block|{
 name|qVirtualKeyboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"current visibility="
 operator|<<
@@ -284,8 +280,6 @@ argument_list|()
 decl_stmt|;
 name|qVirtualKeyboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"mode="
 operator|<<
@@ -559,8 +553,6 @@ decl_stmt|;
 name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"current locale"
 operator|<<
 name|locale
@@ -581,8 +573,6 @@ return|;
 block|}
 name|qVirtualKeyboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Unhandled locale event. code="
 operator|<<
@@ -622,8 +612,6 @@ case|:
 name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"EVENT VISIBLE: current visibility="
 operator|<<
 name|isVisible
@@ -640,8 +628,6 @@ name|VIRTUALKEYBOARD_EVENT_HIDDEN
 case|:
 name|qVirtualKeyboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"EVENT HIDDEN: current visibility="
 operator|<<
@@ -670,8 +656,6 @@ decl_stmt|;
 name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"EVENT INFO: current height="
 operator|<<
 name|height
@@ -691,8 +675,6 @@ block|}
 default|default:
 name|qVirtualKeyboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Unhandled virtual keyboard event. code="
 operator|<<

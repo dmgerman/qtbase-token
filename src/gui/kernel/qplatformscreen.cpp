@@ -930,13 +930,11 @@ name|PrimaryOrientation
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-literal|"Use QScreen version of"
-operator|<<
-name|__FUNCTION__
-operator|<<
-literal|"when passing Qt::PrimaryOrientation"
+argument_list|(
+literal|"Use QScreen version of %sBetween() when passing Qt::PrimaryOrientation"
+argument_list|,
+literal|"angle"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -1053,13 +1051,11 @@ name|PrimaryOrientation
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-literal|"Use QScreen version of"
-operator|<<
-name|__FUNCTION__
-operator|<<
-literal|"when passing Qt::PrimaryOrientation"
+argument_list|(
+literal|"Use QScreen version of %sBetween() when passing Qt::PrimaryOrientation"
+argument_list|,
+literal|"transform"
+argument_list|)
 expr_stmt|;
 return|return
 name|QTransform
@@ -1203,13 +1199,11 @@ name|PrimaryOrientation
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-literal|"Use QScreen version of"
-operator|<<
-name|__FUNCTION__
-operator|<<
-literal|"when passing Qt::PrimaryOrientation"
+argument_list|(
+literal|"Use QScreen version of %sBetween() when passing Qt::PrimaryOrientation"
+argument_list|,
+literal|"map"
+argument_list|)
 expr_stmt|;
 return|return
 name|rect

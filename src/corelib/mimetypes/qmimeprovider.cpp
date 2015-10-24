@@ -4407,7 +4407,7 @@ operator|::
 name|NoDotAndDotDot
 argument_list|)
 decl_stmt|;
-comment|//qDebug()<< static_cast<const void *>(this)<< Q_FUNC_INFO<< packageDir<< files;
+comment|//qDebug()<< static_cast<const void *>(this)<< packageDir<< files;
 if|if
 condition|(
 operator|!

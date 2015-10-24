@@ -909,9 +909,7 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"%s: coverage data for %s registered"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"coverage data for %s registered"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -926,9 +924,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: could not register %s: error %d; coverage data may be incomplete"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"could not register %s: error %d; coverage data may be incomplete"
 argument_list|,
 name|qPrintable
 argument_list|(

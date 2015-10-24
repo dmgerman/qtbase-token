@@ -901,11 +901,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"called with invalid parameters"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -1299,11 +1297,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"called with invalid parameters"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

@@ -414,11 +414,9 @@ name|initialized
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"called, but instance already initialized."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -445,11 +443,9 @@ name|BPS_SUCCESS
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"cannot register for network events. Polling enabled."
+argument_list|)
 expr_stmt|;
 specifier|const
 name|QMutexLocker
@@ -504,11 +500,9 @@ name|doRequestUpdate
 parameter_list|()
 block|{
 name|qBearerDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"entered method"
+argument_list|)
 expr_stmt|;
 name|netstatus_interface_list_t
 name|interfaceList
@@ -527,11 +521,9 @@ name|BPS_SUCCESS
 condition|)
 block|{
 name|qBearerDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"cannot retrieve interface list"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -585,8 +577,6 @@ index|]
 decl_stmt|;
 name|qBearerDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"discovered interface"
 operator|<<
@@ -919,8 +909,6 @@ block|{
 name|qBearerDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"found default interface:"
 operator|<<
 name|id
@@ -1024,11 +1012,9 @@ argument_list|()
 condition|)
 block|{
 name|qBearerDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"got update request."
+argument_list|)
 expr_stmt|;
 name|doRequestUpdate
 argument_list|()
@@ -1073,8 +1059,6 @@ condition|)
 block|{
 name|qBearerDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"cannot retrieve details for interface"
 operator|<<
@@ -1302,8 +1286,6 @@ block|{
 name|qBearerDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"configuration changed:"
 operator|<<
 name|interface
@@ -1319,11 +1301,9 @@ else|else
 block|{
 comment|// maybe Wifi has changed but gateway not yet ready etc.
 name|qBearerDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"configuration has not changed."
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1443,8 +1423,6 @@ argument_list|()
 expr_stmt|;
 name|qBearerDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"configuration added:"
 operator|<<
