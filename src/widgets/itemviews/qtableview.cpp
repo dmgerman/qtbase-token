@@ -970,9 +970,8 @@ operator|<<
 name|start
 operator|<<
 name|end
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 name|index
 expr_stmt|;
@@ -1211,9 +1210,8 @@ operator|<<
 name|start
 operator|<<
 name|end
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 name|index
 expr_stmt|;
@@ -1637,9 +1635,8 @@ operator|<<
 name|start
 operator|<<
 name|end
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 name|index
 expr_stmt|;
@@ -2396,9 +2393,8 @@ operator|<<
 name|start
 operator|<<
 name|end
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 name|index
 expr_stmt|;

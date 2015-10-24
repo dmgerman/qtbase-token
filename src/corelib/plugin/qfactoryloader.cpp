@@ -684,9 +684,8 @@ operator|<<
 name|library
 operator|->
 name|errorString
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"         not a plugin"
 expr_stmt|;

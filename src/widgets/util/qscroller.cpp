@@ -9498,11 +9498,7 @@ comment|// -- set the position and handle overshoot
 name|qScrollerDebug
 argument_list|()
 operator|<<
-literal|"QScroller::setContentPositionHelperScrolling()"
-expr_stmt|;
-name|qScrollerDebug
-argument_list|()
-operator|<<
+literal|"QScroller::setContentPositionHelperScrolling()\n"
 literal|"  --> overshoot:"
 operator|<<
 name|overshootPosition
