@@ -80,12 +80,8 @@ argument_list|(
 name|function
 argument_list|)
 expr_stmt|;
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 block|}
 end_function
@@ -107,12 +103,8 @@ argument_list|(
 name|mode
 argument_list|)
 expr_stmt|;
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 return|return
 operator|-
@@ -128,12 +120,8 @@ operator|::
 name|cleanHandle
 parameter_list|()
 block|{
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 block|}
 end_function
@@ -153,12 +141,8 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 return|return
 literal|false
