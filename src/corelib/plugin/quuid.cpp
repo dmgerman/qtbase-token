@@ -2144,6 +2144,18 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*! \fn QUuid QUuid::fromCFUUID(CFUUIDRef uuid)     \since 5.7      Constructs a new QUuid containing a copy of the \a uuid CFUUID.      \note this function is only available on Apple platforms. */
+end_comment
+begin_comment
+comment|/*! \fn CFUUIDRef QUuid::toCFUUID() const     \since 5.7      Creates a CFUUID from a QUuid. The caller owns the CFUUID and is     responsible for releasing it.      \note this function is only available on Apple platforms. */
+end_comment
+begin_comment
+comment|/*! \fn QUuid QUuid::fromNSUUID(const NSUUID *uuid)     \since 5.7      Constructs a new QUuid containing a copy of the \a uuid NSUUID.      \note this function is only available on Apple platforms. */
+end_comment
+begin_comment
+comment|/*! \fn NSUUID QUuid::toNSUUID() const     \since 5.7      Creates a NSUUID from a QUuid. The NSUUID is autoreleased.      \note this function is only available on Apple platforms. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QUuid::operator<(const QUuid&other) const      Returns \c true if this QUuid has the same \l{Variant field}     {variant field} as the \a other QUuid and is lexicographically     \e{before} the \a other QUuid. If the \a other QUuid has a     different variant field, the return value is determined by     comparing the two \l{QUuid::Variant} {variants}.      \sa variant() */
 end_comment
 begin_function

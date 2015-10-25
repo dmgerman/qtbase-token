@@ -126,6 +126,10 @@ name|void
 name|qvariant_conversion
 parameter_list|()
 function_decl|;
+name|void
+name|darwinTypes
+parameter_list|()
+function_decl|;
 public|public:
 comment|// Variables
 DECL|member|uuidNS
@@ -2071,6 +2075,37 @@ argument_list|,
 name|uuid
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|darwinTypes
+name|void
+name|tst_QUuid
+operator|::
+name|darwinTypes
+parameter_list|()
+block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_DARWIN
+name|QSKIP
+argument_list|(
+literal|"This is a Darwin-only test"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
+specifier|extern
+name|void
+name|tst_QUuid_darwinTypes
+argument_list|()
+decl_stmt|;
+comment|// in tst_quuid_darwin.mm
+name|tst_QUuid_darwinTypes
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro
