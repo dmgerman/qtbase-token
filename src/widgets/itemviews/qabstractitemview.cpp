@@ -10417,6 +10417,21 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
+if|if
+condition|(
+name|d
+operator|->
+name|delayedPendingLayout
+condition|)
+block|{
+comment|// doItemsLayout() will end up calling this function again
+name|d
+operator|->
+name|executePostedLayout
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 name|QStyleOptionViewItem
 name|option
 init|=
