@@ -6015,8 +6015,6 @@ name|QImage
 name|im
 argument_list|(
 name|glyph_width
-operator|+
-literal|4
 argument_list|,
 name|glyph_height
 argument_list|,
