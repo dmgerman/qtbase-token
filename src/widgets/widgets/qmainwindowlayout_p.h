@@ -1005,6 +1005,7 @@ directive|endif
 comment|// QT_NO_DOCKWIDGET
 comment|// save/restore
 block|enum
+name|VersionMarkers
 block|{
 comment|// sentinel values used to validate state data
 name|VersionMarker

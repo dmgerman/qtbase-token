@@ -15588,7 +15588,9 @@ emit|;
 block|}
 end_function
 begin_enum
+DECL|enum|MouseMasks
 enum|enum
+name|MouseMasks
 block|{
 DECL|enumerator|MouseCapsMask
 name|MouseCapsMask

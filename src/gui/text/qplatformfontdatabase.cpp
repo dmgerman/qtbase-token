@@ -1920,7 +1920,9 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_enum
+DECL|enum|CsbBits
 enum|enum
+name|CsbBits
 block|{
 DECL|enumerator|Latin1CsbBit
 name|Latin1CsbBit

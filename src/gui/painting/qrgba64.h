@@ -34,6 +34,7 @@ decl_stmt|;
 comment|// Make sure that the representation always has the order: red green blue alpha, independent
 comment|// of byte order. This way, vector operations that assume 4 16-bit values see the correct ones.
 enum|enum
+name|Shifts
 block|{
 if|#
 directive|if
