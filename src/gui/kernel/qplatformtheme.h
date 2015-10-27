@@ -754,6 +754,16 @@ name|int
 name|button
 parameter_list|)
 function_decl|;
+specifier|static
+name|QString
+name|removeMnemonics
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|original
+parameter_list|)
+function_decl|;
 name|protected
 label|:
 name|explicit

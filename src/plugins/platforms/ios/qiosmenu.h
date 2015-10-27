@@ -184,17 +184,6 @@ name|m_menu
 block|;
 name|QKeySequence
 name|m_shortcut
-block|;
-name|private
-operator|:
-name|QString
-name|removeMnemonics
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|original
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

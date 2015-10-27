@@ -234,20 +234,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_function_decl
-name|QString
-name|qt_mac_removeMnemonics
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|original
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_comment
-comment|//implemented in qmacstyle_mac.cpp
-end_comment
 begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT

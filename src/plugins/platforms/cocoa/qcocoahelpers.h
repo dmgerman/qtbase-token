@@ -346,17 +346,6 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-name|QString
-name|qt_mac_removeMnemonics
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|original
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
 name|CGColorSpaceRef
 name|qt_mac_genericColorSpace
 parameter_list|()
