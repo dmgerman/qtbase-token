@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qtextcursor_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qtextdocument.h"
 end_include
 begin_include
@@ -824,7 +829,9 @@ name|QTextFrame
 argument_list|)
 expr_stmt|;
 return|return
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|d
 operator|->
@@ -855,7 +862,9 @@ name|QTextFrame
 argument_list|)
 expr_stmt|;
 return|return
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|d
 operator|->

@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qtextcursor_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qtextdocumentlayout_p.h"
 end_include
 begin_include
@@ -3732,7 +3737,9 @@ comment|//we have a hit, return the cursor for that.
 operator|*
 name|cursor
 operator|=
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|block
 operator|.
@@ -4264,7 +4271,9 @@ comment|//we have a hit, return the cursor for that.
 operator|*
 name|cursor
 operator|=
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|block
 operator|.
@@ -4850,7 +4859,9 @@ comment|//we have a hit, return the cursor for that.
 operator|*
 name|cursor
 operator|=
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|block
 operator|.

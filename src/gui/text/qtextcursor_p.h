@@ -333,6 +333,25 @@ argument_list|,
 argument|int to
 argument_list|)
 block|;
+specifier|static
+name|QTextCursor
+name|fromPosition
+argument_list|(
+argument|QTextDocumentPrivate *d
+argument_list|,
+argument|int pos
+argument_list|)
+block|{
+return|return
+name|QTextCursor
+argument_list|(
+operator|*
+name|d
+argument_list|,
+name|pos
+argument_list|)
+return|;
+block|}
 name|QTextDocumentPrivate
 operator|*
 name|priv
