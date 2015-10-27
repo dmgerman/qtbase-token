@@ -74,6 +74,11 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_INTEGRITY
+argument_list|)
 end_if
 begin_include
 include|#
@@ -247,6 +252,11 @@ operator|||
 name|defined
 argument_list|(
 name|Q_OS_ANDROID
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_INTEGRITY
 argument_list|)
 end_if
 begin_function
