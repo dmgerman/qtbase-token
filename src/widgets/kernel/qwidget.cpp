@@ -27598,6 +27598,11 @@ name|q
 operator|->
 name|isWindow
 argument_list|()
+operator|||
+name|q
+operator|->
+name|windowHandle
+argument_list|()
 condition|)
 block|{
 if|if
