@@ -1554,6 +1554,11 @@ name|defined
 argument_list|(
 name|__SUNPRO_C
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__ghs
+argument_list|)
 comment|/* AT&T syntax. */
 asm|__asm__ ( 		"movl $0x1, %%eax\n"
 if|#
