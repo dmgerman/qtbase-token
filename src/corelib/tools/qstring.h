@@ -9678,6 +9678,8 @@ name|size
 argument_list|()
 return|;
 block|}
+else|else
+block|{
 return|return
 name|toUcs4_helper
 argument_list|(
@@ -9699,6 +9701,7 @@ name|array
 operator|)
 argument_list|)
 return|;
+block|}
 block|}
 end_decl_stmt
 begin_expr_stmt
