@@ -50,6 +50,15 @@ include|#
 directive|include
 file|"private/qtemporaryfile_p.h"
 end_include
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_INTEGRITY
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
@@ -58,6 +67,10 @@ end_include
 begin_comment
 comment|// flock
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
