@@ -8130,9 +8130,11 @@ name|Working
 condition|)
 block|{
 name|qDebug
-argument_list|(
-literal|"QNetworkReplyImpl::_q_startOperation was called more than once"
-argument_list|)
+argument_list|()
+operator|<<
+literal|"QNetworkReplyHttpImplPrivate::_q_startOperation was called more than once"
+operator|<<
+name|url
 expr_stmt|;
 return|return;
 block|}

@@ -194,9 +194,11 @@ name|Finished
 condition|)
 block|{
 name|qDebug
-argument_list|(
+argument_list|()
+operator|<<
 literal|"QNetworkReplyImpl::_q_startOperation was called more than once"
-argument_list|)
+operator|<<
+name|url
 expr_stmt|;
 return|return;
 block|}
