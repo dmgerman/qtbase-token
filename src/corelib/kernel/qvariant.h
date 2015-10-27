@@ -3010,6 +3010,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+DECL|function|Q_DECLARE_SHARED
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QVariant
+argument_list|)
+end_macro
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
@@ -4830,12 +4837,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_macro
-name|Q_DECLARE_SHARED
-argument_list|(
-argument|QVariant
-argument_list|)
-end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -4856,7 +4857,6 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|variable|operator
 name|Q_CORE_EXPORT
 name|QDebug
 name|operator
