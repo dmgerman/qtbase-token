@@ -9895,10 +9895,6 @@ literal|"hellogoodbye"
 argument_list|)
 argument_list|)
 argument_list|;
-ifndef|#
-directive|ifndef
-name|Q_CC_MINGW
-comment|// does not know %ll
 name|qlonglong
 name|n2
 argument_list|;
@@ -9937,10 +9933,7 @@ argument_list|(
 literal|"foobarwhiz"
 argument_list|)
 argument_list|)
-argument_list|;
-endif|#
-directive|endif
-argument_list|}
+argument_list|; }
 comment|/*     indexOf() and indexOf02() test QString::indexOf(),     QString::lastIndexOf(), and their QByteArray equivalents.      lastIndexOf() tests QString::lastIndexOf() more in depth, but it     should probably be rewritten to use a data table. */
 DECL|function|indexOf_data
 name|void
@@ -52272,16 +52265,6 @@ name|sprintfZU
 parameter_list|()
 specifier|const
 block|{
-ifdef|#
-directive|ifdef
-name|Q_CC_MINGW
-name|QSKIP
-argument_list|(
-literal|"MinGW does not support '%zu'."
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 block|{
 name|QString
 name|string
@@ -52406,9 +52389,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// !Q_CC_MINGW
 block|}
 end_function
 begin_function
