@@ -2142,6 +2142,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
+name|Q_OS_INTEGRITY
+argument_list|)
+operator|||
+operator|(
+name|defined
+argument_list|(
 name|Q_OS_BSD4
 argument_list|)
 operator|&&
@@ -2150,6 +2156,7 @@ name|defined
 argument_list|(
 name|Q_OS_NETBSD
 argument_list|)
+operator|)
 name|bytesTotal
 operator|=
 name|statfs_buf
@@ -2230,6 +2237,11 @@ operator|||
 name|defined
 argument_list|(
 name|Q_OS_BSD4
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_INTEGRITY
 argument_list|)
 if|#
 directive|if
