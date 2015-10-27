@@ -3167,7 +3167,11 @@ argument|Language
 argument_list|)
 name|Q_ENUM
 argument_list|(
-name|Country
+argument|Country
+argument_list|)
+name|Q_ENUM
+argument_list|(
+name|Script
 argument_list|)
 expr|enum
 name|MeasurementSystem
