@@ -5901,6 +5901,15 @@ else|:
 literal|0L
 operator|)
 return|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_INTEGRITY
+argument_list|)
+return|return
+literal|0
+return|;
 else|#
 directive|else
 return|return
