@@ -14063,6 +14063,20 @@ if|if
 condition|(
 name|part
 operator|==
+literal|"ATOMICFPTR"
+condition|)
+name|available
+operator|=
+name|tryCompileProject
+argument_list|(
+literal|"common/atomicfptr"
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|part
+operator|==
 literal|"ZLIB"
 condition|)
 name|available
@@ -15264,6 +15278,41 @@ literal|"libatomic"
 else|:
 literal|"no"
 expr_stmt|;
+comment|// special case:
+if|if
+condition|(
+operator|!
+name|checkAvailability
+argument_list|(
+literal|"ATOMICFPTR"
+argument_list|)
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"DONE"
+index|]
+operator|=
+literal|"error"
+expr_stmt|;
+name|cout
+operator|<<
+literal|"ERROR: detected an std::atomic implementation that fails for function pointers."
+operator|<<
+name|endl
+operator|<<
+literal|"Please apply the patch corresponding to your Standard Library vendor, found in"
+operator|<<
+name|endl
+operator|<<
+name|sourcePath
+operator|<<
+literal|"/config.tests/common/atomicfptr"
+operator|<<
+name|endl
+expr_stmt|;
+return|return;
+block|}
 comment|// Style detection
 if|if
 condition|(
