@@ -3430,6 +3430,9 @@ name|selectionMode
 argument_list|()
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 elseif|else
 if|if
 condition|(
@@ -3454,6 +3457,8 @@ name|MenuItem
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|newStyle
