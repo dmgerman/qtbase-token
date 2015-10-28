@@ -34,6 +34,12 @@ end_include
 begin_comment
 comment|// If C++11 atomics are supported, use them!
 end_comment
+begin_comment
+comment|// Note that constexpr support is sometimes disabled in QNX builds but its
+end_comment
+begin_comment
+comment|// library has<atomic>.
+end_comment
 begin_elif
 elif|#
 directive|elif
@@ -42,10 +48,17 @@ argument_list|(
 name|Q_COMPILER_ATOMICS
 argument_list|)
 operator|&&
+operator|(
 name|defined
 argument_list|(
 name|Q_COMPILER_CONSTEXPR
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+operator|)
 end_elif
 begin_include
 include|#
