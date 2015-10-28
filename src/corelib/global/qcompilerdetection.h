@@ -4338,7 +4338,7 @@ begin_comment
 comment|// Older versions (QNX 650) do not support C++11 features
 end_comment
 begin_comment
-comment|// _HAS_CPP0X is defined by toolchains that actually include
+comment|// _HAS_* macros are set to 1 by toolchains that actually include
 end_comment
 begin_comment
 comment|// Dinkum C++11 libcpp.
@@ -4346,16 +4346,14 @@ end_comment
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|_HAS_DINKUM_CLIB
-argument_list|)
-operator|&&
 operator|!
-name|defined
-argument_list|(
+name|__GLIBCXX__
+end_if
+begin_if
+if|#
+directive|if
+operator|!
 name|_HAS_CPP0X
-argument_list|)
 end_if
 begin_comment
 comment|// Disable C++11 features that depend on library support
@@ -4394,19 +4392,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// !_HAS_CPP0X
+end_comment
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|_HAS_DINKUM_CLIB
-argument_list|)
-operator|&&
 operator|!
-name|defined
-argument_list|(
 name|_HAS_NULLPTR_T
-argument_list|)
 end_if
 begin_undef
 DECL|macro|Q_COMPILER_NULLPTR
@@ -4418,19 +4411,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|//!_HAS_NULLPTR_T
+end_comment
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|_HAS_DINKUM_CLIB
-argument_list|)
-operator|&&
 operator|!
-name|defined
-argument_list|(
 name|_HAS_CONSTEXPR
-argument_list|)
 end_if
 begin_comment
 comment|// The libcpp is missing constexpr keywords on important functions like std::numeric_limits<>::min()
@@ -4448,6 +4436,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// !_HAS_CONSTEXPR
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !__GLIBCXX__
+end_comment
 begin_endif
 endif|#
 directive|endif
