@@ -3157,6 +3157,16 @@ operator|::
 name|readFromSocket
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QABSTRACTSOCKET_DEBUG
+name|Q_Q
+argument_list|(
+name|QAbstractSocket
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Find how many bytes we can read from the socket layer.
 name|qint64
 name|bytesToRead
