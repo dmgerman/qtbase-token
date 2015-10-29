@@ -1682,6 +1682,18 @@ index|[
 literal|1024
 index|]
 decl_stmt|;
+specifier|const
+name|int
+name|timeMs
+init|=
+name|qRound
+argument_list|(
+name|QTestLog
+operator|::
+name|msecsTotalTime
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|QTestLog
@@ -1701,7 +1713,7 @@ argument_list|(
 name|buf
 argument_list|)
 argument_list|,
-literal|"Totals: %d passed, %d failed, %d skipped, %d blacklisted\n"
+literal|"Totals: %d passed, %d failed, %d skipped, %d blacklisted, %dms\n"
 argument_list|,
 name|QTestLog
 operator|::
@@ -1722,6 +1734,8 @@ name|QTestLog
 operator|::
 name|blacklistCount
 argument_list|()
+argument_list|,
+name|timeMs
 argument_list|)
 expr_stmt|;
 block|}
@@ -1736,7 +1750,7 @@ argument_list|(
 name|buf
 argument_list|)
 argument_list|,
-literal|"Totals: %d passed, %d failed, %d skipped, %d blacklisted\n"
+literal|"Totals: %d passed, %d failed, %d skipped, %d blacklisted, %dms\n"
 literal|"********* Finished testing of %s *********\n"
 argument_list|,
 name|QTestLog
@@ -1758,6 +1772,8 @@ name|QTestLog
 operator|::
 name|blacklistCount
 argument_list|()
+argument_list|,
+name|timeMs
 argument_list|,
 name|QTestResult
 operator|::
