@@ -1153,9 +1153,21 @@ name|fallback
 init|=
 name|currentScreen
 decl_stmt|;
+comment|//QRect::center can return a value outside the rectangle if it's empty
+specifier|const
 name|QPoint
 name|center
 init|=
+name|newGeometry
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+name|newGeometry
+operator|.
+name|topLeft
+argument_list|()
+else|:
 name|newGeometry
 operator|.
 name|center
