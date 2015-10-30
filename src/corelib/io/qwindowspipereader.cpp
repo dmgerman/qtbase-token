@@ -630,6 +630,15 @@ operator|=
 literal|true
 expr_stmt|;
 break|break;
+case|case
+name|ERROR_OPERATION_ABORTED
+case|:
+if|if
+condition|(
+name|stopped
+condition|)
+break|break;
+comment|// fall through
 default|default:
 emit|emit
 name|winError
