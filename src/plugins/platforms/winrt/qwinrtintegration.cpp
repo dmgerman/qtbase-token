@@ -1003,6 +1003,9 @@ case|:
 case|case
 name|MultipleWindows
 case|:
+case|case
+name|RasterGLSurface
+case|:
 return|return
 literal|true
 return|;

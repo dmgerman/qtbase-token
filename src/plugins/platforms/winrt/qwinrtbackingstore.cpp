@@ -137,6 +137,17 @@ name|handle
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|window
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|RasterSurface
+condition|)
 name|window
 operator|->
 name|setSurfaceType
@@ -146,7 +157,6 @@ operator|::
 name|OpenGLSurface
 argument_list|)
 expr_stmt|;
-comment|// Required for flipping, but could be done in the swap
 block|}
 end_constructor
 begin_function
