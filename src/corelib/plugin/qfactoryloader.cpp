@@ -116,9 +116,14 @@ function|"IID"
 block|)
 empty_stmt|;
 end_decl_stmt
+begin_ifdef
+unit|}
+ifdef|#
+directive|ifdef
+name|QT_SHARED
+end_ifdef
 begin_function
-DECL|function|iidKeyLiteral
-unit|} inline
+unit|inline
 DECL|function|versionKeyLiteral
 name|QString
 name|versionKeyLiteral
@@ -132,6 +137,10 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|metaDataKeyLiteral
 specifier|inline
