@@ -20320,7 +20320,7 @@ operator|::
 name|generateCachefile
 parameter_list|()
 block|{
-comment|// Generate qmodule.pri
+comment|// Generate qmodule.pri, which is loaded only by Qt modules
 block|{
 name|FileWriter
 name|moduleStream
@@ -20801,6 +20801,19 @@ condition|)
 name|moduleStream
 operator|<<
 literal|" nostrip"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"LTCG"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|moduleStream
+operator|<<
+literal|" ltcg"
 expr_stmt|;
 name|moduleStream
 operator|<<
@@ -22540,19 +22553,6 @@ condition|)
 name|configStream
 operator|<<
 literal|" static_runtime"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"LTCG"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" ltcg"
 expr_stmt|;
 if|if
 condition|(
