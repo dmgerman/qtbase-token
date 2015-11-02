@@ -16965,6 +16965,7 @@ DECL|namespace|QUnicodeTables
 namespace|namespace
 name|QUnicodeTables
 block|{
+comment|/*!     \internal     Converts the \a str string starting from the position pointed to by the \a     it iterator, using the Unicode case traits \c Traits, and returns the     result. The input string must not be empty (the convertCase function below     guarantees that).      The string type \c{T} is also a template and is either \c{const QString} or     \c{QString}. This function can do both copy-conversion and in-place     conversion depending on the state of the \a str parameter:     \list        \li \c{T} is \c{const QString}: copy-convert        \li \c{T} is \c{QString} and its refcount != 1: copy-convert        \li \c{T} is \c{QString} and its refcount == 1: in-place convert     \endlist      In copy-convert mode, the local variable \c{s} is detached from the input     \a str. In the in-place convert mode, \a str is in moved-from state (which     this function requires to be a valid, empty string) and \c{s} contains the     only copy of the string, without reallocation (thus, \a it is still valid).      There's one pathological case left: when the in-place conversion needs to     reallocate memory to grow the buffer. In that case, we need to adjust the \a     it pointer.  */
 template|template
 parameter_list|<
 name|typename
@@ -16987,6 +16988,15 @@ name|QStringIterator
 name|it
 parameter_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|str
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QString
 name|s
 init|=
@@ -17057,7 +17067,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-comment|// slow path
+comment|// slow path: the string is growing
 specifier|const
 name|ushort
 modifier|*
@@ -17075,7 +17085,17 @@ name|specialCase
 operator|++
 decl_stmt|;
 name|int
-name|pos
+name|inpos
+init|=
+name|it
+operator|.
+name|index
+argument_list|()
+operator|-
+literal|1
+decl_stmt|;
+name|int
+name|outpos
 init|=
 name|pp
 operator|-
@@ -17088,7 +17108,7 @@ name|s
 operator|.
 name|replace
 argument_list|(
-name|pos
+name|outpos
 argument_list|,
 literal|1
 argument_list|,
@@ -17119,9 +17139,37 @@ name|constBegin
 argument_list|()
 argument_list|)
 operator|+
-name|pos
+name|outpos
 operator|+
 name|length
+expr_stmt|;
+comment|// do we need to adjust the input iterator too?
+comment|// if it is pointing to s's data, str is empty
+if|if
+condition|(
+name|str
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|it
+operator|=
+name|QStringIterator
+argument_list|(
+name|s
+operator|.
+name|constBegin
+argument_list|()
+argument_list|,
+name|inpos
+operator|+
+name|length
+argument_list|,
+name|s
+operator|.
+name|constEnd
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else

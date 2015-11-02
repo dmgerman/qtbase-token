@@ -126,6 +126,34 @@ argument|end
 argument_list|)
 block|{     }
 specifier|inline
+name|explicit
+name|QStringIterator
+argument_list|(
+argument|const QChar *begin
+argument_list|,
+argument|int idx
+argument_list|,
+argument|const QChar *end
+argument_list|)
+operator|:
+name|i
+argument_list|(
+name|begin
+argument_list|)
+operator|,
+name|pos
+argument_list|(
+name|begin
+operator|+
+name|idx
+argument_list|)
+operator|,
+name|e
+argument_list|(
+argument|end
+argument_list|)
+block|{     }
+specifier|inline
 name|QString
 operator|::
 name|const_iterator
