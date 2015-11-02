@@ -419,6 +419,7 @@ end_macro
 begin_typedef
 DECL|typedef|QStyleOptionFrameV2
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionFrame
 name|QStyleOptionFrameV2
 typedef|;
@@ -426,6 +427,7 @@ end_typedef
 begin_typedef
 DECL|typedef|QStyleOptionFrameV3
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionFrame
 name|QStyleOptionFrameV3
 typedef|;
@@ -522,6 +524,7 @@ end_decl_stmt
 begin_typedef
 DECL|typedef|QStyleOptionTabWidgetFrameV2
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionTabWidgetFrame
 name|QStyleOptionTabWidgetFrameV2
 typedef|;
@@ -612,6 +615,7 @@ end_decl_stmt
 begin_typedef
 DECL|typedef|QStyleOptionTabBarBaseV2
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionTabBarBase
 name|QStyleOptionTabBarBaseV2
 typedef|;
@@ -1019,6 +1023,7 @@ end_macro
 begin_typedef
 DECL|typedef|QStyleOptionTabV2
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionTab
 name|QStyleOptionTabV2
 typedef|;
@@ -1026,6 +1031,7 @@ end_typedef
 begin_typedef
 DECL|typedef|QStyleOptionTabV3
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionTab
 name|QStyleOptionTabV3
 typedef|;
@@ -1255,6 +1261,7 @@ end_decl_stmt
 begin_typedef
 DECL|typedef|QStyleOptionProgressBarV2
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionProgressBar
 name|QStyleOptionProgressBarV2
 typedef|;
@@ -1449,6 +1456,7 @@ end_decl_stmt
 begin_typedef
 DECL|typedef|QStyleOptionDockWidgetV2
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionDockWidget
 name|QStyleOptionDockWidgetV2
 typedef|;
@@ -1639,6 +1647,7 @@ end_macro
 begin_typedef
 DECL|typedef|QStyleOptionViewItemV2
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionViewItem
 name|QStyleOptionViewItemV2
 typedef|;
@@ -1646,6 +1655,7 @@ end_typedef
 begin_typedef
 DECL|typedef|QStyleOptionViewItemV3
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionViewItem
 name|QStyleOptionViewItemV3
 typedef|;
@@ -1653,6 +1663,7 @@ end_typedef
 begin_typedef
 DECL|typedef|QStyleOptionViewItemV4
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionViewItem
 name|QStyleOptionViewItemV4
 typedef|;
@@ -1756,6 +1767,7 @@ end_decl_stmt
 begin_typedef
 DECL|typedef|QStyleOptionToolBoxV2
 typedef|typedef
+name|Q_DECL_DEPRECATED
 name|QStyleOptionToolBox
 name|QStyleOptionToolBoxV2
 typedef|;
