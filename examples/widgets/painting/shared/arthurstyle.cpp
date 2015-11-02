@@ -891,14 +891,14 @@ case|:
 if|if
 condition|(
 specifier|const
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 modifier|*
 name|group
 init|=
 name|qstyleoption_cast
 argument_list|<
 specifier|const
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 operator|*
 argument_list|>
 argument_list|(
