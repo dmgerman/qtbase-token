@@ -17,7 +17,7 @@ literal|0
 operator|,
 literal|9
 operator|,
-literal|31
+literal|42
 argument_list|)
 end_if
 begin_error

@@ -5,6 +5,20 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
+name|HB_OT_H_IN
+end_ifndef
+begin_error
+error|#
+directive|error
+literal|"Include<hb-ot.h> instead."
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
 name|HB_OT_FONT_H
 end_ifndef
 begin_define
