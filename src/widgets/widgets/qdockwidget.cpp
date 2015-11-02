@@ -2576,7 +2576,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|QStyleOptionDockWidgetV2
+name|QStyleOptionDockWidget
 name|opt
 decl_stmt|;
 name|q
@@ -3345,26 +3345,7 @@ name|layout
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|QStyleOptionDockWidgetV2
-modifier|*
-name|v2
-init|=
-name|qstyleoption_cast
-argument_list|<
-name|QStyleOptionDockWidgetV2
-operator|*
-argument_list|>
-argument_list|(
 name|option
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|v2
-operator|!=
-literal|0
-condition|)
-name|v2
 operator|->
 name|verticalTitleBar
 operator|=
@@ -6607,7 +6588,7 @@ expr_stmt|;
 block|}
 comment|// Title must be painted after the frame, since the areas overlap, and
 comment|// the title may wish to extend out to all sides (eg. XP style)
-name|QStyleOptionDockWidgetV2
+name|QStyleOptionDockWidget
 name|titleOpt
 decl_stmt|;
 name|initStyleOption
