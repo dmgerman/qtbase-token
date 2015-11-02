@@ -50,7 +50,7 @@ block|{
 comment|// -----------------------------------------------------------------------------------------------------
 comment|//
 comment|// The text boundaries determination algorithm.
-comment|// See http://www.unicode.org/reports/tr29/tr29-25.html
+comment|// See http://www.unicode.org/reports/tr29/tr29-27.html
 comment|//
 comment|// -----------------------------------------------------------------------------------------------------
 DECL|namespace|GB
@@ -1830,11 +1830,14 @@ block|{
 DECL|enumerator|Initial
 name|Initial
 block|,
+DECL|enumerator|Lower
+name|Lower
+block|,
 DECL|enumerator|Upper
 name|Upper
 block|,
-DECL|enumerator|UpATerm
-name|UpATerm
+DECL|enumerator|LUATerm
+name|LUATerm
 block|,
 DECL|enumerator|ATerm
 name|ATerm
@@ -1900,7 +1903,7 @@ name|Initial
 block|,
 name|Initial
 block|,
-name|Initial
+name|Lower
 block|,
 name|Upper
 block|,
@@ -1927,6 +1930,37 @@ name|BAfter
 block|,
 name|BAfter
 block|,
+name|Lower
+block|,
+name|Initial
+block|,
+name|Initial
+block|,
+name|Initial
+block|,
+name|Initial
+block|,
+name|Initial
+block|,
+name|LUATerm
+block|,
+name|Initial
+block|,
+name|STerm
+block|,
+name|Initial
+block|}
+block|,
+comment|// Lower
+block|{
+name|Initial
+block|,
+name|BAfterC
+block|,
+name|BAfter
+block|,
+name|BAfter
+block|,
 name|Upper
 block|,
 name|Initial
@@ -1939,7 +1973,7 @@ name|Initial
 block|,
 name|Initial
 block|,
-name|UpATerm
+name|LUATerm
 block|,
 name|STerm
 block|,
@@ -1958,7 +1992,7 @@ name|BAfter
 block|,
 name|BAfter
 block|,
-name|UpATerm
+name|LUATerm
 block|,
 name|ACS
 block|,
@@ -1979,7 +2013,7 @@ block|,
 name|ATermC
 block|}
 block|,
-comment|// UpATerm
+comment|// LUATerm
 block|{
 name|Lookup
 block|,
@@ -2614,7 +2648,7 @@ block|}
 comment|// -----------------------------------------------------------------------------------------------------
 comment|//
 comment|// The line breaking algorithm.
-comment|// See http://www.unicode.org/reports/tr14/tr14-33.html
+comment|// See http://www.unicode.org/reports/tr14/tr14-35.html
 comment|//
 comment|// -----------------------------------------------------------------------------------------------------
 DECL|namespace|LB
@@ -2888,10 +2922,8 @@ return|;
 block|}
 block|}
 comment|// namespace NS
-comment|/* In order to support the tailored implementation of LB25 properly    the following changes were made in the pair table to allow breaks    where the numeric expression doesn't match the template (i.e. [^NU](IS|SY)NU):    CL->PO from IB to DB    CP->PO from IB to DB    CL->PR from IB to DB    CP->PR from IB to DB    PO->OP from IB to DB    PR->OP from IB to DB    IS->NU from IB to DB    SY->NU from IB to DB */
-comment|// The following line break classes are not treated by the pair table
-comment|// and must be resolved outside:
-comment|//  AI, BK, CB, CJ, CR, LF, NL, SA, SG, SP, XX
+comment|/* In order to support the tailored implementation of LB25 properly    the following changes were made in the pair table to allow breaks    where the numeric expression doesn't match the template (i.e. [^NU](IS|SY)NU):    (CL)(PO) from IB to DB    (CP)(PO) from IB to DB    (CL)(PR) from IB to DB    (CP)(PR) from IB to DB    (PO)(OP) from IB to DB    (PR)(OP) from IB to DB    (IS)(NU) from IB to DB    (SY)(NU) from IB to DB */
+comment|/* In order to implementat LB21a properly a special rule HH has been introduced and    the following changes were made in the pair table to disallow breaks after Hebrew + Hyphen:    (HL)(HY|BA) from IB to CI    (HY|BA)(!CB) from DB to HH */
 DECL|enum|Action
 enum|enum
 name|Action
@@ -2935,6 +2967,14 @@ block|,
 name|CP
 init|=
 name|CombiningProhibitedBreak
+block|,
+DECL|enumerator|ProhibitedBreakAfterHebrewPlusHyphen
+DECL|enumerator|HH
+name|ProhibitedBreakAfterHebrewPlusHyphen
+block|,
+name|HH
+init|=
+name|ProhibitedBreakAfterHebrewPlusHyphen
 block|}
 enum|;
 DECL|member|breakTable
@@ -3369,7 +3409,7 @@ name|DB
 block|,
 name|DB
 block|,
-name|DB
+name|IB
 block|,
 name|IB
 block|,
@@ -3428,7 +3468,7 @@ name|DB
 block|,
 name|DB
 block|,
-name|DB
+name|IB
 block|,
 name|DB
 block|,
@@ -3812,9 +3852,9 @@ name|DB
 block|,
 name|IB
 block|,
-name|IB
+name|CI
 block|,
-name|IB
+name|CI
 block|,
 name|DB
 block|,
@@ -3969,7 +4009,7 @@ block|}
 block|,
 comment|/* HY */
 block|{
-name|DB
+name|HH
 block|,
 name|PB
 block|,
@@ -3977,7 +4017,7 @@ name|PB
 block|,
 name|IB
 block|,
-name|DB
+name|HH
 block|,
 name|IB
 block|,
@@ -3987,27 +4027,27 @@ name|PB
 block|,
 name|PB
 block|,
-name|DB
+name|HH
 block|,
-name|DB
-block|,
-name|IB
-block|,
-name|DB
-block|,
-name|DB
-block|,
-name|DB
-block|,
-name|DB
+name|HH
 block|,
 name|IB
 block|,
+name|HH
+block|,
+name|HH
+block|,
+name|HH
+block|,
+name|HH
+block|,
 name|IB
 block|,
-name|DB
+name|IB
 block|,
-name|DB
+name|HH
+block|,
+name|HH
 block|,
 name|PB
 block|,
@@ -4015,24 +4055,24 @@ name|CI
 block|,
 name|PB
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
 name|DB
 block|}
 block|,
 comment|/* BA */
 block|{
-name|DB
+name|HH
 block|,
 name|PB
 block|,
@@ -4040,7 +4080,7 @@ name|PB
 block|,
 name|IB
 block|,
-name|DB
+name|HH
 block|,
 name|IB
 block|,
@@ -4050,27 +4090,27 @@ name|PB
 block|,
 name|PB
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
-block|,
-name|IB
+name|HH
 block|,
 name|IB
 block|,
-name|DB
+name|IB
 block|,
-name|DB
+name|HH
+block|,
+name|HH
 block|,
 name|PB
 block|,
@@ -4078,17 +4118,17 @@ name|CI
 block|,
 name|PB
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
-name|DB
+name|HH
 block|,
 name|DB
 block|}
@@ -4850,6 +4890,9 @@ name|DB
 block|}
 block|}
 decl_stmt|;
+comment|// The following line break classes are not treated by the pair table
+comment|// and must be resolved outside:
+comment|//  AI, BK, CB, CJ, CR, LF, NL, SA, SG, SP, XX
 block|}
 comment|// namespace LB
 DECL|function|getLineBreaks
@@ -5419,6 +5462,29 @@ condition|)
 goto|goto
 name|next_no_cls_update
 goto|;
+break|break;
+case|case
+name|LB
+operator|::
+name|ProhibitedBreakAfterHebrewPlusHyphen
+case|:
+if|if
+condition|(
+name|lcls
+operator|!=
+name|QUnicodeTables
+operator|::
+name|LineBreak_HL
+condition|)
+name|attributes
+index|[
+name|pos
+index|]
+operator|.
+name|lineBreak
+operator|=
+literal|true
+expr_stmt|;
 break|break;
 case|case
 name|LB
@@ -6076,7 +6142,7 @@ block|}
 block|}
 comment|// ----------------------------------------------------------------------------
 comment|//
-comment|// The Unicode script property. See http://www.unicode.org/reports/tr24/tr24-22.html
+comment|// The Unicode script property. See http://www.unicode.org/reports/tr24/tr24-24.html
 comment|//
 comment|// ----------------------------------------------------------------------------
 DECL|function|initScripts

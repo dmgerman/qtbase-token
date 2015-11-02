@@ -61,14 +61,14 @@ DECL|macro|DATA_VERSION_S
 define|#
 directive|define
 name|DATA_VERSION_S
-value|"7.0"
+value|"8.0"
 end_define
 begin_define
 DECL|macro|DATA_VERSION_STR
 define|#
 directive|define
 name|DATA_VERSION_STR
-value|"QChar::Unicode_7_0"
+value|"QChar::Unicode_8_0"
 end_define
 begin_decl_stmt
 DECL|variable|age_map
@@ -236,6 +236,14 @@ operator|::
 name|Unicode_7_0
 block|,
 literal|"7.0"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Unicode_8_0
+block|,
+literal|"8.0"
 block|}
 block|,
 block|{
@@ -3581,6 +3589,55 @@ block|,
 literal|"WarangCiti"
 block|}
 block|,
+comment|// 8.0
+block|{
+name|QChar
+operator|::
+name|Script_Ahom
+block|,
+literal|"Ahom"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_AnatolianHieroglyphs
+block|,
+literal|"AnatolianHieroglyphs"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Hatran
+block|,
+literal|"Hatran"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Multani
+block|,
+literal|"Multani"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_OldHungarian
+block|,
+literal|"OldHungarian"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_SignWriting
+block|,
+literal|"SignWriting"
+block|}
+block|,
 comment|// unhandled
 block|{
 name|QChar
@@ -4597,7 +4654,9 @@ expr_stmt|;
 comment|// XX -> AL
 comment|// LineBreak.txt
 comment|// The unassigned code points that default to "ID" include ranges in the following blocks:
-comment|//     [U+3400..U+4DBF, U+4E00..U+9FFF, U+F900..U+FAFF, U+20000..U+2A6DF, U+2A700..U+2B73F, U+2B740..U+2B81F, U+2F800..U+2FA1F, U+20000..U+2FFFD, U+30000..U+3FFFD]
+comment|//     [U+3400..U+4DBF, U+4E00..U+9FFF, U+F900..U+FAFF, U+20000..U+2A6DF, U+2A700..U+2B73F, U+2B740..U+2B81F, U+2B820..U+2CEAF, U+2F800..U+2FA1F]
+comment|// and any other reserved code points on
+comment|//     [U+20000..U+2FFFD, U+30000..U+3FFFD]
 if|if
 condition|(
 operator|(
@@ -4658,6 +4717,16 @@ operator|&&
 name|codepoint
 operator|<=
 literal|0x2B81F
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x2B820
+operator|&&
+name|codepoint
+operator|<=
+literal|0x2CEAF
 operator|)
 operator|||
 operator|(

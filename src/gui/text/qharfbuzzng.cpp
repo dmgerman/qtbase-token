@@ -297,6 +297,19 @@ block|,
 name|HB_SCRIPT_TIRHUTA
 block|,
 name|HB_SCRIPT_WARANG_CITI
+block|,
+comment|// Unicode 8.0 additions
+name|HB_SCRIPT_AHOM
+block|,
+name|HB_SCRIPT_ANATOLIAN_HIEROGLYPHS
+block|,
+name|HB_SCRIPT_HATRAN
+block|,
+name|HB_SCRIPT_MULTANI
+block|,
+name|HB_SCRIPT_OLD_HUNGARIAN
+block|,
+name|HB_SCRIPT_SIGNWRITING
 block|}
 decl_stmt|;
 end_decl_stmt
