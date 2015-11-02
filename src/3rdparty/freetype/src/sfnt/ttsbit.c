@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005-2009, 2013, 2014 by                                     */
+comment|/*  Copyright 2005-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -379,7 +379,7 @@ name|sbit_table
 expr_stmt|;
 name|version
 operator|=
-name|FT_NEXT_ULONG
+name|FT_NEXT_LONG
 argument_list|(
 name|p
 argument_list|)
@@ -394,6 +394,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
+operator|(
+name|FT_ULong
+operator|)
 name|version
 operator|&
 literal|0xFFFF0000UL
@@ -922,8 +925,8 @@ name|strike
 index|[
 literal|16
 index|]
-operator|<<
-literal|6
+operator|*
+literal|64
 expr_stmt|;
 comment|/* hori.ascender  */
 name|metrics
@@ -937,8 +940,8 @@ name|strike
 index|[
 literal|17
 index|]
-operator|<<
-literal|6
+operator|*
+literal|64
 expr_stmt|;
 comment|/* hori.descender */
 name|metrics
@@ -983,8 +986,8 @@ literal|23
 index|]
 comment|/* min_advance_SB */
 operator|)
-operator|<<
-literal|6
+operator|*
+literal|64
 expr_stmt|;
 return|return
 name|FT_Err_Ok
@@ -1020,6 +1023,12 @@ decl_stmt|;
 name|FT_ULong
 name|table_size
 decl_stmt|;
+name|FT_Pos
+name|ppem_
+decl_stmt|,
+name|upem_
+decl_stmt|;
+comment|/* to reduce casts */
 name|FT_Error
 name|error
 decl_stmt|;
@@ -1147,11 +1156,25 @@ name|y_ppem
 operator|=
 name|ppem
 expr_stmt|;
+name|ppem_
+operator|=
+operator|(
+name|FT_Pos
+operator|)
+name|ppem
+expr_stmt|;
+name|upem_
+operator|=
+operator|(
+name|FT_Pos
+operator|)
+name|upem
+expr_stmt|;
 name|metrics
 operator|->
 name|ascender
 operator|=
-name|ppem
+name|ppem_
 operator|*
 name|hori
 operator|->
@@ -1159,13 +1182,13 @@ name|Ascender
 operator|*
 literal|64
 operator|/
-name|upem
+name|upem_
 expr_stmt|;
 name|metrics
 operator|->
 name|descender
 operator|=
-name|ppem
+name|ppem_
 operator|*
 name|hori
 operator|->
@@ -1173,13 +1196,13 @@ name|Descender
 operator|*
 literal|64
 operator|/
-name|upem
+name|upem_
 expr_stmt|;
 name|metrics
 operator|->
 name|height
 operator|=
-name|ppem
+name|ppem_
 operator|*
 operator|(
 name|hori
@@ -1197,13 +1220,13 @@ operator|)
 operator|*
 literal|64
 operator|/
-name|upem
+name|upem_
 expr_stmt|;
 name|metrics
 operator|->
 name|max_advance
 operator|=
-name|ppem
+name|ppem_
 operator|*
 name|hori
 operator|->
@@ -1211,7 +1234,7 @@ name|advance_Width_Max
 operator|*
 literal|64
 operator|/
-name|upem
+name|upem_
 expr_stmt|;
 return|return
 name|error
@@ -1642,7 +1665,7 @@ name|decoder
 operator|->
 name|bitmap
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|size
 decl_stmt|;
 if|if
@@ -1684,18 +1707,12 @@ name|map
 operator|->
 name|width
 operator|=
-operator|(
-name|int
-operator|)
 name|width
 expr_stmt|;
 name|map
 operator|->
 name|rows
 operator|=
-operator|(
-name|int
-operator|)
 name|height
 expr_stmt|;
 switch|switch
@@ -1718,6 +1735,10 @@ name|map
 operator|->
 name|pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 operator|(
 name|map
 operator|->
@@ -1727,6 +1748,7 @@ literal|7
 operator|)
 operator|>>
 literal|3
+argument_list|)
 expr_stmt|;
 name|map
 operator|->
@@ -1748,6 +1770,10 @@ name|map
 operator|->
 name|pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 operator|(
 name|map
 operator|->
@@ -1757,6 +1783,7 @@ literal|3
 operator|)
 operator|>>
 literal|2
+argument_list|)
 expr_stmt|;
 name|map
 operator|->
@@ -1778,6 +1805,10 @@ name|map
 operator|->
 name|pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 operator|(
 name|map
 operator|->
@@ -1787,6 +1818,7 @@ literal|1
 operator|)
 operator|>>
 literal|1
+argument_list|)
 expr_stmt|;
 name|map
 operator|->
@@ -1808,9 +1840,14 @@ name|map
 operator|->
 name|pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 name|map
 operator|->
 name|width
+argument_list|)
 expr_stmt|;
 name|map
 operator|->
@@ -1832,11 +1869,16 @@ name|map
 operator|->
 name|pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 name|map
 operator|->
 name|width
 operator|*
 literal|4
+argument_list|)
 expr_stmt|;
 name|map
 operator|->
@@ -1863,6 +1905,9 @@ name|map
 operator|->
 name|rows
 operator|*
+operator|(
+name|FT_ULong
+operator|)
 name|map
 operator|->
 name|pitch
@@ -2206,10 +2251,6 @@ modifier|*
 name|line
 decl_stmt|;
 name|FT_Int
-name|bit_height
-decl_stmt|,
-name|bit_width
-decl_stmt|,
 name|pitch
 decl_stmt|,
 name|width
@@ -2219,6 +2260,11 @@ decl_stmt|,
 name|line_bits
 decl_stmt|,
 name|h
+decl_stmt|;
+name|FT_UInt
+name|bit_height
+decl_stmt|,
+name|bit_width
 decl_stmt|;
 name|FT_Bitmap
 modifier|*
@@ -2285,9 +2331,14 @@ name|x_pos
 operator|<
 literal|0
 operator|||
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|x_pos
 operator|+
 name|width
+argument_list|)
 operator|>
 name|bit_width
 operator|||
@@ -2295,9 +2346,14 @@ name|y_pos
 operator|<
 literal|0
 operator|||
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|y_pos
 operator|+
 name|height
+argument_list|)
 operator|>
 name|bit_height
 condition|)
@@ -2722,10 +2778,6 @@ modifier|*
 name|line
 decl_stmt|;
 name|FT_Int
-name|bit_height
-decl_stmt|,
-name|bit_width
-decl_stmt|,
 name|pitch
 decl_stmt|,
 name|width
@@ -2737,6 +2789,11 @@ decl_stmt|,
 name|h
 decl_stmt|,
 name|nbits
+decl_stmt|;
+name|FT_UInt
+name|bit_height
+decl_stmt|,
+name|bit_width
 decl_stmt|;
 name|FT_Bitmap
 modifier|*
@@ -2806,9 +2863,14 @@ name|x_pos
 operator|<
 literal|0
 operator|||
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|x_pos
 operator|+
 name|width
+argument_list|)
 operator|>
 name|bit_width
 operator|||
@@ -2816,9 +2878,14 @@ name|y_pos
 operator|<
 literal|0
 operator|||
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|y_pos
 operator|+
 name|height
+argument_list|)
 operator|>
 name|bit_height
 condition|)
@@ -5292,7 +5359,7 @@ operator|->
 name|horiAdvance
 operator|=
 call|(
-name|FT_Short
+name|FT_UShort
 call|)
 argument_list|(
 name|aadvance
@@ -5480,7 +5547,7 @@ name|glyph
 operator|->
 name|library
 decl_stmt|;
-name|FT_Bitmap_New
+name|FT_Bitmap_Init
 argument_list|(
 operator|&
 name|new_map

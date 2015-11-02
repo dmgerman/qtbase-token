@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2006, 2009, 2011-2014 by                                */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -120,7 +120,7 @@ begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
 argument_list|(
-argument|FT_Long
+argument|FT_ULong
 argument_list|)
 end_macro
 begin_macro
@@ -174,9 +174,6 @@ operator|=
 name|p
 expr_stmt|;
 return|return
-operator|(
-name|FT_Long
-operator|)
 name|result
 return|;
 block|}
@@ -588,6 +585,7 @@ name|dict
 operator|->
 name|font_offset
 expr_stmt|;
+comment|/* input is scaled by 1000 to accommodate default FontMatrix */
 name|result
 operator|=
 name|cid_parser_to_fixed_array
@@ -644,9 +642,15 @@ name|Invalid_File_Format
 argument_list|)
 return|;
 block|}
-comment|/* Set Units per EM based on FontMatrix values.  We set the value to */
-comment|/* 1000 / temp_scale, because temp_scale was already multiplied by   */
-comment|/* 1000 (in t1_tofixed, from psobjs.c).                              */
+comment|/* atypical case */
+if|if
+condition|(
+name|temp_scale
+operator|!=
+literal|0x10000L
+condition|)
+block|{
+comment|/* set units per EM based on FontMatrix values */
 name|root
 operator|->
 name|units_per_EM
@@ -661,14 +665,6 @@ argument_list|,
 name|temp_scale
 argument_list|)
 expr_stmt|;
-comment|/* we need to scale the values by 1.0/temp[3] */
-if|if
-condition|(
-name|temp_scale
-operator|!=
-literal|0x10000L
-condition|)
-block|{
 name|temp
 index|[
 literal|0
@@ -878,6 +874,31 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|num_dicts
+operator|<
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"parse_fd_array: invalid number of dictionaries\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+if|if
+condition|(
 operator|!
 name|cid
 operator|->
@@ -905,9 +926,6 @@ name|cid
 operator|->
 name|num_dicts
 operator|=
-operator|(
-name|FT_UInt
-operator|)
 name|num_dicts
 expr_stmt|;
 comment|/* don't forget to set a few defaults */
@@ -1116,7 +1134,7 @@ name|FT_Byte
 modifier|*
 name|base
 parameter_list|,
-name|FT_Long
+name|FT_ULong
 name|size
 parameter_list|)
 block|{
@@ -1329,7 +1347,7 @@ operator|<
 name|limit
 condition|)
 block|{
-name|FT_PtrDist
+name|FT_UInt
 name|len
 decl_stmt|;
 name|cur
@@ -1337,6 +1355,10 @@ operator|++
 expr_stmt|;
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|parser
 operator|->
 name|root
@@ -1344,6 +1366,7 @@ operator|.
 name|cursor
 operator|-
 name|cur
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1405,9 +1428,6 @@ index|]
 operator|&&
 name|len
 operator|==
-operator|(
-name|FT_PtrDist
-operator|)
 name|ft_strlen
 argument_list|(
 operator|(
@@ -1419,7 +1439,7 @@ name|name
 argument_list|)
 condition|)
 block|{
-name|FT_PtrDist
+name|FT_UInt
 name|n
 decl_stmt|;
 for|for
@@ -1569,7 +1589,7 @@ name|FT_ULong
 modifier|*
 name|offsets
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|PSAux_Service
 name|psaux
@@ -1756,6 +1776,9 @@ operator|+
 literal|1
 operator|)
 operator|*
+operator|(
+name|FT_UInt
+operator|)
 name|dict
 operator|->
 name|sd_bytes
@@ -2022,6 +2045,9 @@ name|subr
 operator|->
 name|num_subrs
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|num_subrs
 expr_stmt|;
 block|}
@@ -2182,7 +2208,7 @@ name|FT_Byte
 modifier|*
 name|data
 parameter_list|,
-name|FT_Long
+name|FT_ULong
 name|data_len
 parameter_list|,
 name|FT_ULong

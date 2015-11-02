@@ -9,7 +9,7 @@ comment|'#    Parse comment blocks to build content blocks (library file).'
 nl|'\n'
 comment|'#'
 nl|'\n'
-comment|'#  Copyright 2002, 2004, 2006-2009, 2012-2014 by'
+comment|'#  Copyright 2002-2015 by'
 nl|'\n'
 comment|'#  David Turner.'
 nl|'\n'
@@ -132,11 +132,13 @@ comment|'#'
 nl|'\n'
 comment|"# We collect macro names ending in `_H' (group 1), as defined in"
 nl|'\n'
-comment|"# `config/ftheader.h'.  While outputting the object data, we use this info"
+comment|"# `freetype/config/ftheader.h'.  While outputting the object data, we use"
 nl|'\n'
-comment|"# together with the object's file location (group 2) to emit the appropriate"
+comment|"# this info together with the object's file location (group 2) to emit the"
 nl|'\n'
-comment|'# header file macro and its associated file name before the object itself.'
+comment|'# appropriate header file macro and its associated file name before the'
+nl|'\n'
+comment|'# object itself.'
 nl|'\n'
 comment|'#'
 nl|'\n'

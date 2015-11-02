@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2006, 2008-2010, 2013, 2014 by                          */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -113,16 +113,6 @@ define|#
 directive|define
 name|FT_COMPONENT
 value|trace_cache
-end_define
-begin_define
-DECL|macro|FTC_LRU_GET_MANAGER
-define|#
-directive|define
-name|FTC_LRU_GET_MANAGER
-parameter_list|(
-name|lru
-parameter_list|)
-value|( (FTC_Manager)(lru)->user_data )
 end_define
 begin_function
 specifier|static
@@ -223,10 +213,16 @@ name|FT_Set_Char_Size
 argument_list|(
 name|face
 argument_list|,
+operator|(
+name|FT_F26Dot6
+operator|)
 name|scaler
 operator|->
 name|width
 argument_list|,
+operator|(
+name|FT_F26Dot6
+operator|)
 name|scaler
 operator|->
 name|height

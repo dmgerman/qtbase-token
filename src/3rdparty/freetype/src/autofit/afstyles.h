@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2013, 2014 by                                                */
+comment|/*  Copyright 2013-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -75,7 +75,13 @@ begin_comment
 comment|/* Note that styles using `AF_COVERAGE_DEFAULT' should always    */
 end_comment
 begin_comment
-comment|/* come after styles with other coverages.                       */
+comment|/* come after styles with other coverages.  Also note that       */
+end_comment
+begin_comment
+comment|/* fallback scripts only use `AF_COVERAGE_DEFAULT' for its       */
+end_comment
+begin_comment
+comment|/* style.                                                        */
 end_comment
 begin_comment
 comment|/*                                                               */
@@ -155,6 +161,24 @@ define|\
 value|STYLE_LATIN( s, S, c2cp, C2CP, ds,             \                        "petite capticals from capitals", \                        PETITE_CAPITALS_FROM_CAPITALS )   \           STYLE_LATIN( s, S, c2sc, C2SC, ds,             \                        "small capticals from capitals",  \                        SMALL_CAPITALS_FROM_CAPITALS )    \           STYLE_LATIN( s, S, ordn, ORDN, ds,             \                        "ordinals",                       \                        ORDINALS )                        \           STYLE_LATIN( s, S, pcap, PCAP, ds,             \                        "petite capitals",                \                        PETITE_CAPITALS )                 \           STYLE_LATIN( s, S, sinf, SINF, ds,             \                        "scientific inferiors",           \                        SCIENTIFIC_INFERIORS )            \           STYLE_LATIN( s, S, smcp, SMCP, ds,             \                        "small capitals",                 \                        SMALL_CAPITALS )                  \           STYLE_LATIN( s, S, subs, SUBS, ds,             \                        "subscript",                      \                        SUBSCRIPT )                       \           STYLE_LATIN( s, S, sups, SUPS, ds,             \                        "superscript",                    \                        SUPERSCRIPT )                     \           STYLE_LATIN( s, S, titl, TITL, ds,             \                        "titling",                        \                        TITLING )                         \           STYLE_LATIN( s, S, dflt, DFLT, ds,             \                        "default",                        \                        DEFAULT )
 end_define
 begin_macro
+name|STYLE
+argument_list|(
+argument|arab_dflt
+argument_list|,
+argument|ARAB_DFLT
+argument_list|,
+literal|"Arabic default style"
+argument_list|,
+argument|AF_WRITING_SYSTEM_LATIN
+argument_list|,
+argument|AF_SCRIPT_ARAB
+argument_list|,
+argument|AF_BLUE_STRINGSET_ARAB
+argument_list|,
+argument|AF_COVERAGE_DEFAULT
+argument_list|)
+end_macro
+begin_macro
 name|META_STYLE_LATIN
 argument_list|(
 argument|cyrl
@@ -162,6 +186,24 @@ argument_list|,
 argument|CYRL
 argument_list|,
 literal|"Cyrillic"
+argument_list|)
+end_macro
+begin_macro
+name|STYLE
+argument_list|(
+argument|deva_dflt
+argument_list|,
+argument|DEVA_DFLT
+argument_list|,
+literal|"Devanagari default style"
+argument_list|,
+argument|AF_WRITING_SYSTEM_LATIN
+argument_list|,
+argument|AF_SCRIPT_DEVA
+argument_list|,
+argument|AF_BLUE_STRINGSET_DEVA
+argument_list|,
+argument|AF_COVERAGE_DEFAULT
 argument_list|)
 end_macro
 begin_macro
@@ -193,6 +235,24 @@ argument|AF_COVERAGE_DEFAULT
 argument_list|)
 end_macro
 begin_macro
+name|STYLE
+argument_list|(
+argument|lao_dflt
+argument_list|,
+argument|LAO_DFLT
+argument_list|,
+literal|"Lao default style"
+argument_list|,
+argument|AF_WRITING_SYSTEM_LATIN
+argument_list|,
+argument|AF_SCRIPT_LAO
+argument_list|,
+argument|AF_BLUE_STRINGSET_LAO
+argument_list|,
+argument|AF_COVERAGE_DEFAULT
+argument_list|)
+end_macro
+begin_macro
 name|META_STYLE_LATIN
 argument_list|(
 argument|latn
@@ -205,17 +265,35 @@ end_macro
 begin_macro
 name|STYLE
 argument_list|(
-argument|deva_dflt
+argument|latb_dflt
 argument_list|,
-argument|DEVA_DFLT
+argument|LATB_DFLT
 argument_list|,
-literal|"Devanagari default style"
+literal|"Latin subscript fallback default style"
 argument_list|,
 argument|AF_WRITING_SYSTEM_LATIN
 argument_list|,
-argument|AF_SCRIPT_DEVA
+argument|AF_SCRIPT_LATB
 argument_list|,
-argument|AF_BLUE_STRINGSET_DEVA
+argument|AF_BLUE_STRINGSET_LATB
+argument_list|,
+argument|AF_COVERAGE_DEFAULT
+argument_list|)
+end_macro
+begin_macro
+name|STYLE
+argument_list|(
+argument|latp_dflt
+argument_list|,
+argument|LATP_DFLT
+argument_list|,
+literal|"Latin superscript fallback default style"
+argument_list|,
+argument|AF_WRITING_SYSTEM_LATIN
+argument_list|,
+argument|AF_SCRIPT_LATP
+argument_list|,
+argument|AF_BLUE_STRINGSET_LATP
 argument_list|,
 argument|AF_COVERAGE_DEFAULT
 argument_list|)
@@ -280,6 +358,24 @@ argument_list|,
 argument|AF_SCRIPT_TELU
 argument_list|,
 argument|AF_BLUE_STRINGSET_TELU
+argument_list|,
+argument|AF_COVERAGE_DEFAULT
+argument_list|)
+end_macro
+begin_macro
+name|STYLE
+argument_list|(
+argument|thai_dflt
+argument_list|,
+argument|THAI_DFLT
+argument_list|,
+literal|"Thai default style"
+argument_list|,
+argument|AF_WRITING_SYSTEM_LATIN
+argument_list|,
+argument|AF_SCRIPT_THAI
+argument_list|,
+argument|AF_BLUE_STRINGSET_THAI
 argument_list|,
 argument|AF_COVERAGE_DEFAULT
 argument_list|)

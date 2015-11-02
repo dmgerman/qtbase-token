@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002 by                                           */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -88,7 +88,7 @@ name|TT_Face
 name|face
 parameter_list|,
 name|FT_Int
-name|face_index
+name|face_instance_index
 parameter_list|,
 name|FT_Int
 name|num_params
@@ -113,7 +113,7 @@ argument|FT_Stream      stream
 argument_list|,
 argument|TT_Face        face
 argument_list|,
-argument|FT_Int         face_index
+argument|FT_Int         face_instance_index
 argument_list|,
 argument|FT_Int         num_params
 argument_list|,
@@ -138,6 +138,25 @@ argument_list|)
 end_macro
 begin_empty_stmt
 DECL|variable|face
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
+name|tt_face_get_name
+argument_list|(
+argument|TT_Face      face
+argument_list|,
+argument|FT_UShort    nameid
+argument_list|,
+argument|FT_String**  name
+argument_list|)
+end_macro
+begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_macro

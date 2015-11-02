@@ -52,7 +52,7 @@ struct|struct
 name|BDF_encoding_el_
 block|{
 DECL|member|enc
-name|FT_ULong
+name|FT_Long
 name|enc
 decl_stmt|;
 DECL|member|glyph

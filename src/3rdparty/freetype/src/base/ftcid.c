@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2007, 2009, 2013 by Derek Clegg, Michael Toftdal.            */
+comment|/*  Copyright 2007-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  Derek Clegg and Michael Toftdal.                                       */
 end_comment
 begin_comment
 comment|/*                                                                         */

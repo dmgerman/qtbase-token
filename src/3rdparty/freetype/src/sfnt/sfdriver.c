@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2007, 2009-2014 by                                      */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -905,7 +905,7 @@ operator|*
 operator|)
 name|result
 decl_stmt|;
-name|FT_Byte
+name|FT_Char
 modifier|*
 name|p
 decl_stmt|;
@@ -957,7 +957,7 @@ block|}
 name|p
 operator|=
 operator|(
-name|FT_Byte
+name|FT_Char
 operator|*
 operator|)
 name|stream
@@ -994,13 +994,6 @@ literal|1
 index|]
 operator|>=
 literal|32
-operator|&&
-name|p
-index|[
-literal|1
-index|]
-operator|<
-literal|128
 condition|)
 operator|*
 name|r
@@ -1641,6 +1634,8 @@ argument_list|,
 argument|PUT_EMBEDDED_BITMAPS( tt_face_load_strike_metrics )
 argument_list|,
 argument|tt_face_get_metrics
+argument_list|,
+argument|tt_face_get_name
 argument_list|)
 end_macro
 begin_macro

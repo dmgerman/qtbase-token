@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2007, 2011-2014 by                                     */
+comment|/*  Copyright 2006-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -71,7 +71,6 @@ end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
 comment|/* the CJK-specific writing system */
-DECL|function|AF_DECLARE_WRITING_SYSTEM_CLASS
 name|AF_DECLARE_WRITING_SYSTEM_CLASS
 argument_list|(
 name|af_cjk_writing_system_class
@@ -112,40 +111,27 @@ define|#
 directive|define
 name|AF_CJK_MAX_WIDTHS
 value|16
-decl|enum
-block|{
+DECL|macro|AF_CJK_BLUE_ACTIVE
+define|#
+directive|define
 name|AF_CJK_BLUE_ACTIVE
-operator|=
-literal|1
-operator|<<
-literal|0
-operator|,
-comment|/* set if zone height is<= 3/4px */
+value|( 1U<< 0 )
+comment|/* zone height is<= 3/4px      */
+DECL|macro|AF_CJK_BLUE_TOP
+define|#
+directive|define
 name|AF_CJK_BLUE_TOP
-operator|=
-literal|1
-operator|<<
-literal|1
-operator|,
-comment|/* result of AF_CJK_IS_TOP_BLUE   */
+value|( 1U<< 1 )
+comment|/* result of AF_CJK_IS_TOP_BLUE */
+DECL|macro|AF_CJK_BLUE_ADJUSTMENT
+define|#
+directive|define
 name|AF_CJK_BLUE_ADJUSTMENT
-operator|=
-literal|1
-operator|<<
-literal|2
-operator|,
-comment|/* used for scale adjustment      */
-comment|/* optimization                   */
-name|AF_CJK_BLUE_FLAG_MAX
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_typedef
+value|( 1U<< 2 )
+comment|/* used for scale adjustment    */
+comment|/* optimization                 */
+decl|typedef struct
 DECL|struct|AF_CJKBlueRec_
-typedef|typedef
-struct|struct
 name|AF_CJKBlueRec_
 block|{
 DECL|member|ref
@@ -162,14 +148,16 @@ name|FT_UInt
 name|flags
 decl_stmt|;
 block|}
+end_decl_stmt
+begin_expr_stmt
 DECL|typedef|AF_CJKBlueRec
 DECL|typedef|AF_CJKBlue
 name|AF_CJKBlueRec
 operator|,
-typedef|*
+operator|*
 name|AF_CJKBlue
-typedef|;
-end_typedef
+expr_stmt|;
+end_expr_stmt
 begin_typedef
 DECL|struct|AF_CJKAxisRec_
 typedef|typedef
@@ -342,6 +330,8 @@ begin_macro
 DECL|variable|af_cjk_hints_apply
 name|af_cjk_hints_apply
 argument_list|(
+argument|FT_UInt        glyph_index
+argument_list|,
 argument|AF_GlyphHints  hints
 argument_list|,
 argument|FT_Outline*    outline

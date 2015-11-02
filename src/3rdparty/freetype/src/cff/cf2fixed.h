@@ -207,7 +207,7 @@ parameter_list|(
 name|x
 parameter_list|)
 define|\
-value|( (CF2_Fixed)( ( (x) + 0x8000 )& 0xFFFF0000L ) )
+value|( (CF2_Fixed)( ( (FT_UInt32)(x) + 0x8000U )& 0xFFFF0000UL ) )
 end_define
 begin_define
 DECL|macro|cf2_floatToFixed
@@ -240,7 +240,7 @@ parameter_list|(
 name|x
 parameter_list|)
 define|\
-value|( (CF2_Fixed)( (x)& 0xFFFF0000L ) )
+value|( (CF2_Fixed)( (FT_UInt32)(x)& 0xFFFF0000UL ) )
 end_define
 begin_define
 DECL|macro|cf2_fixedFraction
@@ -262,7 +262,7 @@ parameter_list|(
 name|x
 parameter_list|)
 define|\
-value|( (x)< 0 ? -( ( -(x) + 0x2000 )>> 14 )             \                     :  ( (  (x) + 0x2000 )>> 14 ) )
+value|( (x)< 0 ? -( ( -(x) + 0x2000 )>> 14 )                       \                     :  ( (  (x) + 0x2000 )>> 14 ) )
 end_define
 begin_comment
 comment|/* signed numeric types */

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006, 2007, 2012 by                              */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -121,6 +121,9 @@ name|cmap
 operator|->
 name|num_glyphs
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|face
 operator|->
 name|type1
@@ -643,6 +646,9 @@ name|cmap
 operator|->
 name|first
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|encoding
 operator|->
 name|code_first
@@ -651,10 +657,9 @@ name|cmap
 operator|->
 name|count
 operator|=
-call|(
+operator|(
 name|FT_UInt
-call|)
-argument_list|(
+operator|)
 name|encoding
 operator|->
 name|code_last
@@ -662,7 +667,6 @@ operator|-
 name|cmap
 operator|->
 name|first
-argument_list|)
 expr_stmt|;
 name|cmap
 operator|->
@@ -1046,6 +1050,9 @@ name|memory
 argument_list|,
 name|unicodes
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|face
 operator|->
 name|type1

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002-2005, 2007, 2009, 2010, 2013, 2014 by                   */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -652,7 +652,7 @@ argument|FT_Stream  stream
 argument_list|,
 argument|FT_UInt32  section_offset
 argument_list|,
-argument|FT_UInt   *acount
+argument|FT_Long   *acount
 argument_list|)
 end_macro
 begin_block
@@ -692,6 +692,9 @@ label|:
 operator|*
 name|acount
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|result
 expr_stmt|;
 return|return
@@ -1557,12 +1560,17 @@ name|phy_font
 operator|->
 name|memory
 decl_stmt|;
-name|FT_PtrDist
+name|FT_UInt
 name|len
 init|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|limit
 operator|-
 name|p
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -1890,13 +1898,16 @@ name|phy_font
 operator|->
 name|offset
 operator|+
-operator|(
+call|(
+name|FT_Offset
+call|)
+argument_list|(
 name|p
 operator|-
 name|phy_font
 operator|->
 name|cursor
-operator|)
+argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
@@ -3183,13 +3194,16 @@ name|chars_offset
 operator|=
 name|offset
 operator|+
-operator|(
+call|(
+name|FT_Offset
+call|)
+argument_list|(
 name|p
 operator|-
 name|stream
 operator|->
 name|cursor
-operator|)
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -3330,9 +3344,6 @@ argument_list|(
 name|p
 argument_list|)
 else|:
-operator|(
-name|FT_Int
-operator|)
 name|phy_font
 operator|->
 name|standard_advance

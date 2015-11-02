@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2004, 2014 by                                           */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -188,7 +188,7 @@ modifier|*
 name|postscript
 decl_stmt|;
 DECL|member|postscript_len
-name|FT_Long
+name|FT_ULong
 name|postscript_len
 decl_stmt|;
 DECL|member|data_offset
@@ -196,7 +196,7 @@ name|FT_ULong
 name|data_offset
 decl_stmt|;
 DECL|member|binary_length
-name|FT_Long
+name|FT_ULong
 name|binary_length
 decl_stmt|;
 DECL|member|cid

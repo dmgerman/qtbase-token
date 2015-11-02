@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2007, 2011 by                                          */
+comment|/*  Copyright 2006-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -473,7 +473,7 @@ parameter_list|,
 name|AF_Segment
 name|segments
 parameter_list|,
-name|FT_UInt
+name|FT_Int
 name|num_segments
 parameter_list|)
 block|{
@@ -484,7 +484,7 @@ name|idx_max
 decl_stmt|,
 name|idx0
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|nn
 decl_stmt|;
 name|AF_WarpScore
@@ -884,7 +884,7 @@ decl_stmt|;
 name|FT_Pos
 name|org_delta
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|nn
 decl_stmt|,
 name|num_points

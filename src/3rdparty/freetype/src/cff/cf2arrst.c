@@ -314,25 +314,20 @@ operator|->
 name|memory
 decl_stmt|;
 comment|/* for FT_REALLOC */
-name|FT_Long
+name|size_t
 name|newSize
 init|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|numElements
 operator|*
 name|arrstack
 operator|->
 name|sizeItem
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
 name|numElements
 operator|>
-name|LONG_MAX
+name|FT_LONG_MAX
 operator|/
 name|arrstack
 operator|->

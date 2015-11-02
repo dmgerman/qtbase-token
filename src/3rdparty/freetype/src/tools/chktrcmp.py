@@ -53,7 +53,7 @@ DECL|variable|TRACE_DEF_FILES
 name|'TRACE_DEF_FILES'
 op|'='
 op|'['
-string|'"include/internal/fttrace.h"'
+string|'"include/freetype/internal/fttrace.h"'
 op|']'
 newline|'\n'
 nl|'\n'

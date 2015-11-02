@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2002, 2004-2013 by                                      */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -430,20 +430,18 @@ operator|.
 name|num_glyphs
 condition|)
 block|{
-name|FT_Long
+name|FT_ULong
 name|new_loca_len
 init|=
 operator|(
-call|(
-name|FT_Long
-call|)
-argument_list|(
+operator|(
+name|FT_ULong
+operator|)
 name|face
 operator|->
 name|root
 operator|.
 name|num_glyphs
-argument_list|)
 operator|+
 literal|1
 operator|)
@@ -469,10 +467,11 @@ decl_stmt|;
 name|FT_Long
 name|pos
 init|=
-name|FT_Stream_Pos
-argument_list|(
-name|stream
-argument_list|)
+operator|(
+name|FT_Long
+operator|)
+name|FT_STREAM_POS
+argument_list|()
 decl_stmt|;
 name|FT_Long
 name|dist
@@ -494,6 +493,9 @@ block|{
 name|FT_Long
 name|diff
 init|=
+operator|(
+name|FT_Long
+operator|)
 name|entry
 operator|->
 name|Offset
@@ -525,6 +527,9 @@ block|{
 comment|/* `loca' is the last table */
 name|dist
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|stream
 operator|->
 name|size
@@ -536,6 +541,9 @@ if|if
 condition|(
 name|new_loca_len
 operator|<=
+operator|(
+name|FT_ULong
+operator|)
 name|dist
 condition|)
 block|{
@@ -543,6 +551,9 @@ name|face
 operator|->
 name|num_locations
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|face
 operator|->
 name|root
@@ -563,6 +574,43 @@ operator|,
 name|face
 operator|->
 name|num_locations
+operator|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|face
+operator|->
+name|root
+operator|.
+name|num_glyphs
+operator|=
+name|face
+operator|->
+name|num_locations
+condition|?
+operator|(
+name|FT_Long
+operator|)
+name|face
+operator|->
+name|num_locations
+operator|-
+literal|1
+else|:
+literal|0
+expr_stmt|;
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"adjusting num_glyphs to %d\n"
+operator|,
+name|face
+operator|->
+name|root
+operator|.
+name|num_glyphs
 operator|)
 argument_list|)
 expr_stmt|;

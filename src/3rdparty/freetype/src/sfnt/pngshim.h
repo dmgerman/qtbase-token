@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2013 by Google, Inc.                                         */
+comment|/*  Copyright 2013-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  Google, Inc.                                                           */
 end_comment
 begin_comment
 comment|/*  Written by Stuart Gill and Behdad Esfahbod.                            */

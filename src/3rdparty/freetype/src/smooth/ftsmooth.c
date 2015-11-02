@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2006, 2009-2013 by                                      */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -861,12 +861,14 @@ name|bitmap
 operator|->
 name|buffer
 argument_list|,
-operator|(
+call|(
 name|FT_ULong
-operator|)
+call|)
+argument_list|(
 name|pitch
 operator|*
 name|height
+argument_list|)
 argument_list|)
 condition|)
 goto|goto
@@ -925,12 +927,20 @@ name|bitmap
 operator|->
 name|width
 operator|=
+operator|(
+name|unsigned
+name|int
+operator|)
 name|width
 expr_stmt|;
 name|bitmap
 operator|->
 name|rows
 operator|=
+operator|(
+name|unsigned
+name|int
+operator|)
 name|height
 expr_stmt|;
 name|bitmap

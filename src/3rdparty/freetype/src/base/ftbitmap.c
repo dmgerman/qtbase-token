@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004-2009, 2011, 2013, 2014 by                               */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -100,6 +100,35 @@ decl_stmt|;
 end_decl_stmt
 begin_comment
 comment|/* documentation is in ftbitmap.h */
+end_comment
+begin_macro
+name|FT_EXPORT_DEF
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
+DECL|function|FT_Bitmap_Init
+name|FT_Bitmap_Init
+argument_list|(
+argument|FT_Bitmap  *abitmap
+argument_list|)
+end_macro
+begin_block
+block|{
+if|if
+condition|(
+name|abitmap
+condition|)
+operator|*
+name|abitmap
+operator|=
+name|null_bitmap
+expr_stmt|;
+block|}
+end_block
+begin_comment
+comment|/* deprecated function name; retained for ABI compatibility */
 end_comment
 begin_macro
 name|FT_EXPORT_DEF
@@ -441,6 +470,9 @@ name|buffer
 decl_stmt|;
 name|t
 operator|+=
+operator|(
+name|FT_ULong
+operator|)
 name|pitch
 operator|*
 operator|(
@@ -589,6 +621,10 @@ literal|1
 expr_stmt|;
 name|new_pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 operator|(
 name|width
 operator|+
@@ -598,6 +634,7 @@ literal|7
 operator|)
 operator|>>
 literal|3
+argument_list|)
 expr_stmt|;
 break|break;
 case|case
@@ -609,6 +646,10 @@ literal|2
 expr_stmt|;
 name|new_pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 operator|(
 name|width
 operator|+
@@ -618,6 +659,7 @@ literal|3
 operator|)
 operator|>>
 literal|2
+argument_list|)
 expr_stmt|;
 break|break;
 case|case
@@ -629,6 +671,10 @@ literal|4
 expr_stmt|;
 name|new_pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 operator|(
 name|width
 operator|+
@@ -638,6 +684,7 @@ literal|1
 operator|)
 operator|>>
 literal|1
+argument_list|)
 expr_stmt|;
 break|break;
 case|case
@@ -655,11 +702,14 @@ literal|8
 expr_stmt|;
 name|new_pitch
 operator|=
-operator|(
+call|(
+name|int
+call|)
+argument_list|(
 name|width
 operator|+
 name|xpixels
-operator|)
+argument_list|)
 expr_stmt|;
 break|break;
 default|default:
@@ -686,6 +736,9 @@ comment|/* zero the padding */
 name|FT_UInt
 name|bit_width
 init|=
+operator|(
+name|FT_UInt
+operator|)
 name|pitch
 operator|*
 literal|8
@@ -887,6 +940,9 @@ name|FT_MEM_COPY
 argument_list|(
 name|buffer
 operator|+
+operator|(
+name|FT_UInt
+operator|)
 name|new_pitch
 operator|*
 operator|(
@@ -899,6 +955,9 @@ name|bitmap
 operator|->
 name|buffer
 operator|+
+operator|(
+name|FT_UInt
+operator|)
 name|pitch
 operator|*
 name|i
@@ -941,6 +1000,9 @@ name|FT_MEM_COPY
 argument_list|(
 name|buffer
 operator|+
+operator|(
+name|FT_UInt
+operator|)
 name|new_pitch
 operator|*
 name|i
@@ -949,6 +1011,9 @@ name|bitmap
 operator|->
 name|buffer
 operator|+
+operator|(
+name|FT_UInt
+operator|)
 name|pitch
 operator|*
 name|i
@@ -1175,7 +1240,7 @@ name|FT_Bitmap
 name|tmp
 decl_stmt|;
 comment|/* convert to 8bpp */
-name|FT_Bitmap_New
+name|FT_Bitmap_Init
 argument_list|(
 operator|&
 name|tmp
@@ -1264,8 +1329,14 @@ name|memory
 argument_list|,
 name|bitmap
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|xstr
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|ystr
 argument_list|)
 expr_stmt|;
@@ -1312,6 +1383,9 @@ name|bitmap
 operator|->
 name|buffer
 operator|+
+operator|(
+name|FT_UInt
+operator|)
 name|pitch
 operator|*
 operator|(
@@ -1594,12 +1668,18 @@ name|bitmap
 operator|->
 name|width
 operator|+=
+operator|(
+name|FT_UInt
+operator|)
 name|xstr
 expr_stmt|;
 name|bitmap
 operator|->
 name|rows
 operator|+=
+operator|(
+name|FT_UInt
+operator|)
 name|ystr
 expr_stmt|;
 return|return
@@ -1833,6 +1913,9 @@ name|target
 operator|->
 name|rows
 operator|*
+operator|(
+name|FT_UInt
+operator|)
 name|old_target_pitch
 expr_stmt|;
 name|target
@@ -1870,6 +1953,9 @@ condition|)
 block|{
 name|pad
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|source
 operator|->
 name|width
@@ -1891,6 +1977,9 @@ expr_stmt|;
 block|}
 name|target_pitch
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|source
 operator|->
 name|width
@@ -1912,6 +2001,9 @@ name|rows
 operator|>
 name|FT_ULONG_MAX
 operator|/
+operator|(
+name|FT_ULong
+operator|)
 name|target_pitch
 condition|)
 return|return
@@ -1926,6 +2018,9 @@ name|target
 operator|->
 name|rows
 operator|*
+operator|(
+name|FT_ULong
+operator|)
 name|target_pitch
 operator|>
 name|old_size
@@ -1942,6 +2037,9 @@ name|target
 operator|->
 name|rows
 operator|*
+operator|(
+name|FT_UInt
+operator|)
 name|target_pitch
 argument_list|)
 condition|)
@@ -2001,13 +2099,16 @@ name|source
 operator|->
 name|pitch
 operator|*
-operator|(
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|source
 operator|->
 name|rows
 operator|-
 literal|1
-operator|)
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2023,13 +2124,16 @@ name|target
 operator|->
 name|pitch
 operator|*
-operator|(
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|target
 operator|->
 name|rows
 operator|-
 literal|1
-operator|)
+argument_list|)
 expr_stmt|;
 switch|switch
 condition|(
@@ -2345,7 +2449,7 @@ case|case
 name|FT_PIXEL_MODE_LCD_V
 case|:
 block|{
-name|FT_Int
+name|FT_UInt
 name|width
 init|=
 name|source
@@ -2934,7 +3038,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
-name|FT_Bitmap_New
+name|FT_Bitmap_Init
 argument_list|(
 operator|&
 name|bitmap

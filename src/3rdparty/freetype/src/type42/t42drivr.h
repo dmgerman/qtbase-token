@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002 by Roberto Alameda.                                     */
+comment|/*  Copyright 2002-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  Roberto Alameda.                                                       */
 end_comment
 begin_comment
 comment|/*                                                                         */

@@ -30,7 +30,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2010, 2012-2014 by                                           */
+comment|/*  Copyright 2010-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Joel Klinghed.                                                         */
@@ -39,10 +39,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Based on src/gzip/ftgzip.c, Copyright 2002 - 2010 by                   */
-end_comment
-begin_comment
-comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+comment|/*  based on `src/gzip/ftgzip.c'                                           */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -253,6 +250,9 @@ name|FT_ULong
 operator|)
 name|size
 operator|*
+operator|(
+name|FT_ULong
+operator|)
 name|items
 decl_stmt|;
 name|FT_Error
@@ -928,12 +928,22 @@ name|size
 operator|==
 literal|0
 condition|)
+block|{
+name|zip
+operator|->
+name|limit
+operator|=
+name|zip
+operator|->
+name|cursor
+expr_stmt|;
 return|return
 name|FT_THROW
 argument_list|(
 name|Invalid_Stream_Operation
 argument_list|)
 return|;
+block|}
 block|}
 else|else
 block|{
@@ -963,12 +973,22 @@ name|size
 operator|==
 literal|0
 condition|)
+block|{
+name|zip
+operator|->
+name|limit
+operator|=
+name|zip
+operator|->
+name|cursor
+expr_stmt|;
 return|return
 name|FT_THROW
 argument_list|(
 name|Invalid_Stream_Operation
 argument_list|)
 return|;
+block|}
 name|FT_MEM_COPY
 argument_list|(
 name|zip
@@ -1153,6 +1173,14 @@ operator|!=
 name|BZ_OK
 condition|)
 block|{
+name|zip
+operator|->
+name|limit
+operator|=
+name|zip
+operator|->
+name|cursor
+expr_stmt|;
 name|error
 operator|=
 name|FT_THROW
@@ -1539,21 +1567,25 @@ block|}
 end_function
 begin_function
 specifier|static
-name|FT_ULong
+name|unsigned
+name|long
 DECL|function|ft_bzip2_stream_io
 name|ft_bzip2_stream_io
 parameter_list|(
 name|FT_Stream
 name|stream
 parameter_list|,
-name|FT_ULong
-name|pos
+name|unsigned
+name|long
+name|offset
 parameter_list|,
-name|FT_Byte
+name|unsigned
+name|char
 modifier|*
 name|buffer
 parameter_list|,
-name|FT_ULong
+name|unsigned
+name|long
 name|count
 parameter_list|)
 block|{
@@ -1574,7 +1606,7 @@ name|ft_bzip2_file_io
 argument_list|(
 name|zip
 argument_list|,
-name|pos
+name|offset
 argument_list|,
 name|buffer
 argument_list|,

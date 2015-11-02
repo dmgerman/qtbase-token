@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2010 by                         */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -66,6 +66,11 @@ begin_include
 include|#
 directive|include
 include|FT_INTERNAL_MEMORY_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_OBJECTS_H
 end_include
 begin_include
 include|#
@@ -432,7 +437,10 @@ name|bitmap
 operator|.
 name|rows
 operator|*
-name|ft_labs
+operator|(
+name|FT_Offset
+operator|)
+name|FT_ABS
 argument_list|(
 name|bitg
 operator|->
@@ -465,6 +473,9 @@ name|glyph
 expr_stmt|;
 name|size
 operator|=
+operator|(
+name|FT_Offset
+operator|)
 name|outg
 operator|->
 name|outline
@@ -483,6 +494,9 @@ name|FT_Byte
 argument_list|)
 operator|)
 operator|+
+operator|(
+name|FT_Offset
+operator|)
 name|outg
 operator|->
 name|outline

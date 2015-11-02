@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006 by                                                      */
+comment|/*  Copyright 2006-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -177,6 +177,10 @@ DECL|member|i
 name|FT_Int
 name|i
 decl_stmt|;
+DECL|member|u
+name|FT_UInt
+name|u
+decl_stmt|;
 DECL|member|b
 name|FT_Bool
 name|b
@@ -214,7 +218,7 @@ argument|AFM_Parser  parser
 argument_list|,
 argument|AFM_Value   vals
 argument_list|,
-argument|FT_UInt     n
+argument|FT_Int      n
 argument_list|)
 end_macro
 begin_empty_stmt

@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2005, 2007, 2009, 2011-2014 by                          */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -240,24 +240,44 @@ name|AF_SCRIPT_DEFAULT
 value|AF_SCRIPT_LATN
 end_define
 begin_comment
-comment|/* a bit mask indicating an uncovered glyph        */
+comment|/* a bit mask for AF_DIGIT and AF_NONBASE */
+end_comment
+begin_define
+DECL|macro|AF_STYLE_MASK
+define|#
+directive|define
+name|AF_STYLE_MASK
+value|0x3FFF
+end_define
+begin_comment
+comment|/* an uncovered glyph      */
 end_comment
 begin_define
 DECL|macro|AF_STYLE_UNASSIGNED
 define|#
 directive|define
 name|AF_STYLE_UNASSIGNED
-value|0x7F
+value|AF_STYLE_MASK
 end_define
 begin_comment
-comment|/* if this flag is set, we have an ASCII digit     */
+comment|/* if this flag is set, we have an ASCII digit   */
 end_comment
 begin_define
 DECL|macro|AF_DIGIT
 define|#
 directive|define
 name|AF_DIGIT
-value|0x80
+value|0x8000U
+end_define
+begin_comment
+comment|/* if this flag is set, we have a non-base character */
+end_comment
+begin_define
+DECL|macro|AF_NONBASE
+define|#
+directive|define
+name|AF_NONBASE
+value|0x4000U
 end_define
 begin_comment
 comment|/* `increase-x-height' property */
@@ -316,7 +336,7 @@ name|glyph_count
 decl_stmt|;
 comment|/* same as face->num_glyphs */
 DECL|member|glyph_styles
-name|FT_Byte
+name|FT_UShort
 modifier|*
 name|glyph_styles
 decl_stmt|;

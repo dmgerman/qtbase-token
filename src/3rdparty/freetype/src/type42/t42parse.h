@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003 by Roberto Alameda.                               */
+comment|/*  Copyright 2002-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  Roberto Alameda.                                                       */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -116,7 +119,7 @@ name|parser
 decl_stmt|;
 comment|/* parser used to read the stream */
 DECL|member|num_chars
-name|FT_UInt
+name|FT_Int
 name|num_chars
 decl_stmt|;
 comment|/* number of characters in encoding */
@@ -127,7 +130,7 @@ decl_stmt|;
 comment|/* PS_Table used to store the       */
 comment|/* encoding character names         */
 DECL|member|num_glyphs
-name|FT_UInt
+name|FT_Int
 name|num_glyphs
 decl_stmt|;
 DECL|member|glyph_names

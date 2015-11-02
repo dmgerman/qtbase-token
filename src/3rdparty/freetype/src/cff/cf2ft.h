@@ -403,7 +403,7 @@ name|cf2_getSeacComponent
 argument_list|(
 argument|CFF_Decoder*  decoder
 argument_list|,
-argument|CF2_UInt      code
+argument|CF2_Int       code
 argument_list|,
 argument|CF2_Buffer    buf
 argument_list|)

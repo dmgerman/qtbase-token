@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001, 2002, 2003, 2006, 2008, 2014 by                        */
+comment|/*  Copyright 2001-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -165,26 +165,20 @@ end_typedef
 begin_comment
 comment|/* hint flags */
 end_comment
-begin_typedef
-DECL|enum|PS_Hint_Flags_
-typedef|typedef
-enum|enum
-name|PS_Hint_Flags_
-block|{
-DECL|enumerator|PS_HINT_FLAG_GHOST
+begin_define
+DECL|macro|PS_HINT_FLAG_GHOST
+define|#
+directive|define
 name|PS_HINT_FLAG_GHOST
-init|=
-literal|1
-block|,
-DECL|enumerator|PS_HINT_FLAG_BOTTOM
+value|1U
+end_define
+begin_define
+DECL|macro|PS_HINT_FLAG_BOTTOM
+define|#
+directive|define
 name|PS_HINT_FLAG_BOTTOM
-init|=
-literal|2
-block|}
-DECL|typedef|PS_Hint_Flags
-name|PS_Hint_Flags
-typedef|;
-end_typedef
+value|2U
+end_define
 begin_comment
 comment|/* hint descriptor */
 end_comment

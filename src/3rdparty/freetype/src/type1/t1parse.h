@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2008 by                               */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -234,17 +234,6 @@ parameter_list|,
 name|l
 parameter_list|)
 value|(p)->funcs.add( (p), i, o, l )
-end_define
-begin_define
-DECL|macro|T1_Done_Table
-define|#
-directive|define
-name|T1_Done_Table
-parameter_list|(
-name|p
-parameter_list|)
-define|\
-value|do                        \           {                         \             if ( (p)->funcs.done )  \               (p)->funcs.done( p ); \           } while ( 0 )
 end_define
 begin_define
 DECL|macro|T1_Release_Table

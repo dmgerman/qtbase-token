@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2005, 2011-2013 by                                      */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -66,20 +66,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|"afmodule.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"afglobal.h"
 end_include
 begin_macro
 name|FT_BEGIN_HEADER
 end_macro
-begin_typedef
-DECL|typedef|AF_Module
-typedef|typedef
-name|struct
-name|AF_ModuleRec_
-modifier|*
-name|AF_Module
-typedef|;
-end_typedef
 begin_comment
 comment|/*    *  The autofitter module's (global) data structure to communicate with    *  actual fonts.  If necessary, `local' data like the current face, the    *  current face's auto-hint data, or the current glyph's parameters    *  relevant to auto-hinting are `swapped in'.  Cf. functions like    *  `af_loader_reset' and `af_loader_load_g'.    */
 end_comment
@@ -99,12 +95,8 @@ name|AF_FaceGlobals
 name|globals
 decl_stmt|;
 comment|/* current glyph data */
-DECL|member|gloader
-name|FT_GlyphLoader
-name|gloader
-decl_stmt|;
 DECL|member|hints
-name|AF_GlyphHintsRec
+name|AF_GlyphHints
 name|hints
 decl_stmt|;
 DECL|member|metrics
@@ -144,13 +136,15 @@ end_typedef
 begin_macro
 name|FT_LOCAL
 argument_list|(
-argument|FT_Error
+argument|void
 argument_list|)
 end_macro
 begin_macro
 name|af_loader_init
 argument_list|(
-argument|AF_Module  module
+argument|AF_Loader      loader
+argument_list|,
+argument|AF_GlyphHints  hints
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -163,9 +157,10 @@ argument|FT_Error
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|af_loader_reset
 name|af_loader_reset
 argument_list|(
+argument|AF_Loader  loader
+argument_list|,
 argument|AF_Module  module
 argument_list|,
 argument|FT_Face    face
@@ -181,14 +176,14 @@ argument|void
 argument_list|)
 end_macro
 begin_macro
-DECL|variable|module
+DECL|variable|af_loader_done
 name|af_loader_done
 argument_list|(
-argument|AF_Module  module
+argument|AF_Loader  loader
 argument_list|)
 end_macro
 begin_empty_stmt
-DECL|variable|module
+DECL|variable|af_loader_done
 empty_stmt|;
 end_empty_stmt
 begin_macro
@@ -200,6 +195,8 @@ end_macro
 begin_macro
 name|af_loader_load_glyph
 argument_list|(
+argument|AF_Loader  loader
+argument_list|,
 argument|AF_Module  module
 argument_list|,
 argument|FT_Face    face

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2011, 2013 by                                           */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1466,7 +1466,7 @@ argument_list|)
 operator|->
 name|afm_data
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|i
 decl_stmt|;
 if|if

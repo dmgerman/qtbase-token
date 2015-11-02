@@ -143,11 +143,26 @@ DECL|macro|CF2_MAX_SUBR
 define|#
 directive|define
 name|CF2_MAX_SUBR
-value|10
+value|16
 end_define
 begin_comment
 DECL|macro|CF2_MAX_SUBR
-comment|/* maximum subroutine nesting */
+comment|/* maximum subroutine nesting;         */
+end_comment
+begin_comment
+comment|/* only 10 are allowed but there exist */
+end_comment
+begin_comment
+comment|/* fonts like `HiraKakuProN-W3.ttf'    */
+end_comment
+begin_comment
+comment|/* (Hiragino Kaku Gothic ProN W3;      */
+end_comment
+begin_comment
+comment|/* 8.2d6e1; 2014-12-19) that exceed    */
+end_comment
+begin_comment
+comment|/* this limit                          */
 end_comment
 begin_comment
 comment|/* typedef is in `cf2glue.h' */

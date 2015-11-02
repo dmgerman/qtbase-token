@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2003, 2005-2008, 2012-2014 by                           */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1159,7 +1159,7 @@ name|table
 operator|->
 name|maps
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(

@@ -30,7 +30,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005-2007, 2009, 2011 by David Turner.                       */
+comment|/*  Copyright 2005-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  David Turner.                                                          */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -204,7 +207,7 @@ name|state
 operator|->
 name|num_bits
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|offset
 init|=
 name|state

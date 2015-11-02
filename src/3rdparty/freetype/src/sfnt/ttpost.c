@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2003, 2006-2010, 2013, 2014 by                          */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -156,7 +156,7 @@ name|MAC_NAME
 parameter_list|(
 name|x
 parameter_list|)
-value|( (FT_String*)psnames->macintosh_name( x ) )
+value|(FT_String*)psnames->macintosh_name( (FT_UInt)(x) )
 end_define
 begin_else
 else|#
@@ -182,7 +182,7 @@ name|MAC_NAME
 parameter_list|(
 name|x
 parameter_list|)
-value|( (FT_String*)tt_post_default_names[x] )
+value|(FT_String*)tt_post_default_names[x]
 end_define
 begin_comment
 comment|/* the 258 default Mac PS glyph names; see file `tools/glnames.py' */
@@ -763,7 +763,7 @@ parameter_list|,
 name|FT_Stream
 name|stream
 parameter_list|,
-name|FT_Long
+name|FT_ULong
 name|post_limit
 parameter_list|)
 block|{
@@ -787,14 +787,14 @@ name|FT_UShort
 modifier|*
 name|glyph_indices
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|FT_Char
 modifier|*
 modifier|*
 name|name_strings
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 if|if
 condition|(
@@ -1010,9 +1010,6 @@ goto|;
 block|}
 if|if
 condition|(
-operator|(
-name|FT_Int
-operator|)
 name|len
 operator|>
 name|post_limit
@@ -1022,12 +1019,23 @@ argument_list|()
 operator|>
 name|post_limit
 operator|-
-operator|(
-name|FT_Int
-operator|)
 name|len
 condition|)
 block|{
+name|FT_Int
+name|d
+init|=
+operator|(
+name|FT_Int
+operator|)
+name|post_limit
+operator|-
+operator|(
+name|FT_Int
+operator|)
+name|FT_STREAM_POS
+argument_list|()
+decl_stmt|;
 name|FT_ERROR
 argument_list|(
 operator|(
@@ -1037,23 +1045,20 @@ literal|" truncating at end of post table (%d byte left)\n"
 operator|,
 name|len
 operator|,
-name|post_limit
-operator|-
-name|FT_STREAM_POS
-argument_list|()
+name|d
 operator|)
 argument_list|)
 expr_stmt|;
 name|len
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|FT_MAX
 argument_list|(
 literal|0
 argument_list|,
-name|post_limit
-operator|-
-name|FT_STREAM_POS
-argument_list|()
+name|d
 argument_list|)
 expr_stmt|;
 block|}
@@ -1262,7 +1267,7 @@ parameter_list|,
 name|FT_Stream
 name|stream
 parameter_list|,
-name|FT_Long
+name|FT_ULong
 name|post_limit
 parameter_list|)
 block|{
@@ -1283,7 +1288,7 @@ name|FT_Char
 modifier|*
 name|offset_table
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -1472,7 +1477,7 @@ decl_stmt|;
 name|FT_ULong
 name|post_len
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|post_limit
 decl_stmt|;
 comment|/* get a stream for the face's resource */
@@ -2109,25 +2114,24 @@ operator|->
 name|num_glyphs
 condition|)
 comment|/* paranoid checking */
-block|{
+operator|*
+name|PSname
+operator|=
+name|MAC_NAME
+argument_list|(
+operator|(
+name|FT_Int
+operator|)
 name|idx
-operator|+=
+operator|+
 name|table
 operator|->
 name|offsets
 index|[
 name|idx
 index|]
-expr_stmt|;
-operator|*
-name|PSname
-operator|=
-name|MAC_NAME
-argument_list|(
-name|idx
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/* nothing to do for format == 0x00030000L */
 name|End

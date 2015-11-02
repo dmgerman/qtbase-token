@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2008, 2010 by                                                */
+comment|/*  Copyright 2008-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, Werner Lemberg, and suzuki toshiya.      */
@@ -70,6 +70,13 @@ include|FT_INTERNAL_OBJECTS_H
 end_include
 begin_function_decl
 name|FT_BEGIN_HEADER
+comment|/* MacOS resource fork cannot exceed 16MB at least for Carbon code; */
+comment|/* see https://support.microsoft.com/en-us/kb/130437                */
+DECL|macro|FT_MAC_RFORK_MAX_LEN
+define|#
+directive|define
+name|FT_MAC_RFORK_MAX_LEN
+value|0x00FFFFFFUL
 comment|/* Assume the stream is sfnt-wrapped PS Type1 or sfnt-wrapped CID-keyed */
 comment|/* font, and try to load a face specified by the face_index.            */
 name|FT_LOCAL

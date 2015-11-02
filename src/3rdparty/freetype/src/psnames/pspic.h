@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009, 2012 by                                                */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -58,9 +58,6 @@ define|#
 directive|define
 name|__PSPIC_H__
 end_define
-begin_macro
-name|FT_BEGIN_HEADER
-end_macro
 begin_include
 include|#
 directive|include
@@ -97,23 +94,31 @@ include|#
 directive|include
 include|FT_SERVICE_POSTSCRIPT_CMAPS_H
 end_include
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
 begin_typedef
+DECL|struct|PSModulePIC_
 typedef|typedef
 struct|struct
 name|PSModulePIC_
 block|{
+DECL|member|pscmaps_services
 name|FT_ServiceDescRec
 modifier|*
 name|pscmaps_services
 decl_stmt|;
+DECL|member|pscmaps_interface
 name|FT_Service_PsCMapsRec
 name|pscmaps_interface
 decl_stmt|;
 block|}
+DECL|typedef|PSModulePIC
 name|PSModulePIC
 typedef|;
 end_typedef
 begin_define
+DECL|macro|GET_PIC
 define|#
 directive|define
 name|GET_PIC
@@ -124,12 +129,14 @@ define|\
 value|( (PSModulePIC*)((lib)->pic_container.psnames) )
 end_define
 begin_define
+DECL|macro|PSCMAPS_SERVICES_GET
 define|#
 directive|define
 name|PSCMAPS_SERVICES_GET
 value|( GET_PIC( library )->pscmaps_services )
 end_define
 begin_define
+DECL|macro|PSCMAPS_INTERFACE_GET
 define|#
 directive|define
 name|PSCMAPS_INTERFACE_GET
@@ -156,6 +163,9 @@ name|library
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|FT_END_HEADER
+end_macro
 begin_endif
 endif|#
 directive|endif
@@ -166,9 +176,6 @@ end_comment
 begin_comment
 comment|/* */
 end_comment
-begin_macro
-name|FT_END_HEADER
-end_macro
 begin_endif
 endif|#
 directive|endif

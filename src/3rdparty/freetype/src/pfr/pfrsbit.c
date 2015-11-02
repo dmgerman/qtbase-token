@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006, 2009, 2010, 2013 by                        */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -124,17 +124,17 @@ name|pitch
 decl_stmt|;
 comment|/* line size in bytes                    */
 DECL|member|width
-name|FT_Int
+name|FT_UInt
 name|width
 decl_stmt|;
 comment|/* width in pixels/bits                  */
 DECL|member|rows
-name|FT_Int
+name|FT_UInt
 name|rows
 decl_stmt|;
 comment|/* number of remaining rows to scan      */
 DECL|member|total
-name|FT_Int
+name|FT_UInt
 name|total
 decl_stmt|;
 comment|/* total number of bits to draw          */
@@ -222,13 +222,16 @@ name|writer
 operator|->
 name|pitch
 operator|*
-operator|(
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|target
 operator|->
 name|rows
 operator|-
 literal|1
-operator|)
+argument_list|)
 expr_stmt|;
 name|writer
 operator|->
@@ -260,12 +263,12 @@ modifier|*
 name|limit
 parameter_list|)
 block|{
-name|FT_Int
+name|FT_UInt
 name|n
 decl_stmt|,
 name|reload
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|left
 init|=
 name|writer
@@ -298,7 +301,7 @@ decl_stmt|;
 name|n
 operator|=
 call|(
-name|FT_Int
+name|FT_UInt
 call|)
 argument_list|(
 name|limit
@@ -488,8 +491,6 @@ name|limit
 parameter_list|)
 block|{
 name|FT_Int
-name|n
-decl_stmt|,
 name|phase
 decl_stmt|,
 name|count
@@ -498,10 +499,13 @@ name|counts
 index|[
 literal|2
 index|]
+decl_stmt|;
+name|FT_UInt
+name|n
 decl_stmt|,
 name|reload
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|left
 init|=
 name|writer
@@ -786,15 +790,16 @@ name|limit
 parameter_list|)
 block|{
 name|FT_Int
-name|n
-decl_stmt|,
 name|phase
 decl_stmt|,
 name|count
+decl_stmt|;
+name|FT_UInt
+name|n
 decl_stmt|,
 name|reload
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|left
 init|=
 name|writer
@@ -1326,6 +1331,9 @@ name|FT_Byte
 name|flags
 decl_stmt|;
 name|FT_Char
+name|c
+decl_stmt|;
+name|FT_Byte
 name|b
 decl_stmt|;
 name|FT_Byte
@@ -1394,7 +1402,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|b
+name|c
 operator|=
 name|PFR_NEXT_INT8
 argument_list|(
@@ -1403,7 +1411,7 @@ argument_list|)
 expr_stmt|;
 name|xpos
 operator|=
-name|b
+name|c
 operator|>>
 literal|4
 expr_stmt|;
@@ -1414,7 +1422,7 @@ call|(
 name|FT_Char
 call|)
 argument_list|(
-name|b
+name|c
 operator|<<
 literal|4
 argument_list|)
@@ -2216,10 +2224,16 @@ name|FT_MulDiv
 argument_list|(
 name|advance
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|outline_resolution
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|metrics_resolution
@@ -2256,6 +2270,9 @@ name|character
 operator|->
 name|advance
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|metrics_resolution
@@ -2320,7 +2337,7 @@ operator|&
 name|format
 argument_list|)
 expr_stmt|;
-comment|/*        * XXX: on 16bit system, we return an error for huge bitmap        *      which causes a size truncation, because truncated        *      size properties makes bitmap glyph broken.        */
+comment|/*        * XXX: on 16bit systems we return an error for huge bitmaps        *      that cause size truncation, because truncated        *      size properties make bitmap glyphs broken.        */
 if|if
 condition|(
 name|xpos
@@ -2336,10 +2353,13 @@ operator|>
 name|FT_INT_MAX
 operator|||
 name|ypos
-operator|+
-name|ysize
 operator|>
 name|FT_INT_MAX
+operator|-
+operator|(
+name|FT_Long
+operator|)
+name|ysize
 operator|||
 name|ypos
 operator|+
@@ -2401,9 +2421,6 @@ name|bitmap
 operator|.
 name|width
 operator|=
-operator|(
-name|FT_Int
-operator|)
 name|xsize
 expr_stmt|;
 name|glyph
@@ -2414,9 +2431,6 @@ name|bitmap
 operator|.
 name|rows
 operator|=
-operator|(
-name|FT_Int
-operator|)
 name|ysize
 expr_stmt|;
 name|glyph
@@ -2589,6 +2603,9 @@ call|)
 argument_list|(
 name|ypos
 operator|+
+operator|(
+name|FT_Long
+operator|)
 name|ysize
 argument_list|)
 expr_stmt|;
@@ -2597,6 +2614,9 @@ block|{
 name|FT_ULong
 name|len
 init|=
+operator|(
+name|FT_ULong
+operator|)
 name|glyph
 operator|->
 name|root

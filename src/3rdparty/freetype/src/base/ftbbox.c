@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2002, 2004, 2006, 2010, 2013, 2014 by                   */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -798,6 +798,10 @@ literal|27
 operator|-
 name|FT_MSB
 argument_list|(
+call|(
+name|FT_UInt32
+call|)
+argument_list|(
 name|FT_ABS
 argument_list|(
 name|q1
@@ -816,6 +820,7 @@ operator||
 name|FT_ABS
 argument_list|(
 name|q4
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

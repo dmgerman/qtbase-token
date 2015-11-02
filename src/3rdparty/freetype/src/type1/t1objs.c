@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2009, 2011, 2013 by                                     */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -312,7 +312,7 @@ name|root
 operator|.
 name|internal
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 block|}
@@ -551,7 +551,7 @@ name|internal
 operator|->
 name|glyph_hints
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -816,7 +816,7 @@ name|face
 operator|->
 name|blend
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 endif|#
 directive|endif
@@ -1257,7 +1257,11 @@ goto|;
 comment|/* check the face index */
 if|if
 condition|(
+operator|(
 name|face_index
+operator|&
+literal|0xFFFF
+operator|)
 operator|>
 literal|0
 condition|)
@@ -1345,7 +1349,6 @@ name|face_flags
 operator||=
 name|FT_FACE_FLAG_MULTIPLE_MASTERS
 expr_stmt|;
-comment|/* XXX: TODO -- add kerning with .afm support */
 comment|/* The following code to extract the family and the style is very   */
 comment|/* simplistic and might get some things wrong.  For a full-featured */
 comment|/* algorithm you might have a look at the whitepaper given at       */
@@ -1612,7 +1615,7 @@ name|root
 operator|->
 name|available_sizes
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|root
 operator|->

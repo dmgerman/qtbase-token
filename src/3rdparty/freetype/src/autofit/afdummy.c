@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2005, 2011, 2013 by                                     */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -136,6 +136,9 @@ name|FT_Error
 DECL|function|af_dummy_hints_apply
 name|af_dummy_hints_apply
 parameter_list|(
+name|FT_UInt
+name|glyph_index
+parameter_list|,
 name|AF_GlyphHints
 name|hints
 parameter_list|,
@@ -147,6 +150,11 @@ block|{
 name|FT_Error
 name|error
 decl_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|glyph_index
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
 name|af_glyph_hints_reload

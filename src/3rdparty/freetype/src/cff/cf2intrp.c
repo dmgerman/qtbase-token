@@ -140,6 +140,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"cf2intrp.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"cf2error.h"
 end_include
 begin_comment
@@ -2625,6 +2630,9 @@ argument_list|(
 operator|&
 name|subrStack
 argument_list|,
+operator|(
+name|size_t
+operator|)
 name|charstringIndex
 operator|+
 literal|1
@@ -2633,6 +2641,9 @@ expr_stmt|;
 comment|/* set up the new CFF region and pointer */
 name|subrIndex
 operator|=
+operator|(
+name|CF2_UInt
+operator|)
 name|cf2_stack_popInt
 argument_list|(
 name|opStack
@@ -2649,13 +2660,20 @@ case|:
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"(%d)\n"
+literal|" (idx %d, entering level %d)\n"
 operator|,
 name|subrIndex
 operator|+
+operator|(
+name|CF2_UInt
+operator|)
 name|decoder
 operator|->
 name|globals_bias
+operator|,
+name|charstringIndex
+operator|+
+literal|1
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2689,13 +2707,20 @@ comment|/* cf2_cmdCALLSUBR */
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"(%d)\n"
+literal|" (idx %d, entering level %d)\n"
 operator|,
 name|subrIndex
 operator|+
+operator|(
+name|CF2_UInt
+operator|)
 name|decoder
 operator|->
 name|locals_bias
+operator|,
+name|charstringIndex
+operator|+
+literal|1
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2738,7 +2763,9 @@ case|:
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|" return\n"
+literal|" return (leaving level %d)\n"
+operator|,
+name|charstringIndex
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2773,6 +2800,9 @@ argument_list|(
 operator|&
 name|subrStack
 argument_list|,
+operator|(
+name|CF2_UInt
+operator|)
 operator|--
 name|charstringIndex
 argument_list|)
@@ -3540,10 +3570,10 @@ condition|)
 block|{
 comment|/* must be either 4 or 5 --                       */
 comment|/* this is a (deprecated) implied `seac' operator */
-name|CF2_UInt
+name|CF2_Int
 name|achar
 decl_stmt|;
-name|CF2_UInt
+name|CF2_Int
 name|bchar
 decl_stmt|;
 name|CF2_BufferRec
@@ -4248,6 +4278,8 @@ case|:
 block|{
 name|CF2_UInt
 name|count
+decl_stmt|,
+name|count1
 init|=
 name|cf2_stack_count
 argument_list|(
@@ -4259,6 +4291,22 @@ name|index
 init|=
 literal|0
 decl_stmt|;
+comment|/* if `cf2_stack_count' isn't of the form 4n or 4n+1, */
+comment|/* we enforce it by clearing the second bit           */
+comment|/* (and sorting the stack indexing to suit)           */
+name|count
+operator|=
+name|count1
+operator|&
+operator|~
+literal|2U
+expr_stmt|;
+name|index
+operator|+=
+name|count1
+operator|-
+name|count
+expr_stmt|;
 name|FT_TRACE4
 argument_list|(
 operator|(
@@ -4418,6 +4466,8 @@ case|:
 block|{
 name|CF2_UInt
 name|count
+decl_stmt|,
+name|count1
 init|=
 name|cf2_stack_count
 argument_list|(
@@ -4429,6 +4479,22 @@ name|index
 init|=
 literal|0
 decl_stmt|;
+comment|/* if `cf2_stack_count' isn't of the form 4n or 4n+1, */
+comment|/* we enforce it by clearing the second bit           */
+comment|/* (and sorting the stack indexing to suit)           */
+name|count
+operator|=
+name|count1
+operator|&
+operator|~
+literal|2U
+expr_stmt|;
+name|index
+operator|+=
+name|count1
+operator|-
+name|count
+expr_stmt|;
 name|FT_TRACE4
 argument_list|(
 operator|(
@@ -4591,6 +4657,8 @@ case|:
 block|{
 name|CF2_UInt
 name|count
+decl_stmt|,
+name|count1
 init|=
 name|cf2_stack_count
 argument_list|(
@@ -4609,6 +4677,23 @@ name|op1
 operator|==
 name|cf2_cmdHVCURVETO
 decl_stmt|;
+comment|/* if `cf2_stack_count' isn't of the form 8n, 8n+1, */
+comment|/* 8n+4, or 8n+5, we enforce it by clearing the     */
+comment|/* second bit                                       */
+comment|/* (and sorting the stack indexing to suit)         */
+name|count
+operator|=
+name|count1
+operator|&
+operator|~
+literal|2U
+expr_stmt|;
+name|index
+operator|+=
+name|count1
+operator|-
+name|count
+expr_stmt|;
 name|FT_TRACE4
 argument_list|(
 operator|(

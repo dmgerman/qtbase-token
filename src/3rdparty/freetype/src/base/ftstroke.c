@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002-2006, 2008-2011, 2013, 2014 by                          */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -82,6 +82,37 @@ include|#
 directive|include
 include|FT_INTERNAL_OBJECTS_H
 end_include
+begin_include
+include|#
+directive|include
+file|"basepic.h"
+end_include
+begin_comment
+comment|/* declare an extern to access `ft_outline_glyph_class' globally     */
+end_comment
+begin_comment
+comment|/* allocated  in `ftglyph.c', and use the FT_OUTLINE_GLYPH_CLASS_GET */
+end_comment
+begin_comment
+comment|/* macro to access it when FT_CONFIG_OPTION_PIC is defined           */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FT_CONFIG_OPTION_PIC
+end_ifndef
+begin_decl_stmt
+DECL|variable|ft_outline_glyph_class
+name|FT_CALLBACK_TABLE
+specifier|const
+name|FT_Glyph_Class
+name|ft_outline_glyph_class
+decl_stmt|;
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* documentation is in ftstroke.h */
 end_comment
@@ -1747,6 +1778,9 @@ block|{
 name|FT_UInt
 name|start
 init|=
+operator|(
+name|FT_UInt
+operator|)
 name|border
 operator|->
 name|start
@@ -2757,6 +2791,9 @@ name|border
 operator|->
 name|start
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|border
 operator|->
 name|num_points
@@ -3303,19 +3340,13 @@ block|}
 name|outline
 operator|->
 name|n_points
-operator|=
-call|(
+operator|+=
+operator|(
 name|short
-call|)
-argument_list|(
-name|outline
-operator|->
-name|n_points
-operator|+
+operator|)
 name|border
 operator|->
 name|num_points
-argument_list|)
 expr_stmt|;
 name|FT_ASSERT
 argument_list|(
@@ -4321,6 +4352,7 @@ literal|2
 expr_stmt|;
 comment|/* Only intersect borders if between two lineto's and both */
 comment|/* lines are long enough (line_length is zero for curves). */
+comment|/* Also avoid U-turns of nearly 180 degree.                */
 if|if
 condition|(
 operator|!
@@ -4331,6 +4363,15 @@ operator|||
 name|line_length
 operator|==
 literal|0
+operator|||
+name|theta
+operator|>
+literal|0x59C000
+operator|||
+name|theta
+operator|<
+operator|-
+literal|0x59C000
 condition|)
 name|intersect
 operator|=
@@ -5191,20 +5232,14 @@ goto|goto
 name|Exit
 goto|;
 comment|/* when we turn to the right, the inside side is 0 */
+comment|/* otherwise, the inside side is 1 */
 name|inside_side
 operator|=
-literal|0
-expr_stmt|;
-comment|/* otherwise, the inside side is 1 */
-if|if
-condition|(
+operator|(
 name|turn
 operator|<
 literal|0
-condition|)
-name|inside_side
-operator|=
-literal|1
+operator|)
 expr_stmt|;
 comment|/* process the inside side */
 name|error
@@ -5232,8 +5267,7 @@ name|ft_stroker_outside
 argument_list|(
 name|stroker
 argument_list|,
-literal|1
-operator|-
+operator|!
 name|inside_side
 argument_list|,
 name|line_length
@@ -7840,6 +7874,9 @@ argument_list|)
 expr_stmt|;
 name|new_points
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|left
 operator|->
 name|num_points
@@ -8018,6 +8055,9 @@ name|left
 operator|->
 name|num_points
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|left
 operator|->
 name|start
@@ -8026,6 +8066,9 @@ name|right
 operator|->
 name|num_points
 operator|+=
+operator|(
+name|FT_UInt
+operator|)
 name|new_points
 expr_stmt|;
 name|right
@@ -8273,20 +8316,14 @@ literal|0
 condition|)
 block|{
 comment|/* when we turn to the right, the inside side is 0 */
+comment|/* otherwise, the inside side is 1 */
 name|inside_side
 operator|=
-literal|0
-expr_stmt|;
-comment|/* otherwise, the inside side is 1 */
-if|if
-condition|(
+operator|(
 name|turn
 operator|<
 literal|0
-condition|)
-name|inside_side
-operator|=
-literal|1
+operator|)
 expr_stmt|;
 name|error
 operator|=
@@ -8315,8 +8352,7 @@ name|ft_stroker_outside
 argument_list|(
 name|stroker
 argument_list|,
-literal|1
-operator|-
+operator|!
 name|inside_side
 argument_list|,
 name|stroker
@@ -8830,6 +8866,9 @@ decl_stmt|;
 comment|/* index of last point in contour */
 name|last
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|outline
 operator|->
 name|contours
@@ -9434,36 +9473,6 @@ return|;
 block|}
 end_block
 begin_comment
-comment|/* declare an extern to access `ft_outline_glyph_class' globally     */
-end_comment
-begin_comment
-comment|/* allocated  in `ftglyph.c', and use the FT_OUTLINE_GLYPH_CLASS_GET */
-end_comment
-begin_comment
-comment|/* macro to access it when FT_CONFIG_OPTION_PIC is defined           */
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|FT_CONFIG_OPTION_PIC
-end_ifndef
-begin_decl_stmt
-specifier|extern
-specifier|const
-name|FT_Glyph_Class
-name|ft_outline_glyph_class
-decl_stmt|;
-end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_include
-include|#
-directive|include
-file|"basepic.h"
-end_include
-begin_comment
 comment|/* documentation is in ftstroke.h */
 end_comment
 begin_macro
@@ -9635,6 +9644,9 @@ name|library
 argument_list|,
 name|num_points
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|num_contours
 argument_list|,
 name|outline
@@ -9920,6 +9932,9 @@ name|library
 argument_list|,
 name|num_points
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|num_contours
 argument_list|,
 name|outline

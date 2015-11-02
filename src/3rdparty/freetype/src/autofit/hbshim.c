@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2013, 2014 by                                                */
+comment|/*  Copyright 2013-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -255,7 +255,7 @@ parameter_list|,
 name|AF_StyleClass
 name|style_class
 parameter_list|,
-name|FT_Byte
+name|FT_UShort
 modifier|*
 name|gstyles
 parameter_list|)
@@ -564,8 +564,7 @@ for|for
 control|(
 name|idx
 operator|=
-operator|-
-literal|1
+name|HB_SET_VALUE_INVALID
 init|;
 name|hb_set_next
 argument_list|(
@@ -665,8 +664,7 @@ for|for
 control|(
 name|idx
 operator|=
-operator|-
-literal|1
+name|HB_SET_VALUE_INVALID
 init|;
 name|hb_set_next
 argument_list|(
@@ -817,8 +815,7 @@ for|for
 control|(
 name|idx
 operator|=
-operator|-
-literal|1
+name|HB_SET_VALUE_INVALID
 init|;
 name|hb_set_next
 argument_list|(
@@ -922,8 +919,7 @@ for|for
 control|(
 name|idx
 operator|=
-operator|-
-literal|1
+name|HB_SET_VALUE_INVALID
 init|;
 name|hb_set_next
 argument_list|(
@@ -999,7 +995,7 @@ name|idx
 index|]
 operator|=
 operator|(
-name|FT_Byte
+name|FT_UShort
 operator|)
 name|style_class
 operator|->
@@ -1235,9 +1231,12 @@ condition|(
 name|feature
 condition|)
 block|{
-name|FT_UInt
+name|FT_Int
 name|upem
 init|=
+operator|(
+name|FT_Int
+operator|)
 name|metrics
 operator|->
 name|globals
@@ -1468,7 +1467,7 @@ parameter_list|,
 name|AF_StyleClass
 name|style_class
 parameter_list|,
-name|FT_Byte
+name|FT_UShort
 modifier|*
 name|gstyles
 parameter_list|)

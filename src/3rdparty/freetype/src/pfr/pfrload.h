@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002 by                                                      */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -315,7 +315,7 @@ argument|FT_Stream   stream
 argument_list|,
 argument|FT_UInt32   log_section_offset
 argument_list|,
-argument|FT_UInt    *acount
+argument|FT_Long    *acount
 argument_list|)
 end_macro
 begin_empty_stmt
