@@ -668,36 +668,6 @@ name|textureId
 parameter_list|()
 specifier|const
 block|{
-name|Q_Q
-argument_list|(
-specifier|const
-name|QOpenGLWidget
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|q
-operator|->
-name|isWindow
-argument_list|()
-operator|&&
-name|q
-operator|->
-name|internalWinId
-argument_list|()
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QOpenGLWidget cannot be used as a native child widget. Consider setting "
-literal|"Qt::WA_DontCreateNativeAncestors and Qt::AA_DontCreateNativeWidgetSiblings"
-argument_list|)
-expr_stmt|;
-return|return
-literal|0
-return|;
-block|}
 return|return
 name|resolvedFbo
 condition|?
