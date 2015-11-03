@@ -10,15 +10,15 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qgtk2theme.h"
+file|"qgtk3theme.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_class
-DECL|class|QGtk2ThemePlugin
+DECL|class|QGtk3ThemePlugin
 class|class
-name|QGtk2ThemePlugin
+name|QGtk3ThemePlugin
 super|:
 specifier|public
 name|QPlatformThemePlugin
@@ -29,7 +29,7 @@ argument_list|(
 name|IID
 name|QPlatformThemeFactoryInterface_iid
 name|FILE
-literal|"gtk2.json"
+literal|"gtk3.json"
 argument_list|)
 decl|public
 range|:
@@ -51,7 +51,7 @@ begin_function
 DECL|function|create
 name|QPlatformTheme
 modifier|*
-name|QGtk2ThemePlugin
+name|QGtk3ThemePlugin
 operator|::
 name|create
 parameter_list|(
@@ -80,7 +80,7 @@ name|compare
 argument_list|(
 name|QLatin1String
 argument_list|(
-name|QGtk2Theme
+name|QGtk3Theme
 operator|::
 name|name
 argument_list|)
@@ -92,7 +92,7 @@ argument_list|)
 condition|)
 return|return
 operator|new
-name|QGtk2Theme
+name|QGtk3Theme
 return|;
 return|return
 literal|0

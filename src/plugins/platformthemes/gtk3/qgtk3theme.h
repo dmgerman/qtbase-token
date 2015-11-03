@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGTK2THEME_H
+name|QGTK3THEME_H
 end_ifndef
 begin_define
-DECL|macro|QGTK2THEME_H
+DECL|macro|QGTK3THEME_H
 define|#
 directive|define
-name|QGTK2THEME_H
+name|QGTK3THEME_H
 end_define
 begin_include
 include|#
@@ -21,14 +21,14 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
-name|QGtk2Theme
+name|QGtk3Theme
 range|:
 name|public
 name|QGnomeTheme
 block|{
 name|public
 operator|:
-name|QGtk2Theme
+name|QGtk3Theme
 argument_list|()
 block|;
 name|virtual
@@ -80,6 +80,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGTK2THEME_H
+comment|// QGTK3THEME_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGTK2DIALOGHELPERS_P_H
+name|QGTK3DIALOGHELPERS_H
 end_ifndef
 begin_define
-DECL|macro|QGTK2DIALOGHELPERS_P_H
+DECL|macro|QGTK3DIALOGHELPERS_H
 define|#
 directive|define
-name|QGTK2DIALOGHELPERS_P_H
+name|QGTK3DIALOGHELPERS_H
 end_define
 begin_include
 include|#
@@ -61,9 +61,9 @@ typedef|;
 end_typedef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QGtk2Dialog
+DECL|variable|QGtk3Dialog
 name|class
-name|QGtk2Dialog
+name|QGtk3Dialog
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -74,7 +74,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QGtk2ColorDialogHelper
+name|QGtk3ColorDialogHelper
 range|:
 name|public
 name|QPlatformColorDialogHelper
@@ -82,11 +82,11 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QGtk2ColorDialogHelper
+name|QGtk3ColorDialogHelper
 argument_list|()
 block|;
 operator|~
-name|QGtk2ColorDialogHelper
+name|QGtk3ColorDialogHelper
 argument_list|()
 block|;
 name|bool
@@ -136,7 +136,7 @@ specifier|static
 name|void
 name|onColorChanged
 argument_list|(
-name|QGtk2ColorDialogHelper
+name|QGtk3ColorDialogHelper
 operator|*
 name|helper
 argument_list|)
@@ -147,7 +147,7 @@ argument_list|()
 block|;
 name|QScopedPointer
 operator|<
-name|QGtk2Dialog
+name|QGtk3Dialog
 operator|>
 name|d
 block|; }
@@ -155,7 +155,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QGtk2FileDialogHelper
+name|QGtk3FileDialogHelper
 range|:
 name|public
 name|QPlatformFileDialogHelper
@@ -163,11 +163,11 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QGtk2FileDialogHelper
+name|QGtk3FileDialogHelper
 argument_list|()
 block|;
 operator|~
-name|QGtk2FileDialogHelper
+name|QGtk3FileDialogHelper
 argument_list|()
 block|;
 name|bool
@@ -261,7 +261,7 @@ name|GtkDialog
 operator|*
 name|dialog
 argument_list|,
-name|QGtk2FileDialogHelper
+name|QGtk3FileDialogHelper
 operator|*
 name|helper
 argument_list|)
@@ -270,7 +270,7 @@ specifier|static
 name|void
 name|onCurrentFolderChanged
 argument_list|(
-name|QGtk2FileDialogHelper
+name|QGtk3FileDialogHelper
 operator|*
 name|helper
 argument_list|)
@@ -317,7 +317,7 @@ name|_filterNames
 block|;
 name|QScopedPointer
 operator|<
-name|QGtk2Dialog
+name|QGtk3Dialog
 operator|>
 name|d
 block|; }
@@ -325,7 +325,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QGtk2FontDialogHelper
+name|QGtk3FontDialogHelper
 range|:
 name|public
 name|QPlatformFontDialogHelper
@@ -333,11 +333,11 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QGtk2FontDialogHelper
+name|QGtk3FontDialogHelper
 argument_list|()
 block|;
 operator|~
-name|QGtk2FontDialogHelper
+name|QGtk3FontDialogHelper
 argument_list|()
 block|;
 name|bool
@@ -389,7 +389,7 @@ argument_list|()
 block|;
 name|QScopedPointer
 operator|<
-name|QGtk2Dialog
+name|QGtk3Dialog
 operator|>
 name|d
 block|; }
@@ -403,6 +403,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGTK2DIALOGHELPERS_P_H
+comment|// QGTK3DIALOGHELPERS_H
 end_comment
 end_unit
