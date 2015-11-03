@@ -1152,7 +1152,7 @@ argument_list|)
 block|,
 name|QByteArrayLiteral
 argument_list|(
-literal|"wl_display"
+literal|"server_wl_display"
 argument_list|)
 block|}
 decl_stmt|;
