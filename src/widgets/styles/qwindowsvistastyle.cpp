@@ -7187,6 +7187,21 @@ expr_stmt|;
 if|if
 condition|(
 name|widget
+operator|&&
+name|mbi
+operator|->
+name|palette
+operator|.
+name|color
+argument_list|(
+name|QPalette
+operator|::
+name|Window
+argument_list|)
+operator|!=
+name|Qt
+operator|::
+name|transparent
 condition|)
 block|{
 comment|// Not needed for QtQuick Controls
