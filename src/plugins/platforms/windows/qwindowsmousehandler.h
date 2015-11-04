@@ -69,6 +69,11 @@ return|return
 name|m_touchDevice
 return|;
 block|}
+name|QTouchDevice
+modifier|*
+name|ensureTouchDevice
+parameter_list|()
+function_decl|;
 name|bool
 name|translateMouseEvent
 argument_list|(
