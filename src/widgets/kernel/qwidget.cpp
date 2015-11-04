@@ -30532,12 +30532,25 @@ operator|::
 name|WA_Mapped
 argument_list|)
 expr_stmt|;
+comment|// add our window the modal window list (native dialogs)
 if|if
 condition|(
+operator|(
 name|q
 operator|->
 name|isWindow
 argument_list|()
+operator|&&
+operator|(
+operator|!
+name|extra
+operator|||
+operator|!
+name|extra
+operator|->
+name|proxyWidget
+operator|)
+operator|)
 operator|&&
 name|q
 operator|->
@@ -30551,7 +30564,6 @@ operator|&&
 name|window
 condition|)
 block|{
-comment|// add our window to the modal window list
 name|QGuiApplicationPrivate
 operator|::
 name|showModalWindow
@@ -31206,12 +31218,25 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// remove our window from the modal window list (native dialogs)
 if|if
 condition|(
+operator|(
 name|q
 operator|->
 name|isWindow
 argument_list|()
+operator|&&
+operator|(
+operator|!
+name|extra
+operator|||
+operator|!
+name|extra
+operator|->
+name|proxyWidget
+operator|)
+operator|)
 operator|&&
 name|q
 operator|->
@@ -31225,7 +31250,6 @@ operator|&&
 name|window
 condition|)
 block|{
-comment|// remove our window from the modal window list
 name|QGuiApplicationPrivate
 operator|::
 name|hideModalWindow
