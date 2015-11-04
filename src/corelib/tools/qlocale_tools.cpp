@@ -1330,26 +1330,35 @@ name|d
 argument_list|)
 condition|)
 block|{
-name|processed
-operator|=
-literal|0
-expr_stmt|;
 name|ok
 operator|=
 literal|false
+expr_stmt|;
+if|if
+condition|(
+name|qIsNaN
+argument_list|(
+name|d
+argument_list|)
+condition|)
+block|{
+comment|// Garbage found. We don't accept it and return 0.
+name|processed
+operator|=
+literal|0
 expr_stmt|;
 return|return
 literal|0.0
 return|;
 block|}
-name|Q_ASSERT
-argument_list|(
-name|processed
-operator|==
-name|numLen
-argument_list|)
-expr_stmt|;
-comment|// Otherwise we would have gotten NaN
+else|else
+block|{
+comment|// Overflow. That's not OK, but we still return infinity.
+return|return
+name|d
+return|;
+block|}
+block|}
 else|#
 directive|else
 if|if
@@ -1381,15 +1390,13 @@ name|processed
 operator|!=
 name|numLen
 operator|||
-operator|!
-name|qIsFinite
+name|qIsNaN
 argument_list|(
 name|d
 argument_list|)
 condition|)
 block|{
-comment|// We stopped at a non-digit character after converting some digits
-comment|// or we found an implementation-defined symbol for infinity or nan, which we don't accept.
+comment|// Implementation defined nan symbol or garbage found. We don't accept it.
 name|processed
 operator|=
 literal|0
@@ -1402,9 +1409,99 @@ return|return
 literal|0.0
 return|;
 block|}
+if|if
+condition|(
+operator|!
+name|qIsFinite
+argument_list|(
+name|d
+argument_list|)
+condition|)
+block|{
+comment|// Overflow. Check for implementation-defined infinity symbols and reject them.
+comment|// We assume that any infinity symbol has to contain a character that cannot be part of a
+comment|// "normal" number (that is 0-9, ., -, +, e).
+name|ok
+operator|=
+literal|false
+expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|numLen
+condition|;
+operator|++
+name|i
+control|)
+block|{
+name|char
+name|c
+init|=
+name|num
+index|[
+name|i
+index|]
+decl_stmt|;
+if|if
+condition|(
+operator|(
+name|c
+argument_list|<
+literal|'0'
+operator|||
+name|c
+argument_list|>
+literal|'9'
+operator|)
+operator|&&
+name|c
+operator|!=
+literal|'.'
+operator|&&
+name|c
+operator|!=
+literal|'-'
+operator|&&
+name|c
+operator|!=
+literal|'+'
+operator|&&
+name|c
+operator|!=
+literal|'e'
+condition|)
+block|{
+comment|// Garbage found
+name|processed
+operator|=
+literal|0
+expr_stmt|;
+return|return
+literal|0.0
+return|;
+block|}
+block|}
+return|return
+name|d
+return|;
+block|}
 endif|#
 directive|endif
 comment|// !defined(QT_NO_DOUBLECONVERSION)&& !defined(QT_BOOTSTRAPPED)
+name|Q_ASSERT
+argument_list|(
+name|processed
+operator|==
+name|numLen
+argument_list|)
+expr_stmt|;
+comment|// Otherwise we would have gotten NaN or sorted it out above.
 comment|// Check if underflow has occurred.
 if|if
 condition|(
@@ -1447,10 +1544,6 @@ literal|'9'
 condition|)
 block|{
 comment|// if a digit before any 'e' is not 0, then a non-zero number was intended.
-name|processed
-operator|=
-literal|0
-expr_stmt|;
 name|ok
 operator|=
 literal|false

@@ -17383,11 +17383,12 @@ name|ok
 argument_list|)
 expr_stmt|;
 comment|// detectable overflow
-name|QCOMPARE
+name|QVERIFY
+argument_list|(
+name|qIsInf
 argument_list|(
 name|d
-argument_list|,
-literal|0.0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|a
@@ -17418,11 +17419,13 @@ name|ok
 argument_list|)
 expr_stmt|;
 comment|// detectable underflow
-name|QCOMPARE
+name|QVERIFY
 argument_list|(
+name|qIsInf
+argument_list|(
+operator|-
 name|d
-argument_list|,
-literal|0.0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|a
