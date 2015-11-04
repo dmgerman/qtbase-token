@@ -728,7 +728,7 @@ index|[
 literal|"WMF_BACKEND"
 index|]
 operator|=
-literal|"auto"
+literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
@@ -17511,28 +17511,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|tryCompileProject
-argument_list|(
-literal|"unix/ptrsize"
-argument_list|)
-condition|)
-name|dictionary
-index|[
-literal|"QT_POINTER_SIZE"
-index|]
-operator|=
-literal|"8"
-expr_stmt|;
-else|else
-name|dictionary
-index|[
-literal|"QT_POINTER_SIZE"
-index|]
-operator|=
-literal|"4"
-expr_stmt|;
 name|cout
 operator|<<
 literal|"Done running configuration tests."
@@ -20605,7 +20583,7 @@ operator|::
 name|generateCachefile
 parameter_list|()
 block|{
-comment|// Generate qmodule.pri
+comment|// Generate qmodule.pri, which is loaded only by Qt modules
 block|{
 name|FileWriter
 name|moduleStream
@@ -21106,6 +21084,19 @@ condition|)
 name|moduleStream
 operator|<<
 literal|" nostrip"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"LTCG"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|moduleStream
+operator|<<
+literal|" ltcg"
 expr_stmt|;
 name|moduleStream
 operator|<<
@@ -22845,19 +22836,6 @@ condition|)
 name|configStream
 operator|<<
 literal|" static_runtime"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"LTCG"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" ltcg"
 expr_stmt|;
 if|if
 condition|(
@@ -24696,21 +24674,6 @@ condition|)
 name|qconfigList
 operator|+=
 literal|"QT_NO_GETIFADDRS"
-expr_stmt|;
-name|qconfigList
-operator|+=
-name|QString
-argument_list|(
-literal|"QT_POINTER_SIZE=%1"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_POINTER_SIZE"
-index|]
-argument_list|)
 expr_stmt|;
 name|qconfigList
 operator|.

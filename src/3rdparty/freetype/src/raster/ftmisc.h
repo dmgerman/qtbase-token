@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2009, 2010 by                                          */
+comment|/*  Copyright 2005-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -110,7 +110,7 @@ parameter_list|)
 value|static x
 end_define
 begin_comment
-comment|/* from include/freetype2/fttypes.h */
+comment|/* from include/freetype/fttypes.h */
 end_comment
 begin_typedef
 DECL|typedef|FT_Byte
@@ -185,7 +185,7 @@ define|\
 value|( ( (FT_ULong)_x1<< 24 ) |     \             ( (FT_ULong)_x2<< 16 ) |     \             ( (FT_ULong)_x3<<  8 ) |     \               (FT_ULong)_x4         )
 end_define
 begin_comment
-comment|/* from include/freetype2/ftsystem.h */
+comment|/* from include/freetype/ftsystem.h */
 end_comment
 begin_typedef
 DECL|typedef|FT_Memory

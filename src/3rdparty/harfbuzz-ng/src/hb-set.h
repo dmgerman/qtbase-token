@@ -35,6 +35,9 @@ end_include
 begin_macro
 name|HB_BEGIN_DECLS
 end_macro
+begin_comment
+comment|/*  * Since: 0.9.21  */
+end_comment
 begin_define
 DECL|macro|HB_SET_VALUE_INVALID
 define|#

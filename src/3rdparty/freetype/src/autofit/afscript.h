@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2013, 2014 by                                                */
+comment|/*  Copyright 2013-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -68,6 +68,39 @@ end_comment
 begin_comment
 comment|/* derive the standard width and height of stems).                  */
 end_comment
+begin_comment
+comment|/*                                                                  */
+end_comment
+begin_comment
+comment|/* Note that fallback scripts only have a default style, thus we    */
+end_comment
+begin_comment
+comment|/* use `HB_SCRIPT_INVALID' as the HarfBuzz script name tag for      */
+end_comment
+begin_comment
+comment|/* them.                                                            */
+end_comment
+begin_macro
+name|SCRIPT
+argument_list|(
+argument|arab
+argument_list|,
+argument|ARAB
+argument_list|,
+literal|"Arabic"
+argument_list|,
+argument|HB_SCRIPT_ARABIC
+argument_list|,
+literal|0x644
+argument_list|,
+literal|0x62D
+argument_list|,
+literal|0x640
+argument_list|)
+end_macro
+begin_comment
+comment|/* Ù Ø­ Ù */
+end_comment
 begin_macro
 name|SCRIPT
 argument_list|(
@@ -87,7 +120,7 @@ literal|0x0
 argument_list|)
 end_macro
 begin_comment
-comment|/* Ð¾Ð */
+comment|/* Ð¾ Ð */
 end_comment
 begin_macro
 name|SCRIPT
@@ -129,7 +162,7 @@ literal|0x0
 argument_list|)
 end_macro
 begin_comment
-comment|/* Î¿Î */
+comment|/* Î¿ Î */
 end_comment
 begin_macro
 name|SCRIPT
@@ -152,6 +185,30 @@ end_macro
 begin_comment
 comment|/* × */
 end_comment
+begin_comment
+comment|/* only digit zero has a simple shape in the Lao script */
+end_comment
+begin_macro
+name|SCRIPT
+argument_list|(
+argument|lao
+argument_list|,
+argument|LAO
+argument_list|,
+literal|"Lao"
+argument_list|,
+argument|HB_SCRIPT_LAO
+argument_list|,
+literal|0xED0
+argument_list|,
+literal|0x0
+argument_list|,
+literal|0x0
+argument_list|)
+end_macro
+begin_comment
+comment|/* à» */
+end_comment
 begin_macro
 name|SCRIPT
 argument_list|(
@@ -170,6 +227,48 @@ argument_list|,
 literal|'0'
 argument_list|)
 end_macro
+begin_macro
+name|SCRIPT
+argument_list|(
+argument|latb
+argument_list|,
+argument|LATB
+argument_list|,
+literal|"Latin Subscript Fallback"
+argument_list|,
+argument|HB_SCRIPT_INVALID
+argument_list|,
+literal|0x2092
+argument_list|,
+literal|0x2080
+argument_list|,
+literal|0x0
+argument_list|)
+end_macro
+begin_comment
+comment|/* â â */
+end_comment
+begin_macro
+name|SCRIPT
+argument_list|(
+argument|latp
+argument_list|,
+argument|LATP
+argument_list|,
+literal|"Latin Superscript Fallback"
+argument_list|,
+argument|HB_SCRIPT_INVALID
+argument_list|,
+literal|0x1D52
+argument_list|,
+literal|0x1D3C
+argument_list|,
+literal|0x2070
+argument_list|)
+end_macro
+begin_comment
+comment|/* áµ á´¼ â° */
+end_comment
 begin_macro
 name|SCRIPT
 argument_list|(
@@ -211,6 +310,27 @@ argument_list|)
 end_macro
 begin_comment
 comment|/* à±¦ à±§ */
+end_comment
+begin_macro
+name|SCRIPT
+argument_list|(
+argument|thai
+argument_list|,
+argument|THAI
+argument_list|,
+literal|"Thai"
+argument_list|,
+argument|HB_SCRIPT_THAI
+argument_list|,
+literal|0xE32
+argument_list|,
+literal|0xE45
+argument_list|,
+literal|0xE50
+argument_list|)
+end_macro
+begin_comment
+comment|/* à¸² à¹ à¹ */
 end_comment
 begin_ifdef
 ifdef|#

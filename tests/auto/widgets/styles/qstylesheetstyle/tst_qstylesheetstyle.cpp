@@ -8601,7 +8601,7 @@ literal|100
 argument_list|)
 expr_stmt|;
 comment|// Test for QTBUG-7198 - style sheet overrides custom element size
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|opt
 decl_stmt|;
 name|opt
@@ -8615,7 +8615,7 @@ name|opt
 operator|.
 name|features
 operator||=
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|HasCheckIndicator
 expr_stmt|;

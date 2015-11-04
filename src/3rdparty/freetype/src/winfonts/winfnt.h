@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003, 2004, 2007 by                         */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */

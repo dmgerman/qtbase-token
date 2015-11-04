@@ -412,7 +412,7 @@ name|MouseEventResult
 block|{
 name|EventIsProcessed
 block|,
-name|EventShouldBePropogated
+name|EventShouldBePropagated
 block|,
 name|EventDiscardsSloppyState
 block|}
@@ -615,7 +615,7 @@ operator|!
 name|m_enabled
 condition|)
 return|return
-name|EventShouldBePropogated
+name|EventShouldBePropagated
 return|;
 if|if
 condition|(
@@ -638,7 +638,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 return|return
-name|EventShouldBePropogated
+name|EventShouldBePropagated
 return|;
 block|}
 name|QSetValueOnDestroy
@@ -706,7 +706,7 @@ argument_list|()
 condition|?
 name|EventIsProcessed
 else|:
-name|EventShouldBePropogated
+name|EventShouldBePropagated
 return|;
 block|}
 if|if
@@ -932,7 +932,7 @@ block|}
 return|return
 name|m_select_other_actions
 condition|?
-name|EventShouldBePropogated
+name|EventShouldBePropagated
 else|:
 name|EventIsProcessed
 return|;

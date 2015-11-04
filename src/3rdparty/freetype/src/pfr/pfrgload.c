@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2005, 2007, 2010, 2013 by                        */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -498,7 +498,7 @@ operator|!
 name|error
 condition|)
 block|{
-name|FT_UInt
+name|FT_Int
 name|n
 init|=
 name|outline
@@ -2302,8 +2302,8 @@ name|PFR_NEXT_SHORT
 argument_list|(
 name|p
 argument_list|)
-operator|<<
-literal|4
+operator|*
+literal|16
 expr_stmt|;
 block|}
 name|subglyph
@@ -2332,8 +2332,8 @@ name|PFR_NEXT_SHORT
 argument_list|(
 name|p
 argument_list|)
-operator|<<
-literal|4
+operator|*
+literal|16
 expr_stmt|;
 block|}
 comment|/* read offset */
@@ -2493,7 +2493,7 @@ name|subglyph
 operator|->
 name|gps_offset
 operator|=
-name|PFR_NEXT_LONG
+name|PFR_NEXT_ULONG
 argument_list|(
 name|p
 argument_list|)
@@ -2628,7 +2628,7 @@ operator|&
 name|PFR_GLYPH_IS_COMPOUND
 condition|)
 block|{
-name|FT_Int
+name|FT_UInt
 name|n
 decl_stmt|,
 name|old_count

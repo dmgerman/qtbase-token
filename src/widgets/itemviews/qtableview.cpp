@@ -3610,25 +3610,17 @@ literal|0
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-literal|"QTableView::setSpan: invalid span given: ("
-operator|<<
+argument_list|(
+literal|"QTableView::setSpan: invalid span given: (%d, %d, %d, %d)"
+argument_list|,
 name|row
-operator|<<
-literal|','
-operator|<<
+argument_list|,
 name|column
-operator|<<
-literal|','
-operator|<<
+argument_list|,
 name|rowSpan
-operator|<<
-literal|','
-operator|<<
+argument_list|,
 name|columnSpan
-operator|<<
-literal|')'
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -3670,9 +3662,9 @@ name|column
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QTableView::setSpan: span cannot overlap"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -3747,9 +3739,9 @@ literal|1
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QTableView::setSpan: single cell span won't be added"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

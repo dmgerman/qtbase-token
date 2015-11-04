@@ -18,10 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2012, 2014                                       */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
-comment|/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
+comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1120,7 +1120,7 @@ name|gxv_ctlPoint_validate
 argument_list|(
 argument|FT_UShort      gid
 argument_list|,
-argument|FT_Short       ctl_point
+argument|FT_UShort      ctl_point
 argument_list|,
 argument|GXV_Validator  gxvalid
 argument_list|)

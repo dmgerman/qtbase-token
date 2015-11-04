@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2014 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+comment|/*  Copyright 2005-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -115,7 +118,7 @@ name|FT_COMPONENT
 value|trace_gxvjust
 end_define
 begin_comment
-comment|/*    * referred `just' table format specification:    * http://developer.apple.com/fonts/TTRefMan/RM06/Chap6just.html    * last updated 2000.    * ----------------------------------------------    * [JUST HEADER]: GXV_JUST_HEADER_SIZE    * version     (fixed:  32bit) = 0x00010000    * format      (uint16: 16bit) = 0 is only defined (2000)    * horizOffset (uint16: 16bit)    * vertOffset  (uint16: 16bit)    * ----------------------------------------------    */
+comment|/*    * referred `just' table format specification:    * https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6just.html    * last updated 2000.    * ----------------------------------------------    * [JUST HEADER]: GXV_JUST_HEADER_SIZE    * version     (fixed:  32bit) = 0x00010000    * format      (uint16: 16bit) = 0 is only defined (2000)    * horizOffset (uint16: 16bit)    * vertOffset  (uint16: 16bit)    * ----------------------------------------------    */
 end_comment
 begin_typedef
 DECL|struct|GXV_just_DataRec_
@@ -380,9 +383,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -471,9 +479,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -558,9 +571,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -620,14 +638,14 @@ argument_list|)
 expr_stmt|;
 name|lowerLimit
 operator|=
-name|FT_NEXT_ULONG
+name|FT_NEXT_LONG
 argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
 name|upperLimit
 operator|=
-name|FT_NEXT_ULONG
+name|FT_NEXT_LONG
 argument_list|(
 name|p
 argument_list|)
@@ -721,9 +739,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -776,9 +799,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -887,9 +915,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -946,21 +979,21 @@ argument_list|)
 expr_stmt|;
 name|minimumLimit
 operator|=
-name|FT_NEXT_ULONG
+name|FT_NEXT_LONG
 argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
 name|noStretchValue
 operator|=
-name|FT_NEXT_ULONG
+name|FT_NEXT_LONG
 argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
 name|maximumLimit
 operator|=
-name|FT_NEXT_ULONG
+name|FT_NEXT_LONG
 argument_list|(
 name|p
 argument_list|)
@@ -969,9 +1002,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1109,9 +1147,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -1382,9 +1425,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -1579,9 +1627,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -2428,9 +2481,14 @@ name|gxv_odtect_add_range
 argument_list|(
 name|table
 argument_list|,
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 argument_list|,
 literal|"just header"
 argument_list|,

@@ -2102,6 +2102,9 @@ argument_list|)
 expr_stmt|;
 name|idx
 operator|+=
+operator|(
+name|CF2_UInt
+operator|)
 name|decoder
 operator|->
 name|globals_bias
@@ -2177,7 +2180,7 @@ name|cf2_getSeacComponent
 argument_list|(
 argument|CFF_Decoder*  decoder
 argument_list|,
-argument|CF2_UInt      code
+argument|CF2_Int       code
 argument_list|,
 argument|CF2_Buffer    buf
 argument_list|)
@@ -2207,6 +2210,34 @@ argument_list|(
 name|buf
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_CONFIG_OPTION_INCREMENTAL
+comment|/* Incremental fonts don't necessarily have valid charsets.        */
+comment|/* They use the character code, not the glyph index, in this case. */
+if|if
+condition|(
+name|decoder
+operator|->
+name|builder
+operator|.
+name|face
+operator|->
+name|root
+operator|.
+name|internal
+operator|->
+name|incremental_interface
+condition|)
+name|gid
+operator|=
+name|code
+expr_stmt|;
+else|else
+endif|#
+directive|endif
+comment|/* FT_CONFIG_OPTION_INCREMENTAL */
+block|{
 name|gid
 operator|=
 name|cff_lookup_glyph_by_stdcharcode
@@ -2230,6 +2261,7 @@ argument_list|(
 name|Invalid_Glyph_Format
 argument_list|)
 return|;
+block|}
 name|error
 operator|=
 name|cff_get_glyph_data
@@ -2240,6 +2272,9 @@ name|builder
 operator|.
 name|face
 argument_list|,
+operator|(
+name|CF2_UInt
+operator|)
 name|gid
 argument_list|,
 operator|&
@@ -2381,6 +2416,9 @@ argument_list|)
 expr_stmt|;
 name|idx
 operator|+=
+operator|(
+name|CF2_UInt
+operator|)
 name|decoder
 operator|->
 name|locals_bias

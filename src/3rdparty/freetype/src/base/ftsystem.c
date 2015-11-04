@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2002, 2006, 2008-2011, 2013 by                          */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -215,6 +215,9 @@ expr_stmt|;
 return|return
 name|ft_smalloc
 argument_list|(
+operator|(
+name|size_t
+operator|)
 name|size
 argument_list|)
 return|;
@@ -316,6 +319,9 @@ name|ft_srealloc
 argument_list|(
 name|block
 argument_list|,
+operator|(
+name|size_t
+operator|)
 name|new_size
 argument_list|)
 return|;
@@ -530,7 +536,7 @@ name|stream
 operator|->
 name|base
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -658,6 +664,9 @@ name|ft_fseek
 argument_list|(
 name|file
 argument_list|,
+operator|(
+name|long
+operator|)
 name|offset
 argument_list|,
 name|SEEK_SET
@@ -740,7 +749,7 @@ name|stream
 operator|->
 name|base
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|stream
 operator|->
@@ -805,6 +814,10 @@ name|stream
 operator|->
 name|size
 operator|=
+operator|(
+name|unsigned
+name|long
+operator|)
 name|ft_ftell
 argument_list|(
 name|file
@@ -980,7 +993,7 @@ name|memory
 operator|->
 name|user
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|memory
 operator|->

@@ -90,12 +90,8 @@ argument_list|(
 name|function
 argument_list|)
 expr_stmt|;
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 block|}
 end_function
@@ -107,12 +103,8 @@ operator|::
 name|handle
 parameter_list|()
 block|{
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 return|return
 literal|0
@@ -160,12 +152,8 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 return|return
 literal|0
@@ -192,12 +180,8 @@ operator|::
 name|cleanHandle
 parameter_list|()
 block|{
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 return|return
 literal|true
@@ -220,12 +204,8 @@ argument_list|(
 name|size
 argument_list|)
 expr_stmt|;
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 return|return
 literal|false
@@ -250,12 +230,8 @@ argument_list|(
 name|mode
 argument_list|)
 expr_stmt|;
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 return|return
 literal|false
@@ -270,12 +246,8 @@ operator|::
 name|detach
 parameter_list|()
 block|{
-name|qWarning
+name|Q_UNIMPLEMENTED
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"Not yet implemented on Android"
 expr_stmt|;
 return|return
 literal|false

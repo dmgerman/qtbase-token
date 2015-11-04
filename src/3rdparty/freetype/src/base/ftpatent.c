@@ -21,7 +21,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2007, 2008, 2010 by David Turner.                            */
+comment|/*  Copyright 2007-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  David Turner.                                                          */
 end_comment
 begin_comment
 comment|/*                                                                         */

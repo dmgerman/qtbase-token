@@ -2422,7 +2422,7 @@ block|}
 block|}
 comment|/* make room to insert */
 block|{
-name|CF2_Int
+name|CF2_UInt
 name|iSrc
 init|=
 name|hintmap
@@ -2431,7 +2431,7 @@ name|count
 operator|-
 literal|1
 decl_stmt|;
-name|CF2_Int
+name|CF2_UInt
 name|iDst
 init|=
 name|isPair
@@ -2446,7 +2446,7 @@ name|hintmap
 operator|->
 name|count
 decl_stmt|;
-name|CF2_Int
+name|CF2_UInt
 name|count
 init|=
 name|hintmap

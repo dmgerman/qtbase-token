@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002-2010, 2012-2014 by                                      */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -191,6 +191,21 @@ directive|define
 name|TT_NEXT_ULONG
 value|FT_NEXT_ULONG
 end_define
+begin_comment
+comment|/* Too large glyph index return values are caught in `FT_Get_Char_Index' */
+end_comment
+begin_comment
+comment|/* and `FT_Get_Next_Char' (the latter calls the internal `next' function */
+end_comment
+begin_comment
+comment|/* again in this case).  To mark character code return values as invalid */
+end_comment
+begin_comment
+comment|/* it is sufficient to set the corresponding glyph index return value to */
+end_comment
+begin_comment
+comment|/* zero.                                                                 */
+end_comment
 begin_macro
 DECL|function|FT_CALLBACK_DEF
 name|FT_CALLBACK_DEF
@@ -645,7 +660,7 @@ begin_comment
 comment|/***** This is used for certain CJK encodings that encode text in a  *****/
 end_comment
 begin_comment
-comment|/***** mixed 8/16 bits encoding along the following lines:           *****/
+comment|/***** mixed 8/16 bits encoding along the following lines.           *****/
 end_comment
 begin_comment
 comment|/*****                                                               *****/
@@ -675,13 +690,13 @@ begin_comment
 comment|/***** The following charmap lookup and iteration functions all      *****/
 end_comment
 begin_comment
-comment|/***** assume that the value "charcode" correspond to following:     *****/
+comment|/***** assume that the value `charcode' fulfills the following.      *****/
 end_comment
 begin_comment
 comment|/*****                                                               *****/
 end_comment
 begin_comment
-comment|/*****   - For one byte characters, "charcode" is simply the         *****/
+comment|/*****   - For one byte characters, `charcode' is simply the         *****/
 end_comment
 begin_comment
 comment|/*****     character code.                                           *****/
@@ -690,10 +705,10 @@ begin_comment
 comment|/*****                                                               *****/
 end_comment
 begin_comment
-comment|/*****   - For two byte characters, "charcode" is the 2-byte         *****/
+comment|/*****   - For two byte characters, `charcode' is the 2-byte         *****/
 end_comment
 begin_comment
-comment|/*****     character code in big endian format.  More exactly:       *****/
+comment|/*****     character code in big endian format.  More precisely:     *****/
 end_comment
 begin_comment
 comment|/*****                                                               *****/
@@ -708,10 +723,10 @@ begin_comment
 comment|/*****                                                               *****/
 end_comment
 begin_comment
-comment|/***** Note that not all values of "charcode" are valid according    *****/
+comment|/***** Note that not all values of `charcode' are valid according    *****/
 end_comment
 begin_comment
-comment|/***** to these rules, and the function moderately check the         *****/
+comment|/***** to these rules, and the function moderately checks the        *****/
 end_comment
 begin_comment
 comment|/***** arguments.                                                    *****/
@@ -792,7 +807,7 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* Each sub-header has the following format:                             */
+comment|/* Each sub-header has the following format.                             */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -837,7 +852,7 @@ begin_comment
 comment|/* If a character code is contained within a given sub-header, then      */
 end_comment
 begin_comment
-comment|/* mapping it to a glyph index is done as follows:                       */
+comment|/* mapping it to a glyph index is done as follows.                       */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -849,7 +864,7 @@ begin_comment
 comment|/*   location of the `offset' field itself into a slice of the           */
 end_comment
 begin_comment
-comment|/*   `glyph_ids' table.  Let's call it `slice' (it is a USHORT[] too).   */
+comment|/*   `glyph_ids' table.  Let's call it `slice' (it is a USHORT[], too).  */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1251,11 +1266,17 @@ condition|)
 block|{
 name|idx
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 operator|(
+name|FT_Int
+operator|)
 name|idx
 operator|+
 name|delta
-operator|)
+argument_list|)
 operator|&
 literal|0xFFFFU
 expr_stmt|;
@@ -1595,6 +1616,9 @@ call|(
 name|FT_UInt
 call|)
 argument_list|(
+operator|(
+name|FT_Int
+operator|)
 name|idx
 operator|+
 name|delta
@@ -1818,11 +1842,17 @@ condition|)
 block|{
 name|gindex
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 operator|(
+name|FT_Int
+operator|)
 name|idx
 operator|+
 name|delta
-operator|)
+argument_list|)
 operator|&
 literal|0xFFFFU
 expr_stmt|;
@@ -2657,13 +2687,14 @@ name|FT_UInt
 call|)
 argument_list|(
 operator|(
+name|FT_Int
+operator|)
 name|gindex
 operator|+
 name|delta
-operator|)
+argument_list|)
 operator|&
 literal|0xFFFFU
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2709,13 +2740,14 @@ name|FT_UInt
 call|)
 argument_list|(
 operator|(
+name|FT_Int
+operator|)
 name|charcode
 operator|+
 name|delta
-operator|)
+argument_list|)
 operator|&
 literal|0xFFFFU
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -3342,7 +3374,7 @@ comment|/* set all fields but `start' and `end' for the last   */
 comment|/* segment if it contains only a single character.     */
 comment|/*                                                     */
 comment|/* We thus omit the test here, delaying it to the      */
-comment|/* routines which actually access the cmap.            */
+comment|/* routines that actually access the cmap.             */
 elseif|else
 if|if
 condition|(
@@ -3438,6 +3470,9 @@ call|(
 name|FT_UInt
 call|)
 argument_list|(
+operator|(
+name|FT_Int
+operator|)
 name|idx
 operator|+
 name|delta
@@ -3531,6 +3566,32 @@ name|FT_Bool
 name|next
 parameter_list|)
 block|{
+name|TT_Face
+name|face
+init|=
+operator|(
+name|TT_Face
+operator|)
+name|cmap
+operator|->
+name|cmap
+operator|.
+name|charmap
+operator|.
+name|face
+decl_stmt|;
+name|FT_Byte
+modifier|*
+name|limit
+init|=
+name|face
+operator|->
+name|cmap_table
+operator|+
+name|face
+operator|->
+name|cmap_size
+decl_stmt|;
 name|FT_UInt
 name|num_segs2
 decl_stmt|,
@@ -3562,6 +3623,10 @@ decl_stmt|;
 name|FT_Byte
 modifier|*
 name|p
+decl_stmt|;
+name|FT_Byte
+modifier|*
+name|q
 decl_stmt|;
 name|p
 operator|=
@@ -3604,22 +3669,16 @@ condition|)
 name|charcode
 operator|++
 expr_stmt|;
-comment|/* linear search */
-for|for
-control|(
-init|;
+if|if
+condition|(
 name|charcode
-operator|<=
+operator|>
 literal|0xFFFFU
-condition|;
-name|charcode
-operator|++
-control|)
-block|{
-name|FT_Byte
-modifier|*
-name|q
-decl_stmt|;
+condition|)
+return|return
+literal|0
+return|;
+comment|/* linear search */
 name|p
 operator|=
 name|cmap
@@ -3671,15 +3730,35 @@ expr_stmt|;
 if|if
 condition|(
 name|charcode
-operator|>=
+operator|<
 name|start
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
+name|next
+condition|)
+name|charcode
+operator|=
+name|start
+expr_stmt|;
+else|else
+break|break;
+block|}
+name|Again
+label|:
+if|if
+condition|(
 name|charcode
 operator|<=
 name|end
 condition|)
 block|{
-name|p
+name|FT_Byte
+modifier|*
+name|r
+decl_stmt|;
+name|r
 operator|=
 name|q
 operator|-
@@ -3691,10 +3770,10 @@ name|delta
 operator|=
 name|TT_PEEK_SHORT
 argument_list|(
-name|p
+name|r
 argument_list|)
 expr_stmt|;
-name|p
+name|r
 operator|+=
 name|num_segs2
 expr_stmt|;
@@ -3702,7 +3781,7 @@ name|offset
 operator|=
 name|TT_PEEK_USHORT
 argument_list|(
-name|p
+name|r
 argument_list|)
 expr_stmt|;
 comment|/* some fonts have an incorrect last segment; */
@@ -3724,37 +3803,11 @@ operator|==
 literal|0xFFFFU
 condition|)
 block|{
-name|TT_Face
-name|face
-init|=
-operator|(
-name|TT_Face
-operator|)
-name|cmap
-operator|->
-name|cmap
-operator|.
-name|charmap
-operator|.
-name|face
-decl_stmt|;
-name|FT_Byte
-modifier|*
-name|limit
-init|=
-name|face
-operator|->
-name|cmap_table
-operator|+
-name|face
-operator|->
-name|cmap_size
-decl_stmt|;
 if|if
 condition|(
 name|offset
 operator|&&
-name|p
+name|r
 operator|+
 name|offset
 operator|+
@@ -3785,7 +3838,7 @@ condition|(
 name|offset
 condition|)
 block|{
-name|p
+name|r
 operator|+=
 name|offset
 operator|+
@@ -3797,25 +3850,37 @@ operator|)
 operator|*
 literal|2
 expr_stmt|;
+comment|/* if r> limit, the whole segment is invalid */
+if|if
+condition|(
+name|next
+operator|&&
+name|r
+operator|>
+name|limit
+condition|)
+continue|continue;
 name|gindex
 operator|=
 name|TT_PEEK_USHORT
 argument_list|(
-name|p
+name|r
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|gindex
-operator|!=
-literal|0
 condition|)
+block|{
 name|gindex
 operator|=
 call|(
 name|FT_UInt
 call|)
 argument_list|(
+operator|(
+name|FT_Int
+operator|)
 name|gindex
 operator|+
 name|delta
@@ -3823,14 +3888,36 @@ argument_list|)
 operator|&
 literal|0xFFFFU
 expr_stmt|;
+if|if
+condition|(
+name|gindex
+operator|>=
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|root
+operator|.
+name|num_glyphs
+condition|)
+name|gindex
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 else|else
+block|{
 name|gindex
 operator|=
 call|(
 name|FT_UInt
 call|)
 argument_list|(
+operator|(
+name|FT_Int
+operator|)
 name|charcode
 operator|+
 name|delta
@@ -3838,23 +3925,123 @@ argument_list|)
 operator|&
 literal|0xFFFFU
 expr_stmt|;
-break|break;
-block|}
-block|}
-if|if
-condition|(
-operator|!
-name|next
-operator|||
-name|gindex
-condition|)
-break|break;
-block|}
 if|if
 condition|(
 name|next
 operator|&&
 name|gindex
+operator|>=
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|root
+operator|.
+name|num_glyphs
+condition|)
+block|{
+comment|/* we have an invalid glyph index; if there is an overflow, */
+comment|/* we can adjust `charcode', otherwise the whole segment is */
+comment|/* invalid                                                  */
+name|gindex
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|FT_Int
+operator|)
+name|charcode
+operator|+
+name|delta
+operator|<
+literal|0
+operator|&&
+operator|(
+name|FT_Int
+operator|)
+name|end
+operator|+
+name|delta
+operator|>=
+literal|0
+condition|)
+name|charcode
+operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
+operator|-
+name|delta
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+operator|(
+name|FT_Int
+operator|)
+name|charcode
+operator|+
+name|delta
+operator|<
+literal|0x10000L
+operator|&&
+operator|(
+name|FT_Int
+operator|)
+name|end
+operator|+
+name|delta
+operator|>=
+literal|0x10000L
+condition|)
+name|charcode
+operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
+literal|0x10000L
+operator|-
+name|delta
+argument_list|)
+expr_stmt|;
+else|else
+continue|continue;
+block|}
+block|}
+if|if
+condition|(
+name|next
+operator|&&
+operator|!
+name|gindex
+condition|)
+block|{
+if|if
+condition|(
+name|charcode
+operator|>=
+literal|0xFFFFU
+condition|)
+break|break;
+name|charcode
+operator|++
+expr_stmt|;
+goto|goto
+name|Again
+goto|;
+block|}
+break|break;
+block|}
+block|}
+if|if
+condition|(
+name|next
 condition|)
 operator|*
 name|pcharcode
@@ -4595,6 +4782,9 @@ call|(
 name|FT_UInt
 call|)
 argument_list|(
+operator|(
+name|FT_Int
+operator|)
 name|gindex
 operator|+
 name|delta
@@ -4610,6 +4800,9 @@ call|(
 name|FT_UInt
 call|)
 argument_list|(
+operator|(
+name|FT_Int
+operator|)
 name|charcode
 operator|+
 name|delta
@@ -4635,7 +4828,6 @@ name|cmap
 decl_stmt|;
 comment|/* if `charcode' is not in any segment, then `mid' is */
 comment|/* the segment nearest to `charcode'                  */
-comment|/*                                                    */
 if|if
 condition|(
 name|charcode
@@ -5034,7 +5226,7 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*   format       0              USHORT           must be 4              */
+comment|/*   format       0              USHORT           must be 6              */
 end_comment
 begin_comment
 comment|/*   length       2              USHORT           table length in bytes  */
@@ -5370,9 +5562,9 @@ name|char_code
 operator|>=
 literal|0x10000UL
 condition|)
-goto|goto
-name|Exit
-goto|;
+return|return
+literal|0
+return|;
 if|if
 condition|(
 name|char_code
@@ -5431,12 +5623,19 @@ name|char_code
 expr_stmt|;
 break|break;
 block|}
+if|if
+condition|(
+name|char_code
+operator|>=
+literal|0xFFFFU
+condition|)
+return|return
+literal|0
+return|;
 name|char_code
 operator|++
 expr_stmt|;
 block|}
-name|Exit
-label|:
 operator|*
 name|pchar_code
 operator|=
@@ -5567,7 +5766,7 @@ begin_comment
 comment|/***** glyph indices.  Basically, the `char_code' must be in one of  *****/
 end_comment
 begin_comment
-comment|/***** the following formats:                                        *****/
+comment|/***** the following formats.                                        *****/
 end_comment
 begin_comment
 comment|/*****                                                               *****/
@@ -5606,7 +5805,7 @@ begin_comment
 comment|/*****                                                               *****/
 end_comment
 begin_comment
-comment|/***** So, for any given `char_code', we can assert the following:   *****/
+comment|/***** So, for any given `char_code', we can assert the following.   *****/
 end_comment
 begin_comment
 comment|/*****                                                               *****/
@@ -6218,6 +6417,21 @@ operator|<=
 name|end
 condition|)
 block|{
+if|if
+condition|(
+name|start_id
+operator|>
+literal|0xFFFFFFFFUL
+operator|-
+operator|(
+name|char_code
+operator|-
+name|start
+operator|)
+condition|)
+return|return
+literal|0
+return|;
 name|result
 operator|=
 call|(
@@ -6226,9 +6440,11 @@ call|)
 argument_list|(
 name|start_id
 operator|+
+operator|(
 name|char_code
 operator|-
 name|start
+operator|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -6256,6 +6472,17 @@ argument_list|)
 end_macro
 begin_block
 block|{
+name|FT_Face
+name|face
+init|=
+name|cmap
+operator|->
+name|cmap
+operator|.
+name|charmap
+operator|.
+name|face
+decl_stmt|;
 name|FT_UInt32
 name|result
 init|=
@@ -6263,11 +6490,6 @@ literal|0
 decl_stmt|;
 name|FT_UInt32
 name|char_code
-init|=
-operator|*
-name|pchar_code
-operator|+
-literal|1
 decl_stmt|;
 name|FT_UInt
 name|gindex
@@ -6305,6 +6527,23 @@ name|end
 decl_stmt|,
 name|start_id
 decl_stmt|;
+if|if
+condition|(
+operator|*
+name|pchar_code
+operator|>=
+literal|0xFFFFFFFFUL
+condition|)
+return|return
+literal|0
+return|;
+name|char_code
+operator|=
+operator|*
+name|pchar_code
+operator|+
+literal|1
+expr_stmt|;
 name|p
 operator|=
 name|table
@@ -6353,6 +6592,8 @@ name|char_code
 operator|=
 name|start
 expr_stmt|;
+name|Again
+label|:
 if|if
 condition|(
 name|char_code
@@ -6360,38 +6601,78 @@ operator|<=
 name|end
 condition|)
 block|{
+comment|/* ignore invalid group */
+if|if
+condition|(
+name|start_id
+operator|>
+literal|0xFFFFFFFFUL
+operator|-
+operator|(
+name|char_code
+operator|-
+name|start
+operator|)
+condition|)
+continue|continue;
 name|gindex
 operator|=
 call|(
 name|FT_UInt
 call|)
 argument_list|(
+name|start_id
+operator|+
+operator|(
 name|char_code
 operator|-
 name|start
-operator|+
-name|start_id
+operator|)
 argument_list|)
 expr_stmt|;
+comment|/* does first element of group point to `.notdef' glyph? */
 if|if
 condition|(
 name|gindex
-operator|!=
+operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|char_code
+operator|>=
+literal|0xFFFFFFFFUL
+condition|)
+break|break;
+name|char_code
+operator|++
+expr_stmt|;
+goto|goto
+name|Again
+goto|;
+block|}
+comment|/* if `gindex' is invalid, the remaining values */
+comment|/* in this group are invalid, too               */
+if|if
+condition|(
+name|gindex
+operator|>=
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|num_glyphs
+condition|)
+continue|continue;
 name|result
 operator|=
 name|char_code
 expr_stmt|;
-goto|goto
-name|Exit
-goto|;
+break|break;
 block|}
 block|}
-block|}
-name|Exit
-label|:
 operator|*
 name|pchar_code
 operator|=
@@ -6764,16 +7045,22 @@ argument_list|)
 decl_stmt|;
 name|FT_UInt32
 name|idx
-init|=
-call|(
-name|FT_ULong
-call|)
-argument_list|(
+decl_stmt|;
+if|if
+condition|(
+name|char_code
+operator|<
+name|start
+condition|)
+return|return
+literal|0
+return|;
+name|idx
+operator|=
 name|char_code
 operator|-
 name|start
-argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|idx
@@ -6827,11 +7114,6 @@ name|data
 decl_stmt|;
 name|FT_UInt32
 name|char_code
-init|=
-operator|*
-name|pchar_code
-operator|+
-literal|1
 decl_stmt|;
 name|FT_UInt
 name|gindex
@@ -6867,6 +7149,23 @@ name|idx
 decl_stmt|;
 if|if
 condition|(
+operator|*
+name|pchar_code
+operator|>=
+literal|0xFFFFFFFFUL
+condition|)
+return|return
+literal|0
+return|;
+name|char_code
+operator|=
+operator|*
+name|pchar_code
+operator|+
+literal|1
+expr_stmt|;
+if|if
+condition|(
 name|char_code
 operator|<
 name|start
@@ -6877,14 +7176,9 @@ name|start
 expr_stmt|;
 name|idx
 operator|=
-call|(
-name|FT_UInt32
-call|)
-argument_list|(
 name|char_code
 operator|-
 name|start
-argument_list|)
 expr_stmt|;
 name|p
 operator|+=
@@ -6917,6 +7211,15 @@ operator|!=
 literal|0
 condition|)
 break|break;
+if|if
+condition|(
+name|char_code
+operator|>=
+literal|0xFFFFFFFFUL
+condition|)
+return|return
+literal|0
+return|;
 name|char_code
 operator|++
 expr_stmt|;
@@ -7429,6 +7732,19 @@ name|TT_CMap12
 name|cmap
 parameter_list|)
 block|{
+name|FT_Face
+name|face
+init|=
+name|cmap
+operator|->
+name|cmap
+operator|.
+name|cmap
+operator|.
+name|charmap
+operator|.
+name|face
+decl_stmt|;
 name|FT_Byte
 modifier|*
 name|p
@@ -7530,17 +7846,29 @@ name|char_code
 operator|=
 name|start
 expr_stmt|;
-for|for
-control|(
-init|;
+name|Again
+label|:
+if|if
+condition|(
 name|char_code
 operator|<=
 name|end
-condition|;
-name|char_code
-operator|++
-control|)
+condition|)
 block|{
+comment|/* ignore invalid group */
+if|if
+condition|(
+name|start_id
+operator|>
+literal|0xFFFFFFFFUL
+operator|-
+operator|(
+name|char_code
+operator|-
+name|start
+operator|)
+condition|)
+continue|continue;
 name|gindex
 operator|=
 call|(
@@ -7549,23 +7877,57 @@ call|)
 argument_list|(
 name|start_id
 operator|+
+operator|(
 name|char_code
 operator|-
 name|start
+operator|)
 argument_list|)
 expr_stmt|;
+comment|/* does first element of group point to `.notdef' glyph? */
 if|if
 condition|(
 name|gindex
+operator|==
+literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|char_code
+operator|>=
+literal|0xFFFFFFFFUL
+condition|)
+goto|goto
+name|Fail
+goto|;
+name|char_code
+operator|++
+expr_stmt|;
+goto|goto
+name|Again
+goto|;
+block|}
+comment|/* if `gindex' is invalid, the remaining values */
+comment|/* in this group are invalid, too               */
+if|if
+condition|(
+name|gindex
+operator|>=
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|num_glyphs
+condition|)
+continue|continue;
 name|cmap
 operator|->
 name|cur_charcode
 operator|=
 name|char_code
 expr_stmt|;
-empty_stmt|;
 name|cmap
 operator|->
 name|cur_gindex
@@ -7579,7 +7941,6 @@ operator|=
 name|n
 expr_stmt|;
 return|return;
-block|}
 block|}
 block|}
 name|Fail
@@ -7673,9 +8034,20 @@ if|if
 condition|(
 name|next
 condition|)
+block|{
+if|if
+condition|(
+name|char_code
+operator|>=
+literal|0xFFFFFFFFUL
+condition|)
+return|return
+literal|0
+return|;
 name|char_code
 operator|++
 expr_stmt|;
+block|}
 name|min
 operator|=
 literal|0
@@ -7760,6 +8132,24 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+comment|/* reject invalid glyph index */
+if|if
+condition|(
+name|start_id
+operator|>
+literal|0xFFFFFFFFUL
+operator|-
+operator|(
+name|char_code
+operator|-
+name|start
+operator|)
+condition|)
+name|gindex
+operator|=
+literal|0
+expr_stmt|;
+else|else
 name|gindex
 operator|=
 call|(
@@ -7768,9 +8158,11 @@ call|)
 argument_list|(
 name|start_id
 operator|+
+operator|(
 name|char_code
 operator|-
 name|start
+operator|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -7781,6 +8173,17 @@ condition|(
 name|next
 condition|)
 block|{
+name|FT_Face
+name|face
+init|=
+name|cmap
+operator|->
+name|cmap
+operator|.
+name|charmap
+operator|.
+name|face
+decl_stmt|;
 name|TT_CMap12
 name|cmap12
 init|=
@@ -7791,7 +8194,6 @@ name|cmap
 decl_stmt|;
 comment|/* if `char_code' is not in any group, then `mid' is */
 comment|/* the group nearest to `char_code'                  */
-comment|/*                                                   */
 if|if
 condition|(
 name|char_code
@@ -7832,6 +8234,21 @@ name|mid
 expr_stmt|;
 if|if
 condition|(
+name|gindex
+operator|>=
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|num_glyphs
+condition|)
+name|gindex
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|gindex
 condition|)
@@ -7861,10 +8278,6 @@ name|cur_gindex
 operator|=
 name|gindex
 expr_stmt|;
-if|if
-condition|(
-name|gindex
-condition|)
 operator|*
 name|pchar_code
 operator|=
@@ -7933,20 +8346,9 @@ name|TT_CMap12
 operator|)
 name|cmap
 decl_stmt|;
-name|FT_ULong
+name|FT_UInt
 name|gindex
 decl_stmt|;
-if|if
-condition|(
-name|cmap12
-operator|->
-name|cur_charcode
-operator|>=
-literal|0xFFFFFFFFUL
-condition|)
-return|return
-literal|0
-return|;
 comment|/* no need to search */
 if|if
 condition|(
@@ -7980,11 +8382,6 @@ name|cmap12
 operator|->
 name|cur_gindex
 expr_stmt|;
-comment|/* XXX: check cur_charcode overflow is expected */
-if|if
-condition|(
-name|gindex
-condition|)
 operator|*
 name|pchar_code
 operator|=
@@ -8014,11 +8411,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-comment|/* XXX: check gindex overflow is expected */
 return|return
-operator|(
-name|FT_UInt32
-operator|)
 name|gindex
 return|;
 block|}
@@ -8504,6 +8897,19 @@ name|TT_CMap13
 name|cmap
 parameter_list|)
 block|{
+name|FT_Face
+name|face
+init|=
+name|cmap
+operator|->
+name|cmap
+operator|.
+name|cmap
+operator|.
+name|charmap
+operator|.
+name|face
+decl_stmt|;
 name|FT_Byte
 modifier|*
 name|p
@@ -8622,6 +9028,15 @@ expr_stmt|;
 if|if
 condition|(
 name|gindex
+operator|&&
+name|gindex
+operator|<
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|num_glyphs
 condition|)
 block|{
 name|cmap
@@ -8630,7 +9045,6 @@ name|cur_charcode
 operator|=
 name|char_code
 expr_stmt|;
-empty_stmt|;
 name|cmap
 operator|->
 name|cur_gindex
@@ -8736,9 +9150,20 @@ if|if
 condition|(
 name|next
 condition|)
+block|{
+if|if
+condition|(
+name|char_code
+operator|>=
+literal|0xFFFFFFFFUL
+condition|)
+return|return
+literal|0
+return|;
 name|char_code
 operator|++
 expr_stmt|;
+block|}
 name|min
 operator|=
 literal|0
@@ -8834,6 +9259,17 @@ condition|(
 name|next
 condition|)
 block|{
+name|FT_Face
+name|face
+init|=
+name|cmap
+operator|->
+name|cmap
+operator|.
+name|charmap
+operator|.
+name|face
+decl_stmt|;
 name|TT_CMap13
 name|cmap13
 init|=
@@ -8884,6 +9320,21 @@ name|mid
 expr_stmt|;
 if|if
 condition|(
+name|gindex
+operator|>=
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|num_glyphs
+condition|)
+name|gindex
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|gindex
 condition|)
@@ -8913,10 +9364,6 @@ name|cur_gindex
 operator|=
 name|gindex
 expr_stmt|;
-if|if
-condition|(
-name|gindex
-condition|)
 operator|*
 name|pchar_code
 operator|=
@@ -8988,17 +9435,6 @@ decl_stmt|;
 name|FT_UInt
 name|gindex
 decl_stmt|;
-if|if
-condition|(
-name|cmap13
-operator|->
-name|cur_charcode
-operator|>=
-literal|0xFFFFFFFFUL
-condition|)
-return|return
-literal|0
-return|;
 comment|/* no need to search */
 if|if
 condition|(
@@ -9032,10 +9468,6 @@ name|cmap13
 operator|->
 name|cur_gindex
 expr_stmt|;
-if|if
-condition|(
-name|gindex
-condition|)
 operator|*
 name|pchar_code
 operator|=

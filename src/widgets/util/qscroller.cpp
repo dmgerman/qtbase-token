@@ -8417,9 +8417,9 @@ name|timerEventWhileScrolling
 parameter_list|()
 block|{
 name|qScrollerDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QScroller::timerEventWhileScrolling()"
+argument_list|)
 expr_stmt|;
 name|setContentPositionHelperScrolling
 argument_list|()

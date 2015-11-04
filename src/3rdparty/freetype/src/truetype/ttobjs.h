@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2009, 2011-2014 by                                      */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -107,39 +107,6 @@ name|struct
 name|TT_DriverRec_
 modifier|*
 name|TT_Driver
-typedef|;
-end_typedef
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<Type>                                                                */
-end_comment
-begin_comment
-comment|/*    TT_Instance                                                        */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<Description>                                                         */
-end_comment
-begin_comment
-comment|/*    A handle to a TrueType size object.                                */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_typedef
-DECL|typedef|TT_Size
-typedef|typedef
-name|struct
-name|TT_SizeRec_
-modifier|*
-name|TT_Size
 typedef|;
 end_typedef
 begin_comment
@@ -452,7 +419,7 @@ modifier|*
 name|base
 decl_stmt|;
 DECL|member|size
-name|FT_ULong
+name|FT_Long
 name|size
 decl_stmt|;
 block|}
@@ -936,14 +903,6 @@ name|TT_GlyphZoneRec
 name|twilight
 decl_stmt|;
 comment|/* The instance's twilight zone    */
-comment|/* debugging variables */
-comment|/* When using the debugger, we must keep the */
-comment|/* execution context tied to the instance    */
-comment|/* object rather than asking it on demand.   */
-DECL|member|debug
-name|FT_Bool
-name|debug
-decl_stmt|;
 DECL|member|context
 name|TT_ExecContext
 name|context
@@ -988,11 +947,6 @@ DECL|member|root
 name|FT_DriverRec
 name|root
 decl_stmt|;
-DECL|member|context
-name|TT_ExecContext
-name|context
-decl_stmt|;
-comment|/* execution context        */
 DECL|member|zone
 name|TT_GlyphZoneRec
 name|zone

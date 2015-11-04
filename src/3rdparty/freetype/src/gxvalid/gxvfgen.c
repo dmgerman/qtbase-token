@@ -21,7 +21,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006 by Masatake YAMATO and Redhat K.K.          */
+comment|/*  Copyright 2004-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  Masatake YAMATO and Redhat K.K.                                        */
 end_comment
 begin_comment
 comment|/*                                                                         */

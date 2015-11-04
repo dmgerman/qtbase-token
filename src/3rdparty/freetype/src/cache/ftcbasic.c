@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2007, 2009-2011, 2013, 2014 by                          */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -147,7 +147,7 @@ parameter_list|(
 name|a
 parameter_list|)
 define|\
-value|( FTC_SCALER_HASH(&(a)->scaler ) + 31*(a)->load_flags )
+value|( FTC_SCALER_HASH(&(a)->scaler ) + 31 * (a)->load_flags )
 end_define
 begin_typedef
 DECL|struct|FTC_BasicQueryRec_
@@ -495,6 +495,9 @@ name|face
 argument_list|,
 name|gindex
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|family
 operator|->
 name|attrs
@@ -603,6 +606,9 @@ name|face
 argument_list|,
 name|gindex
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|family
 operator|->
 name|attrs
@@ -921,7 +927,7 @@ comment|/* make compiler happy */
 name|FT_Error
 name|error
 decl_stmt|;
-name|FT_PtrDist
+name|FT_Offset
 name|hash
 decl_stmt|;
 comment|/* some argument checks are delayed to `FTC_Cache_Lookup' */
@@ -977,6 +983,9 @@ operator|(
 literal|"FTC_ImageCache_Lookup:"
 literal|" higher bits in load_flags 0x%x are dropped\n"
 operator|,
+operator|(
+name|FT_ULong
+operator|)
 name|type
 operator|->
 name|flags
@@ -1214,7 +1223,7 @@ comment|/* make compiler happy */
 name|FT_Error
 name|error
 decl_stmt|;
-name|FT_PtrDist
+name|FT_Offset
 name|hash
 decl_stmt|;
 comment|/* some argument checks are delayed to `FTC_Cache_Lookup' */
@@ -1517,7 +1526,7 @@ init|=
 literal|0
 decl_stmt|;
 comment|/* make compiler happy */
-name|FT_PtrDist
+name|FT_Offset
 name|hash
 decl_stmt|;
 if|if
@@ -1567,6 +1576,9 @@ operator|(
 literal|"FTC_ImageCache_Lookup:"
 literal|" higher bits in load_flags 0x%x are dropped\n"
 operator|,
+operator|(
+name|FT_ULong
+operator|)
 name|type
 operator|->
 name|flags
@@ -1818,7 +1830,7 @@ init|=
 literal|0
 decl_stmt|;
 comment|/* make compiler happy */
-name|FT_PtrDist
+name|FT_Offset
 name|hash
 decl_stmt|;
 if|if

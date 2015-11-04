@@ -1215,7 +1215,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QBitArray      Returns a bit array that is the AND of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 12      \sa QBitArray::operator&=(), operator|(), operator^() */
+comment|/*!     \relates QBitArray      Returns a bit array that is the AND of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 12      \sa {QBitArray::}{operator&=()}, {QBitArray::}{operator|()}, {QBitArray::}{operator^()} */
 end_comment
 begin_function
 DECL|function|operator &
@@ -1283,7 +1283,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QBitArray      Returns a bit array that is the XOR of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 14      \sa QBitArray::operator^=(), operator&(), operator|() */
+comment|/*!     \relates QBitArray      Returns a bit array that is the XOR of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 14      \sa {QBitArray}{operator^=()}, {QBitArray}{operator&()}, {QBitArray}{operator|()} */
 end_comment
 begin_function
 DECL|function|operator ^

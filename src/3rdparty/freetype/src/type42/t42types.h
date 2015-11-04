@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006, 2008 by Roberto Alameda.                   */
+comment|/*  Copyright 2002-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  Roberto Alameda.                                                       */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -121,7 +124,7 @@ modifier|*
 name|ttf_data
 decl_stmt|;
 DECL|member|ttf_size
-name|FT_ULong
+name|FT_Long
 name|ttf_size
 decl_stmt|;
 DECL|member|ttf_face

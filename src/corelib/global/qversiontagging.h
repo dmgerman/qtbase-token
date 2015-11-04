@@ -51,6 +51,12 @@ name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
 if|#
 directive|if
 name|defined

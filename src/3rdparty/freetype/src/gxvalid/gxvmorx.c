@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2008, 2013 by                                          */
+comment|/*  Copyright 2005-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
@@ -350,9 +350,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;

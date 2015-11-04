@@ -7672,14 +7672,7 @@ name|widgetItems
 operator|.
 name|value
 argument_list|(
-cast|const_cast
-argument_list|<
-name|QAction
-operator|*
-argument_list|>
-argument_list|(
 name|action
-argument_list|)
 argument_list|)
 condition|)
 if|if
@@ -16953,7 +16946,7 @@ name|sloppyEventResult
 operator|==
 name|QMenuSloppyState
 operator|::
-name|EventShouldBePropogated
+name|EventShouldBePropagated
 condition|)
 block|{
 name|d

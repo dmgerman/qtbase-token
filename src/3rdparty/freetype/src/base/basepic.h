@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -58,9 +58,6 @@ define|#
 directive|define
 name|__BASEPIC_H__
 end_define
-begin_macro
-name|FT_BEGIN_HEADER
-end_macro
 begin_include
 include|#
 directive|include
@@ -134,25 +131,33 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
 begin_typedef
+DECL|struct|BasePIC_
 typedef|typedef
 struct|struct
 name|BasePIC_
 block|{
+DECL|member|default_module_classes
 name|FT_Module_Class
 modifier|*
 modifier|*
 name|default_module_classes
 decl_stmt|;
+DECL|member|ft_outline_glyph_class
 name|FT_Glyph_Class
 name|ft_outline_glyph_class
 decl_stmt|;
+DECL|member|ft_bitmap_glyph_class
 name|FT_Glyph_Class
 name|ft_bitmap_glyph_class
 decl_stmt|;
 ifdef|#
 directive|ifdef
 name|FT_CONFIG_OPTION_GUESSING_EMBEDDED_RFORK
+DECL|member|ft_raccess_guess_table
 name|ft_raccess_guess_rec
 name|ft_raccess_guess_table
 index|[
@@ -162,10 +167,12 @@ decl_stmt|;
 endif|#
 directive|endif
 block|}
+DECL|typedef|BasePIC
 name|BasePIC
 typedef|;
 end_typedef
 begin_define
+DECL|macro|GET_PIC
 define|#
 directive|define
 name|GET_PIC
@@ -175,6 +182,7 @@ parameter_list|)
 value|( (BasePIC*)( (lib)->pic_container.base ) )
 end_define
 begin_define
+DECL|macro|FT_OUTLINE_GLYPH_CLASS_GET
 define|#
 directive|define
 name|FT_OUTLINE_GLYPH_CLASS_GET
@@ -182,6 +190,7 @@ define|\
 value|(&GET_PIC( library )->ft_outline_glyph_class )
 end_define
 begin_define
+DECL|macro|FT_BITMAP_GLYPH_CLASS_GET
 define|#
 directive|define
 name|FT_BITMAP_GLYPH_CLASS_GET
@@ -189,6 +198,7 @@ define|\
 value|(&GET_PIC( library )->ft_bitmap_glyph_class )
 end_define
 begin_define
+DECL|macro|FT_DEFAULT_MODULES_GET
 define|#
 directive|define
 name|FT_DEFAULT_MODULES_GET
@@ -201,6 +211,7 @@ directive|ifdef
 name|FT_CONFIG_OPTION_GUESSING_EMBEDDED_RFORK
 end_ifdef
 begin_define
+DECL|macro|FT_RACCESS_GUESS_TABLE_GET
 define|#
 directive|define
 name|FT_RACCESS_GUESS_TABLE_GET
@@ -232,6 +243,9 @@ name|library
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|FT_END_HEADER
+end_macro
 begin_endif
 endif|#
 directive|endif
@@ -242,9 +256,6 @@ end_comment
 begin_comment
 comment|/* */
 end_comment
-begin_macro
-name|FT_END_HEADER
-end_macro
 begin_endif
 endif|#
 directive|endif

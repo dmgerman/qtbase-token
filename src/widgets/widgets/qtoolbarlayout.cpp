@@ -720,9 +720,9 @@ modifier|*
 parameter_list|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QToolBarLayout::addItem(): please use addAction() instead"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

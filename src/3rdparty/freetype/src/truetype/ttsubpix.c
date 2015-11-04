@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2010-2013 by                                                 */
+comment|/*  Copyright 2010-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -541,6 +541,7 @@ value|5
 end_define
 begin_decl_stmt
 DECL|variable|STYLE_CLASS_Rules
+specifier|static
 specifier|const
 name|SPH_Font_Class
 name|STYLE_CLASS_Rules
@@ -657,6 +658,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|COMPATIBILITY_MODE_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|COMPATIBILITY_MODE_Rules
@@ -689,6 +691,7 @@ value|2
 end_define
 begin_decl_stmt
 DECL|variable|PIXEL_HINTING_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|PIXEL_HINTING_Rules
@@ -732,6 +735,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|DO_SHPIX_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|DO_SHPIX_Rules
@@ -767,6 +771,7 @@ value|4
 end_define
 begin_decl_stmt
 DECL|variable|SKIP_NONPIXEL_Y_MOVES_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|SKIP_NONPIXEL_Y_MOVES_Rules
@@ -830,6 +835,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|SKIP_NONPIXEL_Y_MOVES_Rules_Exceptions
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|SKIP_NONPIXEL_Y_MOVES_Rules_Exceptions
@@ -866,6 +872,7 @@ value|2
 end_define
 begin_decl_stmt
 DECL|variable|SKIP_NONPIXEL_Y_MOVES_DELTAP_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|SKIP_NONPIXEL_Y_MOVES_DELTAP_Rules
@@ -909,6 +916,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|SKIP_OFFPIXEL_Y_MOVES_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|SKIP_OFFPIXEL_Y_MOVES_Rules
@@ -938,6 +946,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|SKIP_OFFPIXEL_Y_MOVES_Rules_Exceptions
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|SKIP_OFFPIXEL_Y_MOVES_Rules_Exceptions
@@ -970,6 +979,7 @@ value|2
 end_define
 begin_decl_stmt
 DECL|variable|ROUND_NONPIXEL_Y_MOVES_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|ROUND_NONPIXEL_Y_MOVES_Rules
@@ -1010,6 +1020,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|ROUND_NONPIXEL_Y_MOVES_Rules_Exceptions
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|ROUND_NONPIXEL_Y_MOVES_Rules_Exceptions
@@ -1042,6 +1053,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|ALLOW_X_DMOVE_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|ALLOW_X_DMOVE_Rules
@@ -1075,6 +1087,7 @@ value|8
 end_define
 begin_decl_stmt
 DECL|variable|RASTERIZER_35_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|RASTERIZER_35_Rules
@@ -1178,6 +1191,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|NORMAL_ROUND_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|NORMAL_ROUND_Rules
@@ -1212,6 +1226,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|SKIP_IUP_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|SKIP_IUP_Rules
@@ -1244,6 +1259,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|MIAP_HACK_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|MIAP_HACK_Rules
@@ -1276,6 +1292,7 @@ value|23
 end_define
 begin_decl_stmt
 DECL|variable|ALWAYS_SKIP_DELTAP_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|ALWAYS_SKIP_DELTAP_Rules
@@ -1532,6 +1549,7 @@ value|1
 end_define
 begin_decl_stmt
 DECL|variable|ALWAYS_DO_DELTAP_Rules
+specifier|static
 specifier|const
 name|SPH_TweakRule
 name|ALWAYS_DO_DELTAP_Rules
@@ -3256,22 +3274,22 @@ end_endif
 begin_comment
 comment|/* FORCE_NATURAL_WIDTHS */
 end_comment
-begin_macro
-DECL|function|FT_LOCAL_DEF
-name|FT_LOCAL_DEF
-argument_list|(
-argument|FT_Bool
-argument_list|)
-end_macro
-begin_macro
+begin_function
+specifier|static
+name|FT_Bool
+DECL|function|is_member_of_family_class
 name|is_member_of_family_class
-argument_list|(
-argument|const FT_String*  detected_font_name
-argument_list|,
-argument|const FT_String*  rule_font_name
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+specifier|const
+name|FT_String
+modifier|*
+name|detected_font_name
+parameter_list|,
+specifier|const
+name|FT_String
+modifier|*
+name|rule_font_name
+parameter_list|)
 block|{
 name|FT_UInt
 name|i
@@ -3403,23 +3421,23 @@ return|return
 name|FALSE
 return|;
 block|}
-end_block
-begin_macro
-DECL|function|FT_LOCAL_DEF
-name|FT_LOCAL_DEF
-argument_list|(
-argument|FT_Bool
-argument_list|)
-end_macro
-begin_macro
+end_function
+begin_function
+specifier|static
+name|FT_Bool
+DECL|function|is_member_of_style_class
 name|is_member_of_style_class
-argument_list|(
-argument|const FT_String*  detected_font_style
-argument_list|,
-argument|const FT_String*  rule_font_style
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+specifier|const
+name|FT_String
+modifier|*
+name|detected_font_style
+parameter_list|,
+specifier|const
+name|FT_String
+modifier|*
+name|rule_font_style
+parameter_list|)
 block|{
 name|FT_UInt
 name|i
@@ -3551,7 +3569,7 @@ return|return
 name|FALSE
 return|;
 block|}
-end_block
+end_function
 begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
@@ -3921,9 +3939,6 @@ block|{
 name|TT_Face
 name|face
 init|=
-operator|(
-name|TT_Face
-operator|)
 name|loader
 operator|->
 name|face
@@ -3938,7 +3953,7 @@ name|root
 operator|.
 name|family_name
 decl_stmt|;
-name|int
+name|FT_UInt
 name|ppem
 init|=
 name|loader

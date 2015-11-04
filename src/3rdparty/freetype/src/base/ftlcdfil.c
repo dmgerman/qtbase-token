@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2008-2010, 2013, 2014 by                               */
+comment|/*  Copyright 2006-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -169,13 +169,16 @@ name|bitmap
 operator|->
 name|pitch
 operator|*
-operator|(
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|bitmap
 operator|->
 name|rows
 operator|-
 literal|1
-operator|)
+argument_list|)
 expr_stmt|;
 comment|/* `fir' and `pix' must be at least 32 bit wide, since the sum of */
 comment|/* the values in `weights' can exceed 0xFF                        */
@@ -570,13 +573,16 @@ name|bitmap
 operator|->
 name|pitch
 operator|*
-operator|(
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|bitmap
 operator|->
 name|rows
 operator|-
 literal|1
-operator|)
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -998,6 +1004,7 @@ name|pitch
 decl_stmt|;
 specifier|static
 specifier|const
+name|unsigned
 name|int
 name|filters
 index|[
@@ -1109,13 +1116,16 @@ name|bitmap
 operator|->
 name|pitch
 operator|*
-operator|(
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|bitmap
 operator|->
 name|rows
 operator|-
 literal|1
-operator|)
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -1385,13 +1395,16 @@ name|bitmap
 operator|->
 name|pitch
 operator|*
-operator|(
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|bitmap
 operator|->
 name|rows
 operator|-
 literal|1
-operator|)
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -1419,6 +1432,9 @@ name|col_end
 init|=
 name|col
 operator|+
+operator|(
+name|FT_Int
+operator|)
 name|height
 operator|*
 name|pitch

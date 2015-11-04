@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2007, 2010, 2012-2014 by                                */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -71,88 +71,6 @@ end_include
 begin_macro
 name|FT_BEGIN_HEADER
 end_macro
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|TT_CONFIG_OPTION_STATIC_INTERPRETER
-end_ifndef
-begin_comment
-comment|/* indirect implementation */
-end_comment
-begin_define
-DECL|macro|EXEC_OP_
-define|#
-directive|define
-name|EXEC_OP_
-value|TT_ExecContext  exc,
-end_define
-begin_define
-DECL|macro|EXEC_OP
-define|#
-directive|define
-name|EXEC_OP
-value|TT_ExecContext  exc
-end_define
-begin_define
-DECL|macro|EXEC_ARG_
-define|#
-directive|define
-name|EXEC_ARG_
-value|exc,
-end_define
-begin_define
-DECL|macro|EXEC_ARG
-define|#
-directive|define
-name|EXEC_ARG
-value|exc
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|/* static implementation */
-end_comment
-begin_define
-define|#
-directive|define
-name|EXEC_OP_
-end_define
-begin_comment
-comment|/* void */
-end_comment
-begin_define
-define|#
-directive|define
-name|EXEC_OP
-end_define
-begin_comment
-comment|/* void */
-end_comment
-begin_define
-define|#
-directive|define
-name|EXEC_ARG_
-end_define
-begin_comment
-comment|/* void */
-end_comment
-begin_define
-define|#
-directive|define
-name|EXEC_ARG
-end_define
-begin_comment
-comment|/* void */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* TT_CONFIG_OPTION_STATIC_INTERPRETER */
-end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -254,7 +172,9 @@ modifier|*
 name|TT_Round_Func
 function_decl|)
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -275,7 +195,9 @@ modifier|*
 name|TT_Move_Func
 function_decl|)
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|TT_GlyphZone
 name|zone
 parameter_list|,
@@ -299,7 +221,9 @@ modifier|*
 name|TT_Project_Func
 function_decl|)
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_Pos
 name|dx
 parameter_list|,
@@ -320,7 +244,8 @@ modifier|*
 name|TT_Cur_Ppem_Func
 function_decl|)
 parameter_list|(
-name|EXEC_OP
+name|TT_ExecContext
+name|exc
 parameter_list|)
 function_decl|;
 end_typedef
@@ -336,7 +261,9 @@ modifier|*
 name|TT_Get_CVT_Func
 function_decl|)
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_ULong
 name|idx
 parameter_list|)
@@ -357,7 +284,9 @@ modifier|*
 name|TT_Set_CVT_Func
 function_decl|)
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_ULong
 name|idx
 parameter_list|,
@@ -606,7 +535,7 @@ name|top
 decl_stmt|;
 comment|/* top of exec. stack   */
 DECL|member|stackSize
-name|FT_UInt
+name|FT_Long
 name|stackSize
 decl_stmt|;
 comment|/* size of exec. stack  */
@@ -621,7 +550,7 @@ name|FT_Long
 name|args
 decl_stmt|;
 DECL|member|new_top
-name|FT_UInt
+name|FT_Long
 name|new_top
 decl_stmt|;
 comment|/* new top after exec.  */
@@ -899,9 +828,9 @@ name|TT_Round_Func
 name|func_round_sphn
 decl_stmt|;
 comment|/* subpixel rounding function */
-DECL|member|subpixel
+DECL|member|subpixel_hinting
 name|FT_Bool
-name|subpixel
+name|subpixel_hinting
 decl_stmt|;
 comment|/* Using subpixel hinting?       */
 DECL|member|ignore_x_mode
@@ -911,7 +840,7 @@ decl_stmt|;
 comment|/* Standard rendering mode for   */
 comment|/* subpixel hinting.  On if gray */
 comment|/* or subpixel hinting is on.    */
-comment|/* The following 4 aren't fully implemented but here for MS rasterizer */
+comment|/* The following 6 aren't fully implemented but here for MS rasterizer */
 comment|/* compatibility.                                                      */
 DECL|member|compatible_widths
 name|FT_Bool
@@ -928,12 +857,24 @@ name|FT_Bool
 name|bgr
 decl_stmt|;
 comment|/* bgr instead of rgb?       */
+DECL|member|vertical_lcd
+name|FT_Bool
+name|vertical_lcd
+decl_stmt|;
+comment|/* long side of LCD subpixel */
+comment|/* rectangles is horizontal  */
 DECL|member|subpixel_positioned
 name|FT_Bool
 name|subpixel_positioned
 decl_stmt|;
 comment|/* subpixel positioned       */
 comment|/* (DirectWrite ClearType)?  */
+DECL|member|gray_cleartype
+name|FT_Bool
+name|gray_cleartype
+decl_stmt|;
+comment|/* ClearType hinting but     */
+comment|/* grayscale rendering       */
 DECL|member|rasterizer_version
 name|FT_Int
 name|rasterizer_version
@@ -1046,7 +987,7 @@ argument|FT_Memory  memory
 argument_list|,
 argument|FT_ULong*  size
 argument_list|,
-argument|FT_Long    multiplier
+argument|FT_ULong   multiplier
 argument_list|,
 argument|void*      _pbuff
 argument_list|,
@@ -1116,6 +1057,9 @@ comment|/*<Note>                                                                
 end_comment
 begin_comment
 comment|/*    Only the glyph loader and debugger should call this function.      */
+end_comment
+begin_comment
+comment|/*    (And right now only the glyph loader uses it.)                     */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -1206,8 +1150,6 @@ begin_macro
 name|TT_Run_Context
 argument_list|(
 argument|TT_ExecContext  exec
-argument_list|,
-argument|FT_Bool         debug
 argument_list|)
 end_macro
 begin_empty_stmt

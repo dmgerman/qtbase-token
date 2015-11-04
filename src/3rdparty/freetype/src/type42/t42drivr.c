@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002-2004, 2006, 2007, 2009, 2011, 2013 by                   */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Roberto Alameda.                                                       */
@@ -124,7 +124,7 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_SERVICE_XFREE86_NAME_H
+include|FT_SERVICE_FONT_FORMAT_H
 end_include
 begin_include
 include|#
@@ -548,9 +548,9 @@ name|t42_service_ps_info
 block|}
 block|,
 block|{
-name|FT_SERVICE_ID_XF86_NAME
+name|FT_SERVICE_ID_FONT_FORMAT
 block|,
-name|FT_XF86_FORMAT_TYPE_42
+name|FT_FONT_FORMAT_TYPE_42
 block|}
 block|,
 block|{

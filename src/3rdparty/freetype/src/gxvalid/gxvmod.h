@@ -21,7 +21,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+comment|/*  Copyright 2004-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */

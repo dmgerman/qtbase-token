@@ -3440,7 +3440,7 @@ end_function
 begin_if
 if|#
 directive|if
-name|QT_POINTER_SIZE
+name|Q_PROCESSOR_WORDSIZE
 operator|==
 literal|8
 end_if
@@ -7288,7 +7288,7 @@ end_define
 begin_if
 if|#
 directive|if
-name|QT_POINTER_SIZE
+name|Q_PROCESSOR_WORDSIZE
 operator|==
 literal|8
 end_if

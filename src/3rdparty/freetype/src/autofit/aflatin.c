@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2014 by                                                 */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -126,6 +126,19 @@ define|#
 directive|define
 name|FT_COMPONENT
 value|trace_aflatin
+end_define
+begin_comment
+comment|/* needed for computation of round vs. flat segments */
+end_comment
+begin_define
+DECL|macro|FLAT_THRESHOLD
+define|#
+directive|define
+name|FLAT_THRESHOLD
+parameter_list|(
+name|x
+parameter_list|)
+value|( x / 14 )
 end_define
 begin_comment
 comment|/*************************************************************************/
@@ -929,10 +942,10 @@ index|[
 name|AF_BLUE_STRING_MAX_LEN
 index|]
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|num_flats
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|num_rounds
 decl_stmt|;
 name|AF_LatinBlue
@@ -981,6 +994,16 @@ name|af_blue_stringsets
 index|[
 name|bss
 index|]
+decl_stmt|;
+name|FT_Pos
+name|flat_threshold
+init|=
+name|FLAT_THRESHOLD
+argument_list|(
+name|metrics
+operator|->
+name|units_per_em
+argument_list|)
 decl_stmt|;
 comment|/* we walk over the blue character strings as specified in the */
 comment|/* style's entry in the `af_blue_stringset' array              */
@@ -1293,6 +1316,7 @@ name|glyph
 operator|->
 name|outline
 expr_stmt|;
+comment|/* reject glyphs that don't produce any rendering */
 if|if
 condition|(
 name|error
@@ -1301,13 +1325,13 @@ name|outline
 operator|.
 name|n_points
 operator|<=
-literal|0
+literal|2
 condition|)
 block|{
 name|FT_TRACE5
 argument_list|(
 operator|(
-literal|"  U+%04lX contains no outlines\n"
+literal|"  U+%04lX contains no (usable) outlines\n"
 operator|,
 name|ch
 operator|)
@@ -2414,7 +2438,7 @@ expr_stmt|;
 comment|/* now set the `round' flag depending on the segment's kind: */
 comment|/*                                                           */
 comment|/* - if the horizontal distance between the first and last   */
-comment|/*   `on' point is larger than upem/8 (value 8 is heuristic) */
+comment|/*   `on' point is larger than a heuristic threshold         */
 comment|/*   we have a flat segment                                  */
 comment|/* - if either the first or the last point of the segment is */
 comment|/*   an `off' point, the segment is round, otherwise it is   */
@@ -2429,10 +2453,7 @@ name|best_on_point_last
 operator|>=
 literal|0
 operator|&&
-call|(
-name|FT_UInt
-call|)
-argument_list|(
+operator|(
 name|FT_ABS
 argument_list|(
 name|points
@@ -2449,13 +2470,9 @@ index|]
 operator|.
 name|x
 argument_list|)
-argument_list|)
+operator|)
 operator|>
-name|metrics
-operator|->
-name|units_per_em
-operator|/
-literal|8
+name|flat_threshold
 condition|)
 name|round
 operator|=
@@ -3610,6 +3627,15 @@ operator|==
 name|AF_DIMENSION_VERT
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+if|if
+condition|(
+name|axis
+operator|->
+name|blue_count
+condition|)
 name|FT_TRACE5
 argument_list|(
 operator|(
@@ -3628,6 +3654,8 @@ index|]
 operator|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|/* scale the blue zones */
 for|for
 control|(
@@ -4049,6 +4077,16 @@ argument_list|)
 end_macro
 begin_block
 block|{
+name|AF_LatinMetrics
+name|metrics
+init|=
+operator|(
+name|AF_LatinMetrics
+operator|)
+name|hints
+operator|->
+name|metrics
+decl_stmt|;
 name|AF_AxisHints
 name|axis
 init|=
@@ -4102,6 +4140,16 @@ name|AF_Direction
 name|major_dir
 decl_stmt|,
 name|segment_dir
+decl_stmt|;
+name|FT_Pos
+name|flat_threshold
+init|=
+name|FLAT_THRESHOLD
+argument_list|(
+name|metrics
+operator|->
+name|units_per_em
+argument_list|)
 decl_stmt|;
 name|FT_ZERO
 argument_list|(
@@ -4288,6 +4336,17 @@ operator|-
 literal|32000
 decl_stmt|;
 comment|/* maximum segment pos != max_coord */
+name|FT_Pos
+name|min_on_pos
+init|=
+literal|32000
+decl_stmt|;
+name|FT_Pos
+name|max_on_pos
+init|=
+operator|-
+literal|32000
+decl_stmt|;
 name|FT_Bool
 name|passed
 decl_stmt|;
@@ -4416,6 +4475,46 @@ name|max_pos
 operator|=
 name|u
 expr_stmt|;
+comment|/* get minimum and maximum coordinate of on points */
+if|if
+condition|(
+operator|!
+operator|(
+name|point
+operator|->
+name|flags
+operator|&
+name|AF_FLAG_CONTROL
+operator|)
+condition|)
+block|{
+name|v
+operator|=
+name|point
+operator|->
+name|v
+expr_stmt|;
+if|if
+condition|(
+name|v
+operator|<
+name|min_on_pos
+condition|)
+name|min_on_pos
+operator|=
+name|v
+expr_stmt|;
+if|if
+condition|(
+name|v
+operator|>
+name|max_on_pos
+condition|)
+name|max_on_pos
+operator|=
+name|v
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|point
@@ -4454,7 +4553,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|/* a segment is round if either its first or last point */
-comment|/* is a control point                                   */
+comment|/* is a control point, and the length of the on points  */
+comment|/* inbetween doesn't exceed a heuristic limit           */
 if|if
 condition|(
 operator|(
@@ -4470,6 +4570,14 @@ name|flags
 operator|)
 operator|&
 name|AF_FLAG_CONTROL
+operator|&&
+operator|(
+name|max_on_pos
+operator|-
+name|min_on_pos
+operator|)
+operator|<
+name|flat_threshold
 condition|)
 name|segment
 operator|->
@@ -4639,14 +4747,6 @@ name|FT_Char
 operator|)
 name|segment_dir
 expr_stmt|;
-name|min_pos
-operator|=
-name|max_pos
-operator|=
-name|point
-operator|->
-name|u
-expr_stmt|;
 name|segment
 operator|->
 name|first
@@ -4658,6 +4758,42 @@ operator|->
 name|last
 operator|=
 name|point
+expr_stmt|;
+name|min_pos
+operator|=
+name|max_pos
+operator|=
+name|point
+operator|->
+name|u
+expr_stmt|;
+if|if
+condition|(
+name|point
+operator|->
+name|flags
+operator|&
+name|AF_FLAG_CONTROL
+condition|)
+block|{
+name|min_on_pos
+operator|=
+literal|32000
+expr_stmt|;
+name|max_on_pos
+operator|=
+operator|-
+literal|32000
+expr_stmt|;
+block|}
+else|else
+name|min_on_pos
+operator|=
+name|max_on_pos
+operator|=
+name|point
+operator|->
+name|v
 expr_stmt|;
 name|on_edge
 operator|=
@@ -6211,7 +6347,7 @@ name|edge
 operator|->
 name|serif
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 block|}
@@ -6293,22 +6429,18 @@ end_block
 begin_comment
 comment|/* Compute all edges which lie within blue zones. */
 end_comment
-begin_macro
-name|FT_LOCAL_DEF
-argument_list|(
-argument|void
-argument_list|)
-end_macro
-begin_macro
+begin_function
+specifier|static
+name|void
 DECL|function|af_latin_hints_compute_blue_edges
 name|af_latin_hints_compute_blue_edges
-argument_list|(
-argument|AF_GlyphHints    hints
-argument_list|,
-argument|AF_LatinMetrics  metrics
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+name|AF_GlyphHints
+name|hints
+parameter_list|,
+name|AF_LatinMetrics
+name|metrics
+parameter_list|)
 block|{
 name|AF_AxisHints
 name|axis
@@ -6708,7 +6840,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_block
+end_function
 begin_comment
 comment|/* Initalize hinting engine. */
 end_comment
@@ -6886,7 +7018,7 @@ name|other_flags
 operator||=
 name|AF_LATIN_HINTS_MONO
 expr_stmt|;
-comment|/*      *  In `light' hinting mode we disable horizontal hinting completely.      *  We also do it if the face is italic.      */
+comment|/*      *  In `light' hinting mode we disable horizontal hinting completely.      *  We also do it if the face is italic.      *      *  However, if warping is enabled (which only works in `light' hinting      *  mode), advance widths get adjusted, too.      */
 if|if
 condition|(
 name|mode
@@ -6907,6 +7039,29 @@ name|scaler_flags
 operator||=
 name|AF_SCALER_FLAG_NO_HORIZONTAL
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|AF_CONFIG_OPTION_USE_WARPER
+comment|/* get (global) warper flag */
+if|if
+condition|(
+operator|!
+name|metrics
+operator|->
+name|root
+operator|.
+name|globals
+operator|->
+name|module
+operator|->
+name|warping
+condition|)
+name|scaler_flags
+operator||=
+name|AF_SCALER_FLAG_NO_WARPER
+expr_stmt|;
+endif|#
+directive|endif
 name|hints
 operator|->
 name|scaler_flags
@@ -6960,14 +7115,14 @@ parameter_list|(
 name|AF_Width
 name|widths
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|count
 parameter_list|,
 name|FT_Pos
 name|width
 parameter_list|)
 block|{
-name|int
+name|FT_UInt
 name|n
 decl_stmt|;
 name|FT_Pos
@@ -7121,10 +7276,10 @@ parameter_list|,
 name|FT_Pos
 name|width
 parameter_list|,
-name|AF_Edge_Flags
+name|FT_UInt
 name|base_flags
 parameter_list|,
-name|AF_Edge_Flags
+name|FT_UInt
 name|stem_flags
 parameter_list|)
 block|{
@@ -7676,16 +7831,10 @@ name|dim
 argument_list|,
 name|dist
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|base_edge
 operator|->
 name|flags
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|stem_edge
 operator|->
 name|flags
@@ -7819,22 +7968,18 @@ end_comment
 begin_comment
 comment|/* The main grid-fitting routine. */
 end_comment
-begin_macro
-name|FT_LOCAL_DEF
-argument_list|(
-argument|void
-argument_list|)
-end_macro
-begin_macro
+begin_function
+specifier|static
+name|void
 DECL|function|af_latin_hint_edges
 name|af_latin_hint_edges
-argument_list|(
-argument|AF_GlyphHints  hints
-argument_list|,
-argument|AF_Dimension   dim
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+name|AF_GlyphHints
+name|hints
+parameter_list|,
+name|AF_Dimension
+name|dim
+parameter_list|)
 block|{
 name|AF_AxisHints
 name|axis
@@ -8005,12 +8150,6 @@ name|AF_EDGE_NEUTRAL
 decl_stmt|;
 if|if
 condition|(
-operator|(
-name|neutral
-operator|&&
-name|neutral2
-operator|)
-operator|||
 name|neutral2
 condition|)
 block|{
@@ -8372,16 +8511,10 @@ name|dim
 argument_list|,
 name|org_len
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|edge
 operator|->
 name|flags
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|edge2
 operator|->
 name|flags
@@ -8672,16 +8805,10 @@ name|dim
 argument_list|,
 name|org_len
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|edge
 operator|->
 name|flags
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|edge2
 operator|->
 name|flags
@@ -8947,16 +9074,10 @@ name|dim
 argument_list|,
 name|org_len
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|edge
 operator|->
 name|flags
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|edge2
 operator|->
 name|flags
@@ -9984,7 +10105,7 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_block
+end_function
 begin_comment
 comment|/* Apply the complete hinting algorithm to a latin glyph. */
 end_comment
@@ -9994,6 +10115,9 @@ name|FT_Error
 DECL|function|af_latin_hints_apply
 name|af_latin_hints_apply
 parameter_list|(
+name|FT_UInt
+name|glyph_index
+parameter_list|,
 name|AF_GlyphHints
 name|hints
 parameter_list|,
@@ -10036,6 +10160,7 @@ directive|ifdef
 name|AF_CONFIG_OPTION_USE_WARPER
 if|if
 condition|(
+operator|(
 name|metrics
 operator|->
 name|root
@@ -10045,6 +10170,12 @@ operator|.
 name|render_mode
 operator|==
 name|FT_RENDER_MODE_LIGHT
+operator|&&
+name|AF_HINTS_DO_WARP
+argument_list|(
+name|hints
+argument_list|)
+operator|)
 operator|||
 name|AF_HINTS_DO_HORIZONTAL
 argument_list|(
@@ -10140,6 +10271,25 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+comment|/* apply blue zones to base characters only */
+if|if
+condition|(
+operator|!
+operator|(
+name|metrics
+operator|->
+name|root
+operator|.
+name|globals
+operator|->
+name|glyph_styles
+index|[
+name|glyph_index
+index|]
+operator|&
+name|AF_NONBASE
+operator|)
+condition|)
 name|af_latin_hints_compute_blue_edges
 argument_list|(
 name|hints
@@ -10181,6 +10331,11 @@ operator|.
 name|render_mode
 operator|==
 name|FT_RENDER_MODE_LIGHT
+operator|&&
+name|AF_HINTS_DO_WARP
+argument_list|(
+name|hints
+argument_list|)
 condition|)
 block|{
 name|AF_WarperRec
@@ -10229,6 +10384,7 @@ continue|continue;
 block|}
 endif|#
 directive|endif
+comment|/* AF_CONFIG_OPTION_USE_WARPER */
 if|if
 condition|(
 operator|(

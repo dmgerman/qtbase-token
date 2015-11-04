@@ -699,12 +699,6 @@ operator|=
 operator|new
 name|QWinRTScreen
 expr_stmt|;
-return|return
-name|S_OK
-return|;
-block|}
-argument_list|)
-expr_stmt|;
 name|d
 operator|->
 name|inputContext
@@ -718,6 +712,12 @@ name|d
 operator|->
 name|mainScreen
 argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|S_OK
+return|;
+block|}
 argument_list|)
 expr_stmt|;
 name|screenAdded
@@ -1002,6 +1002,9 @@ name|NonFullScreenWindows
 case|:
 case|case
 name|MultipleWindows
+case|:
+case|case
+name|RasterGLSurface
 case|:
 return|return
 literal|true

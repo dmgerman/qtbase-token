@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2002, 2005, 2007, 2009, 2012-2014 by                    */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -72,10 +72,10 @@ begin_comment
 comment|/*     fresh new library object.  The set is taken from the header file  */
 end_comment
 begin_comment
-comment|/*     `config/ftmodule.h'.  See the document `FreeType 2.0 Build        */
+comment|/*     `freetype/config/ftmodule.h'.  See the document `FreeType 2.0     */
 end_comment
 begin_comment
-comment|/*     System' for more information.                                     */
+comment|/*     Build System' for more information.                               */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -448,7 +448,7 @@ name|pic_container
 operator|->
 name|default_module_classes
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -533,7 +533,7 @@ name|pic_container
 operator|->
 name|default_module_classes
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -576,14 +576,14 @@ index|[
 name|i
 index|]
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|classes
 index|[
 name|FT_NUM_MODULE_CLASSES
 index|]
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|i
 operator|=

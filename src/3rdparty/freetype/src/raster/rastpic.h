@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -58,14 +58,14 @@ define|#
 directive|define
 name|__RASTPIC_H__
 end_define
-begin_macro
-name|FT_BEGIN_HEADER
-end_macro
 begin_include
 include|#
 directive|include
 include|FT_INTERNAL_PIC_H
 end_include
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -129,26 +129,8 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|void
-name|ft_raster5_renderer_class_pic_free
-parameter_list|(
-name|FT_Library
-name|library
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
 name|FT_Error
 name|ft_raster1_renderer_class_pic_init
-parameter_list|(
-name|FT_Library
-name|library
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-name|FT_Error
-name|ft_raster5_renderer_class_pic_init
 parameter_list|(
 name|FT_Library
 name|library

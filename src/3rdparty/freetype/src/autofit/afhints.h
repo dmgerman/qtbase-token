@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2008, 2010-2012, 2014 by                                */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -152,113 +152,106 @@ end_comment
 begin_comment
 comment|/* point hint flags */
 end_comment
-begin_typedef
-DECL|enum|AF_Flags_
-typedef|typedef
-enum|enum
-name|AF_Flags_
-block|{
-DECL|enumerator|AF_FLAG_NONE
+begin_define
+DECL|macro|AF_FLAG_NONE
+define|#
+directive|define
 name|AF_FLAG_NONE
-init|=
-literal|0
-block|,
+value|0
+end_define
+begin_comment
 comment|/* point type flags */
-DECL|enumerator|AF_FLAG_CONIC
+end_comment
+begin_define
+DECL|macro|AF_FLAG_CONIC
+define|#
+directive|define
 name|AF_FLAG_CONIC
-init|=
-literal|1
-operator|<<
-literal|0
-block|,
-DECL|enumerator|AF_FLAG_CUBIC
+value|( 1U<< 0 )
+end_define
+begin_define
+DECL|macro|AF_FLAG_CUBIC
+define|#
+directive|define
 name|AF_FLAG_CUBIC
-init|=
-literal|1
-operator|<<
-literal|1
-block|,
-DECL|enumerator|AF_FLAG_CONTROL
+value|( 1U<< 1 )
+end_define
+begin_define
+DECL|macro|AF_FLAG_CONTROL
+define|#
+directive|define
 name|AF_FLAG_CONTROL
-init|=
-name|AF_FLAG_CONIC
-operator||
-name|AF_FLAG_CUBIC
-block|,
+value|( AF_FLAG_CONIC | AF_FLAG_CUBIC )
+end_define
+begin_comment
 comment|/* point touch flags */
-DECL|enumerator|AF_FLAG_TOUCH_X
+end_comment
+begin_define
+DECL|macro|AF_FLAG_TOUCH_X
+define|#
+directive|define
 name|AF_FLAG_TOUCH_X
-init|=
-literal|1
-operator|<<
-literal|2
-block|,
-DECL|enumerator|AF_FLAG_TOUCH_Y
+value|( 1U<< 2 )
+end_define
+begin_define
+DECL|macro|AF_FLAG_TOUCH_Y
+define|#
+directive|define
 name|AF_FLAG_TOUCH_Y
-init|=
-literal|1
-operator|<<
-literal|3
-block|,
+value|( 1U<< 3 )
+end_define
+begin_comment
 comment|/* candidates for weak interpolation have this flag set */
-DECL|enumerator|AF_FLAG_WEAK_INTERPOLATION
+end_comment
+begin_define
+DECL|macro|AF_FLAG_WEAK_INTERPOLATION
+define|#
+directive|define
 name|AF_FLAG_WEAK_INTERPOLATION
-init|=
-literal|1
-operator|<<
-literal|4
-block|}
-DECL|typedef|AF_Flags
-name|AF_Flags
-typedef|;
-end_typedef
+value|( 1U<< 4 )
+end_define
 begin_comment
 comment|/* edge hint flags */
 end_comment
-begin_typedef
-DECL|enum|AF_Edge_Flags_
-typedef|typedef
-enum|enum
-name|AF_Edge_Flags_
-block|{
-DECL|enumerator|AF_EDGE_NORMAL
+begin_define
+DECL|macro|AF_EDGE_NORMAL
+define|#
+directive|define
 name|AF_EDGE_NORMAL
-init|=
-literal|0
-block|,
-DECL|enumerator|AF_EDGE_ROUND
+value|0
+end_define
+begin_define
+DECL|macro|AF_EDGE_ROUND
+define|#
+directive|define
 name|AF_EDGE_ROUND
-init|=
-literal|1
-operator|<<
-literal|0
-block|,
-DECL|enumerator|AF_EDGE_SERIF
+value|( 1U<< 0 )
+end_define
+begin_define
+DECL|macro|AF_EDGE_SERIF
+define|#
+directive|define
 name|AF_EDGE_SERIF
-init|=
-literal|1
-operator|<<
-literal|1
-block|,
-DECL|enumerator|AF_EDGE_DONE
+value|( 1U<< 1 )
+end_define
+begin_define
+DECL|macro|AF_EDGE_DONE
+define|#
+directive|define
 name|AF_EDGE_DONE
-init|=
-literal|1
-operator|<<
-literal|2
-block|,
-DECL|enumerator|AF_EDGE_NEUTRAL
+value|( 1U<< 2 )
+end_define
+begin_define
+DECL|macro|AF_EDGE_NEUTRAL
+define|#
+directive|define
 name|AF_EDGE_NEUTRAL
-init|=
-literal|1
-operator|<<
-literal|3
-comment|/* set if edge aligns to a neutral blue zone */
-block|}
-DECL|typedef|AF_Edge_Flags
-name|AF_Edge_Flags
-typedef|;
-end_typedef
+value|( 1U<< 3 )
+end_define
+begin_comment
+DECL|macro|AF_EDGE_NEUTRAL
+comment|/* edge aligns to a neutral blue zone */
+end_comment
 begin_typedef
 DECL|typedef|AF_Point
 typedef|typedef
@@ -516,6 +509,28 @@ DECL|typedef|AF_EdgeRec
 name|AF_EdgeRec
 typedef|;
 end_typedef
+begin_define
+DECL|macro|AF_SEGMENTS_EMBEDDED
+define|#
+directive|define
+name|AF_SEGMENTS_EMBEDDED
+value|18
+end_define
+begin_comment
+DECL|macro|AF_SEGMENTS_EMBEDDED
+comment|/* number of embedded segments   */
+end_comment
+begin_define
+DECL|macro|AF_EDGES_EMBEDDED
+define|#
+directive|define
+name|AF_EDGES_EMBEDDED
+value|12
+end_define
+begin_comment
+DECL|macro|AF_EDGES_EMBEDDED
+comment|/* number of embedded edges      */
+end_comment
 begin_typedef
 DECL|struct|AF_AxisHintsRec_
 typedef|typedef
@@ -566,6 +581,27 @@ name|AF_Direction
 name|major_dir
 decl_stmt|;
 comment|/* either vertical or horizontal */
+comment|/* two arrays to avoid allocation penalty */
+struct|struct
+block|{
+DECL|member|segments
+name|AF_SegmentRec
+name|segments
+index|[
+name|AF_SEGMENTS_EMBEDDED
+index|]
+decl_stmt|;
+DECL|member|edges
+name|AF_EdgeRec
+name|edges
+index|[
+name|AF_EDGES_EMBEDDED
+index|]
+decl_stmt|;
+block|}
+DECL|member|embedded
+name|embedded
+struct|;
 block|}
 DECL|typedef|AF_AxisHintsRec
 DECL|typedef|AF_AxisHints
@@ -575,6 +611,28 @@ typedef|*
 name|AF_AxisHints
 typedef|;
 end_typedef
+begin_define
+DECL|macro|AF_POINTS_EMBEDDED
+define|#
+directive|define
+name|AF_POINTS_EMBEDDED
+value|96
+end_define
+begin_comment
+DECL|macro|AF_POINTS_EMBEDDED
+comment|/* number of embedded points   */
+end_comment
+begin_define
+DECL|macro|AF_CONTOURS_EMBEDDED
+define|#
+directive|define
+name|AF_CONTOURS_EMBEDDED
+value|8
+end_define
+begin_comment
+DECL|macro|AF_CONTOURS_EMBEDDED
+comment|/* number of embedded contours */
+end_comment
 begin_typedef
 DECL|struct|AF_GlyphHintsRec_
 typedef|typedef
@@ -663,6 +721,28 @@ DECL|member|xmax_delta
 name|FT_Pos
 name|xmax_delta
 decl_stmt|;
+comment|/* Two arrays to avoid allocation penalty.            */
+comment|/* The `embedded' structure must be the last element! */
+struct|struct
+block|{
+DECL|member|contours
+name|AF_Point
+name|contours
+index|[
+name|AF_CONTOURS_EMBEDDED
+index|]
+decl_stmt|;
+DECL|member|points
+name|AF_PointRec
+name|points
+index|[
+name|AF_POINTS_EMBEDDED
+index|]
+decl_stmt|;
+block|}
+DECL|member|embedded
+name|embedded
+struct|;
 block|}
 DECL|typedef|AF_GlyphHintsRec
 name|AF_GlyphHintsRec
@@ -720,17 +800,6 @@ define|\
 value|( !_af_debug_disable_vert_hints&& \             !AF_HINTS_TEST_SCALER( h, AF_SCALER_FLAG_NO_VERTICAL ) )
 end_define
 begin_define
-DECL|macro|AF_HINTS_DO_ADVANCE
-define|#
-directive|define
-name|AF_HINTS_DO_ADVANCE
-parameter_list|(
-name|h
-parameter_list|)
-define|\
-value|!AF_HINTS_TEST_SCALER( h, AF_SCALER_FLAG_NO_ADVANCE )
-end_define
-begin_define
 DECL|macro|AF_HINTS_DO_BLUES
 define|#
 directive|define
@@ -770,17 +839,6 @@ define|\
 value|!AF_HINTS_TEST_SCALER( h, AF_SCALER_FLAG_NO_VERTICAL )
 end_define
 begin_define
-DECL|macro|AF_HINTS_DO_ADVANCE
-define|#
-directive|define
-name|AF_HINTS_DO_ADVANCE
-parameter_list|(
-name|h
-parameter_list|)
-define|\
-value|!AF_HINTS_TEST_SCALER( h, AF_SCALER_FLAG_NO_ADVANCE )
-end_define
-begin_define
 DECL|macro|AF_HINTS_DO_BLUES
 define|#
 directive|define
@@ -797,6 +855,28 @@ end_endif
 begin_comment
 comment|/* !FT_DEBUG_AUTOFIT */
 end_comment
+begin_define
+DECL|macro|AF_HINTS_DO_ADVANCE
+define|#
+directive|define
+name|AF_HINTS_DO_ADVANCE
+parameter_list|(
+name|h
+parameter_list|)
+define|\
+value|!AF_HINTS_TEST_SCALER( h, AF_SCALER_FLAG_NO_ADVANCE )
+end_define
+begin_define
+DECL|macro|AF_HINTS_DO_WARP
+define|#
+directive|define
+name|AF_HINTS_DO_WARP
+parameter_list|(
+name|h
+parameter_list|)
+define|\
+value|!AF_HINTS_TEST_SCALER( h, AF_SCALER_FLAG_NO_WARPER )
+end_define
 begin_macro
 name|FT_LOCAL
 argument_list|(

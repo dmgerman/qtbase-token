@@ -345,6 +345,13 @@ name|supportsSurfacelessContexts
 argument_list|()
 specifier|const
 expr_stmt|;
+name|virtual
+name|void
+operator|*
+name|wlDisplay
+argument_list|()
+specifier|const
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

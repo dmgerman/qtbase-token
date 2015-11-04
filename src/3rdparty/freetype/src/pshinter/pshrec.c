@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001-2004, 2007, 2009, 2013, 2014 by                         */
+comment|/*  Copyright 2001-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -110,7 +110,7 @@ DECL|variable|ps_debug_hints
 name|PS_Hints
 name|ps_debug_hints
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -298,7 +298,7 @@ decl_stmt|;
 name|PS_Hint
 name|hint
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|count
 operator|=
@@ -603,7 +603,7 @@ parameter_list|(
 name|PS_Mask
 name|mask
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|idx
 parameter_list|)
 block|{
@@ -613,9 +613,6 @@ name|p
 decl_stmt|;
 if|if
 condition|(
-operator|(
-name|FT_UInt
-operator|)
 name|idx
 operator|>=
 name|mask
@@ -675,7 +672,7 @@ parameter_list|(
 name|PS_Mask
 name|mask
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|idx
 parameter_list|,
 name|FT_Memory
@@ -693,18 +690,6 @@ name|p
 decl_stmt|;
 if|if
 condition|(
-name|idx
-operator|<
-literal|0
-condition|)
-goto|goto
-name|Exit
-goto|;
-if|if
-condition|(
-operator|(
-name|FT_UInt
-operator|)
 name|idx
 operator|>=
 name|mask
@@ -965,7 +950,7 @@ decl_stmt|;
 name|PS_Mask
 name|mask
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|count
 operator|=
@@ -1355,10 +1340,10 @@ parameter_list|(
 name|PS_Mask_Table
 name|table
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|index1
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|index2
 parameter_list|)
 block|{
@@ -1499,19 +1484,16 @@ parameter_list|(
 name|PS_Mask_Table
 name|table
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|index1
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|index2
 parameter_list|,
 name|FT_Memory
 name|memory
 parameter_list|)
 block|{
-name|FT_UInt
-name|temp
-decl_stmt|;
 name|FT_Error
 name|error
 init|=
@@ -1525,6 +1507,9 @@ operator|>
 name|index2
 condition|)
 block|{
+name|FT_UInt
+name|temp
+decl_stmt|;
 name|temp
 operator|=
 name|index1
@@ -1544,15 +1529,8 @@ name|index1
 operator|<
 name|index2
 operator|&&
-name|index1
-operator|>=
-literal|0
-operator|&&
 name|index2
 operator|<
-operator|(
-name|FT_Int
-operator|)
 name|table
 operator|->
 name|num_masks
@@ -1676,10 +1654,6 @@ name|bytes
 expr_stmt|;
 name|pos
 operator|=
-call|(
-name|FT_UInt
-call|)
-argument_list|(
 operator|(
 name|count2
 operator|+
@@ -1687,7 +1661,6 @@ literal|7
 operator|)
 operator|>>
 literal|3
-argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -1742,8 +1715,13 @@ name|end_point
 operator|=
 literal|0
 expr_stmt|;
+comment|/* number of masks to move */
 name|delta
 operator|=
+call|(
+name|FT_Int
+call|)
+argument_list|(
 name|table
 operator|->
 name|num_masks
@@ -1751,8 +1729,8 @@ operator|-
 literal|1
 operator|-
 name|index2
+argument_list|)
 expr_stmt|;
-comment|/* number of masks to move */
 if|if
 condition|(
 name|delta
@@ -1775,6 +1753,9 @@ name|mask2
 operator|+
 literal|1
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|delta
 operator|*
 sizeof|sizeof
@@ -1848,10 +1829,14 @@ name|error
 init|=
 name|FT_Err_Ok
 decl_stmt|;
+comment|/* both loops go down to 0, thus FT_Int for index1 and index2 */
 for|for
 control|(
 name|index1
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|table
 operator|->
 name|num_masks
@@ -1888,8 +1873,14 @@ name|ps_mask_table_test_intersect
 argument_list|(
 name|table
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|index1
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|index2
 argument_list|)
 condition|)
@@ -1900,8 +1891,14 @@ name|ps_mask_table_merge
 argument_list|(
 name|table
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|index2
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|index1
 argument_list|,
 name|memory
@@ -2602,12 +2599,22 @@ name|Exit
 goto|;
 block|}
 comment|/* now, set the bits for our hints in the counter mask */
+if|if
+condition|(
+name|hint1
+operator|>=
+literal|0
+condition|)
+block|{
 name|error
 operator|=
 name|ps_mask_set_bit
 argument_list|(
 name|counter
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|hint1
 argument_list|,
 name|memory
@@ -2620,12 +2627,23 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+block|}
+if|if
+condition|(
+name|hint2
+operator|>=
+literal|0
+condition|)
+block|{
 name|error
 operator|=
 name|ps_mask_set_bit
 argument_list|(
 name|counter
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|hint2
 argument_list|,
 name|memory
@@ -2638,12 +2656,23 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+block|}
+if|if
+condition|(
+name|hint3
+operator|>=
+literal|0
+condition|)
+block|{
 name|error
 operator|=
 name|ps_mask_set_bit
 argument_list|(
 name|counter
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|hint3
 argument_list|,
 name|memory
@@ -2656,6 +2685,7 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+block|}
 name|Exit
 label|:
 return|return
@@ -2786,7 +2816,7 @@ name|hints
 operator|->
 name|memory
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -2842,17 +2872,6 @@ name|PS_Hint_Type
 name|hint_type
 parameter_list|)
 block|{
-switch|switch
-condition|(
-name|hint_type
-condition|)
-block|{
-case|case
-name|PS_HINT_TYPE_1
-case|:
-case|case
-name|PS_HINT_TYPE_2
-case|:
 name|hints
 operator|->
 name|error
@@ -2887,32 +2906,6 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-break|break;
-default|default:
-name|hints
-operator|->
-name|error
-operator|=
-name|FT_THROW
-argument_list|(
-name|Invalid_Argument
-argument_list|)
-expr_stmt|;
-name|hints
-operator|->
-name|hint_type
-operator|=
-name|hint_type
-expr_stmt|;
-name|FT_TRACE0
-argument_list|(
-operator|(
-literal|"ps_hints_open: invalid charstring type\n"
-operator|)
-argument_list|)
-expr_stmt|;
-break|break;
-block|}
 block|}
 end_function
 begin_comment
@@ -2927,10 +2920,10 @@ parameter_list|(
 name|PS_Hints
 name|hints
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|dimension
 parameter_list|,
-name|FT_UInt
+name|FT_Int
 name|count
 parameter_list|,
 name|FT_Long
@@ -2938,21 +2931,19 @@ modifier|*
 name|stems
 parameter_list|)
 block|{
+name|PS_Dimension
+name|dim
+decl_stmt|;
 if|if
 condition|(
-operator|!
 name|hints
 operator|->
 name|error
 condition|)
-block|{
+return|return;
 comment|/* limit "dimension" to 0..1 */
 if|if
 condition|(
-name|dimension
-operator|<
-literal|0
-operator|||
 name|dimension
 operator|>
 literal|1
@@ -2977,25 +2968,9 @@ operator|)
 expr_stmt|;
 block|}
 comment|/* record the stems in the current hints/masks table */
-switch|switch
-condition|(
-name|hints
-operator|->
-name|hint_type
-condition|)
-block|{
-case|case
-name|PS_HINT_TYPE_1
-case|:
-comment|/* Type 1 "hstem" or "vstem" operator */
-case|case
-name|PS_HINT_TYPE_2
-case|:
-comment|/* Type 2 "hstem" or "vstem" operator */
-block|{
-name|PS_Dimension
+comment|/* (Type 1& 2's `hstem' or `vstem' operators)       */
 name|dim
-init|=
+operator|=
 operator|&
 name|hints
 operator|->
@@ -3003,7 +2978,7 @@ name|dimension
 index|[
 name|dimension
 index|]
-decl_stmt|;
+expr_stmt|;
 for|for
 control|(
 init|;
@@ -3088,23 +3063,6 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-break|break;
-block|}
-default|default:
-name|FT_TRACE0
-argument_list|(
-operator|(
-literal|"ps_hints_stem: called with invalid hint type (%d)\n"
-operator|,
-name|hints
-operator|->
-name|hint_type
-operator|)
-argument_list|)
-expr_stmt|;
-break|break;
-block|}
-block|}
 block|}
 end_function
 begin_comment
@@ -3119,7 +3077,7 @@ parameter_list|(
 name|PS_Hints
 name|hints
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|dimension
 parameter_list|,
 name|FT_Fixed
@@ -3162,10 +3120,6 @@ decl_stmt|;
 comment|/* limit "dimension" to 0..1 */
 if|if
 condition|(
-name|dimension
-operator|<
-literal|0
-operator|||
 name|dimension
 operator|>
 literal|1
@@ -3951,7 +3905,7 @@ parameter_list|(
 name|T1_Hints
 name|hints
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|dimension
 parameter_list|,
 name|FT_Fixed
@@ -4145,7 +4099,7 @@ parameter_list|(
 name|T2_Hints
 name|hints
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|dimension
 parameter_list|,
 name|FT_Int
@@ -4163,13 +4117,13 @@ literal|32
 index|]
 decl_stmt|,
 name|y
-decl_stmt|,
-name|n
 decl_stmt|;
 name|FT_Int
 name|total
 init|=
 name|count
+decl_stmt|,
+name|n
 decl_stmt|;
 name|y
 operator|=

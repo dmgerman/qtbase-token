@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009, 2011-2013 by                                           */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -58,9 +58,6 @@ define|#
 directive|define
 name|__AFPIC_H__
 end_define
-begin_macro
-name|FT_BEGIN_HEADER
-end_macro
 begin_include
 include|#
 directive|include
@@ -133,6 +130,9 @@ include|#
 directive|include
 file|"aftypes.h"
 end_include
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
 begin_typedef
 DECL|struct|AFModulePIC_
 typedef|typedef
@@ -206,6 +206,7 @@ name|AFModulePIC
 typedef|;
 end_typedef
 begin_define
+DECL|macro|GET_PIC
 define|#
 directive|define
 name|GET_PIC
@@ -216,6 +217,7 @@ define|\
 value|( (AFModulePIC*)((lib)->pic_container.autofit) )
 end_define
 begin_define
+DECL|macro|AF_SERVICES_GET
 define|#
 directive|define
 name|AF_SERVICES_GET
@@ -223,6 +225,7 @@ define|\
 value|( GET_PIC( library )->af_services )
 end_define
 begin_define
+DECL|macro|AF_SERVICE_PROPERTIES_GET
 define|#
 directive|define
 name|AF_SERVICE_PROPERTIES_GET
@@ -230,6 +233,7 @@ define|\
 value|( GET_PIC( library )->af_service_properties )
 end_define
 begin_define
+DECL|macro|AF_WRITING_SYSTEM_CLASSES_GET
 define|#
 directive|define
 name|AF_WRITING_SYSTEM_CLASSES_GET
@@ -237,6 +241,7 @@ define|\
 value|( GET_PIC( FT_FACE_LIBRARY( globals->face ) )->af_writing_system_classes )
 end_define
 begin_define
+DECL|macro|AF_SCRIPT_CLASSES_GET
 define|#
 directive|define
 name|AF_SCRIPT_CLASSES_GET
@@ -244,6 +249,7 @@ define|\
 value|( GET_PIC( FT_FACE_LIBRARY( globals->face ) )->af_script_classes )
 end_define
 begin_define
+DECL|macro|AF_STYLE_CLASSES_GET
 define|#
 directive|define
 name|AF_STYLE_CLASSES_GET
@@ -251,6 +257,7 @@ define|\
 value|( GET_PIC( FT_FACE_LIBRARY( globals->face ) )->af_style_classes )
 end_define
 begin_define
+DECL|macro|AF_INTERFACE_GET
 define|#
 directive|define
 name|AF_INTERFACE_GET
@@ -278,6 +285,9 @@ name|library
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|FT_END_HEADER
+end_macro
 begin_endif
 endif|#
 directive|endif
@@ -288,9 +298,6 @@ end_comment
 begin_comment
 comment|/* */
 end_comment
-begin_macro
-name|FT_END_HEADER
-end_macro
 begin_endif
 endif|#
 directive|endif

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006-2010, 2012, 2013 by                                     */
+comment|/*  Copyright 2006-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -243,7 +243,7 @@ parameter_list|,
 name|key
 parameter_list|)
 define|\
-value|( (char*)(stream)->cursor - key - 1 )
+value|(FT_Offset)( (char*)(stream)->cursor - key - 1 )
 end_define
 begin_define
 DECL|macro|AFM_STATUS_EOC
@@ -1013,7 +1013,7 @@ argument|AFM_Parser  parser
 argument_list|,
 argument|AFM_Value   vals
 argument_list|,
-argument|FT_UInt     n
+argument|FT_Int      n
 argument_list|)
 end_macro
 begin_block
@@ -1029,7 +1029,7 @@ name|char
 modifier|*
 name|str
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|i
 decl_stmt|;
 if|if
@@ -1341,7 +1341,7 @@ name|char
 modifier|*
 name|key
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 comment|/* make stupid compiler happy */
 if|if
@@ -1710,22 +1710,19 @@ argument_list|)
 expr_stmt|;
 block|}
 end_block
-begin_macro
-DECL|function|FT_LOCAL_DEF
-name|FT_LOCAL_DEF
-argument_list|(
-argument|FT_Error
-argument_list|)
-end_macro
-begin_macro
+begin_function
+specifier|static
+name|FT_Error
+DECL|function|afm_parser_read_int
 name|afm_parser_read_int
-argument_list|(
-argument|AFM_Parser  parser
-argument_list|,
-argument|FT_Int*     aint
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+name|AFM_Parser
+name|parser
+parameter_list|,
+name|FT_Int
+modifier|*
+name|aint
+parameter_list|)
 block|{
 name|AFM_ValueRec
 name|val
@@ -1772,7 +1769,7 @@ name|Syntax_Error
 argument_list|)
 return|;
 block|}
-end_block
+end_function
 begin_function
 specifier|static
 name|FT_Error
@@ -1806,6 +1803,9 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|FT_Int
+name|tmp
+decl_stmt|;
 if|if
 condition|(
 name|afm_parser_read_int
@@ -1813,14 +1813,30 @@ argument_list|(
 name|parser
 argument_list|,
 operator|&
-name|fi
-operator|->
-name|NumTrackKern
+name|tmp
 argument_list|)
 condition|)
 goto|goto
 name|Fail
 goto|;
+if|if
+condition|(
+name|tmp
+operator|<
+literal|0
+condition|)
+goto|goto
+name|Fail
+goto|;
+name|fi
+operator|->
+name|NumTrackKern
+operator|=
+operator|(
+name|FT_UInt
+operator|)
+name|tmp
+expr_stmt|;
 if|if
 condition|(
 name|fi
@@ -1900,6 +1916,9 @@ if|if
 condition|(
 name|n
 operator|>=
+operator|(
+name|int
+operator|)
 name|fi
 operator|->
 name|NumTrackKern
@@ -2055,9 +2074,14 @@ name|fi
 operator|->
 name|NumTrackKern
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|n
 operator|+
 literal|1
+argument_list|)
 expr_stmt|;
 return|return
 name|FT_Err_Ok
@@ -2223,6 +2247,9 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|FT_Int
+name|tmp
+decl_stmt|;
 if|if
 condition|(
 name|afm_parser_read_int
@@ -2230,14 +2257,30 @@ argument_list|(
 name|parser
 argument_list|,
 operator|&
-name|fi
-operator|->
-name|NumKernPair
+name|tmp
 argument_list|)
 condition|)
 goto|goto
 name|Fail
 goto|;
+if|if
+condition|(
+name|tmp
+operator|<
+literal|0
+condition|)
+goto|goto
+name|Fail
+goto|;
+name|fi
+operator|->
+name|NumKernPair
+operator|=
+operator|(
+name|FT_UInt
+operator|)
+name|tmp
+expr_stmt|;
 if|if
 condition|(
 name|fi
@@ -2332,6 +2375,9 @@ if|if
 condition|(
 name|n
 operator|>=
+operator|(
+name|int
+operator|)
 name|fi
 operator|->
 name|NumKernPair
@@ -2403,6 +2449,7 @@ condition|)
 goto|goto
 name|Fail
 goto|;
+comment|/* index values can't be negative */
 name|kp
 operator|->
 name|index1
@@ -2414,7 +2461,7 @@ index|]
 operator|.
 name|u
 operator|.
-name|i
+name|u
 expr_stmt|;
 name|kp
 operator|->
@@ -2427,7 +2474,7 @@ index|]
 operator|.
 name|u
 operator|.
-name|i
+name|u
 expr_stmt|;
 if|if
 condition|(
@@ -2512,9 +2559,14 @@ name|fi
 operator|->
 name|NumKernPair
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|n
 operator|+
 literal|1
+argument_list|)
 expr_stmt|;
 name|ft_qsort
 argument_list|(
@@ -2683,7 +2735,7 @@ parameter_list|(
 name|AFM_Parser
 name|parser
 parameter_list|,
-name|FT_UInt
+name|FT_Int
 name|n
 parameter_list|,
 name|AFM_Token

@@ -325,7 +325,7 @@ name|result
 argument_list|()
 block|{
 return|return
-literal|0
+name|Q_NULLPTR
 return|;
 block|}
 name|QFutureInterface

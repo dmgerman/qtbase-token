@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2013, 2014 by                                                */
+comment|/*  Copyright 2013-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -90,6 +90,34 @@ name|sc3
 parameter_list|)
 define|\
 value|extern const AF_Script_UniRangeRec  af_ ## s ## _uniranges[];
+include|#
+directive|include
+file|"afscript.h"
+DECL|macro|SCRIPT
+undef|#
+directive|undef
+name|SCRIPT
+DECL|macro|SCRIPT
+define|#
+directive|define
+name|SCRIPT
+parameter_list|(
+name|s
+parameter_list|,
+name|S
+parameter_list|,
+name|d
+parameter_list|,
+name|h
+parameter_list|,
+name|sc1
+parameter_list|,
+name|sc2
+parameter_list|,
+name|sc3
+parameter_list|)
+define|\
+value|extern const AF_Script_UniRangeRec  af_ ## s ## _nonbase_uniranges[];
 include|#
 directive|include
 file|"afscript.h"

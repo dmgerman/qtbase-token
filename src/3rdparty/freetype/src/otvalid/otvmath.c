@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2007, 2008 by                                                */
+comment|/*  Copyright 2007-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -352,6 +352,9 @@ name|Coverage
 argument_list|,
 name|otvalid
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|cnt
 argument_list|)
 expr_stmt|;
@@ -664,6 +667,9 @@ name|Coverage
 argument_list|,
 name|otvalid
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|cnt
 argument_list|)
 expr_stmt|;
@@ -1283,6 +1289,9 @@ name|VCoverage
 argument_list|,
 name|otvalid
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|vcnt
 argument_list|)
 expr_stmt|;
@@ -1303,6 +1312,9 @@ name|HCoverage
 argument_list|,
 name|otvalid
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|hcnt
 argument_list|)
 expr_stmt|;

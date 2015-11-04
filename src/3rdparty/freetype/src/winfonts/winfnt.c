@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2004, 2006-2014 by                                      */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -101,7 +101,7 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_SERVICE_XFREE86_NAME_H
+include|FT_SERVICE_FONT_FORMAT_H
 end_include
 begin_comment
 comment|/*************************************************************************/
@@ -793,7 +793,7 @@ name|face
 operator|->
 name|font
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_function
@@ -1038,7 +1038,7 @@ name|FNT_Face
 name|face
 parameter_list|,
 name|FT_Int
-name|face_index
+name|face_instance_index
 parameter_list|)
 block|{
 name|FT_Error
@@ -1067,11 +1067,23 @@ decl_stmt|;
 name|WinMZ_HeaderRec
 name|mz_header
 decl_stmt|;
+name|FT_Long
+name|face_index
+decl_stmt|;
 name|face
 operator|->
 name|font
 operator|=
-literal|0
+name|NULL
+expr_stmt|;
+name|face_index
+operator|=
+name|FT_ABS
+argument_list|(
+name|face_instance_index
+argument_list|)
+operator|&
+literal|0xFFFF
 expr_stmt|;
 comment|/* does it begin with an MZ header? */
 if|if
@@ -1213,6 +1225,38 @@ operator|=
 name|FT_GET_USHORT_LE
 argument_list|()
 expr_stmt|;
+comment|/* Microsoft's specification of the executable-file header format */
+comment|/* for `New Executable' (NE) doesn't give a limit for the         */
+comment|/* alignment shift count; however, in 1985, the year of the       */
+comment|/* specification release, only 32bit values were supported, thus  */
+comment|/* anything larger than 16 doesn't make sense in general, given   */
+comment|/* that file offsets are 16bit values, shifted by the alignment   */
+comment|/* shift count                                                    */
+if|if
+condition|(
+name|size_shift
+operator|>
+literal|16
+condition|)
+block|{
+name|FT_TRACE2
+argument_list|(
+operator|(
+literal|"invalid alignment shift count for resource data\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
 for|for
 control|(
 init|;
@@ -1253,16 +1297,15 @@ name|count
 expr_stmt|;
 name|font_offset
 operator|=
-call|(
-name|FT_ULong
-call|)
-argument_list|(
 name|FT_STREAM_POS
 argument_list|()
 operator|+
 literal|4
 operator|+
-operator|(
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|stream
 operator|->
 name|cursor
@@ -1270,7 +1313,6 @@ operator|-
 name|stream
 operator|->
 name|limit
-operator|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1357,6 +1399,15 @@ name|font_count
 expr_stmt|;
 if|if
 condition|(
+name|face_instance_index
+operator|<
+literal|0
+condition|)
+goto|goto
+name|Exit
+goto|;
+if|if
+condition|(
 name|face_index
 operator|>=
 name|font_count
@@ -1373,16 +1424,6 @@ goto|goto
 name|Exit
 goto|;
 block|}
-elseif|else
-if|if
-condition|(
-name|face_index
-operator|<
-literal|0
-condition|)
-goto|goto
-name|Exit
-goto|;
 if|if
 condition|(
 name|FT_NEW
@@ -1401,6 +1442,9 @@ name|FT_STREAM_SEEK
 argument_list|(
 name|font_offset
 operator|+
+operator|(
+name|FT_ULong
+operator|)
 name|face_index
 operator|*
 literal|12
@@ -1496,7 +1540,7 @@ decl_stmt|;
 name|WinPE_RsrcDataEntryRec
 name|data_entry
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|root_dir_offset
 decl_stmt|,
 name|name_dir_offset
@@ -2655,7 +2699,7 @@ name|fntface
 parameter_list|,
 comment|/* FNT_Face */
 name|FT_Int
-name|face_index
+name|face_instance_index
 parameter_list|,
 name|FT_Int
 name|num_params
@@ -2684,6 +2728,9 @@ argument_list|(
 name|face
 argument_list|)
 decl_stmt|;
+name|FT_Int
+name|face_index
+decl_stmt|;
 name|FT_UNUSED
 argument_list|(
 name|num_params
@@ -2701,6 +2748,15 @@ literal|"Windows FNT driver\n"
 operator|)
 argument_list|)
 expr_stmt|;
+name|face_index
+operator|=
+name|FT_ABS
+argument_list|(
+name|face_instance_index
+argument_list|)
+operator|&
+literal|0xFFFF
+expr_stmt|;
 comment|/* try to load font from a DLL */
 name|error
 operator|=
@@ -2708,7 +2764,7 @@ name|fnt_face_get_dll_font
 argument_list|(
 name|face
 argument_list|,
-name|face_index
+name|face_instance_index
 argument_list|)
 expr_stmt|;
 if|if
@@ -2716,7 +2772,7 @@ condition|(
 operator|!
 name|error
 operator|&&
-name|face_index
+name|face_instance_index
 operator|<
 literal|0
 condition|)
@@ -2792,6 +2848,15 @@ condition|)
 block|{
 if|if
 condition|(
+name|face_instance_index
+operator|<
+literal|0
+condition|)
+goto|goto
+name|Exit
+goto|;
+if|if
+condition|(
 name|face_index
 operator|>
 literal|0
@@ -2803,16 +2868,6 @@ argument_list|(
 name|Invalid_Argument
 argument_list|)
 expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|face_index
-operator|<
-literal|0
-condition|)
-goto|goto
-name|Exit
-goto|;
 block|}
 block|}
 if|if
@@ -2840,7 +2895,7 @@ name|face
 operator|->
 name|font
 decl_stmt|;
-name|FT_PtrDist
+name|FT_ULong
 name|family_size
 decl_stmt|;
 name|root
@@ -2946,6 +3001,9 @@ name|bsize
 operator|->
 name|width
 operator|=
+operator|(
+name|FT_Short
+operator|)
 name|font
 operator|->
 name|header
@@ -3769,7 +3827,7 @@ name|FT_Byte
 modifier|*
 name|p
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|len
 decl_stmt|;
 name|FT_Bitmap
@@ -3962,7 +4020,7 @@ name|bitmap
 operator|->
 name|width
 operator|=
-name|FT_NEXT_SHORT_LE
+name|FT_NEXT_USHORT_LE
 argument_list|(
 name|p
 argument_list|)
@@ -4039,7 +4097,7 @@ operator|->
 name|face
 argument_list|)
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|pitch
 init|=
 operator|(
@@ -4064,6 +4122,9 @@ name|bitmap
 operator|->
 name|pitch
 operator|=
+operator|(
+name|int
+operator|)
 name|pitch
 expr_stmt|;
 name|bitmap
@@ -4235,11 +4296,16 @@ name|metrics
 operator|.
 name|width
 operator|=
+call|(
+name|FT_Pos
+call|)
+argument_list|(
 name|bitmap
 operator|->
 name|width
 operator|<<
 literal|6
+argument_list|)
 expr_stmt|;
 name|slot
 operator|->
@@ -4247,11 +4313,16 @@ name|metrics
 operator|.
 name|height
 operator|=
+call|(
+name|FT_Pos
+call|)
+argument_list|(
 name|bitmap
 operator|->
 name|rows
 operator|<<
 literal|6
+argument_list|)
 expr_stmt|;
 name|slot
 operator|->
@@ -4259,11 +4330,16 @@ name|metrics
 operator|.
 name|horiAdvance
 operator|=
+call|(
+name|FT_Pos
+call|)
+argument_list|(
 name|bitmap
 operator|->
 name|width
 operator|<<
 literal|6
+argument_list|)
 expr_stmt|;
 name|slot
 operator|->
@@ -4292,11 +4368,16 @@ name|slot
 operator|->
 name|metrics
 argument_list|,
+call|(
+name|FT_Pos
+call|)
+argument_list|(
 name|bitmap
 operator|->
 name|rows
 operator|<<
 literal|6
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Exit
@@ -4369,9 +4450,9 @@ index|[]
 init|=
 block|{
 block|{
-name|FT_SERVICE_ID_XF86_NAME
+name|FT_SERVICE_ID_FONT_FORMAT
 block|,
-name|FT_XF86_FORMAT_WINFNT
+name|FT_FONT_FORMAT_WINFNT
 block|}
 block|,
 block|{

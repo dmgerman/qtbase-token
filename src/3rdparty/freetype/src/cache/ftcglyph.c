@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2001, 2003, 2004, 2006, 2009, 2011 by                   */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -601,7 +601,7 @@ name|FTC_GCache_Lookup
 argument_list|(
 argument|FTC_GCache   cache
 argument_list|,
-argument|FT_PtrDist   hash
+argument|FT_Offset    hash
 argument_list|,
 argument|FT_UInt      gindex
 argument_list|,

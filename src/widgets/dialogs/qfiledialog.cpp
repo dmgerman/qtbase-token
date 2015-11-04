@@ -3254,9 +3254,9 @@ name|usingWidgets
 argument_list|()
 condition|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Non-native QFileDialog supports only local files"
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -3785,9 +3785,9 @@ argument_list|)
 expr_stmt|;
 else|else
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"Non-native QFileDialog supports only local files"
+argument_list|)
 expr_stmt|;
 block|}
 end_function

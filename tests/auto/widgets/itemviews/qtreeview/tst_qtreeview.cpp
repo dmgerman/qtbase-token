@@ -21432,7 +21432,7 @@ specifier|static
 name|QString
 name|posToString
 parameter_list|(
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|ViewItemPosition
 name|pos
@@ -21500,21 +21500,7 @@ name|index
 parameter_list|)
 specifier|const
 block|{
-name|QVERIFY
-argument_list|(
-name|qstyleoption_cast
-argument_list|<
-specifier|const
-name|QStyleOptionViewItemV4
-operator|*
-argument_list|>
-argument_list|(
-operator|&
-name|option
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|opt
 argument_list|(
 name|option
@@ -21561,7 +21547,7 @@ name|opt
 operator|.
 name|features
 operator|&
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|Alternate
 operator|)
@@ -21585,7 +21571,7 @@ name|opt
 operator|.
 name|features
 operator|&
-name|QStyleOptionViewItemV2
+name|QStyleOptionViewItem
 operator|::
 name|HasCheckIndicator
 operator|)
@@ -21623,7 +21609,7 @@ argument_list|)
 argument_list|,
 name|posToString
 argument_list|(
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Beginning
 argument_list|)
@@ -21651,7 +21637,7 @@ argument_list|)
 argument_list|,
 name|posToString
 argument_list|(
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|Middle
 argument_list|)
@@ -21679,7 +21665,7 @@ argument_list|)
 argument_list|,
 name|posToString
 argument_list|(
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|End
 argument_list|)
@@ -21707,7 +21693,7 @@ argument_list|)
 argument_list|,
 name|posToString
 argument_list|(
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 operator|::
 name|OnlyOne
 argument_list|)
@@ -29497,7 +29483,7 @@ ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
 block|{
-name|QStyleOptionViewItemV4
+name|QStyleOptionViewItem
 name|option
 decl_stmt|;
 name|view

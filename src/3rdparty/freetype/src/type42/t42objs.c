@@ -18,10 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002-2009, 2011, 2013                                        */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
-comment|/*  by Roberto Alameda.                                                    */
+comment|/*  Roberto Alameda.                                                       */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -361,7 +361,7 @@ name|glyph_names
 operator|.
 name|block
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|loader
 operator|.
@@ -369,7 +369,7 @@ name|glyph_names
 operator|.
 name|elements
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* we must now build type1.encoding when we have a custom array */
 if|if
@@ -839,7 +839,11 @@ goto|;
 comment|/* check the face index */
 if|if
 condition|(
+operator|(
 name|face_index
+operator|&
+literal|0xFFFF
+operator|)
 operator|>
 literal|0
 condition|)
@@ -1075,7 +1079,7 @@ name|root
 operator|->
 name|available_sizes
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* Load the TTF font embedded in the T42 font */
 block|{
@@ -1756,7 +1760,7 @@ name|root
 operator|.
 name|family_name
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|face
 operator|->
@@ -1764,7 +1768,7 @@ name|root
 operator|.
 name|style_name
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -2421,13 +2425,13 @@ name|slot
 operator|->
 name|subglyphs
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|slot
 operator|->
 name|control_data
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|slot
 operator|->
@@ -2439,7 +2443,7 @@ name|slot
 operator|->
 name|other
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|slot
 operator|->
@@ -2501,6 +2505,16 @@ name|T42_Size
 operator|)
 name|size
 decl_stmt|;
+name|T42_Face
+name|t42face
+init|=
+operator|(
+name|T42_Face
+operator|)
+name|size
+operator|->
+name|face
+decl_stmt|;
 name|FT_Driver_Class
 name|ttclazz
 init|=
@@ -2524,6 +2538,29 @@ literal|"T42_GlyphSlot_Load: glyph index %d\n"
 operator|,
 name|glyph_index
 operator|)
+argument_list|)
+expr_stmt|;
+comment|/* map T42 glyph index to embedded TTF's glyph index */
+name|glyph_index
+operator|=
+operator|(
+name|FT_UInt
+operator|)
+name|ft_atol
+argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
+name|t42face
+operator|->
+name|type1
+operator|.
+name|charstrings
+index|[
+name|glyph_index
+index|]
 argument_list|)
 expr_stmt|;
 name|t42_glyphslot_clear

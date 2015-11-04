@@ -159,7 +159,7 @@ decl_stmt|;
 name|uint
 name|ifindex
 decl_stmt|;
-name|qint16
+name|int
 name|hopLimit
 decl_stmt|;
 name|quint16
@@ -325,10 +325,16 @@ operator|=
 literal|0
 block|,
 name|WantDatagramSender
+operator|=
+literal|0x01
 block|,
 name|WantDatagramDestination
+operator|=
+literal|0x02
 block|,
 name|WantDatagramHopLimit
+operator|=
+literal|0x04
 block|,
 name|WantAll
 operator|=

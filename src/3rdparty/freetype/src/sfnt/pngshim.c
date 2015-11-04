@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2013, 2014 by Google, Inc.                                   */
+comment|/*  Copyright 2013-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  Google, Inc.                                                           */
 end_comment
 begin_comment
 comment|/*  Written by Stuart Gill and Behdad Esfahbod.                            */
@@ -110,25 +113,27 @@ comment|/* to call libpng, and the way cairo does it is defacto standard.  */
 end_comment
 begin_function
 specifier|static
+name|unsigned
 name|int
 DECL|function|multiply_alpha
 name|multiply_alpha
 parameter_list|(
+name|unsigned
 name|int
 name|alpha
 parameter_list|,
+name|unsigned
 name|int
 name|color
 parameter_list|)
 block|{
+name|unsigned
 name|int
 name|temp
 init|=
-operator|(
 name|alpha
 operator|*
 name|color
-operator|)
 operator|+
 literal|0x80
 decl_stmt|;
@@ -309,6 +314,10 @@ index|[
 literal|0
 index|]
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|)
 name|blue
 expr_stmt|;
 name|base
@@ -316,6 +325,10 @@ index|[
 literal|1
 index|]
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|)
 name|green
 expr_stmt|;
 name|base
@@ -323,6 +336,10 @@ index|[
 literal|2
 index|]
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|)
 name|red
 expr_stmt|;
 name|base
@@ -330,6 +347,10 @@ index|[
 literal|3
 index|]
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|)
 name|alpha
 expr_stmt|;
 block|}
@@ -424,6 +445,10 @@ index|[
 literal|0
 index|]
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|)
 name|blue
 expr_stmt|;
 name|base
@@ -431,6 +456,10 @@ index|[
 literal|1
 index|]
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|)
 name|green
 expr_stmt|;
 name|base
@@ -438,6 +467,10 @@ index|[
 literal|2
 index|]
 operator|=
+operator|(
+name|unsigned
+name|char
+operator|)
 name|red
 expr_stmt|;
 name|base
@@ -959,7 +992,7 @@ condition|(
 name|populate_map_and_metrics
 condition|)
 block|{
-name|FT_Long
+name|FT_ULong
 name|size
 decl_stmt|;
 name|metrics
@@ -967,7 +1000,7 @@ operator|->
 name|width
 operator|=
 operator|(
-name|FT_Int
+name|FT_UShort
 operator|)
 name|imgWidth
 expr_stmt|;
@@ -976,7 +1009,7 @@ operator|->
 name|height
 operator|=
 operator|(
-name|FT_Int
+name|FT_UShort
 operator|)
 name|imgHeight
 expr_stmt|;
@@ -1006,11 +1039,16 @@ name|map
 operator|->
 name|pitch
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 name|map
 operator|->
 name|width
 operator|*
 literal|4
+argument_list|)
 expr_stmt|;
 name|map
 operator|->
@@ -1052,6 +1090,9 @@ name|map
 operator|->
 name|rows
 operator|*
+operator|(
+name|FT_ULong
+operator|)
 name|map
 operator|->
 name|pitch

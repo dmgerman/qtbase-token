@@ -35,12 +35,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<GLES3/gl3.h>
+file|<GLES2/gl2.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<GLES3/gl3ext.h>
+file|<GLES2/gl2ext.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -137,6 +137,17 @@ name|handle
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|window
+operator|->
+name|surfaceType
+argument_list|()
+operator|==
+name|QSurface
+operator|::
+name|RasterSurface
+condition|)
 name|window
 operator|->
 name|setSurfaceType
@@ -146,7 +157,6 @@ operator|::
 name|OpenGLSurface
 argument_list|)
 expr_stmt|;
-comment|// Required for flipping, but could be done in the swap
 block|}
 end_constructor
 begin_function
@@ -190,16 +200,6 @@ operator|->
 name|requestedFormat
 argument_list|()
 decl_stmt|;
-name|format
-operator|.
-name|setVersion
-argument_list|(
-literal|3
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// Required for ES3 framebuffer blit
 name|d
 operator|->
 name|context
@@ -437,7 +437,7 @@ argument_list|)
 expr_stmt|;
 name|glBindFramebuffer
 argument_list|(
-name|GL_READ_FRAMEBUFFER
+name|GL_READ_FRAMEBUFFER_ANGLE
 argument_list|,
 name|d
 operator|->
@@ -449,7 +449,7 @@ argument_list|)
 expr_stmt|;
 name|glBindFramebuffer
 argument_list|(
-name|GL_DRAW_FRAMEBUFFER
+name|GL_DRAW_FRAMEBUFFER_ANGLE
 argument_list|,
 literal|0
 argument_list|)
@@ -494,7 +494,7 @@ operator|.
 name|width
 argument_list|()
 decl_stmt|;
-name|glBlitFramebuffer
+name|glBlitFramebufferANGLE
 argument_list|(
 name|x1
 argument_list|,

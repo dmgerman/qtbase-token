@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2013 by                                                      */
+comment|/*  Copyright 2013-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -103,7 +103,7 @@ parameter_list|,
 name|AF_StyleClass
 name|style_class
 parameter_list|,
-name|FT_Byte
+name|FT_UShort
 modifier|*
 name|gstyles
 parameter_list|)

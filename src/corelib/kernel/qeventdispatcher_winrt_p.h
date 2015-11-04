@@ -113,16 +113,9 @@ specifier|static
 name|HRESULT
 name|runOnXamlThread
 argument_list|(
-specifier|const
-name|std
-operator|::
-name|function
-operator|<
-name|HRESULT
-argument_list|()
-operator|>
-operator|&
-name|delegate
+argument|const std::function<HRESULT()>&delegate
+argument_list|,
+argument|bool waitForRun = true
 argument_list|)
 block|;
 name|bool

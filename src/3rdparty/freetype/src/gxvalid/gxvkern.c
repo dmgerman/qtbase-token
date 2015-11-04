@@ -18,10 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004-2007, 2013                                              */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
-comment|/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
+comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1913,9 +1913,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -2703,6 +2708,9 @@ directive|endif
 name|length
 operator|=
 operator|(
+operator|(
+name|FT_ULong
+operator|)
 name|u16
 index|[
 literal|0

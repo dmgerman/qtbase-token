@@ -21,7 +21,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2013 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+comment|/*  Copyright 2005-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -731,11 +734,14 @@ name|face
 operator|->
 name|num_glyphs
 operator|-
-operator|(
+call|(
+name|FT_Long
+call|)
+argument_list|(
 name|offset
 operator|&
 literal|0x0000FFFFUL
-operator|)
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

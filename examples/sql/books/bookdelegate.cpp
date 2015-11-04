@@ -70,7 +70,7 @@ operator|!=
 literal|5
 condition|)
 block|{
-name|QStyleOptionViewItemV3
+name|QStyleOptionViewItem
 name|opt
 init|=
 name|option

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2004, 2006, 2008, 2009, 2011, 2013 by                   */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -80,7 +80,7 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_SERVICE_XFREE86_NAME_H
+include|FT_SERVICE_FONT_FORMAT_H
 end_include
 begin_include
 include|#
@@ -482,9 +482,9 @@ index|[]
 init|=
 block|{
 block|{
-name|FT_SERVICE_ID_XF86_NAME
+name|FT_SERVICE_ID_FONT_FORMAT
 block|,
-name|FT_XF86_FORMAT_CID
+name|FT_FONT_FORMAT_CID
 block|}
 block|,
 block|{

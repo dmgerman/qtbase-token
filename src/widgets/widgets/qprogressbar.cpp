@@ -374,7 +374,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Initialize \a option with the values from this QProgressBar. This method is useful     for subclasses when they need a QStyleOptionProgressBar or QStyleOptionProgressBarV2,     but don't want to fill in all the information themselves. This function will check the version     of the QStyleOptionProgressBar and fill in the additional values for a     QStyleOptionProgressBarV2.      \sa QStyleOption::initFrom() */
+comment|/*!     Initialize \a option with the values from this QProgressBar. This method is useful     for subclasses when they need a QStyleOptionProgressBar,     but don't want to fill in all the information themselves.      \sa QStyleOption::initFrom() */
 end_comment
 begin_function
 DECL|function|initStyleOption
@@ -473,23 +473,7 @@ operator|=
 name|text
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|QStyleOptionProgressBarV2
-modifier|*
-name|optionV2
-init|=
-name|qstyleoption_cast
-argument_list|<
-name|QStyleOptionProgressBarV2
-operator|*
-argument_list|>
-argument_list|(
 name|option
-argument_list|)
-condition|)
-block|{
-name|optionV2
 operator|->
 name|orientation
 operator|=
@@ -497,8 +481,8 @@ name|d
 operator|->
 name|orientation
 expr_stmt|;
-comment|// ### Qt 6: remove this member from QStyleOptionProgressBarV2
-name|optionV2
+comment|// ### Qt 6: remove this member from QStyleOptionProgressBar
+name|option
 operator|->
 name|invertedAppearance
 operator|=
@@ -506,11 +490,10 @@ name|d
 operator|->
 name|invertedAppearance
 expr_stmt|;
-name|optionV2
+name|option
 operator|->
 name|bottomToTop
 operator|=
-operator|(
 name|d
 operator|->
 name|textDirection
@@ -518,9 +501,7 @@ operator|==
 name|QProgressBar
 operator|::
 name|BottomToTop
-operator|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -625,7 +606,7 @@ literal|true
 return|;
 block|}
 comment|// Check if the bar needs to be repainted
-name|QStyleOptionProgressBarV2
+name|QStyleOptionProgressBar
 name|opt
 decl_stmt|;
 name|q
@@ -1265,7 +1246,7 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|QStyleOptionProgressBarV2
+name|QStyleOptionProgressBar
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -1318,7 +1299,7 @@ init|=
 name|fontMetrics
 argument_list|()
 decl_stmt|;
-name|QStyleOptionProgressBarV2
+name|QStyleOptionProgressBar
 name|opt
 decl_stmt|;
 name|initStyleOption

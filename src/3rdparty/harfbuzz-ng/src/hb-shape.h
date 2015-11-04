@@ -74,9 +74,6 @@ DECL|typedef|hb_feature_t
 name|hb_feature_t
 typedef|;
 end_typedef
-begin_comment
-comment|/* len=-1 means str is NUL-terminated */
-end_comment
 begin_function_decl
 name|hb_bool_t
 name|hb_feature_from_string
@@ -95,9 +92,6 @@ name|feature
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|/* Something like 128 bytes is more than enough.  * nul-terminates. */
-end_comment
 begin_function_decl
 name|void
 name|hb_feature_to_string

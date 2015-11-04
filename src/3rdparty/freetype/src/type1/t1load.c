@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2014 by                                                 */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -869,22 +869,18 @@ end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
-begin_macro
-DECL|function|FT_LOCAL_DEF
-name|FT_LOCAL_DEF
-argument_list|(
-argument|FT_Fixed
-argument_list|)
-end_macro
-begin_macro
+begin_function
+specifier|static
+name|FT_Fixed
+DECL|function|mm_axis_unmap
 name|mm_axis_unmap
-argument_list|(
-argument|PS_DesignMap  axismap
-argument_list|,
-argument|FT_Fixed      ncv
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+name|PS_DesignMap
+name|axismap
+parameter_list|,
+name|FT_Fixed
+name|ncv
+parameter_list|)
 block|{
 name|int
 name|j
@@ -1016,7 +1012,7 @@ index|]
 argument_list|)
 return|;
 block|}
-end_block
+end_function
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -1032,24 +1028,23 @@ end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
-begin_macro
-name|FT_LOCAL_DEF
-argument_list|(
-argument|void
-argument_list|)
-end_macro
-begin_macro
+begin_function
+specifier|static
+name|void
 DECL|function|mm_weights_unmap
 name|mm_weights_unmap
-argument_list|(
-argument|FT_Fixed*  weights
-argument_list|,
-argument|FT_Fixed*  axiscoords
-argument_list|,
-argument|FT_UInt    axis_count
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+name|FT_Fixed
+modifier|*
+name|weights
+parameter_list|,
+name|FT_Fixed
+modifier|*
+name|axiscoords
+parameter_list|,
+name|FT_UInt
+name|axis_count
+parameter_list|)
 block|{
 name|FT_ASSERT
 argument_list|(
@@ -1381,7 +1376,7 @@ index|]
 expr_stmt|;
 block|}
 block|}
-end_block
+end_function
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -1895,32 +1890,36 @@ name|face
 operator|->
 name|blend
 decl_stmt|;
-name|FT_Error
-name|error
-decl_stmt|;
 name|FT_UInt
 name|n
 decl_stmt|,
 name|m
 decl_stmt|;
-name|error
-operator|=
-name|FT_ERR
+if|if
+condition|(
+operator|!
+name|blend
+condition|)
+return|return
+name|FT_THROW
 argument_list|(
 name|Invalid_Argument
 argument_list|)
-expr_stmt|;
+return|;
 if|if
 condition|(
-name|blend
-operator|&&
+name|num_coords
+operator|>
 name|blend
 operator|->
 name|num_axis
-operator|==
-name|num_coords
 condition|)
-block|{
+name|num_coords
+operator|=
+name|blend
+operator|->
+name|num_axis
+expr_stmt|;
 comment|/* recompute the weight vector from the blend coordinates */
 for|for
 control|(
@@ -1963,13 +1962,20 @@ block|{
 name|FT_Fixed
 name|factor
 decl_stmt|;
-comment|/* get current blend axis position */
+comment|/* get current blend axis position;                  */
+comment|/* use a default value if we don't have a coordinate */
 name|factor
 operator|=
+name|m
+operator|<
+name|num_coords
+condition|?
 name|coords
 index|[
 name|m
 index|]
+else|:
+literal|0x8000
 expr_stmt|;
 if|if
 condition|(
@@ -2031,13 +2037,8 @@ operator|=
 name|result
 expr_stmt|;
 block|}
-name|error
-operator|=
-name|FT_Err_Ok
-expr_stmt|;
-block|}
 return|return
-name|error
+name|FT_Err_Ok
 return|;
 block|}
 end_block
@@ -2067,39 +2068,43 @@ name|face
 operator|->
 name|blend
 decl_stmt|;
-name|FT_Error
-name|error
-decl_stmt|;
 name|FT_UInt
 name|n
 decl_stmt|,
 name|p
 decl_stmt|;
-name|error
-operator|=
-name|FT_ERR
-argument_list|(
-name|Invalid_Argument
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|blend
-operator|&&
-name|blend
-operator|->
-name|num_axis
-operator|==
-name|num_coords
-condition|)
-block|{
-comment|/* compute the blend coordinates through the blend design map */
 name|FT_Fixed
 name|final_blends
 index|[
 name|T1_MAX_MM_DESIGNS
 index|]
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|blend
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
+if|if
+condition|(
+name|num_coords
+operator|>
+name|blend
+operator|->
+name|num_axis
+condition|)
+name|num_coords
+operator|=
+name|blend
+operator|->
+name|num_axis
+expr_stmt|;
+comment|/* compute the blend coordinates through the blend design map */
 for|for
 control|(
 name|n
@@ -2118,11 +2123,6 @@ control|)
 block|{
 name|FT_Long
 name|design
-init|=
-name|coords
-index|[
-name|n
-index|]
 decl_stmt|;
 name|FT_Fixed
 name|the_blend
@@ -2163,6 +2163,41 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/* use a default value if we don't have a coordinate */
+if|if
+condition|(
+name|n
+operator|<
+name|num_coords
+condition|)
+name|design
+operator|=
+name|coords
+index|[
+name|n
+index|]
+expr_stmt|;
+else|else
+name|design
+operator|=
+operator|(
+name|designs
+index|[
+name|map
+operator|->
+name|num_points
+operator|-
+literal|1
+index|]
+operator|-
+name|designs
+index|[
+literal|0
+index|]
+operator|)
+operator|/
+literal|2
+expr_stmt|;
 for|for
 control|(
 name|p
@@ -2218,12 +2253,18 @@ condition|)
 block|{
 name|after
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|p
 expr_stmt|;
 break|break;
 block|}
 name|before
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|p
 expr_stmt|;
 block|}
@@ -2302,20 +2343,17 @@ operator|=
 name|the_blend
 expr_stmt|;
 block|}
-name|error
-operator|=
+return|return
 name|T1_Set_MM_Blend
 argument_list|(
 name|face
 argument_list|,
-name|num_coords
+name|blend
+operator|->
+name|num_axis
 argument_list|,
 name|final_blends
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|error
 return|;
 block|}
 end_block
@@ -2356,34 +2394,22 @@ block|{
 name|FT_Long
 name|lcoords
 index|[
-literal|4
+name|T1_MAX_MM_AXIS
 index|]
 decl_stmt|;
-comment|/* maximum axis count is 4 */
 name|FT_UInt
 name|i
 decl_stmt|;
-name|FT_Error
-name|error
-decl_stmt|;
-name|error
-operator|=
-name|FT_ERR
-argument_list|(
-name|Invalid_Argument
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|num_coords
-operator|<=
-literal|4
-operator|&&
-name|num_coords
 operator|>
-literal|0
+name|T1_MAX_MM_AXIS
 condition|)
-block|{
+name|num_coords
+operator|=
+name|T1_MAX_MM_AXIS
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -2410,8 +2436,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-name|error
-operator|=
+return|return
 name|T1_Set_MM_Design
 argument_list|(
 name|face
@@ -2420,10 +2445,6 @@ name|num_coords
 argument_list|,
 name|lcoords
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|error
 return|;
 block|}
 end_block
@@ -2834,7 +2855,7 @@ name|FT_Byte
 modifier|*
 name|name
 decl_stmt|;
-name|FT_PtrDist
+name|FT_UInt
 name|len
 decl_stmt|;
 comment|/* skip first slash, if any */
@@ -2856,6 +2877,10 @@ operator|++
 expr_stmt|;
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|token
 operator|->
 name|limit
@@ -2863,6 +2888,7 @@ operator|-
 name|token
 operator|->
 name|start
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2882,6 +2908,46 @@ goto|goto
 name|Exit
 goto|;
 block|}
+name|name
+operator|=
+operator|(
+name|FT_Byte
+operator|*
+operator|)
+name|blend
+operator|->
+name|axis_names
+index|[
+name|n
+index|]
+expr_stmt|;
+if|if
+condition|(
+name|name
+condition|)
+block|{
+name|FT_TRACE0
+argument_list|(
+operator|(
+literal|"parse_blend_axis_types:"
+literal|" overwriting axis name `%s' with `%*.s'\n"
+operator|,
+name|name
+operator|,
+name|len
+operator|,
+name|token
+operator|->
+name|start
+operator|)
+argument_list|)
+expr_stmt|;
+name|FT_FREE
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|FT_ALLOC
@@ -2893,14 +2959,9 @@ index|[
 name|n
 index|]
 argument_list|,
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|len
 operator|+
 literal|1
-argument_list|)
 argument_list|)
 condition|)
 goto|goto
@@ -3207,8 +3268,14 @@ name|t1_allocate_blend
 argument_list|(
 name|face
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|num_designs
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|num_axis
 argument_list|)
 expr_stmt|;
@@ -3490,6 +3557,9 @@ name|face
 argument_list|,
 literal|0
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|num_axis
 argument_list|)
 expr_stmt|;
@@ -3597,6 +3667,31 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"parse_blend_design_map: incorrect table\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Exit
+goto|;
+block|}
+if|if
+condition|(
+name|map
+operator|->
+name|design_points
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"parse_blend_design_map: duplicate table\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3886,6 +3981,9 @@ name|t1_allocate_blend
 argument_list|(
 name|face
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|num_designs
 argument_list|,
 literal|0
@@ -4068,6 +4166,9 @@ name|face
 operator|->
 name|len_buildchar
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|T1_ToFixedArray
 argument_list|(
 operator|&
@@ -4555,6 +4656,9 @@ name|T1_PRIVATE
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/* return 1 in case of success */
+end_comment
 begin_function
 specifier|static
 name|int
@@ -4564,7 +4668,7 @@ parameter_list|(
 name|T1_Parser
 name|parser
 parameter_list|,
-name|FT_Long
+name|FT_ULong
 modifier|*
 name|size
 parameter_list|,
@@ -4676,6 +4780,9 @@ expr_stmt|;
 operator|*
 name|size
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|s
 expr_stmt|;
 return|return
@@ -4790,6 +4897,7 @@ decl_stmt|;
 name|FT_Int
 name|result
 decl_stmt|;
+comment|/* input is scaled by 1000 to accommodate default FontMatrix */
 name|result
 operator|=
 name|T1_ToFixedArray
@@ -4860,9 +4968,15 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* Set Units per EM based on FontMatrix values.  We set the value to */
-comment|/* 1000 / temp_scale, because temp_scale was already multiplied by   */
-comment|/* 1000 (in t1_tofixed, from psobjs.c).                              */
+comment|/* atypical case */
+if|if
+condition|(
+name|temp_scale
+operator|!=
+literal|0x10000L
+condition|)
+block|{
+comment|/* set units per EM based on FontMatrix values */
 name|root
 operator|->
 name|units_per_EM
@@ -4877,14 +4991,6 @@ argument_list|,
 name|temp_scale
 argument_list|)
 expr_stmt|;
-comment|/* we need to scale the values by 1.0/temp_scale */
-if|if
-condition|(
-name|temp_scale
-operator|!=
-literal|0x10000L
-condition|)
-block|{
 name|temp
 index|[
 literal|0
@@ -5216,6 +5322,35 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+comment|/* only composite fonts (which we don't support) */
+comment|/* can have larger values                        */
+if|if
+condition|(
+name|count
+operator|>
+literal|256
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"parse_encoding: invalid encoding array size\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|parser
+operator|->
+name|root
+operator|.
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|T1_Skip_Spaces
 argument_list|(
 name|parser
@@ -5232,6 +5367,34 @@ operator|>=
 name|limit
 condition|)
 return|return;
+comment|/* PostScript happily allows overwriting of encoding arrays */
+if|if
+condition|(
+name|encode
+operator|->
+name|char_index
+condition|)
+block|{
+name|FT_FREE
+argument_list|(
+name|encode
+operator|->
+name|char_index
+argument_list|)
+expr_stmt|;
+name|FT_FREE
+argument_list|(
+name|encode
+operator|->
+name|char_name
+argument_list|)
+expr_stmt|;
+name|T1_Release_Table
+argument_list|(
+name|char_table
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* we use a T1_Table to store our charnames */
 name|loader
 operator|->
@@ -5543,7 +5706,7 @@ operator|<
 name|count
 condition|)
 block|{
-name|FT_PtrDist
+name|FT_UInt
 name|len
 decl_stmt|;
 name|cur
@@ -5584,6 +5747,10 @@ condition|)
 return|return;
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|parser
 operator|->
 name|root
@@ -5591,6 +5758,7 @@ operator|.
 name|cursor
 operator|-
 name|cur
+argument_list|)
 expr_stmt|;
 name|parser
 operator|->
@@ -6027,7 +6195,8 @@ control|)
 block|{
 name|FT_Long
 name|idx
-decl_stmt|,
+decl_stmt|;
+name|FT_ULong
 name|size
 decl_stmt|;
 name|FT_Byte
@@ -6211,6 +6380,9 @@ if|if
 condition|(
 name|size
 operator|<
+operator|(
+name|FT_ULong
+operator|)
 name|face
 operator|->
 name|type1
@@ -6266,6 +6438,9 @@ argument_list|)
 expr_stmt|;
 name|size
 operator|-=
+operator|(
+name|FT_ULong
+operator|)
 name|face
 operator|->
 name|type1
@@ -6432,6 +6607,12 @@ decl_stmt|;
 name|FT_Byte
 modifier|*
 name|cur
+init|=
+name|parser
+operator|->
+name|root
+operator|.
+name|cursor
 decl_stmt|;
 name|FT_Byte
 modifier|*
@@ -6448,7 +6629,7 @@ name|n
 decl_stmt|,
 name|num_glyphs
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|notdef_index
 init|=
 literal|0
@@ -6485,6 +6666,49 @@ expr_stmt|;
 goto|goto
 name|Fail
 goto|;
+block|}
+comment|/* we certainly need more than 8 bytes per glyph */
+if|if
+condition|(
+name|num_glyphs
+operator|>
+operator|(
+name|limit
+operator|-
+name|cur
+operator|)
+operator|>>
+literal|3
+condition|)
+block|{
+name|FT_TRACE0
+argument_list|(
+operator|(
+literal|"parse_charstrings: adjusting number of glyphs"
+literal|" (from %d to %d)\n"
+operator|,
+name|num_glyphs
+operator|,
+operator|(
+name|limit
+operator|-
+name|cur
+operator|)
+operator|>>
+literal|3
+operator|)
+argument_list|)
+expr_stmt|;
+name|num_glyphs
+operator|=
+operator|(
+name|limit
+operator|-
+name|cur
+operator|)
+operator|>>
+literal|3
+expr_stmt|;
 block|}
 comment|/* some fonts like Optima-Oblique not only define the /CharStrings */
 comment|/* array but access it also                                        */
@@ -6602,7 +6826,7 @@ init|;
 condition|;
 control|)
 block|{
-name|FT_Long
+name|FT_ULong
 name|size
 decl_stmt|;
 name|FT_Byte
@@ -6758,7 +6982,7 @@ operator|==
 literal|'/'
 condition|)
 block|{
-name|FT_PtrDist
+name|FT_UInt
 name|len
 decl_stmt|;
 if|if
@@ -6787,6 +7011,10 @@ expr_stmt|;
 comment|/* skip `/' */
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|parser
 operator|->
 name|root
@@ -6794,6 +7022,7 @@ operator|.
 name|cursor
 operator|-
 name|cur
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -6923,6 +7152,9 @@ if|if
 condition|(
 name|size
 operator|<=
+operator|(
+name|FT_ULong
+operator|)
 name|face
 operator|->
 name|type1
@@ -6978,6 +7210,9 @@ argument_list|)
 expr_stmt|;
 name|size
 operator|-=
+operator|(
+name|FT_ULong
+operator|)
 name|face
 operator|->
 name|type1
@@ -7675,14 +7910,6 @@ block|}
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_define
-DECL|macro|T1_FIELD_COUNT
-define|#
-directive|define
-name|T1_FIELD_COUNT
-define|\
-value|( sizeof ( t1_keywords ) / sizeof ( t1_keywords[0] ) )
-end_define
 begin_function
 specifier|static
 name|FT_Error
@@ -7699,7 +7926,7 @@ name|FT_Byte
 modifier|*
 name|base
 parameter_list|,
-name|FT_Long
+name|FT_ULong
 name|size
 parameter_list|)
 block|{
@@ -7917,7 +8144,7 @@ operator|&&
 name|have_integer
 condition|)
 block|{
-name|FT_Long
+name|FT_ULong
 name|s
 decl_stmt|;
 name|FT_Byte
@@ -7985,7 +8212,7 @@ operator|&&
 name|have_integer
 condition|)
 block|{
-name|FT_Long
+name|FT_ULong
 name|s
 decl_stmt|;
 name|FT_Byte
@@ -8043,7 +8270,7 @@ operator|<
 name|limit
 condition|)
 block|{
-name|FT_PtrDist
+name|FT_UInt
 name|len
 decl_stmt|;
 name|cur
@@ -8075,6 +8302,10 @@ name|Exit
 goto|;
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|parser
 operator|->
 name|root
@@ -8082,6 +8313,7 @@ operator|.
 name|cursor
 operator|-
 name|cur
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8151,9 +8383,6 @@ index|]
 operator|&&
 name|len
 operator|==
-operator|(
-name|FT_PtrDist
-operator|)
 name|ft_strlen
 argument_list|(
 operator|(
@@ -9148,7 +9377,7 @@ name|glyph_names
 operator|.
 name|block
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|loader
 operator|.
@@ -9156,7 +9385,7 @@ name|glyph_names
 operator|.
 name|elements
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* we must now build type1.encoding when we have a custom array */
 if|if

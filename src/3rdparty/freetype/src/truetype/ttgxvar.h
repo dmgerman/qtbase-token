@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004 by                                                      */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, Werner Lemberg and George Williams.      */
@@ -500,13 +500,13 @@ argument|FT_Error
 argument_list|)
 end_macro
 begin_macro
-name|TT_Vary_Get_Glyph_Deltas
+name|TT_Vary_Apply_Glyph_Deltas
 argument_list|(
 argument|TT_Face      face
 argument_list|,
 argument|FT_UInt      glyph_index
 argument_list|,
-argument|FT_Vector*  *deltas
+argument|FT_Outline*  outline
 argument_list|,
 argument|FT_UInt      n_points
 argument_list|)

@@ -901,7 +901,7 @@ name|m_refs
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_DEBUG_OUTPUT
+name|QT_NO_DEBUG_STREAM
 friend|friend
 name|QDebug
 name|operator
@@ -1009,7 +1009,7 @@ end_destructor
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_DEBUG_OUTPUT
+name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_function
 DECL|function|operator <<
@@ -1069,7 +1069,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !QT_NO_DEBUG_OUTPUT
+comment|// !QT_NO_DEBUG_STREAM
 end_comment
 begin_function
 DECL|function|dragScaleFactor

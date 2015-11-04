@@ -48,7 +48,7 @@ parameter_list|,
 name|e
 parameter_list|)
 define|\
-value|( (map)[(e)>> 5]& ( 1<< ( (e)& 31 ) ) )
+value|( (map)[(e)>> 5]& ( 1UL<< ( (e)& 31 ) ) )
 end_define
 begin_define
 DECL|macro|_bdf_set_glyph_modified
@@ -61,7 +61,7 @@ parameter_list|,
 name|e
 parameter_list|)
 define|\
-value|( (map)[(e)>> 5] |= ( 1<< ( (e)& 31 ) ) )
+value|( (map)[(e)>> 5] |= ( 1UL<< ( (e)& 31 ) ) )
 end_define
 begin_define
 DECL|macro|_bdf_clear_glyph_modified
@@ -74,7 +74,7 @@ parameter_list|,
 name|e
 parameter_list|)
 define|\
-value|( (map)[(e)>> 5]&= ~( 1<< ( (e)& 31 ) ) )
+value|( (map)[(e)>> 5]&= ~( 1UL<< ( (e)& 31 ) ) )
 end_define
 begin_comment
 comment|/* end of bdfP.h */
@@ -464,14 +464,17 @@ struct|struct
 name|hashtable_
 block|{
 DECL|member|limit
+name|unsigned
 name|int
 name|limit
 decl_stmt|;
 DECL|member|size
+name|unsigned
 name|int
 name|size
 decl_stmt|;
 DECL|member|used
+name|unsigned
 name|int
 name|used
 decl_stmt|;
@@ -559,6 +562,7 @@ name|bbx
 decl_stmt|;
 comment|/* Font bounding box.                  */
 DECL|member|point_size
+name|unsigned
 name|long
 name|point_size
 decl_stmt|;

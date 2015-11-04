@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2008, 2010-2014 by                                      */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -443,82 +443,26 @@ parameter_list|)
 function_decl|;
 end_typedef
 begin_comment
-comment|/*************************************************************************/
+comment|/* documentation is in sfnt.h */
 end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<Function>                                                            */
-end_comment
-begin_comment
-comment|/*    tt_face_get_name                                                   */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<Description>                                                         */
-end_comment
-begin_comment
-comment|/*    Returns a given ENGLISH name record in ASCII.                      */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<Input>                                                               */
-end_comment
-begin_comment
-comment|/*    face   :: A handle to the source face object.                      */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*    nameid :: The name id of the name record to return.                */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<InOut>                                                               */
-end_comment
-begin_comment
-comment|/*    name   :: The address of a string pointer.  NULL if no name is     */
-end_comment
-begin_comment
-comment|/*              present.                                                 */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*<Return>                                                              */
-end_comment
-begin_comment
-comment|/*    FreeType error code.  0 means success.                             */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|FT_Error
-DECL|function|tt_face_get_name
+begin_macro
+DECL|function|FT_LOCAL_DEF
+name|FT_LOCAL_DEF
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
 name|tt_face_get_name
-parameter_list|(
-name|TT_Face
-name|face
-parameter_list|,
-name|FT_UShort
-name|nameid
-parameter_list|,
-name|FT_String
-modifier|*
-modifier|*
-name|name
-parameter_list|)
+argument_list|(
+argument|TT_Face      face
+argument_list|,
+argument|FT_UShort    nameid
+argument_list|,
+argument|FT_String**  name
+argument_list|)
+end_macro
+begin_block
 block|{
 name|FT_Memory
 name|memory
@@ -997,7 +941,7 @@ return|return
 name|error
 return|;
 block|}
-end_function
+end_block
 begin_function
 specifier|static
 name|FT_Encoding
@@ -1261,13 +1205,13 @@ name|stream
 operator|->
 name|base
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|stream
 operator|->
 name|close
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_function
@@ -2150,7 +2094,7 @@ literal|3
 operator|)
 operator|&
 operator|~
-literal|3
+literal|3U
 expr_stmt|;
 name|sfnt_offset
 operator|+=
@@ -2163,7 +2107,7 @@ literal|3
 operator|)
 operator|&
 operator|~
-literal|3
+literal|3U
 expr_stmt|;
 block|}
 comment|/*      * Final checks!      *      * We don't decode and check the metadata block.      * We don't check table checksums either.      * But other than those, I think we implement all      * `MUST' checks from the spec.      */
@@ -2231,7 +2175,7 @@ literal|3
 operator|)
 operator|&
 operator|~
-literal|3
+literal|3U
 expr_stmt|;
 if|if
 condition|(
@@ -3073,7 +3017,7 @@ argument|FT_Stream      stream
 argument_list|,
 argument|TT_Face        face
 argument_list|,
-argument|FT_Int         face_index
+argument|FT_Int         face_instance_index
 argument_list|,
 argument|FT_Int         num_params
 argument_list|,
@@ -3100,6 +3044,9 @@ name|library
 decl_stmt|;
 name|SFNT_Service
 name|sfnt
+decl_stmt|;
+name|FT_Int
+name|face_index
 decl_stmt|;
 comment|/* for now, parameters are unused */
 name|FT_UNUSED
@@ -3224,19 +3171,18 @@ literal|"sfnt_init_face: %08p, %ld\n"
 operator|,
 name|face
 operator|,
-name|face_index
+name|face_instance_index
 operator|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|face_index
-operator|<
-literal|0
-condition|)
 name|face_index
 operator|=
-literal|0
+name|FT_ABS
+argument_list|(
+name|face_instance_index
+argument_list|)
+operator|&
+literal|0xFFFF
 expr_stmt|;
 if|if
 condition|(
@@ -3248,12 +3194,25 @@ name|ttc_header
 operator|.
 name|count
 condition|)
+block|{
+if|if
+condition|(
+name|face_instance_index
+operator|>=
+literal|0
+condition|)
 return|return
 name|FT_THROW
 argument_list|(
 name|Invalid_Argument
 argument_list|)
 return|;
+else|else
+name|face_index
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|FT_STREAM_SEEK
@@ -3271,7 +3230,7 @@ condition|)
 return|return
 name|error
 return|;
-comment|/* check that we have a valid TrueType file */
+comment|/* check whether we have a valid TrueType file */
 name|error
 operator|=
 name|sfnt
@@ -3290,6 +3249,138 @@ condition|)
 return|return
 name|error
 return|;
+ifdef|#
+directive|ifdef
+name|TT_CONFIG_OPTION_GX_VAR_SUPPORT
+block|{
+name|FT_ULong
+name|fvar_len
+decl_stmt|;
+name|FT_UShort
+name|num_instances
+decl_stmt|;
+name|FT_Int
+name|instance_index
+decl_stmt|;
+name|instance_index
+operator|=
+name|FT_ABS
+argument_list|(
+name|face_instance_index
+argument_list|)
+operator|>>
+literal|16
+expr_stmt|;
+comment|/* test whether current face is a GX font with named instances */
+if|if
+condition|(
+name|face
+operator|->
+name|goto_table
+argument_list|(
+name|face
+argument_list|,
+name|TTAG_fvar
+argument_list|,
+name|stream
+argument_list|,
+operator|&
+name|fvar_len
+argument_list|)
+operator|||
+name|fvar_len
+operator|<
+literal|20
+operator|||
+name|FT_STREAM_SKIP
+argument_list|(
+literal|12
+argument_list|)
+operator|||
+name|FT_READ_USHORT
+argument_list|(
+name|num_instances
+argument_list|)
+condition|)
+name|num_instances
+operator|=
+literal|0
+expr_stmt|;
+comment|/* we support at most 2^15 - 1 instances */
+if|if
+condition|(
+name|num_instances
+operator|>=
+operator|(
+literal|1U
+operator|<<
+literal|15
+operator|)
+operator|-
+literal|1
+condition|)
+block|{
+if|if
+condition|(
+name|face_instance_index
+operator|>=
+literal|0
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
+else|else
+name|num_instances
+operator|=
+literal|0
+expr_stmt|;
+block|}
+comment|/* instance indices in `face_instance_index' start with index 1, */
+comment|/* thus `>' and not `>='                                         */
+if|if
+condition|(
+name|instance_index
+operator|>
+name|num_instances
+condition|)
+block|{
+if|if
+condition|(
+name|face_instance_index
+operator|>=
+literal|0
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Argument
+argument_list|)
+return|;
+else|else
+name|num_instances
+operator|=
+literal|0
+expr_stmt|;
+block|}
+name|face
+operator|->
+name|root
+operator|.
+name|style_flags
+operator|=
+operator|(
+name|FT_Long
+operator|)
+name|num_instances
+operator|<<
+literal|16
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|face
 operator|->
 name|root
@@ -3366,7 +3457,7 @@ argument|FT_Stream      stream
 argument_list|,
 argument|TT_Face        face
 argument_list|,
-argument|FT_Int         face_index
+argument|FT_Int         face_instance_index
 argument_list|,
 argument|FT_Int         num_params
 argument_list|,
@@ -3417,7 +3508,7 @@ name|sfnt
 decl_stmt|;
 name|FT_UNUSED
 argument_list|(
-name|face_index
+name|face_instance_index
 argument_list|)
 expr_stmt|;
 comment|/* Check parameters */
@@ -4552,7 +4643,7 @@ block|}
 name|root
 operator|->
 name|style_flags
-operator|=
+operator||=
 name|flags
 expr_stmt|;
 comment|/*********************************************************************/
@@ -4997,10 +5088,6 @@ name|root
 operator|->
 name|height
 operator|=
-call|(
-name|FT_Short
-call|)
-argument_list|(
 name|root
 operator|->
 name|ascender
@@ -5014,7 +5101,6 @@ operator|->
 name|horizontal
 operator|.
 name|Line_Gap
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -5080,10 +5166,6 @@ name|root
 operator|->
 name|height
 operator|=
-call|(
-name|FT_Short
-call|)
-argument_list|(
 name|root
 operator|->
 name|ascender
@@ -5097,7 +5179,6 @@ operator|->
 name|os2
 operator|.
 name|sTypoLineGap
-argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -5133,10 +5214,6 @@ name|root
 operator|->
 name|height
 operator|=
-call|(
-name|FT_UShort
-call|)
-argument_list|(
 name|root
 operator|->
 name|ascender
@@ -5144,7 +5221,6 @@ operator|-
 name|root
 operator|->
 name|descender
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -5153,6 +5229,9 @@ name|root
 operator|->
 name|max_advance_width
 operator|=
+operator|(
+name|FT_Short
+operator|)
 name|face
 operator|->
 name|horizontal
@@ -5546,7 +5625,7 @@ name|face
 operator|->
 name|sfnt
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block

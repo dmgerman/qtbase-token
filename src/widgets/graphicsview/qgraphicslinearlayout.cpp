@@ -1602,9 +1602,9 @@ argument_list|()
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"post dump"
+argument_list|)
 expr_stmt|;
 name|dump
 argument_list|(

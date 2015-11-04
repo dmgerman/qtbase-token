@@ -30,7 +30,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2009, 2013, 2014 by                                     */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Just van Rossum, David Turner, Robert Wilhelm, and Werner Lemberg.     */
@@ -2246,6 +2246,9 @@ comment|/* code + 4 bytes chunk length */
 block|}
 name|total_size
 operator|+=
+operator|(
+name|FT_ULong
+operator|)
 name|GetHandleSize
 argument_list|(
 name|post_data
@@ -2257,12 +2260,12 @@ name|last_code
 operator|=
 name|code
 expr_stmt|;
-comment|/* detect integer overflows */
+comment|/* detect resource fork overflow */
 if|if
 condition|(
-name|total_size
+name|FT_MAC_RFORK_MAX_LEN
 operator|<
-name|old_total_size
+name|total_size
 condition|)
 block|{
 name|error
@@ -2756,6 +2759,19 @@ argument_list|(
 name|sfnt
 argument_list|)
 expr_stmt|;
+comment|/* detect resource fork overflow */
+if|if
+condition|(
+name|FT_MAC_RFORK_MAX_LEN
+operator|<
+name|sfnt_size
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Array_Too_Large
+argument_list|)
+return|;
 if|if
 condition|(
 name|FT_ALLOC

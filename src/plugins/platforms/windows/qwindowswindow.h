@@ -1354,9 +1354,11 @@ name|m_surface
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|// Debug
-end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_STREAM
+end_ifndef
 begin_expr_stmt
 name|QDebug
 name|operator
@@ -1372,14 +1374,25 @@ name|r
 operator|)
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|QDebug
+name|operator
+operator|<<
+operator|(
+name|QDebug
+name|d
+operator|,
+specifier|const
+name|POINT
+operator|&
+operator|)
+expr_stmt|;
+end_expr_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
-begin_comment
-comment|// maybe available on some SDKs revisit WM_GETMINMAXINFO/WM_NCCALCSIZE
-end_comment
 begin_expr_stmt
 name|QDebug
 name|operator
@@ -1410,10 +1423,34 @@ name|p
 operator|)
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|QDebug
+name|operator
+operator|<<
+operator|(
+name|QDebug
+name|d
+operator|,
+specifier|const
+name|WINDOWPLACEMENT
+operator|&
+operator|)
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// !Q_OS_WINCE
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_DEBUG_STREAM
+end_comment
 begin_comment
 comment|// ---------- QWindowsGeometryHint inline functions.
 end_comment

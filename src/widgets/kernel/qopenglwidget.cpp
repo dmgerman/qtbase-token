@@ -689,11 +689,10 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-literal|"QOpenGLWidget cannot be used as a native child widget."
-operator|<<
-literal|"Consider setting Qt::WA_DontCreateNativeAncestors and Qt::AA_DontCreateNativeWidgetSiblings."
+argument_list|(
+literal|"QOpenGLWidget cannot be used as a native child widget. Consider setting "
+literal|"Qt::WA_DontCreateNativeAncestors and Qt::AA_DontCreateNativeWidgetSiblings"
+argument_list|)
 expr_stmt|;
 return|return
 literal|0

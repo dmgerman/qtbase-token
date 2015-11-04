@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009, 2012, 2013 by                                          */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */

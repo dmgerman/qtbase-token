@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2007 by                                                */
+comment|/*  Copyright 2006-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -80,7 +80,7 @@ name|AF_WARPER_FLOOR
 parameter_list|(
 name|x
 parameter_list|)
-value|( (x)& ~63 )
+value|( (x)& ~FT_TYPEOF( x )63 )
 end_define
 begin_define
 DECL|macro|AF_WARPER_CEIL

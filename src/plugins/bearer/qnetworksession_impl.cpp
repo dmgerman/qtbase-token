@@ -1195,7 +1195,7 @@ condition|)
 return|return
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 operator|.
 name|toTime_t

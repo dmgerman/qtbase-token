@@ -1237,7 +1237,7 @@ operator|.
 name|fontMetrics
 argument_list|()
 decl_stmt|;
-name|QStyleOptionProgressBarV2
+name|QStyleOptionProgressBar
 name|opt
 decl_stmt|;
 name|bar

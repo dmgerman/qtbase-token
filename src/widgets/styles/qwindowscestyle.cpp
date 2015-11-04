@@ -13899,7 +13899,7 @@ operator|::
 name|SC_GroupBoxFrame
 condition|)
 block|{
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 name|frame
 decl_stmt|;
 name|frame
@@ -17525,7 +17525,7 @@ name|groupBox
 operator|->
 name|features
 operator|&
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 operator|::
 name|Flat
 operator|)
@@ -17613,6 +17613,7 @@ operator|.
 name|width
 argument_list|()
 decl_stmt|;
+specifier|const
 name|int
 name|marg
 init|=
@@ -17621,7 +17622,7 @@ name|groupBox
 operator|->
 name|features
 operator|&
-name|QStyleOptionFrameV2
+name|QStyleOptionFrame
 operator|::
 name|Flat
 operator|)

@@ -9,7 +9,7 @@ comment|'#    Convert parsed content blocks to a structured document (library fi
 nl|'\n'
 comment|'#'
 nl|'\n'
-comment|'#  Copyright 2002, 2004, 2007, 2008, 2014 by'
+comment|'#  Copyright 2002-2015 by'
 nl|'\n'
 comment|'#  David Turner.'
 nl|'\n'
