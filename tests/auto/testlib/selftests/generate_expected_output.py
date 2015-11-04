@@ -523,7 +523,7 @@ name|'open'
 op|'('
 name|'result'
 op|','
-string|"'w'"
+string|"'wb'"
 op|')'
 newline|'\n'
 name|'out'
