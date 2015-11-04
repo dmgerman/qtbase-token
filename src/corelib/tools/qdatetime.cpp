@@ -4579,7 +4579,7 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// % not well-defined for -ve, but / is.
+comment|// %,/ not well-defined for -ve, so always work with +ve.
 name|int
 name|negdays
 init|=
