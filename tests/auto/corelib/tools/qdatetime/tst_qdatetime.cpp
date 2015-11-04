@@ -14167,13 +14167,36 @@ literal|1
 operator|<<
 literal|60
 expr_stmt|;
-if|#
-directive|if
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Europe from day after"
+argument_list|)
+operator|<<
+name|QDate
+argument_list|(
+literal|2015
+argument_list|,
+literal|3
+argument_list|,
+literal|29
+argument_list|)
+operator|<<
+name|QTime
+argument_list|(
+literal|2
+argument_list|,
+literal|30
+argument_list|,
 literal|0
-comment|// FIXME: fails
-block|QTest::newRow("Europe from day after")<< QDate(2015, 3, 29)<< QTime(2, 30, 0)<< -1<< 120;
-endif|#
-directive|endif
+argument_list|)
+operator|<<
+operator|-
+literal|1
+operator|<<
+literal|120
+expr_stmt|;
 comment|// } else if (otherZone) {
 block|}
 else|else
