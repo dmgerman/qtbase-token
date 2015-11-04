@@ -177,6 +177,9 @@ name|bool
 name|m_scrolling
 block|;
 name|bool
+name|m_updatingDrag
+block|;
+name|bool
 name|m_exposedOnMoveToWindow
 block|;
 name|NSEvent
