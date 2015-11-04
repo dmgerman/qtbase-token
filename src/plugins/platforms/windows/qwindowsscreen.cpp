@@ -1597,33 +1597,17 @@ name|pixelDensity
 parameter_list|()
 specifier|const
 block|{
-specifier|const
-name|qreal
-name|physicalDpi
-init|=
-name|m_data
-operator|.
-name|geometry
-operator|.
-name|width
-argument_list|()
-operator|/
-name|m_data
-operator|.
-name|physicalSizeMM
-operator|.
-name|width
-argument_list|()
-operator|*
-name|qreal
-argument_list|(
-literal|25.4
-argument_list|)
-decl_stmt|;
+comment|// QTBUG-49195: Use logical DPI instead of physical DPI to calculate
+comment|// the pixel density since it is reflects the Windows UI scaling.
+comment|// High DPI auto scaling should be disabled when the user chooses
+comment|// small fonts on a High DPI monitor, resulting in lower logical DPI.
 return|return
 name|qRound
 argument_list|(
-name|physicalDpi
+name|logicalDpi
+argument_list|()
+operator|.
+name|first
 operator|/
 literal|96
 argument_list|)
