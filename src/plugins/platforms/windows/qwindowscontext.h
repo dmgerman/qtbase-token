@@ -699,6 +699,18 @@ operator|~
 name|QWindowsContext
 argument_list|()
 expr_stmt|;
+name|bool
+name|initTouch
+parameter_list|()
+function_decl|;
+name|bool
+name|initTouch
+parameter_list|(
+name|unsigned
+name|integrationOptions
+parameter_list|)
+function_decl|;
+comment|// For calls from QWindowsIntegration::QWindowsIntegration() only.
 name|int
 name|defaultDPI
 argument_list|()
