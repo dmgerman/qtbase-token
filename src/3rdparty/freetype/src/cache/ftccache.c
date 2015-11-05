@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2007, 2009-2011, 2013 by                                */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -287,9 +287,9 @@ begin_macro
 DECL|function|ftc_get_top_node_for_hash
 name|ftc_get_top_node_for_hash
 argument_list|(
-argument|FTC_Cache   cache
+argument|FTC_Cache  cache
 argument_list|,
-argument|FT_PtrDist  hash
+argument|FT_Offset  hash
 argument_list|)
 end_macro
 begin_block
@@ -298,21 +298,16 @@ name|FTC_Node
 modifier|*
 name|pnode
 decl_stmt|;
-name|FT_UInt
+name|FT_Offset
 name|idx
 decl_stmt|;
 name|idx
 operator|=
-call|(
-name|FT_UInt
-call|)
-argument_list|(
 name|hash
 operator|&
 name|cache
 operator|->
 name|mask
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -324,10 +319,6 @@ name|p
 condition|)
 name|idx
 operator|=
-call|(
-name|FT_UInt
-call|)
-argument_list|(
 name|hash
 operator|&
 operator|(
@@ -339,7 +330,6 @@ name|mask
 operator|+
 literal|1
 operator|)
-argument_list|)
 expr_stmt|;
 name|pnode
 operator|=
@@ -1390,7 +1380,7 @@ parameter_list|(
 name|FTC_Cache
 name|cache
 parameter_list|,
-name|FT_PtrDist
+name|FT_Offset
 name|hash
 parameter_list|,
 name|FTC_Node
@@ -1501,7 +1491,7 @@ name|FTC_Cache_NewNode
 argument_list|(
 argument|FTC_Cache   cache
 argument_list|,
-argument|FT_PtrDist  hash
+argument|FT_Offset   hash
 argument_list|,
 argument|FT_Pointer  query
 argument_list|,
@@ -1592,7 +1582,7 @@ name|FTC_Cache_Lookup
 argument_list|(
 argument|FTC_Cache   cache
 argument_list|,
-argument|FT_PtrDist  hash
+argument|FT_Offset   hash
 argument_list|,
 argument|FT_Pointer  query
 argument_list|,

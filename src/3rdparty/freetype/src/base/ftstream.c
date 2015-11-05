@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2002, 2004-2006, 2008-2011, 2013 by                     */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -138,19 +138,19 @@ name|stream
 operator|->
 name|cursor
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|stream
 operator|->
 name|read
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|stream
 operator|->
 name|close
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -337,16 +337,14 @@ name|FT_Stream_Seek
 argument_list|(
 name|stream
 argument_list|,
-call|(
-name|FT_ULong
-call|)
-argument_list|(
 name|stream
 operator|->
 name|pos
 operator|+
+operator|(
+name|FT_ULong
+operator|)
 name|distance
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -355,7 +353,7 @@ begin_macro
 DECL|function|FT_BASE_DEF
 name|FT_BASE_DEF
 argument_list|(
-argument|FT_Long
+argument|FT_ULong
 argument_list|)
 end_macro
 begin_macro
@@ -726,13 +724,13 @@ name|stream
 operator|->
 name|cursor
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|stream
 operator|->
 name|limit
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 return|return
@@ -803,7 +801,7 @@ block|}
 operator|*
 name|pbytes
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -911,6 +909,9 @@ name|ft_mem_qalloc
 argument_list|(
 name|memory
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|count
 argument_list|,
 operator|&
@@ -1188,13 +1189,13 @@ name|stream
 operator|->
 name|cursor
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|stream
 operator|->
 name|limit
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -1241,6 +1242,9 @@ name|limit
 condition|)
 name|result
 operator|=
+operator|(
+name|FT_Char
+operator|)
 operator|*
 name|stream
 operator|->
@@ -1271,7 +1275,7 @@ name|FT_Byte
 modifier|*
 name|p
 decl_stmt|;
-name|FT_Short
+name|FT_UShort
 name|result
 decl_stmt|;
 name|FT_ASSERT
@@ -1340,7 +1344,7 @@ name|FT_Byte
 modifier|*
 name|p
 decl_stmt|;
-name|FT_Short
+name|FT_UShort
 name|result
 decl_stmt|;
 name|FT_ASSERT
@@ -1409,7 +1413,7 @@ name|FT_Byte
 modifier|*
 name|p
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|result
 decl_stmt|;
 name|FT_ASSERT
@@ -1478,7 +1482,7 @@ name|FT_Byte
 modifier|*
 name|p
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|result
 decl_stmt|;
 name|FT_ASSERT
@@ -1547,7 +1551,7 @@ name|FT_Byte
 modifier|*
 name|p
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|result
 decl_stmt|;
 name|FT_ASSERT
@@ -1694,6 +1698,9 @@ name|pos
 operator|++
 expr_stmt|;
 return|return
+operator|(
+name|FT_Char
+operator|)
 name|result
 return|;
 name|Fail
@@ -1756,7 +1763,7 @@ name|p
 init|=
 literal|0
 decl_stmt|;
-name|FT_Short
+name|FT_UShort
 name|result
 init|=
 literal|0
@@ -1819,7 +1826,6 @@ name|reads
 expr_stmt|;
 block|}
 else|else
-block|{
 name|p
 operator|=
 name|stream
@@ -1830,7 +1836,6 @@ name|stream
 operator|->
 name|pos
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|p
@@ -1916,7 +1921,7 @@ name|p
 init|=
 literal|0
 decl_stmt|;
-name|FT_Short
+name|FT_UShort
 name|result
 init|=
 literal|0
@@ -1979,7 +1984,6 @@ name|reads
 expr_stmt|;
 block|}
 else|else
-block|{
 name|p
 operator|=
 name|stream
@@ -1990,7 +1994,6 @@ name|stream
 operator|->
 name|pos
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|p
@@ -2076,7 +2079,7 @@ name|p
 init|=
 literal|0
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|result
 init|=
 literal|0
@@ -2139,7 +2142,6 @@ name|reads
 expr_stmt|;
 block|}
 else|else
-block|{
 name|p
 operator|=
 name|stream
@@ -2150,7 +2152,6 @@ name|stream
 operator|->
 name|pos
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|p
@@ -2236,7 +2237,7 @@ name|p
 init|=
 literal|0
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|result
 init|=
 literal|0
@@ -2299,7 +2300,6 @@ name|reads
 expr_stmt|;
 block|}
 else|else
-block|{
 name|p
 operator|=
 name|stream
@@ -2310,7 +2310,6 @@ name|stream
 operator|->
 name|pos
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|p
@@ -2396,7 +2395,7 @@ name|p
 init|=
 literal|0
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|result
 init|=
 literal|0
@@ -2459,7 +2458,6 @@ name|reads
 expr_stmt|;
 block|}
 else|else
-block|{
 name|p
 operator|=
 name|stream
@@ -2470,7 +2468,6 @@ name|stream
 operator|->
 name|pos
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|p

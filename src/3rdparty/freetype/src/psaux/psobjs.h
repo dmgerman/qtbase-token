@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001, 2002, 2003 by                                     */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -129,13 +129,13 @@ begin_macro
 DECL|variable|ps_table_add
 name|ps_table_add
 argument_list|(
-argument|PS_Table    table
+argument|PS_Table  table
 argument_list|,
-argument|FT_Int      idx
+argument|FT_Int    idx
 argument_list|,
-argument|void*       object
+argument|void*     object
 argument_list|,
-argument|FT_PtrDist  length
+argument|FT_UInt   length
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -346,7 +346,7 @@ argument|FT_Byte*   bytes
 argument_list|,
 argument|FT_Offset  max_bytes
 argument_list|,
-argument|FT_Long*   pnum_bytes
+argument|FT_ULong*  pnum_bytes
 argument_list|,
 argument|FT_Bool    delimiters
 argument_list|)

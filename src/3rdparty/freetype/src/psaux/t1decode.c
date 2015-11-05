@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2014 by                                                 */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -489,6 +489,9 @@ operator|==
 literal|0
 condition|)
 return|return
+operator|(
+name|FT_Int
+operator|)
 name|n
 return|;
 block|}
@@ -999,6 +1002,9 @@ name|t1_decoder_parse_glyph
 argument_list|(
 name|decoder
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|bchar_index
 argument_list|)
 expr_stmt|;
@@ -1086,6 +1092,9 @@ name|t1_decoder_parse_glyph
 argument_list|(
 name|decoder
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|achar_index
 argument_list|)
 expr_stmt|;
@@ -1285,7 +1294,7 @@ call|)
 argument_list|(
 operator|(
 call|(
-name|FT_PtrDist
+name|FT_Offset
 call|)
 argument_list|(
 name|char
@@ -1295,7 +1304,7 @@ operator|&
 name|seed
 operator|^
 call|(
-name|FT_PtrDist
+name|FT_Offset
 call|)
 argument_list|(
 name|char
@@ -1305,7 +1314,7 @@ operator|&
 name|decoder
 operator|^
 call|(
-name|FT_PtrDist
+name|FT_Offset
 call|)
 argument_list|(
 name|char
@@ -2653,6 +2662,9 @@ name|hinter
 operator|->
 name|hints
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|builder
 operator|->
 name|current
@@ -2863,6 +2875,9 @@ expr_stmt|;
 block|}
 name|known_othersubr_result_cnt
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|num_points
 expr_stmt|;
 break|break;
@@ -2913,6 +2928,9 @@ name|idx
 operator|<
 literal|0
 operator|||
+operator|(
+name|FT_UInt
+operator|)
 name|idx
 operator|+
 name|blend
@@ -3555,6 +3573,9 @@ name|hinter
 operator|->
 name|hints
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|builder
 operator|->
 name|current
@@ -4623,9 +4644,6 @@ literal|0
 operator|||
 name|idx
 operator|>=
-operator|(
-name|FT_Int
-operator|)
 name|decoder
 operator|->
 name|num_subrs
@@ -5280,8 +5298,6 @@ comment|/* retrieve PSNames interface from list of current modules */
 block|{
 name|FT_Service_PsCMaps
 name|psnames
-init|=
-literal|0
 decl_stmt|;
 name|FT_FACE_FIND_GLOBAL_SERVICE
 argument_list|(

@@ -18,10 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2009, 2010, 2013                                 */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
-comment|/*  by suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                      */
+comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -798,9 +798,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_block
@@ -897,9 +902,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_block
@@ -1363,9 +1373,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -1597,9 +1612,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -1689,9 +1709,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -1981,9 +2006,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -2307,9 +2337,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -2376,9 +2411,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -2588,9 +2628,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -2735,9 +2780,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -2883,9 +2933,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -3017,7 +3072,7 @@ name|gxv_ctlPoint_validate
 argument_list|(
 argument|FT_UShort      gid
 argument_list|,
-argument|FT_Short       ctl_point
+argument|FT_UShort      ctl_point
 argument_list|,
 argument|GXV_Validator  gxvalid
 argument_list|)
@@ -3036,7 +3091,7 @@ decl_stmt|;
 name|FT_Outline
 name|outline
 decl_stmt|;
-name|short
+name|FT_UShort
 name|n_points
 decl_stmt|;
 name|face
@@ -3078,6 +3133,9 @@ name|outline
 expr_stmt|;
 name|n_points
 operator|=
+operator|(
+name|FT_UShort
+operator|)
 name|outline
 operator|.
 name|n_points
@@ -5079,9 +5137,14 @@ expr_stmt|;
 operator|*
 name|length_p
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -5452,9 +5515,14 @@ label|:
 operator|*
 name|length_p
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -5677,9 +5745,14 @@ name|gxv_XStateTable_subtable_setup
 expr_stmt|;
 name|setup_func
 argument_list|(
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|limit
 operator|-
 name|table
+argument_list|)
 argument_list|,
 name|classTable
 argument_list|,

@@ -61,12 +61,6 @@ name|QAndroidPlatformWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QAndroidPlatformBackingStore
-name|class
-name|QAndroidPlatformBackingStore
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QObject
 DECL|variable|QPlatformScreen
 name|class
@@ -287,6 +281,11 @@ name|private
 label|:
 name|QDpi
 name|logicalDpi
+argument_list|()
+specifier|const
+expr_stmt|;
+name|qreal
+name|pixelDensity
 argument_list|()
 specifier|const
 expr_stmt|;

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2009, 2011-2014 by                                      */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -91,6 +91,20 @@ include|#
 directive|include
 file|"afblue.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_AUTOFIT
+end_ifdef
+begin_include
+include|#
+directive|include
+include|FT_CONFIG_STANDARD_LIBRARY_H
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|FT_BEGIN_HEADER
 comment|/*************************************************************************/
@@ -103,9 +117,6 @@ comment|/***********************************************************************
 ifdef|#
 directive|ifdef
 name|FT_DEBUG_AUTOFIT
-include|#
-directive|include
-include|FT_CONFIG_STANDARD_LIBRARY_H
 specifier|extern
 name|int
 name|_af_debug_disable_horz_hints
@@ -316,7 +327,7 @@ parameter_list|,
 name|angle2
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                \     AF_Angle  _delta = (angle2) - (angle1);     \                                                 \                                                 \     _delta %= AF_ANGLE_2PI;                     \     if ( _delta< 0 )                           \       _delta += AF_ANGLE_2PI;                   \                                                 \     if ( _delta> AF_ANGLE_PI )                 \       _delta -= AF_ANGLE_2PI;                   \                                                 \     result = _delta;                            \   FT_END_STMNT
+value|FT_BEGIN_STMNT                                \     AF_Angle  _delta = (angle2) - (angle1);     \                                                 \                                                 \     while ( _delta<= -AF_ANGLE_PI )            \       _delta += AF_ANGLE_2PI;                   \                                                 \     while ( _delta> AF_ANGLE_PI )              \       _delta -= AF_ANGLE_2PI;                   \                                                 \     result = _delta;                            \   FT_END_STMNT
 end_define
 begin_comment
 comment|/*  opaque handle to glyph-specific hints -- see `afhints.h' for more    *  details    */
@@ -354,34 +365,50 @@ end_comment
 begin_comment
 comment|/*    *  A scaler models the target pixel device that will receive the    *  auto-hinted glyph image.    */
 end_comment
-begin_typedef
-DECL|enum|AF_ScalerFlags_
-typedef|typedef
-enum|enum
-name|AF_ScalerFlags_
-block|{
-DECL|enumerator|AF_SCALER_FLAG_NO_HORIZONTAL
+begin_define
+DECL|macro|AF_SCALER_FLAG_NO_HORIZONTAL
+define|#
+directive|define
 name|AF_SCALER_FLAG_NO_HORIZONTAL
-init|=
-literal|1
-block|,
+value|1U
+end_define
+begin_comment
+DECL|macro|AF_SCALER_FLAG_NO_HORIZONTAL
 comment|/* disable horizontal hinting */
-DECL|enumerator|AF_SCALER_FLAG_NO_VERTICAL
+end_comment
+begin_define
+DECL|macro|AF_SCALER_FLAG_NO_VERTICAL
+define|#
+directive|define
 name|AF_SCALER_FLAG_NO_VERTICAL
-init|=
-literal|2
-block|,
+value|2U
+end_define
+begin_comment
+DECL|macro|AF_SCALER_FLAG_NO_VERTICAL
 comment|/* disable vertical hinting   */
-DECL|enumerator|AF_SCALER_FLAG_NO_ADVANCE
+end_comment
+begin_define
+DECL|macro|AF_SCALER_FLAG_NO_ADVANCE
+define|#
+directive|define
 name|AF_SCALER_FLAG_NO_ADVANCE
-init|=
-literal|4
+value|4U
+end_define
+begin_comment
+DECL|macro|AF_SCALER_FLAG_NO_ADVANCE
 comment|/* disable advance hinting    */
-block|}
-DECL|typedef|AF_ScalerFlags
-name|AF_ScalerFlags
-typedef|;
-end_typedef
+end_comment
+begin_define
+DECL|macro|AF_SCALER_FLAG_NO_WARPER
+define|#
+directive|define
+name|AF_SCALER_FLAG_NO_WARPER
+value|8U
+end_define
+begin_comment
+DECL|macro|AF_SCALER_FLAG_NO_WARPER
+comment|/* disable warper             */
+end_comment
 begin_typedef
 DECL|struct|AF_ScalerRec_
 typedef|typedef
@@ -531,6 +558,9 @@ modifier|*
 name|AF_WritingSystem_ApplyHintsFunc
 function_decl|)
 parameter_list|(
+name|FT_UInt
+name|glyph_index
+parameter_list|,
 name|AF_GlyphHints
 name|hints
 parameter_list|,
@@ -692,7 +722,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/*    *  Each script is associated with a set of Unicode ranges that gets used    *  to test whether the font face supports the script.    *    *  We use four-letter script tags from the OpenType specification,    *  extended by `NONE', which indicates `no script'.    */
+comment|/*    *  Each script is associated with two sets of Unicode ranges to test    *  whether the font face supports the script, and which non-base    *  characters the script contains.    *    *  We use four-letter script tags from the OpenType specification,    *  extended by `NONE', which indicates `no script'.    */
 end_comment
 begin_undef
 DECL|macro|SCRIPT
@@ -793,11 +823,15 @@ DECL|member|script
 name|AF_Script
 name|script
 decl_stmt|;
+comment|/* last element in the ranges must be { 0, 0 } */
 DECL|member|script_uni_ranges
 name|AF_Script_UniRange
 name|script_uni_ranges
 decl_stmt|;
-comment|/* last must be { 0, 0 }        */
+DECL|member|script_uni_nonbase_ranges
+name|AF_Script_UniRange
+name|script_uni_nonbase_ranges
+decl_stmt|;
 DECL|member|standard_char1
 name|FT_UInt32
 name|standard_char1
@@ -1143,6 +1177,8 @@ name|script
 parameter_list|,                         \
 name|ranges
 parameter_list|,                         \
+name|nonbase_ranges
+parameter_list|,                 \
 name|std_char1
 parameter_list|,                      \
 name|std_char2
@@ -1150,7 +1186,7 @@ parameter_list|,                      \
 name|std_char3
 parameter_list|)
 define|\
-value|FT_CALLBACK_TABLE_DEF                   \   const AF_ScriptClassRec  script_class = \   {                                       \     script,                               \     ranges,                               \     std_char1,                            \     std_char2,                            \     std_char3                             \   };
+value|FT_CALLBACK_TABLE_DEF                   \   const AF_ScriptClassRec  script_class = \   {                                       \     script,                               \     ranges,                               \     nonbase_ranges,                       \     std_char1,                            \     std_char2,                            \     std_char3                             \   };
 end_define
 begin_define
 DECL|macro|AF_DECLARE_STYLE_CLASS
@@ -1250,6 +1286,8 @@ name|script_
 parameter_list|,                                         \
 name|ranges
 parameter_list|,                                          \
+name|nonbase_ranges
+parameter_list|,                                  \
 name|std_char1
 parameter_list|,                                       \
 name|std_char2
@@ -1257,7 +1295,7 @@ parameter_list|,                                       \
 name|std_char3
 parameter_list|)
 define|\
-value|FT_LOCAL_DEF( void )                                     \   FT_Init_Class_ ## script_class( AF_ScriptClassRec*  ac ) \   {                                                        \     ac->script            = script_;                       \     ac->script_uni_ranges = ranges;                        \     ac->standard_char1    = std_char1;                     \     ac->standard_char2    = std_char2;                     \     ac->standard_char3    = std_char3;                     \   }
+value|FT_LOCAL_DEF( void )                                     \   FT_Init_Class_ ## script_class( AF_ScriptClassRec*  ac ) \   {                                                        \     ac->script                    = script_;               \     ac->script_uni_ranges         = ranges;                \     ac->script_uni_nonbase_ranges = nonbase_ranges;        \     ac->standard_char1            = std_char1;             \     ac->standard_char2            = std_char2;             \     ac->standard_char3            = std_char3;             \   }
 end_define
 begin_define
 DECL|macro|AF_DECLARE_STYLE_CLASS

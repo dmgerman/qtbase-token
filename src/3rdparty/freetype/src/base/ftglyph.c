@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2005, 2007, 2008, 2010, 2012-2014 by                    */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -275,7 +275,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|FT_Bitmap_New
+name|FT_Bitmap_Init
 argument_list|(
 operator|&
 name|glyph
@@ -470,7 +470,10 @@ name|cbox
 operator|->
 name|xMin
 operator|+
-operator|(
+call|(
+name|FT_Pos
+call|)
+argument_list|(
 name|glyph
 operator|->
 name|bitmap
@@ -478,7 +481,7 @@ operator|.
 name|width
 operator|<<
 literal|6
-operator|)
+argument_list|)
 expr_stmt|;
 name|cbox
 operator|->
@@ -498,7 +501,10 @@ name|cbox
 operator|->
 name|yMax
 operator|-
-operator|(
+call|(
+name|FT_Pos
+call|)
+argument_list|(
 name|glyph
 operator|->
 name|bitmap
@@ -506,7 +512,7 @@ operator|.
 name|rows
 operator|<<
 literal|6
-operator|)
+argument_list|)
 expr_stmt|;
 block|}
 end_block
@@ -641,6 +647,9 @@ name|FT_Outline_New
 argument_list|(
 name|library
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|source
 operator|->
 name|n_points
@@ -768,6 +777,9 @@ name|FT_Outline_New
 argument_list|(
 name|library
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|source
 operator|->
 name|outline
@@ -1042,7 +1054,7 @@ decl_stmt|;
 operator|*
 name|aglyph
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(

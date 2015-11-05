@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2004, 2006-2009, 2013 by                                */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -88,8 +88,27 @@ DECL|macro|CFF_MAX_SUBRS_CALLS
 define|#
 directive|define
 name|CFF_MAX_SUBRS_CALLS
-value|32
+value|16
 end_define
+begin_comment
+DECL|macro|CFF_MAX_SUBRS_CALLS
+comment|/* maximum subroutine nesting;         */
+end_comment
+begin_comment
+comment|/* only 10 are allowed but there exist */
+end_comment
+begin_comment
+comment|/* fonts like `HiraKakuProN-W3.ttf'    */
+end_comment
+begin_comment
+comment|/* (Hiragino Kaku Gothic ProN W3;      */
+end_comment
+begin_comment
+comment|/* 8.2d6e1; 2014-12-19) that exceed    */
+end_comment
+begin_comment
+comment|/* this limit                          */
+end_comment
 begin_define
 DECL|macro|CFF_MAX_TRANS_ELEMENTS
 define|#

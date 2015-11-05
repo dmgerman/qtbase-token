@@ -434,13 +434,16 @@ name|Q_OS_WINRT
 argument_list|)
 end_if
 begin_comment
-comment|// ### Qt6: FIXME: Remove this function. It is only there since for binary
+comment|// ### Qt6: FIXME: Consider removing this function. It is here for Active Qt
 end_comment
 begin_comment
-comment|// compatibility for applications built with Qt 5.3 using qtmain.lib which calls it.
+comment|// servers and for binary for compatibility to applications built with Qt 5.3
 end_comment
 begin_comment
-comment|// In Qt 5.4, qtmain.lib was changed to use CommandLineToArgvW() without calling into Qt5Core.
+comment|// using qtmain.lib which calls it In Qt 5.4, qtmain.lib was changed to use
+end_comment
+begin_comment
+comment|// CommandLineToArgvW() without calling into Qt5Core.
 end_comment
 begin_function
 name|Q_CORE_EXPORT

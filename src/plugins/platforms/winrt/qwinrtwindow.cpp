@@ -820,6 +820,14 @@ argument_list|(
 literal|"Failed to completely destroy window resources, likely because the application is shutting down"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|surface
+condition|)
+return|return;
 name|EGLBoolean
 name|value
 init|=

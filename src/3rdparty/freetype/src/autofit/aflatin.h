@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2007, 2009, 2011-2014 by                                */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -69,7 +69,6 @@ end_include
 begin_decl_stmt
 name|FT_BEGIN_HEADER
 comment|/* the `latin' writing system */
-DECL|function|AF_DECLARE_WRITING_SYSTEM_CLASS
 name|AF_DECLARE_WRITING_SYSTEM_CLASS
 argument_list|(
 name|af_latin_writing_system_class
@@ -135,47 +134,33 @@ define|#
 directive|define
 name|AF_LATIN_MAX_WIDTHS
 value|16
-decl|enum
-block|{
+DECL|macro|AF_LATIN_BLUE_ACTIVE
+define|#
+directive|define
 name|AF_LATIN_BLUE_ACTIVE
-operator|=
-literal|1
-operator|<<
-literal|0
-operator|,
-comment|/* set if zone height is<= 3/4px   */
+value|( 1U<< 0 )
+comment|/* zone height is<= 3/4px   */
+DECL|macro|AF_LATIN_BLUE_TOP
+define|#
+directive|define
 name|AF_LATIN_BLUE_TOP
-operator|=
-literal|1
-operator|<<
-literal|1
-operator|,
-comment|/* set if we have a top blue zone   */
+value|( 1U<< 1 )
+comment|/* we have a top blue zone   */
+DECL|macro|AF_LATIN_BLUE_NEUTRAL
+define|#
+directive|define
 name|AF_LATIN_BLUE_NEUTRAL
-operator|=
-literal|1
-operator|<<
-literal|2
-operator|,
-comment|/* set if we have neutral blue zone */
+value|( 1U<< 2 )
+comment|/* we have neutral blue zone */
+DECL|macro|AF_LATIN_BLUE_ADJUSTMENT
+define|#
+directive|define
 name|AF_LATIN_BLUE_ADJUSTMENT
-operator|=
-literal|1
-operator|<<
-literal|3
-operator|,
-comment|/* used for scale adjustment        */
-comment|/* optimization                     */
-name|AF_LATIN_BLUE_FLAG_MAX
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_typedef
+value|( 1U<< 3 )
+comment|/* used for scale adjustment */
+comment|/* optimization              */
+decl|typedef struct
 DECL|struct|AF_LatinBlueRec_
-typedef|typedef
-struct|struct
 name|AF_LatinBlueRec_
 block|{
 DECL|member|ref
@@ -191,14 +176,16 @@ name|FT_UInt
 name|flags
 decl_stmt|;
 block|}
+end_decl_stmt
+begin_expr_stmt
 DECL|typedef|AF_LatinBlueRec
 DECL|typedef|AF_LatinBlue
 name|AF_LatinBlueRec
 operator|,
-typedef|*
+operator|*
 name|AF_LatinBlue
-typedef|;
-end_typedef
+expr_stmt|;
+end_expr_stmt
 begin_typedef
 DECL|struct|AF_LatinAxisRec_
 typedef|typedef
@@ -390,45 +377,53 @@ end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
-begin_enum
-enum|enum
-block|{
-DECL|enumerator|AF_LATIN_HINTS_HORZ_SNAP
+begin_define
+DECL|macro|AF_LATIN_HINTS_HORZ_SNAP
+define|#
+directive|define
 name|AF_LATIN_HINTS_HORZ_SNAP
-init|=
-literal|1
-operator|<<
-literal|0
-block|,
-comment|/* enable stem width snapping  */
-DECL|enumerator|AF_LATIN_HINTS_VERT_SNAP
+value|( 1U<< 0 )
+end_define
+begin_comment
+DECL|macro|AF_LATIN_HINTS_HORZ_SNAP
+comment|/* stem width snapping  */
+end_comment
+begin_define
+DECL|macro|AF_LATIN_HINTS_VERT_SNAP
+define|#
+directive|define
 name|AF_LATIN_HINTS_VERT_SNAP
-init|=
-literal|1
-operator|<<
-literal|1
-block|,
-comment|/* enable stem height snapping */
-DECL|enumerator|AF_LATIN_HINTS_STEM_ADJUST
+value|( 1U<< 1 )
+end_define
+begin_comment
+DECL|macro|AF_LATIN_HINTS_VERT_SNAP
+comment|/* stem height snapping */
+end_comment
+begin_define
+DECL|macro|AF_LATIN_HINTS_STEM_ADJUST
+define|#
+directive|define
 name|AF_LATIN_HINTS_STEM_ADJUST
-init|=
-literal|1
-operator|<<
-literal|2
-block|,
-comment|/* enable stem width/height    */
-comment|/* adjustment                  */
-DECL|enumerator|AF_LATIN_HINTS_MONO
+value|( 1U<< 2 )
+end_define
+begin_comment
+DECL|macro|AF_LATIN_HINTS_STEM_ADJUST
+comment|/* stem width/height    */
+end_comment
+begin_comment
+comment|/* adjustment           */
+end_comment
+begin_define
+DECL|macro|AF_LATIN_HINTS_MONO
+define|#
+directive|define
 name|AF_LATIN_HINTS_MONO
-init|=
-literal|1
-operator|<<
-literal|3
-comment|/* indicate monochrome         */
-comment|/* rendering                   */
-block|}
-enum|;
-end_enum
+value|( 1U<< 3 )
+end_define
+begin_comment
+DECL|macro|AF_LATIN_HINTS_MONO
+comment|/* monochrome rendering */
+end_comment
 begin_define
 DECL|macro|AF_LATIN_HINTS_DO_HORZ_SNAP
 define|#

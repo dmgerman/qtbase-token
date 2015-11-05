@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001-2006, 2009, 2013 by                                     */
+comment|/*  Copyright 2001-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -111,7 +111,7 @@ end_macro
 begin_expr_stmt
 name|_ft_debug_file
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 end_expr_stmt
 begin_macro
@@ -171,7 +171,7 @@ name|FT_MEM_VAL
 parameter_list|(
 name|addr
 parameter_list|)
-value|((FT_PtrDist)(FT_Pointer)( addr ))
+value|( (FT_PtrDist)(FT_Pointer)( addr ) )
 end_define
 begin_comment
 comment|/*    *  This structure holds statistics for a single allocation/release    *  site.  This is useful to know where memory operations happen the    *  most.    */
@@ -241,7 +241,7 @@ name|FT_MemSourceRec
 typedef|;
 end_typedef
 begin_comment
-comment|/*    *  We don't need a resizable array for the memory sources, because    *  their number is pretty limited within FreeType.    */
+comment|/*    *  We don't need a resizable array for the memory sources because    *  their number is pretty limited within FreeType.    */
 end_comment
 begin_define
 DECL|macro|FT_MEM_SOURCE_BUCKETS
@@ -251,7 +251,7 @@ name|FT_MEM_SOURCE_BUCKETS
 value|128
 end_define
 begin_comment
-comment|/*    *  This structure holds information related to a single allocated    *  memory block.  If KEEPALIVE is defined, blocks that are freed by    *  FreeType are never released to the system.  Instead, their `size'    *  field is set to -size.  This is mainly useful to detect double frees,    *  at the price of large memory footprint during execution.    */
+comment|/*    *  This structure holds information related to a single allocated    *  memory block.  If KEEPALIVE is defined, blocks that are freed by    *  FreeType are never released to the system.  Instead, their `size'    *  field is set to `-size'.  This is mainly useful to detect double    *  frees, at the price of a large memory footprint during execution.    */
 end_comment
 begin_typedef
 DECL|struct|FT_MemNodeRec_
@@ -307,11 +307,11 @@ struct|struct
 name|FT_MemTableRec_
 block|{
 DECL|member|size
-name|FT_ULong
+name|FT_Long
 name|size
 decl_stmt|;
 DECL|member|nodes
-name|FT_ULong
+name|FT_Long
 name|nodes
 decl_stmt|;
 DECL|member|buckets
@@ -320,19 +320,19 @@ modifier|*
 name|buckets
 decl_stmt|;
 DECL|member|alloc_total
-name|FT_ULong
+name|FT_Long
 name|alloc_total
 decl_stmt|;
 DECL|member|alloc_current
-name|FT_ULong
+name|FT_Long
 name|alloc_current
 decl_stmt|;
 DECL|member|alloc_max
-name|FT_ULong
+name|FT_Long
 name|alloc_max
 decl_stmt|;
 DECL|member|alloc_count
-name|FT_ULong
+name|FT_Long
 name|alloc_count
 decl_stmt|;
 DECL|member|bound_total
@@ -340,7 +340,7 @@ name|FT_Bool
 name|bound_total
 decl_stmt|;
 DECL|member|alloc_total_max
-name|FT_ULong
+name|FT_Long
 name|alloc_total_max
 decl_stmt|;
 DECL|member|bound_count
@@ -348,7 +348,7 @@ name|FT_Bool
 name|bound_count
 decl_stmt|;
 DECL|member|alloc_count_max
-name|FT_ULong
+name|FT_Long
 name|alloc_count_max
 decl_stmt|;
 DECL|member|sources
@@ -409,7 +409,7 @@ name|FT_FILENAME
 parameter_list|(
 name|x
 parameter_list|)
-value|((x) ? (x) : "unknown file")
+value|( (x) ? (x) : "unknown file" )
 end_define
 begin_comment
 comment|/*    *  Prime numbers are ugly to handle.  It would be better to implement    *  L-Hashing, which is 10% faster and doesn't require divisions.    */
@@ -418,7 +418,7 @@ begin_decl_stmt
 DECL|variable|ft_mem_primes
 specifier|static
 specifier|const
-name|FT_UInt
+name|FT_Int
 name|ft_mem_primes
 index|[]
 init|=
@@ -497,15 +497,15 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 specifier|static
-name|FT_ULong
+name|FT_Long
 DECL|function|ft_mem_closest_prime
 name|ft_mem_closest_prime
 parameter_list|(
-name|FT_ULong
+name|FT_Long
 name|num
 parameter_list|)
 block|{
-name|FT_UInt
+name|size_t
 name|i
 decl_stmt|;
 for|for
@@ -553,7 +553,7 @@ return|;
 block|}
 end_function
 begin_function
-specifier|extern
+specifier|static
 name|void
 DECL|function|ft_mem_debug_panic
 name|ft_mem_debug_panic
@@ -713,7 +713,7 @@ name|FT_MemTable
 name|table
 parameter_list|)
 block|{
-name|FT_ULong
+name|FT_Long
 name|new_size
 decl_stmt|;
 name|new_size
@@ -738,7 +738,7 @@ name|FT_MemNode
 modifier|*
 name|new_buckets
 decl_stmt|;
-name|FT_ULong
+name|FT_Long
 name|i
 decl_stmt|;
 name|new_buckets
@@ -753,6 +753,9 @@ name|table
 argument_list|,
 name|new_size
 operator|*
+operator|(
+name|FT_Long
+operator|)
 sizeof|sizeof
 argument_list|(
 name|FT_MemNode
@@ -829,6 +832,9 @@ operator|->
 name|address
 argument_list|)
 operator|%
+operator|(
+name|FT_PtrDist
+operator|)
 name|new_size
 expr_stmt|;
 name|pnode
@@ -1002,6 +1008,9 @@ name|table
 operator|->
 name|size
 operator|*
+operator|(
+name|FT_Long
+operator|)
 sizeof|sizeof
 argument_list|(
 name|FT_MemNode
@@ -1058,7 +1067,7 @@ name|FT_MemTable
 name|table
 parameter_list|)
 block|{
-name|FT_ULong
+name|FT_Long
 name|i
 decl_stmt|;
 name|FT_Long
@@ -1066,7 +1075,7 @@ name|leak_count
 init|=
 literal|0
 decl_stmt|;
-name|FT_ULong
+name|FT_Long
 name|leaks
 init|=
 literal|0
@@ -1127,7 +1136,7 @@ name|node
 operator|->
 name|link
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -1216,7 +1225,7 @@ index|[
 name|i
 index|]
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 name|ft_mem_table_free
@@ -1397,6 +1406,9 @@ operator|+
 operator|(
 name|hash
 operator|%
+operator|(
+name|FT_PtrDist
+operator|)
 name|table
 operator|->
 name|size
@@ -1660,7 +1672,7 @@ name|FT_Byte
 modifier|*
 name|address
 parameter_list|,
-name|FT_ULong
+name|FT_Long
 name|size
 parameter_list|,
 name|FT_Long
@@ -1853,9 +1865,6 @@ if|if
 condition|(
 name|size
 operator|>
-operator|(
-name|FT_ULong
-operator|)
 name|source
 operator|->
 name|cur_max
@@ -2272,7 +2281,7 @@ block|}
 block|}
 end_function
 begin_function
-specifier|extern
+specifier|static
 name|FT_Pointer
 DECL|function|ft_mem_debug_alloc
 name|ft_mem_debug_alloc
@@ -2344,9 +2353,6 @@ name|table
 operator|->
 name|alloc_current
 operator|>
-operator|(
-name|FT_ULong
-operator|)
 name|size
 condition|)
 return|return
@@ -2376,9 +2382,6 @@ name|table
 argument_list|,
 name|block
 argument_list|,
-operator|(
-name|FT_ULong
-operator|)
 name|size
 argument_list|,
 literal|0
@@ -2407,7 +2410,7 @@ return|;
 block|}
 end_function
 begin_function
-specifier|extern
+specifier|static
 name|void
 DECL|function|ft_mem_debug_free
 name|ft_mem_debug_free
@@ -2490,7 +2493,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-specifier|extern
+specifier|static
 name|FT_Pointer
 DECL|function|ft_mem_debug_realloc
 name|ft_mem_debug_realloc
@@ -2683,14 +2686,9 @@ name|NULL
 return|;
 name|delta
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|new_size
 operator|-
 name|cur_size
-argument_list|)
 expr_stmt|;
 comment|/* return NULL if this allocation would overflow the maximum heap size */
 if|if
@@ -2707,9 +2705,6 @@ name|table
 operator|->
 name|alloc_current
 operator|+
-operator|(
-name|FT_ULong
-operator|)
 name|delta
 operator|>
 name|table
@@ -2722,8 +2717,7 @@ return|;
 name|new_block
 operator|=
 operator|(
-name|FT_Byte
-operator|*
+name|FT_Pointer
 operator|)
 name|ft_mem_table_alloc
 argument_list|(
@@ -2766,8 +2760,14 @@ name|cur_size
 operator|<
 name|new_size
 condition|?
+operator|(
+name|size_t
+operator|)
 name|cur_size
 else|:
+operator|(
+name|size_t
+operator|)
 name|new_size
 argument_list|)
 expr_stmt|;
@@ -2917,9 +2917,6 @@ name|table
 operator|->
 name|alloc_total_max
 operator|=
-operator|(
-name|FT_ULong
-operator|)
 name|total_max
 expr_stmt|;
 block|}
@@ -2963,9 +2960,6 @@ name|table
 operator|->
 name|alloc_count_max
 operator|=
-operator|(
-name|FT_ULong
-operator|)
 name|total_count
 expr_stmt|;
 block|}
@@ -3195,7 +3189,7 @@ name|FT_MemSource
 modifier|*
 name|sources
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|nn
 decl_stmt|,
 name|count
@@ -3251,13 +3245,16 @@ name|ft_mem_table_alloc
 argument_list|(
 name|table
 argument_list|,
+name|count
+operator|*
+operator|(
+name|FT_Long
+operator|)
 sizeof|sizeof
 argument_list|(
 operator|*
 name|sources
 argument_list|)
-operator|*
-name|count
 argument_list|)
 expr_stmt|;
 name|count
@@ -3310,6 +3307,9 @@ name|ft_qsort
 argument_list|(
 name|sources
 argument_list|,
+operator|(
+name|size_t
+operator|)
 name|count
 argument_list|,
 sizeof|sizeof

@@ -30,7 +30,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004-2006, 2009, 2010, 2012-2014 by                          */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Albert Chin-A-Young.                                                   */
@@ -39,10 +39,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Based on code in src/gzip/ftgzip.c, Copyright 2004 by                  */
-end_comment
-begin_comment
-comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+comment|/*  based on code in `src/gzip/ftgzip.c'                                   */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -1074,21 +1071,25 @@ block|}
 end_function
 begin_function
 specifier|static
-name|FT_ULong
+name|unsigned
+name|long
 DECL|function|ft_lzw_stream_io
 name|ft_lzw_stream_io
 parameter_list|(
 name|FT_Stream
 name|stream
 parameter_list|,
-name|FT_ULong
-name|pos
+name|unsigned
+name|long
+name|offset
 parameter_list|,
-name|FT_Byte
+name|unsigned
+name|char
 modifier|*
 name|buffer
 parameter_list|,
-name|FT_ULong
+name|unsigned
+name|long
 name|count
 parameter_list|)
 block|{
@@ -1109,7 +1110,7 @@ name|ft_lzw_file_io
 argument_list|(
 name|zip
 argument_list|,
-name|pos
+name|offset
 argument_list|,
 name|buffer
 argument_list|,

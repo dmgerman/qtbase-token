@@ -2022,7 +2022,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_DEBUG_OUTPUT
+name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_function
 DECL|function|operator <<
@@ -2323,7 +2323,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// !QT_NO_DEBUG_OUTPUT
+comment|// !QT_NO_DEBUG_STREAM
 end_comment
 begin_comment
 comment|/*!     \class QWindowsMime     \brief The QWindowsMime class maps open-standard MIME to Window Clipboard formats.     \internal     \ingroup qt-lighthouse-win      Qt's drag-and-drop and clipboard facilities use the MIME standard.     On X11, this maps trivially to the Xdnd protocol, but on Windows     although some applications use MIME types to describe clipboard     formats, others use arbitrary non-standardized naming conventions,     or unnamed built-in formats of Windows.      By instantiating subclasses of QWindowsMime that provide conversions     between Windows Clipboard and MIME formats, you can convert     proprietary clipboard formats to MIME formats.      Qt has predefined support for the following Windows Clipboard formats:      \table     \header \li Windows Format \li Equivalent MIME type     \row \li \c CF_UNICODETEXT \li \c text/plain     \row \li \c CF_TEXT        \li \c text/plain     \row \li \c CF_DIB         \li \c{image/xyz}, where \c xyz is                                  a \l{QImageWriter::supportedImageFormats()}{Qt image format}     \row \li \c CF_HDROP       \li \c text/uri-list     \row \li \c CF_INETURL     \li \c text/uri-list     \row \li \c CF_HTML        \li \c text/html     \endtable      An example use of this class would be to map the Windows Metafile     clipboard format (\c CF_METAFILEPICT) to and from the MIME type     \c{image/x-wmf}. This conversion might simply be adding or removing     a header, or even just passing on the data. See \l{Drag and Drop}     for more information on choosing and definition MIME types.      You can check if a MIME type is convertible using canConvertFromMime() and     can perform conversions with convertToMime() and convertFromMime().      \sa QWindowsMimeConverter */

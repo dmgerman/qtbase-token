@@ -348,9 +348,6 @@ argument_list|(
 name|m_activeDevices
 argument_list|)
 expr_stmt|;
-name|updateInputDeviceCount
-argument_list|()
-expr_stmt|;
 block|}
 end_destructor
 begin_function

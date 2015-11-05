@@ -3412,15 +3412,13 @@ name|QNetworkCookie
 argument_list|>
 name|result
 decl_stmt|;
+specifier|const
 name|QDateTime
 name|now
 init|=
 name|QDateTime
 operator|::
-name|currentDateTime
-argument_list|()
-operator|.
-name|toUTC
+name|currentDateTimeUtc
 argument_list|()
 decl_stmt|;
 name|int

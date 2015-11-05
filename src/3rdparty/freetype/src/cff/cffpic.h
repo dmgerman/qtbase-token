@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009, 2012, 2013 by                                          */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -58,9 +58,6 @@ define|#
 directive|define
 name|__CFFPIC_H__
 end_define
-begin_macro
-name|FT_BEGIN_HEADER
-end_macro
 begin_include
 include|#
 directive|include
@@ -183,48 +180,64 @@ include|#
 directive|include
 include|FT_SERVICE_PROPERTIES_H
 end_include
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
 begin_typedef
+DECL|struct|CffModulePIC_
 typedef|typedef
 struct|struct
 name|CffModulePIC_
 block|{
+DECL|member|cff_services
 name|FT_ServiceDescRec
 modifier|*
 name|cff_services
 decl_stmt|;
+DECL|member|cff_field_handlers
 name|CFF_Field_Handler
 modifier|*
 name|cff_field_handlers
 decl_stmt|;
+DECL|member|cff_service_ps_info
 name|FT_Service_PsInfoRec
 name|cff_service_ps_info
 decl_stmt|;
+DECL|member|cff_service_glyph_dict
 name|FT_Service_GlyphDictRec
 name|cff_service_glyph_dict
 decl_stmt|;
+DECL|member|cff_service_ps_name
 name|FT_Service_PsFontNameRec
 name|cff_service_ps_name
 decl_stmt|;
+DECL|member|cff_service_get_cmap_info
 name|FT_Service_TTCMapsRec
 name|cff_service_get_cmap_info
 decl_stmt|;
+DECL|member|cff_service_cid_info
 name|FT_Service_CIDRec
 name|cff_service_cid_info
 decl_stmt|;
+DECL|member|cff_service_properties
 name|FT_Service_PropertiesRec
 name|cff_service_properties
 decl_stmt|;
+DECL|member|cff_cmap_encoding_class_rec
 name|FT_CMap_ClassRec
 name|cff_cmap_encoding_class_rec
 decl_stmt|;
+DECL|member|cff_cmap_unicode_class_rec
 name|FT_CMap_ClassRec
 name|cff_cmap_unicode_class_rec
 decl_stmt|;
 block|}
+DECL|typedef|CffModulePIC
 name|CffModulePIC
 typedef|;
 end_typedef
 begin_define
+DECL|macro|GET_PIC
 define|#
 directive|define
 name|GET_PIC
@@ -235,6 +248,7 @@ define|\
 value|( (CffModulePIC*)( (lib)->pic_container.cff ) )
 end_define
 begin_define
+DECL|macro|CFF_SERVICE_PS_INFO_GET
 define|#
 directive|define
 name|CFF_SERVICE_PS_INFO_GET
@@ -242,6 +256,7 @@ define|\
 value|( GET_PIC( library )->cff_service_ps_info )
 end_define
 begin_define
+DECL|macro|CFF_SERVICE_GLYPH_DICT_GET
 define|#
 directive|define
 name|CFF_SERVICE_GLYPH_DICT_GET
@@ -249,6 +264,7 @@ define|\
 value|( GET_PIC( library )->cff_service_glyph_dict )
 end_define
 begin_define
+DECL|macro|CFF_SERVICE_PS_NAME_GET
 define|#
 directive|define
 name|CFF_SERVICE_PS_NAME_GET
@@ -256,6 +272,7 @@ define|\
 value|( GET_PIC( library )->cff_service_ps_name )
 end_define
 begin_define
+DECL|macro|CFF_SERVICE_GET_CMAP_INFO_GET
 define|#
 directive|define
 name|CFF_SERVICE_GET_CMAP_INFO_GET
@@ -263,6 +280,7 @@ define|\
 value|( GET_PIC( library )->cff_service_get_cmap_info )
 end_define
 begin_define
+DECL|macro|CFF_SERVICE_CID_INFO_GET
 define|#
 directive|define
 name|CFF_SERVICE_CID_INFO_GET
@@ -270,6 +288,7 @@ define|\
 value|( GET_PIC( library )->cff_service_cid_info )
 end_define
 begin_define
+DECL|macro|CFF_SERVICE_PROPERTIES_GET
 define|#
 directive|define
 name|CFF_SERVICE_PROPERTIES_GET
@@ -277,6 +296,7 @@ define|\
 value|( GET_PIC( library )->cff_service_properties )
 end_define
 begin_define
+DECL|macro|CFF_SERVICES_GET
 define|#
 directive|define
 name|CFF_SERVICES_GET
@@ -284,6 +304,7 @@ define|\
 value|( GET_PIC( library )->cff_services )
 end_define
 begin_define
+DECL|macro|CFF_CMAP_ENCODING_CLASS_REC_GET
 define|#
 directive|define
 name|CFF_CMAP_ENCODING_CLASS_REC_GET
@@ -291,6 +312,7 @@ define|\
 value|( GET_PIC( library )->cff_cmap_encoding_class_rec )
 end_define
 begin_define
+DECL|macro|CFF_CMAP_UNICODE_CLASS_REC_GET
 define|#
 directive|define
 name|CFF_CMAP_UNICODE_CLASS_REC_GET
@@ -298,6 +320,7 @@ define|\
 value|( GET_PIC( library )->cff_cmap_unicode_class_rec )
 end_define
 begin_define
+DECL|macro|CFF_FIELD_HANDLERS_GET
 define|#
 directive|define
 name|CFF_FIELD_HANDLERS_GET
@@ -325,6 +348,9 @@ name|library
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|FT_END_HEADER
+end_macro
 begin_endif
 endif|#
 directive|endif
@@ -335,9 +361,6 @@ end_comment
 begin_comment
 comment|/* */
 end_comment
-begin_macro
-name|FT_END_HEADER
-end_macro
 begin_endif
 endif|#
 directive|endif

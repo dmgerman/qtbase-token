@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2003, 2005, 2006, 2011, 2013 by                         */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -354,6 +354,8 @@ name|outline
 decl_stmt|;
 name|FT_BBox
 name|cbox
+decl_stmt|,
+name|cbox0
 decl_stmt|;
 name|FT_UInt
 name|width
@@ -396,9 +398,6 @@ name|Exit
 goto|;
 block|}
 comment|/* check rendering mode */
-ifndef|#
-directive|ifndef
-name|FT_CONFIG_OPTION_PIC
 if|if
 condition|(
 name|mode
@@ -407,15 +406,6 @@ name|FT_RENDER_MODE_MONO
 condition|)
 block|{
 comment|/* raster1 is only capable of producing monochrome bitmaps */
-if|if
-condition|(
-name|render
-operator|->
-name|clazz
-operator|==
-operator|&
-name|ft_raster1_renderer_class
-condition|)
 return|return
 name|FT_THROW
 argument_list|(
@@ -423,91 +413,6 @@ name|Cannot_Render_Glyph
 argument_list|)
 return|;
 block|}
-else|else
-block|{
-comment|/* raster5 is only capable of producing 5-gray-levels bitmaps */
-if|if
-condition|(
-name|render
-operator|->
-name|clazz
-operator|==
-operator|&
-name|ft_raster5_renderer_class
-condition|)
-return|return
-name|FT_THROW
-argument_list|(
-name|Cannot_Render_Glyph
-argument_list|)
-return|;
-block|}
-else|#
-directive|else
-comment|/* FT_CONFIG_OPTION_PIC */
-comment|/* When PIC is enabled, we cannot get to the class object      */
-comment|/* so instead we check the final character in the class name   */
-comment|/* ("raster5" or "raster1"). Yes this is a hack.               */
-comment|/* The "correct" thing to do is have different render function */
-comment|/* for each of the classes.                                    */
-if|if
-condition|(
-name|mode
-operator|!=
-name|FT_RENDER_MODE_MONO
-condition|)
-block|{
-comment|/* raster1 is only capable of producing monochrome bitmaps */
-if|if
-condition|(
-name|render
-operator|->
-name|clazz
-operator|->
-name|root
-operator|.
-name|module_name
-index|[
-literal|6
-index|]
-operator|==
-literal|'1'
-condition|)
-return|return
-name|FT_THROW
-argument_list|(
-name|Cannot_Render_Glyph
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-comment|/* raster5 is only capable of producing 5-gray-levels bitmaps */
-if|if
-condition|(
-name|render
-operator|->
-name|clazz
-operator|->
-name|root
-operator|.
-name|module_name
-index|[
-literal|6
-index|]
-operator|==
-literal|'5'
-condition|)
-return|return
-name|FT_THROW
-argument_list|(
-name|Cannot_Render_Glyph
-argument_list|)
-return|;
-block|}
-endif|#
-directive|endif
-comment|/* FT_CONFIG_OPTION_PIC */
 name|outline
 operator|=
 operator|&
@@ -539,7 +444,7 @@ argument_list|(
 name|outline
 argument_list|,
 operator|&
-name|cbox
+name|cbox0
 argument_list|)
 expr_stmt|;
 comment|/* undocumented but confirmed: bbox values get rounded */
@@ -552,7 +457,7 @@ name|xMin
 operator|=
 name|FT_PIX_ROUND
 argument_list|(
-name|cbox
+name|cbox0
 operator|.
 name|xMin
 argument_list|)
@@ -563,7 +468,7 @@ name|yMin
 operator|=
 name|FT_PIX_ROUND
 argument_list|(
-name|cbox
+name|cbox0
 operator|.
 name|yMin
 argument_list|)
@@ -574,7 +479,7 @@ name|xMax
 operator|=
 name|FT_PIX_ROUND
 argument_list|(
-name|cbox
+name|cbox0
 operator|.
 name|xMax
 argument_list|)
@@ -585,7 +490,7 @@ name|yMax
 operator|=
 name|FT_PIX_ROUND
 argument_list|(
-name|cbox
+name|cbox0
 operator|.
 name|yMax
 argument_list|)
@@ -638,6 +543,11 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|/* If either `width' or `height' round to 0, try    */
+comment|/* explicitly rounding up/down.  In the case of     */
+comment|/* glyphs containing only one very narrow feature,  */
+comment|/* this gives the drop-out compensation in the scan */
+comment|/* conversion code a chance to do its stuff.        */
 name|width
 operator|=
 call|(
@@ -655,6 +565,103 @@ name|xMin
 operator|)
 operator|>>
 literal|6
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|width
+operator|==
+literal|0
+condition|)
+block|{
+name|cbox
+operator|.
+name|xMin
+operator|=
+name|FT_PIX_FLOOR
+argument_list|(
+name|cbox0
+operator|.
+name|xMin
+argument_list|)
+expr_stmt|;
+name|cbox
+operator|.
+name|xMax
+operator|=
+name|FT_PIX_CEIL
+argument_list|(
+name|cbox0
+operator|.
+name|xMax
+argument_list|)
+expr_stmt|;
+name|width
+operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
+operator|(
+name|cbox
+operator|.
+name|xMax
+operator|-
+name|cbox
+operator|.
+name|xMin
+operator|)
+operator|>>
+literal|6
+argument_list|)
+expr_stmt|;
+block|}
+name|height
+operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
+operator|(
+name|cbox
+operator|.
+name|yMax
+operator|-
+name|cbox
+operator|.
+name|yMin
+operator|)
+operator|>>
+literal|6
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|height
+operator|==
+literal|0
+condition|)
+block|{
+name|cbox
+operator|.
+name|yMin
+operator|=
+name|FT_PIX_FLOOR
+argument_list|(
+name|cbox0
+operator|.
+name|yMin
+argument_list|)
+expr_stmt|;
+name|cbox
+operator|.
+name|yMax
+operator|=
+name|FT_PIX_CEIL
+argument_list|(
+name|cbox0
+operator|.
+name|yMax
 argument_list|)
 expr_stmt|;
 name|height
@@ -676,6 +683,7 @@ operator|>>
 literal|6
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|width
@@ -742,42 +750,6 @@ operator|~
 name|FT_GLYPH_OWN_BITMAP
 expr_stmt|;
 block|}
-comment|/* allocate new one, depends on pixel format */
-if|if
-condition|(
-operator|!
-operator|(
-name|mode
-operator|&
-name|FT_RENDER_MODE_MONO
-operator|)
-condition|)
-block|{
-comment|/* we pad to 32 bits, only for backwards compatibility with FT 1.x */
-name|pitch
-operator|=
-name|FT_PAD_CEIL
-argument_list|(
-name|width
-argument_list|,
-literal|4
-argument_list|)
-expr_stmt|;
-name|bitmap
-operator|->
-name|pixel_mode
-operator|=
-name|FT_PIXEL_MODE_GRAY
-expr_stmt|;
-name|bitmap
-operator|->
-name|num_grays
-operator|=
-literal|256
-expr_stmt|;
-block|}
-else|else
-block|{
 name|pitch
 operator|=
 operator|(
@@ -798,7 +770,6 @@ name|pixel_mode
 operator|=
 name|FT_PIXEL_MODE_MONO
 expr_stmt|;
-block|}
 name|bitmap
 operator|->
 name|width
@@ -815,6 +786,9 @@ name|bitmap
 operator|->
 name|pitch
 operator|=
+operator|(
+name|int
+operator|)
 name|pitch
 expr_stmt|;
 if|if
@@ -875,20 +849,6 @@ operator|.
 name|flags
 operator|=
 literal|0
-expr_stmt|;
-if|if
-condition|(
-name|bitmap
-operator|->
-name|pixel_mode
-operator|==
-name|FT_PIXEL_MODE_GRAY
-condition|)
-name|params
-operator|.
-name|flags
-operator||=
-name|FT_RASTER_FLAG_AA
 expr_stmt|;
 comment|/* render outline into the bitmap */
 name|error
@@ -978,57 +938,6 @@ argument_list|,
 argument|sizeof ( FT_RendererRec )
 argument_list|,
 literal|"raster1"
-argument_list|,
-literal|0x10000L
-argument_list|,
-literal|0x20000L
-argument_list|,
-literal|0
-argument_list|,
-comment|/* module specific interface */
-argument|(FT_Module_Constructor)ft_raster1_init
-argument_list|,
-argument|(FT_Module_Destructor)
-literal|0
-argument_list|,
-argument|(FT_Module_Requester)
-literal|0
-argument_list|,
-argument|FT_GLYPH_FORMAT_OUTLINE
-argument_list|,
-argument|(FT_Renderer_RenderFunc)   ft_raster1_render
-argument_list|,
-argument|(FT_Renderer_TransformFunc)ft_raster1_transform
-argument_list|,
-argument|(FT_Renderer_GetCBoxFunc)  ft_raster1_get_cbox
-argument_list|,
-argument|(FT_Renderer_SetModeFunc)  ft_raster1_set_mode
-argument_list|,
-argument|(FT_Raster_Funcs*)&FT_STANDARD_RASTER_GET
-argument_list|)
-end_macro
-begin_comment
-comment|/* This renderer is _NOT_ part of the default modules; you will need */
-end_comment
-begin_comment
-comment|/* to register it by hand in your application.  It should only be    */
-end_comment
-begin_comment
-comment|/* used for backwards-compatibility with FT 1.x anyway.              */
-end_comment
-begin_comment
-comment|/*                                                                   */
-end_comment
-begin_macro
-name|FT_DEFINE_RENDERER
-argument_list|(
-argument|ft_raster5_renderer_class
-argument_list|,
-argument|FT_MODULE_RENDERER
-argument_list|,
-argument|sizeof ( FT_RendererRec )
-argument_list|,
-literal|"raster5"
 argument_list|,
 literal|0x10000L
 argument_list|,

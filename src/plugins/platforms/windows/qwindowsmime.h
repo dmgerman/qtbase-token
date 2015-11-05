@@ -340,7 +340,7 @@ end_empty_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_DEBUG_OUTPUT
+name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_expr_stmt
 name|QDebug

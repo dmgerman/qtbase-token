@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2007, 2011-2013 by                                           */
+comment|/*  Copyright 2007-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Rahul Bhalerao<rahul.bhalerao@redhat.com>,<b.rahul.pm@gmail.com>.    */
@@ -224,6 +224,9 @@ name|FT_Error
 DECL|function|af_indic_hints_apply
 name|af_indic_hints_apply
 parameter_list|(
+name|FT_UInt
+name|glyph_index
+parameter_list|,
 name|AF_GlyphHints
 name|hints
 parameter_list|,
@@ -239,6 +242,8 @@ comment|/* use CJK routines */
 return|return
 name|af_cjk_hints_apply
 argument_list|(
+name|glyph_index
+argument_list|,
 name|hints
 argument_list|,
 name|outline

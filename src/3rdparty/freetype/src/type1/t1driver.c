@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2004, 2006, 2007, 2009, 2011, 2013, 2014 by             */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -109,7 +109,7 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_SERVICE_XFREE86_NAME_H
+include|FT_SERVICE_FONT_FORMAT_H
 end_include
 begin_include
 include|#
@@ -528,14 +528,28 @@ modifier|*
 name|value
 parameter_list|,
 name|FT_Long
-name|value_len
+name|value_len_
 parameter_list|)
 block|{
-name|FT_Long
+name|FT_ULong
 name|retval
 init|=
-operator|-
-literal|1
+literal|0
+decl_stmt|;
+comment|/* always>= 1 if valid */
+name|FT_ULong
+name|value_len
+init|=
+name|value_len_
+operator|<
+literal|0
+condition|?
+literal|0
+else|:
+operator|(
+name|FT_ULong
+operator|)
+name|value_len_
 decl_stmt|;
 name|T1_Face
 name|t1face
@@ -857,10 +871,6 @@ name|PS_DICT_FONT_NAME
 case|:
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|ft_strlen
 argument_list|(
 name|type1
@@ -869,7 +879,6 @@ name|font_name
 argument_list|)
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -986,10 +995,6 @@ condition|)
 block|{
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|ft_strlen
 argument_list|(
 name|type1
@@ -1001,7 +1006,6 @@ index|]
 argument_list|)
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1070,10 +1074,6 @@ condition|)
 block|{
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|type1
 operator|->
 name|charstrings_len
@@ -1082,7 +1082,6 @@ name|idx
 index|]
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1195,10 +1194,6 @@ condition|)
 block|{
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|ft_strlen
 argument_list|(
 name|type1
@@ -1212,7 +1207,6 @@ index|]
 argument_list|)
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1319,10 +1313,6 @@ condition|)
 block|{
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|type1
 operator|->
 name|subrs_len
@@ -1331,7 +1321,6 @@ name|idx
 index|]
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2569,10 +2558,6 @@ name|PS_DICT_VERSION
 case|:
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|ft_strlen
 argument_list|(
 name|type1
@@ -2583,7 +2568,6 @@ name|version
 argument_list|)
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2618,10 +2602,6 @@ name|PS_DICT_NOTICE
 case|:
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|ft_strlen
 argument_list|(
 name|type1
@@ -2632,7 +2612,6 @@ name|notice
 argument_list|)
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2667,10 +2646,6 @@ name|PS_DICT_FULL_NAME
 case|:
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|ft_strlen
 argument_list|(
 name|type1
@@ -2681,7 +2656,6 @@ name|full_name
 argument_list|)
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2716,10 +2690,6 @@ name|PS_DICT_FAMILY_NAME
 case|:
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|ft_strlen
 argument_list|(
 name|type1
@@ -2730,7 +2700,6 @@ name|family_name
 argument_list|)
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2765,10 +2734,6 @@ name|PS_DICT_WEIGHT
 case|:
 name|retval
 operator|=
-call|(
-name|FT_Long
-call|)
-argument_list|(
 name|ft_strlen
 argument_list|(
 name|type1
@@ -2779,7 +2744,6 @@ name|weight
 argument_list|)
 operator|+
 literal|1
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2849,6 +2813,16 @@ expr_stmt|;
 break|break;
 block|}
 return|return
+name|retval
+operator|==
+literal|0
+condition|?
+operator|-
+literal|1
+else|:
+operator|(
+name|FT_Long
+operator|)
 name|retval
 return|;
 block|}
@@ -2936,9 +2910,9 @@ name|t1_service_glyph_dict
 block|}
 block|,
 block|{
-name|FT_SERVICE_ID_XF86_NAME
+name|FT_SERVICE_ID_FONT_FORMAT
 block|,
-name|FT_XF86_FORMAT_TYPE_1
+name|FT_FONT_FORMAT_TYPE_1
 block|}
 block|,
 block|{

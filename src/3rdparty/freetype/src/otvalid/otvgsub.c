@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2007 by                                          */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -211,6 +211,9 @@ argument_list|)
 expr_stmt|;
 name|idx
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|otv_Coverage_get_first
 argument_list|(
 name|Coverage
@@ -228,6 +231,9 @@ name|FT_INVALID_DATA
 expr_stmt|;
 name|idx
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|otv_Coverage_get_last
 argument_list|(
 name|Coverage
@@ -296,6 +302,9 @@ name|Coverage
 argument_list|,
 name|otvalid
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|GlyphCount
 argument_list|)
 expr_stmt|;

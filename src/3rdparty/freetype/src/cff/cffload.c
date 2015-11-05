@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2014 by                                                 */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -2848,7 +2848,7 @@ index|[
 literal|0
 index|]
 operator|=
-name|FT_PEEK_OFF3
+name|FT_PEEK_UOFF3
 argument_list|(
 name|p
 argument_list|)
@@ -4427,6 +4427,9 @@ for|for
 control|(
 name|j
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|num_glyphs
 operator|-
 literal|1
@@ -6598,7 +6601,7 @@ decl_stmt|;
 name|CFF_IndexRec
 name|string_index
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|subfont_index
 decl_stmt|;
 name|FT_ZERO
@@ -6805,15 +6808,23 @@ block|{
 comment|/* well, we don't really forget the `disabled' fonts... */
 name|subfont_index
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|face_index
+operator|&
+literal|0xFFFF
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|face_index
+operator|>
+literal|0
+operator|&&
 name|subfont_index
 operator|>=
-operator|(
-name|FT_Int
-operator|)
 name|font
 operator|->
 name|name_index

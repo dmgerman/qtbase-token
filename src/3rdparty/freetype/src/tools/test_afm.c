@@ -31,7 +31,7 @@ name|AFM_FontInfo
 name|fi
 parameter_list|)
 block|{
-name|FT_Int
+name|FT_UInt
 name|i
 decl_stmt|;
 name|printf

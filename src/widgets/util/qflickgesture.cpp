@@ -745,17 +745,17 @@ name|source
 argument_list|()
 expr_stmt|;
 name|qFGDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QFG: consuming/delaying mouse press"
+argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
 name|qFGDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QFG: NOT consuming/delaying mouse press"
+argument_list|)
 expr_stmt|;
 block|}
 name|e
@@ -904,9 +904,9 @@ name|scrollerWasIntercepted
 parameter_list|()
 block|{
 name|qFGDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QFG: deleting delayed mouse press, since scroller was only intercepted"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -954,9 +954,9 @@ condition|)
 block|{
 comment|// we still haven't even sent the press, so just throw it away now
 name|qFGDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QFG: deleting delayed mouse press, since scroller is active now"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

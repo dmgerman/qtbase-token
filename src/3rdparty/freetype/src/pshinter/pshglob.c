@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2001-2004, 2006, 2010, 2012-2014 by                          */
+comment|/*  Copyright 2001-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -80,7 +80,7 @@ DECL|variable|ps_debug_globals
 name|PSH_Globals
 name|ps_debug_globals
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -674,7 +674,7 @@ name|top_table
 decl_stmt|,
 name|bot_table
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|count_top
 decl_stmt|,
 name|count_bot
@@ -1054,9 +1054,9 @@ expr_stmt|;
 if|if
 condition|(
 name|delta
-operator|<
+operator|/
 literal|2
-operator|*
+operator|<
 name|fuzz
 condition|)
 name|zone
@@ -1166,7 +1166,7 @@ decl_stmt|;
 name|PSH_Blue_Table
 name|table
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 comment|/*                                                        */
 comment|/* Determine whether we need to suppress overshoots or    */
@@ -2081,7 +2081,7 @@ directive|ifdef
 name|DEBUG_HINTER
 name|ps_debug_globals
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 endif|#
 directive|endif

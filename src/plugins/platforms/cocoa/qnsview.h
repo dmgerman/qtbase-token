@@ -182,6 +182,9 @@ block|;
 name|NSEvent
 operator|*
 name|m_currentlyInterpretedKeyEvent
+block|;
+name|bool
+name|m_isMenuView
 block|; }
 operator|-
 operator|(
@@ -368,6 +371,20 @@ operator|(
 name|BOOL
 operator|)
 name|willZoom
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
+name|textInputContextKeyboardSelectionDidChangeNotification
+operator|:
+operator|(
+name|NSNotification
+operator|*
+operator|)
+name|textInputContextKeyboardSelectionDidChangeNotification
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt

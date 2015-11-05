@@ -21,7 +21,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2003-2006, 2011-2012 by                                      */
+comment|/*  Copyright 2003-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1176,6 +1176,9 @@ name|org
 operator|=
 name|sum
 operator|/
+operator|(
+name|FT_Pos
+operator|)
 name|j
 expr_stmt|;
 if|if

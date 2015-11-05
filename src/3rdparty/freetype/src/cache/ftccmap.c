@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2014 by                                                 */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -209,17 +209,6 @@ name|x
 parameter_list|)
 value|((FTC_CMapQuery)(x))
 end_define
-begin_define
-DECL|macro|FTC_CMAP_QUERY_HASH
-define|#
-directive|define
-name|FTC_CMAP_QUERY_HASH
-parameter_list|(
-name|x
-parameter_list|)
-define|\
-value|FTC_CMAP_HASH( (x)->face_id, (x)->cmap_index, (x)->char_code )
-end_define
 begin_comment
 comment|/* the cmap cache node */
 end_comment
@@ -272,17 +261,6 @@ parameter_list|(
 name|x
 parameter_list|)
 value|( (FTC_CMapNode)( x ) )
-end_define
-begin_define
-DECL|macro|FTC_CMAP_NODE_HASH
-define|#
-directive|define
-name|FTC_CMAP_NODE_HASH
-parameter_list|(
-name|x
-parameter_list|)
-define|\
-value|FTC_CMAP_HASH( (x)->face_id, (x)->cmap_index, (x)->first )
 end_define
 begin_comment
 comment|/* if (indices[n] == FTC_CMAP_UNKNOWN), we assume that the corresponding */
@@ -824,7 +802,7 @@ name|gindex
 init|=
 literal|0
 decl_stmt|;
-name|FT_PtrDist
+name|FT_Offset
 name|hash
 decl_stmt|;
 name|FT_Int
@@ -904,6 +882,9 @@ name|FTC_CMAP_HASH
 argument_list|(
 name|face_id
 argument_list|,
+operator|(
+name|FT_UInt
+operator|)
 name|cmap_index
 argument_list|,
 name|char_code

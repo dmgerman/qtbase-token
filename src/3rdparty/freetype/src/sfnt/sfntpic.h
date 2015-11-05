@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009, 2012 by                                                */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -58,9 +58,6 @@ define|#
 directive|define
 name|__SFNTPIC_H__
 end_define
-begin_macro
-name|FT_BEGIN_HEADER
-end_macro
 begin_include
 include|#
 directive|include
@@ -98,13 +95,6 @@ define|#
 directive|define
 name|TT_SERVICE_CMAP_INFO_GET
 value|tt_service_get_cmap_info
-end_define
-begin_define
-DECL|macro|SFNT_SERVICES_GET
-define|#
-directive|define
-name|SFNT_SERVICES_GET
-value|sfnt_services
 end_define
 begin_define
 DECL|macro|TT_CMAP_CLASSES_GET
@@ -203,6 +193,9 @@ include|#
 directive|include
 file|"ttcmap.h"
 end_include
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
 begin_typedef
 DECL|struct|sfntModulePIC_
 typedef|typedef
@@ -238,19 +231,23 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|TT_CONFIG_OPTION_BDF
+DECL|member|sfnt_service_bdf
 name|FT_Service_BDFRec
 name|sfnt_service_bdf
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|sfnt_interface
 name|SFNT_Interface
 name|sfnt_interface
 decl_stmt|;
 block|}
+DECL|typedef|sfntModulePIC
 name|sfntModulePIC
 typedef|;
 end_typedef
 begin_define
+DECL|macro|GET_PIC
 define|#
 directive|define
 name|GET_PIC
@@ -261,6 +258,7 @@ define|\
 value|( (sfntModulePIC*)( (lib)->pic_container.sfnt ) )
 end_define
 begin_define
+DECL|macro|SFNT_SERVICES_GET
 define|#
 directive|define
 name|SFNT_SERVICES_GET
@@ -268,6 +266,7 @@ define|\
 value|( GET_PIC( library )->sfnt_services )
 end_define
 begin_define
+DECL|macro|SFNT_SERVICE_GLYPH_DICT_GET
 define|#
 directive|define
 name|SFNT_SERVICE_GLYPH_DICT_GET
@@ -275,6 +274,7 @@ define|\
 value|( GET_PIC( library )->sfnt_service_glyph_dict )
 end_define
 begin_define
+DECL|macro|SFNT_SERVICE_PS_NAME_GET
 define|#
 directive|define
 name|SFNT_SERVICE_PS_NAME_GET
@@ -282,6 +282,7 @@ define|\
 value|( GET_PIC( library )->sfnt_service_ps_name )
 end_define
 begin_define
+DECL|macro|TT_SERVICE_CMAP_INFO_GET
 define|#
 directive|define
 name|TT_SERVICE_CMAP_INFO_GET
@@ -289,13 +290,7 @@ define|\
 value|( GET_PIC( library )->tt_service_get_cmap_info )
 end_define
 begin_define
-define|#
-directive|define
-name|SFNT_SERVICES_GET
-define|\
-value|( GET_PIC( library )->sfnt_services )
-end_define
-begin_define
+DECL|macro|TT_CMAP_CLASSES_GET
 define|#
 directive|define
 name|TT_CMAP_CLASSES_GET
@@ -303,6 +298,7 @@ define|\
 value|( GET_PIC( library )->tt_cmap_classes )
 end_define
 begin_define
+DECL|macro|SFNT_SERVICE_SFNT_TABLE_GET
 define|#
 directive|define
 name|SFNT_SERVICE_SFNT_TABLE_GET
@@ -310,6 +306,7 @@ define|\
 value|( GET_PIC( library )->sfnt_service_sfnt_table )
 end_define
 begin_define
+DECL|macro|SFNT_SERVICE_BDF_GET
 define|#
 directive|define
 name|SFNT_SERVICE_BDF_GET
@@ -317,6 +314,7 @@ define|\
 value|( GET_PIC( library )->sfnt_service_bdf )
 end_define
 begin_define
+DECL|macro|SFNT_INTERFACE_GET
 define|#
 directive|define
 name|SFNT_INTERFACE_GET
@@ -344,6 +342,9 @@ name|library
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|FT_END_HEADER
+end_macro
 begin_endif
 endif|#
 directive|endif
@@ -354,9 +355,6 @@ end_comment
 begin_comment
 comment|/* */
 end_comment
-begin_macro
-name|FT_END_HEADER
-end_macro
 begin_endif
 endif|#
 directive|endif

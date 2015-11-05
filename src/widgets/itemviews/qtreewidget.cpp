@@ -12442,9 +12442,9 @@ name|item
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QTreeWidget::mimeData: Null-item passed"
+argument_list|)
 block|;
 return|return
 literal|0

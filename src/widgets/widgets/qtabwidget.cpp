@@ -917,22 +917,6 @@ name|tabBarSize
 operator|=
 name|t
 expr_stmt|;
-if|if
-condition|(
-name|QStyleOptionTabWidgetFrameV2
-modifier|*
-name|tabframe
-init|=
-name|qstyleoption_cast
-argument_list|<
-name|QStyleOptionTabWidgetFrameV2
-operator|*
-argument_list|>
-argument_list|(
-name|option
-argument_list|)
-condition|)
-block|{
 name|QRect
 name|tbRect
 init|=
@@ -957,7 +941,7 @@ name|currentIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|tabframe
+name|option
 operator|->
 name|tabBarRect
 operator|=
@@ -978,13 +962,12 @@ name|topLeft
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|tabframe
+name|option
 operator|->
 name|selectedTabRect
 operator|=
 name|selectedTabRect
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment
@@ -2242,7 +2225,7 @@ name|dirty
 condition|)
 return|return;
 comment|// nothing to do
-name|QStyleOptionTabWidgetFrameV2
+name|QStyleOptionTabWidgetFrame
 name|option
 decl_stmt|;
 name|initStyleOption
@@ -2612,7 +2595,7 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-name|QStyleOptionTabWidgetFrameV2
+name|QStyleOptionTabWidgetFrame
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -2939,7 +2922,7 @@ argument_list|,
 name|t
 argument_list|)
 decl_stmt|;
-name|QStyleOptionTabWidgetFrameV2
+name|QStyleOptionTabWidgetFrame
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -3012,7 +2995,7 @@ specifier|const
 name|QTabWidget
 argument_list|)
 expr_stmt|;
-name|QStyleOptionTabWidgetFrameV2
+name|QStyleOptionTabWidgetFrame
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -4442,7 +4425,7 @@ name|TopLeftCorner
 argument_list|)
 condition|)
 block|{
-name|QStyleOptionTabBarBaseV2
+name|QStyleOptionTabBarBase
 name|opt
 decl_stmt|;
 name|QTabBarPrivate
@@ -4525,7 +4508,7 @@ name|TopRightCorner
 argument_list|)
 condition|)
 block|{
-name|QStyleOptionTabBarBaseV2
+name|QStyleOptionTabBarBase
 name|opt
 decl_stmt|;
 name|QTabBarPrivate
@@ -4602,7 +4585,7 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|QStyleOptionTabWidgetFrameV2
+name|QStyleOptionTabWidgetFrame
 name|opt
 decl_stmt|;
 name|initStyleOption

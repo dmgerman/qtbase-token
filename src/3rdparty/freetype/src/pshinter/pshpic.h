@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009, 2012, 2013 by                                          */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -58,9 +58,6 @@ define|#
 directive|define
 name|__PSHPIC_H__
 end_define
-begin_macro
-name|FT_BEGIN_HEADER
-end_macro
 begin_include
 include|#
 directive|include
@@ -90,19 +87,26 @@ include|#
 directive|include
 include|FT_INTERNAL_POSTSCRIPT_HINTS_H
 end_include
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
 begin_typedef
+DECL|struct|PSHinterPIC_
 typedef|typedef
 struct|struct
 name|PSHinterPIC_
 block|{
+DECL|member|pshinter_interface
 name|PSHinter_Interface
 name|pshinter_interface
 decl_stmt|;
 block|}
+DECL|typedef|PSHinterPIC
 name|PSHinterPIC
 typedef|;
 end_typedef
 begin_define
+DECL|macro|GET_PIC
 define|#
 directive|define
 name|GET_PIC
@@ -112,6 +116,7 @@ parameter_list|)
 value|( (PSHinterPIC*)( (lib)->pic_container.pshinter ) )
 end_define
 begin_define
+DECL|macro|PSHINTER_INTERFACE_GET
 define|#
 directive|define
 name|PSHINTER_INTERFACE_GET
@@ -138,6 +143,9 @@ name|library
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|FT_END_HEADER
+end_macro
 begin_endif
 endif|#
 directive|endif
@@ -148,9 +156,6 @@ end_comment
 begin_comment
 comment|/* */
 end_comment
-begin_macro
-name|FT_END_HEADER
-end_macro
 begin_endif
 endif|#
 directive|endif

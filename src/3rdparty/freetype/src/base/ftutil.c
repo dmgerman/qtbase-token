@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2004-2007, 2013 by                                     */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -630,6 +630,9 @@ name|ft_mem_qalloc
 argument_list|(
 name|memory
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|size
 argument_list|,
 operator|&
@@ -922,7 +925,7 @@ name|node
 operator|->
 name|next
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|node
 operator|->
@@ -1003,7 +1006,7 @@ name|node
 operator|->
 name|prev
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -1193,7 +1196,7 @@ name|node
 operator|->
 name|prev
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|node
 operator|->
@@ -1394,13 +1397,13 @@ name|list
 operator|->
 name|head
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|list
 operator|->
 name|tail
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block

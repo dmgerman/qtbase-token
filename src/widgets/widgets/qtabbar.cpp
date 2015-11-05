@@ -427,7 +427,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     Initialize \a option with the values from the tab at \a tabIndex. This method     is useful for subclasses when they need a QStyleOptionTab, QStyleOptionTabV2,     or QStyleOptionTabV3 but don't want to fill in all the information themselves.     This function will check the version of the QStyleOptionTab and fill in the     additional values for a QStyleOptionTabV2 and QStyleOptionTabV3.      \sa QStyleOption::initFrom(), QTabWidget::initStyleOption() */
+comment|/*!     Initialize \a option with the values from the tab at \a tabIndex. This method     is useful for subclasses when they need a QStyleOptionTab,     but don't want to fill in all the information themselves.      \sa QStyleOption::initFrom(), QTabWidget::initStyleOption() */
 end_comment
 begin_function
 DECL|function|initStyleOption
@@ -681,22 +681,7 @@ name|tab
 operator|.
 name|icon
 expr_stmt|;
-if|if
-condition|(
-name|QStyleOptionTabV2
-modifier|*
-name|optionV2
-init|=
-name|qstyleoption_cast
-argument_list|<
-name|QStyleOptionTabV2
-operator|*
-argument_list|>
-argument_list|(
 name|option
-argument_list|)
-condition|)
-name|optionV2
 operator|->
 name|iconSize
 operator|=
@@ -704,23 +689,7 @@ name|iconSize
 argument_list|()
 expr_stmt|;
 comment|// Will get the default value then.
-if|if
-condition|(
-name|QStyleOptionTabV3
-modifier|*
-name|optionV3
-init|=
-name|qstyleoption_cast
-argument_list|<
-name|QStyleOptionTabV3
-operator|*
-argument_list|>
-argument_list|(
 name|option
-argument_list|)
-condition|)
-block|{
-name|optionV3
 operator|->
 name|leftButtonSize
 operator|=
@@ -738,7 +707,7 @@ else|:
 name|QSize
 argument_list|()
 expr_stmt|;
-name|optionV3
+name|option
 operator|->
 name|rightButtonSize
 operator|=
@@ -756,7 +725,7 @@ else|:
 name|QSize
 argument_list|()
 expr_stmt|;
-name|optionV3
+name|option
 operator|->
 name|documentMode
 operator|=
@@ -764,7 +733,6 @@ name|d
 operator|->
 name|documentMode
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|tabIndex
@@ -2960,7 +2928,7 @@ name|rightWidget
 operator|)
 condition|)
 return|return;
-name|QStyleOptionTabV3
+name|QStyleOptionTab
 name|opt
 decl_stmt|;
 name|q
@@ -3862,7 +3830,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QTabBar::drawBase     \brief defines whether or not tab bar should draw its base.      If true then QTabBar draws a base in relation to the styles overlab.     Otherwise only the tabs are drawn.      \sa QStyle::pixelMetric(), QStyle::PM_TabBarBaseOverlap, QStyleOptionTabBarBaseV2 */
+comment|/*!     \property QTabBar::drawBase     \brief defines whether or not tab bar should draw its base.      If true then QTabBar draws a base in relation to the styles overlab.     Otherwise only the tabs are drawn.      \sa QStyle::pixelMetric(), QStyle::PM_TabBarBaseOverlap, QStyleOptionTabBarBase */
 end_comment
 begin_function
 DECL|function|setDrawBase
@@ -4168,7 +4136,7 @@ operator|->
 name|closeButtonOnTabs
 condition|)
 block|{
-name|QStyleOptionTabV3
+name|QStyleOptionTab
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -6666,7 +6634,7 @@ name|index
 argument_list|)
 condition|)
 block|{
-name|QStyleOptionTabV3
+name|QStyleOptionTab
 name|opt
 decl_stmt|;
 name|initStyleOption
@@ -8060,7 +8028,7 @@ argument_list|(
 name|QTabBar
 argument_list|)
 expr_stmt|;
-name|QStyleOptionTabBarBaseV2
+name|QStyleOptionTabBarBase
 name|optTabBase
 decl_stmt|;
 name|QTabBarPrivate
@@ -8210,7 +8178,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QStyleOptionTabV3
+name|QStyleOptionTab
 name|tab
 decl_stmt|;
 name|initStyleOption
@@ -8473,7 +8441,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|QStyleOptionTabV3
+name|QStyleOptionTab
 name|tab
 decl_stmt|;
 name|initStyleOption
@@ -9793,7 +9761,7 @@ name|pressedIndex
 argument_list|)
 condition|)
 block|{
-name|QStyleOptionTabBarBaseV2
+name|QStyleOptionTabBarBase
 name|optTabBase
 decl_stmt|;
 name|optTabBase
@@ -10429,7 +10397,7 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
-name|QStyleOptionTabBarBaseV2
+name|QStyleOptionTabBarBase
 name|optTabBase
 decl_stmt|;
 name|optTabBase
@@ -10552,7 +10520,7 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
-name|QStyleOptionTabV3
+name|QStyleOptionTab
 name|tab
 decl_stmt|;
 name|q
@@ -11116,7 +11084,7 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|QStyleOptionTabBarBaseV2
+name|QStyleOptionTabBarBase
 name|optTabBase
 decl_stmt|;
 name|optTabBase

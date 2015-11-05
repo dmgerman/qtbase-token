@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006-2014 by                                                 */
+comment|/*  Copyright 2006-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -943,10 +943,10 @@ index|[
 name|AF_BLUE_STRING_MAX_LEN
 index|]
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|num_fills
 decl_stmt|;
-name|FT_Int
+name|FT_UInt
 name|num_flats
 decl_stmt|;
 name|FT_Bool
@@ -2700,21 +2700,16 @@ name|seg
 operator|->
 name|last
 decl_stmt|;
-name|AF_Flags
+name|FT_UInt
 name|f0
 init|=
-call|(
-name|AF_Flags
-call|)
-argument_list|(
 name|pt
 operator|->
 name|flags
 operator|&
 name|AF_FLAG_CONTROL
-argument_list|)
 decl_stmt|;
-name|AF_Flags
+name|FT_UInt
 name|f1
 decl_stmt|;
 name|seg
@@ -2744,16 +2739,11 @@ name|next
 expr_stmt|;
 name|f1
 operator|=
-call|(
-name|AF_Flags
-call|)
-argument_list|(
 name|pt
 operator|->
 name|flags
 operator|&
 name|AF_FLAG_CONTROL
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -3314,7 +3304,7 @@ name|seg
 operator|->
 name|link
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|seg
 operator|->
@@ -3335,7 +3325,7 @@ name|seg
 operator|->
 name|link
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|seg
 operator|->
@@ -3356,7 +3346,7 @@ name|link1
 operator|->
 name|link
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 break|break;
 block|}
@@ -3406,7 +3396,7 @@ name|seg1
 operator|->
 name|link
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -4265,7 +4255,7 @@ name|edge
 operator|->
 name|serif
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 block|}
@@ -4335,24 +4325,21 @@ end_function
 begin_comment
 comment|/* Compute all edges which lie within blue zones. */
 end_comment
-begin_macro
-name|FT_LOCAL_DEF
-argument_list|(
-argument|void
-argument_list|)
-end_macro
-begin_macro
+begin_function
+specifier|static
+name|void
 DECL|function|af_cjk_hints_compute_blue_edges
 name|af_cjk_hints_compute_blue_edges
-argument_list|(
-argument|AF_GlyphHints  hints
-argument_list|,
-argument|AF_CJKMetrics  metrics
-argument_list|,
-argument|AF_Dimension   dim
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+name|AF_GlyphHints
+name|hints
+parameter_list|,
+name|AF_CJKMetrics
+name|metrics
+parameter_list|,
+name|AF_Dimension
+name|dim
+parameter_list|)
 block|{
 name|AF_AxisHints
 name|axis
@@ -4658,7 +4645,7 @@ name|best_blue
 expr_stmt|;
 block|}
 block|}
-end_block
+end_function
 begin_comment
 comment|/* Initalize hinting engine. */
 end_comment
@@ -4761,31 +4748,11 @@ name|scaler
 operator|.
 name|render_mode
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|AF_CONFIG_OPTION_USE_WARPER
-if|if
-condition|(
-name|mode
-operator|==
-name|FT_RENDER_MODE_LCD
-operator|||
-name|mode
-operator|==
-name|FT_RENDER_MODE_LCD_V
-condition|)
-name|metrics
-operator|->
-name|root
-operator|.
-name|scaler
-operator|.
-name|render_mode
-operator|=
-name|mode
-operator|=
-name|FT_RENDER_MODE_NORMAL
-expr_stmt|;
+if|#
+directive|if
+literal|0
+comment|/* AF_CONFIG_OPTION_USE_WARPER */
+block|if ( mode == FT_RENDER_MODE_LCD || mode == FT_RENDER_MODE_LCD_V )       metrics->root.scaler.render_mode = mode = FT_RENDER_MODE_NORMAL;
 endif|#
 directive|endif
 name|scaler_flags
@@ -4853,6 +4820,29 @@ name|scaler_flags
 operator||=
 name|AF_SCALER_FLAG_NO_ADVANCE
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|AF_CONFIG_OPTION_USE_WARPER
+comment|/* get (global) warper flag */
+if|if
+condition|(
+operator|!
+name|metrics
+operator|->
+name|root
+operator|.
+name|globals
+operator|->
+name|module
+operator|->
+name|warping
+condition|)
+name|scaler_flags
+operator||=
+name|AF_SCALER_FLAG_NO_WARPER
+expr_stmt|;
+endif|#
+directive|endif
 name|hints
 operator|->
 name|scaler_flags
@@ -4906,14 +4896,14 @@ parameter_list|(
 name|AF_Width
 name|widths
 parameter_list|,
-name|FT_Int
+name|FT_UInt
 name|count
 parameter_list|,
 name|FT_Pos
 name|width
 parameter_list|)
 block|{
-name|int
+name|FT_UInt
 name|n
 decl_stmt|;
 name|FT_Pos
@@ -5067,10 +5057,10 @@ parameter_list|,
 name|FT_Pos
 name|width
 parameter_list|,
-name|AF_Edge_Flags
+name|FT_UInt
 name|base_flags
 parameter_list|,
-name|AF_Edge_Flags
+name|FT_UInt
 name|stem_flags
 parameter_list|)
 block|{
@@ -5520,16 +5510,10 @@ name|dim
 argument_list|,
 name|dist
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|base_edge
 operator|->
 name|flags
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|stem_edge
 operator|->
 name|flags
@@ -5833,16 +5817,10 @@ name|dim
 argument_list|,
 name|org_len
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|edge
 operator|->
 name|flags
 argument_list|,
-operator|(
-name|AF_Edge_Flags
-operator|)
 name|edge2
 operator|->
 name|flags
@@ -6234,7 +6212,7 @@ decl_stmt|;
 name|AF_Edge
 name|anchor
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|FT_Pos
 name|delta
@@ -7554,6 +7532,8 @@ end_macro
 begin_macro
 name|af_cjk_hints_apply
 argument_list|(
+argument|FT_UInt        glyph_index
+argument_list|,
 argument|AF_GlyphHints  hints
 argument_list|,
 argument|FT_Outline*    outline
@@ -7574,6 +7554,11 @@ argument_list|(
 name|metrics
 argument_list|)
 expr_stmt|;
+name|FT_UNUSED
+argument_list|(
+name|glyph_index
+argument_list|)
+expr_stmt|;
 name|error
 operator|=
 name|af_glyph_hints_reload
@@ -7591,6 +7576,35 @@ goto|goto
 name|Exit
 goto|;
 comment|/* analyze glyph outline */
+ifdef|#
+directive|ifdef
+name|AF_CONFIG_OPTION_USE_WARPER
+if|if
+condition|(
+operator|(
+name|metrics
+operator|->
+name|root
+operator|.
+name|scaler
+operator|.
+name|render_mode
+operator|==
+name|FT_RENDER_MODE_LIGHT
+operator|&&
+name|AF_HINTS_DO_WARP
+argument_list|(
+name|hints
+argument_list|)
+operator|)
+operator|||
+name|AF_HINTS_DO_HORIZONTAL
+argument_list|(
+name|hints
+argument_list|)
+condition|)
+else|#
+directive|else
 if|if
 condition|(
 name|AF_HINTS_DO_HORIZONTAL
@@ -7598,6 +7612,8 @@ argument_list|(
 name|hints
 argument_list|)
 condition|)
+endif|#
+directive|endif
 block|{
 name|error
 operator|=
@@ -7716,7 +7732,12 @@ name|scaler
 operator|.
 name|render_mode
 operator|==
-name|FT_RENDER_MODE_NORMAL
+name|FT_RENDER_MODE_LIGHT
+operator|&&
+name|AF_HINTS_DO_WARP
+argument_list|(
+name|hints
+argument_list|)
 condition|)
 block|{
 name|AF_WarperRec
@@ -7808,12 +7829,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|#
-directive|if
-literal|0
-block|af_glyph_hints_dump_points( hints );     af_glyph_hints_dump_segments( hints );     af_glyph_hints_dump_edges( hints );
-endif|#
-directive|endif
 name|af_glyph_hints_save
 argument_list|(
 name|hints

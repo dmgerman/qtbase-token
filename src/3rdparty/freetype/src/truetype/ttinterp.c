@@ -18,10 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2014                                                    */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
-comment|/*  by David Turner, Robert Wilhelm, and Werner Lemberg.                   */
+comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -159,559 +159,61 @@ directive|define
 name|MAX_RUNNABLE_OPCODES
 value|1000000L
 end_define
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* There are two kinds of implementations:                               */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* a. static implementation                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*    The current execution context is a static variable, which fields   */
-end_comment
-begin_comment
-comment|/*    are accessed directly by the interpreter during execution.  The    */
-end_comment
-begin_comment
-comment|/*    context is named `cur'.                                            */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*    This version is non-reentrant, of course.                          */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* b. indirect implementation                                            */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*    The current execution context is passed to _each_ function as its  */
-end_comment
-begin_comment
-comment|/*    first argument, and each field is thus accessed indirectly.        */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*    This version is fully re-entrant.                                  */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* The idea is that an indirect implementation may be slower to execute  */
-end_comment
-begin_comment
-comment|/* on low-end processors that are used in some systems (like 386s or     */
-end_comment
-begin_comment
-comment|/* even 486s).                                                           */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* As a consequence, the indirect implementation is now the default, as  */
-end_comment
-begin_comment
-comment|/* its performance costs can be considered negligible in our context.    */
-end_comment
-begin_comment
-comment|/* Note, however, that we kept the same source with macros because:      */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* - The code is kept very close in design to the Pascal code used for   */
-end_comment
-begin_comment
-comment|/*   development.                                                        */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* - It's much more readable that way!                                   */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* - It's still open to experimentation and tuning.                      */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|TT_CONFIG_OPTION_STATIC_INTERPRETER
-end_ifndef
-begin_comment
-comment|/* indirect implementation */
-end_comment
-begin_define
-DECL|macro|CUR
-define|#
-directive|define
-name|CUR
-value|(*exc)
-end_define
-begin_comment
-DECL|macro|CUR
-comment|/* see ttobjs.h */
-end_comment
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* This macro is used whenever `exec' is unused in a function, to avoid  */
-end_comment
-begin_comment
-comment|/* stupid warnings from pedantic compilers.                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_define
-DECL|macro|FT_UNUSED_EXEC
-define|#
-directive|define
-name|FT_UNUSED_EXEC
-value|FT_UNUSED( exc )
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|/* static implementation */
-end_comment
-begin_define
-DECL|macro|CUR
-define|#
-directive|define
-name|CUR
-value|cur
-end_define
-begin_define
-DECL|macro|FT_UNUSED_EXEC
-define|#
-directive|define
-name|FT_UNUSED_EXEC
-value|int  __dummy = __dummy
-end_define
-begin_decl_stmt
-specifier|static
-DECL|variable|cur
-name|TT_ExecContextRec
-name|cur
-decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|cur
-comment|/* static exec. context variable */
-end_comment
-begin_comment
-comment|/* apparently, we have a _lot_ of direct indexing when accessing  */
-end_comment
-begin_comment
-comment|/* the static `cur', which makes the code bigger (due to all the  */
-end_comment
-begin_comment
-comment|/* four bytes addresses).                                         */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* TT_CONFIG_OPTION_STATIC_INTERPRETER */
-end_comment
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* The instruction argument stack.                                       */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_define
-DECL|macro|INS_ARG
-define|#
-directive|define
-name|INS_ARG
-value|EXEC_OP_ FT_Long*  args
-end_define
-begin_comment
-DECL|macro|INS_ARG
-comment|/* see ttobjs.h for EXEC_OP_ */
-end_comment
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* This macro is used whenever `args' is unused in a function, to avoid  */
-end_comment
-begin_comment
-comment|/* stupid warnings from pedantic compilers.                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_define
-DECL|macro|FT_UNUSED_ARG
-define|#
-directive|define
-name|FT_UNUSED_ARG
-value|FT_UNUSED_EXEC; FT_UNUSED( args )
-end_define
 begin_define
 DECL|macro|SUBPIXEL_HINTING
 define|#
 directive|define
 name|SUBPIXEL_HINTING
 define|\
-value|( ((TT_Driver)FT_FACE_DRIVER( CUR.face ))->interpreter_version == \             TT_INTERPRETER_VERSION_38 )
-end_define
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* The following macros hide the use of EXEC_ARG and EXEC_ARG_ to        */
-end_comment
-begin_comment
-comment|/* increase readability of the code.                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_define
-DECL|macro|SKIP_Code
-define|#
-directive|define
-name|SKIP_Code
-parameter_list|()
-define|\
-value|SkipCode( EXEC_ARG )
+value|( ((TT_Driver)FT_FACE_DRIVER( exc->face ))->interpreter_version == \             TT_INTERPRETER_VERSION_38 )
 end_define
 begin_define
-DECL|macro|GET_ShortIns
+DECL|macro|PROJECT
 define|#
 directive|define
-name|GET_ShortIns
-parameter_list|()
-define|\
-value|GetShortIns( EXEC_ARG )
-end_define
-begin_define
-DECL|macro|NORMalize
-define|#
-directive|define
-name|NORMalize
-parameter_list|(
-name|x
-parameter_list|,
-name|y
-parameter_list|,
-name|v
-parameter_list|)
-define|\
-value|Normalize( EXEC_ARG_ x, y, v )
-end_define
-begin_define
-DECL|macro|SET_SuperRound
-define|#
-directive|define
-name|SET_SuperRound
-parameter_list|(
-name|scale
-parameter_list|,
-name|flags
-parameter_list|)
-define|\
-value|SetSuperRound( EXEC_ARG_ scale, flags )
-end_define
-begin_define
-DECL|macro|ROUND_None
-define|#
-directive|define
-name|ROUND_None
-parameter_list|(
-name|d
-parameter_list|,
-name|c
-parameter_list|)
-define|\
-value|Round_None( EXEC_ARG_ d, c )
-end_define
-begin_define
-DECL|macro|INS_Goto_CodeRange
-define|#
-directive|define
-name|INS_Goto_CodeRange
-parameter_list|(
-name|range
-parameter_list|,
-name|ip
-parameter_list|)
-define|\
-value|Ins_Goto_CodeRange( EXEC_ARG_ range, ip )
-end_define
-begin_define
-DECL|macro|CUR_Func_move
-define|#
-directive|define
-name|CUR_Func_move
-parameter_list|(
-name|z
-parameter_list|,
-name|p
-parameter_list|,
-name|d
-parameter_list|)
-define|\
-value|CUR.func_move( EXEC_ARG_ z, p, d )
-end_define
-begin_define
-DECL|macro|CUR_Func_move_orig
-define|#
-directive|define
-name|CUR_Func_move_orig
-parameter_list|(
-name|z
-parameter_list|,
-name|p
-parameter_list|,
-name|d
-parameter_list|)
-define|\
-value|CUR.func_move_orig( EXEC_ARG_ z, p, d )
-end_define
-begin_define
-DECL|macro|CUR_Func_round
-define|#
-directive|define
-name|CUR_Func_round
-parameter_list|(
-name|d
-parameter_list|,
-name|c
-parameter_list|)
-define|\
-value|CUR.func_round( EXEC_ARG_ d, c )
-end_define
-begin_define
-DECL|macro|CUR_Func_cur_ppem
-define|#
-directive|define
-name|CUR_Func_cur_ppem
-parameter_list|()
-define|\
-value|CUR.func_cur_ppem( EXEC_ARG )
-end_define
-begin_define
-DECL|macro|CUR_Func_read_cvt
-define|#
-directive|define
-name|CUR_Func_read_cvt
-parameter_list|(
-name|index
-parameter_list|)
-define|\
-value|CUR.func_read_cvt( EXEC_ARG_ index )
-end_define
-begin_define
-DECL|macro|CUR_Func_write_cvt
-define|#
-directive|define
-name|CUR_Func_write_cvt
-parameter_list|(
-name|index
-parameter_list|,
-name|val
-parameter_list|)
-define|\
-value|CUR.func_write_cvt( EXEC_ARG_ index, val )
-end_define
-begin_define
-DECL|macro|CUR_Func_move_cvt
-define|#
-directive|define
-name|CUR_Func_move_cvt
-parameter_list|(
-name|index
-parameter_list|,
-name|val
-parameter_list|)
-define|\
-value|CUR.func_move_cvt( EXEC_ARG_ index, val )
-end_define
-begin_define
-DECL|macro|CURRENT_Ratio
-define|#
-directive|define
-name|CURRENT_Ratio
-parameter_list|()
-define|\
-value|Current_Ratio( EXEC_ARG )
-end_define
-begin_define
-DECL|macro|INS_SxVTL
-define|#
-directive|define
-name|INS_SxVTL
-parameter_list|(
-name|a
-parameter_list|,
-name|b
-parameter_list|,
-name|c
-parameter_list|,
-name|d
-parameter_list|)
-define|\
-value|Ins_SxVTL( EXEC_ARG_ a, b, c, d )
-end_define
-begin_define
-DECL|macro|COMPUTE_Funcs
-define|#
-directive|define
-name|COMPUTE_Funcs
-parameter_list|()
-define|\
-value|Compute_Funcs( EXEC_ARG )
-end_define
-begin_define
-DECL|macro|COMPUTE_Round
-define|#
-directive|define
-name|COMPUTE_Round
-parameter_list|(
-name|a
-parameter_list|)
-define|\
-value|Compute_Round( EXEC_ARG_ a )
-end_define
-begin_define
-DECL|macro|COMPUTE_Point_Displacement
-define|#
-directive|define
-name|COMPUTE_Point_Displacement
-parameter_list|(
-name|a
-parameter_list|,
-name|b
-parameter_list|,
-name|c
-parameter_list|,
-name|d
-parameter_list|)
-define|\
-value|Compute_Point_Displacement( EXEC_ARG_ a, b, c, d )
-end_define
-begin_define
-DECL|macro|MOVE_Zp2_Point
-define|#
-directive|define
-name|MOVE_Zp2_Point
-parameter_list|(
-name|a
-parameter_list|,
-name|b
-parameter_list|,
-name|c
-parameter_list|,
-name|t
-parameter_list|)
-define|\
-value|Move_Zp2_Point( EXEC_ARG_ a, b, c, t )
-end_define
-begin_define
-DECL|macro|CUR_Func_project
-define|#
-directive|define
-name|CUR_Func_project
+name|PROJECT
 parameter_list|(
 name|v1
 parameter_list|,
 name|v2
 parameter_list|)
 define|\
-value|CUR.func_project( EXEC_ARG_ (v1)->x - (v2)->x, (v1)->y - (v2)->y )
+value|exc->func_project( exc, (v1)->x - (v2)->x, (v1)->y - (v2)->y )
 end_define
 begin_define
-DECL|macro|CUR_Func_dualproj
+DECL|macro|DUALPROJ
 define|#
 directive|define
-name|CUR_Func_dualproj
+name|DUALPROJ
 parameter_list|(
 name|v1
 parameter_list|,
 name|v2
 parameter_list|)
 define|\
-value|CUR.func_dualproj( EXEC_ARG_ (v1)->x - (v2)->x, (v1)->y - (v2)->y )
+value|exc->func_dualproj( exc, (v1)->x - (v2)->x, (v1)->y - (v2)->y )
 end_define
 begin_define
-DECL|macro|CUR_fast_project
+DECL|macro|FAST_PROJECT
 define|#
 directive|define
-name|CUR_fast_project
+name|FAST_PROJECT
 parameter_list|(
 name|v
 parameter_list|)
 define|\
-value|CUR.func_project( EXEC_ARG_ (v)->x, (v)->y )
+value|exc->func_project( exc, (v)->x, (v)->y )
 end_define
 begin_define
-DECL|macro|CUR_fast_dualproj
+DECL|macro|FAST_DUALPROJ
 define|#
 directive|define
-name|CUR_fast_dualproj
+name|FAST_DUALPROJ
 parameter_list|(
 name|v
 parameter_list|)
 define|\
-value|CUR.func_dualproj( EXEC_ARG_ (v)->x, (v)->y )
+value|exc->func_dualproj( exc, (v)->x, (v)->y )
 end_define
 begin_comment
 comment|/*************************************************************************/
@@ -734,7 +236,12 @@ modifier|*
 name|TInstruction_Function
 function_decl|)
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 function_decl|;
 end_typedef
@@ -773,31 +280,6 @@ parameter_list|,
 name|n
 parameter_list|)
 value|( (FT_ULong)(x)>= (FT_ULong)(n) )
-end_define
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* This macro computes (a*2^14)/b and complements TT_MulFix14.           */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_define
-DECL|macro|TT_DivFix14
-define|#
-directive|define
-name|TT_DivFix14
-parameter_list|(
-name|a
-parameter_list|,
-name|b
-parameter_list|)
-define|\
-value|FT_DivFix( a, (b)<< 2 )
 end_define
 begin_undef
 DECL|macro|SUCCESS
@@ -839,7 +321,7 @@ parameter_list|(
 name|V
 parameter_list|)
 define|\
-value|if ( CUR.face->unpatented_hinting )                             \   {                                                               \     CUR.GS.V.x = (FT_F2Dot14)( CUR.GS.both_x_axis ? 0x4000 : 0 ); \     CUR.GS.V.y = (FT_F2Dot14)( CUR.GS.both_x_axis ? 0 : 0x4000 ); \   }
+value|do                                                                  \   {                                                                   \     if ( exc->face->unpatented_hinting )                              \     {                                                                 \       exc->GS.V.x = (FT_F2Dot14)( exc->GS.both_x_axis ? 0x4000 : 0 ); \       exc->GS.V.y = (FT_F2Dot14)( exc->GS.both_x_axis ? 0 : 0x4000 ); \     }                                                                 \   } while (0)
 end_define
 begin_else
 else|#
@@ -853,6 +335,7 @@ name|GUESS_VECTOR
 parameter_list|(
 name|V
 parameter_list|)
+value|do { } while (0)
 end_define
 begin_endif
 endif|#
@@ -985,9 +468,6 @@ comment|/*       range, we test for IP<= Size instead of IP< Size.     */
 comment|/*                                                               */
 name|FT_ASSERT
 argument_list|(
-operator|(
-name|FT_ULong
-operator|)
 name|IP
 operator|<=
 name|coderange
@@ -1670,7 +1150,7 @@ argument|FT_Memory  memory
 argument_list|,
 argument|FT_ULong*  size
 argument_list|,
-argument|FT_Long    multiplier
+argument|FT_ULong   multiplier
 argument_list|,
 argument|void*      _pbuff
 argument_list|,
@@ -2051,6 +1531,9 @@ comment|/* XXX: We reserve a little more elements on the stack to deal safely */
 comment|/*      with broken fonts like arialbs, courbs, timesbs, etc.         */
 name|tmp
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|exec
 operator|->
 name|stackSize
@@ -2092,7 +1575,7 @@ operator|->
 name|stackSize
 operator|=
 operator|(
-name|FT_UInt
+name|FT_Long
 operator|)
 name|tmp
 expr_stmt|;
@@ -2404,15 +1887,6 @@ end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
-begin_comment
-comment|/*<Note>                                                                */
-end_comment
-begin_comment
-comment|/*    Only the glyph loader and debugger should call this function.      */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
 begin_macro
 DECL|function|FT_LOCAL_DEF
 name|FT_LOCAL_DEF
@@ -2424,8 +1898,6 @@ begin_macro
 name|TT_Run_Context
 argument_list|(
 argument|TT_ExecContext  exec
-argument_list|,
-argument|FT_Bool         debug
 argument_list|)
 end_macro
 begin_block
@@ -2574,14 +2046,6 @@ name|callTop
 operator|=
 literal|0
 expr_stmt|;
-if|#
-directive|if
-literal|1
-name|FT_UNUSED
-argument_list|(
-name|debug
-argument_list|)
-expr_stmt|;
 return|return
 name|exec
 operator|->
@@ -2592,25 +2056,6 @@ argument_list|(
 name|exec
 argument_list|)
 return|;
-else|#
-directive|else
-if|if
-condition|(
-operator|!
-name|debug
-condition|)
-return|return
-name|TT_RunIns
-argument_list|(
-name|exec
-argument_list|)
-return|;
-else|else
-return|return
-name|FT_Err_Ok
-return|;
-endif|#
-directive|endif
 block|}
 end_block
 begin_comment
@@ -2722,6 +2167,14 @@ block|{
 name|FT_Memory
 name|memory
 decl_stmt|;
+name|FT_Error
+name|error
+decl_stmt|;
+name|TT_ExecContext
+name|exec
+init|=
+name|NULL
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2740,20 +2193,6 @@ name|root
 operator|.
 name|memory
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|driver
-operator|->
-name|context
-condition|)
-block|{
-name|FT_Error
-name|error
-decl_stmt|;
-name|TT_ExecContext
-name|exec
-decl_stmt|;
 comment|/* allocate object */
 if|if
 condition|(
@@ -2782,18 +2221,8 @@ condition|)
 goto|goto
 name|Fail
 goto|;
-comment|/* store it into the driver */
-name|driver
-operator|->
-name|context
-operator|=
-name|exec
-expr_stmt|;
-block|}
 return|return
-name|driver
-operator|->
-name|context
+name|exec
 return|;
 name|Fail
 label|:
@@ -2977,7 +2406,7 @@ argument_list|,
 literal|0
 argument_list|)
 block|,
-comment|/*  GPV       */
+comment|/*  GPv       */
 name|PACK
 argument_list|(
 literal|0
@@ -2985,7 +2414,7 @@ argument_list|,
 literal|2
 argument_list|)
 block|,
-comment|/*  GFV       */
+comment|/*  GFv       */
 name|PACK
 argument_list|(
 literal|0
@@ -3953,7 +3382,7 @@ argument_list|,
 literal|0
 argument_list|)
 block|,
-comment|/*  SDPVTL[0] */
+comment|/*  SDPvTL[0] */
 name|PACK
 argument_list|(
 literal|2
@@ -3961,7 +3390,7 @@ argument_list|,
 literal|0
 argument_list|)
 block|,
-comment|/*  SDPVTL[1] */
+comment|/*  SDPvTL[1] */
 name|PACK
 argument_list|(
 literal|2
@@ -4936,6 +4365,15 @@ ifdef|#
 directive|ifdef
 name|FT_DEBUG_LEVEL_TRACE
 end_ifdef
+begin_comment
+comment|/* the first hex digit gives the length of the opcode name; the space */
+end_comment
+begin_comment
+comment|/* after the digit is here just to increase readability of the source */
+end_comment
+begin_comment
+comment|/* code                                                               */
+end_comment
 begin_decl_stmt
 specifier|static
 DECL|variable|opcode_name
@@ -4949,517 +4387,517 @@ literal|256
 index|]
 init|=
 block|{
-literal|"SVTCA y"
+literal|"7 SVTCA y"
 block|,
-literal|"SVTCA x"
+literal|"7 SVTCA x"
 block|,
-literal|"SPvTCA y"
+literal|"8 SPvTCA y"
 block|,
-literal|"SPvTCA x"
+literal|"8 SPvTCA x"
 block|,
-literal|"SFvTCA y"
+literal|"8 SFvTCA y"
 block|,
-literal|"SFvTCA x"
+literal|"8 SFvTCA x"
 block|,
-literal|"SPvTL ||"
+literal|"8 SPvTL ||"
 block|,
-literal|"SPvTL +"
+literal|"7 SPvTL +"
 block|,
-literal|"SFvTL ||"
+literal|"8 SFvTL ||"
 block|,
-literal|"SFvTL +"
+literal|"7 SFvTL +"
 block|,
-literal|"SPvFS"
+literal|"5 SPvFS"
 block|,
-literal|"SFvFS"
+literal|"5 SFvFS"
 block|,
-literal|"GPV"
+literal|"3 GPv"
 block|,
-literal|"GFV"
+literal|"3 GFv"
 block|,
-literal|"SFvTPv"
+literal|"6 SFvTPv"
 block|,
-literal|"ISECT"
+literal|"5 ISECT"
 block|,
-literal|"SRP0"
+literal|"4 SRP0"
 block|,
-literal|"SRP1"
+literal|"4 SRP1"
 block|,
-literal|"SRP2"
+literal|"4 SRP2"
 block|,
-literal|"SZP0"
+literal|"4 SZP0"
 block|,
-literal|"SZP1"
+literal|"4 SZP1"
 block|,
-literal|"SZP2"
+literal|"4 SZP2"
 block|,
-literal|"SZPS"
+literal|"4 SZPS"
 block|,
-literal|"SLOOP"
+literal|"5 SLOOP"
 block|,
-literal|"RTG"
+literal|"3 RTG"
 block|,
-literal|"RTHG"
+literal|"4 RTHG"
 block|,
-literal|"SMD"
+literal|"3 SMD"
 block|,
-literal|"ELSE"
+literal|"4 ELSE"
 block|,
-literal|"JMPR"
+literal|"4 JMPR"
 block|,
-literal|"SCvTCi"
+literal|"6 SCvTCi"
 block|,
-literal|"SSwCi"
+literal|"5 SSwCi"
 block|,
-literal|"SSW"
+literal|"3 SSW"
 block|,
-literal|"DUP"
+literal|"3 DUP"
 block|,
-literal|"POP"
+literal|"3 POP"
 block|,
-literal|"CLEAR"
+literal|"5 CLEAR"
 block|,
-literal|"SWAP"
+literal|"4 SWAP"
 block|,
-literal|"DEPTH"
+literal|"5 DEPTH"
 block|,
-literal|"CINDEX"
+literal|"6 CINDEX"
 block|,
-literal|"MINDEX"
+literal|"6 MINDEX"
 block|,
-literal|"AlignPTS"
+literal|"8 AlignPTS"
 block|,
-literal|"INS_$28"
+literal|"7 INS_$28"
 block|,
-literal|"UTP"
+literal|"3 UTP"
 block|,
-literal|"LOOPCALL"
+literal|"8 LOOPCALL"
 block|,
-literal|"CALL"
+literal|"4 CALL"
 block|,
-literal|"FDEF"
+literal|"4 FDEF"
 block|,
-literal|"ENDF"
+literal|"4 ENDF"
 block|,
-literal|"MDAP[0]"
+literal|"7 MDAP[0]"
 block|,
-literal|"MDAP[1]"
+literal|"7 MDAP[1]"
 block|,
-literal|"IUP[0]"
+literal|"6 IUP[0]"
 block|,
-literal|"IUP[1]"
+literal|"6 IUP[1]"
 block|,
-literal|"SHP[0]"
+literal|"6 SHP[0]"
 block|,
-literal|"SHP[1]"
+literal|"6 SHP[1]"
 block|,
-literal|"SHC[0]"
+literal|"6 SHC[0]"
 block|,
-literal|"SHC[1]"
+literal|"6 SHC[1]"
 block|,
-literal|"SHZ[0]"
+literal|"6 SHZ[0]"
 block|,
-literal|"SHZ[1]"
+literal|"6 SHZ[1]"
 block|,
-literal|"SHPIX"
+literal|"5 SHPIX"
 block|,
-literal|"IP"
+literal|"2 IP"
 block|,
-literal|"MSIRP[0]"
+literal|"8 MSIRP[0]"
 block|,
-literal|"MSIRP[1]"
+literal|"8 MSIRP[1]"
 block|,
-literal|"AlignRP"
+literal|"7 AlignRP"
 block|,
-literal|"RTDG"
+literal|"4 RTDG"
 block|,
-literal|"MIAP[0]"
+literal|"7 MIAP[0]"
 block|,
-literal|"MIAP[1]"
+literal|"7 MIAP[1]"
 block|,
-literal|"NPushB"
+literal|"6 NPushB"
 block|,
-literal|"NPushW"
+literal|"6 NPushW"
 block|,
-literal|"WS"
+literal|"2 WS"
 block|,
-literal|"RS"
+literal|"2 RS"
 block|,
-literal|"WCvtP"
+literal|"5 WCvtP"
 block|,
-literal|"RCvt"
+literal|"4 RCvt"
 block|,
-literal|"GC[0]"
+literal|"5 GC[0]"
 block|,
-literal|"GC[1]"
+literal|"5 GC[1]"
 block|,
-literal|"SCFS"
+literal|"4 SCFS"
 block|,
-literal|"MD[0]"
+literal|"5 MD[0]"
 block|,
-literal|"MD[1]"
+literal|"5 MD[1]"
 block|,
-literal|"MPPEM"
+literal|"5 MPPEM"
 block|,
-literal|"MPS"
+literal|"3 MPS"
 block|,
-literal|"FlipON"
+literal|"6 FlipON"
 block|,
-literal|"FlipOFF"
+literal|"7 FlipOFF"
 block|,
-literal|"DEBUG"
+literal|"5 DEBUG"
 block|,
-literal|"LT"
+literal|"2 LT"
 block|,
-literal|"LTEQ"
+literal|"4 LTEQ"
 block|,
-literal|"GT"
+literal|"2 GT"
 block|,
-literal|"GTEQ"
+literal|"4 GTEQ"
 block|,
-literal|"EQ"
+literal|"2 EQ"
 block|,
-literal|"NEQ"
+literal|"3 NEQ"
 block|,
-literal|"ODD"
+literal|"3 ODD"
 block|,
-literal|"EVEN"
+literal|"4 EVEN"
 block|,
-literal|"IF"
+literal|"2 IF"
 block|,
-literal|"EIF"
+literal|"3 EIF"
 block|,
-literal|"AND"
+literal|"3 AND"
 block|,
-literal|"OR"
+literal|"2 OR"
 block|,
-literal|"NOT"
+literal|"3 NOT"
 block|,
-literal|"DeltaP1"
+literal|"7 DeltaP1"
 block|,
-literal|"SDB"
+literal|"3 SDB"
 block|,
-literal|"SDS"
+literal|"3 SDS"
 block|,
-literal|"ADD"
+literal|"3 ADD"
 block|,
-literal|"SUB"
+literal|"3 SUB"
 block|,
-literal|"DIV"
+literal|"3 DIV"
 block|,
-literal|"MUL"
+literal|"3 MUL"
 block|,
-literal|"ABS"
+literal|"3 ABS"
 block|,
-literal|"NEG"
+literal|"3 NEG"
 block|,
-literal|"FLOOR"
+literal|"5 FLOOR"
 block|,
-literal|"CEILING"
+literal|"7 CEILING"
 block|,
-literal|"ROUND[0]"
+literal|"8 ROUND[0]"
 block|,
-literal|"ROUND[1]"
+literal|"8 ROUND[1]"
 block|,
-literal|"ROUND[2]"
+literal|"8 ROUND[2]"
 block|,
-literal|"ROUND[3]"
+literal|"8 ROUND[3]"
 block|,
-literal|"NROUND[0]"
+literal|"9 NROUND[0]"
 block|,
-literal|"NROUND[1]"
+literal|"9 NROUND[1]"
 block|,
-literal|"NROUND[2]"
+literal|"9 NROUND[2]"
 block|,
-literal|"NROUND[3]"
+literal|"9 NROUND[3]"
 block|,
-literal|"WCvtF"
+literal|"5 WCvtF"
 block|,
-literal|"DeltaP2"
+literal|"7 DeltaP2"
 block|,
-literal|"DeltaP3"
+literal|"7 DeltaP3"
 block|,
-literal|"DeltaCn[0]"
+literal|"A DeltaCn[0]"
 block|,
-literal|"DeltaCn[1]"
+literal|"A DeltaCn[1]"
 block|,
-literal|"DeltaCn[2]"
+literal|"A DeltaCn[2]"
 block|,
-literal|"SROUND"
+literal|"6 SROUND"
 block|,
-literal|"S45Round"
+literal|"8 S45Round"
 block|,
-literal|"JROT"
+literal|"4 JROT"
 block|,
-literal|"JROF"
+literal|"4 JROF"
 block|,
-literal|"ROFF"
+literal|"4 ROFF"
 block|,
-literal|"INS_$7B"
+literal|"7 INS_$7B"
 block|,
-literal|"RUTG"
+literal|"4 RUTG"
 block|,
-literal|"RDTG"
+literal|"4 RDTG"
 block|,
-literal|"SANGW"
+literal|"5 SANGW"
 block|,
-literal|"AA"
+literal|"2 AA"
 block|,
-literal|"FlipPT"
+literal|"6 FlipPT"
 block|,
-literal|"FlipRgON"
+literal|"8 FlipRgON"
 block|,
-literal|"FlipRgOFF"
+literal|"9 FlipRgOFF"
 block|,
-literal|"INS_$83"
+literal|"7 INS_$83"
 block|,
-literal|"INS_$84"
+literal|"7 INS_$84"
 block|,
-literal|"ScanCTRL"
+literal|"8 ScanCTRL"
 block|,
-literal|"SDVPTL[0]"
+literal|"9 SDPvTL[0]"
 block|,
-literal|"SDVPTL[1]"
+literal|"9 SDPvTL[1]"
 block|,
-literal|"GetINFO"
+literal|"7 GetINFO"
 block|,
-literal|"IDEF"
+literal|"4 IDEF"
 block|,
-literal|"ROLL"
+literal|"4 ROLL"
 block|,
-literal|"MAX"
+literal|"3 MAX"
 block|,
-literal|"MIN"
+literal|"3 MIN"
 block|,
-literal|"ScanTYPE"
+literal|"8 ScanTYPE"
 block|,
-literal|"InstCTRL"
+literal|"8 InstCTRL"
 block|,
-literal|"INS_$8F"
+literal|"7 INS_$8F"
 block|,
-literal|"INS_$90"
+literal|"7 INS_$90"
 block|,
-literal|"INS_$91"
+literal|"7 INS_$91"
 block|,
-literal|"INS_$92"
+literal|"7 INS_$92"
 block|,
-literal|"INS_$93"
+literal|"7 INS_$93"
 block|,
-literal|"INS_$94"
+literal|"7 INS_$94"
 block|,
-literal|"INS_$95"
+literal|"7 INS_$95"
 block|,
-literal|"INS_$96"
+literal|"7 INS_$96"
 block|,
-literal|"INS_$97"
+literal|"7 INS_$97"
 block|,
-literal|"INS_$98"
+literal|"7 INS_$98"
 block|,
-literal|"INS_$99"
+literal|"7 INS_$99"
 block|,
-literal|"INS_$9A"
+literal|"7 INS_$9A"
 block|,
-literal|"INS_$9B"
+literal|"7 INS_$9B"
 block|,
-literal|"INS_$9C"
+literal|"7 INS_$9C"
 block|,
-literal|"INS_$9D"
+literal|"7 INS_$9D"
 block|,
-literal|"INS_$9E"
+literal|"7 INS_$9E"
 block|,
-literal|"INS_$9F"
+literal|"7 INS_$9F"
 block|,
-literal|"INS_$A0"
+literal|"7 INS_$A0"
 block|,
-literal|"INS_$A1"
+literal|"7 INS_$A1"
 block|,
-literal|"INS_$A2"
+literal|"7 INS_$A2"
 block|,
-literal|"INS_$A3"
+literal|"7 INS_$A3"
 block|,
-literal|"INS_$A4"
+literal|"7 INS_$A4"
 block|,
-literal|"INS_$A5"
+literal|"7 INS_$A5"
 block|,
-literal|"INS_$A6"
+literal|"7 INS_$A6"
 block|,
-literal|"INS_$A7"
+literal|"7 INS_$A7"
 block|,
-literal|"INS_$A8"
+literal|"7 INS_$A8"
 block|,
-literal|"INS_$A9"
+literal|"7 INS_$A9"
 block|,
-literal|"INS_$AA"
+literal|"7 INS_$AA"
 block|,
-literal|"INS_$AB"
+literal|"7 INS_$AB"
 block|,
-literal|"INS_$AC"
+literal|"7 INS_$AC"
 block|,
-literal|"INS_$AD"
+literal|"7 INS_$AD"
 block|,
-literal|"INS_$AE"
+literal|"7 INS_$AE"
 block|,
-literal|"INS_$AF"
+literal|"7 INS_$AF"
 block|,
-literal|"PushB[0]"
+literal|"8 PushB[0]"
 block|,
-literal|"PushB[1]"
+literal|"8 PushB[1]"
 block|,
-literal|"PushB[2]"
+literal|"8 PushB[2]"
 block|,
-literal|"PushB[3]"
+literal|"8 PushB[3]"
 block|,
-literal|"PushB[4]"
+literal|"8 PushB[4]"
 block|,
-literal|"PushB[5]"
+literal|"8 PushB[5]"
 block|,
-literal|"PushB[6]"
+literal|"8 PushB[6]"
 block|,
-literal|"PushB[7]"
+literal|"8 PushB[7]"
 block|,
-literal|"PushW[0]"
+literal|"8 PushW[0]"
 block|,
-literal|"PushW[1]"
+literal|"8 PushW[1]"
 block|,
-literal|"PushW[2]"
+literal|"8 PushW[2]"
 block|,
-literal|"PushW[3]"
+literal|"8 PushW[3]"
 block|,
-literal|"PushW[4]"
+literal|"8 PushW[4]"
 block|,
-literal|"PushW[5]"
+literal|"8 PushW[5]"
 block|,
-literal|"PushW[6]"
+literal|"8 PushW[6]"
 block|,
-literal|"PushW[7]"
+literal|"8 PushW[7]"
 block|,
-literal|"MDRP[00]"
+literal|"8 MDRP[00]"
 block|,
-literal|"MDRP[01]"
+literal|"8 MDRP[01]"
 block|,
-literal|"MDRP[02]"
+literal|"8 MDRP[02]"
 block|,
-literal|"MDRP[03]"
+literal|"8 MDRP[03]"
 block|,
-literal|"MDRP[04]"
+literal|"8 MDRP[04]"
 block|,
-literal|"MDRP[05]"
+literal|"8 MDRP[05]"
 block|,
-literal|"MDRP[06]"
+literal|"8 MDRP[06]"
 block|,
-literal|"MDRP[07]"
+literal|"8 MDRP[07]"
 block|,
-literal|"MDRP[08]"
+literal|"8 MDRP[08]"
 block|,
-literal|"MDRP[09]"
+literal|"8 MDRP[09]"
 block|,
-literal|"MDRP[10]"
+literal|"8 MDRP[10]"
 block|,
-literal|"MDRP[11]"
+literal|"8 MDRP[11]"
 block|,
-literal|"MDRP[12]"
+literal|"8 MDRP[12]"
 block|,
-literal|"MDRP[13]"
+literal|"8 MDRP[13]"
 block|,
-literal|"MDRP[14]"
+literal|"8 MDRP[14]"
 block|,
-literal|"MDRP[15]"
+literal|"8 MDRP[15]"
 block|,
-literal|"MDRP[16]"
+literal|"8 MDRP[16]"
 block|,
-literal|"MDRP[17]"
+literal|"8 MDRP[17]"
 block|,
-literal|"MDRP[18]"
+literal|"8 MDRP[18]"
 block|,
-literal|"MDRP[19]"
+literal|"8 MDRP[19]"
 block|,
-literal|"MDRP[20]"
+literal|"8 MDRP[20]"
 block|,
-literal|"MDRP[21]"
+literal|"8 MDRP[21]"
 block|,
-literal|"MDRP[22]"
+literal|"8 MDRP[22]"
 block|,
-literal|"MDRP[23]"
+literal|"8 MDRP[23]"
 block|,
-literal|"MDRP[24]"
+literal|"8 MDRP[24]"
 block|,
-literal|"MDRP[25]"
+literal|"8 MDRP[25]"
 block|,
-literal|"MDRP[26]"
+literal|"8 MDRP[26]"
 block|,
-literal|"MDRP[27]"
+literal|"8 MDRP[27]"
 block|,
-literal|"MDRP[28]"
+literal|"8 MDRP[28]"
 block|,
-literal|"MDRP[29]"
+literal|"8 MDRP[29]"
 block|,
-literal|"MDRP[30]"
+literal|"8 MDRP[30]"
 block|,
-literal|"MDRP[31]"
+literal|"8 MDRP[31]"
 block|,
-literal|"MIRP[00]"
+literal|"8 MIRP[00]"
 block|,
-literal|"MIRP[01]"
+literal|"8 MIRP[01]"
 block|,
-literal|"MIRP[02]"
+literal|"8 MIRP[02]"
 block|,
-literal|"MIRP[03]"
+literal|"8 MIRP[03]"
 block|,
-literal|"MIRP[04]"
+literal|"8 MIRP[04]"
 block|,
-literal|"MIRP[05]"
+literal|"8 MIRP[05]"
 block|,
-literal|"MIRP[06]"
+literal|"8 MIRP[06]"
 block|,
-literal|"MIRP[07]"
+literal|"8 MIRP[07]"
 block|,
-literal|"MIRP[08]"
+literal|"8 MIRP[08]"
 block|,
-literal|"MIRP[09]"
+literal|"8 MIRP[09]"
 block|,
-literal|"MIRP[10]"
+literal|"8 MIRP[10]"
 block|,
-literal|"MIRP[11]"
+literal|"8 MIRP[11]"
 block|,
-literal|"MIRP[12]"
+literal|"8 MIRP[12]"
 block|,
-literal|"MIRP[13]"
+literal|"8 MIRP[13]"
 block|,
-literal|"MIRP[14]"
+literal|"8 MIRP[14]"
 block|,
-literal|"MIRP[15]"
+literal|"8 MIRP[15]"
 block|,
-literal|"MIRP[16]"
+literal|"8 MIRP[16]"
 block|,
-literal|"MIRP[17]"
+literal|"8 MIRP[17]"
 block|,
-literal|"MIRP[18]"
+literal|"8 MIRP[18]"
 block|,
-literal|"MIRP[19]"
+literal|"8 MIRP[19]"
 block|,
-literal|"MIRP[20]"
+literal|"8 MIRP[20]"
 block|,
-literal|"MIRP[21]"
+literal|"8 MIRP[21]"
 block|,
-literal|"MIRP[22]"
+literal|"8 MIRP[22]"
 block|,
-literal|"MIRP[23]"
+literal|"8 MIRP[23]"
 block|,
-literal|"MIRP[24]"
+literal|"8 MIRP[24]"
 block|,
-literal|"MIRP[25]"
+literal|"8 MIRP[25]"
 block|,
-literal|"MIRP[26]"
+literal|"8 MIRP[26]"
 block|,
-literal|"MIRP[27]"
+literal|"8 MIRP[27]"
 block|,
-literal|"MIRP[28]"
+literal|"8 MIRP[28]"
 block|,
-literal|"MIRP[29]"
+literal|"8 MIRP[29]"
 block|,
-literal|"MIRP[30]"
+literal|"8 MIRP[30]"
 block|,
-literal|"MIRP[31]"
+literal|"8 MIRP[31]"
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -7005,14 +6443,15 @@ name|FT_Long
 DECL|function|Current_Ratio
 name|Current_Ratio
 parameter_list|(
-name|EXEC_OP
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 if|if
 condition|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
@@ -7023,8 +6462,8 @@ directive|ifdef
 name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -7032,33 +6471,33 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|both_x_axis
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|x_ratio
 expr_stmt|;
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|y_ratio
@@ -7070,8 +6509,8 @@ directive|endif
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -7080,14 +6519,14 @@ name|y
 operator|==
 literal|0
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|x_ratio
@@ -7095,8 +6534,8 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -7105,14 +6544,14 @@ name|x
 operator|==
 literal|0
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|y_ratio
@@ -7128,14 +6567,14 @@ name|x
 operator|=
 name|TT_MulFix14
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|x_ratio
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -7147,14 +6586,14 @@ name|y
 operator|=
 name|TT_MulFix14
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|y_ratio
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -7162,8 +6601,8 @@ operator|.
 name|y
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
@@ -7179,8 +6618,8 @@ block|}
 block|}
 block|}
 return|return
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
@@ -7197,14 +6636,14 @@ end_macro
 begin_macro
 name|Current_Ppem
 argument_list|(
-argument|EXEC_OP
+argument|TT_ExecContext  exc
 argument_list|)
 end_macro
 begin_block
 block|{
 return|return
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ppem
@@ -7221,7 +6660,7 @@ end_macro
 begin_macro
 name|Current_Ppem_Stretched
 argument_list|(
-argument|EXEC_OP
+argument|TT_ExecContext  exc
 argument_list|)
 end_macro
 begin_block
@@ -7229,14 +6668,16 @@ block|{
 return|return
 name|FT_MulFix
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ppem
 argument_list|,
-name|CURRENT_Ratio
-argument_list|()
+name|Current_Ratio
+argument_list|(
+name|exc
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -7266,14 +6707,16 @@ end_macro
 begin_macro
 name|Read_CVT
 argument_list|(
-argument|EXEC_OP_ FT_ULong  idx
+argument|TT_ExecContext  exc
+argument_list|,
+argument|FT_ULong        idx
 argument_list|)
 end_macro
 begin_block
 block|{
 return|return
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvt
 index|[
 name|idx
@@ -7291,7 +6734,9 @@ end_macro
 begin_macro
 name|Read_CVT_Stretched
 argument_list|(
-argument|EXEC_OP_ FT_ULong  idx
+argument|TT_ExecContext  exc
+argument_list|,
+argument|FT_ULong        idx
 argument_list|)
 end_macro
 begin_block
@@ -7299,15 +6744,17 @@ block|{
 return|return
 name|FT_MulFix
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvt
 index|[
 name|idx
 index|]
 argument_list|,
-name|CURRENT_Ratio
-argument_list|()
+name|Current_Ratio
+argument_list|(
+name|exc
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -7322,15 +6769,17 @@ begin_macro
 DECL|function|Write_CVT
 name|Write_CVT
 argument_list|(
-argument|EXEC_OP_ FT_ULong    idx
+argument|TT_ExecContext  exc
 argument_list|,
-argument|FT_F26Dot6  value
+argument|FT_ULong        idx
+argument_list|,
+argument|FT_F26Dot6      value
 argument_list|)
 end_macro
 begin_block
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvt
 index|[
 name|idx
@@ -7350,15 +6799,17 @@ begin_macro
 DECL|function|Write_CVT_Stretched
 name|Write_CVT_Stretched
 argument_list|(
-argument|EXEC_OP_ FT_ULong    idx
+argument|TT_ExecContext  exc
 argument_list|,
-argument|FT_F26Dot6  value
+argument|FT_ULong        idx
+argument_list|,
+argument|FT_F26Dot6      value
 argument_list|)
 end_macro
 begin_block
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvt
 index|[
 name|idx
@@ -7368,8 +6819,10 @@ name|FT_DivFix
 argument_list|(
 name|value
 argument_list|,
-name|CURRENT_Ratio
-argument_list|()
+name|Current_Ratio
+argument_list|(
+name|exc
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -7384,15 +6837,17 @@ begin_macro
 DECL|function|Move_CVT
 name|Move_CVT
 argument_list|(
-argument|EXEC_OP_ FT_ULong    idx
+argument|TT_ExecContext  exc
 argument_list|,
-argument|FT_F26Dot6  value
+argument|FT_ULong        idx
+argument_list|,
+argument|FT_F26Dot6      value
 argument_list|)
 end_macro
 begin_block
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvt
 index|[
 name|idx
@@ -7412,15 +6867,17 @@ begin_macro
 DECL|function|Move_CVT_Stretched
 name|Move_CVT_Stretched
 argument_list|(
-argument|EXEC_OP_ FT_ULong    idx
+argument|TT_ExecContext  exc
 argument_list|,
-argument|FT_F26Dot6  value
+argument|FT_ULong        idx
+argument_list|,
+argument|FT_F26Dot6      value
 argument_list|)
 end_macro
 begin_block
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvt
 index|[
 name|idx
@@ -7430,8 +6887,10 @@ name|FT_DivFix
 argument_list|(
 name|value
 argument_list|,
-name|CURRENT_Ratio
-argument_list|()
+name|Current_Ratio
+argument_list|(
+name|exc
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -7487,12 +6946,13 @@ name|FT_Short
 DECL|function|GetShortIns
 name|GetShortIns
 parameter_list|(
-name|EXEC_OP
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 comment|/* Reading a byte stream so there is no endianess (DaveP) */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+=
 literal|2
@@ -7503,12 +6963,12 @@ name|FT_Short
 call|)
 argument_list|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|-
 literal|2
@@ -7517,12 +6977,12 @@ operator|<<
 literal|8
 operator|)
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|-
 literal|1
@@ -7585,11 +7045,13 @@ name|FT_Bool
 DECL|function|Ins_Goto_CodeRange
 name|Ins_Goto_CodeRange
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_Int
 name|aRange
 parameter_list|,
-name|FT_ULong
+name|FT_Long
 name|aIP
 parameter_list|)
 block|{
@@ -7608,8 +7070,8 @@ operator|>
 literal|3
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -7624,8 +7086,8 @@ block|}
 name|range
 operator|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|codeRangeTable
 index|[
 name|aRange
@@ -7643,8 +7105,8 @@ name|NULL
 condition|)
 comment|/* invalid coderange */
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -7668,8 +7130,8 @@ operator|->
 name|size
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -7681,30 +7143,30 @@ return|return
 name|FAILURE
 return|;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 operator|=
 name|range
 operator|->
 name|base
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|codeSize
 operator|=
 name|range
 operator|->
 name|size
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|=
 name|aIP
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|curRange
 operator|=
 name|aRange
@@ -7771,7 +7233,9 @@ name|void
 DECL|function|Direct_Move
 name|Direct_Move
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|TT_GlyphZone
 name|zone
 parameter_list|,
@@ -7791,8 +7255,8 @@ name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 name|FT_ASSERT
 argument_list|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -7802,8 +7266,8 @@ endif|#
 directive|endif
 name|v
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -7827,13 +7291,13 @@ name|SUBPIXEL_HINTING
 operator|||
 operator|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|||
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_ALLOW_X_DMOVE
@@ -7858,8 +7322,8 @@ name|distance
 argument_list|,
 name|v
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 argument_list|)
 expr_stmt|;
@@ -7875,8 +7339,8 @@ expr_stmt|;
 block|}
 name|v
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -7905,8 +7369,8 @@ name|distance
 argument_list|,
 name|v
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 argument_list|)
 expr_stmt|;
@@ -7979,7 +7443,9 @@ name|void
 DECL|function|Direct_Move_Orig
 name|Direct_Move_Orig
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|TT_GlyphZone
 name|zone
 parameter_list|,
@@ -7999,8 +7465,8 @@ name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 name|FT_ASSERT
 argument_list|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -8010,8 +7476,8 @@ endif|#
 directive|endif
 name|v
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -8039,15 +7505,15 @@ name|distance
 argument_list|,
 name|v
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 argument_list|)
 expr_stmt|;
 name|v
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -8075,8 +7541,8 @@ name|distance
 argument_list|,
 name|v
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 argument_list|)
 expr_stmt|;
@@ -8112,7 +7578,9 @@ name|void
 DECL|function|Direct_Move_X
 name|Direct_Move_X
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|TT_GlyphZone
 name|zone
 parameter_list|,
@@ -8123,7 +7591,10 @@ name|FT_F26Dot6
 name|distance
 parameter_list|)
 block|{
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
@@ -8134,8 +7605,8 @@ operator|!
 name|SUBPIXEL_HINTING
 operator|||
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 condition|)
 endif|#
@@ -8169,7 +7640,9 @@ name|void
 DECL|function|Direct_Move_Y
 name|Direct_Move_Y
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|TT_GlyphZone
 name|zone
 parameter_list|,
@@ -8180,7 +7653,10 @@ name|FT_F26Dot6
 name|distance
 parameter_list|)
 block|{
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 name|zone
 operator|->
@@ -8234,7 +7710,9 @@ name|void
 DECL|function|Direct_Move_Orig_X
 name|Direct_Move_Orig_X
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|TT_GlyphZone
 name|zone
 parameter_list|,
@@ -8245,7 +7723,10 @@ name|FT_F26Dot6
 name|distance
 parameter_list|)
 block|{
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 name|zone
 operator|->
@@ -8266,7 +7747,9 @@ name|void
 DECL|function|Direct_Move_Orig_Y
 name|Direct_Move_Orig_Y
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|TT_GlyphZone
 name|zone
 parameter_list|,
@@ -8277,7 +7760,10 @@ name|FT_F26Dot6
 name|distance
 parameter_list|)
 block|{
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 name|zone
 operator|->
@@ -8364,7 +7850,9 @@ name|FT_F26Dot6
 DECL|function|Round_None
 name|Round_None
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -8375,7 +7863,10 @@ block|{
 name|FT_F26Dot6
 name|val
 decl_stmt|;
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8479,7 +7970,9 @@ name|FT_F26Dot6
 DECL|function|Round_To_Grid
 name|Round_To_Grid
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -8490,7 +7983,10 @@ block|{
 name|FT_F26Dot6
 name|val
 decl_stmt|;
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8601,7 +8097,9 @@ name|FT_F26Dot6
 DECL|function|Round_To_Half_Grid
 name|Round_To_Half_Grid
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -8612,7 +8110,10 @@ block|{
 name|FT_F26Dot6
 name|val
 decl_stmt|;
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8730,7 +8231,9 @@ name|FT_F26Dot6
 DECL|function|Round_Down_To_Grid
 name|Round_Down_To_Grid
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -8741,7 +8244,10 @@ block|{
 name|FT_F26Dot6
 name|val
 decl_stmt|;
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8852,7 +8358,9 @@ name|FT_F26Dot6
 DECL|function|Round_Up_To_Grid
 name|Round_Up_To_Grid
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -8863,7 +8371,10 @@ block|{
 name|FT_F26Dot6
 name|val
 decl_stmt|;
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8974,7 +8485,9 @@ name|FT_F26Dot6
 DECL|function|Round_To_Double_Grid
 name|Round_To_Double_Grid
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -8985,7 +8498,10 @@ block|{
 name|FT_F26Dot6
 name|val
 decl_stmt|;
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -9118,7 +8634,9 @@ name|FT_F26Dot6
 DECL|function|Round_Super
 name|Round_Super
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -9141,26 +8659,26 @@ operator|=
 operator|(
 name|distance
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|threshold
 operator|+
 name|compensation
 operator|)
 operator|&
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 expr_stmt|;
 name|val
 operator|+=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 expr_stmt|;
 if|if
@@ -9171,8 +8689,8 @@ literal|0
 condition|)
 name|val
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 expr_stmt|;
 block|}
@@ -9183,12 +8701,12 @@ operator|=
 operator|-
 operator|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|threshold
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 operator|-
 name|distance
@@ -9197,15 +8715,15 @@ name|compensation
 operator|)
 operator|&
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|)
 expr_stmt|;
 name|val
 operator|-=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 expr_stmt|;
 if|if
@@ -9217,8 +8735,8 @@ condition|)
 name|val
 operator|=
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 expr_stmt|;
 block|}
@@ -9293,7 +8811,9 @@ name|FT_F26Dot6
 DECL|function|Round_Super_45
 name|Round_Super_45
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 name|distance
 parameter_list|,
@@ -9317,30 +8837,30 @@ operator|(
 operator|(
 name|distance
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|threshold
 operator|+
 name|compensation
 operator|)
 operator|/
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|)
 operator|*
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 expr_stmt|;
 name|val
 operator|+=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 expr_stmt|;
 if|if
@@ -9351,8 +8871,8 @@ literal|0
 condition|)
 name|val
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 expr_stmt|;
 block|}
@@ -9364,12 +8884,12 @@ operator|-
 operator|(
 operator|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|threshold
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 operator|-
 name|distance
@@ -9377,20 +8897,20 @@ operator|+
 name|compensation
 operator|)
 operator|/
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|)
 operator|*
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|)
 expr_stmt|;
 name|val
 operator|-=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 expr_stmt|;
 if|if
@@ -9402,8 +8922,8 @@ condition|)
 name|val
 operator|=
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 expr_stmt|;
 block|}
@@ -9451,7 +8971,9 @@ name|void
 DECL|function|Compute_Round
 name|Compute_Round
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_Byte
 name|round_mode
 parameter_list|)
@@ -9464,8 +8986,8 @@ block|{
 case|case
 name|TT_Round_Off
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_round
 operator|=
 operator|(
@@ -9477,8 +8999,8 @@ break|break;
 case|case
 name|TT_Round_To_Grid
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_round
 operator|=
 operator|(
@@ -9490,8 +9012,8 @@ break|break;
 case|case
 name|TT_Round_Up_To_Grid
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_round
 operator|=
 operator|(
@@ -9503,8 +9025,8 @@ break|break;
 case|case
 name|TT_Round_Down_To_Grid
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_round
 operator|=
 operator|(
@@ -9516,8 +9038,8 @@ break|break;
 case|case
 name|TT_Round_To_Half_Grid
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_round
 operator|=
 operator|(
@@ -9529,8 +9051,8 @@ break|break;
 case|case
 name|TT_Round_To_Double_Grid
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_round
 operator|=
 operator|(
@@ -9542,8 +9064,8 @@ break|break;
 case|case
 name|TT_Round_Super
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_round
 operator|=
 operator|(
@@ -9555,8 +9077,8 @@ break|break;
 case|case
 name|TT_Round_Super_45
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_round
 operator|=
 operator|(
@@ -9613,8 +9135,10 @@ name|void
 DECL|function|SetSuperRound
 name|SetSuperRound
 parameter_list|(
-name|EXEC_OP_
-name|FT_F26Dot6
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_F2Dot14
 name|GridPeriod
 parameter_list|,
 name|FT_Long
@@ -9636,8 +9160,8 @@ block|{
 case|case
 literal|0
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|=
 name|GridPeriod
@@ -9648,8 +9172,8 @@ break|break;
 case|case
 literal|0x40
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|=
 name|GridPeriod
@@ -9658,8 +9182,8 @@ break|break;
 case|case
 literal|0x80
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|=
 name|GridPeriod
@@ -9671,8 +9195,8 @@ comment|/* This opcode is reserved, but... */
 case|case
 literal|0xC0
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|=
 name|GridPeriod
@@ -9694,8 +9218,8 @@ block|{
 case|case
 literal|0
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 operator|=
 literal|0
@@ -9704,12 +9228,12 @@ break|break;
 case|case
 literal|0x10
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|/
 literal|4
@@ -9718,12 +9242,12 @@ break|break;
 case|case
 literal|0x20
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|/
 literal|2
@@ -9732,12 +9256,12 @@ break|break;
 case|case
 literal|0x30
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|*
 literal|3
@@ -9756,19 +9280,19 @@ operator|)
 operator|==
 literal|0
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|threshold
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|-
 literal|1
 expr_stmt|;
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|threshold
 operator|=
 operator|(
@@ -9784,29 +9308,30 @@ operator|-
 literal|4
 operator|)
 operator|*
-name|CUR
-operator|.
+name|exc
+operator|->
 name|period
 operator|/
 literal|8
 expr_stmt|;
-name|CUR
-operator|.
+comment|/* convert to F26Dot6 format */
+name|exc
+operator|->
 name|period
-operator|/=
-literal|256
+operator|>>=
+literal|8
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|phase
-operator|/=
-literal|256
+operator|>>=
+literal|8
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|threshold
-operator|/=
-literal|256
+operator|>>=
+literal|8
 expr_stmt|;
 block|}
 end_function
@@ -9864,7 +9389,9 @@ name|FT_F26Dot6
 DECL|function|Project
 name|Project
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_Pos
 name|dx
 parameter_list|,
@@ -9878,8 +9405,8 @@ name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 name|FT_ASSERT
 argument_list|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -9890,26 +9417,20 @@ directive|endif
 return|return
 name|TT_DotFix14
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|dx
 argument_list|,
-operator|(
-name|FT_UInt32
-operator|)
 name|dy
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
 operator|.
 name|x
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -9973,7 +9494,9 @@ name|FT_F26Dot6
 DECL|function|Dual_Project
 name|Dual_Project
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_Pos
 name|dx
 parameter_list|,
@@ -9984,26 +9507,20 @@ block|{
 return|return
 name|TT_DotFix14
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|dx
 argument_list|,
-operator|(
-name|FT_UInt32
-operator|)
 name|dy
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|dualVector
 operator|.
 name|x
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|dualVector
@@ -10067,7 +9584,9 @@ name|FT_F26Dot6
 DECL|function|Project_x
 name|Project_x
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_Pos
 name|dx
 parameter_list|,
@@ -10075,7 +9594,10 @@ name|FT_Pos
 name|dy
 parameter_list|)
 block|{
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -10141,7 +9663,9 @@ name|FT_F26Dot6
 DECL|function|Project_y
 name|Project_y
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_Pos
 name|dx
 parameter_list|,
@@ -10149,7 +9673,10 @@ name|FT_Pos
 name|dy
 parameter_list|)
 block|{
-name|FT_UNUSED_EXEC
+name|FT_UNUSED
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 name|FT_UNUSED
 argument_list|(
@@ -10194,7 +9721,8 @@ name|void
 DECL|function|Compute_Funcs
 name|Compute_Funcs
 parameter_list|(
-name|EXEC_OP
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 ifdef|#
@@ -10202,19 +9730,19 @@ directive|ifdef
 name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
 condition|)
 block|{
-comment|/* If both vectors point rightwards along the x axis, set             */
-comment|/* `both-x-axis' true, otherwise set it false.  The x values only     */
-comment|/* need be tested because the vector has been normalised to a unit    */
-comment|/* vector of length 0x4000 = unity.                                   */
-name|CUR
-operator|.
+comment|/* If both vectors point rightwards along the x axis, set          */
+comment|/* `both-x-axis' true, otherwise set it false.  The x values only  */
+comment|/* need be tested because the vector has been normalised to a unit */
+comment|/* vector of length 0x4000 = unity.                                */
+name|exc
+operator|->
 name|GS
 operator|.
 name|both_x_axis
@@ -10223,8 +9751,8 @@ call|(
 name|FT_Bool
 call|)
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -10233,8 +9761,8 @@ name|x
 operator|==
 literal|0x4000
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10247,8 +9775,8 @@ expr_stmt|;
 comment|/* Throw away projection and freedom vector information */
 comment|/* because the patents don't allow them to be stored.   */
 comment|/* The relevant US Patents are 5155805 and 5325479.     */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -10257,8 +9785,8 @@ name|x
 operator|=
 literal|0
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -10267,8 +9795,8 @@ name|y
 operator|=
 literal|0
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10277,8 +9805,8 @@ name|x
 operator|=
 literal|0
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10289,27 +9817,27 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|both_x_axis
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_project
 operator|=
 name|Project_x
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move
 operator|=
 name|Direct_Move_X
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move_orig
 operator|=
 name|Direct_Move_Orig_X
@@ -10317,20 +9845,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_project
 operator|=
 name|Project_y
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move
 operator|=
 name|Direct_Move_Y
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move_orig
 operator|=
 name|Direct_Move_Orig_Y
@@ -10338,8 +9866,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|dualVector
@@ -10348,8 +9876,8 @@ name|x
 operator|==
 literal|0x4000
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_dualproj
 operator|=
 name|Project_x
@@ -10357,8 +9885,8 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|dualVector
@@ -10367,22 +9895,22 @@ name|y
 operator|==
 literal|0x4000
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_dualproj
 operator|=
 name|Project_y
 expr_stmt|;
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_dualproj
 operator|=
 name|Dual_Project
 expr_stmt|;
 comment|/* Force recalculation of cached aspect ratio */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
@@ -10396,8 +9924,8 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_UNPATENTED_HINTING */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10406,12 +9934,12 @@ name|x
 operator|==
 literal|0x4000
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -10421,8 +9949,8 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10431,12 +9959,12 @@ name|y
 operator|==
 literal|0x4000
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -10444,24 +9972,24 @@ operator|.
 name|y
 expr_stmt|;
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 operator|=
 operator|(
 operator|(
 name|FT_Long
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
 operator|.
 name|x
 operator|*
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10471,16 +9999,16 @@ operator|+
 operator|(
 name|FT_Long
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
 operator|.
 name|y
 operator|*
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10492,8 +10020,8 @@ literal|14
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -10502,8 +10030,8 @@ name|x
 operator|==
 literal|0x4000
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_project
 operator|=
 operator|(
@@ -10514,8 +10042,8 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -10524,8 +10052,8 @@ name|y
 operator|==
 literal|0x4000
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_project
 operator|=
 operator|(
@@ -10534,8 +10062,8 @@ operator|)
 name|Project_y
 expr_stmt|;
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_project
 operator|=
 operator|(
@@ -10545,8 +10073,8 @@ name|Project
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|dualVector
@@ -10555,8 +10083,8 @@ name|x
 operator|==
 literal|0x4000
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_dualproj
 operator|=
 operator|(
@@ -10567,8 +10095,8 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|dualVector
@@ -10577,8 +10105,8 @@ name|y
 operator|==
 literal|0x4000
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_dualproj
 operator|=
 operator|(
@@ -10587,8 +10115,8 @@ operator|)
 name|Project_y
 expr_stmt|;
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_dualproj
 operator|=
 operator|(
@@ -10596,8 +10124,8 @@ name|TT_Project_Func
 operator|)
 name|Dual_Project
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move
 operator|=
 operator|(
@@ -10605,8 +10133,8 @@ name|TT_Move_Func
 operator|)
 name|Direct_Move
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move_orig
 operator|=
 operator|(
@@ -10616,8 +10144,8 @@ name|Direct_Move_Orig
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 operator|==
 literal|0x4000L
@@ -10625,8 +10153,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10636,8 +10164,8 @@ operator|==
 literal|0x4000
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move
 operator|=
 operator|(
@@ -10645,8 +10173,8 @@ name|TT_Move_Func
 operator|)
 name|Direct_Move_X
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move_orig
 operator|=
 operator|(
@@ -10658,8 +10186,8 @@ block|}
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -10669,8 +10197,8 @@ operator|==
 literal|0x4000
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move
 operator|=
 operator|(
@@ -10678,8 +10206,8 @@ name|TT_Move_Func
 operator|)
 name|Direct_Move_Y
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move_orig
 operator|=
 operator|(
@@ -10695,22 +10223,22 @@ if|if
 condition|(
 name|FT_ABS
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 argument_list|)
 operator|<
 literal|0x400L
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 operator|=
 literal|0x4000L
 expr_stmt|;
 comment|/* Disable cached aspect ratio */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
@@ -10777,7 +10305,7 @@ begin_comment
 comment|/*<Note>                                                                */
 end_comment
 begin_comment
-comment|/*    In case Vx and Vy are both zero, Normalize() returns SUCCESS, and  */
+comment|/*    In case Vx and Vy are both zero, `Normalize' returns SUCCESS, and  */
 end_comment
 begin_comment
 comment|/*    R is undefined.                                                    */
@@ -10791,7 +10319,6 @@ name|FT_Bool
 DECL|function|Normalize
 name|Normalize
 parameter_list|(
-name|EXEC_OP_
 name|FT_F26Dot6
 name|Vx
 parameter_list|,
@@ -10803,28 +10330,9 @@ modifier|*
 name|R
 parameter_list|)
 block|{
-name|FT_F26Dot6
-name|W
+name|FT_Vector
+name|V
 decl_stmt|;
-name|FT_UNUSED_EXEC
-expr_stmt|;
-if|if
-condition|(
-name|FT_ABS
-argument_list|(
-name|Vx
-argument_list|)
-operator|<
-literal|0x4000L
-operator|&&
-name|FT_ABS
-argument_list|(
-name|Vy
-argument_list|)
-operator|<
-literal|0x4000L
-condition|)
-block|{
 if|if
 condition|(
 name|Vx
@@ -10842,50 +10350,52 @@ return|return
 name|SUCCESS
 return|;
 block|}
-name|Vx
-operator|*=
-literal|0x4000
-expr_stmt|;
-name|Vy
-operator|*=
-literal|0x4000
-expr_stmt|;
-block|}
-name|W
+name|V
+operator|.
+name|x
 operator|=
-name|FT_Hypot
-argument_list|(
 name|Vx
-argument_list|,
+expr_stmt|;
+name|V
+operator|.
+name|y
+operator|=
 name|Vy
+expr_stmt|;
+name|FT_Vector_NormLen
+argument_list|(
+operator|&
+name|V
 argument_list|)
 expr_stmt|;
 name|R
 operator|->
 name|x
 operator|=
-operator|(
+call|(
 name|FT_F2Dot14
-operator|)
-name|TT_DivFix14
+call|)
 argument_list|(
-name|Vx
-argument_list|,
-name|W
+name|V
+operator|.
+name|x
+operator|/
+literal|4
 argument_list|)
 expr_stmt|;
 name|R
 operator|->
 name|y
 operator|=
-operator|(
+call|(
 name|FT_F2Dot14
-operator|)
-name|TT_DivFix14
+call|)
 argument_list|(
-name|Vy
-argument_list|,
-name|W
+name|V
+operator|.
+name|y
+operator|/
+literal|4
 argument_list|)
 expr_stmt|;
 return|return
@@ -10908,1813 +10418,14 @@ end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
-begin_function
-specifier|static
-name|FT_Bool
-DECL|function|Ins_SxVTL
-name|Ins_SxVTL
-parameter_list|(
-name|EXEC_OP_
-name|FT_UShort
-name|aIdx1
-parameter_list|,
-name|FT_UShort
-name|aIdx2
-parameter_list|,
-name|FT_Int
-name|aOpc
-parameter_list|,
-name|FT_UnitVector
-modifier|*
-name|Vec
-parameter_list|)
-block|{
-name|FT_Long
-name|A
-decl_stmt|,
-name|B
-decl_stmt|,
-name|C
-decl_stmt|;
-name|FT_Vector
-modifier|*
-name|p1
-decl_stmt|;
-name|FT_Vector
-modifier|*
-name|p2
-decl_stmt|;
-if|if
-condition|(
-name|BOUNDS
-argument_list|(
-name|aIdx1
-argument_list|,
-name|CUR
-operator|.
-name|zp2
-operator|.
-name|n_points
-argument_list|)
-operator|||
-name|BOUNDS
-argument_list|(
-name|aIdx2
-argument_list|,
-name|CUR
-operator|.
-name|zp1
-operator|.
-name|n_points
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|CUR
-operator|.
-name|pedantic_hinting
-condition|)
-name|CUR
-operator|.
-name|error
-operator|=
-name|FT_THROW
-argument_list|(
-name|Invalid_Reference
-argument_list|)
-expr_stmt|;
-return|return
-name|FAILURE
-return|;
-block|}
-name|p1
-operator|=
-name|CUR
-operator|.
-name|zp1
-operator|.
-name|cur
-operator|+
-name|aIdx2
-expr_stmt|;
-name|p2
-operator|=
-name|CUR
-operator|.
-name|zp2
-operator|.
-name|cur
-operator|+
-name|aIdx1
-expr_stmt|;
-name|A
-operator|=
-name|p1
-operator|->
-name|x
-operator|-
-name|p2
-operator|->
-name|x
-expr_stmt|;
-name|B
-operator|=
-name|p1
-operator|->
-name|y
-operator|-
-name|p2
-operator|->
-name|y
-expr_stmt|;
-comment|/* If p1 == p2, SPVTL and SFVTL behave the same as */
-comment|/* SPVTCA[X] and SFVTCA[X], respectively.          */
-comment|/*                                                 */
-comment|/* Confirmed by Greg Hitchcock.                    */
-if|if
-condition|(
-name|A
-operator|==
-literal|0
-operator|&&
-name|B
-operator|==
-literal|0
-condition|)
-block|{
-name|A
-operator|=
-literal|0x4000
-expr_stmt|;
-name|aOpc
-operator|=
-literal|0
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|(
-name|aOpc
-operator|&
-literal|1
-operator|)
-operator|!=
-literal|0
-condition|)
-block|{
-name|C
-operator|=
-name|B
-expr_stmt|;
-comment|/* counter clockwise rotation */
-name|B
-operator|=
-name|A
-expr_stmt|;
-name|A
-operator|=
-operator|-
-name|C
-expr_stmt|;
-block|}
-name|NORMalize
-argument_list|(
-name|A
-argument_list|,
-name|B
-argument_list|,
-name|Vec
-argument_list|)
-expr_stmt|;
-return|return
-name|SUCCESS
-return|;
-block|}
-end_function
-begin_comment
-comment|/* When not using the big switch statements, the interpreter uses a */
-end_comment
-begin_comment
-comment|/* call table defined later below in this source.  Each opcode must */
-end_comment
-begin_comment
-comment|/* thus have a corresponding function, even trivial ones.           */
-end_comment
-begin_comment
-comment|/*                                                                  */
-end_comment
-begin_comment
-comment|/* They are all defined there.                                      */
-end_comment
-begin_define
-DECL|macro|DO_SVTCA
-define|#
-directive|define
-name|DO_SVTCA
-define|\
-value|{                                         \     FT_Short  A, B;                         \                                             \                                             \     A = (FT_Short)( CUR.opcode& 1 )<< 14; \     B = A ^ (FT_Short)0x4000;               \                                             \     CUR.GS.freeVector.x = A;                \     CUR.GS.projVector.x = A;                \     CUR.GS.dualVector.x = A;                \                                             \     CUR.GS.freeVector.y = B;                \     CUR.GS.projVector.y = B;                \     CUR.GS.dualVector.y = B;                \                                             \     COMPUTE_Funcs();                        \   }
-end_define
-begin_define
-DECL|macro|DO_SPVTCA
-define|#
-directive|define
-name|DO_SPVTCA
-define|\
-value|{                                         \     FT_Short  A, B;                         \                                             \                                             \     A = (FT_Short)( CUR.opcode& 1 )<< 14; \     B = A ^ (FT_Short)0x4000;               \                                             \     CUR.GS.projVector.x = A;                \     CUR.GS.dualVector.x = A;                \                                             \     CUR.GS.projVector.y = B;                \     CUR.GS.dualVector.y = B;                \                                             \     GUESS_VECTOR( freeVector );             \                                             \     COMPUTE_Funcs();                        \   }
-end_define
-begin_define
-DECL|macro|DO_SFVTCA
-define|#
-directive|define
-name|DO_SFVTCA
-define|\
-value|{                                         \     FT_Short  A, B;                         \                                             \                                             \     A = (FT_Short)( CUR.opcode& 1 )<< 14; \     B = A ^ (FT_Short)0x4000;               \                                             \     CUR.GS.freeVector.x = A;                \     CUR.GS.freeVector.y = B;                \                                             \     GUESS_VECTOR( projVector );             \                                             \     COMPUTE_Funcs();                        \   }
-end_define
-begin_define
-DECL|macro|DO_SPVTL
-define|#
-directive|define
-name|DO_SPVTL
-define|\
-value|if ( INS_SxVTL( (FT_UShort)args[1],               \                     (FT_UShort)args[0],               \                     CUR.opcode,                       \&CUR.GS.projVector ) == SUCCESS ) \     {                                                 \       CUR.GS.dualVector = CUR.GS.projVector;          \       GUESS_VECTOR( freeVector );                     \       COMPUTE_Funcs();                                \     }
-end_define
-begin_define
-DECL|macro|DO_SFVTL
-define|#
-directive|define
-name|DO_SFVTL
-define|\
-value|if ( INS_SxVTL( (FT_UShort)args[1],               \                     (FT_UShort)args[0],               \                     CUR.opcode,                       \&CUR.GS.freeVector ) == SUCCESS ) \     {                                                 \       GUESS_VECTOR( projVector );                     \       COMPUTE_Funcs();                                \     }
-end_define
-begin_define
-DECL|macro|DO_SFVTPV
-define|#
-directive|define
-name|DO_SFVTPV
-define|\
-value|GUESS_VECTOR( projVector );            \     CUR.GS.freeVector = CUR.GS.projVector; \     COMPUTE_Funcs();
-end_define
-begin_define
-DECL|macro|DO_SPVFS
-define|#
-directive|define
-name|DO_SPVFS
-define|\
-value|{                                             \     FT_Short  S;                                \     FT_Long   X, Y;                             \                                                 \                                                 \
-comment|/* Only use low 16bits, then sign extend */
-value|\     S = (FT_Short)args[1];                      \     Y = (FT_Long)S;                             \     S = (FT_Short)args[0];                      \     X = (FT_Long)S;                             \                                                 \     NORMalize( X, Y,&CUR.GS.projVector );      \                                                 \     CUR.GS.dualVector = CUR.GS.projVector;      \     GUESS_VECTOR( freeVector );                 \     COMPUTE_Funcs();                            \   }
-end_define
-begin_define
-DECL|macro|DO_SFVFS
-define|#
-directive|define
-name|DO_SFVFS
-define|\
-value|{                                             \     FT_Short  S;                                \     FT_Long   X, Y;                             \                                                 \                                                 \
-comment|/* Only use low 16bits, then sign extend */
-value|\     S = (FT_Short)args[1];                      \     Y = (FT_Long)S;                             \     S = (FT_Short)args[0];                      \     X = S;                                      \                                                 \     NORMalize( X, Y,&CUR.GS.freeVector );      \     GUESS_VECTOR( projVector );                 \     COMPUTE_Funcs();                            \   }
-end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|TT_CONFIG_OPTION_UNPATENTED_HINTING
-end_ifdef
-begin_define
-DECL|macro|DO_GPV
-define|#
-directive|define
-name|DO_GPV
-define|\
-value|if ( CUR.face->unpatented_hinting )          \     {                                            \       args[0] = CUR.GS.both_x_axis ? 0x4000 : 0; \       args[1] = CUR.GS.both_x_axis ? 0 : 0x4000; \     }                                            \     else                                         \     {                                            \       args[0] = CUR.GS.projVector.x;             \       args[1] = CUR.GS.projVector.y;             \     }
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|DO_GPV
-define|#
-directive|define
-name|DO_GPV
-define|\
-value|args[0] = CUR.GS.projVector.x;               \     args[1] = CUR.GS.projVector.y;
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|TT_CONFIG_OPTION_UNPATENTED_HINTING
-end_ifdef
-begin_define
-DECL|macro|DO_GFV
-define|#
-directive|define
-name|DO_GFV
-define|\
-value|if ( CUR.face->unpatented_hinting )          \     {                                            \       args[0] = CUR.GS.both_x_axis ? 0x4000 : 0; \       args[1] = CUR.GS.both_x_axis ? 0 : 0x4000; \     }                                            \     else                                         \     {                                            \       args[0] = CUR.GS.freeVector.x;             \       args[1] = CUR.GS.freeVector.y;             \     }
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|DO_GFV
-define|#
-directive|define
-name|DO_GFV
-define|\
-value|args[0] = CUR.GS.freeVector.x;               \     args[1] = CUR.GS.freeVector.y;
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_define
-DECL|macro|DO_SRP0
-define|#
-directive|define
-name|DO_SRP0
-define|\
-value|CUR.GS.rp0 = (FT_UShort)args[0];
-end_define
-begin_define
-DECL|macro|DO_SRP1
-define|#
-directive|define
-name|DO_SRP1
-define|\
-value|CUR.GS.rp1 = (FT_UShort)args[0];
-end_define
-begin_define
-DECL|macro|DO_SRP2
-define|#
-directive|define
-name|DO_SRP2
-define|\
-value|CUR.GS.rp2 = (FT_UShort)args[0];
-end_define
-begin_define
-DECL|macro|DO_RTHG
-define|#
-directive|define
-name|DO_RTHG
-define|\
-value|CUR.GS.round_state = TT_Round_To_Half_Grid;         \     CUR.func_round = (TT_Round_Func)Round_To_Half_Grid;
-end_define
-begin_define
-DECL|macro|DO_RTG
-define|#
-directive|define
-name|DO_RTG
-define|\
-value|CUR.GS.round_state = TT_Round_To_Grid;         \     CUR.func_round = (TT_Round_Func)Round_To_Grid;
-end_define
-begin_define
-DECL|macro|DO_RTDG
-define|#
-directive|define
-name|DO_RTDG
-define|\
-value|CUR.GS.round_state = TT_Round_To_Double_Grid;         \     CUR.func_round = (TT_Round_Func)Round_To_Double_Grid;
-end_define
-begin_define
-DECL|macro|DO_RUTG
-define|#
-directive|define
-name|DO_RUTG
-define|\
-value|CUR.GS.round_state = TT_Round_Up_To_Grid;         \     CUR.func_round = (TT_Round_Func)Round_Up_To_Grid;
-end_define
-begin_define
-DECL|macro|DO_RDTG
-define|#
-directive|define
-name|DO_RDTG
-define|\
-value|CUR.GS.round_state = TT_Round_Down_To_Grid;         \     CUR.func_round = (TT_Round_Func)Round_Down_To_Grid;
-end_define
-begin_define
-DECL|macro|DO_ROFF
-define|#
-directive|define
-name|DO_ROFF
-define|\
-value|CUR.GS.round_state = TT_Round_Off;          \     CUR.func_round = (TT_Round_Func)Round_None;
-end_define
-begin_define
-DECL|macro|DO_SROUND
-define|#
-directive|define
-name|DO_SROUND
-define|\
-value|SET_SuperRound( 0x4000, args[0] );           \     CUR.GS.round_state = TT_Round_Super;         \     CUR.func_round = (TT_Round_Func)Round_Super;
-end_define
-begin_define
-DECL|macro|DO_S45ROUND
-define|#
-directive|define
-name|DO_S45ROUND
-define|\
-value|SET_SuperRound( 0x2D41, args[0] );              \     CUR.GS.round_state = TT_Round_Super_45;         \     CUR.func_round = (TT_Round_Func)Round_Super_45;
-end_define
-begin_define
-DECL|macro|DO_SLOOP
-define|#
-directive|define
-name|DO_SLOOP
-define|\
-value|if ( args[0]< 0 )                      \       CUR.error = FT_THROW( Bad_Argument ); \     else                                    \       CUR.GS.loop = args[0];
-end_define
-begin_define
-DECL|macro|DO_SMD
-define|#
-directive|define
-name|DO_SMD
-define|\
-value|CUR.GS.minimum_distance = args[0];
-end_define
-begin_define
-DECL|macro|DO_SCVTCI
-define|#
-directive|define
-name|DO_SCVTCI
-define|\
-value|CUR.GS.control_value_cutin = (FT_F26Dot6)args[0];
-end_define
-begin_define
-DECL|macro|DO_SSWCI
-define|#
-directive|define
-name|DO_SSWCI
-define|\
-value|CUR.GS.single_width_cutin = (FT_F26Dot6)args[0];
-end_define
-begin_define
-DECL|macro|DO_SSW
-define|#
-directive|define
-name|DO_SSW
-define|\
-value|CUR.GS.single_width_value = FT_MulFix( args[0],                \                                            CUR.tt_metrics.scale );
-end_define
-begin_define
-DECL|macro|DO_FLIPON
-define|#
-directive|define
-name|DO_FLIPON
-define|\
-value|CUR.GS.auto_flip = TRUE;
-end_define
-begin_define
-DECL|macro|DO_FLIPOFF
-define|#
-directive|define
-name|DO_FLIPOFF
-define|\
-value|CUR.GS.auto_flip = FALSE;
-end_define
-begin_define
-DECL|macro|DO_SDB
-define|#
-directive|define
-name|DO_SDB
-define|\
-value|CUR.GS.delta_base = (FT_UShort)args[0];
-end_define
-begin_define
-DECL|macro|DO_SDS
-define|#
-directive|define
-name|DO_SDS
-define|\
-value|if ( (FT_ULong)args[0]> 6UL )             \       CUR.error = FT_THROW( Bad_Argument );    \     else                                       \       CUR.GS.delta_shift = (FT_UShort)args[0];
-end_define
-begin_define
-DECL|macro|DO_MD
-define|#
-directive|define
-name|DO_MD
-end_define
-begin_comment
-DECL|macro|DO_MD
-comment|/* nothing */
-end_comment
-begin_define
-DECL|macro|DO_MPPEM
-define|#
-directive|define
-name|DO_MPPEM
-define|\
-value|args[0] = CUR_Func_cur_ppem();
-end_define
-begin_comment
-comment|/* Note: The pointSize should be irrelevant in a given font program; */
-end_comment
-begin_comment
-comment|/*       we thus decide to return only the ppem.                     */
-end_comment
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_define
-define|#
-directive|define
-name|DO_MPS
-define|\
-value|args[0] = CUR.metrics.pointSize;
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|DO_MPS
-define|#
-directive|define
-name|DO_MPS
-define|\
-value|args[0] = CUR_Func_cur_ppem();
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* 0 */
-end_comment
-begin_define
-DECL|macro|DO_DUP
-define|#
-directive|define
-name|DO_DUP
-define|\
-value|args[1] = args[0];
-end_define
-begin_define
-DECL|macro|DO_CLEAR
-define|#
-directive|define
-name|DO_CLEAR
-define|\
-value|CUR.new_top = 0;
-end_define
-begin_define
-DECL|macro|DO_SWAP
-define|#
-directive|define
-name|DO_SWAP
-define|\
-value|{                    \     FT_Long  L;        \                        \                        \     L       = args[0]; \     args[0] = args[1]; \     args[1] = L;       \   }
-end_define
-begin_define
-DECL|macro|DO_DEPTH
-define|#
-directive|define
-name|DO_DEPTH
-define|\
-value|args[0] = CUR.top;
-end_define
-begin_define
-DECL|macro|DO_CINDEX
-define|#
-directive|define
-name|DO_CINDEX
-define|\
-value|{                                                \     FT_Long  L;                                    \                                                    \                                                    \     L = args[0];                                   \                                                    \     if ( L<= 0 || L> CUR.args )                  \     {                                              \       if ( CUR.pedantic_hinting )                  \         CUR.error = FT_THROW( Invalid_Reference ); \       args[0] = 0;                                 \     }                                              \     else                                           \       args[0] = CUR.stack[CUR.args - L];           \   }
-end_define
-begin_define
-DECL|macro|DO_JROT
-define|#
-directive|define
-name|DO_JROT
-define|\
-value|if ( args[1] != 0 )                                            \     {                                                              \       if ( args[0] == 0&& CUR.args == 0 )                         \         CUR.error = FT_THROW( Bad_Argument );                      \       CUR.IP += args[0];                                           \       if ( CUR.IP< 0                                           || \            ( CUR.callTop> 0&&   \              CUR.IP> CUR.callStack[CUR.callTop - 1].Def->end ) )  \         CUR.error = FT_THROW( Bad_Argument );                      \       CUR.step_ins = FALSE;                                        \     }
-end_define
-begin_define
-DECL|macro|DO_JMPR
-define|#
-directive|define
-name|DO_JMPR
-define|\
-value|if ( args[0] == 0&& CUR.args == 0 )                         \       CUR.error = FT_THROW( Bad_Argument );                      \     CUR.IP += args[0];                                           \     if ( CUR.IP< 0                                           || \          ( CUR.callTop> 0&&   \            CUR.IP> CUR.callStack[CUR.callTop - 1].Def->end ) )  \       CUR.error = FT_THROW( Bad_Argument );                      \     CUR.step_ins = FALSE;
-end_define
-begin_define
-DECL|macro|DO_JROF
-define|#
-directive|define
-name|DO_JROF
-define|\
-value|if ( args[1] == 0 )                                            \     {                                                              \       if ( args[0] == 0&& CUR.args == 0 )                         \         CUR.error = FT_THROW( Bad_Argument );                      \       CUR.IP += args[0];                                           \       if ( CUR.IP< 0                                           || \            ( CUR.callTop> 0&&   \              CUR.IP> CUR.callStack[CUR.callTop - 1].Def->end ) )  \         CUR.error = FT_THROW( Bad_Argument );                      \       CUR.step_ins = FALSE;                                        \     }
-end_define
-begin_define
-DECL|macro|DO_LT
-define|#
-directive|define
-name|DO_LT
-define|\
-value|args[0] = ( args[0]< args[1] );
-end_define
-begin_define
-DECL|macro|DO_LTEQ
-define|#
-directive|define
-name|DO_LTEQ
-define|\
-value|args[0] = ( args[0]<= args[1] );
-end_define
-begin_define
-DECL|macro|DO_GT
-define|#
-directive|define
-name|DO_GT
-define|\
-value|args[0] = ( args[0]> args[1] );
-end_define
-begin_define
-DECL|macro|DO_GTEQ
-define|#
-directive|define
-name|DO_GTEQ
-define|\
-value|args[0] = ( args[0]>= args[1] );
-end_define
-begin_define
-DECL|macro|DO_EQ
-define|#
-directive|define
-name|DO_EQ
-define|\
-value|args[0] = ( args[0] == args[1] );
-end_define
-begin_define
-DECL|macro|DO_NEQ
-define|#
-directive|define
-name|DO_NEQ
-define|\
-value|args[0] = ( args[0] != args[1] );
-end_define
-begin_define
-DECL|macro|DO_ODD
-define|#
-directive|define
-name|DO_ODD
-define|\
-value|args[0] = ( ( CUR_Func_round( args[0], 0 )& 127 ) == 64 );
-end_define
-begin_define
-DECL|macro|DO_EVEN
-define|#
-directive|define
-name|DO_EVEN
-define|\
-value|args[0] = ( ( CUR_Func_round( args[0], 0 )& 127 ) == 0 );
-end_define
-begin_define
-DECL|macro|DO_AND
-define|#
-directive|define
-name|DO_AND
-define|\
-value|args[0] = ( args[0]&& args[1] );
-end_define
-begin_define
-DECL|macro|DO_OR
-define|#
-directive|define
-name|DO_OR
-define|\
-value|args[0] = ( args[0] || args[1] );
-end_define
-begin_define
-DECL|macro|DO_NOT
-define|#
-directive|define
-name|DO_NOT
-define|\
-value|args[0] = !args[0];
-end_define
-begin_define
-DECL|macro|DO_ADD
-define|#
-directive|define
-name|DO_ADD
-define|\
-value|args[0] += args[1];
-end_define
-begin_define
-DECL|macro|DO_SUB
-define|#
-directive|define
-name|DO_SUB
-define|\
-value|args[0] -= args[1];
-end_define
-begin_define
-DECL|macro|DO_DIV
-define|#
-directive|define
-name|DO_DIV
-define|\
-value|if ( args[1] == 0 )                                      \       CUR.error = FT_THROW( Divide_By_Zero );                \     else                                                     \       args[0] = FT_MulDiv_No_Round( args[0], 64L, args[1] );
-end_define
-begin_define
-DECL|macro|DO_MUL
-define|#
-directive|define
-name|DO_MUL
-define|\
-value|args[0] = FT_MulDiv( args[0], args[1], 64L );
-end_define
-begin_define
-DECL|macro|DO_ABS
-define|#
-directive|define
-name|DO_ABS
-define|\
-value|args[0] = FT_ABS( args[0] );
-end_define
-begin_define
-DECL|macro|DO_NEG
-define|#
-directive|define
-name|DO_NEG
-define|\
-value|args[0] = -args[0];
-end_define
-begin_define
-DECL|macro|DO_FLOOR
-define|#
-directive|define
-name|DO_FLOOR
-define|\
-value|args[0] = FT_PIX_FLOOR( args[0] );
-end_define
-begin_define
-DECL|macro|DO_CEILING
-define|#
-directive|define
-name|DO_CEILING
-define|\
-value|args[0] = FT_PIX_CEIL( args[0] );
-end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
-end_ifdef
-begin_define
-DECL|macro|DO_RS
-define|#
-directive|define
-name|DO_RS
-define|\
-value|{                                                      \      FT_ULong  I = (FT_ULong)args[0];                     \                                                           \                                                           \      if ( BOUNDSL( I, CUR.storeSize ) )                   \      {                                                    \        if ( CUR.pedantic_hinting )                        \          ARRAY_BOUND_ERROR;                               \        else                                               \          args[0] = 0;                                     \      }                                                    \      else                                                 \      {                                                    \
-comment|/* subpixel hinting - avoid Typeman Dstroke and */
-value|\
-comment|/* IStroke and Vacuform rounds                  */
-value|\                                                           \        if ( SUBPIXEL_HINTING&& \             CUR.ignore_x_mode&& \             ( ( I == 24&&     \                 ( CUR.face->sph_found_func_flags&        \                   ( SPH_FDEF_SPACING_1 |                  \                     SPH_FDEF_SPACING_2 )         ) ) ||   \               ( I == 22&&           \                 ( CUR.sph_in_func_flags&              \                   SPH_FDEF_TYPEMAN_STROKES ) )       ||   \               ( I == 8&&     \                 ( CUR.face->sph_found_func_flags&        \                   SPH_FDEF_VACUFORM_ROUND_1      )&&     \                   CUR.iup_called                   ) ) )  \          args[0] = 0;                                     \        else                                               \          args[0] = CUR.storage[I];                        \      }                                                    \    }
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|/* !TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-end_comment
-begin_define
-DECL|macro|DO_RS
-define|#
-directive|define
-name|DO_RS
-define|\
-value|{                                    \      FT_ULong  I = (FT_ULong)args[0];   \                                         \                                         \      if ( BOUNDSL( I, CUR.storeSize ) ) \      {                                  \        if ( CUR.pedantic_hinting )      \        {                                \          ARRAY_BOUND_ERROR;             \        }                                \        else                             \          args[0] = 0;                   \      }                                  \      else                               \        args[0] = CUR.storage[I];        \    }
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* !TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-end_comment
-begin_define
-DECL|macro|DO_WS
-define|#
-directive|define
-name|DO_WS
-define|\
-value|{                                    \      FT_ULong  I = (FT_ULong)args[0];   \                                         \                                         \      if ( BOUNDSL( I, CUR.storeSize ) ) \      {                                  \        if ( CUR.pedantic_hinting )      \        {                                \          ARRAY_BOUND_ERROR;             \        }                                \      }                                  \      else                               \        CUR.storage[I] = args[1];        \    }
-end_define
-begin_define
-DECL|macro|DO_RCVT
-define|#
-directive|define
-name|DO_RCVT
-define|\
-value|{                                     \      FT_ULong  I = (FT_ULong)args[0];    \                                          \                                          \      if ( BOUNDSL( I, CUR.cvtSize ) )    \      {                                   \        if ( CUR.pedantic_hinting )       \        {                                 \          ARRAY_BOUND_ERROR;              \        }                                 \        else                              \          args[0] = 0;                    \      }                                   \      else                                \        args[0] = CUR_Func_read_cvt( I ); \    }
-end_define
-begin_define
-DECL|macro|DO_WCVTP
-define|#
-directive|define
-name|DO_WCVTP
-define|\
-value|{                                     \      FT_ULong  I = (FT_ULong)args[0];    \                                          \                                          \      if ( BOUNDSL( I, CUR.cvtSize ) )    \      {                                   \        if ( CUR.pedantic_hinting )       \        {                                 \          ARRAY_BOUND_ERROR;              \        }                                 \      }                                   \      else                                \        CUR_Func_write_cvt( I, args[1] ); \    }
-end_define
-begin_define
-DECL|macro|DO_WCVTF
-define|#
-directive|define
-name|DO_WCVTF
-define|\
-value|{                                                            \      FT_ULong  I = (FT_ULong)args[0];                           \                                                                 \                                                                 \      if ( BOUNDSL( I, CUR.cvtSize ) )                           \      {                                                          \        if ( CUR.pedantic_hinting )                              \        {                                                        \          ARRAY_BOUND_ERROR;                                     \        }                                                        \      }                                                          \      else                                                       \        CUR.cvt[I] = FT_MulFix( args[1], CUR.tt_metrics.scale ); \    }
-end_define
-begin_define
-DECL|macro|DO_DEBUG
-define|#
-directive|define
-name|DO_DEBUG
-define|\
-value|CUR.error = FT_THROW( Debug_OpCode );
-end_define
-begin_define
-DECL|macro|DO_ROUND
-define|#
-directive|define
-name|DO_ROUND
-define|\
-value|args[0] = CUR_Func_round(                                      \                 args[0],                                           \                 CUR.tt_metrics.compensations[CUR.opcode - 0x68] );
-end_define
-begin_define
-DECL|macro|DO_NROUND
-define|#
-directive|define
-name|DO_NROUND
-define|\
-value|args[0] = ROUND_None( args[0],                                           \                           CUR.tt_metrics.compensations[CUR.opcode - 0x6C] );
-end_define
-begin_define
-DECL|macro|DO_MAX
-define|#
-directive|define
-name|DO_MAX
-define|\
-value|if ( args[1]> args[0] ) \       args[0] = args[1];
-end_define
-begin_define
-DECL|macro|DO_MIN
-define|#
-directive|define
-name|DO_MIN
-define|\
-value|if ( args[1]< args[0] ) \       args[0] = args[1];
-end_define
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|TT_CONFIG_OPTION_INTERPRETER_SWITCH
-end_ifndef
-begin_undef
-DECL|macro|ARRAY_BOUND_ERROR
-undef|#
-directive|undef
-name|ARRAY_BOUND_ERROR
-end_undef
 begin_define
 DECL|macro|ARRAY_BOUND_ERROR
 define|#
 directive|define
 name|ARRAY_BOUND_ERROR
 define|\
-value|{                                            \       CUR.error = FT_THROW( Invalid_Reference ); \       return;                                    \     }
+value|do                                            \     {                                             \       exc->error = FT_THROW( Invalid_Reference ); \       return;                                     \     } while (0)
 end_define
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SVTCA[a]:     Set (F and P) Vectors to Coordinate Axis                */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x00-0x01                                               */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SVTCA
-name|Ins_SVTCA
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SVTCA
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SPVTCA[a]:    Set PVector to Coordinate Axis                          */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x02-0x03                                               */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SPVTCA
-name|Ins_SPVTCA
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SPVTCA
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SFVTCA[a]:    Set FVector to Coordinate Axis                          */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x04-0x05                                               */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SFVTCA
-name|Ins_SFVTCA
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SFVTCA
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SPVTL[a]:     Set PVector To Line                                     */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x06-0x07                                               */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 uint32 -->                                       */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SPVTL
-name|Ins_SPVTL
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SPVTL
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SFVTL[a]:     Set FVector To Line                                     */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x08-0x09                                               */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 uint32 -->                                       */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SFVTL
-name|Ins_SFVTL
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SFVTL
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SFVTPV[]:     Set FVector To PVector                                  */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x0E                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SFVTPV
-name|Ins_SFVTPV
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SFVTPV
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SPVFS[]:      Set PVector From Stack                                  */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x0A                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        f2.14 f2.14 -->                                         */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SPVFS
-name|Ins_SPVFS
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SPVFS
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SFVFS[]:      Set FVector From Stack                                  */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x0B                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        f2.14 f2.14 -->                                         */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SFVFS
-name|Ins_SFVFS
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SFVFS
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* GPV[]:        Get Projection Vector                                   */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x0C                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        ef2.14 --> ef2.14                                       */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_GPV
-name|Ins_GPV
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_GPV
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/* GFV[]:        Get Freedom Vector                                      */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x0D                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        ef2.14 --> ef2.14                                       */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_GFV
-name|Ins_GFV
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_GFV
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SRP0[]:       Set Reference Point 0                                   */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x10                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SRP0
-name|Ins_SRP0
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SRP0
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SRP1[]:       Set Reference Point 1                                   */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x11                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SRP1
-name|Ins_SRP1
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SRP1
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SRP2[]:       Set Reference Point 2                                   */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x12                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SRP2
-name|Ins_SRP2
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SRP2
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* RTHG[]:       Round To Half Grid                                      */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x19                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_RTHG
-name|Ins_RTHG
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_RTHG
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* RTG[]:        Round To Grid                                           */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x18                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_RTG
-name|Ins_RTG
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_RTG
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/* RTDG[]:       Round To Double Grid                                    */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x3D                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_RTDG
-name|Ins_RTDG
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_RTDG
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/* RUTG[]:       Round Up To Grid                                        */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x7C                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_RUTG
-name|Ins_RUTG
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_RUTG
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* RDTG[]:       Round Down To Grid                                      */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x7D                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_RDTG
-name|Ins_RDTG
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_RDTG
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* ROFF[]:       Round OFF                                               */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x7A                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_ROFF
-name|Ins_ROFF
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_ROFF
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SROUND[]:     Super ROUND                                             */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x76                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        Eint8 -->                                               */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SROUND
-name|Ins_SROUND
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SROUND
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* S45ROUND[]:   Super ROUND 45 degrees                                  */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x77                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_S45ROUND
-name|Ins_S45ROUND
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_S45ROUND
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SLOOP[]:      Set LOOP variable                                       */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x17                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        int32? -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SLOOP
-name|Ins_SLOOP
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SLOOP
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SMD[]:        Set Minimum Distance                                    */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x1A                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        f26.6 -->                                               */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SMD
-name|Ins_SMD
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SMD
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SCVTCI[]:     Set Control Value Table Cut In                          */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x1D                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        f26.6 -->                                               */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SCVTCI
-name|Ins_SCVTCI
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SCVTCI
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SSWCI[]:      Set Single Width Cut In                                 */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x1E                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        f26.6 -->                                               */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SSWCI
-name|Ins_SSWCI
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SSWCI
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SSW[]:        Set Single Width                                        */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x1F                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        int32? -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SSW
-name|Ins_SSW
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SSW
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* FLIPON[]:     Set auto-FLIP to ON                                     */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x4D                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_FLIPON
-name|Ins_FLIPON
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_FLIPON
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* FLIPOFF[]:    Set auto-FLIP to OFF                                    */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x4E                                                    */
-end_comment
-begin_comment
-comment|/* Stack: -->                                                            */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_FLIPOFF
-name|Ins_FLIPOFF
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_FLIPOFF
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SANGW[]:      Set ANGle Weight                                        */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x7E                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SANGW
-name|Ins_SANGW
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-comment|/* instruction not supported anymore */
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SDB[]:        Set Delta Base                                          */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x5E                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SDB
-name|Ins_SDB
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SDB
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* SDS[]:        Set Delta Shift                                         */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x5F                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        uint32 -->                                              */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_SDS
-name|Ins_SDS
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_SDS
-block|}
-end_function
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -12739,10 +10450,26 @@ name|void
 DECL|function|Ins_MPPEM
 name|Ins_MPPEM
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_MPPEM
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|func_cur_ppem
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -12769,10 +10496,36 @@ name|void
 DECL|function|Ins_MPS
 name|Ins_MPS
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_MPS
+comment|/* Note: The point size should be irrelevant in a given font program; */
+comment|/*       we thus decide to return only the PPEM value.                */
+if|#
+directive|if
+literal|0
+block|args[0] = exc->metrics.pointSize;
+else|#
+directive|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|func_cur_ppem
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -12782,7 +10535,7 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* DUP[]:        DUPlicate the top stack's element                       */
+comment|/* DUP[]:        DUPlicate the stack's top element                       */
 end_comment
 begin_comment
 comment|/* Opcode range: 0x20                                                    */
@@ -12799,10 +10552,21 @@ name|void
 DECL|function|Ins_DUP
 name|Ins_DUP
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_DUP
+name|args
+index|[
+literal|1
+index|]
+operator|=
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -12829,7 +10593,7 @@ name|void
 DECL|function|Ins_POP
 name|Ins_POP
 parameter_list|(
-name|INS_ARG
+name|void
 parameter_list|)
 block|{
 comment|/* nothing to do */
@@ -12859,10 +10623,16 @@ name|void
 DECL|function|Ins_CLEAR
 name|Ins_CLEAR
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
-name|DO_CLEAR
+name|exc
+operator|->
+name|new_top
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -12889,10 +10659,38 @@ name|void
 DECL|function|Ins_SWAP
 name|Ins_SWAP
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_SWAP
+name|FT_Long
+name|L
+decl_stmt|;
+name|L
+operator|=
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
+name|args
+index|[
+literal|1
+index|]
+operator|=
+name|L
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -12919,160 +10717,23 @@ name|void
 DECL|function|Ins_DEPTH
 name|Ins_DEPTH
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_DEPTH
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* CINDEX[]:     Copy INDEXed element                                    */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x25                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        int32 --> StkElt                                        */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_CINDEX
-name|Ins_CINDEX
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_CINDEX
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* EIF[]:        End IF                                                  */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x59                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        -->                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_EIF
-name|Ins_EIF
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-comment|/* nothing to do */
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* JROT[]:       Jump Relative On True                                   */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x78                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        StkElt int32 -->                                        */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_JROT
-name|Ins_JROT
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_JROT
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* JMPR[]:       JuMP Relative                                           */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x1C                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        int32 -->                                               */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_JMPR
-name|Ins_JMPR
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_JMPR
-block|}
-end_function
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* JROF[]:       Jump Relative On False                                  */
-end_comment
-begin_comment
-comment|/* Opcode range: 0x79                                                    */
-end_comment
-begin_comment
-comment|/* Stack:        StkElt int32 -->                                        */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_function
-specifier|static
-name|void
-DECL|function|Ins_JROF
-name|Ins_JROF
-parameter_list|(
-name|INS_ARG
-parameter_list|)
-block|{
-name|DO_JROF
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|top
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13099,10 +10760,28 @@ name|void
 DECL|function|Ins_LT
 name|Ins_LT
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_LT
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|<
+name|args
+index|[
+literal|1
+index|]
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13129,10 +10808,28 @@ name|void
 DECL|function|Ins_LTEQ
 name|Ins_LTEQ
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_LTEQ
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|<=
+name|args
+index|[
+literal|1
+index|]
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13159,10 +10856,28 @@ name|void
 DECL|function|Ins_GT
 name|Ins_GT
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_GT
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|>
+name|args
+index|[
+literal|1
+index|]
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13189,10 +10904,28 @@ name|void
 DECL|function|Ins_GTEQ
 name|Ins_GTEQ
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_GTEQ
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|>=
+name|args
+index|[
+literal|1
+index|]
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13219,10 +10952,28 @@ name|void
 DECL|function|Ins_EQ
 name|Ins_EQ
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_EQ
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|==
+name|args
+index|[
+literal|1
+index|]
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13249,10 +11000,28 @@ name|void
 DECL|function|Ins_NEQ
 name|Ins_NEQ
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_NEQ
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|!=
+name|args
+index|[
+literal|1
+index|]
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13279,10 +11048,41 @@ name|void
 DECL|function|Ins_ODD
 name|Ins_ODD
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_ODD
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+operator|(
+name|exc
+operator|->
+name|func_round
+argument_list|(
+name|exc
+argument_list|,
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+literal|0
+argument_list|)
+operator|&
+literal|127
+operator|)
+operator|==
+literal|64
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13309,10 +11109,41 @@ name|void
 DECL|function|Ins_EVEN
 name|Ins_EVEN
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_EVEN
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+operator|(
+name|exc
+operator|->
+name|func_round
+argument_list|(
+name|exc
+argument_list|,
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+literal|0
+argument_list|)
+operator|&
+literal|127
+operator|)
+operator|==
+literal|0
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13339,10 +11170,28 @@ name|void
 DECL|function|Ins_AND
 name|Ins_AND
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_AND
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|&&
+name|args
+index|[
+literal|1
+index|]
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13369,10 +11218,28 @@ name|void
 DECL|function|Ins_OR
 name|Ins_OR
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_OR
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|||
+name|args
+index|[
+literal|1
+index|]
+operator|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13399,10 +11266,22 @@ name|void
 DECL|function|Ins_NOT
 name|Ins_NOT
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_NOT
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|!
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13429,10 +11308,21 @@ name|void
 DECL|function|Ins_ADD
 name|Ins_ADD
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_ADD
+name|args
+index|[
+literal|0
+index|]
+operator|+=
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13459,10 +11349,21 @@ name|void
 DECL|function|Ins_SUB
 name|Ins_SUB
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_SUB
+name|args
+index|[
+literal|0
+index|]
+operator|-=
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13489,10 +11390,53 @@ name|void
 DECL|function|Ins_DIV
 name|Ins_DIV
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_DIV
+if|if
+condition|(
+name|args
+index|[
+literal|1
+index|]
+operator|==
+literal|0
+condition|)
+name|exc
+operator|->
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Divide_By_Zero
+argument_list|)
+expr_stmt|;
+else|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|FT_MulDiv_No_Round
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+literal|64L
+argument_list|,
+name|args
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13519,10 +11463,31 @@ name|void
 DECL|function|Ins_MUL
 name|Ins_MUL
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_MUL
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|FT_MulDiv
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+name|args
+index|[
+literal|1
+index|]
+argument_list|,
+literal|64L
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13549,10 +11514,24 @@ name|void
 DECL|function|Ins_ABS
 name|Ins_ABS
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_ABS
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|FT_ABS
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13579,10 +11558,22 @@ name|void
 DECL|function|Ins_NEG
 name|Ins_NEG
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_NEG
+name|args
+index|[
+literal|0
+index|]
+operator|=
+operator|-
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13609,10 +11600,24 @@ name|void
 DECL|function|Ins_FLOOR
 name|Ins_FLOOR
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_FLOOR
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|FT_PIX_FLOOR
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13639,10 +11644,24 @@ name|void
 DECL|function|Ins_CEILING
 name|Ins_CEILING
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_CEILING
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|FT_PIX_CEIL
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13669,10 +11688,205 @@ name|void
 DECL|function|Ins_RS
 name|Ins_RS
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_RS
+ifdef|#
+directive|ifdef
+name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
+name|FT_ULong
+name|I
+init|=
+operator|(
+name|FT_ULong
+operator|)
+name|args
+index|[
+literal|0
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|BOUNDSL
+argument_list|(
+name|I
+argument_list|,
+name|exc
+operator|->
+name|storeSize
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|ARRAY_BOUND_ERROR
+expr_stmt|;
+else|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|/* subpixel hinting - avoid Typeman Dstroke and */
+comment|/* IStroke and Vacuform rounds                  */
+if|if
+condition|(
+name|SUBPIXEL_HINTING
+operator|&&
+name|exc
+operator|->
+name|ignore_x_mode
+operator|&&
+operator|(
+operator|(
+name|I
+operator|==
+literal|24
+operator|&&
+operator|(
+name|exc
+operator|->
+name|face
+operator|->
+name|sph_found_func_flags
+operator|&
+operator|(
+name|SPH_FDEF_SPACING_1
+operator||
+name|SPH_FDEF_SPACING_2
+operator|)
+operator|)
+operator|)
+operator|||
+operator|(
+name|I
+operator|==
+literal|22
+operator|&&
+operator|(
+name|exc
+operator|->
+name|sph_in_func_flags
+operator|&
+name|SPH_FDEF_TYPEMAN_STROKES
+operator|)
+operator|)
+operator|||
+operator|(
+name|I
+operator|==
+literal|8
+operator|&&
+operator|(
+name|exc
+operator|->
+name|face
+operator|->
+name|sph_found_func_flags
+operator|&
+name|SPH_FDEF_VACUFORM_ROUND_1
+operator|)
+operator|&&
+name|exc
+operator|->
+name|iup_called
+operator|)
+operator|)
+condition|)
+name|args
+index|[
+literal|0
+index|]
+operator|=
+literal|0
+expr_stmt|;
+else|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|storage
+index|[
+name|I
+index|]
+expr_stmt|;
+block|}
+else|#
+directive|else
+comment|/* !TT_CONFIG_OPTION_SUBPIXEL_HINTING */
+name|FT_ULong
+name|I
+init|=
+operator|(
+name|FT_ULong
+operator|)
+name|args
+index|[
+literal|0
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|BOUNDSL
+argument_list|(
+name|I
+argument_list|,
+name|exc
+operator|->
+name|storeSize
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|ARRAY_BOUND_ERROR
+expr_stmt|;
+else|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|storage
+index|[
+name|I
+index|]
+expr_stmt|;
+endif|#
+directive|endif
+comment|/* !TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 block|}
 end_function
 begin_comment
@@ -13699,10 +11913,59 @@ name|void
 DECL|function|Ins_WS
 name|Ins_WS
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_WS
+name|FT_ULong
+name|I
+init|=
+operator|(
+name|FT_ULong
+operator|)
+name|args
+index|[
+literal|0
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|BOUNDSL
+argument_list|(
+name|I
+argument_list|,
+name|exc
+operator|->
+name|storeSize
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|ARRAY_BOUND_ERROR
+expr_stmt|;
+block|}
+else|else
+name|exc
+operator|->
+name|storage
+index|[
+name|I
+index|]
+operator|=
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13729,10 +11992,61 @@ name|void
 DECL|function|Ins_WCVTP
 name|Ins_WCVTP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_WCVTP
+name|FT_ULong
+name|I
+init|=
+operator|(
+name|FT_ULong
+operator|)
+name|args
+index|[
+literal|0
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|BOUNDSL
+argument_list|(
+name|I
+argument_list|,
+name|exc
+operator|->
+name|cvtSize
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|ARRAY_BOUND_ERROR
+expr_stmt|;
+block|}
+else|else
+name|exc
+operator|->
+name|func_write_cvt
+argument_list|(
+name|exc
+argument_list|,
+name|I
+argument_list|,
+name|args
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13759,10 +12073,68 @@ name|void
 DECL|function|Ins_WCVTF
 name|Ins_WCVTF
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_WCVTF
+name|FT_ULong
+name|I
+init|=
+operator|(
+name|FT_ULong
+operator|)
+name|args
+index|[
+literal|0
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|BOUNDSL
+argument_list|(
+name|I
+argument_list|,
+name|exc
+operator|->
+name|cvtSize
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|ARRAY_BOUND_ERROR
+expr_stmt|;
+block|}
+else|else
+name|exc
+operator|->
+name|cvt
+index|[
+name|I
+index|]
+operator|=
+name|FT_MulFix
+argument_list|(
+name|args
+index|[
+literal|1
+index|]
+argument_list|,
+name|exc
+operator|->
+name|tt_metrics
+operator|.
+name|scale
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13789,10 +12161,69 @@ name|void
 DECL|function|Ins_RCVT
 name|Ins_RCVT
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_RCVT
+name|FT_ULong
+name|I
+init|=
+operator|(
+name|FT_ULong
+operator|)
+name|args
+index|[
+literal|0
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|BOUNDSL
+argument_list|(
+name|I
+argument_list|,
+name|exc
+operator|->
+name|cvtSize
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|ARRAY_BOUND_ERROR
+expr_stmt|;
+else|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|func_read_cvt
+argument_list|(
+name|exc
+argument_list|,
+name|I
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13819,7 +12250,7 @@ name|void
 DECL|function|Ins_AA
 name|Ins_AA
 parameter_list|(
-name|INS_ARG
+name|void
 parameter_list|)
 block|{
 comment|/* intentionally no longer supported */
@@ -13855,10 +12286,19 @@ name|void
 DECL|function|Ins_DEBUG
 name|Ins_DEBUG
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
-name|DO_DEBUG
+name|exc
+operator|->
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Debug_OpCode
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13885,10 +12325,44 @@ name|void
 DECL|function|Ins_ROUND
 name|Ins_ROUND
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_ROUND
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|func_round
+argument_list|(
+name|exc
+argument_list|,
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+name|exc
+operator|->
+name|tt_metrics
+operator|.
+name|compensations
+index|[
+name|exc
+operator|->
+name|opcode
+operator|-
+literal|0x68
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13915,10 +12389,42 @@ name|void
 DECL|function|Ins_NROUND
 name|Ins_NROUND
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_NROUND
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|Round_None
+argument_list|(
+name|exc
+argument_list|,
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+name|exc
+operator|->
+name|tt_metrics
+operator|.
+name|compensations
+index|[
+name|exc
+operator|->
+name|opcode
+operator|-
+literal|0x6C
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13945,10 +12451,33 @@ name|void
 DECL|function|Ins_MAX
 name|Ins_MAX
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_MAX
+if|if
+condition|(
+name|args
+index|[
+literal|1
+index|]
+operator|>
+name|args
+index|[
+literal|0
+index|]
+condition|)
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -13975,34 +12504,35 @@ name|void
 DECL|function|Ins_MIN
 name|Ins_MIN
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|DO_MIN
+if|if
+condition|(
+name|args
+index|[
+literal|1
+index|]
+operator|<
+name|args
+index|[
+literal|0
+index|]
+condition|)
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* !TT_CONFIG_OPTION_INTERPRETER_SWITCH */
-end_comment
-begin_comment
-comment|/*************************************************************************/
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/* The following functions are called as is within the switch statement. */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*************************************************************************/
-end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -14027,7 +12557,12 @@ name|void
 DECL|function|Ins_MINDEX
 name|Ins_MINDEX
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_Long
@@ -14050,19 +12585,19 @@ literal|0
 operator|||
 name|L
 operator|>
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -14075,12 +12610,12 @@ else|else
 block|{
 name|K
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|-
 name|L
@@ -14089,24 +12624,24 @@ expr_stmt|;
 name|FT_ARRAY_MOVE
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|-
 name|L
 index|]
 argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|-
 name|L
@@ -14121,12 +12656,12 @@ literal|1
 operator|)
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|-
 literal|1
@@ -14135,6 +12670,103 @@ operator|=
 name|K
 expr_stmt|;
 block|}
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* CINDEX[]:     Copy INDEXed element                                    */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x25                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        int32 --> StkElt                                        */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_CINDEX
+name|Ins_CINDEX
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|FT_Long
+name|L
+decl_stmt|;
+name|L
+operator|=
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+if|if
+condition|(
+name|L
+operator|<=
+literal|0
+operator|||
+name|L
+operator|>
+name|exc
+operator|->
+name|args
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|exc
+operator|->
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Reference
+argument_list|)
+expr_stmt|;
+name|args
+index|[
+literal|0
+index|]
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|stack
+index|[
+name|exc
+operator|->
+name|args
+operator|-
+name|L
+index|]
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -14161,7 +12793,9 @@ name|void
 DECL|function|Ins_ROLL
 name|Ins_ROLL
 parameter_list|(
-name|INS_ARG
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_Long
@@ -14171,8 +12805,6 @@ name|B
 decl_stmt|,
 name|C
 decl_stmt|;
-name|FT_UNUSED_EXEC
-expr_stmt|;
 name|A
 operator|=
 name|args
@@ -14230,70 +12862,129 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*   Instructions appear in the specification's order.                   */
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*************************************************************************/
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*************************************************************************/
+comment|/* SLOOP[]:      Set LOOP variable                                       */
 end_comment
+begin_comment
+comment|/* Opcode range: 0x17                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        int32? -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SLOOP
+name|Ins_SLOOP
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+if|if
+condition|(
+name|args
+index|[
+literal|0
+index|]
+operator|<
+literal|0
+condition|)
+name|exc
+operator|->
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Bad_Argument
+argument_list|)
+expr_stmt|;
+else|else
+name|exc
+operator|->
+name|GS
+operator|.
+name|loop
+operator|=
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
 begin_function
 specifier|static
 name|FT_Bool
 DECL|function|SkipCode
 name|SkipCode
 parameter_list|(
-name|EXEC_OP
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|codeSize
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 index|]
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|=
 name|opcode_length
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 index|]
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|<
 literal|0
@@ -14301,35 +12992,35 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|codeSize
 condition|)
 goto|goto
 name|Fail_Overflow
 goto|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|=
 literal|2
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|*
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -14338,16 +13029,16 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|<=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|codeSize
 condition|)
 return|return
@@ -14356,8 +13047,8 @@ return|;
 block|}
 name|Fail_Overflow
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -14394,7 +13085,12 @@ name|void
 DECL|function|Ins_IF
 name|Ins_IF
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_Int
@@ -14425,16 +13121,18 @@ do|do
 block|{
 if|if
 condition|(
-name|SKIP_Code
-argument_list|()
+name|SkipCode
+argument_list|(
+name|exc
+argument_list|)
 operator|==
 name|FAILURE
 condition|)
 return|return;
 switch|switch
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 condition|)
 block|{
@@ -14512,14 +13210,13 @@ name|void
 DECL|function|Ins_ELSE
 name|Ins_ELSE
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 name|FT_Int
 name|nIfs
 decl_stmt|;
-name|FT_UNUSED_ARG
-expr_stmt|;
 name|nIfs
 operator|=
 literal|1
@@ -14528,16 +13225,18 @@ do|do
 block|{
 if|if
 condition|(
-name|SKIP_Code
-argument_list|()
+name|SkipCode
+argument_list|(
+name|exc
+argument_list|)
 operator|==
 name|FAILURE
 condition|)
 return|return;
 switch|switch
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 condition|)
 block|{
@@ -14575,13 +13274,254 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* DEFINING AND USING FUNCTIONS AND INSTRUCTIONS                         */
+comment|/* EIF[]:        End IF                                                  */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x59                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_EIF
+name|Ins_EIF
+parameter_list|(
+name|void
+parameter_list|)
+block|{
+comment|/* nothing to do */
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*   Instructions appear in the specification's order.                   */
+comment|/* JMPR[]:       JuMP Relative                                           */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x1C                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        int32 -->                                               */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_JMPR
+name|Ins_JMPR
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+if|if
+condition|(
+name|args
+index|[
+literal|0
+index|]
+operator|==
+literal|0
+operator|&&
+name|exc
+operator|->
+name|args
+operator|==
+literal|0
+condition|)
+name|exc
+operator|->
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Bad_Argument
+argument_list|)
+expr_stmt|;
+name|exc
+operator|->
+name|IP
+operator|+=
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+if|if
+condition|(
+name|exc
+operator|->
+name|IP
+operator|<
+literal|0
+operator|||
+operator|(
+name|exc
+operator|->
+name|callTop
+operator|>
+literal|0
+operator|&&
+name|exc
+operator|->
+name|IP
+operator|>
+name|exc
+operator|->
+name|callStack
+index|[
+name|exc
+operator|->
+name|callTop
+operator|-
+literal|1
+index|]
+operator|.
+name|Def
+operator|->
+name|end
+operator|)
+condition|)
+name|exc
+operator|->
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Bad_Argument
+argument_list|)
+expr_stmt|;
+name|exc
+operator|->
+name|step_ins
+operator|=
+name|FALSE
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* JROT[]:       Jump Relative On True                                   */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x78                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        StkElt int32 -->                                        */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_JROT
+name|Ins_JROT
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+if|if
+condition|(
+name|args
+index|[
+literal|1
+index|]
+operator|!=
+literal|0
+condition|)
+name|Ins_JMPR
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* JROF[]:       Jump Relative On False                                  */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x79                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        StkElt int32 -->                                        */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_JROF
+name|Ins_JROF
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+if|if
+condition|(
+name|args
+index|[
+literal|1
+index|]
+operator|==
+literal|0
+condition|)
+name|Ins_JMPR
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* DEFINING AND USING FUNCTIONS AND INSTRUCTIONS                         */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -14613,7 +13553,12 @@ name|void
 DECL|function|Ins_FDEF
 name|Ins_FDEF
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_ULong
@@ -14913,20 +13858,23 @@ comment|/* some font programs are broken enough to redefine functions! */
 comment|/* We will then parse the current table.                       */
 name|rec
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|FDefs
 expr_stmt|;
 name|limit
 operator|=
 name|rec
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numFDefs
 expr_stmt|;
 name|n
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|args
 index|[
 literal|0
@@ -14963,17 +13911,17 @@ block|{
 comment|/* check that there is enough room for new functions */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numFDefs
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxFDefs
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -14983,8 +13931,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numFDefs
 operator|++
 expr_stmt|;
@@ -14998,8 +13946,8 @@ operator|>
 literal|0xFFFFU
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -15013,8 +13961,8 @@ name|rec
 operator|->
 name|range
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|curRange
 expr_stmt|;
 name|rec
@@ -15030,8 +13978,8 @@ name|rec
 operator|->
 name|start
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -15058,12 +14006,12 @@ if|if
 condition|(
 name|n
 operator|>
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxFunc
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxFunc
 operator|=
 operator|(
@@ -15098,8 +14046,10 @@ comment|/* Now skip the whole function definition. */
 comment|/* We don't allow nested IDEFS& FDEFs.    */
 while|while
 condition|(
-name|SKIP_Code
-argument_list|()
+name|SkipCode
+argument_list|(
+name|exc
+argument_list|)
 operator|==
 name|SUCCESS
 condition|)
@@ -15138,8 +14088,8 @@ index|[
 name|i
 index|]
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|==
 name|opcode_pattern
@@ -15174,7 +14124,7 @@ name|i
 index|]
 condition|)
 block|{
-name|FT_TRACE7
+name|FT_TRACE6
 argument_list|(
 operator|(
 literal|"sph: Function %d, opcode ptrn: %d, %s %s\n"
@@ -15183,16 +14133,16 @@ name|i
 operator|,
 name|n
 operator|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|root
 operator|.
 name|family_name
 operator|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|root
@@ -15215,8 +14165,8 @@ name|sph_fdef_flags
 operator||=
 name|SPH_FDEF_INLINE_DELTA_1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15233,8 +14183,8 @@ name|sph_fdef_flags
 operator||=
 name|SPH_FDEF_INLINE_DELTA_2
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15260,8 +14210,8 @@ name|sph_fdef_flags
 operator||=
 name|SPH_FDEF_DIAGONAL_STROKE
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15287,8 +14237,8 @@ name|sph_fdef_flags
 operator||=
 name|SPH_FDEF_VACUFORM_ROUND_1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15307,8 +14257,8 @@ name|sph_fdef_flags
 operator||=
 name|SPH_FDEF_TTFAUTOHINT_1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15348,8 +14298,8 @@ name|sph_fdef_flags
 operator||=
 name|SPH_FDEF_SPACING_1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15390,8 +14340,8 @@ name|sph_fdef_flags
 operator||=
 name|SPH_FDEF_SPACING_2
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15409,8 +14359,8 @@ name|sph_fdef_flags
 operator||=
 name|SPH_FDEF_TYPEMAN_DIAGENDCTRL
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15424,7 +14374,7 @@ case|:
 if|#
 directive|if
 literal|0
-block|rec->sph_fdef_flags            |= SPH_FDEF_TYPEMAN_DIAGENDCTRL;                  CUR.face->sph_found_func_flags |= SPH_FDEF_TYPEMAN_DIAGENDCTRL;
+block|rec->sph_fdef_flags             |= SPH_FDEF_TYPEMAN_DIAGENDCTRL;                  exc->face->sph_found_func_flags |= SPH_FDEF_TYPEMAN_DIAGENDCTRL;
 endif|#
 directive|endif
 break|break;
@@ -15448,16 +14398,16 @@ literal|0
 expr_stmt|;
 block|}
 comment|/* Set sph_compatibility_mode only when deltas are detected */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_compatibility_mode
 operator|=
 operator|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15466,8 +14416,8 @@ name|SPH_FDEF_INLINE_DELTA_1
 operator|)
 operator||
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_found_func_flags
@@ -15482,8 +14432,8 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 switch|switch
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 condition|)
 block|{
@@ -15495,8 +14445,8 @@ case|case
 literal|0x2C
 case|:
 comment|/* FDEF */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -15513,8 +14463,8 @@ name|rec
 operator|->
 name|end
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 expr_stmt|;
 return|return;
@@ -15546,20 +14496,19 @@ name|void
 DECL|function|Ins_ENDF
 name|Ins_ENDF
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 name|TT_CallRec
 modifier|*
 name|pRec
 decl_stmt|;
-name|FT_UNUSED_ARG
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_in_func_flags
 operator|=
 literal|0x0000
@@ -15569,16 +14518,16 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|<=
 literal|0
 condition|)
 comment|/* We encountered an ENDF without a call */
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -15588,20 +14537,20 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|--
 expr_stmt|;
 name|pRec
 operator|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callStack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 index|]
 expr_stmt|;
@@ -15610,8 +14559,8 @@ operator|->
 name|Cur_Count
 operator|--
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|step_ins
 operator|=
 name|FALSE
@@ -15625,13 +14574,13 @@ operator|>
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|++
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|=
 name|pRec
@@ -15643,8 +14592,10 @@ expr_stmt|;
 block|}
 else|else
 comment|/* Loop through the current function */
-name|INS_Goto_CodeRange
+name|Ins_Goto_CodeRange
 argument_list|(
+name|exc
+argument_list|,
 name|pRec
 operator|->
 name|Caller_Range
@@ -15686,7 +14637,12 @@ name|void
 DECL|function|Ins_CALL
 name|Ins_CALL
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_ULong
@@ -15703,6 +14659,9 @@ decl_stmt|;
 comment|/* first of all, check the index */
 name|F
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|args
 index|[
 literal|0
@@ -15714,8 +14673,8 @@ name|BOUNDSL
 argument_list|(
 name|F
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxFunc
 operator|+
 literal|1
@@ -15728,28 +14687,28 @@ comment|/* Except for some old Apple fonts, all functions in a TrueType */
 comment|/* font are defined in increasing order, starting from 0.  This */
 comment|/* means that we normally have                                  */
 comment|/*                                                              */
-comment|/*    CUR.maxFunc+1 == CUR.numFDefs                             */
-comment|/*    CUR.FDefs[n].opc == n for n in 0..CUR.maxFunc             */
+comment|/*    exc->maxFunc+1 == exc->numFDefs                           */
+comment|/*    exc->FDefs[n].opc == n for n in 0..exc->maxFunc           */
 comment|/*                                                              */
 comment|/* If this isn't true, we need to look up the function table.   */
 name|def
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|FDefs
 operator|+
 name|F
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxFunc
 operator|+
 literal|1
 operator|!=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numFDefs
 operator|||
 name|def
@@ -15766,16 +14725,16 @@ name|limit
 decl_stmt|;
 name|def
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|FDefs
 expr_stmt|;
 name|limit
 operator|=
 name|def
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numFDefs
 expr_stmt|;
 while|while
@@ -15821,19 +14780,19 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
 operator|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|iup_called
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_NO_CALL_AFTER_IUP
@@ -15853,8 +14812,8 @@ goto|goto
 name|Fail
 goto|;
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_in_func_flags
 operator|=
 name|def
@@ -15867,17 +14826,17 @@ comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 comment|/* check the call stack */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callSize
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -15889,28 +14848,28 @@ return|return;
 block|}
 name|pCrec
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callStack
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 expr_stmt|;
 name|pCrec
 operator|->
 name|Caller_Range
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|curRange
 expr_stmt|;
 name|pCrec
 operator|->
 name|Caller_IP
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -15927,13 +14886,15 @@ name|Def
 operator|=
 name|def
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|++
 expr_stmt|;
-name|INS_Goto_CodeRange
+name|Ins_Goto_CodeRange
 argument_list|(
+name|exc
+argument_list|,
 name|def
 operator|->
 name|range
@@ -15943,8 +14904,8 @@ operator|->
 name|start
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|step_ins
 operator|=
 name|FALSE
@@ -15952,8 +14913,8 @@ expr_stmt|;
 return|return;
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -15987,7 +14948,12 @@ name|void
 DECL|function|Ins_LOOPCALL
 name|Ins_LOOPCALL
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_ULong
@@ -16004,6 +14970,9 @@ decl_stmt|;
 comment|/* first of all, check the index */
 name|F
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|args
 index|[
 literal|1
@@ -16015,8 +14984,8 @@ name|BOUNDSL
 argument_list|(
 name|F
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxFunc
 operator|+
 literal|1
@@ -16029,28 +14998,28 @@ comment|/* Except for some old Apple fonts, all functions in a TrueType */
 comment|/* font are defined in increasing order, starting from 0.  This */
 comment|/* means that we normally have                                  */
 comment|/*                                                              */
-comment|/*    CUR.maxFunc+1 == CUR.numFDefs                             */
-comment|/*    CUR.FDefs[n].opc == n for n in 0..CUR.maxFunc             */
+comment|/*    exc->maxFunc+1 == exc->numFDefs                           */
+comment|/*    exc->FDefs[n].opc == n for n in 0..exc->maxFunc           */
 comment|/*                                                              */
 comment|/* If this isn't true, we need to look up the function table.   */
 name|def
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|FDefs
 operator|+
 name|F
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxFunc
 operator|+
 literal|1
 operator|!=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numFDefs
 operator|||
 name|def
@@ -16067,16 +15036,16 @@ name|limit
 decl_stmt|;
 name|def
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|FDefs
 expr_stmt|;
 name|limit
 operator|=
 name|def
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numFDefs
 expr_stmt|;
 while|while
@@ -16122,8 +15091,8 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
 operator|(
@@ -16138,8 +15107,8 @@ goto|goto
 name|Fail
 goto|;
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_in_func_flags
 operator|=
 name|def
@@ -16152,17 +15121,17 @@ comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 comment|/* check stack */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callSize
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16184,28 +15153,28 @@ condition|)
 block|{
 name|pCrec
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callStack
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 expr_stmt|;
 name|pCrec
 operator|->
 name|Caller_Range
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|curRange
 expr_stmt|;
 name|pCrec
 operator|->
 name|Caller_IP
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -16228,13 +15197,15 @@ name|Def
 operator|=
 name|def
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|++
 expr_stmt|;
-name|INS_Goto_CodeRange
+name|Ins_Goto_CodeRange
 argument_list|(
+name|exc
+argument_list|,
 name|def
 operator|->
 name|range
@@ -16244,8 +15215,8 @@ operator|->
 name|start
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|step_ins
 operator|=
 name|FALSE
@@ -16254,8 +15225,8 @@ block|}
 return|return;
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16289,7 +15260,12 @@ name|void
 DECL|function|Ins_IDEF
 name|Ins_IDEF
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|TT_DefRecord
@@ -16303,16 +15279,16 @@ decl_stmt|;
 comment|/*  First of all, look for the same function in our table */
 name|def
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IDefs
 expr_stmt|;
 name|limit
 operator|=
 name|def
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numIDefs
 expr_stmt|;
 for|for
@@ -16350,17 +15326,17 @@ block|{
 comment|/* check that there is enough room for a new instruction */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numIDefs
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxIDefs
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16370,8 +15346,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numIDefs
 operator|++
 expr_stmt|;
@@ -16394,8 +15370,8 @@ operator|>
 literal|0x00FF
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16421,8 +15397,8 @@ name|def
 operator|->
 name|start
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -16431,8 +15407,8 @@ name|def
 operator|->
 name|range
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|curRange
 expr_stmt|;
 name|def
@@ -16451,12 +15427,12 @@ index|[
 literal|0
 index|]
 operator|>
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxIns
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|maxIns
 operator|=
 operator|(
@@ -16471,16 +15447,18 @@ comment|/* Now skip the whole function definition. */
 comment|/* We don't allow nested IDEFs& FDEFs.    */
 while|while
 condition|(
-name|SKIP_Code
-argument_list|()
+name|SkipCode
+argument_list|(
+name|exc
+argument_list|)
 operator|==
 name|SUCCESS
 condition|)
 block|{
 switch|switch
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 condition|)
 block|{
@@ -16492,8 +15470,8 @@ case|case
 literal|0x2C
 case|:
 comment|/* FDEF */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16519,12 +15497,6 @@ comment|/*                                                                      
 end_comment
 begin_comment
 comment|/* PUSHING DATA ONTO THE INTERPRETER STACK                               */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*   Instructions appear in the specification's order.                   */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -16556,7 +15528,12 @@ name|void
 DECL|function|Ins_NPUSHB
 name|Ins_NPUSHB
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -16569,12 +15546,12 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -16586,20 +15563,20 @@ name|BOUNDS
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stackSize
 operator|+
 literal|1
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 argument_list|)
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16629,12 +15606,12 @@ operator|-
 literal|1
 index|]
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 name|K
@@ -16642,8 +15619,8 @@ operator|+
 literal|1
 index|]
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|+=
 name|L
@@ -16674,7 +15651,12 @@ name|void
 DECL|function|Ins_NPUSHW
 name|Ins_NPUSHW
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -16687,12 +15669,12 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -16704,20 +15686,20 @@ name|BOUNDS
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stackSize
 operator|+
 literal|1
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 argument_list|)
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16727,8 +15709,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+=
 literal|2
@@ -16751,17 +15733,19 @@ index|[
 name|K
 index|]
 operator|=
-name|GET_ShortIns
-argument_list|()
+name|GetShortIns
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|step_ins
 operator|=
 name|FALSE
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|+=
 name|L
@@ -16792,7 +15776,12 @@ name|void
 DECL|function|Ins_PUSHB
 name|Ins_PUSHB
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -16806,8 +15795,8 @@ call|(
 name|FT_UShort
 call|)
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|-
 literal|0xB0
@@ -16821,20 +15810,20 @@ name|BOUNDS
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stackSize
 operator|+
 literal|1
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 argument_list|)
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16864,12 +15853,12 @@ operator|-
 literal|1
 index|]
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 name|K
@@ -16901,7 +15890,12 @@ name|void
 DECL|function|Ins_PUSHW
 name|Ins_PUSHW
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -16915,8 +15909,8 @@ call|(
 name|FT_UShort
 call|)
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|-
 literal|0xB8
@@ -16930,20 +15924,20 @@ name|BOUNDS
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stackSize
 operator|+
 literal|1
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 argument_list|)
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -16953,8 +15947,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|++
 expr_stmt|;
@@ -16976,11 +15970,13 @@ index|[
 name|K
 index|]
 operator|=
-name|GET_ShortIns
-argument_list|()
+name|GetShortIns
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|step_ins
 operator|=
 name|FALSE
@@ -17000,14 +15996,2055 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/*  Instructions appear in the specs' order.                             */
+comment|/*************************************************************************/
+end_comment
+begin_function
+specifier|static
+name|FT_Bool
+DECL|function|Ins_SxVTL
+name|Ins_SxVTL
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_UShort
+name|aIdx1
+parameter_list|,
+name|FT_UShort
+name|aIdx2
+parameter_list|,
+name|FT_UnitVector
+modifier|*
+name|Vec
+parameter_list|)
+block|{
+name|FT_Long
+name|A
+decl_stmt|,
+name|B
+decl_stmt|,
+name|C
+decl_stmt|;
+name|FT_Vector
+modifier|*
+name|p1
+decl_stmt|;
+name|FT_Vector
+modifier|*
+name|p2
+decl_stmt|;
+name|FT_Byte
+name|opcode
+init|=
+name|exc
+operator|->
+name|opcode
+decl_stmt|;
+if|if
+condition|(
+name|BOUNDS
+argument_list|(
+name|aIdx1
+argument_list|,
+name|exc
+operator|->
+name|zp2
+operator|.
+name|n_points
+argument_list|)
+operator|||
+name|BOUNDS
+argument_list|(
+name|aIdx2
+argument_list|,
+name|exc
+operator|->
+name|zp1
+operator|.
+name|n_points
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|exc
+operator|->
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_Reference
+argument_list|)
+expr_stmt|;
+return|return
+name|FAILURE
+return|;
+block|}
+name|p1
+operator|=
+name|exc
+operator|->
+name|zp1
+operator|.
+name|cur
+operator|+
+name|aIdx2
+expr_stmt|;
+name|p2
+operator|=
+name|exc
+operator|->
+name|zp2
+operator|.
+name|cur
+operator|+
+name|aIdx1
+expr_stmt|;
+name|A
+operator|=
+name|p1
+operator|->
+name|x
+operator|-
+name|p2
+operator|->
+name|x
+expr_stmt|;
+name|B
+operator|=
+name|p1
+operator|->
+name|y
+operator|-
+name|p2
+operator|->
+name|y
+expr_stmt|;
+comment|/* If p1 == p2, SPvTL and SFvTL behave the same as */
+comment|/* SPvTCA[X] and SFvTCA[X], respectively.          */
+comment|/*                                                 */
+comment|/* Confirmed by Greg Hitchcock.                    */
+if|if
+condition|(
+name|A
+operator|==
+literal|0
+operator|&&
+name|B
+operator|==
+literal|0
+condition|)
+block|{
+name|A
+operator|=
+literal|0x4000
+expr_stmt|;
+name|opcode
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|(
+name|opcode
+operator|&
+literal|1
+operator|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|C
+operator|=
+name|B
+expr_stmt|;
+comment|/* counter clockwise rotation */
+name|B
+operator|=
+name|A
+expr_stmt|;
+name|A
+operator|=
+operator|-
+name|C
+expr_stmt|;
+block|}
+name|Normalize
+argument_list|(
+name|A
+argument_list|,
+name|B
+argument_list|,
+name|Vec
+argument_list|)
+expr_stmt|;
+return|return
+name|SUCCESS
+return|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
 end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
+comment|/* SVTCA[a]:     Set (F and P) Vectors to Coordinate Axis                */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x00-0x01                                               */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SPvTCA[a]:    Set PVector to Coordinate Axis                          */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x02-0x03                                               */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SFvTCA[a]:    Set FVector to Coordinate Axis                          */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x04-0x05                                               */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SxyTCA
+name|Ins_SxyTCA
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|FT_Short
+name|AA
+decl_stmt|,
+name|BB
+decl_stmt|;
+name|FT_Byte
+name|opcode
+init|=
+name|exc
+operator|->
+name|opcode
+decl_stmt|;
+name|AA
+operator|=
+call|(
+name|FT_Short
+call|)
+argument_list|(
+operator|(
+name|opcode
+operator|&
+literal|1
+operator|)
+operator|<<
+literal|14
+argument_list|)
+expr_stmt|;
+name|BB
+operator|=
+call|(
+name|FT_Short
+call|)
+argument_list|(
+name|AA
+operator|^
+literal|0x4000
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|opcode
+operator|<
+literal|4
+condition|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+operator|.
+name|x
+operator|=
+name|AA
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+operator|.
+name|y
+operator|=
+name|BB
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|dualVector
+operator|.
+name|x
+operator|=
+name|AA
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|dualVector
+operator|.
+name|y
+operator|=
+name|BB
+expr_stmt|;
+block|}
+else|else
+name|GUESS_VECTOR
+argument_list|(
+name|projVector
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|opcode
+operator|&
+literal|2
+operator|)
+operator|==
+literal|0
+condition|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+operator|.
+name|x
+operator|=
+name|AA
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+operator|.
+name|y
+operator|=
+name|BB
+expr_stmt|;
+block|}
+else|else
+name|GUESS_VECTOR
+argument_list|(
+name|freeVector
+argument_list|)
+expr_stmt|;
+name|Compute_Funcs
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*************************************************************************/
 end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SPvTL[a]:     Set PVector To Line                                     */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x06-0x07                                               */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 uint32 -->                                       */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SPVTL
+name|Ins_SPVTL
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+if|if
+condition|(
+name|Ins_SxVTL
+argument_list|(
+name|exc
+argument_list|,
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|1
+index|]
+argument_list|,
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+operator|&
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+argument_list|)
+operator|==
+name|SUCCESS
+condition|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|dualVector
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+expr_stmt|;
+name|GUESS_VECTOR
+argument_list|(
+name|freeVector
+argument_list|)
+expr_stmt|;
+name|Compute_Funcs
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SFvTL[a]:     Set FVector To Line                                     */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x08-0x09                                               */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 uint32 -->                                       */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SFVTL
+name|Ins_SFVTL
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+if|if
+condition|(
+name|Ins_SxVTL
+argument_list|(
+name|exc
+argument_list|,
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|1
+index|]
+argument_list|,
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+operator|&
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+argument_list|)
+operator|==
+name|SUCCESS
+condition|)
+block|{
+name|GUESS_VECTOR
+argument_list|(
+name|projVector
+argument_list|)
+expr_stmt|;
+name|Compute_Funcs
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SFvTPv[]:     Set FVector To PVector                                  */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x0E                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SFVTPV
+name|Ins_SFVTPV
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|GUESS_VECTOR
+argument_list|(
+name|projVector
+argument_list|)
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+expr_stmt|;
+name|Compute_Funcs
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SPvFS[]:      Set PVector From Stack                                  */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x0A                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        f2.14 f2.14 -->                                         */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SPVFS
+name|Ins_SPVFS
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|FT_Short
+name|S
+decl_stmt|;
+name|FT_Long
+name|X
+decl_stmt|,
+name|Y
+decl_stmt|;
+comment|/* Only use low 16bits, then sign extend */
+name|S
+operator|=
+operator|(
+name|FT_Short
+operator|)
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
+name|Y
+operator|=
+operator|(
+name|FT_Long
+operator|)
+name|S
+expr_stmt|;
+name|S
+operator|=
+operator|(
+name|FT_Short
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+name|X
+operator|=
+operator|(
+name|FT_Long
+operator|)
+name|S
+expr_stmt|;
+name|Normalize
+argument_list|(
+name|X
+argument_list|,
+name|Y
+argument_list|,
+operator|&
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+argument_list|)
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|dualVector
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+expr_stmt|;
+name|GUESS_VECTOR
+argument_list|(
+name|freeVector
+argument_list|)
+expr_stmt|;
+name|Compute_Funcs
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SFvFS[]:      Set FVector From Stack                                  */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x0B                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        f2.14 f2.14 -->                                         */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SFVFS
+name|Ins_SFVFS
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|FT_Short
+name|S
+decl_stmt|;
+name|FT_Long
+name|X
+decl_stmt|,
+name|Y
+decl_stmt|;
+comment|/* Only use low 16bits, then sign extend */
+name|S
+operator|=
+operator|(
+name|FT_Short
+operator|)
+name|args
+index|[
+literal|1
+index|]
+expr_stmt|;
+name|Y
+operator|=
+operator|(
+name|FT_Long
+operator|)
+name|S
+expr_stmt|;
+name|S
+operator|=
+operator|(
+name|FT_Short
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+name|X
+operator|=
+name|S
+expr_stmt|;
+name|Normalize
+argument_list|(
+name|X
+argument_list|,
+name|Y
+argument_list|,
+operator|&
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+argument_list|)
+expr_stmt|;
+name|GUESS_VECTOR
+argument_list|(
+name|projVector
+argument_list|)
+expr_stmt|;
+name|Compute_Funcs
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* GPv[]:        Get Projection Vector                                   */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x0C                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        ef2.14 --> ef2.14                                       */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_GPV
+name|Ins_GPV
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|TT_CONFIG_OPTION_UNPATENTED_HINTING
+if|if
+condition|(
+name|exc
+operator|->
+name|face
+operator|->
+name|unpatented_hinting
+condition|)
+block|{
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|both_x_axis
+condition|?
+literal|0x4000
+else|:
+literal|0
+expr_stmt|;
+name|args
+index|[
+literal|1
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|both_x_axis
+condition|?
+literal|0
+else|:
+literal|0x4000
+expr_stmt|;
+block|}
+else|else
+block|{
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+operator|.
+name|x
+expr_stmt|;
+name|args
+index|[
+literal|1
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+operator|.
+name|y
+expr_stmt|;
+block|}
+else|#
+directive|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+operator|.
+name|x
+expr_stmt|;
+name|args
+index|[
+literal|1
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|projVector
+operator|.
+name|y
+expr_stmt|;
+endif|#
+directive|endif
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* GFv[]:        Get Freedom Vector                                      */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x0D                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        ef2.14 --> ef2.14                                       */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_GFV
+name|Ins_GFV
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|TT_CONFIG_OPTION_UNPATENTED_HINTING
+if|if
+condition|(
+name|exc
+operator|->
+name|face
+operator|->
+name|unpatented_hinting
+condition|)
+block|{
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|both_x_axis
+condition|?
+literal|0x4000
+else|:
+literal|0
+expr_stmt|;
+name|args
+index|[
+literal|1
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|both_x_axis
+condition|?
+literal|0
+else|:
+literal|0x4000
+expr_stmt|;
+block|}
+else|else
+block|{
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+operator|.
+name|x
+expr_stmt|;
+name|args
+index|[
+literal|1
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+operator|.
+name|y
+expr_stmt|;
+block|}
+else|#
+directive|else
+name|args
+index|[
+literal|0
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+operator|.
+name|x
+expr_stmt|;
+name|args
+index|[
+literal|1
+index|]
+operator|=
+name|exc
+operator|->
+name|GS
+operator|.
+name|freeVector
+operator|.
+name|y
+expr_stmt|;
+endif|#
+directive|endif
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SRP0[]:       Set Reference Point 0                                   */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x10                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SRP0
+name|Ins_SRP0
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|rp0
+operator|=
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SRP1[]:       Set Reference Point 1                                   */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x11                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SRP1
+name|Ins_SRP1
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|rp1
+operator|=
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SRP2[]:       Set Reference Point 2                                   */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x12                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SRP2
+name|Ins_SRP2
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|rp2
+operator|=
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SMD[]:        Set Minimum Distance                                    */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x1A                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        f26.6 -->                                               */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SMD
+name|Ins_SMD
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|minimum_distance
+operator|=
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SCVTCI[]:     Set Control Value Table Cut In                          */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x1D                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        f26.6 -->                                               */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SCVTCI
+name|Ins_SCVTCI
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|control_value_cutin
+operator|=
+operator|(
+name|FT_F26Dot6
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SSWCI[]:      Set Single Width Cut In                                 */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x1E                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        f26.6 -->                                               */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SSWCI
+name|Ins_SSWCI
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|single_width_cutin
+operator|=
+operator|(
+name|FT_F26Dot6
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SSW[]:        Set Single Width                                        */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x1F                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        int32? -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SSW
+name|Ins_SSW
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|single_width_value
+operator|=
+name|FT_MulFix
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|,
+name|exc
+operator|->
+name|tt_metrics
+operator|.
+name|scale
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* FLIPON[]:     Set auto-FLIP to ON                                     */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x4D                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_FLIPON
+name|Ins_FLIPON
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|auto_flip
+operator|=
+name|TRUE
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* FLIPOFF[]:    Set auto-FLIP to OFF                                    */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x4E                                                    */
+end_comment
+begin_comment
+comment|/* Stack: -->                                                            */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_FLIPOFF
+name|Ins_FLIPOFF
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|auto_flip
+operator|=
+name|FALSE
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SANGW[]:      Set ANGle Weight                                        */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x7E                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SANGW
+name|Ins_SANGW
+parameter_list|(
+name|void
+parameter_list|)
+block|{
+comment|/* instruction not supported anymore */
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SDB[]:        Set Delta Base                                          */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x5E                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SDB
+name|Ins_SDB
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|delta_base
+operator|=
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SDS[]:        Set Delta Shift                                         */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x5F                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SDS
+name|Ins_SDS
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|(
+name|FT_ULong
+operator|)
+name|args
+index|[
+literal|0
+index|]
+operator|>
+literal|6UL
+condition|)
+name|exc
+operator|->
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Bad_Argument
+argument_list|)
+expr_stmt|;
+else|else
+name|exc
+operator|->
+name|GS
+operator|.
+name|delta_shift
+operator|=
+operator|(
+name|FT_UShort
+operator|)
+name|args
+index|[
+literal|0
+index|]
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* RTHG[]:       Round To Half Grid                                      */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x19                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_RTHG
+name|Ins_RTHG
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|round_state
+operator|=
+name|TT_Round_To_Half_Grid
+expr_stmt|;
+name|exc
+operator|->
+name|func_round
+operator|=
+operator|(
+name|TT_Round_Func
+operator|)
+name|Round_To_Half_Grid
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* RTG[]:        Round To Grid                                           */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x18                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_RTG
+name|Ins_RTG
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|round_state
+operator|=
+name|TT_Round_To_Grid
+expr_stmt|;
+name|exc
+operator|->
+name|func_round
+operator|=
+operator|(
+name|TT_Round_Func
+operator|)
+name|Round_To_Grid
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/* RTDG[]:       Round To Double Grid                                    */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x3D                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_RTDG
+name|Ins_RTDG
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|round_state
+operator|=
+name|TT_Round_To_Double_Grid
+expr_stmt|;
+name|exc
+operator|->
+name|func_round
+operator|=
+operator|(
+name|TT_Round_Func
+operator|)
+name|Round_To_Double_Grid
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/* RUTG[]:       Round Up To Grid                                        */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x7C                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_RUTG
+name|Ins_RUTG
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|round_state
+operator|=
+name|TT_Round_Up_To_Grid
+expr_stmt|;
+name|exc
+operator|->
+name|func_round
+operator|=
+operator|(
+name|TT_Round_Func
+operator|)
+name|Round_Up_To_Grid
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* RDTG[]:       Round Down To Grid                                      */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x7D                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_RDTG
+name|Ins_RDTG
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|round_state
+operator|=
+name|TT_Round_Down_To_Grid
+expr_stmt|;
+name|exc
+operator|->
+name|func_round
+operator|=
+operator|(
+name|TT_Round_Func
+operator|)
+name|Round_Down_To_Grid
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* ROFF[]:       Round OFF                                               */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x7A                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        -->                                                     */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_ROFF
+name|Ins_ROFF
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|)
+block|{
+name|exc
+operator|->
+name|GS
+operator|.
+name|round_state
+operator|=
+name|TT_Round_Off
+expr_stmt|;
+name|exc
+operator|->
+name|func_round
+operator|=
+operator|(
+name|TT_Round_Func
+operator|)
+name|Round_None
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* SROUND[]:     Super ROUND                                             */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x76                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        Eint8 -->                                               */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_SROUND
+name|Ins_SROUND
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|SetSuperRound
+argument_list|(
+name|exc
+argument_list|,
+literal|0x4000
+argument_list|,
+name|args
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|round_state
+operator|=
+name|TT_Round_Super
+expr_stmt|;
+name|exc
+operator|->
+name|func_round
+operator|=
+operator|(
+name|TT_Round_Func
+operator|)
+name|Round_Super
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* S45ROUND[]:   Super ROUND 45 degrees                                  */
+end_comment
+begin_comment
+comment|/* Opcode range: 0x77                                                    */
+end_comment
+begin_comment
+comment|/* Stack:        uint32 -->                                              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_function
+specifier|static
+name|void
+DECL|function|Ins_S45ROUND
+name|Ins_S45ROUND
+parameter_list|(
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
+parameter_list|)
+block|{
+name|SetSuperRound
+argument_list|(
+name|exc
+argument_list|,
+literal|0x2D41
+argument_list|,
+name|args
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|round_state
+operator|=
+name|TT_Round_Super_45
+expr_stmt|;
+name|exc
+operator|->
+name|func_round
+operator|=
+operator|(
+name|TT_Round_Func
+operator|)
+name|Round_Super_45
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -17041,7 +18078,12 @@ name|void
 DECL|function|Ins_GC
 name|Ins_GC
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_ULong
@@ -17066,8 +18108,8 @@ name|BOUNDSL
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -17076,12 +18118,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -17098,19 +18140,19 @@ else|else
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|1
 condition|)
 name|R
 operator|=
-name|CUR_fast_dualproj
+name|FAST_DUALPROJ
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|org
@@ -17122,11 +18164,11 @@ expr_stmt|;
 else|else
 name|R
 operator|=
-name|CUR_fast_project
+name|FAST_PROJECT
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -17181,7 +18223,12 @@ name|void
 DECL|function|Ins_SCFS
 name|Ins_SCFS
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_Long
@@ -17206,8 +18253,8 @@ name|BOUNDS
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -17216,12 +18263,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -17233,11 +18280,11 @@ return|return;
 block|}
 name|K
 operator|=
-name|CUR_fast_project
+name|FAST_PROJECT
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -17246,11 +18293,15 @@ name|L
 index|]
 argument_list|)
 expr_stmt|;
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 argument_list|,
 name|L
@@ -17267,16 +18318,16 @@ comment|/* UNDOCUMENTED!  The MS rasterizer does that with */
 comment|/* twilight points (confirmed by Greg Hitchcock)   */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep2
 operator|==
 literal|0
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|org
@@ -17284,8 +18335,8 @@ index|[
 name|L
 index|]
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -17346,7 +18397,12 @@ name|void
 DECL|function|Ins_MD
 name|Ins_MD
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -17383,8 +18439,8 @@ name|BOUNDS
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -17394,8 +18450,8 @@ name|BOUNDS
 argument_list|(
 name|K
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -17404,12 +18460,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -17426,26 +18482,26 @@ else|else
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|1
 condition|)
 name|D
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
 operator|+
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -17458,16 +18514,16 @@ block|{
 comment|/* XXX: UNDOCUMENTED: twilight zone special case */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep0
 operator|==
 literal|0
 operator|||
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
@@ -17479,8 +18535,8 @@ name|FT_Vector
 modifier|*
 name|vec1
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
@@ -17491,8 +18547,8 @@ name|FT_Vector
 modifier|*
 name|vec2
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -17501,7 +18557,7 @@ name|K
 decl_stmt|;
 name|D
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 name|vec1
 argument_list|,
@@ -17515,8 +18571,8 @@ name|FT_Vector
 modifier|*
 name|vec1
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|orus
@@ -17527,8 +18583,8 @@ name|FT_Vector
 modifier|*
 name|vec2
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|orus
@@ -17537,14 +18593,14 @@ name|K
 decl_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
 operator|==
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_scale
@@ -17553,7 +18609,7 @@ block|{
 comment|/* this should be faster */
 name|D
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 name|vec1
 argument_list|,
@@ -17566,8 +18622,8 @@ name|FT_MulFix
 argument_list|(
 name|D
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
@@ -17593,8 +18649,8 @@ name|vec2
 operator|->
 name|x
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
@@ -17614,8 +18670,8 @@ name|vec2
 operator|->
 name|y
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_scale
@@ -17623,7 +18679,7 @@ argument_list|)
 expr_stmt|;
 name|D
 operator|=
-name|CUR_fast_dualproj
+name|FAST_DUALPROJ
 argument_list|(
 operator|&
 name|vec
@@ -17641,8 +18697,8 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
 name|FT_ABS
@@ -17675,7 +18731,7 @@ begin_comment
 comment|/*                                                                       */
 end_comment
 begin_comment
-comment|/* SDPVTL[a]:    Set Dual PVector to Line                                */
+comment|/* SDPvTL[a]:    Set Dual PVector to Line                                */
 end_comment
 begin_comment
 comment|/* Opcode range: 0x86-0x87                                               */
@@ -17692,7 +18748,12 @@ name|void
 DECL|function|Ins_SDPVTL
 name|Ins_SDPVTL
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_Long
@@ -17708,11 +18769,11 @@ decl_stmt|,
 name|p2
 decl_stmt|;
 comment|/* was FT_Int in pas type ERROR */
-name|FT_Int
-name|aOpc
+name|FT_Byte
+name|opcode
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 decl_stmt|;
 name|p1
@@ -17741,8 +18802,8 @@ name|BOUNDS
 argument_list|(
 name|p2
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -17752,8 +18813,8 @@ name|BOUNDS
 argument_list|(
 name|p1
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -17762,12 +18823,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -17782,8 +18843,8 @@ name|FT_Vector
 modifier|*
 name|v1
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -17794,8 +18855,8 @@ name|FT_Vector
 modifier|*
 name|v2
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|org
@@ -17822,7 +18883,7 @@ name|v2
 operator|->
 name|y
 expr_stmt|;
-comment|/* If v1 == v2, SDPVTL behaves the same as */
+comment|/* If v1 == v2, SDPvTL behaves the same as */
 comment|/* SVTCA[X], respectively.                 */
 comment|/*                                         */
 comment|/* Confirmed by Greg Hitchcock.            */
@@ -17841,7 +18902,7 @@ name|A
 operator|=
 literal|0x4000
 expr_stmt|;
-name|aOpc
+name|opcode
 operator|=
 literal|0
 expr_stmt|;
@@ -17850,7 +18911,7 @@ block|}
 if|if
 condition|(
 operator|(
-name|aOpc
+name|opcode
 operator|&
 literal|1
 operator|)
@@ -17873,15 +18934,15 @@ operator|-
 name|C
 expr_stmt|;
 block|}
-name|NORMalize
+name|Normalize
 argument_list|(
 name|A
 argument_list|,
 name|B
 argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|dualVector
@@ -17892,8 +18953,8 @@ name|FT_Vector
 modifier|*
 name|v1
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -17904,8 +18965,8 @@ name|FT_Vector
 modifier|*
 name|v2
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -17947,7 +19008,7 @@ name|A
 operator|=
 literal|0x4000
 expr_stmt|;
-name|aOpc
+name|opcode
 operator|=
 literal|0
 expr_stmt|;
@@ -17956,7 +19017,7 @@ block|}
 if|if
 condition|(
 operator|(
-name|aOpc
+name|opcode
 operator|&
 literal|1
 operator|)
@@ -17979,15 +19040,15 @@ operator|-
 name|C
 expr_stmt|;
 block|}
-name|NORMalize
+name|Normalize
 argument_list|(
 name|A
 argument_list|,
 name|B
 argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|projVector
@@ -17998,8 +19059,10 @@ argument_list|(
 name|freeVector
 argument_list|)
 expr_stmt|;
-name|COMPUTE_Funcs
-argument_list|()
+name|Compute_Funcs
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -18027,7 +19090,12 @@ name|void
 DECL|function|Ins_SZP0
 name|Ins_SZP0
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 switch|switch
@@ -18044,36 +19112,36 @@ block|{
 case|case
 literal|0
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|twilight
 expr_stmt|;
 break|break;
 case|case
 literal|1
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 expr_stmt|;
 break|break;
 default|default:
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -18083,8 +19151,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep0
@@ -18123,7 +19191,12 @@ name|void
 DECL|function|Ins_SZP1
 name|Ins_SZP1
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 switch|switch
@@ -18140,36 +19213,36 @@ block|{
 case|case
 literal|0
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|twilight
 expr_stmt|;
 break|break;
 case|case
 literal|1
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 expr_stmt|;
 break|break;
 default|default:
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -18179,8 +19252,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
@@ -18219,7 +19292,12 @@ name|void
 DECL|function|Ins_SZP2
 name|Ins_SZP2
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 switch|switch
@@ -18236,36 +19314,36 @@ block|{
 case|case
 literal|0
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|twilight
 expr_stmt|;
 break|break;
 case|case
 literal|1
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 expr_stmt|;
 break|break;
 default|default:
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -18275,8 +19353,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep2
@@ -18315,7 +19393,12 @@ name|void
 DECL|function|Ins_SZPS
 name|Ins_SZPS
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 switch|switch
@@ -18332,36 +19415,36 @@ block|{
 case|case
 literal|0
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|twilight
 expr_stmt|;
 break|break;
 case|case
 literal|1
 case|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 expr_stmt|;
 break|break;
 default|default:
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -18371,24 +19454,24 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep0
@@ -18401,8 +19484,8 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
@@ -18415,8 +19498,8 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep2
@@ -18455,16 +19538,26 @@ name|void
 DECL|function|Ins_INSTCTRL
 name|Ins_INSTCTRL
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
-name|FT_Long
+name|FT_ULong
 name|K
 decl_stmt|,
 name|L
+decl_stmt|,
+name|Kf
 decl_stmt|;
 name|K
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|args
 index|[
 literal|1
@@ -18472,11 +19565,16 @@ index|]
 expr_stmt|;
 name|L
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|args
 index|[
 literal|0
 index|]
 expr_stmt|;
+comment|/* selector values cannot be `OR'ed;                 */
+comment|/* they are indices starting with index 1, not flags */
 if|if
 condition|(
 name|K
@@ -18485,17 +19583,17 @@ literal|1
 operator|||
 name|K
 operator|>
-literal|2
+literal|3
 condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -18505,47 +19603,97 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|/* convert index to flag value */
+name|Kf
+operator|=
+literal|1
+operator|<<
+operator|(
+name|K
+operator|-
+literal|1
+operator|)
+expr_stmt|;
 if|if
 condition|(
 name|L
 operator|!=
 literal|0
 condition|)
+block|{
+comment|/* arguments to selectors look like flag values */
+if|if
+condition|(
 name|L
+operator|!=
+name|Kf
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
+name|pedantic_hinting
+condition|)
+name|exc
+operator|->
+name|error
 operator|=
-name|K
-expr_stmt|;
-name|CUR
-operator|.
-name|GS
-operator|.
-name|instruct_control
-operator|=
-name|FT_BOOL
+name|FT_THROW
 argument_list|(
-operator|(
-operator|(
-name|FT_Byte
-operator|)
-name|CUR
-operator|.
+name|Invalid_Reference
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+block|}
+name|exc
+operator|->
 name|GS
 operator|.
 name|instruct_control
-operator|&
+operator|&=
 operator|~
 operator|(
 name|FT_Byte
 operator|)
-name|K
-operator|)
-operator||
+name|Kf
+expr_stmt|;
+name|exc
+operator|->
+name|GS
+operator|.
+name|instruct_control
+operator||=
 operator|(
 name|FT_Byte
 operator|)
 name|L
+expr_stmt|;
+ifdef|#
+directive|ifdef
+name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
+comment|/* INSTCTRL modifying flag 3 also has an effect */
+comment|/* outside of the CVT program                   */
+if|if
+condition|(
+name|K
+operator|==
+literal|3
+condition|)
+name|exc
+operator|->
+name|ignore_x_mode
+operator|=
+name|FT_BOOL
+argument_list|(
+name|L
+operator|==
+literal|4
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -18572,7 +19720,12 @@ name|void
 DECL|function|Ins_SCANCTRL
 name|Ins_SCANCTRL
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_Int
@@ -18600,8 +19753,8 @@ operator|==
 literal|0xFF
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_control
@@ -18618,8 +19771,8 @@ operator|==
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_control
@@ -18641,16 +19794,16 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ppem
 operator|<=
 name|A
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_control
@@ -18670,14 +19823,14 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|rotated
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_control
@@ -18697,14 +19850,14 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|stretched
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_control
@@ -18724,16 +19877,16 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ppem
 operator|>
 name|A
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_control
@@ -18753,14 +19906,14 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|rotated
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_control
@@ -18780,14 +19933,14 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|stretched
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_control
@@ -18820,7 +19973,12 @@ name|void
 DECL|function|Ins_SCANTYPE
 name|Ins_SCANTYPE
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 if|if
@@ -18832,8 +19990,8 @@ index|]
 operator|>=
 literal|0
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|scan_type
@@ -18856,12 +20014,6 @@ comment|/*                                                                      
 end_comment
 begin_comment
 comment|/* MANAGING OUTLINES                                                     */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*   Instructions appear in the specification's order.                   */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -18893,22 +20045,21 @@ name|void
 DECL|function|Ins_FLIPPT
 name|Ins_FLIPPT
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 name|FT_UShort
 name|point
 decl_stmt|;
-name|FT_UNUSED_ARG
-expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -18916,12 +20067,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -18935,8 +20086,8 @@ goto|;
 block|}
 while|while
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -18944,8 +20095,8 @@ operator|>
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|--
 expr_stmt|;
@@ -18954,12 +20105,12 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 index|]
 expr_stmt|;
@@ -18969,8 +20120,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_points
@@ -18979,13 +20130,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -18997,8 +20148,8 @@ return|return;
 block|}
 block|}
 else|else
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|tags
@@ -19008,8 +20159,8 @@ index|]
 operator|^=
 name|FT_CURVE_TAG_ON
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -19018,20 +20169,20 @@ expr_stmt|;
 block|}
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
 operator|=
 literal|1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
@@ -19060,7 +20211,12 @@ name|void
 DECL|function|Ins_FLIPRGON
 name|Ins_FLIPRGON
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -19096,8 +20252,8 @@ name|BOUNDS
 argument_list|(
 name|K
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_points
@@ -19107,8 +20263,8 @@ name|BOUNDS
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_points
@@ -19117,12 +20273,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -19145,8 +20301,8 @@ condition|;
 name|I
 operator|++
 control|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|tags
@@ -19182,7 +20338,12 @@ name|void
 DECL|function|Ins_FLIPRGOFF
 name|Ins_FLIPRGOFF
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -19218,8 +20379,8 @@ name|BOUNDS
 argument_list|(
 name|K
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_points
@@ -19229,8 +20390,8 @@ name|BOUNDS
 argument_list|(
 name|L
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_points
@@ -19239,12 +20400,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -19267,8 +20428,8 @@ condition|;
 name|I
 operator|++
 control|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|tags
@@ -19287,7 +20448,9 @@ name|FT_Bool
 DECL|function|Compute_Point_Displacement
 name|Compute_Point_Displacement
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_F26Dot6
 modifier|*
 name|x
@@ -19315,8 +20478,8 @@ name|d
 decl_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|1
@@ -19324,14 +20487,14 @@ condition|)
 block|{
 name|zp
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 expr_stmt|;
 name|p
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
@@ -19341,14 +20504,14 @@ else|else
 block|{
 name|zp
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 expr_stmt|;
 name|p
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -19368,12 +20531,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -19402,7 +20565,7 @@ name|p
 expr_stmt|;
 name|d
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
 name|zp
 operator|.
@@ -19422,8 +20585,8 @@ directive|ifdef
 name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -19431,8 +20594,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|both_x_axis
@@ -19477,16 +20640,16 @@ argument_list|,
 operator|(
 name|FT_Long
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
 operator|.
 name|x
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 argument_list|)
 expr_stmt|;
@@ -19500,16 +20663,16 @@ argument_list|,
 operator|(
 name|FT_Long
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
 operator|.
 name|y
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|F_dot_P
 argument_list|)
 expr_stmt|;
@@ -19525,7 +20688,9 @@ name|void
 DECL|function|Move_Zp2_Point
 name|Move_Zp2_Point
 parameter_list|(
-name|EXEC_OP_
+name|TT_ExecContext
+name|exc
+parameter_list|,
 name|FT_UShort
 name|point
 parameter_list|,
@@ -19544,8 +20709,8 @@ directive|ifdef
 name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -19553,15 +20718,15 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|both_x_axis
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -19577,8 +20742,8 @@ if|if
 condition|(
 name|touch
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|tags
@@ -19591,8 +20756,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -19608,8 +20773,8 @@ if|if
 condition|(
 name|touch
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|tags
@@ -19626,8 +20791,8 @@ endif|#
 directive|endif
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -19637,8 +20802,8 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -19654,8 +20819,8 @@ if|if
 condition|(
 name|touch
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|tags
@@ -19668,8 +20833,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -19679,8 +20844,8 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -19696,8 +20861,8 @@ if|if
 condition|(
 name|touch
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|tags
@@ -19734,7 +20899,8 @@ name|void
 DECL|function|Ins_SHP
 name|Ins_SHP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 name|TT_GlyphZoneRec
@@ -19751,16 +20917,14 @@ decl_stmt|;
 name|FT_UShort
 name|point
 decl_stmt|;
-name|FT_UNUSED_ARG
-expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -19768,12 +20932,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -19787,8 +20951,10 @@ goto|;
 block|}
 if|if
 condition|(
-name|COMPUTE_Point_Displacement
+name|Compute_Point_Displacement
 argument_list|(
+name|exc
+argument_list|,
 operator|&
 name|dx
 argument_list|,
@@ -19805,8 +20971,8 @@ condition|)
 return|return;
 while|while
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -19814,8 +20980,8 @@ operator|>
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|--
 expr_stmt|;
@@ -19824,12 +20990,12 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 index|]
 expr_stmt|;
@@ -19839,8 +21005,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -19849,13 +21015,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -19875,12 +21041,14 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 condition|)
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 literal|0
@@ -19894,8 +21062,10 @@ else|else
 endif|#
 directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 name|dx
@@ -19905,8 +21075,8 @@ argument_list|,
 name|TRUE
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -19915,20 +21085,20 @@ expr_stmt|;
 block|}
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
 operator|=
 literal|1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
@@ -19969,7 +21139,12 @@ name|void
 DECL|function|Ins_SHC
 name|Ins_SHC
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|TT_GlyphZoneRec
@@ -19998,7 +21173,7 @@ decl_stmt|;
 name|contour
 operator|=
 operator|(
-name|FT_UShort
+name|FT_Short
 operator|)
 name|args
 index|[
@@ -20008,8 +21183,8 @@ expr_stmt|;
 name|bounds
 operator|=
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep2
@@ -20019,8 +21194,8 @@ operator|)
 condition|?
 literal|1
 else|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_contours
@@ -20037,12 +21212,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -20054,8 +21229,10 @@ return|return;
 block|}
 if|if
 condition|(
-name|COMPUTE_Point_Displacement
+name|Compute_Point_Displacement
 argument_list|(
+name|exc
+argument_list|,
 operator|&
 name|dx
 argument_list|,
@@ -20087,8 +21264,8 @@ call|(
 name|FT_UShort
 call|)
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|contours
@@ -20100,8 +21277,8 @@ index|]
 operator|+
 literal|1
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|first_point
@@ -20110,8 +21287,8 @@ expr_stmt|;
 comment|/* we use the number of points if in the twilight zone */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep2
@@ -20120,8 +21297,8 @@ literal|0
 condition|)
 name|limit
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -20133,8 +21310,8 @@ call|(
 name|FT_UShort
 call|)
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|contours
@@ -20142,8 +21319,8 @@ index|[
 name|contour
 index|]
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|first_point
@@ -20171,8 +21348,8 @@ name|zp
 operator|.
 name|cur
 operator|!=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -20181,8 +21358,10 @@ name|refp
 operator|!=
 name|i
 condition|)
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|i
 argument_list|,
 name|dx
@@ -20219,7 +21398,12 @@ name|void
 DECL|function|Ins_SHZ
 name|Ins_SHZ
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|TT_GlyphZoneRec
@@ -20253,12 +21437,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -20270,8 +21454,10 @@ return|return;
 block|}
 if|if
 condition|(
-name|COMPUTE_Point_Displacement
+name|Compute_Point_Displacement
 argument_list|(
+name|exc
+argument_list|,
 operator|&
 name|dx
 argument_list|,
@@ -20292,8 +21478,8 @@ comment|/*      Normal zone's `n_points' includes phantoms, so must    */
 comment|/*      use end of last contour.                               */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep2
@@ -20305,8 +21491,8 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -20314,16 +21500,16 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep2
 operator|==
 literal|1
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_contours
@@ -20336,14 +21522,14 @@ call|(
 name|FT_UShort
 call|)
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|contours
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_contours
@@ -20380,8 +21566,8 @@ name|zp
 operator|.
 name|cur
 operator|!=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -20390,8 +21576,10 @@ name|refp
 operator|!=
 name|i
 condition|)
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|i
 argument_list|,
 name|dx
@@ -20428,7 +21616,12 @@ name|void
 DECL|function|Ins_SHPIX
 name|Ins_SHPIX
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_F26Dot6
@@ -20451,12 +21644,12 @@ endif|#
 directive|endif
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -20466,12 +21659,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -20488,8 +21681,8 @@ directive|ifdef
 name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -20497,8 +21690,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|both_x_axis
@@ -20545,16 +21738,13 @@ name|dx
 operator|=
 name|TT_MulFix14
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|args
 index|[
 literal|0
 index|]
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -20566,16 +21756,13 @@ name|dy
 operator|=
 name|TT_MulFix14
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|args
 index|[
 literal|0
 index|]
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -20586,8 +21773,8 @@ expr_stmt|;
 block|}
 while|while
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -20595,8 +21782,8 @@ operator|>
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|--
 expr_stmt|;
@@ -20605,12 +21792,12 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 index|]
 expr_stmt|;
@@ -20620,8 +21807,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -20630,13 +21817,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -20652,27 +21839,27 @@ ifdef|#
 directive|ifdef
 name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
 block|{
-comment|/*  If not using ignore_x_mode rendering, allow ZP2 move.          */
-comment|/*  If inline deltas aren't allowed, skip ZP2 move.                */
-comment|/*  If using ignore_x_mode rendering, allow ZP2 point move if:     */
-comment|/*   - freedom vector is y and sph_compatibility_mode is off       */
-comment|/*   - the glyph is composite and the move is in the Y direction   */
-comment|/*   - the glyph is specifically set to allow SHPIX moves          */
-comment|/*   - the move is on a previously Y-touched point                 */
+comment|/*  If not using ignore_x_mode rendering, allow ZP2 move.        */
+comment|/*  If inline deltas aren't allowed, skip ZP2 move.              */
+comment|/*  If using ignore_x_mode rendering, allow ZP2 point move if:   */
+comment|/*   - freedom vector is y and sph_compatibility_mode is off     */
+comment|/*   - the glyph is composite and the move is in the Y direction */
+comment|/*   - the glyph is specifically set to allow SHPIX moves        */
+comment|/*   - the move is on a previously Y-touched point               */
 if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 condition|)
 block|{
 comment|/* save point for later comparison */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -20683,8 +21870,8 @@ literal|0
 condition|)
 name|B1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -20697,8 +21884,8 @@ expr_stmt|;
 else|else
 name|B1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -20711,14 +21898,14 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_compatibility_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -20728,8 +21915,10 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 name|dx
@@ -20742,8 +21931,8 @@ expr_stmt|;
 comment|/* save new point */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -20755,8 +21944,8 @@ condition|)
 block|{
 name|B2
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -20770,8 +21959,8 @@ comment|/* reverse any disallowed moves */
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_SKIP_NONPIXEL_Y_MOVES
@@ -20797,8 +21986,10 @@ name|B1
 operator|!=
 name|B2
 condition|)
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 operator|-
@@ -20815,8 +22006,8 @@ block|}
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_compatibility_mode
@@ -20824,8 +22015,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_ROUND_NONPIXEL_Y_MOVES
@@ -20857,22 +22048,22 @@ block|}
 comment|/* skip post-iup deltas */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|iup_called
 operator|&&
 operator|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_in_func_flags
 operator|&
 name|SPH_FDEF_INLINE_DELTA_1
 operator|)
 operator|||
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_in_func_flags
 operator|&
 name|SPH_FDEF_INLINE_DELTA_2
@@ -20886,8 +22077,8 @@ if|if
 condition|(
 operator|!
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_ALWAYS_SKIP_DELTAP
@@ -20895,12 +22086,12 @@ operator|)
 operator|&&
 operator|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|is_composite
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -20911,8 +22102,8 @@ literal|0
 operator|)
 operator|||
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|tags
@@ -20924,16 +22115,18 @@ name|FT_CURVE_TAG_TOUCH_Y
 operator|)
 operator|||
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_DO_SHPIX
 operator|)
 operator|)
 condition|)
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 literal|0
@@ -20946,8 +22139,8 @@ expr_stmt|;
 comment|/* save new point */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -20959,8 +22152,8 @@ condition|)
 block|{
 name|B2
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -20993,8 +22186,10 @@ name|B1
 operator|!=
 name|B2
 condition|)
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 literal|0
@@ -21010,14 +22205,16 @@ block|}
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_in_func_flags
 operator|&
 name|SPH_FDEF_TYPEMAN_DIAGENDCTRL
 condition|)
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 name|dx
@@ -21029,8 +22226,10 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 name|dx
@@ -21046,8 +22245,10 @@ label|:
 else|#
 directive|else
 comment|/* !TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-name|MOVE_Zp2_Point
+name|Move_Zp2_Point
 argument_list|(
+name|exc
+argument_list|,
 name|point
 argument_list|,
 name|dx
@@ -21060,8 +22261,8 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|/* !TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -21070,20 +22271,20 @@ expr_stmt|;
 block|}
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
 operator|=
 literal|1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
@@ -21112,7 +22313,12 @@ name|void
 DECL|function|Ins_MSIRP
 name|Ins_MSIRP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -21137,20 +22343,20 @@ condition|)
 block|{
 name|control_value_cutin
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|control_value_cutin
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -21161,8 +22367,8 @@ literal|0
 operator|&&
 operator|!
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_NORMAL_ROUND
@@ -21192,8 +22398,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -21201,14 +22407,14 @@ argument_list|)
 operator|||
 name|BOUNDS
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -21217,12 +22423,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -21236,8 +22442,8 @@ comment|/* UNDOCUMENTED!  The MS rasterizer does that with */
 comment|/* twilight points (confirmed by Greg Hitchcock)   */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
@@ -21245,8 +22451,8 @@ operator|==
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -21254,24 +22460,28 @@ index|[
 name|point
 index|]
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 index|]
 expr_stmt|;
-name|CUR_Func_move_orig
+name|exc
+operator|->
+name|func_move_orig
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 argument_list|,
 name|point
@@ -21282,8 +22492,8 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -21291,8 +22501,8 @@ index|[
 name|point
 index|]
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -21303,24 +22513,24 @@ expr_stmt|;
 block|}
 name|distance
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
 operator|+
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -21334,12 +22544,12 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -21370,11 +22580,15 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 argument_list|,
 name|point
@@ -21387,20 +22601,20 @@ operator|-
 name|distance
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -21410,8 +22624,8 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|1
@@ -21419,8 +22633,8 @@ operator|)
 operator|!=
 literal|0
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -21453,7 +22667,12 @@ name|void
 DECL|function|Ins_MDAP
 name|Ins_MDAP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -21481,8 +22700,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -21491,12 +22710,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -21509,8 +22728,8 @@ block|}
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|1
@@ -21521,11 +22740,11 @@ condition|)
 block|{
 name|cur_dist
 operator|=
-name|CUR_fast_project
+name|FAST_PROJECT
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -21541,12 +22760,12 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -21557,12 +22776,14 @@ literal|0
 condition|)
 name|distance
 operator|=
-name|ROUND_None
+name|Round_None
 argument_list|(
+name|exc
+argument_list|,
 name|cur_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
@@ -21578,12 +22799,16 @@ endif|#
 directive|endif
 name|distance
 operator|=
-name|CUR_Func_round
+name|exc
+operator|->
+name|func_round
 argument_list|(
+name|exc
+argument_list|,
 name|cur_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
@@ -21600,11 +22825,15 @@ name|distance
 operator|=
 literal|0
 expr_stmt|;
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 argument_list|,
 name|point
@@ -21612,16 +22841,16 @@ argument_list|,
 name|distance
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 operator|=
 name|point
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
@@ -21654,7 +22883,12 @@ name|void
 DECL|function|Ins_MIAP
 name|Ins_MIAP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_ULong
@@ -21674,8 +22908,8 @@ name|control_value_cutin
 decl_stmt|;
 name|control_value_cutin
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|control_value_cutin
@@ -21707,12 +22941,12 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -21721,8 +22955,8 @@ name|x
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -21733,8 +22967,8 @@ literal|0
 operator|&&
 operator|!
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_NORMAL_ROUND
@@ -21753,8 +22987,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -21764,20 +22998,20 @@ name|BOUNDSL
 argument_list|(
 name|cvtEntry
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvtSize
 argument_list|)
 condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -21810,15 +23044,19 @@ comment|/*                                                                    */
 comment|/* Confirmed by Greg Hitchcock.                                       */
 name|distance
 operator|=
-name|CUR_Func_read_cvt
+name|exc
+operator|->
+name|func_read_cvt
 argument_list|(
+name|exc
+argument_list|,
 name|cvtEntry
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep0
@@ -21839,13 +23077,13 @@ name|SUBPIXEL_HINTING
 operator|||
 operator|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|||
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_compatibility_mode
@@ -21854,8 +23092,8 @@ condition|)
 endif|#
 directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
@@ -21867,13 +23105,10 @@ name|x
 operator|=
 name|TT_MulFix14
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|distance
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -21881,8 +23116,8 @@ operator|.
 name|x
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
@@ -21894,13 +23129,10 @@ name|y
 operator|=
 name|TT_MulFix14
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|distance
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -21908,8 +23140,8 @@ operator|.
 name|y
 argument_list|)
 operator|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -21917,8 +23149,8 @@ index|[
 name|point
 index|]
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
@@ -21934,13 +23166,13 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_MIAP_HACK
@@ -21950,8 +23182,8 @@ name|distance
 operator|>
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -21969,11 +23201,11 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 name|org_dist
 operator|=
-name|CUR_fast_project
+name|FAST_PROJECT
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -21985,8 +23217,8 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|1
@@ -22018,12 +23250,12 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -22034,12 +23266,14 @@ literal|0
 condition|)
 name|distance
 operator|=
-name|ROUND_None
+name|Round_None
 argument_list|(
+name|exc
+argument_list|,
 name|distance
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
@@ -22053,12 +23287,16 @@ endif|#
 directive|endif
 name|distance
 operator|=
-name|CUR_Func_round
+name|exc
+operator|->
+name|func_round
 argument_list|(
+name|exc
+argument_list|,
 name|distance
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
@@ -22068,11 +23306,15 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 argument_list|,
 name|point
@@ -22084,16 +23326,16 @@ argument_list|)
 expr_stmt|;
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 operator|=
 name|point
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
@@ -22126,7 +23368,12 @@ name|void
 DECL|function|Ins_MDRP
 name|Ins_MDRP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -22141,8 +23388,8 @@ name|minimum_distance
 decl_stmt|;
 name|minimum_distance
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|minimum_distance
@@ -22154,12 +23401,12 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -22170,8 +23417,8 @@ literal|0
 operator|&&
 operator|!
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_NORMAL_ROUND
@@ -22200,8 +23447,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -22209,14 +23456,14 @@ argument_list|)
 operator|||
 name|BOUNDS
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -22225,12 +23472,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -22247,16 +23494,16 @@ comment|/*      twilight zone?                                  */
 comment|/* XXX: UNDOCUMENTED: twilight zone special case */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep0
 operator|==
 literal|0
 operator|||
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
@@ -22269,8 +23516,8 @@ modifier|*
 name|vec1
 init|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -22283,14 +23530,14 @@ modifier|*
 name|vec2
 init|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -22298,7 +23545,7 @@ index|]
 decl_stmt|;
 name|org_dist
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 name|vec1
 argument_list|,
@@ -22313,8 +23560,8 @@ modifier|*
 name|vec1
 init|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|orus
@@ -22327,14 +23574,14 @@ modifier|*
 name|vec2
 init|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|orus
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -22342,14 +23589,14 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
 operator|==
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_scale
@@ -22358,7 +23605,7 @@ block|{
 comment|/* this should be faster */
 name|org_dist
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 name|vec1
 argument_list|,
@@ -22371,8 +23618,8 @@ name|FT_MulFix
 argument_list|(
 name|org_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
@@ -22398,8 +23645,8 @@ name|vec2
 operator|->
 name|x
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
@@ -22419,8 +23666,8 @@ name|vec2
 operator|->
 name|y
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_scale
@@ -22428,7 +23675,7 @@ argument_list|)
 expr_stmt|;
 name|org_dist
 operator|=
-name|CUR_fast_dualproj
+name|FAST_DUALPROJ
 argument_list|(
 operator|&
 name|vec
@@ -22443,15 +23690,15 @@ name|FT_ABS
 argument_list|(
 name|org_dist
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|single_width_value
 argument_list|)
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|single_width_cutin
@@ -22465,8 +23712,8 @@ literal|0
 condition|)
 name|org_dist
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|single_width_value
@@ -22475,8 +23722,8 @@ else|else
 name|org_dist
 operator|=
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|single_width_value
@@ -22486,8 +23733,8 @@ comment|/* round flag */
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|4
@@ -22503,12 +23750,12 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -22519,18 +23766,20 @@ literal|0
 condition|)
 name|distance
 operator|=
-name|ROUND_None
+name|Round_None
 argument_list|(
+name|exc
+argument_list|,
 name|org_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|3
@@ -22542,18 +23791,22 @@ endif|#
 directive|endif
 name|distance
 operator|=
-name|CUR_Func_round
+name|exc
+operator|->
+name|func_round
 argument_list|(
+name|exc
+argument_list|,
 name|org_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|3
@@ -22564,18 +23817,20 @@ block|}
 else|else
 name|distance
 operator|=
-name|ROUND_None
+name|Round_None
 argument_list|(
+name|exc
+argument_list|,
 name|org_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|3
@@ -22586,8 +23841,8 @@ comment|/* minimum distance flag */
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|8
@@ -22633,34 +23888,38 @@ block|}
 comment|/* now move the point */
 name|org_dist
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
 operator|+
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 argument_list|)
 expr_stmt|;
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 argument_list|,
 name|point
@@ -22672,20 +23931,20 @@ argument_list|)
 expr_stmt|;
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -22695,8 +23954,8 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|16
@@ -22704,8 +23963,8 @@ operator|)
 operator|!=
 literal|0
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -22738,7 +23997,12 @@ name|void
 DECL|function|Ins_MIRP
 name|Ins_MIRP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -22784,16 +24048,16 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 name|minimum_distance
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|minimum_distance
 expr_stmt|;
 name|control_value_cutin
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|control_value_cutin
@@ -22829,12 +24093,12 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -22845,8 +24109,8 @@ literal|0
 operator|&&
 operator|!
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_NORMAL_ROUND
@@ -22868,8 +24132,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -22879,8 +24143,8 @@ name|BOUNDSL
 argument_list|(
 name|cvtEntry
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvtSize
 operator|+
 literal|1
@@ -22888,14 +24152,14 @@ argument_list|)
 operator|||
 name|BOUNDS
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -22904,12 +24168,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -22933,8 +24197,12 @@ expr_stmt|;
 else|else
 name|cvt_dist
 operator|=
-name|CUR_Func_read_cvt
+name|exc
+operator|->
+name|func_read_cvt
 argument_list|(
+name|exc
+argument_list|,
 name|cvtEntry
 operator|-
 literal|1
@@ -22947,15 +24215,15 @@ name|FT_ABS
 argument_list|(
 name|cvt_dist
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|single_width_value
 argument_list|)
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|single_width_cutin
@@ -22969,8 +24237,8 @@ literal|0
 condition|)
 name|cvt_dist
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|single_width_value
@@ -22979,8 +24247,8 @@ else|else
 name|cvt_dist
 operator|=
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|single_width_value
@@ -22990,8 +24258,8 @@ comment|/* UNDOCUMENTED!  The MS rasterizer does that with */
 comment|/* twilight points (confirmed by Greg Hitchcock)   */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
@@ -22999,8 +24267,8 @@ operator|==
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -23010,14 +24278,14 @@ index|]
 operator|.
 name|x
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -23027,13 +24295,10 @@ name|x
 operator|+
 name|TT_MulFix14
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|cvt_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -23041,8 +24306,8 @@ operator|.
 name|x
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -23052,14 +24317,14 @@ index|]
 operator|.
 name|y
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -23069,13 +24334,10 @@ name|y
 operator|+
 name|TT_MulFix14
 argument_list|(
-operator|(
-name|FT_UInt32
-operator|)
 name|cvt_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -23083,8 +24345,8 @@ operator|.
 name|y
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -23092,8 +24354,8 @@ index|[
 name|point
 index|]
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -23104,11 +24366,11 @@ expr_stmt|;
 block|}
 name|org_dist
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
@@ -23117,14 +24379,14 @@ name|point
 index|]
 argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -23133,11 +24395,11 @@ argument_list|)
 expr_stmt|;
 name|cur_dist
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -23146,14 +24408,14 @@ name|point
 index|]
 argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -23163,8 +24425,8 @@ expr_stmt|;
 comment|/* auto-flip test */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|auto_flip
@@ -23193,12 +24455,12 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -23208,8 +24470,8 @@ operator|!=
 literal|0
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_TIMES_NEW_ROMAN_HACK
@@ -23250,8 +24512,8 @@ comment|/* control value cut-in and round */
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|4
@@ -23264,14 +24526,14 @@ comment|/* XXX: UNDOCUMENTED!  Only perform cut-in test when both points */
 comment|/*      refer to the same zone.                                  */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep0
 operator|==
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
@@ -23306,18 +24568,22 @@ expr_stmt|;
 block|}
 name|distance
 operator|=
-name|CUR_Func_round
+name|exc
+operator|->
+name|func_round
 argument_list|(
+name|exc
+argument_list|,
 name|cvt_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|3
@@ -23335,18 +24601,18 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep0
 operator|==
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
@@ -23373,18 +24639,20 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 name|distance
 operator|=
-name|ROUND_None
+name|Round_None
 argument_list|(
+name|exc
+argument_list|,
 name|cvt_dist
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|compensations
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|3
@@ -23396,8 +24664,8 @@ comment|/* minimum distance test */
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|8
@@ -23450,8 +24718,8 @@ condition|)
 block|{
 name|B1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -23464,12 +24732,12 @@ expr_stmt|;
 comment|/* Round moves if necessary */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -23479,8 +24747,8 @@ operator|!=
 literal|0
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_ROUND_NONPIXEL_Y_MOVES
@@ -23503,12 +24771,12 @@ name|cur_dist
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -23518,8 +24786,8 @@ operator|!=
 literal|0
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|16
@@ -23528,8 +24796,8 @@ operator|==
 literal|0
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|8
@@ -23538,8 +24806,8 @@ operator|==
 literal|0
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_COURIER_NEW_2_HACK
@@ -23553,11 +24821,15 @@ block|}
 endif|#
 directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 argument_list|,
 name|point
@@ -23577,8 +24849,8 @@ condition|)
 block|{
 name|B2
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -23591,21 +24863,21 @@ expr_stmt|;
 comment|/* Reverse move if necessary */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_compatibility_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -23637,15 +24909,15 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_SKIP_NONPIXEL_Y_MOVES
 operator|)
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -23679,11 +24951,15 @@ if|if
 condition|(
 name|reverse_move
 condition|)
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 argument_list|,
 name|point
@@ -23702,14 +24978,14 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
@@ -23717,8 +24993,8 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|16
@@ -23726,16 +25002,16 @@ operator|)
 operator|!=
 literal|0
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 operator|=
 name|point
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -23768,7 +25044,8 @@ name|void
 DECL|function|Ins_ALIGNRP
 name|Ins_ALIGNRP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 name|FT_UShort
@@ -23777,8 +25054,6 @@ decl_stmt|;
 name|FT_F26Dot6
 name|distance
 decl_stmt|;
-name|FT_UNUSED_ARG
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
@@ -23786,25 +25061,25 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|iup_called
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_NO_ALIGNRP_AFTER_IUP
 operator|)
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -23821,26 +25096,26 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
 operator|||
 name|BOUNDS
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -23849,12 +25124,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -23868,8 +25143,8 @@ goto|;
 block|}
 while|while
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -23877,8 +25152,8 @@ operator|>
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|--
 expr_stmt|;
@@ -23887,12 +25162,12 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 index|]
 expr_stmt|;
@@ -23902,8 +25177,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -23912,13 +25187,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -23933,34 +25208,38 @@ else|else
 block|{
 name|distance
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
 operator|+
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp0
 argument_list|)
 expr_stmt|;
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 argument_list|,
 name|point
@@ -23970,8 +25249,8 @@ name|distance
 argument_list|)
 expr_stmt|;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -23980,20 +25259,20 @@ expr_stmt|;
 block|}
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
 operator|=
 literal|1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
@@ -24022,7 +25301,12 @@ name|void
 DECL|function|Ins_ISECT
 name|Ins_ISECT
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -24116,8 +25400,8 @@ name|BOUNDS
 argument_list|(
 name|b0
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -24127,8 +25411,8 @@ name|BOUNDS
 argument_list|(
 name|b1
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -24138,8 +25422,8 @@ name|BOUNDS
 argument_list|(
 name|a0
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -24149,8 +25433,8 @@ name|BOUNDS
 argument_list|(
 name|a1
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -24160,8 +25444,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -24170,12 +25454,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -24188,8 +25472,8 @@ block|}
 comment|/* Cramer's rule */
 name|dbx
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24199,8 +25483,8 @@ index|]
 operator|.
 name|x
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24212,8 +25496,8 @@ name|x
 expr_stmt|;
 name|dby
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24223,8 +25507,8 @@ index|]
 operator|.
 name|y
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24236,8 +25520,8 @@ name|y
 expr_stmt|;
 name|dax
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24247,8 +25531,8 @@ index|]
 operator|.
 name|x
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24260,8 +25544,8 @@ name|x
 expr_stmt|;
 name|day
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24271,8 +25555,8 @@ index|]
 operator|.
 name|y
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24284,8 +25568,8 @@ name|y
 expr_stmt|;
 name|dx
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24295,8 +25579,8 @@ index|]
 operator|.
 name|x
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24308,8 +25592,8 @@ name|x
 expr_stmt|;
 name|dy
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24319,8 +25603,8 @@ index|]
 operator|.
 name|y
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24329,17 +25613,6 @@ name|a0
 index|]
 operator|.
 name|y
-expr_stmt|;
-name|CUR
-operator|.
-name|zp2
-operator|.
-name|tags
-index|[
-name|point
-index|]
-operator||=
-name|FT_CURVE_TAG_TOUCH_BOTH
 expr_stmt|;
 name|discriminant
 operator|=
@@ -24452,8 +25725,8 @@ argument_list|,
 name|discriminant
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -24463,8 +25736,8 @@ index|]
 operator|.
 name|x
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24478,8 +25751,8 @@ name|R
 operator|.
 name|x
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -24489,8 +25762,8 @@ index|]
 operator|.
 name|y
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24508,8 +25781,8 @@ block|}
 else|else
 block|{
 comment|/* else, take the middle of the middles of A and B */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -24520,8 +25793,8 @@ operator|.
 name|x
 operator|=
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24531,8 +25804,8 @@ index|]
 operator|.
 name|x
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24542,8 +25815,8 @@ index|]
 operator|.
 name|x
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24553,8 +25826,8 @@ index|]
 operator|.
 name|x
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24567,8 +25840,8 @@ operator|)
 operator|/
 literal|4
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -24579,8 +25852,8 @@ operator|.
 name|y
 operator|=
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24590,8 +25863,8 @@ index|]
 operator|.
 name|y
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24601,8 +25874,8 @@ index|]
 operator|.
 name|y
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24612,8 +25885,8 @@ index|]
 operator|.
 name|y
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -24627,6 +25900,17 @@ operator|/
 literal|4
 expr_stmt|;
 block|}
+name|exc
+operator|->
+name|zp2
+operator|.
+name|tags
+index|[
+name|point
+index|]
+operator||=
+name|FT_CURVE_TAG_TOUCH_BOTH
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -24653,7 +25937,12 @@ name|void
 DECL|function|Ins_ALIGNPTS
 name|Ins_ALIGNPTS
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -24690,8 +25979,8 @@ name|BOUNDS
 argument_list|(
 name|p1
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -24701,8 +25990,8 @@ name|BOUNDS
 argument_list|(
 name|p2
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -24711,12 +26000,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -24728,18 +26017,18 @@ return|return;
 block|}
 name|distance
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
 operator|+
 name|p2
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
@@ -24749,11 +26038,15 @@ argument_list|)
 operator|/
 literal|2
 expr_stmt|;
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 argument_list|,
 name|p1
@@ -24761,11 +26054,15 @@ argument_list|,
 name|distance
 argument_list|)
 expr_stmt|;
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 argument_list|,
 name|p2
@@ -24803,7 +26100,8 @@ name|void
 DECL|function|Ins_IP
 name|Ins_IP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 name|FT_F26Dot6
@@ -24822,16 +26120,14 @@ decl_stmt|;
 name|FT_Int
 name|twilight
 decl_stmt|;
-name|FT_UNUSED_ARG
-expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -24839,12 +26135,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -24856,27 +26152,27 @@ goto|goto
 name|Fail
 goto|;
 block|}
-comment|/*      * We need to deal in a special way with the twilight zone.      * Otherwise, by definition, the value of CUR.twilight.orus[n] is (0,0),      * for every n.      */
+comment|/*      * We need to deal in a special way with the twilight zone.      * Otherwise, by definition, the value of exc->twilight.orus[n] is (0,0),      * for every n.      */
 name|twilight
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep0
 operator|==
 literal|0
 operator|||
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep1
 operator|==
 literal|0
 operator|||
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|gep2
@@ -24887,14 +26183,14 @@ if|if
 condition|(
 name|BOUNDS
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -24903,12 +26199,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -24927,14 +26223,14 @@ condition|)
 name|orus_base
 operator|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|org
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
@@ -24944,14 +26240,14 @@ else|else
 name|orus_base
 operator|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|orus
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
@@ -24960,14 +26256,14 @@ expr_stmt|;
 name|cur_base
 operator|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
@@ -24981,14 +26277,14 @@ if|if
 condition|(
 name|BOUNDS
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp1
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -24996,14 +26292,14 @@ argument_list|)
 operator|||
 name|BOUNDS
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|n_points
@@ -25027,17 +26323,17 @@ name|twilight
 condition|)
 name|old_range
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|org
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -25049,31 +26345,31 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
 operator|==
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_scale
 condition|)
 name|old_range
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|orus
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -25093,14 +26389,14 @@ name|x
 operator|=
 name|FT_MulFix
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|orus
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -25112,8 +26408,8 @@ name|orus_base
 operator|->
 name|x
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
@@ -25125,14 +26421,14 @@ name|y
 operator|=
 name|FT_MulFix
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|orus
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -25144,8 +26440,8 @@ name|orus_base
 operator|->
 name|y
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_scale
@@ -25153,7 +26449,7 @@ argument_list|)
 expr_stmt|;
 name|old_range
 operator|=
-name|CUR_fast_dualproj
+name|FAST_DUALPROJ
 argument_list|(
 operator|&
 name|vec
@@ -25162,17 +26458,17 @@ expr_stmt|;
 block|}
 name|cur_range
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp1
 operator|.
 name|cur
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|rp2
@@ -25185,8 +26481,8 @@ block|}
 for|for
 control|(
 init|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -25194,8 +26490,8 @@ operator|>
 literal|0
 condition|;
 operator|--
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
@@ -25207,13 +26503,13 @@ init|=
 operator|(
 name|FT_UInt
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
 operator|--
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 index|]
 decl_stmt|;
@@ -25231,8 +26527,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|n_points
@@ -25241,13 +26537,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -25265,11 +26561,11 @@ name|twilight
 condition|)
 name|org_dist
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|org
@@ -25283,25 +26579,25 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
 operator|==
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_scale
 condition|)
 name|org_dist
 operator|=
-name|CUR_Func_dualproj
+name|DUALPROJ
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|orus
@@ -25323,8 +26619,8 @@ name|x
 operator|=
 name|FT_MulFix
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|orus
@@ -25338,8 +26634,8 @@ name|orus_base
 operator|->
 name|x
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_scale
@@ -25351,8 +26647,8 @@ name|y
 operator|=
 name|FT_MulFix
 argument_list|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|orus
@@ -25366,8 +26662,8 @@ name|orus_base
 operator|->
 name|y
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_scale
@@ -25375,7 +26671,7 @@ argument_list|)
 expr_stmt|;
 name|org_dist
 operator|=
-name|CUR_fast_dualproj
+name|FAST_DUALPROJ
 argument_list|(
 operator|&
 name|vec
@@ -25384,11 +26680,11 @@ expr_stmt|;
 block|}
 name|cur_dist
 operator|=
-name|CUR_Func_project
+name|PROJECT
 argument_list|(
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 operator|.
 name|cur
@@ -25447,11 +26743,15 @@ name|new_dist
 operator|=
 literal|0
 expr_stmt|;
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp2
 argument_list|,
 operator|(
@@ -25467,20 +26767,20 @@ expr_stmt|;
 block|}
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|loop
 operator|=
 literal|1
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
@@ -25509,7 +26809,12 @@ name|void
 DECL|function|Ins_UTP
 name|Ins_UTP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_UShort
@@ -25534,8 +26839,8 @@ name|BOUNDS
 argument_list|(
 name|point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -25544,12 +26849,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -25565,8 +26870,8 @@ literal|0xFF
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -25582,8 +26887,8 @@ name|FT_CURVE_TAG_TOUCH_X
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -25597,8 +26902,8 @@ operator|&=
 operator|~
 name|FT_CURVE_TAG_TOUCH_Y
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|tags
@@ -25788,6 +27093,10 @@ name|org1
 decl_stmt|,
 name|org2
 decl_stmt|,
+name|cur1
+decl_stmt|,
+name|cur2
+decl_stmt|,
 name|delta1
 decl_stmt|,
 name|delta2
@@ -25902,7 +27211,7 @@ index|]
 operator|.
 name|x
 expr_stmt|;
-name|delta1
+name|cur1
 operator|=
 name|worker
 operator|->
@@ -25912,10 +27221,8 @@ name|ref1
 index|]
 operator|.
 name|x
-operator|-
-name|org1
 expr_stmt|;
-name|delta2
+name|cur2
 operator|=
 name|worker
 operator|->
@@ -25925,17 +27232,31 @@ name|ref2
 index|]
 operator|.
 name|x
+expr_stmt|;
+name|delta1
+operator|=
+name|cur1
+operator|-
+name|org1
+expr_stmt|;
+name|delta2
+operator|=
+name|cur2
 operator|-
 name|org2
 expr_stmt|;
 if|if
 condition|(
+name|cur1
+operator|==
+name|cur2
+operator|||
 name|orus1
 operator|==
 name|orus2
 condition|)
 block|{
-comment|/* simple shift of untouched points */
+comment|/* trivial snap or shift of untouched points */
 for|for
 control|(
 name|i
@@ -25972,10 +27293,21 @@ name|x
 operator|+=
 name|delta1
 expr_stmt|;
-else|else
+elseif|else
+if|if
+condition|(
+name|x
+operator|>=
+name|org2
+condition|)
 name|x
 operator|+=
 name|delta2
+expr_stmt|;
+else|else
+name|x
+operator|=
+name|cur1
 expr_stmt|;
 name|worker
 operator|->
@@ -26066,15 +27398,9 @@ name|scale
 operator|=
 name|FT_DivFix
 argument_list|(
-name|org2
-operator|+
-name|delta2
+name|cur2
 operator|-
-operator|(
-name|org1
-operator|+
-name|delta1
-operator|)
+name|cur1
 argument_list|,
 name|orus2
 operator|-
@@ -26084,11 +27410,7 @@ expr_stmt|;
 block|}
 name|x
 operator|=
-operator|(
-name|org1
-operator|+
-name|delta1
-operator|)
+name|cur1
 operator|+
 name|FT_MulFix
 argument_list|(
@@ -26146,7 +27468,8 @@ name|void
 DECL|function|Ins_IUP
 name|Ins_IUP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 name|IUP_WorkerRec
@@ -26179,13 +27502,11 @@ name|FT_Short
 name|contour
 decl_stmt|;
 comment|/* current contour */
-name|FT_UNUSED_ARG
-expr_stmt|;
 comment|/* ignore empty outlines */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_contours
@@ -26195,8 +27516,8 @@ condition|)
 return|return;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&
 literal|1
@@ -26210,8 +27531,8 @@ name|V
 operator|.
 name|orgs
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|org
@@ -26220,8 +27541,8 @@ name|V
 operator|.
 name|curs
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|cur
@@ -26230,8 +27551,8 @@ name|V
 operator|.
 name|orus
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|orus
@@ -26256,8 +27577,8 @@ operator|(
 name|FT_Pos
 operator|*
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|org
@@ -26278,8 +27599,8 @@ operator|(
 name|FT_Pos
 operator|*
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|cur
@@ -26300,8 +27621,8 @@ operator|(
 name|FT_Pos
 operator|*
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|orus
@@ -26314,8 +27635,8 @@ name|V
 operator|.
 name|max_points
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_points
@@ -26335,21 +27656,21 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|iup_called
 operator|=
 name|TRUE
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_SKIP_IUP
@@ -26363,8 +27684,8 @@ do|do
 block|{
 name|end_point
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|contours
@@ -26372,8 +27693,8 @@ index|[
 name|contour
 index|]
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|first_point
@@ -26388,8 +27709,8 @@ name|BOUNDS
 argument_list|(
 name|end_point
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_points
@@ -26397,8 +27718,8 @@ argument_list|)
 condition|)
 name|end_point
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_points
@@ -26412,8 +27733,8 @@ operator|<=
 name|end_point
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|tags
@@ -26457,8 +27778,8 @@ block|{
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|tags
@@ -26572,8 +27893,8 @@ do|while
 condition|(
 name|contour
 operator|<
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pts
 operator|.
 name|n_contours
@@ -26605,7 +27926,12 @@ name|void
 DECL|function|Ins_DELTAP
 name|Ins_DELTAP
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_ULong
@@ -26636,17 +27962,17 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|iup_called
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_NO_DELTAP_AFTER_IUP
@@ -26664,8 +27990,8 @@ name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 comment|/* Delta hinting is covered by US Patent 5159668. */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -26683,8 +28009,8 @@ literal|2
 decl_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|<
 name|n
@@ -26692,12 +28018,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -26707,23 +28033,23 @@ argument_list|)
 expr_stmt|;
 name|n
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|-=
 name|n
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 return|return;
@@ -26735,8 +28061,12 @@ operator|=
 operator|(
 name|FT_ULong
 operator|)
-name|CUR_Func_cur_ppem
-argument_list|()
+name|exc
+operator|->
+name|func_cur_ppem
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 name|nump
 operator|=
@@ -26765,8 +28095,8 @@ control|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|<
 literal|2
@@ -26774,12 +28104,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -26787,8 +28117,8 @@ argument_list|(
 name|Too_Few_Arguments
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|=
 literal|0
@@ -26797,8 +28127,8 @@ goto|goto
 name|Fail
 goto|;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|-=
 literal|2
@@ -26808,12 +28138,12 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|+
 literal|1
@@ -26821,12 +28151,12 @@ index|]
 expr_stmt|;
 name|B
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 index|]
 expr_stmt|;
@@ -26842,8 +28172,8 @@ name|BOUNDS
 argument_list|(
 name|A
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|n_points
@@ -26865,8 +28195,8 @@ literal|4
 expr_stmt|;
 switch|switch
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 condition|)
 block|{
@@ -26893,8 +28223,8 @@ break|break;
 block|}
 name|C
 operator|+=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|delta_base
@@ -26935,8 +28265,8 @@ operator|<<
 operator|(
 literal|6
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|delta_shift
@@ -26954,25 +28284,25 @@ comment|/*              *  Allow delta move if              *              *  - 
 if|if
 condition|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|||
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_ALWAYS_DO_DELTAP
 operator|)
 operator|||
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|is_composite
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -26982,11 +28312,15 @@ operator|!=
 literal|0
 operator|)
 condition|)
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 argument_list|,
 name|A
@@ -26999,12 +28333,12 @@ comment|/* rules, always skipping deltas in subpixel direction.     */
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|ignore_x_mode
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -27020,8 +28354,8 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -27036,15 +28370,15 @@ comment|/* points.  This messes up DejaVu ...                    */
 if|if
 condition|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_compatibility_mode
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|tags
@@ -27055,11 +28389,15 @@ operator|&
 name|FT_CURVE_TAG_TOUCH_Y
 operator|)
 condition|)
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 argument_list|,
 name|A
@@ -27071,16 +28409,16 @@ comment|/* compatibility mode */
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_compatibility_mode
 operator|&&
 operator|!
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_ALWAYS_SKIP_DELTAP
@@ -27089,8 +28427,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_ROUND_NONPIXEL_Y_MOVES
@@ -27111,13 +28449,13 @@ comment|/* IUP has not been called, and point is touched on Y. */
 if|if
 condition|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|iup_called
 operator|&&
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|tags
@@ -27128,11 +28466,15 @@ operator|&
 name|FT_CURVE_TAG_TOUCH_Y
 operator|)
 condition|)
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 argument_list|,
 name|A
@@ -27146,8 +28488,8 @@ operator|=
 operator|(
 name|FT_UShort
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 operator|.
 name|cur
@@ -27160,8 +28502,8 @@ expr_stmt|;
 comment|/* Reverse this move if it results in a disallowed move */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|freeVector
@@ -27172,8 +28514,8 @@ literal|0
 operator|&&
 operator|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|sph_compatibility_mode
@@ -27197,8 +28539,8 @@ operator|)
 operator|||
 operator|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|sph_tweak_flags
 operator|&
 name|SPH_TWEAK_SKIP_NONPIXEL_Y_MOVES_DELTAP
@@ -27222,11 +28564,15 @@ literal|0
 operator|)
 operator|)
 condition|)
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 argument_list|,
 name|A
@@ -27241,11 +28587,15 @@ else|else
 endif|#
 directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-name|CUR_Func_move
+name|exc
+operator|->
+name|func_move
 argument_list|(
+name|exc
+argument_list|,
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|zp0
 argument_list|,
 name|A
@@ -27258,12 +28608,12 @@ block|}
 elseif|else
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -27274,12 +28624,12 @@ expr_stmt|;
 block|}
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
@@ -27308,7 +28658,12 @@ name|void
 DECL|function|Ins_DELTAC
 name|Ins_DELTAC
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_ULong
@@ -27332,8 +28687,8 @@ name|TT_CONFIG_OPTION_UNPATENTED_HINTING
 comment|/* Delta hinting is covered by US Patent 5159668. */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|unpatented_hinting
@@ -27351,8 +28706,8 @@ literal|2
 decl_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|<
 name|n
@@ -27360,12 +28715,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -27375,23 +28730,23 @@ argument_list|)
 expr_stmt|;
 name|n
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|-=
 name|n
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 return|return;
@@ -27403,8 +28758,12 @@ operator|=
 operator|(
 name|FT_ULong
 operator|)
-name|CUR_Func_cur_ppem
-argument_list|()
+name|exc
+operator|->
+name|func_cur_ppem
+argument_list|(
+name|exc
+argument_list|)
 expr_stmt|;
 name|nump
 operator|=
@@ -27432,8 +28791,8 @@ control|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|<
 literal|2
@@ -27441,12 +28800,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -27454,8 +28813,8 @@ argument_list|(
 name|Too_Few_Arguments
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|=
 literal|0
@@ -27464,8 +28823,8 @@ goto|goto
 name|Fail
 goto|;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|-=
 literal|2
@@ -27475,12 +28834,12 @@ operator|=
 operator|(
 name|FT_ULong
 operator|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|+
 literal|1
@@ -27488,12 +28847,12 @@ index|]
 expr_stmt|;
 name|B
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 index|]
 expr_stmt|;
@@ -27503,21 +28862,21 @@ name|BOUNDSL
 argument_list|(
 name|A
 argument_list|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|cvtSize
 argument_list|)
 condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -27545,8 +28904,8 @@ literal|4
 expr_stmt|;
 switch|switch
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 condition|)
 block|{
@@ -27573,8 +28932,8 @@ break|break;
 block|}
 name|C
 operator|+=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|delta_base
@@ -27615,15 +28974,19 @@ operator|<<
 operator|(
 literal|6
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|GS
 operator|.
 name|delta_shift
 operator|)
 expr_stmt|;
-name|CUR_Func_move_cvt
+name|exc
+operator|->
+name|func_move_cvt
 argument_list|(
+name|exc
+argument_list|,
 name|A
 argument_list|,
 name|B
@@ -27634,12 +28997,12 @@ block|}
 block|}
 name|Fail
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 expr_stmt|;
 block|}
@@ -27677,13 +29040,42 @@ end_comment
 begin_comment
 comment|/*                                                                       */
 end_comment
+begin_comment
+comment|/* XXX: UNDOCUMENTED: Selector bits higher than 9 are currently (May     */
+end_comment
+begin_comment
+comment|/*      2015) not documented in the OpenType specification.              */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/*      Selector bit 11 is incorrectly described as bit 8, while the     */
+end_comment
+begin_comment
+comment|/*      real meaning of bit 8 (vertical LCD subpixels) stays             */
+end_comment
+begin_comment
+comment|/*      undocumented.  The same mistake can be found in Greg Hitchcock's */
+end_comment
+begin_comment
+comment|/*      whitepaper.                                                      */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
 begin_function
 specifier|static
 name|void
 DECL|function|Ins_GETINFO
 name|Ins_GETINFO
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
+parameter_list|,
+name|FT_Long
+modifier|*
+name|args
 parameter_list|)
 block|{
 name|FT_Long
@@ -27716,27 +29108,42 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
+name|subpixel_hinting
+condition|)
+block|{
+if|if
+condition|(
+name|exc
+operator|->
 name|ignore_x_mode
 condition|)
 block|{
+comment|/* if in ClearType backwards compatibility mode,        */
+comment|/* we sometimes change the TrueType version dynamically */
 name|K
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|rasterizer_version
 expr_stmt|;
-name|FT_TRACE7
+name|FT_TRACE6
 argument_list|(
 operator|(
 literal|"Setting rasterizer version %d\n"
 operator|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|rasterizer_version
 operator|)
 argument_list|)
+expr_stmt|;
+block|}
+else|else
+name|K
+operator|=
+name|TT_INTERPRETER_VERSION_38
 expr_stmt|;
 block|}
 elseif|else
@@ -27778,8 +29185,8 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|rotated
@@ -27806,8 +29213,8 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|stretched
@@ -27836,8 +29243,8 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|grayscale
 condition|)
 name|K
@@ -27853,12 +29260,8 @@ if|if
 condition|(
 name|SUBPIXEL_HINTING
 operator|&&
-name|CUR
-operator|.
-name|ignore_x_mode
-operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|rasterizer_version
 operator|>=
 name|TT_INTERPRETER_VERSION_35
@@ -27866,8 +29269,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|rasterizer_version
 operator|>=
 literal|37
@@ -27891,9 +29294,9 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
-name|subpixel
+name|exc
+operator|->
+name|subpixel_hinting
 condition|)
 name|K
 operator||=
@@ -27920,8 +29323,8 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|compatible_widths
 condition|)
 name|K
@@ -27931,7 +29334,7 @@ operator|<<
 literal|14
 expr_stmt|;
 comment|/********************************/
-comment|/* SYMMETRICAL SMOOTHING        */
+comment|/* VERTICAL LCD SUBPIXELS?      */
 comment|/* Selector Bit:  8             */
 comment|/* Return Bit(s): 15            */
 comment|/*                              */
@@ -27949,9 +29352,9 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
-name|symmetrical_smoothing
+name|exc
+operator|->
+name|vertical_lcd
 condition|)
 name|K
 operator||=
@@ -27978,8 +29381,8 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|bgr
 condition|)
 name|K
@@ -27990,8 +29393,8 @@ literal|16
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|rasterizer_version
 operator|>=
 literal|38
@@ -28016,8 +29419,8 @@ operator|)
 operator|!=
 literal|0
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|subpixel_positioned
 condition|)
 name|K
@@ -28025,6 +29428,64 @@ operator||=
 literal|1
 operator|<<
 literal|17
+expr_stmt|;
+comment|/********************************/
+comment|/* SYMMETRICAL SMOOTHING        */
+comment|/* Selector Bit:  11            */
+comment|/* Return Bit(s): 18            */
+comment|/*                              */
+comment|/* Functionality still needs to be added */
+if|if
+condition|(
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|&
+literal|2048
+operator|)
+operator|!=
+literal|0
+operator|&&
+name|exc
+operator|->
+name|symmetrical_smoothing
+condition|)
+name|K
+operator||=
+literal|1
+operator|<<
+literal|18
+expr_stmt|;
+comment|/********************************/
+comment|/* GRAY CLEARTYPE               */
+comment|/* Selector Bit:  12            */
+comment|/* Return Bit(s): 19            */
+comment|/*                              */
+comment|/* Functionality still needs to be added */
+if|if
+condition|(
+operator|(
+name|args
+index|[
+literal|0
+index|]
+operator|&
+literal|4096
+operator|)
+operator|!=
+literal|0
+operator|&&
+name|exc
+operator|->
+name|gray_cleartype
+condition|)
+name|K
+operator||=
+literal|1
+operator|<<
+literal|19
 expr_stmt|;
 block|}
 block|}
@@ -28047,15 +29508,16 @@ name|void
 DECL|function|Ins_UNKNOWN
 name|Ins_UNKNOWN
 parameter_list|(
-name|INS_ARG
+name|TT_ExecContext
+name|exc
 parameter_list|)
 block|{
 name|TT_DefRecord
 modifier|*
 name|def
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IDefs
 decl_stmt|;
 name|TT_DefRecord
@@ -28064,12 +29526,10 @@ name|limit
 init|=
 name|def
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numIDefs
 decl_stmt|;
-name|FT_UNUSED_ARG
-expr_stmt|;
 for|for
 control|(
 init|;
@@ -28090,8 +29550,8 @@ name|def
 operator|->
 name|opc
 operator|==
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|&&
 name|def
@@ -28105,17 +29565,17 @@ name|call
 decl_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callSize
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -28127,12 +29587,12 @@ return|return;
 block|}
 name|call
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callStack
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|++
 expr_stmt|;
@@ -28140,16 +29600,16 @@ name|call
 operator|->
 name|Caller_Range
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|curRange
 expr_stmt|;
 name|call
 operator|->
 name|Caller_IP
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -28166,8 +29626,10 @@ name|Def
 operator|=
 name|def
 expr_stmt|;
-name|INS_Goto_CodeRange
+name|Ins_Goto_CodeRange
 argument_list|(
+name|exc
+argument_list|,
 name|def
 operator|->
 name|range
@@ -28177,8 +29639,8 @@ operator|->
 name|start
 argument_list|)
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|step_ins
 operator|=
 name|FALSE
@@ -28186,8 +29648,8 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -28197,800 +29659,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|TT_CONFIG_OPTION_INTERPRETER_SWITCH
-end_ifndef
-begin_decl_stmt
-specifier|static
-DECL|variable|Instruct_Dispatch
-name|TInstruction_Function
-name|Instruct_Dispatch
-index|[
-literal|256
-index|]
-init|=
-block|{
-comment|/* Opcodes are gathered in groups of 16. */
-comment|/* Please keep the spaces as they are.   */
-comment|/*  SVTCA  y  */
-name|Ins_SVTCA
-block|,
-comment|/*  SVTCA  x  */
-name|Ins_SVTCA
-block|,
-comment|/*  SPvTCA y  */
-name|Ins_SPVTCA
-block|,
-comment|/*  SPvTCA x  */
-name|Ins_SPVTCA
-block|,
-comment|/*  SFvTCA y  */
-name|Ins_SFVTCA
-block|,
-comment|/*  SFvTCA x  */
-name|Ins_SFVTCA
-block|,
-comment|/*  SPvTL //  */
-name|Ins_SPVTL
-block|,
-comment|/*  SPvTL +   */
-name|Ins_SPVTL
-block|,
-comment|/*  SFvTL //  */
-name|Ins_SFVTL
-block|,
-comment|/*  SFvTL +   */
-name|Ins_SFVTL
-block|,
-comment|/*  SPvFS     */
-name|Ins_SPVFS
-block|,
-comment|/*  SFvFS     */
-name|Ins_SFVFS
-block|,
-comment|/*  GPV       */
-name|Ins_GPV
-block|,
-comment|/*  GFV       */
-name|Ins_GFV
-block|,
-comment|/*  SFvTPv    */
-name|Ins_SFVTPV
-block|,
-comment|/*  ISECT     */
-name|Ins_ISECT
-block|,
-comment|/*  SRP0      */
-name|Ins_SRP0
-block|,
-comment|/*  SRP1      */
-name|Ins_SRP1
-block|,
-comment|/*  SRP2      */
-name|Ins_SRP2
-block|,
-comment|/*  SZP0      */
-name|Ins_SZP0
-block|,
-comment|/*  SZP1      */
-name|Ins_SZP1
-block|,
-comment|/*  SZP2      */
-name|Ins_SZP2
-block|,
-comment|/*  SZPS      */
-name|Ins_SZPS
-block|,
-comment|/*  SLOOP     */
-name|Ins_SLOOP
-block|,
-comment|/*  RTG       */
-name|Ins_RTG
-block|,
-comment|/*  RTHG      */
-name|Ins_RTHG
-block|,
-comment|/*  SMD       */
-name|Ins_SMD
-block|,
-comment|/*  ELSE      */
-name|Ins_ELSE
-block|,
-comment|/*  JMPR      */
-name|Ins_JMPR
-block|,
-comment|/*  SCvTCi    */
-name|Ins_SCVTCI
-block|,
-comment|/*  SSwCi     */
-name|Ins_SSWCI
-block|,
-comment|/*  SSW       */
-name|Ins_SSW
-block|,
-comment|/*  DUP       */
-name|Ins_DUP
-block|,
-comment|/*  POP       */
-name|Ins_POP
-block|,
-comment|/*  CLEAR     */
-name|Ins_CLEAR
-block|,
-comment|/*  SWAP      */
-name|Ins_SWAP
-block|,
-comment|/*  DEPTH     */
-name|Ins_DEPTH
-block|,
-comment|/*  CINDEX    */
-name|Ins_CINDEX
-block|,
-comment|/*  MINDEX    */
-name|Ins_MINDEX
-block|,
-comment|/*  AlignPTS  */
-name|Ins_ALIGNPTS
-block|,
-comment|/*  INS_0x28  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  UTP       */
-name|Ins_UTP
-block|,
-comment|/*  LOOPCALL  */
-name|Ins_LOOPCALL
-block|,
-comment|/*  CALL      */
-name|Ins_CALL
-block|,
-comment|/*  FDEF      */
-name|Ins_FDEF
-block|,
-comment|/*  ENDF      */
-name|Ins_ENDF
-block|,
-comment|/*  MDAP[0]   */
-name|Ins_MDAP
-block|,
-comment|/*  MDAP[1]   */
-name|Ins_MDAP
-block|,
-comment|/*  IUP[0]    */
-name|Ins_IUP
-block|,
-comment|/*  IUP[1]    */
-name|Ins_IUP
-block|,
-comment|/*  SHP[0]    */
-name|Ins_SHP
-block|,
-comment|/*  SHP[1]    */
-name|Ins_SHP
-block|,
-comment|/*  SHC[0]    */
-name|Ins_SHC
-block|,
-comment|/*  SHC[1]    */
-name|Ins_SHC
-block|,
-comment|/*  SHZ[0]    */
-name|Ins_SHZ
-block|,
-comment|/*  SHZ[1]    */
-name|Ins_SHZ
-block|,
-comment|/*  SHPIX     */
-name|Ins_SHPIX
-block|,
-comment|/*  IP        */
-name|Ins_IP
-block|,
-comment|/*  MSIRP[0]  */
-name|Ins_MSIRP
-block|,
-comment|/*  MSIRP[1]  */
-name|Ins_MSIRP
-block|,
-comment|/*  AlignRP   */
-name|Ins_ALIGNRP
-block|,
-comment|/*  RTDG      */
-name|Ins_RTDG
-block|,
-comment|/*  MIAP[0]   */
-name|Ins_MIAP
-block|,
-comment|/*  MIAP[1]   */
-name|Ins_MIAP
-block|,
-comment|/*  NPushB    */
-name|Ins_NPUSHB
-block|,
-comment|/*  NPushW    */
-name|Ins_NPUSHW
-block|,
-comment|/*  WS        */
-name|Ins_WS
-block|,
-comment|/*  RS        */
-name|Ins_RS
-block|,
-comment|/*  WCvtP     */
-name|Ins_WCVTP
-block|,
-comment|/*  RCvt      */
-name|Ins_RCVT
-block|,
-comment|/*  GC[0]     */
-name|Ins_GC
-block|,
-comment|/*  GC[1]     */
-name|Ins_GC
-block|,
-comment|/*  SCFS      */
-name|Ins_SCFS
-block|,
-comment|/*  MD[0]     */
-name|Ins_MD
-block|,
-comment|/*  MD[1]     */
-name|Ins_MD
-block|,
-comment|/*  MPPEM     */
-name|Ins_MPPEM
-block|,
-comment|/*  MPS       */
-name|Ins_MPS
-block|,
-comment|/*  FlipON    */
-name|Ins_FLIPON
-block|,
-comment|/*  FlipOFF   */
-name|Ins_FLIPOFF
-block|,
-comment|/*  DEBUG     */
-name|Ins_DEBUG
-block|,
-comment|/*  LT        */
-name|Ins_LT
-block|,
-comment|/*  LTEQ      */
-name|Ins_LTEQ
-block|,
-comment|/*  GT        */
-name|Ins_GT
-block|,
-comment|/*  GTEQ      */
-name|Ins_GTEQ
-block|,
-comment|/*  EQ        */
-name|Ins_EQ
-block|,
-comment|/*  NEQ       */
-name|Ins_NEQ
-block|,
-comment|/*  ODD       */
-name|Ins_ODD
-block|,
-comment|/*  EVEN      */
-name|Ins_EVEN
-block|,
-comment|/*  IF        */
-name|Ins_IF
-block|,
-comment|/*  EIF       */
-name|Ins_EIF
-block|,
-comment|/*  AND       */
-name|Ins_AND
-block|,
-comment|/*  OR        */
-name|Ins_OR
-block|,
-comment|/*  NOT       */
-name|Ins_NOT
-block|,
-comment|/*  DeltaP1   */
-name|Ins_DELTAP
-block|,
-comment|/*  SDB       */
-name|Ins_SDB
-block|,
-comment|/*  SDS       */
-name|Ins_SDS
-block|,
-comment|/*  ADD       */
-name|Ins_ADD
-block|,
-comment|/*  SUB       */
-name|Ins_SUB
-block|,
-comment|/*  DIV       */
-name|Ins_DIV
-block|,
-comment|/*  MUL       */
-name|Ins_MUL
-block|,
-comment|/*  ABS       */
-name|Ins_ABS
-block|,
-comment|/*  NEG       */
-name|Ins_NEG
-block|,
-comment|/*  FLOOR     */
-name|Ins_FLOOR
-block|,
-comment|/*  CEILING   */
-name|Ins_CEILING
-block|,
-comment|/*  ROUND[0]  */
-name|Ins_ROUND
-block|,
-comment|/*  ROUND[1]  */
-name|Ins_ROUND
-block|,
-comment|/*  ROUND[2]  */
-name|Ins_ROUND
-block|,
-comment|/*  ROUND[3]  */
-name|Ins_ROUND
-block|,
-comment|/*  NROUND[0] */
-name|Ins_NROUND
-block|,
-comment|/*  NROUND[1] */
-name|Ins_NROUND
-block|,
-comment|/*  NROUND[2] */
-name|Ins_NROUND
-block|,
-comment|/*  NROUND[3] */
-name|Ins_NROUND
-block|,
-comment|/*  WCvtF     */
-name|Ins_WCVTF
-block|,
-comment|/*  DeltaP2   */
-name|Ins_DELTAP
-block|,
-comment|/*  DeltaP3   */
-name|Ins_DELTAP
-block|,
-comment|/*  DeltaCn[0] */
-name|Ins_DELTAC
-block|,
-comment|/*  DeltaCn[1] */
-name|Ins_DELTAC
-block|,
-comment|/*  DeltaCn[2] */
-name|Ins_DELTAC
-block|,
-comment|/*  SROUND    */
-name|Ins_SROUND
-block|,
-comment|/*  S45Round  */
-name|Ins_S45ROUND
-block|,
-comment|/*  JROT      */
-name|Ins_JROT
-block|,
-comment|/*  JROF      */
-name|Ins_JROF
-block|,
-comment|/*  ROFF      */
-name|Ins_ROFF
-block|,
-comment|/*  INS_0x7B  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  RUTG      */
-name|Ins_RUTG
-block|,
-comment|/*  RDTG      */
-name|Ins_RDTG
-block|,
-comment|/*  SANGW     */
-name|Ins_SANGW
-block|,
-comment|/*  AA        */
-name|Ins_AA
-block|,
-comment|/*  FlipPT    */
-name|Ins_FLIPPT
-block|,
-comment|/*  FlipRgON  */
-name|Ins_FLIPRGON
-block|,
-comment|/*  FlipRgOFF */
-name|Ins_FLIPRGOFF
-block|,
-comment|/*  INS_0x83  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x84  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  ScanCTRL  */
-name|Ins_SCANCTRL
-block|,
-comment|/*  SDPVTL[0] */
-name|Ins_SDPVTL
-block|,
-comment|/*  SDPVTL[1] */
-name|Ins_SDPVTL
-block|,
-comment|/*  GetINFO   */
-name|Ins_GETINFO
-block|,
-comment|/*  IDEF      */
-name|Ins_IDEF
-block|,
-comment|/*  ROLL      */
-name|Ins_ROLL
-block|,
-comment|/*  MAX       */
-name|Ins_MAX
-block|,
-comment|/*  MIN       */
-name|Ins_MIN
-block|,
-comment|/*  ScanTYPE  */
-name|Ins_SCANTYPE
-block|,
-comment|/*  InstCTRL  */
-name|Ins_INSTCTRL
-block|,
-comment|/*  INS_0x8F  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x90  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x91  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x92  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x93  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x94  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x95  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x96  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x97  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x98  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x99  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x9A  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x9B  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x9C  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x9D  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x9E  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0x9F  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA0  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA1  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA2  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA3  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA4  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA5  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA6  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA7  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA8  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xA9  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xAA  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xAB  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xAC  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xAD  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xAE  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  INS_0xAF  */
-name|Ins_UNKNOWN
-block|,
-comment|/*  PushB[0]  */
-name|Ins_PUSHB
-block|,
-comment|/*  PushB[1]  */
-name|Ins_PUSHB
-block|,
-comment|/*  PushB[2]  */
-name|Ins_PUSHB
-block|,
-comment|/*  PushB[3]  */
-name|Ins_PUSHB
-block|,
-comment|/*  PushB[4]  */
-name|Ins_PUSHB
-block|,
-comment|/*  PushB[5]  */
-name|Ins_PUSHB
-block|,
-comment|/*  PushB[6]  */
-name|Ins_PUSHB
-block|,
-comment|/*  PushB[7]  */
-name|Ins_PUSHB
-block|,
-comment|/*  PushW[0]  */
-name|Ins_PUSHW
-block|,
-comment|/*  PushW[1]  */
-name|Ins_PUSHW
-block|,
-comment|/*  PushW[2]  */
-name|Ins_PUSHW
-block|,
-comment|/*  PushW[3]  */
-name|Ins_PUSHW
-block|,
-comment|/*  PushW[4]  */
-name|Ins_PUSHW
-block|,
-comment|/*  PushW[5]  */
-name|Ins_PUSHW
-block|,
-comment|/*  PushW[6]  */
-name|Ins_PUSHW
-block|,
-comment|/*  PushW[7]  */
-name|Ins_PUSHW
-block|,
-comment|/*  MDRP[00]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[01]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[02]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[03]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[04]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[05]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[06]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[07]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[08]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[09]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[10]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[11]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[12]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[13]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[14]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[15]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[16]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[17]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[18]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[19]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[20]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[21]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[22]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[23]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[24]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[25]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[26]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[27]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[28]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[29]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[30]  */
-name|Ins_MDRP
-block|,
-comment|/*  MDRP[31]  */
-name|Ins_MDRP
-block|,
-comment|/*  MIRP[00]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[01]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[02]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[03]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[04]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[05]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[06]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[07]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[08]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[09]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[10]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[11]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[12]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[13]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[14]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[15]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[16]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[17]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[18]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[19]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[20]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[21]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[22]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[23]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[24]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[25]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[26]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[27]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[28]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[29]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[30]  */
-name|Ins_MIRP
-block|,
-comment|/*  MIRP[31]  */
-name|Ins_MIRP
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|/* !TT_CONFIG_OPTION_INTERPRETER_SWITCH */
-end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -29068,12 +29736,6 @@ comment|/*                                                                      
 end_comment
 begin_comment
 comment|/* THIS IS THE INTERPRETER'S MAIN LOOP.                                  */
-end_comment
-begin_comment
-comment|/*                                                                       */
-end_comment
-begin_comment
-comment|/*  Instructions appear in the specification's order.                    */
 end_comment
 begin_comment
 comment|/*                                                                       */
@@ -29162,30 +29824,9 @@ directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 ifdef|#
 directive|ifdef
-name|TT_CONFIG_OPTION_STATIC_RASTER
-if|if
-condition|(
-operator|!
-name|exc
-condition|)
-return|return
-name|FT_THROW
-argument_list|(
-name|Invalid_Argument
-argument_list|)
-return|;
-name|cur
-operator|=
-operator|*
-name|exc
-expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
 name|TT_CONFIG_OPTION_SUBPIXEL_HINTING
-name|CUR
-operator|.
+name|exc
+operator|->
 name|iup_called
 operator|=
 name|FALSE
@@ -29194,8 +29835,8 @@ endif|#
 directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
 comment|/* set PPEM and CVT functions */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|tt_metrics
 operator|.
 name|ratio
@@ -29204,40 +29845,40 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|x_ppem
 operator|!=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|metrics
 operator|.
 name|y_ppem
 condition|)
 block|{
 comment|/* non-square pixels, use the stretched routines */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_cur_ppem
 operator|=
 name|Current_Ppem_Stretched
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_read_cvt
 operator|=
 name|Read_CVT_Stretched
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_write_cvt
 operator|=
 name|Write_CVT_Stretched
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move_cvt
 operator|=
 name|Move_CVT_Stretched
@@ -29246,36 +29887,40 @@ block|}
 else|else
 block|{
 comment|/* square pixels, use normal routines */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_cur_ppem
 operator|=
 name|Current_Ppem
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_read_cvt
 operator|=
 name|Read_CVT
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_write_cvt
 operator|=
 name|Write_CVT
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|func_move_cvt
 operator|=
 name|Move_CVT
 expr_stmt|;
 block|}
-name|COMPUTE_Funcs
-argument_list|()
-expr_stmt|;
-name|COMPUTE_Round
+name|Compute_Funcs
 argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
+name|Compute_Round
+argument_list|(
+name|exc
+argument_list|,
 operator|(
 name|FT_Byte
 operator|)
@@ -29288,20 +29933,41 @@ argument_list|)
 expr_stmt|;
 do|do
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 index|]
 expr_stmt|;
-name|FT_TRACE7
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+block|{
+name|FT_Long
+name|cnt
+init|=
+name|FT_MIN
+argument_list|(
+literal|8
+argument_list|,
+name|exc
+operator|->
+name|top
+argument_list|)
+decl_stmt|;
+name|FT_Long
+name|n
+decl_stmt|;
+comment|/* if tracing level is 7, show current code position */
+comment|/* and the first few stack elements also             */
+name|FT_TRACE6
 argument_list|(
 operator|(
 literal|"  "
@@ -29311,33 +29977,116 @@ expr_stmt|;
 name|FT_TRACE7
 argument_list|(
 operator|(
+literal|"%06d "
+operator|,
+name|exc
+operator|->
+name|IP
+operator|)
+argument_list|)
+expr_stmt|;
+name|FT_TRACE6
+argument_list|(
+operator|(
 name|opcode_name
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 index|]
+operator|+
+literal|2
 operator|)
 argument_list|)
 expr_stmt|;
 name|FT_TRACE7
 argument_list|(
 operator|(
+literal|"%*s"
+operator|,
+operator|*
+name|opcode_name
+index|[
+name|exc
+operator|->
+name|opcode
+index|]
+operator|==
+literal|'A'
+condition|?
+literal|2
+else|:
+literal|12
+operator|-
+operator|(
+operator|*
+name|opcode_name
+index|[
+name|exc
+operator|->
+name|opcode
+index|]
+operator|-
+literal|'0'
+operator|)
+operator|,
+literal|"#"
+operator|)
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|n
+operator|=
+literal|0
+init|;
+name|n
+operator|<
+name|cnt
+condition|;
+name|n
+operator|++
+control|)
+name|FT_TRACE7
+argument_list|(
+operator|(
+literal|" %d"
+operator|,
+name|exc
+operator|->
+name|stack
+index|[
+name|exc
+operator|->
+name|top
+operator|-
+name|n
+index|]
+operator|)
+argument_list|)
+expr_stmt|;
+name|FT_TRACE6
+argument_list|(
+operator|(
 literal|"\n"
 operator|)
 argument_list|)
 expr_stmt|;
+block|}
+endif|#
+directive|endif
+comment|/* FT_DEBUG_LEVEL_TRACE */
 if|if
 condition|(
 operator|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|=
 name|opcode_length
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 index|]
 operator|)
@@ -29347,35 +30096,35 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|codeSize
 condition|)
 goto|goto
 name|LErrorCodeOverflow_
 goto|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|=
 literal|2
 operator|-
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|*
-name|CUR
-operator|.
+name|exc
+operator|->
 name|code
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -29384,35 +30133,35 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 operator|>
-name|CUR
-operator|.
+name|exc
+operator|->
 name|codeSize
 condition|)
 goto|goto
 name|LErrorCodeOverflow_
 goto|;
 comment|/* First, let's check for empty stack and overflow */
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 operator|-
 operator|(
 name|Pop_Push_Count
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 index|]
 operator|>>
@@ -29423,8 +30172,8 @@ comment|/* `args' is the top of the stack once arguments have been popped. */
 comment|/* One can also interpret it as the index of the last argument.    */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|<
 literal|0
@@ -29432,13 +30181,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|pedantic_hinting
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -29461,8 +30210,8 @@ name|i
 operator|<
 name|Pop_Push_Count
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 index|]
 operator|>>
@@ -29471,8 +30220,8 @@ condition|;
 name|i
 operator|++
 control|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 index|[
 name|i
@@ -29480,26 +30229,26 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|=
 literal|0
 expr_stmt|;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 operator|+
 operator|(
 name|Pop_Push_Count
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 index|]
 operator|&
@@ -29511,17 +30260,17 @@ comment|/* execution.  `top' will be set to `new_top' after the `switch'  */
 comment|/* statement.                                                     */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 operator|>
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stackSize
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -29533,14 +30282,14 @@ goto|goto
 name|LErrorLabel_
 goto|;
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|step_ins
 operator|=
 name|TRUE
 expr_stmt|;
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_Err_Ok
@@ -29579,8 +30328,8 @@ index|[
 name|i
 index|]
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|==
 name|opcode_pattern
@@ -29615,23 +30364,23 @@ name|i
 index|]
 condition|)
 block|{
-name|FT_TRACE7
+name|FT_TRACE6
 argument_list|(
 operator|(
 literal|"sph: opcode ptrn: %d, %s %s\n"
 operator|,
 name|i
 operator|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|root
 operator|.
 name|family_name
 operator|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|face
 operator|->
 name|root
@@ -29672,38 +30421,26 @@ block|}
 endif|#
 directive|endif
 comment|/* TT_CONFIG_OPTION_SUBPIXEL_HINTING */
-ifdef|#
-directive|ifdef
-name|TT_CONFIG_OPTION_INTERPRETER_SWITCH
 block|{
 name|FT_Long
 modifier|*
 name|args
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|stack
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|args
 decl_stmt|;
 name|FT_Byte
 name|opcode
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 decl_stmt|;
-DECL|macro|ARRAY_BOUND_ERROR
-undef|#
-directive|undef
-name|ARRAY_BOUND_ERROR
-DECL|macro|ARRAY_BOUND_ERROR
-define|#
-directive|define
-name|ARRAY_BOUND_ERROR
-value|goto Set_Invalid_Ref
 switch|switch
 condition|(
 name|opcode
@@ -29733,138 +30470,11 @@ case|case
 literal|0x05
 case|:
 comment|/* SFvTCA x */
-block|{
-name|FT_Short
-name|AA
-decl_stmt|,
-name|BB
-decl_stmt|;
-name|AA
-operator|=
-call|(
-name|FT_Short
-call|)
+name|Ins_SxyTCA
 argument_list|(
-operator|(
-name|opcode
-operator|&
-literal|1
-operator|)
-operator|<<
-literal|14
+name|exc
 argument_list|)
 expr_stmt|;
-name|BB
-operator|=
-call|(
-name|FT_Short
-call|)
-argument_list|(
-name|AA
-operator|^
-literal|0x4000
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|opcode
-operator|<
-literal|4
-condition|)
-block|{
-name|CUR
-operator|.
-name|GS
-operator|.
-name|projVector
-operator|.
-name|x
-operator|=
-name|AA
-expr_stmt|;
-name|CUR
-operator|.
-name|GS
-operator|.
-name|projVector
-operator|.
-name|y
-operator|=
-name|BB
-expr_stmt|;
-name|CUR
-operator|.
-name|GS
-operator|.
-name|dualVector
-operator|.
-name|x
-operator|=
-name|AA
-expr_stmt|;
-name|CUR
-operator|.
-name|GS
-operator|.
-name|dualVector
-operator|.
-name|y
-operator|=
-name|BB
-expr_stmt|;
-block|}
-else|else
-block|{
-name|GUESS_VECTOR
-argument_list|(
-name|projVector
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|(
-name|opcode
-operator|&
-literal|2
-operator|)
-operator|==
-literal|0
-condition|)
-block|{
-name|CUR
-operator|.
-name|GS
-operator|.
-name|freeVector
-operator|.
-name|x
-operator|=
-name|AA
-expr_stmt|;
-name|CUR
-operator|.
-name|GS
-operator|.
-name|freeVector
-operator|.
-name|y
-operator|=
-name|BB
-expr_stmt|;
-block|}
-else|else
-block|{
-name|GUESS_VECTOR
-argument_list|(
-name|freeVector
-argument_list|)
-expr_stmt|;
-block|}
-name|COMPUTE_Funcs
-argument_list|()
-expr_stmt|;
-block|}
 break|break;
 case|case
 literal|0x06
@@ -29874,7 +30484,13 @@ case|case
 literal|0x07
 case|:
 comment|/* SPvTL +  */
-name|DO_SPVTL
+name|Ins_SPVTL
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x08
@@ -29884,37 +30500,71 @@ case|case
 literal|0x09
 case|:
 comment|/* SFvTL +  */
-name|DO_SFVTL
+name|Ins_SFVTL
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x0A
 case|:
 comment|/* SPvFS */
-name|DO_SPVFS
+name|Ins_SPVFS
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x0B
 case|:
 comment|/* SFvFS */
-name|DO_SFVFS
+name|Ins_SFVFS
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x0C
 case|:
-comment|/* GPV */
-name|DO_GPV
+comment|/* GPv */
+name|Ins_GPV
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x0D
 case|:
-comment|/* GFV */
-name|DO_GFV
+comment|/* GFv */
+name|Ins_GFV
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x0E
 case|:
 comment|/* SFvTPv */
-name|DO_SFVTPV
+name|Ins_SFVTPV
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x0F
@@ -29922,27 +30572,47 @@ case|:
 comment|/* ISECT  */
 name|Ins_ISECT
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x10
 case|:
 comment|/* SRP0 */
-name|DO_SRP0
+name|Ins_SRP0
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x11
 case|:
 comment|/* SRP1 */
-name|DO_SRP1
+name|Ins_SRP1
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x12
 case|:
 comment|/* SRP2 */
-name|DO_SRP2
+name|Ins_SRP2
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x13
@@ -29950,9 +30620,11 @@ case|:
 comment|/* SZP0 */
 name|Ins_SZP0
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x14
@@ -29960,9 +30632,11 @@ case|:
 comment|/* SZP1 */
 name|Ins_SZP1
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x15
@@ -29970,9 +30644,11 @@ case|:
 comment|/* SZP2 */
 name|Ins_SZP2
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x16
@@ -29980,33 +30656,55 @@ case|:
 comment|/* SZPS */
 name|Ins_SZPS
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x17
 case|:
 comment|/* SLOOP */
-name|DO_SLOOP
+name|Ins_SLOOP
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x18
 case|:
 comment|/* RTG */
-name|DO_RTG
+name|Ins_RTG
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x19
 case|:
 comment|/* RTHG */
-name|DO_RTHG
+name|Ins_RTHG
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x1A
 case|:
 comment|/* SMD */
-name|DO_SMD
+name|Ins_SMD
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x1B
@@ -30014,69 +30712,119 @@ case|:
 comment|/* ELSE */
 name|Ins_ELSE
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x1C
 case|:
 comment|/* JMPR */
-name|DO_JMPR
+name|Ins_JMPR
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x1D
 case|:
 comment|/* SCVTCI */
-name|DO_SCVTCI
+name|Ins_SCVTCI
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x1E
 case|:
 comment|/* SSWCI */
-name|DO_SSWCI
+name|Ins_SSWCI
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x1F
 case|:
 comment|/* SSW */
-name|DO_SSW
+name|Ins_SSW
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x20
 case|:
 comment|/* DUP */
-name|DO_DUP
+name|Ins_DUP
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x21
 case|:
 comment|/* POP */
-comment|/* nothing :-) */
+name|Ins_POP
+argument_list|()
+expr_stmt|;
 break|break;
 case|case
 literal|0x22
 case|:
 comment|/* CLEAR */
-name|DO_CLEAR
+name|Ins_CLEAR
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x23
 case|:
 comment|/* SWAP */
-name|DO_SWAP
+name|Ins_SWAP
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x24
 case|:
 comment|/* DEPTH */
-name|DO_DEPTH
+name|Ins_DEPTH
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x25
 case|:
 comment|/* CINDEX */
-name|DO_CINDEX
+name|Ins_CINDEX
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x26
@@ -30084,9 +30832,11 @@ case|:
 comment|/* MINDEX */
 name|Ins_MINDEX
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x27
@@ -30094,9 +30844,11 @@ case|:
 comment|/* ALIGNPTS */
 name|Ins_ALIGNPTS
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x28
@@ -30104,9 +30856,9 @@ case|:
 comment|/* ???? */
 name|Ins_UNKNOWN
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x29
@@ -30114,9 +30866,11 @@ case|:
 comment|/* UTP */
 name|Ins_UTP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x2A
@@ -30124,9 +30878,11 @@ case|:
 comment|/* LOOPCALL */
 name|Ins_LOOPCALL
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x2B
@@ -30134,9 +30890,11 @@ case|:
 comment|/* CALL */
 name|Ins_CALL
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x2C
@@ -30144,9 +30902,11 @@ case|:
 comment|/* FDEF */
 name|Ins_FDEF
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x2D
@@ -30154,9 +30914,9 @@ case|:
 comment|/* ENDF */
 name|Ins_ENDF
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x2E
@@ -30168,9 +30928,11 @@ case|:
 comment|/* MDAP */
 name|Ins_MDAP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x30
@@ -30182,9 +30944,9 @@ case|:
 comment|/* IUP */
 name|Ins_IUP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x32
@@ -30196,9 +30958,9 @@ case|:
 comment|/* SHP */
 name|Ins_SHP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x34
@@ -30210,9 +30972,11 @@ case|:
 comment|/* SHC */
 name|Ins_SHC
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x36
@@ -30224,9 +30988,11 @@ case|:
 comment|/* SHZ */
 name|Ins_SHZ
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x38
@@ -30234,9 +31000,11 @@ case|:
 comment|/* SHPIX */
 name|Ins_SHPIX
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x39
@@ -30244,9 +31012,9 @@ case|:
 comment|/* IP    */
 name|Ins_IP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x3A
@@ -30258,9 +31026,11 @@ case|:
 comment|/* MSIRP */
 name|Ins_MSIRP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x3C
@@ -30268,15 +31038,19 @@ case|:
 comment|/* AlignRP */
 name|Ins_ALIGNRP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x3D
 case|:
 comment|/* RTDG */
-name|DO_RTDG
+name|Ins_RTDG
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x3E
@@ -30288,9 +31062,11 @@ case|:
 comment|/* MIAP */
 name|Ins_MIAP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x40
@@ -30298,9 +31074,11 @@ case|:
 comment|/* NPUSHB */
 name|Ins_NPUSHB
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x41
@@ -30308,25 +31086,21 @@ case|:
 comment|/* NPUSHW */
 name|Ins_NPUSHW
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x42
 case|:
 comment|/* WS */
-name|DO_WS
-break|break;
-name|Set_Invalid_Ref
-label|:
-name|CUR
-operator|.
-name|error
-operator|=
-name|FT_THROW
+name|Ins_WS
 argument_list|(
-name|Invalid_Reference
+name|exc
+argument_list|,
+name|args
 argument_list|)
 expr_stmt|;
 break|break;
@@ -30334,19 +31108,37 @@ case|case
 literal|0x43
 case|:
 comment|/* RS */
-name|DO_RS
+name|Ins_RS
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x44
 case|:
 comment|/* WCVTP */
-name|DO_WCVTP
+name|Ins_WCVTP
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x45
 case|:
 comment|/* RCVT */
-name|DO_RCVT
+name|Ins_RCVT
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x46
@@ -30358,9 +31150,11 @@ case|:
 comment|/* GC */
 name|Ins_GC
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x48
@@ -30368,9 +31162,11 @@ case|:
 comment|/* SCFS */
 name|Ins_SCFS
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x49
@@ -30382,87 +31178,149 @@ case|:
 comment|/* MD */
 name|Ins_MD
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x4B
 case|:
 comment|/* MPPEM */
-name|DO_MPPEM
+name|Ins_MPPEM
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x4C
 case|:
 comment|/* MPS */
-name|DO_MPS
+name|Ins_MPS
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x4D
 case|:
 comment|/* FLIPON */
-name|DO_FLIPON
+name|Ins_FLIPON
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x4E
 case|:
 comment|/* FLIPOFF */
-name|DO_FLIPOFF
+name|Ins_FLIPOFF
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x4F
 case|:
 comment|/* DEBUG */
-name|DO_DEBUG
+name|Ins_DEBUG
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x50
 case|:
 comment|/* LT */
-name|DO_LT
+name|Ins_LT
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x51
 case|:
 comment|/* LTEQ */
-name|DO_LTEQ
+name|Ins_LTEQ
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x52
 case|:
 comment|/* GT */
-name|DO_GT
+name|Ins_GT
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x53
 case|:
 comment|/* GTEQ */
-name|DO_GTEQ
+name|Ins_GTEQ
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x54
 case|:
 comment|/* EQ */
-name|DO_EQ
+name|Ins_EQ
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x55
 case|:
 comment|/* NEQ */
-name|DO_NEQ
+name|Ins_NEQ
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x56
 case|:
 comment|/* ODD */
-name|DO_ODD
+name|Ins_ODD
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x57
 case|:
 comment|/* EVEN */
-name|DO_EVEN
+name|Ins_EVEN
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x58
@@ -30470,33 +31328,49 @@ case|:
 comment|/* IF */
 name|Ins_IF
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x59
 case|:
 comment|/* EIF */
-comment|/* do nothing */
+name|Ins_EIF
+argument_list|()
+expr_stmt|;
 break|break;
 case|case
 literal|0x5A
 case|:
 comment|/* AND */
-name|DO_AND
+name|Ins_AND
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x5B
 case|:
 comment|/* OR */
-name|DO_OR
+name|Ins_OR
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x5C
 case|:
 comment|/* NOT */
-name|DO_NOT
+name|Ins_NOT
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x5D
@@ -30504,69 +31378,117 @@ case|:
 comment|/* DELTAP1 */
 name|Ins_DELTAP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x5E
 case|:
 comment|/* SDB */
-name|DO_SDB
+name|Ins_SDB
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x5F
 case|:
 comment|/* SDS */
-name|DO_SDS
+name|Ins_SDS
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x60
 case|:
 comment|/* ADD */
-name|DO_ADD
+name|Ins_ADD
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x61
 case|:
 comment|/* SUB */
-name|DO_SUB
+name|Ins_SUB
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x62
 case|:
 comment|/* DIV */
-name|DO_DIV
+name|Ins_DIV
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x63
 case|:
 comment|/* MUL */
-name|DO_MUL
+name|Ins_MUL
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x64
 case|:
 comment|/* ABS */
-name|DO_ABS
+name|Ins_ABS
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x65
 case|:
 comment|/* NEG */
-name|DO_NEG
+name|Ins_NEG
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x66
 case|:
 comment|/* FLOOR */
-name|DO_FLOOR
+name|Ins_FLOOR
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x67
 case|:
 comment|/* CEILING */
-name|DO_CEILING
+name|Ins_CEILING
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x68
@@ -30584,7 +31506,13 @@ case|case
 literal|0x6B
 case|:
 comment|/* ROUND */
-name|DO_ROUND
+name|Ins_ROUND
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x6C
@@ -30602,13 +31530,25 @@ case|case
 literal|0x6F
 case|:
 comment|/* NROUND */
-name|DO_NROUND
+name|Ins_NROUND
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x70
 case|:
 comment|/* WCVTF */
-name|DO_WCVTF
+name|Ins_WCVTF
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x71
@@ -30620,9 +31560,11 @@ case|:
 comment|/* DELTAP3 */
 name|Ins_DELTAP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x73
@@ -30638,39 +31580,69 @@ case|:
 comment|/* DELTAC2 */
 name|Ins_DELTAC
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x76
 case|:
 comment|/* SROUND */
-name|DO_SROUND
+name|Ins_SROUND
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x77
 case|:
 comment|/* S45Round */
-name|DO_S45ROUND
+name|Ins_S45ROUND
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x78
 case|:
 comment|/* JROT */
-name|DO_JROT
+name|Ins_JROT
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x79
 case|:
 comment|/* JROF */
-name|DO_JROF
+name|Ins_JROF
+argument_list|(
+name|exc
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x7A
 case|:
 comment|/* ROFF */
-name|DO_ROFF
+name|Ins_ROFF
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x7B
@@ -30678,31 +31650,45 @@ case|:
 comment|/* ???? */
 name|Ins_UNKNOWN
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x7C
 case|:
 comment|/* RUTG */
-name|DO_RUTG
+name|Ins_RUTG
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x7D
 case|:
 comment|/* RDTG */
-name|DO_RDTG
+name|Ins_RDTG
+argument_list|(
+name|exc
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x7E
 case|:
 comment|/* SANGW */
+name|Ins_SANGW
+argument_list|()
+expr_stmt|;
+break|break;
 case|case
 literal|0x7F
 case|:
-comment|/* AA    */
-comment|/* nothing - obsolete */
+comment|/* AA */
+name|Ins_AA
+argument_list|()
+expr_stmt|;
 break|break;
 case|case
 literal|0x80
@@ -30710,9 +31696,9 @@ case|:
 comment|/* FLIPPT */
 name|Ins_FLIPPT
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x81
@@ -30720,9 +31706,11 @@ case|:
 comment|/* FLIPRGON */
 name|Ins_FLIPRGON
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x82
@@ -30730,9 +31718,11 @@ case|:
 comment|/* FLIPRGOFF */
 name|Ins_FLIPRGOFF
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x83
@@ -30744,9 +31734,9 @@ case|:
 comment|/* UNKNOWN */
 name|Ins_UNKNOWN
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x85
@@ -30754,23 +31744,27 @@ case|:
 comment|/* SCANCTRL */
 name|Ins_SCANCTRL
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x86
 case|:
-comment|/* SDPVTL */
+comment|/* SDPvTL */
 case|case
 literal|0x87
 case|:
-comment|/* SDPVTL */
+comment|/* SDPvTL */
 name|Ins_SDPVTL
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x88
@@ -30778,9 +31772,11 @@ case|:
 comment|/* GETINFO */
 name|Ins_GETINFO
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x89
@@ -30788,9 +31784,11 @@ case|:
 comment|/* IDEF */
 name|Ins_IDEF
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x8A
@@ -30798,21 +31796,29 @@ case|:
 comment|/* ROLL */
 name|Ins_ROLL
 argument_list|(
-argument|EXEC_ARG_ args
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x8B
 case|:
 comment|/* MAX */
-name|DO_MAX
+name|Ins_MAX
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x8C
 case|:
 comment|/* MIN */
-name|DO_MIN
+name|Ins_MIN
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 literal|0x8D
@@ -30820,9 +31826,11 @@ case|:
 comment|/* SCANTYPE */
 name|Ins_SCANTYPE
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x8E
@@ -30830,18 +31838,20 @@ case|:
 comment|/* INSTCTRL */
 name|Ins_INSTCTRL
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 case|case
 literal|0x8F
 case|:
 name|Ins_UNKNOWN
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 default|default:
 if|if
@@ -30852,9 +31862,11 @@ literal|0xE0
 condition|)
 name|Ins_MIRP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 elseif|else
 if|if
 condition|(
@@ -30864,9 +31876,11 @@ literal|0xC0
 condition|)
 name|Ins_MDRP
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 elseif|else
 if|if
 condition|(
@@ -30876,9 +31890,11 @@ literal|0xB8
 condition|)
 name|Ins_PUSHW
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 elseif|else
 if|if
 condition|(
@@ -30888,52 +31904,30 @@ literal|0xB0
 condition|)
 name|Ins_PUSHB
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
+argument_list|,
+name|args
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 else|else
 name|Ins_UNKNOWN
 argument_list|(
-argument|EXEC_ARG_ args
+name|exc
 argument_list|)
-empty_stmt|;
-block|}
-block|}
-else|#
-directive|else
-name|Instruct_Dispatch
-index|[
-name|CUR
-operator|.
-name|opcode
-index|]
-operator|(
-name|EXEC_ARG_
-operator|&
-name|CUR
-operator|.
-name|stack
-index|[
-name|CUR
-operator|.
-name|args
-index|]
-operator|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|/* TT_CONFIG_OPTION_INTERPRETER_SWITCH */
+block|}
+block|}
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 condition|)
 block|{
 switch|switch
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 condition|)
 block|{
@@ -30949,8 +31943,8 @@ name|TT_DefRecord
 modifier|*
 name|def
 init|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IDefs
 decl_stmt|;
 name|TT_DefRecord
@@ -30959,8 +31953,8 @@ name|limit
 init|=
 name|def
 operator|+
-name|CUR
-operator|.
+name|exc
+operator|->
 name|numIDefs
 decl_stmt|;
 for|for
@@ -30980,8 +31974,8 @@ name|def
 operator|->
 name|active
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|opcode
 operator|==
 operator|(
@@ -30998,17 +31992,17 @@ name|callrec
 decl_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callSize
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -31023,12 +32017,12 @@ block|}
 name|callrec
 operator|=
 operator|&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callStack
 index|[
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 index|]
 expr_stmt|;
@@ -31036,16 +32030,16 @@ name|callrec
 operator|->
 name|Caller_Range
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|curRange
 expr_stmt|;
 name|callrec
 operator|->
 name|Caller_IP
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+
 literal|1
@@ -31064,8 +32058,10 @@ name|def
 expr_stmt|;
 if|if
 condition|(
-name|INS_Goto_CodeRange
+name|Ins_Goto_CodeRange
 argument_list|(
+name|exc
+argument_list|,
 name|def
 operator|->
 name|range
@@ -31086,8 +32082,8 @@ goto|;
 block|}
 block|}
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -31119,26 +32115,26 @@ endif|#
 directive|endif
 block|}
 block|}
-name|CUR
-operator|.
+name|exc
+operator|->
 name|top
 operator|=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|new_top
 expr_stmt|;
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|step_ins
 condition|)
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|+=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|length
 expr_stmt|;
 comment|/* increment instruction counter and check if we didn't */
@@ -31160,26 +32156,26 @@ name|LSuiteLabel_
 label|:
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|IP
 operator|>=
-name|CUR
-operator|.
+name|exc
+operator|->
 name|codeSize
 condition|)
 block|{
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|callTop
 operator|>
 literal|0
 condition|)
 block|{
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -31200,30 +32196,20 @@ block|}
 do|while
 condition|(
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|instruction_trap
 condition|)
 do|;
 name|LNo_Error_
 label|:
-ifdef|#
-directive|ifdef
-name|TT_CONFIG_OPTION_STATIC_RASTER
-operator|*
-name|exc
-operator|=
-name|cur
-expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|FT_Err_Ok
 return|;
 name|LErrorCodeOverflow_
 label|:
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|=
 name|FT_THROW
@@ -31233,32 +32219,22 @@ argument_list|)
 expr_stmt|;
 name|LErrorLabel_
 label|:
-ifdef|#
-directive|ifdef
-name|TT_CONFIG_OPTION_STATIC_RASTER
-operator|*
-name|exc
-operator|=
-name|cur
-expr_stmt|;
-endif|#
-directive|endif
 comment|/* If any errors have occurred, function tables may be broken. */
 comment|/* Force a re-execution of `prep' and `fpgm' tables if no      */
 comment|/* bytecode debugger is run.                                   */
 if|if
 condition|(
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|&&
 operator|!
-name|CUR
-operator|.
+name|exc
+operator|->
 name|instruction_trap
 operator|&&
-name|CUR
-operator|.
+name|exc
+operator|->
 name|curRange
 operator|==
 name|tt_coderange_glyph
@@ -31269,8 +32245,8 @@ argument_list|(
 operator|(
 literal|"  The interpreter returned error 0x%x\n"
 operator|,
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 operator|)
 argument_list|)
@@ -31295,8 +32271,8 @@ literal|1
 expr_stmt|;
 block|}
 return|return
-name|CUR
-operator|.
+name|exc
+operator|->
 name|error
 return|;
 block|}

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2014 by                                                 */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -267,7 +267,7 @@ name|table
 operator|->
 name|block
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|table
 operator|->
@@ -555,13 +555,13 @@ end_macro
 begin_macro
 name|ps_table_add
 argument_list|(
-argument|PS_Table    table
+argument|PS_Table  table
 argument_list|,
-argument|FT_Int      idx
+argument|FT_Int    idx
 argument_list|,
-argument|void*       object
+argument|void*     object
 argument_list|,
-argument|FT_PtrDist  length
+argument|FT_UInt   length
 argument_list|)
 end_macro
 begin_block
@@ -583,27 +583,6 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"ps_table_add: invalid index\n"
-operator|)
-argument_list|)
-expr_stmt|;
-return|return
-name|FT_THROW
-argument_list|(
-name|Invalid_Argument
-argument_list|)
-return|;
-block|}
-if|if
-condition|(
-name|length
-operator|<
-literal|0
-condition|)
-block|{
-name|FT_ERROR
-argument_list|(
-operator|(
-literal|"ps_table_add: invalid length\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1940,6 +1919,16 @@ name|Invalid_File_Format
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|cur
+operator|>
+name|limit
+condition|)
+name|cur
+operator|=
+name|limit
+expr_stmt|;
 name|parser
 operator|->
 name|error
@@ -2027,13 +2016,13 @@ name|token
 operator|->
 name|start
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|token
 operator|->
 name|limit
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* first of all, skip leading whitespace */
 name|ps_parser_skip_spaces
@@ -2316,7 +2305,7 @@ name|token
 operator|->
 name|start
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|token
 operator|->
@@ -2984,7 +2973,7 @@ directive|if
 literal|0
 end_if
 begin_comment
-unit|static FT_String*   ps_tostring( FT_Byte**  cursor,                FT_Byte*   limit,                FT_Memory  memory )   {     FT_Byte*    cur = *cursor;     FT_PtrDist  len = 0;     FT_Int      count;     FT_String*  result;     FT_Error    error;
+unit|static FT_String*   ps_tostring( FT_Byte**  cursor,                FT_Byte*   limit,                FT_Memory  memory )   {     FT_Byte*    cur = *cursor;     FT_UInt     len = 0;     FT_Int      count;     FT_String*  result;     FT_Error    error;
 comment|/* XXX: some stupid fonts have a `Notice' or `Copyright' string     */
 end_comment
 begin_comment
@@ -3017,7 +3006,7 @@ unit|*cursor = cur;     count   = 0;
 comment|/* then, count its length */
 end_comment
 begin_comment
-unit|for ( ; cur< limit; cur++ )     {       if ( *cur == '(' )         count++;        else if ( *cur == ')' )       {         count--;         if ( count< 0 )           break;       }     }      len = cur - *cursor;     if ( cur>= limit || FT_ALLOC( result, len + 1 ) )       return 0;
+unit|for ( ; cur< limit; cur++ )     {       if ( *cur == '(' )         count++;        else if ( *cur == ')' )       {         count--;         if ( count< 0 )           break;       }     }      len = (FT_UInt)( cur - *cursor );     if ( cur>= limit || FT_ALLOC( result, len + 1 ) )       return 0;
 comment|/* now copy the string */
 end_comment
 begin_endif
@@ -3948,6 +3937,9 @@ name|cur
 argument_list|,
 name|limit
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|max_objects
 argument_list|,
 name|temp
@@ -3977,11 +3969,19 @@ name|FT_ERROR
 argument_list|(
 operator|(
 literal|"ps_parser_load_field:"
-literal|" expected %d integers in the %s subarray\n"
+literal|" expected %d integer%s in the %s subarray\n"
 literal|"                     "
 literal|" of /FontBBox in the /Blend dictionary\n"
 operator|,
 name|max_objects
+operator|,
+name|max_objects
+operator|>
+literal|1
+condition|?
+literal|"s"
+else|:
+literal|""
 operator|,
 name|i
 operator|==
@@ -4014,6 +4014,11 @@ operator|=
 name|FT_THROW
 argument_list|(
 name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+name|FT_FREE
+argument_list|(
+name|temp
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -4299,6 +4304,9 @@ name|array_max
 condition|)
 name|num_elements
 operator|=
+operator|(
+name|FT_Int
+operator|)
 name|field
 operator|->
 name|array_max
@@ -4508,7 +4516,7 @@ argument|FT_Byte*   bytes
 argument_list|,
 argument|FT_Offset  max_bytes
 argument_list|,
-argument|FT_Long*   pnum_bytes
+argument|FT_ULong*  pnum_bytes
 argument_list|,
 argument|FT_Bool    delimiters
 argument_list|)
@@ -5070,7 +5078,7 @@ name|builder
 operator|->
 name|hints_funcs
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(

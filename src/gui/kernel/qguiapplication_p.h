@@ -946,6 +946,12 @@ name|ApplicationState
 name|applicationState
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+specifier|static
+name|bool
+name|highDpiScalingUpdated
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef

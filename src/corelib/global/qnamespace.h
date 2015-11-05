@@ -1544,13 +1544,17 @@ name|AA_SetPalette
 init|=
 literal|19
 block|,
-name|AA_NoHighDpiScaling
+name|AA_EnableHighDpiScaling
 init|=
 literal|20
 block|,
-name|AA_UseStyleSheetPropagationInWidgetStyles
+name|AA_DisableHighDpiScaling
 init|=
 literal|21
+block|,
+name|AA_UseStyleSheetPropagationInWidgetStyles
+init|=
+literal|22
 block|,
 comment|// ### Qt 6: remove me
 comment|// Add new attributes before this line

@@ -160,6 +160,9 @@ end_function_decl
 begin_comment
 comment|/* glyph extents */
 end_comment
+begin_comment
+comment|/* Note that height is negative in coordinate systems that grow up. */
+end_comment
 begin_typedef
 DECL|struct|hb_glyph_extents_t
 typedef|typedef
@@ -170,18 +173,22 @@ DECL|member|x_bearing
 name|hb_position_t
 name|x_bearing
 decl_stmt|;
+comment|/* left side of glyph from origin. */
 DECL|member|y_bearing
 name|hb_position_t
 name|y_bearing
 decl_stmt|;
+comment|/* top side of glyph from origin. */
 DECL|member|width
 name|hb_position_t
 name|width
 decl_stmt|;
+comment|/* distance from left to right side. */
 DECL|member|height
 name|hb_position_t
 name|height
 decl_stmt|;
+comment|/* distance from top to bottom side. */
 block|}
 DECL|typedef|hb_glyph_extents_t
 name|hb_glyph_extents_t
@@ -496,7 +503,7 @@ begin_comment
 comment|/* func setters */
 end_comment
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -519,7 +526,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_h_advance_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_h_advance_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -542,7 +549,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_v_advance_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_v_advance_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -565,7 +572,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_h_origin_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_h_origin_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -588,7 +595,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_v_origin_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_v_origin_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -611,7 +618,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_h_kerning_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_h_kerning_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -634,7 +641,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_v_kerning_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_v_kerning_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -657,7 +664,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_extents_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_extents_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -680,7 +687,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_contour_point_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_contour_point_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -703,7 +710,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_name_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_name_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -726,7 +733,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_font_funcs_set_glyph_from_name_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_font_funcs_set_glyph_from_name_func:  * @ffuncs: font functions.  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -1295,6 +1302,20 @@ parameter_list|(
 name|hb_font_t
 modifier|*
 name|font
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|hb_font_set_parent
+parameter_list|(
+name|hb_font_t
+modifier|*
+name|font
+parameter_list|,
+name|hb_font_t
+modifier|*
+name|parent
 parameter_list|)
 function_decl|;
 end_function_decl

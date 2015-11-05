@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2006, 2009-2011, 2013, 2014 by                          */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -164,16 +164,14 @@ name|pitch
 expr_stmt|;
 name|size
 operator|=
-call|(
+operator|(
 name|FT_ULong
-call|)
-argument_list|(
+operator|)
 name|pitch
 operator|*
 name|bitmap
 operator|->
 name|rows
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -739,6 +737,9 @@ condition|)
 operator|*
 name|asize
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|FT_ABS
 argument_list|(
 name|sbit
@@ -1191,6 +1192,9 @@ expr_stmt|;
 comment|/* add the size of a given glyph image */
 name|size
 operator|+=
+operator|(
+name|FT_Offset
+operator|)
 name|pitch
 operator|*
 name|sbit

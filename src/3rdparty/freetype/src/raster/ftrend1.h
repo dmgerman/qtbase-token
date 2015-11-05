@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2001 by                                                 */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -73,14 +73,6 @@ name|FT_BEGIN_HEADER
 name|FT_DECLARE_RENDERER
 argument_list|(
 name|ft_raster1_renderer_class
-argument_list|)
-comment|/* this renderer is _NOT_ part of the default modules, you'll need */
-comment|/* to register it by hand in your application.  It should only be  */
-comment|/* used for backwards-compatibility with FT 1.x anyway.            */
-comment|/*                                                                 */
-name|FT_DECLARE_RENDERER
-argument_list|(
-name|ft_raster5_renderer_class
 argument_list|)
 name|FT_END_HEADER
 end_decl_stmt

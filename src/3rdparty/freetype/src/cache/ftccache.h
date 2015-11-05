@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2000-2007, 2009-2011, 2013 by                                */
+comment|/*  Copyright 2000-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -75,7 +75,7 @@ parameter_list|(
 name|i
 parameter_list|)
 define|\
-value|((FT_PtrDist)(( (FT_PtrDist)(i)>> 3 ) ^ ( (FT_PtrDist)(i)<< 7 )))
+value|( ( (FT_Offset)(i)>> 3 ) ^ ( (FT_Offset)(i)<< 7 ) )
 end_define
 begin_comment
 comment|/* handle to cache object */
@@ -176,7 +176,7 @@ name|link
 decl_stmt|;
 comment|/* used for hashing                    */
 DECL|member|hash
-name|FT_PtrDist
+name|FT_Offset
 name|hash
 decl_stmt|;
 comment|/* used for hashing too                */
@@ -266,9 +266,9 @@ end_macro
 begin_macro
 name|ftc_get_top_node_for_hash
 argument_list|(
-argument|FTC_Cache   cache
+argument|FTC_Cache  cache
 argument_list|,
-argument|FT_PtrDist  hash
+argument|FT_Offset  hash
 argument_list|)
 end_macro
 begin_empty_stmt
@@ -599,7 +599,7 @@ name|FTC_Cache_Lookup
 argument_list|(
 argument|FTC_Cache   cache
 argument_list|,
-argument|FT_PtrDist  hash
+argument|FT_Offset   hash
 argument_list|,
 argument|FT_Pointer  query
 argument_list|,
@@ -625,7 +625,7 @@ name|FTC_Cache_NewNode
 argument_list|(
 argument|FTC_Cache   cache
 argument_list|,
-argument|FT_PtrDist  hash
+argument|FT_Offset   hash
 argument_list|,
 argument|FT_Pointer  query
 argument_list|,
@@ -679,7 +679,7 @@ parameter_list|,
 name|error
 parameter_list|)
 define|\
-value|FT_BEGIN_STMNT                                                         \     FTC_Node             *_bucket, *_pnode, _node;                       \     FTC_Cache             _cache   = FTC_CACHE(cache);                   \     FT_PtrDist            _hash    = (FT_PtrDist)(hash);                 \     FTC_Node_CompareFunc  _nodcomp = (FTC_Node_CompareFunc)(nodecmp);    \     FT_Bool               _list_changed = FALSE;                         \                                                                          \                                                                          \     error = FT_Err_Ok;                                                   \     node  = NULL;                                                        \                                                                          \
+value|FT_BEGIN_STMNT                                                         \     FTC_Node             *_bucket, *_pnode, _node;                       \     FTC_Cache             _cache   = FTC_CACHE(cache);                   \     FT_Offset             _hash    = (FT_Offset)(hash);                  \     FTC_Node_CompareFunc  _nodcomp = (FTC_Node_CompareFunc)(nodecmp);    \     FT_Bool               _list_changed = FALSE;                         \                                                                          \                                                                          \     error = FT_Err_Ok;                                                   \     node  = NULL;                                                        \                                                                          \
 comment|/* Go to the `top' node of the list sharing same masked hash */
 value|\     _bucket = _pnode = FTC_NODE__TOP_FOR_HASH( _cache, _hash );          \                                                                          \
 comment|/* Look up a node with identical hash and queried properties.    */

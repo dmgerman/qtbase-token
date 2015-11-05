@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004-2006, 2010, 2013, 2014 by                               */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Masatake YAMATO, Redhat K.K,                                           */

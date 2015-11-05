@@ -398,11 +398,11 @@ label|:
 struct|struct
 name|Intersection
 block|{
-name|int
-name|vertex
-decl_stmt|;
 name|qreal
 name|t
+decl_stmt|;
+name|int
+name|vertex
 decl_stmt|;
 name|int
 name|next

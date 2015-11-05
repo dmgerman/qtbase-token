@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002-2014 by                                                 */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Roberto Alameda.                                                       */
@@ -433,17 +433,6 @@ parameter_list|)
 value|(p)->funcs.add( (p), i, o, l )
 end_define
 begin_define
-DECL|macro|T1_Done_Table
-define|#
-directive|define
-name|T1_Done_Table
-parameter_list|(
-name|p
-parameter_list|)
-define|\
-value|do                        \           {                         \             if ( (p)->funcs.done )  \               (p)->funcs.done( p ); \           } while ( 0 )
-end_define
-begin_define
 DECL|macro|T1_Release_Table
 define|#
 directive|define
@@ -615,9 +604,9 @@ name|parser
 operator|->
 name|root
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
-literal|0
+name|NULL
 argument_list|,
 name|memory
 argument_list|)
@@ -638,7 +627,7 @@ name|parser
 operator|->
 name|base_dict
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|parser
 operator|->
@@ -722,6 +711,9 @@ name|Exit
 goto|;
 name|size
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|stream
 operator|->
 name|size
@@ -1006,17 +998,6 @@ name|type1
 operator|.
 name|font_offset
 decl_stmt|;
-name|FT_Face
-name|root
-init|=
-operator|(
-name|FT_Face
-operator|)
-operator|&
-name|face
-operator|->
-name|root
-decl_stmt|;
 name|FT_Fixed
 name|temp
 index|[
@@ -1039,7 +1020,7 @@ literal|6
 argument_list|,
 name|temp
 argument_list|,
-literal|3
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -1082,7 +1063,7 @@ block|{
 name|FT_ERROR
 argument_list|(
 operator|(
-literal|"t1_parse_font_matrix: invalid font matrix\n"
+literal|"t42_parse_font_matrix: invalid font matrix\n"
 operator|)
 argument_list|)
 expr_stmt|;
@@ -1099,24 +1080,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* Set Units per EM based on FontMatrix values.  We set the value to */
-comment|/* 1000 / temp_scale, because temp_scale was already multiplied by   */
-comment|/* 1000 (in t1_tofixed, from psobjs.c).                              */
-name|root
-operator|->
-name|units_per_EM
-operator|=
-operator|(
-name|FT_UShort
-operator|)
-name|FT_DivFix
-argument_list|(
-literal|1000
-argument_list|,
-name|temp_scale
-argument_list|)
-expr_stmt|;
-comment|/* we need to scale the values by 1.0/temp_scale */
+comment|/* atypical case */
 if|if
 condition|(
 name|temp_scale
@@ -1455,6 +1419,35 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+comment|/* only composite fonts (which we don't support) */
+comment|/* can have larger values                        */
+if|if
+condition|(
+name|count
+operator|>
+literal|256
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t42_parse_encoding: invalid encoding array size\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|parser
+operator|->
+name|root
+operator|.
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|T1_Skip_Spaces
 argument_list|(
 name|parser
@@ -1471,6 +1464,34 @@ operator|>=
 name|limit
 condition|)
 return|return;
+comment|/* PostScript happily allows overwriting of encoding arrays */
+if|if
+condition|(
+name|encode
+operator|->
+name|char_index
+condition|)
+block|{
+name|FT_FREE
+argument_list|(
+name|encode
+operator|->
+name|char_index
+argument_list|)
+expr_stmt|;
+name|FT_FREE
+argument_list|(
+name|encode
+operator|->
+name|char_name
+argument_list|)
+expr_stmt|;
+name|T1_Release_Table
+argument_list|(
+name|char_table
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* we use a T1_Table to store our charnames */
 name|loader
 operator|->
@@ -1730,6 +1751,31 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+comment|/* protect against invalid charcode */
+if|if
+condition|(
+name|cur
+operator|==
+name|parser
+operator|->
+name|root
+operator|.
+name|cursor
+condition|)
+block|{
+name|parser
+operator|->
+name|root
+operator|.
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Unknown_File_Format
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 block|}
 name|cur
 operator|=
@@ -1757,7 +1803,7 @@ operator|<
 name|count
 condition|)
 block|{
-name|FT_PtrDist
+name|FT_UInt
 name|len
 decl_stmt|;
 name|cur
@@ -1798,6 +1844,10 @@ condition|)
 return|return;
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|parser
 operator|->
 name|root
@@ -1805,6 +1855,7 @@ operator|.
 name|cursor
 operator|-
 name|cur
+argument_list|)
 expr_stmt|;
 name|parser
 operator|->
@@ -1860,10 +1911,10 @@ comment|/* Since the current position is not updated for           */
 comment|/* immediates-only mode we would get an infinite loop if   */
 comment|/* we don't do anything here.                              */
 comment|/*                                                         */
-comment|/* This encoding array is not valid according to the type1 */
-comment|/* specification (it might be an encoding for a CID type1  */
-comment|/* font, however), so we conclude that this font is NOT a  */
-comment|/* type1 font.                                             */
+comment|/* This encoding array is not valid according to the       */
+comment|/* type42 specification (it might be an encoding for a CID */
+comment|/* type42 font, however), so we conclude that this font is */
+comment|/* NOT a type42 font.                                      */
 name|parser
 operator|->
 name|root
@@ -2027,7 +2078,7 @@ name|root
 operator|.
 name|error
 operator|=
-name|FT_THROW
+name|FT_ERR
 argument_list|(
 name|Ignore
 argument_list|)
@@ -2106,10 +2157,10 @@ name|num_tables
 init|=
 literal|0
 decl_stmt|;
-name|FT_ULong
+name|FT_Long
 name|count
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|n
 decl_stmt|,
 name|string_size
@@ -2277,7 +2328,7 @@ comment|/* don't include delimiters */
 name|string_size
 operator|=
 call|(
-name|FT_Long
+name|FT_ULong
 call|)
 argument_list|(
 operator|(
@@ -2383,6 +2434,9 @@ name|cur
 argument_list|)
 condition|)
 block|{
+name|FT_Long
+name|tmp
+decl_stmt|;
 if|if
 condition|(
 name|allocated
@@ -2407,7 +2461,7 @@ goto|goto
 name|Fail
 goto|;
 block|}
-name|string_size
+name|tmp
 operator|=
 name|T1_ToInt
 argument_list|(
@@ -2416,7 +2470,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|string_size
+name|tmp
 operator|<
 literal|0
 condition|)
@@ -2439,6 +2493,14 @@ goto|goto
 name|Fail
 goto|;
 block|}
+else|else
+name|string_size
+operator|=
+operator|(
+name|FT_ULong
+operator|)
+name|tmp
+expr_stmt|;
 name|T1_Skip_PS_Token
 argument_list|(
 name|parser
@@ -2467,6 +2529,10 @@ expr_stmt|;
 comment|/* one space after `RD' */
 if|if
 condition|(
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|limit
 operator|-
 name|parser
@@ -2474,6 +2540,7 @@ operator|->
 name|root
 operator|.
 name|cursor
+argument_list|)
 operator|<
 name|string_size
 condition|)
@@ -2660,7 +2727,7 @@ expr_stmt|;
 if|if
 condition|(
 call|(
-name|FT_ULong
+name|FT_Long
 call|)
 argument_list|(
 name|limit
@@ -2793,6 +2860,10 @@ name|face
 operator|->
 name|ttf_size
 operator|+=
+call|(
+name|FT_Long
+call|)
+argument_list|(
 operator|(
 name|len
 operator|+
@@ -2800,7 +2871,8 @@ literal|3
 operator|)
 operator|&
 operator|~
-literal|3
+literal|3U
+argument_list|)
 expr_stmt|;
 block|}
 name|status
@@ -2998,10 +3070,10 @@ name|root
 operator|.
 name|limit
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|n
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|notdef_index
 init|=
 literal|0
@@ -3062,9 +3134,6 @@ name|loader
 operator|->
 name|num_glyphs
 operator|=
-operator|(
-name|FT_UInt
-operator|)
 name|T1_ToInt
 argument_list|(
 name|parser
@@ -3079,6 +3148,33 @@ operator|.
 name|error
 condition|)
 return|return;
+if|if
+condition|(
+name|loader
+operator|->
+name|num_glyphs
+operator|<
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t42_parse_encoding: invalid number of glyphs\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
 block|}
 elseif|else
 if|if
@@ -3095,7 +3191,7 @@ condition|)
 block|{
 comment|/* We have `<< ...>>'.  Count the number of `/' in the dictionary */
 comment|/* to get its size.                                                */
-name|FT_UInt
+name|FT_Int
 name|count
 init|=
 literal|0
@@ -3253,6 +3349,33 @@ name|Fail
 goto|;
 block|}
 comment|/* initialize tables */
+comment|/* contrary to Type1, we disallow multiple CharStrings arrays */
+if|if
+condition|(
+name|swap_table
+operator|->
+name|init
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"t42_parse_charstrings:"
+literal|" only one CharStrings array allowed\n"
+operator|)
+argument_list|)
+expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+goto|goto
+name|Fail
+goto|;
+block|}
 name|error
 operator|=
 name|psaux
@@ -3453,7 +3576,7 @@ operator|==
 literal|'/'
 condition|)
 block|{
-name|FT_PtrDist
+name|FT_UInt
 name|len
 decl_stmt|;
 if|if
@@ -3489,6 +3612,10 @@ expr_stmt|;
 comment|/* skip `/' */
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|parser
 operator|->
 name|root
@@ -3496,6 +3623,7 @@ operator|.
 name|cursor
 operator|-
 name|cur
+argument_list|)
 expr_stmt|;
 name|error
 operator|=
@@ -3623,6 +3751,10 @@ goto|;
 block|}
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|parser
 operator|->
 name|root
@@ -3630,6 +3762,7 @@ operator|.
 name|cursor
 operator|-
 name|cur
+argument_list|)
 expr_stmt|;
 name|error
 operator|=
@@ -4492,7 +4625,7 @@ operator|<
 name|limit
 condition|)
 block|{
-name|FT_PtrDist
+name|FT_UInt
 name|len
 decl_stmt|;
 name|cur
@@ -4524,6 +4657,10 @@ name|Exit
 goto|;
 name|len
 operator|=
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|parser
 operator|->
 name|root
@@ -4531,6 +4668,7 @@ operator|.
 name|cursor
 operator|-
 name|cur
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -4614,9 +4752,6 @@ index|]
 operator|&&
 name|len
 operator|==
-operator|(
-name|FT_PtrDist
-operator|)
 name|ft_strlen
 argument_list|(
 operator|(

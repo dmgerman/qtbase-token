@@ -960,7 +960,7 @@ specifier|static
 name|void
 name|initStyleBaseOption
 parameter_list|(
-name|QStyleOptionTabBarBaseV2
+name|QStyleOptionTabBarBase
 modifier|*
 name|optTabBase
 parameter_list|,

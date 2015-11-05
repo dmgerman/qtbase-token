@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+comment|/*  Copyright 2004-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -131,7 +134,7 @@ begin_comment
 comment|/*************************************************************************/
 end_comment
 begin_comment
-comment|/*      * referred track table format specification:      * http://developer.apple.com/fonts/TTRefMan/RM06/Chap6trak.html      * last update was 1996.      * ----------------------------------------------      * [MINIMUM HEADER]: GXV_TRAK_SIZE_MIN      * version          (fixed:  32bit) = 0x00010000      * format           (uint16: 16bit) = 0 is only defined (1996)      * horizOffset      (uint16: 16bit)      * vertOffset       (uint16: 16bit)      * reserved         (uint16: 16bit) = 0      * ----------------------------------------------      * [VARIABLE BODY]:      * horizData      *   header         ( 2 + 2 + 4      *   trackTable       + nTracks * ( 4 + 2 + 2 )      *   sizeTable        + nSizes * 4 )      * ----------------------------------------------      * vertData      *   header         ( 2 + 2 + 4      *   trackTable       + nTracks * ( 4 + 2 + 2 )      *   sizeTable        + nSizes * 4 )      * ----------------------------------------------      */
+comment|/*      * referred track table format specification:      * https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6trak.html      * last update was 1996.      * ----------------------------------------------      * [MINIMUM HEADER]: GXV_TRAK_SIZE_MIN      * version          (fixed:  32bit) = 0x00010000      * format           (uint16: 16bit) = 0 is only defined (1996)      * horizOffset      (uint16: 16bit)      * vertOffset       (uint16: 16bit)      * reserved         (uint16: 16bit) = 0      * ----------------------------------------------      * [VARIABLE BODY]:      * horizData      *   header         ( 2 + 2 + 4      *   trackTable       + nTracks * ( 4 + 2 + 2 )      *   sizeTable        + nSizes * 4 )      * ----------------------------------------------      * vertData      *   header         ( 2 + 2 + 4      *   trackTable       + nTracks * ( 4 + 2 + 2 )      *   sizeTable        + nSizes * 4 )      * ----------------------------------------------      */
 end_comment
 begin_typedef
 DECL|struct|GXV_trak_DataRec_
@@ -407,9 +410,14 @@ name|gxvalid
 operator|->
 name|subtable_length
 operator|=
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 expr_stmt|;
 name|GXV_EXIT
 expr_stmt|;
@@ -497,9 +505,14 @@ name|gxv_odtect_add_range
 argument_list|(
 name|table
 argument_list|,
+call|(
+name|FT_ULong
+call|)
+argument_list|(
 name|p
 operator|-
 name|table
+argument_list|)
 argument_list|,
 literal|"trackData header"
 argument_list|,

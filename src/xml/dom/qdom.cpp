@@ -10577,6 +10577,10 @@ name|index
 operator|>=
 name|length
 argument_list|()
+operator|||
+name|index
+operator|<
+literal|0
 condition|)
 return|return
 literal|0

@@ -105,6 +105,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qhighdpiscaling_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qwindowsysteminterface.h>
 end_include
 begin_macro
@@ -434,6 +439,15 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|m_density
+specifier|static
+name|double
+name|m_density
+init|=
+literal|1.0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|m_pauseApplication
 specifier|static
 specifier|volatile
@@ -582,6 +596,15 @@ parameter_list|()
 block|{
 return|return
 name|m_scaledDensity
+return|;
+block|}
+DECL|function|pixelDensity
+name|double
+name|pixelDensity
+parameter_list|()
+block|{
+return|return
+name|m_density
 return|;
 block|}
 DECL|function|javaVM
@@ -2504,6 +2527,9 @@ name|ydpi
 parameter_list|,
 name|jdouble
 name|scaledDensity
+parameter_list|,
+name|jdouble
+name|density
 parameter_list|)
 block|{
 comment|// Android does not give us the correct screen size for immersive mode, but
@@ -2537,6 +2563,10 @@ expr_stmt|;
 name|m_scaledDensity
 operator|=
 name|scaledDensity
+expr_stmt|;
+name|m_density
+operator|=
+name|density
 expr_stmt|;
 if|if
 condition|(
@@ -3249,7 +3279,7 @@ block|,
 block|{
 literal|"setDisplayMetrics"
 block|,
-literal|"(IIIIDDD)V"
+literal|"(IIIIDDDD)V"
 block|,
 operator|(
 name|void

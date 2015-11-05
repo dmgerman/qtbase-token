@@ -18,7 +18,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2006, 2007, 2011 by Roberto Alameda.             */
+comment|/*  Copyright 2002-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  Roberto Alameda.                                                       */
 end_comment
 begin_comment
 comment|/*                                                                         */
@@ -171,11 +174,6 @@ decl_stmt|;
 DECL|member|ttclazz
 name|FT_Driver_Class
 name|ttclazz
-decl_stmt|;
-DECL|member|extension_component
-name|void
-modifier|*
-name|extension_component
 decl_stmt|;
 block|}
 DECL|typedef|T42_DriverRec

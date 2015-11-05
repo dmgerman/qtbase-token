@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002-2006, 2010, 2013 by                                     */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg                       */
@@ -778,10 +778,16 @@ decl_stmt|;
 comment|/* check points& tags */
 name|new_max
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|base
 operator|->
 name|n_points
 operator|+
+operator|(
+name|FT_UInt
+operator|)
 name|current
 operator|->
 name|n_points
@@ -934,10 +940,16 @@ name|max_contours
 expr_stmt|;
 name|new_max
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|base
 operator|->
 name|n_contours
 operator|+
+operator|(
+name|FT_UInt
+operator|)
 name|current
 operator|->
 name|n_contours
@@ -1239,13 +1251,13 @@ decl_stmt|;
 name|FT_GlyphLoad
 name|current
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|n_curr_contours
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|n_base_points
 decl_stmt|;
-name|FT_UInt
+name|FT_Int
 name|n
 decl_stmt|;
 if|if
@@ -1408,6 +1420,9 @@ decl_stmt|;
 name|FT_UInt
 name|num_points
 init|=
+operator|(
+name|FT_UInt
+operator|)
 name|source
 operator|->
 name|base
@@ -1419,6 +1434,9 @@ decl_stmt|;
 name|FT_UInt
 name|num_contours
 init|=
+operator|(
+name|FT_UInt
+operator|)
 name|source
 operator|->
 name|base

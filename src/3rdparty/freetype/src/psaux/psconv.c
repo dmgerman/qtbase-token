@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2006, 2008, 2009, 2012-2013 by                               */
+comment|/*  Copyright 2006-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1885,6 +1885,9 @@ condition|)
 break|break;
 name|c
 operator|=
+operator|(
+name|FT_UInt
+operator|)
 name|ft_char_table
 index|[
 name|c
@@ -1894,9 +1897,6 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-operator|(
-name|unsigned
-operator|)
 name|c
 operator|>=
 literal|16

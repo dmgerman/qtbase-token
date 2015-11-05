@@ -2447,6 +2447,9 @@ comment|// Q_CC_MINGW
 end_comment
 begin_function
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_STREAM
 comment|/* Output UID (IID, CLSID) as C++ constants.  * The constants are contained in the Windows SDK libs, but not for MinGW. */
 DECL|function|guidToString
 specifier|static
@@ -2657,6 +2660,13 @@ name|d
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !QT_NO_DEBUG_STREAM
+end_comment
 begin_comment
 comment|// Return an allocated wchar_t array from a QString, reserve more memory if desired.
 end_comment

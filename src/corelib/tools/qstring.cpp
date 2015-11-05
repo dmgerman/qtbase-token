@@ -11990,7 +11990,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 5.5      Returns the index position of the first match of the regular     expression \a re in the string, searching forward from index     position \a from. Returns -1 if \a re didn't match anywhere.      If the match is successful and \a rmatch is not a null pointer, it also     writes the results of the match into the QRegularExpressionMatch object     pointed to by \a rmatch.      Example:      \snippet qstring/main.cpp 97 */
+comment|/*!     \overload     \since 5.5      Returns the index position of the first match of the regular     expression \a re in the string, searching forward from index     position \a from. Returns -1 if \a re didn't match anywhere.      If the match is successful and \a rmatch is not a null pointer, it also     writes the results of the match into the QRegularExpressionMatch object     pointed to by \a rmatch.      Example:      \snippet qstring/main.cpp 99 */
 end_comment
 begin_function
 DECL|function|indexOf
@@ -12117,7 +12117,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 5.5      Returns the index position of the last match of the regular     expression \a re in the string, which starts before the index     position \a from. Returns -1 if \a re didn't match anywhere.      If the match is successful and \a rmatch is not a null pointer, it also     writes the results of the match into the QRegularExpressionMatch object     pointed to by \a rmatch.      Example:      \snippet qstring/main.cpp 98 */
+comment|/*!     \overload     \since 5.5      Returns the index position of the last match of the regular     expression \a re in the string, which starts before the index     position \a from. Returns -1 if \a re didn't match anywhere.      If the match is successful and \a rmatch is not a null pointer, it also     writes the results of the match into the QRegularExpressionMatch object     pointed to by \a rmatch.      Example:      \snippet qstring/main.cpp 100 */
 end_comment
 begin_function
 DECL|function|lastIndexOf

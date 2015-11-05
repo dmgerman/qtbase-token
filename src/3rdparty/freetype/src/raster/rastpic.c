@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009, 2010, 2012, 2013 by                                    */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -192,8 +192,9 @@ name|library
 operator|->
 name|memory
 decl_stmt|;
-comment|/* since this function also serves raster5 renderer, */
-comment|/* it implements reference counting                  */
+comment|/* XXX: since this function also served the no longer available  */
+comment|/*      raster5 renderer it uses reference counting, which could */
+comment|/*      be removed now                                           */
 if|if
 condition|(
 name|pic_container
@@ -273,42 +274,6 @@ expr_stmt|;
 return|return
 name|error
 return|;
-block|}
-end_function
-begin_comment
-comment|/* re-route these init and free functions to the above functions */
-end_comment
-begin_function
-name|FT_Error
-DECL|function|ft_raster5_renderer_class_pic_init
-name|ft_raster5_renderer_class_pic_init
-parameter_list|(
-name|FT_Library
-name|library
-parameter_list|)
-block|{
-return|return
-name|ft_raster1_renderer_class_pic_init
-argument_list|(
-name|library
-argument_list|)
-return|;
-block|}
-end_function
-begin_function
-name|void
-DECL|function|ft_raster5_renderer_class_pic_free
-name|ft_raster5_renderer_class_pic_free
-parameter_list|(
-name|FT_Library
-name|library
-parameter_list|)
-block|{
-name|ft_raster1_renderer_class_pic_free
-argument_list|(
-name|library
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_endif

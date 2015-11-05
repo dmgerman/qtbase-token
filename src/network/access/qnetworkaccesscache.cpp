@@ -460,7 +460,7 @@ name|timestamp
 operator|=
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 operator|.
 name|addSecs
@@ -631,7 +631,7 @@ name|interval
 init|=
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 operator|.
 name|secsTo
@@ -771,12 +771,13 @@ modifier|*
 parameter_list|)
 block|{
 comment|// expire old items
+specifier|const
 name|QDateTime
 name|now
 init|=
 name|QDateTime
 operator|::
-name|currentDateTime
+name|currentDateTimeUtc
 argument_list|()
 decl_stmt|;
 while|while

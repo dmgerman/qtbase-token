@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/*  * This little program is used to parse the FreeType headers and  * find the declaration of all public APIs.  This is easy, because  * they all look like the following:  *  *   FT_EXPORT( return_type )  *   function_name( function arguments );  *  * You must pass the list of header files as arguments.  Wildcards are  * accepted if you are using GCC for compilation (and probably by  * other compilers too).  *  * Author: David Turner, 2005, 2006, 2008-2013  *  * This code is explicitly placed into the public domain.  *  */
+comment|/*  * This little program is used to parse the FreeType headers and  * find the declaration of all public APIs.  This is easy, because  * they all look like the following:  *  *   FT_EXPORT( return_type )  *   function_name( function arguments );  *  * You must pass the list of header files as arguments.  Wildcards are  * accepted if you are using GCC for compilation (and probably by  * other compilers too).  *  * Author: David Turner, 2005, 2006, 2008-2013, 2015  *  * This code is explicitly placed into the public domain.  *  */
 end_comment
 begin_include
 include|#
@@ -627,6 +627,12 @@ name|char
 modifier|*
 name|dot
 decl_stmt|;
+name|char
+name|temp
+index|[
+literal|512
+index|]
+decl_stmt|;
 if|if
 condition|(
 name|dll_name
@@ -664,12 +670,6 @@ operator|!=
 name|NULL
 condition|)
 block|{
-name|char
-name|temp
-index|[
-literal|512
-index|]
-decl_stmt|;
 name|int
 name|len
 init|=

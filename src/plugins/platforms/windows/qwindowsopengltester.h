@@ -116,6 +116,11 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_STREAM
+end_ifndef
 begin_expr_stmt
 name|QDebug
 name|operator
@@ -131,6 +136,10 @@ name|gd
 operator|)
 expr_stmt|;
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|class
 name|QWindowsOpenGLTester

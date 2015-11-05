@@ -1392,6 +1392,9 @@ name|autorep
 parameter_list|,
 name|ushort
 name|count
+parameter_list|,
+name|bool
+name|tryShortcutOverride
 parameter_list|)
 block|{
 name|unsigned
@@ -1429,6 +1432,8 @@ argument_list|,
 name|autorep
 argument_list|,
 name|count
+argument_list|,
+name|tryShortcutOverride
 argument_list|)
 return|;
 block|}

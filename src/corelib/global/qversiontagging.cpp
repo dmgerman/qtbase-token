@@ -29,6 +29,12 @@ name|defined
 argument_list|(
 name|Q_OF_ELF
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_ANDROID
+argument_list|)
 end_if
 begin_define
 DECL|macro|make_versioned_symbol2

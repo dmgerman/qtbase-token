@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2006, 2008, 2010-2011, 2013 by                          */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -159,7 +159,7 @@ name|internal
 operator|->
 name|glyph_hints
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -418,7 +418,7 @@ name|cidsize
 operator|->
 name|internal
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 block|}
@@ -877,13 +877,13 @@ name|cidface
 operator|->
 name|family_name
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|cidface
 operator|->
 name|style_name
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|FT_FREE
 argument_list|(
@@ -1178,7 +1178,11 @@ comment|/* check the face index */
 comment|/* XXX: handle CID fonts with more than a single face */
 if|if
 condition|(
+operator|(
 name|face_index
+operator|&
+literal|0xFFFF
+operator|)
 operator|!=
 literal|0
 condition|)
@@ -1225,6 +1229,9 @@ name|cidface
 operator|->
 name|num_glyphs
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|cid
 operator|->
 name|cid_count
@@ -1240,6 +1247,8 @@ operator|->
 name|face_index
 operator|=
 name|face_index
+operator|&
+literal|0xFFFF
 expr_stmt|;
 name|cidface
 operator|->
@@ -1475,7 +1484,7 @@ name|cidface
 operator|->
 name|available_sizes
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|cidface
 operator|->

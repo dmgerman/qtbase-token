@@ -376,7 +376,7 @@ name|PCF_Property
 name|properties
 decl_stmt|;
 DECL|member|nmetrics
-name|FT_Long
+name|FT_ULong
 name|nmetrics
 decl_stmt|;
 DECL|member|metrics
@@ -384,7 +384,7 @@ name|PCF_Metric
 name|metrics
 decl_stmt|;
 DECL|member|nencodings
-name|FT_Long
+name|FT_ULong
 name|nencodings
 decl_stmt|;
 DECL|member|encodings

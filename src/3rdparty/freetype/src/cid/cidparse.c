@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2007, 2009, 2013, 2014 by                               */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -287,14 +287,13 @@ operator|+
 literal|10
 index|]
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|read_len
 init|=
 literal|256
 operator|+
 literal|10
 decl_stmt|;
-comment|/* same as signed FT_Stream->size */
 name|FT_Byte
 modifier|*
 name|p
@@ -314,10 +313,9 @@ operator|+=
 literal|256
 control|)
 block|{
-name|FT_Long
+name|FT_ULong
 name|stream_len
 decl_stmt|;
-comment|/* same as signed FT_Stream->size */
 name|stream_len
 operator|=
 name|stream
@@ -725,10 +723,10 @@ argument_list|)
 operator|==
 literal|0
 condition|)
-name|parser
-operator|->
-name|binary_length
-operator|=
+block|{
+name|FT_Long
+name|tmp
+init|=
 name|ft_atol
 argument_list|(
 operator|(
@@ -738,7 +736,40 @@ operator|*
 operator|)
 name|arg2
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|tmp
+operator|<
+literal|0
+condition|)
+block|{
+name|FT_ERROR
+argument_list|(
+operator|(
+literal|"cid_parser_new: invalid length of hex data\n"
+operator|)
+argument_list|)
 expr_stmt|;
+name|error
+operator|=
+name|FT_THROW
+argument_list|(
+name|Invalid_File_Format
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+name|parser
+operator|->
+name|binary_length
+operator|=
+operator|(
+name|FT_ULong
+operator|)
+name|tmp
+expr_stmt|;
+block|}
 goto|goto
 name|Exit
 goto|;

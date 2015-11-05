@@ -9,7 +9,7 @@ comment|"#    A sub-class container of the `Formatter' class to produce HTML."
 nl|'\n'
 comment|'#'
 nl|'\n'
-comment|'#  Copyright 2002, 2003, 2005-2008, 2013, 2014 by'
+comment|'#  Copyright 2002-2015 by'
 nl|'\n'
 comment|'#  David Turner.'
 nl|'\n'

@@ -836,7 +836,7 @@ begin_comment
 comment|/* setters */
 end_comment
 begin_comment
-comment|/**  * hb_unicode_funcs_set_combining_class_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_unicode_funcs_set_combining_class_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -859,7 +859,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_unicode_funcs_set_eastasian_width_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_unicode_funcs_set_eastasian_width_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -882,7 +882,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_unicode_funcs_set_general_category_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_unicode_funcs_set_general_category_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -905,7 +905,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_unicode_funcs_set_mirroring_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_unicode_funcs_set_mirroring_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -928,7 +928,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_unicode_funcs_set_script_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_unicode_funcs_set_script_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -951,7 +951,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_unicode_funcs_set_compose_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_unicode_funcs_set_compose_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -974,7 +974,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_unicode_funcs_set_decompose_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_unicode_funcs_set_decompose_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -997,7 +997,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/**  * hb_unicode_funcs_set_decompose_compatibility_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 1.0  **/
+comment|/**  * hb_unicode_funcs_set_decompose_compatibility_func:  * @ufuncs: a Unicode function structure  * @func: (closure user_data) (destroy destroy) (scope notified):  * @user_data:  * @destroy:  *  *   *  * Since: 0.9.2  **/
 end_comment
 begin_function_decl
 name|void
@@ -1022,6 +1022,9 @@ end_function_decl
 begin_comment
 comment|/* accessors */
 end_comment
+begin_comment
+comment|/**  * Since: 0.9.2  **/
+end_comment
 begin_function_decl
 name|hb_unicode_combining_class_t
 name|hb_unicode_combining_class
@@ -1035,6 +1038,9 @@ name|unicode
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * Since: 0.9.2  **/
+end_comment
 begin_function_decl
 name|unsigned
 name|int
@@ -1049,6 +1055,9 @@ name|unicode
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * Since: 0.9.2  **/
+end_comment
 begin_function_decl
 name|hb_unicode_general_category_t
 name|hb_unicode_general_category
@@ -1062,6 +1071,9 @@ name|unicode
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * Since: 0.9.2  **/
+end_comment
 begin_function_decl
 name|hb_codepoint_t
 name|hb_unicode_mirroring
@@ -1075,6 +1087,9 @@ name|unicode
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * Since: 0.9.2  **/
+end_comment
 begin_function_decl
 name|hb_script_t
 name|hb_unicode_script
@@ -1088,6 +1103,9 @@ name|unicode
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * Since: 0.9.2  **/
+end_comment
 begin_function_decl
 name|hb_bool_t
 name|hb_unicode_compose
@@ -1108,6 +1126,9 @@ name|ab
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * Since: 0.9.2  **/
+end_comment
 begin_function_decl
 name|hb_bool_t
 name|hb_unicode_decompose
@@ -1129,6 +1150,9 @@ name|b
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/**  * Since: 0.9.2  **/
+end_comment
 begin_function_decl
 name|unsigned
 name|int

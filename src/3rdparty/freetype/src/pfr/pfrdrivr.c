@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002-2004, 2006, 2008, 2010, 2011, 2013, 2014 by             */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -70,7 +70,7 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_SERVICE_XFREE86_NAME_H
+include|FT_SERVICE_FONT_FORMAT_H
 end_include
 begin_include
 include|#
@@ -169,10 +169,16 @@ name|avector
 operator|->
 name|x
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|outline_resolution
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|metrics_resolution
@@ -194,12 +200,18 @@ name|FT_MulDiv
 argument_list|(
 name|avector
 operator|->
-name|x
+name|y
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|outline_resolution
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|metrics_resolution
@@ -414,6 +426,9 @@ name|x_ppem
 operator|<<
 literal|6
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|metrics_resolution
@@ -431,6 +446,9 @@ name|y_ppem
 operator|<<
 literal|6
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|phys
 operator|->
 name|metrics_resolution
@@ -496,9 +514,9 @@ name|pfr_metrics_service_rec
 block|}
 block|,
 block|{
-name|FT_SERVICE_ID_XF86_NAME
+name|FT_SERVICE_ID_FONT_FORMAT
 block|,
-name|FT_XF86_FORMAT_PFR
+name|FT_FONT_FORMAT_PFR
 block|}
 block|,
 block|{

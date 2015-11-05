@@ -63,6 +63,11 @@ operator|>
 name|class
 name|QDataBuffer
 block|{
+name|Q_DISABLE_COPY
+argument_list|(
+name|QDataBuffer
+argument_list|)
+block|;
 name|public
 operator|:
 name|QDataBuffer

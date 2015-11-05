@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2014 by                                                 */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -535,7 +535,7 @@ decl_stmt|;
 operator|*
 name|astream
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -604,6 +604,9 @@ name|args
 operator|->
 name|memory_base
 argument_list|,
+operator|(
+name|FT_ULong
+operator|)
 name|args
 operator|->
 name|memory_size
@@ -1230,13 +1233,13 @@ name|slot
 operator|->
 name|subglyphs
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|slot
 operator|->
 name|control_data
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|slot
 operator|->
@@ -1248,7 +1251,7 @@ name|slot
 operator|->
 name|other
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|slot
 operator|->
@@ -1368,7 +1371,7 @@ name|internal
 operator|->
 name|loader
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 name|FT_FREE
@@ -1546,7 +1549,7 @@ condition|)
 operator|*
 name|aslot
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|Exit
 label|:
@@ -3358,7 +3361,7 @@ name|face
 operator|->
 name|size
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* now discard client data */
 if|if
@@ -3422,7 +3425,7 @@ name|face
 operator|->
 name|stream
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* get rid of it */
 if|if
@@ -3476,21 +3479,6 @@ operator|.
 name|memory
 argument_list|,
 name|driver
-argument_list|)
-expr_stmt|;
-comment|/* check whether we need to drop the driver's glyph loader */
-if|if
-condition|(
-name|FT_DRIVER_USES_OUTLINES
-argument_list|(
-name|driver
-argument_list|)
-condition|)
-name|FT_GlyphLoader_Done
-argument_list|(
-name|driver
-operator|->
-name|glyph_loader
 argument_list|)
 expr_stmt|;
 block|}
@@ -4026,7 +4014,7 @@ name|internal
 operator|->
 name|incremental_interface
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 for|for
 control|(
@@ -4196,7 +4184,7 @@ expr_stmt|;
 operator|*
 name|aface
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 return|return
@@ -4498,13 +4486,13 @@ name|stream
 operator|->
 name|base
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|stream
 operator|->
 name|close
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_function
@@ -4574,7 +4562,7 @@ return|;
 operator|*
 name|astream
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|memory
 operator|=
@@ -4740,7 +4728,7 @@ block|}
 ifdef|#
 directive|ifdef
 name|FT_MACINTOSH
-comment|/* At this point, face_index has served its purpose;      */
+comment|/* At this point, the face index has served its purpose;  */
 comment|/* whoever calls this function has already used it to     */
 comment|/* locate the correct font data.  We should not propagate */
 comment|/* this index to FT_Open_Face() (unless it is negative).  */
@@ -4751,9 +4739,10 @@ operator|>
 literal|0
 condition|)
 name|face_index
-operator|=
-literal|0
+operator|&=
+literal|0x7FFF0000L
 expr_stmt|;
+comment|/* retain GX data */
 endif|#
 directive|endif
 name|error
@@ -5125,7 +5114,7 @@ name|offset
 decl_stmt|,
 name|length
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|pos
 decl_stmt|;
 name|FT_Bool
@@ -5147,12 +5136,21 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
+comment|/* ignore GX stuff */
+if|if
+condition|(
+name|face_index
+operator|>
+literal|0
+condition|)
+name|face_index
+operator|&=
+literal|0xFFFFL
+expr_stmt|;
 name|pos
 operator|=
-name|FT_Stream_Pos
-argument_list|(
-name|stream
-argument_list|)
+name|FT_STREAM_POS
+argument_list|()
 expr_stmt|;
 name|error
 operator|=
@@ -5227,9 +5225,16 @@ if|if
 condition|(
 name|error
 condition|)
+block|{
+name|FT_FREE
+argument_list|(
+name|sfnt_ps
+argument_list|)
+expr_stmt|;
 goto|goto
 name|Exit
 goto|;
+block|}
 name|error
 operator|=
 name|open_face_from_buffer
@@ -5434,6 +5439,9 @@ name|FT_Stream_Seek
 argument_list|(
 name|stream
 argument_list|,
+operator|(
+name|FT_ULong
+operator|)
 name|offsets
 index|[
 name|i
@@ -5461,36 +5469,43 @@ comment|/* FT2 allocator takes signed long buffer length,        * too large val
 name|FT_TRACE4
 argument_list|(
 operator|(
-literal|"                 POST fragment #%d: length=0x%08x\n"
+literal|"                 POST fragment #%d: length=0x%08x"
+literal|" total pfb_len=0x%08x\n"
 operator|,
 name|i
 operator|,
 name|temp
-operator|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-literal|0x7FFFFFFFUL
-operator|<
-name|temp
-operator|||
+operator|,
 name|pfb_len
 operator|+
 name|temp
 operator|+
 literal|6
+operator|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|FT_MAC_RFORK_MAX_LEN
+operator|<
+name|temp
+operator|||
+name|FT_MAC_RFORK_MAX_LEN
+operator|-
+name|temp
 operator|<
 name|pfb_len
+operator|+
+literal|6
 condition|)
 block|{
 name|FT_TRACE2
 argument_list|(
 operator|(
-literal|"             too long fragment length makes"
-literal|" pfb_len confused: temp=0x%08x\n"
+literal|"             MacOS resource length cannot exceed"
+literal|" 0x%08x\n"
 operator|,
-name|temp
+name|FT_MAC_RFORK_MAX_LEN
 operator|)
 argument_list|)
 expr_stmt|;
@@ -5653,6 +5668,9 @@ name|FT_Stream_Seek
 argument_list|(
 name|stream
 argument_list|,
+operator|(
+name|FT_ULong
+operator|)
 name|offsets
 index|[
 name|i
@@ -5791,7 +5809,7 @@ name|FT_TRACE3
 argument_list|(
 operator|(
 literal|"    Write POST fragment #%d header (4-byte) to buffer"
-literal|" 0x%p + 0x%08x\n"
+literal|" %p + 0x%08x\n"
 operator|,
 name|i
 operator|,
@@ -5890,7 +5908,7 @@ name|FT_TRACE3
 argument_list|(
 operator|(
 literal|"    Write POST fragment #%d header (6-byte) to buffer"
-literal|" 0x%p + 0x%08x\n"
+literal|" %p + 0x%08x\n"
 operator|,
 name|i
 operator|,
@@ -5999,7 +6017,7 @@ name|FT_TRACE3
 argument_list|(
 operator|(
 literal|"    Load POST fragment #%d (%d byte) to buffer"
-literal|" 0x%p + 0x%08x\n"
+literal|" %p + 0x%08x\n"
 operator|,
 name|i
 operator|,
@@ -6234,7 +6252,7 @@ begin_comment
 comment|/* them for the one indicated by face_index, load it into mem, */
 end_comment
 begin_comment
-comment|/* pass it on the the truetype driver and return it.           */
+comment|/* pass it on to the truetype driver, and return it.           */
 end_comment
 begin_comment
 comment|/*                                                             */
@@ -6282,7 +6300,7 @@ decl_stmt|;
 name|FT_Error
 name|error
 decl_stmt|;
-name|FT_Long
+name|FT_ULong
 name|flag_offset
 decl_stmt|;
 name|FT_Long
@@ -6321,6 +6339,9 @@ argument_list|)
 return|;
 name|flag_offset
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|offsets
 index|[
 name|face_index
@@ -6363,6 +6384,21 @@ return|return
 name|FT_THROW
 argument_list|(
 name|Cannot_Open_Resource
+argument_list|)
+return|;
+if|if
+condition|(
+operator|(
+name|FT_ULong
+operator|)
+name|rlen
+operator|>
+name|FT_MAC_RFORK_MAX_LEN
+condition|)
+return|return
+name|FT_THROW
+argument_list|(
+name|Invalid_Offset
 argument_list|)
 return|;
 name|error
@@ -6411,9 +6447,6 @@ name|FT_ALLOC
 argument_list|(
 name|sfnt_data
 argument_list|,
-operator|(
-name|FT_Long
-operator|)
 name|rlen
 argument_list|)
 condition|)
@@ -6432,6 +6465,9 @@ operator|*
 operator|)
 name|sfnt_data
 argument_list|,
+operator|(
+name|FT_ULong
+operator|)
 name|rlen
 argument_list|)
 expr_stmt|;
@@ -6439,9 +6475,16 @@ if|if
 condition|(
 name|error
 condition|)
+block|{
+name|FT_FREE
+argument_list|(
+name|sfnt_data
+argument_list|)
+expr_stmt|;
 goto|goto
 name|Exit
 goto|;
+block|}
 name|is_cff
 operator|=
 name|rlen
@@ -6466,6 +6509,9 @@ name|library
 argument_list|,
 name|sfnt_data
 argument_list|,
+operator|(
+name|FT_ULong
+operator|)
 name|rlen
 argument_list|,
 name|face_index_in_resource
@@ -6869,6 +6915,13 @@ index|]
 index|]
 operator|!=
 literal|0
+operator|||
+name|header
+index|[
+literal|0x53
+index|]
+operator|>
+literal|0x7F
 condition|)
 return|return
 name|FT_THROW
@@ -7002,7 +7055,7 @@ argument_list|(
 name|Unknown_File_Format
 argument_list|)
 decl_stmt|;
-name|int
+name|FT_UInt
 name|i
 decl_stmt|;
 name|char
@@ -7038,7 +7091,7 @@ decl_stmt|;
 name|FT_Stream
 name|stream2
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|FT_Raccess_Guess
 argument_list|(
@@ -7404,10 +7457,31 @@ define|#
 directive|define
 name|FT_COMPONENT
 value|trace_raccess
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
 name|FT_TRACE3
 argument_list|(
 operator|(
-literal|"Try as dfont: %s ..."
+literal|"Try as dfont: "
+operator|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|args
+operator|->
+name|flags
+operator|&
+name|FT_OPEN_MEMORY
+operator|)
+condition|)
+name|FT_TRACE3
+argument_list|(
+operator|(
+literal|"%s ..."
 operator|,
 name|args
 operator|->
@@ -7415,6 +7489,8 @@ name|pathname
 operator|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|error
 operator|=
 name|IsMacResource
@@ -7681,7 +7757,7 @@ name|FT_Parameter
 modifier|*
 name|params
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 if|if
 condition|(
@@ -7810,7 +7886,7 @@ name|FT_Parameter
 modifier|*
 name|params
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|driver
 operator|=
@@ -8886,12 +8962,12 @@ decl_stmt|;
 name|FT_Size
 name|size
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 name|FT_ListNode
 name|node
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 if|if
 condition|(
@@ -8931,7 +9007,7 @@ return|;
 operator|*
 name|asize
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 name|driver
 operator|=
@@ -8982,7 +9058,7 @@ name|size
 operator|->
 name|internal
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -9186,7 +9262,7 @@ name|face
 operator|->
 name|size
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -11389,17 +11465,27 @@ name|req
 operator|.
 name|width
 operator|=
+call|(
+name|FT_Long
+call|)
+argument_list|(
 name|pixel_width
 operator|<<
 literal|6
+argument_list|)
 expr_stmt|;
 name|req
 operator|.
 name|height
 operator|=
+call|(
+name|FT_Long
+call|)
+argument_list|(
 name|pixel_height
 operator|<<
 literal|6
+argument_list|)
 expr_stmt|;
 name|req
 operator|.
@@ -11582,6 +11668,20 @@ operator|!=
 name|FT_KERNING_UNFITTED
 condition|)
 block|{
+name|FT_Pos
+name|orig_x
+init|=
+name|akerning
+operator|->
+name|x
+decl_stmt|;
+name|FT_Pos
+name|orig_y
+init|=
+name|akerning
+operator|->
+name|y
+decl_stmt|;
 comment|/* we scale down kerning values for small ppem values */
 comment|/* to avoid that rounding makes them too big.         */
 comment|/* `25' has been determined heuristically.            */
@@ -11603,9 +11703,7 @@ name|x
 operator|=
 name|FT_MulDiv
 argument_list|(
-name|akerning
-operator|->
-name|x
+name|orig_x
 argument_list|,
 name|face
 operator|->
@@ -11636,9 +11734,7 @@ name|y
 operator|=
 name|FT_MulDiv
 argument_list|(
-name|akerning
-operator|->
-name|y
+name|orig_y
 argument_list|,
 name|face
 operator|->
@@ -11673,6 +11769,71 @@ operator|->
 name|y
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|FT_DEBUG_LEVEL_TRACE
+block|{
+name|FT_Pos
+name|orig_x_rounded
+init|=
+name|FT_PIX_ROUND
+argument_list|(
+name|orig_x
+argument_list|)
+decl_stmt|;
+name|FT_Pos
+name|orig_y_rounded
+init|=
+name|FT_PIX_ROUND
+argument_list|(
+name|orig_y
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|akerning
+operator|->
+name|x
+operator|!=
+name|orig_x_rounded
+operator|||
+name|akerning
+operator|->
+name|y
+operator|!=
+name|orig_y_rounded
+condition|)
+name|FT_TRACE5
+argument_list|(
+operator|(
+literal|"FT_Get_Kerning: horizontal kerning"
+literal|" (%d, %d) scaled down to (%d, %d) pixels\n"
+operator|,
+name|orig_x_rounded
+operator|/
+literal|64
+operator|,
+name|orig_y_rounded
+operator|/
+literal|64
+operator|,
+name|akerning
+operator|->
+name|x
+operator|/
+literal|64
+operator|,
+name|akerning
+operator|->
+name|y
+operator|/
+literal|64
+operator|)
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 block|}
 block|}
 block|}
@@ -12652,6 +12813,21 @@ operator|)
 name|charcode
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|result
+operator|>=
+operator|(
+name|FT_UInt
+operator|)
+name|face
+operator|->
+name|num_glyphs
+condition|)
+name|result
+operator|=
+literal|0
+expr_stmt|;
 block|}
 return|return
 name|result
@@ -12716,15 +12892,6 @@ condition|(
 name|gindex
 operator|==
 literal|0
-operator|||
-name|gindex
-operator|>=
-operator|(
-name|FT_UInt
-operator|)
-name|face
-operator|->
-name|num_glyphs
 condition|)
 name|result
 operator|=
@@ -14304,7 +14471,7 @@ decl_stmt|;
 name|FT_Renderer
 name|result
 init|=
-literal|0
+name|NULL
 decl_stmt|;
 if|if
 condition|(
@@ -14344,7 +14511,7 @@ expr_stmt|;
 operator|*
 name|node
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 while|while
@@ -15056,12 +15223,7 @@ block|{
 name|FT_ListNode
 name|node
 init|=
-literal|0
-decl_stmt|;
-name|FT_Bool
-name|update
-init|=
-literal|0
+name|NULL
 decl_stmt|;
 comment|/* small shortcut for the very common case */
 if|if
@@ -15162,41 +15324,6 @@ operator|&
 name|node
 argument_list|)
 expr_stmt|;
-name|update
-operator|=
-literal|1
-expr_stmt|;
-block|}
-comment|/* if we changed the current renderer for the glyph image format */
-comment|/* we need to select it as the next current one                  */
-if|if
-condition|(
-operator|!
-name|error
-operator|&&
-name|update
-operator|&&
-name|renderer
-condition|)
-block|{
-name|error
-operator|=
-name|FT_Set_Renderer
-argument_list|(
-name|library
-argument_list|,
-name|renderer
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|error
-condition|)
-break|break;
 block|}
 block|}
 block|}
@@ -15225,7 +15352,7 @@ decl_stmt|;
 name|FT_Error
 name|err
 decl_stmt|;
-name|FT_Bitmap_New
+name|FT_Bitmap_Init
 argument_list|(
 operator|&
 name|bitmap
@@ -15268,6 +15395,26 @@ decl_stmt|;
 name|int
 name|i
 decl_stmt|;
+name|unsigned
+name|int
+name|rows
+init|=
+name|bitmap
+operator|.
+name|rows
+decl_stmt|;
+name|unsigned
+name|int
+name|pitch
+init|=
+operator|(
+name|unsigned
+name|int
+operator|)
+name|bitmap
+operator|.
+name|pitch
+decl_stmt|;
 name|MD5_Init
 argument_list|(
 operator|&
@@ -15283,12 +15430,8 @@ name|bitmap
 operator|.
 name|buffer
 argument_list|,
-name|bitmap
-operator|.
 name|rows
 operator|*
-name|bitmap
-operator|.
 name|pitch
 argument_list|)
 expr_stmt|;
@@ -15306,12 +15449,8 @@ operator|(
 literal|"MD5 checksum for %dx%d bitmap:\n"
 literal|"  "
 operator|,
-name|bitmap
-operator|.
 name|rows
 operator|,
-name|bitmap
-operator|.
 name|pitch
 operator|)
 argument_list|)
@@ -15559,7 +15698,7 @@ name|library
 operator|->
 name|auto_hinter
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* if the module is a renderer */
 if|if
@@ -15878,7 +16017,6 @@ name|module
 argument_list|)
 condition|)
 block|{
-comment|/* allocate glyph loader if needed */
 name|FT_Driver
 name|driver
 init|=
@@ -15898,34 +16036,6 @@ name|module
 operator|->
 name|clazz
 expr_stmt|;
-if|if
-condition|(
-name|FT_DRIVER_USES_OUTLINES
-argument_list|(
-name|driver
-argument_list|)
-condition|)
-block|{
-name|error
-operator|=
-name|FT_GlyphLoader_New
-argument_list|(
-name|memory
-argument_list|,
-operator|&
-name|driver
-operator|->
-name|glyph_loader
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|error
-condition|)
-goto|goto
-name|Fail
-goto|;
-block|}
 block|}
 if|if
 condition|(
@@ -15971,37 +16081,6 @@ name|error
 return|;
 name|Fail
 label|:
-if|if
-condition|(
-name|FT_MODULE_IS_DRIVER
-argument_list|(
-name|module
-argument_list|)
-condition|)
-block|{
-name|FT_Driver
-name|driver
-init|=
-name|FT_DRIVER
-argument_list|(
-name|module
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|FT_DRIVER_USES_OUTLINES
-argument_list|(
-name|driver
-argument_list|)
-condition|)
-name|FT_GlyphLoader_Done
-argument_list|(
-name|driver
-operator|->
-name|glyph_loader
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|FT_MODULE_IS_RENDERER
@@ -16492,7 +16571,7 @@ index|[
 literal|0
 index|]
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 comment|/* destroy the module */
 name|Destroy_Module
@@ -17096,34 +17175,19 @@ name|Fail
 goto|;
 endif|#
 directive|endif
-comment|/* allocate the render pool */
+comment|/* we don't use raster_pool anymore. */
 name|library
 operator|->
 name|raster_pool_size
 operator|=
-name|FT_RENDER_POOL_SIZE
-expr_stmt|;
-if|#
-directive|if
-name|FT_RENDER_POOL_SIZE
-operator|>
 literal|0
-if|if
-condition|(
-name|FT_ALLOC
-argument_list|(
+expr_stmt|;
 name|library
 operator|->
 name|raster_pool
-argument_list|,
-name|FT_RENDER_POOL_SIZE
-argument_list|)
-condition|)
-goto|goto
-name|Fail
-goto|;
-endif|#
-directive|endif
+operator|=
+name|NULL
+expr_stmt|;
 name|library
 operator|->
 name|version_major
@@ -17157,11 +17221,11 @@ expr_stmt|;
 return|return
 name|FT_Err_Ok
 return|;
-name|Fail
-label|:
 ifdef|#
 directive|ifdef
 name|FT_CONFIG_OPTION_PIC
+name|Fail
+label|:
 name|ft_pic_container_destroy
 argument_list|(
 name|library
@@ -17579,27 +17643,13 @@ index|[
 name|n
 index|]
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 block|}
 block|}
 endif|#
 directive|endif
-comment|/* Destroy raster objects */
-name|FT_FREE
-argument_list|(
-name|library
-operator|->
-name|raster_pool
-argument_list|)
-expr_stmt|;
-name|library
-operator|->
-name|raster_pool_size
-operator|=
-literal|0
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|FT_CONFIG_OPTION_PIC

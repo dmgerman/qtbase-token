@@ -558,6 +558,8 @@ name|kCGEventRightMouseDown
 else|:
 name|kCGEventOtherMouseDown
 decl_stmt|;
+comment|// The mouseButton argument to CGEventCreateMouseEvent() is ignored unless the type
+comment|// is kCGEventOtherMouseDown, so defaulting to kCGMouseButtonLeft is fine.
 name|CGMouseButton
 name|mouseButton
 init|=
@@ -567,7 +569,7 @@ name|kCGEventOtherMouseDown
 condition|?
 name|kCGMouseButtonCenter
 else|:
-name|kCGEventLeftMouseDown
+name|kCGMouseButtonLeft
 decl_stmt|;
 name|CGEventRef
 name|mouseEvent

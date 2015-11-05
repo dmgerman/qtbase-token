@@ -161,9 +161,6 @@ specifier|public
 name|QStyle
 block|{
 public|public:
-name|MyStyle
-parameter_list|()
-constructor_decl|;
 name|void
 name|drawPrimitive
 parameter_list|(
@@ -188,106 +185,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|MyStyle
-name|MyStyle
-operator|::
-name|MyStyle
-parameter_list|()
-block|{
-comment|//! [1]
-name|QStyleOptionFrame
-modifier|*
-name|option
-decl_stmt|;
-if|if
-condition|(
-specifier|const
-name|QStyleOptionFrame
-modifier|*
-name|frameOption
-init|=
-name|qstyleoption_cast
-argument_list|<
-specifier|const
-name|QStyleOptionFrame
-operator|*
-argument_list|>
-argument_list|(
-name|option
-argument_list|)
-condition|)
-block|{
-name|QStyleOptionFrameV2
-name|frameOptionV2
-argument_list|(
-operator|*
-name|frameOption
-argument_list|)
-decl_stmt|;
-comment|// draw the frame using frameOptionV2
-block|}
-comment|//! [1]
-comment|//! [2]
-if|if
-condition|(
-specifier|const
-name|QStyleOptionProgressBar
-modifier|*
-name|progressBarOption
-init|=
-name|qstyleoption_cast
-argument_list|<
-specifier|const
-name|QStyleOptionProgressBar
-operator|*
-argument_list|>
-argument_list|(
-name|option
-argument_list|)
-condition|)
-block|{
-name|QStyleOptionProgressBarV2
-name|progressBarV2
-argument_list|(
-operator|*
-name|progressBarOption
-argument_list|)
-decl_stmt|;
-comment|// draw the progress bar using progressBarV2
-block|}
-comment|//! [2]
-comment|//! [3]
-if|if
-condition|(
-specifier|const
-name|QStyleOptionTab
-modifier|*
-name|tabOption
-init|=
-name|qstyleoption_cast
-argument_list|<
-specifier|const
-name|QStyleOptionTab
-operator|*
-argument_list|>
-argument_list|(
-name|option
-argument_list|)
-condition|)
-block|{
-name|QStyleOptionTabV2
-name|tabV2
-argument_list|(
-operator|*
-name|tabOption
-argument_list|)
-decl_stmt|;
-comment|// draw the tab using tabV2
-block|}
-comment|//! [3]
-block|}
-end_constructor
 begin_comment
 comment|//! [4]
 end_comment

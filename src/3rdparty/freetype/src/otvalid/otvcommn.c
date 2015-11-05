@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2004, 2005, 2006, 2007 by                                    */
+comment|/*  Copyright 2004-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -2142,6 +2142,9 @@ name|Coverage
 argument_list|,
 name|otvalid
 argument_list|,
+operator|(
+name|FT_Int
+operator|)
 name|Count
 argument_list|)
 expr_stmt|;

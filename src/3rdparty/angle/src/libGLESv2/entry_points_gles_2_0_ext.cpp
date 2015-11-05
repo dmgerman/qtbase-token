@@ -2677,9 +2677,19 @@ name|mask
 argument_list|,
 name|filter
 argument_list|,
+ifndef|#
+directive|ifndef
+name|ANGLE_ENABLE_WINDOWS_STORE
 literal|true
 argument_list|)
 condition|)
+else|#
+directive|else
+literal|false
+block|)
+block|)
+endif|#
+directive|endif
 block|{
 return|return;
 block|}
@@ -2790,9 +2800,10 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-block|}
+end_namespace
+begin_function
+unit|}  void
 DECL|function|TexImage3DOES
-name|void
 name|GL_APIENTRY
 name|TexImage3DOES
 parameter_list|(
@@ -2861,6 +2872,8 @@ argument_list|()
 expr_stmt|;
 comment|// FIXME
 block|}
+end_function
+begin_function
 DECL|function|GetProgramBinaryOES
 name|void
 name|GL_APIENTRY
@@ -2982,6 +2995,8 @@ return|return;
 block|}
 block|}
 block|}
+end_function
+begin_function
 DECL|function|ProgramBinaryOES
 name|void
 name|GL_APIENTRY
@@ -3143,6 +3158,8 @@ return|return;
 block|}
 block|}
 block|}
+end_function
+begin_function
 DECL|function|DrawBuffersEXT
 name|void
 name|GL_APIENTRY
@@ -3372,6 +3389,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_function
 DECL|function|GetBufferPointervOES
 name|void
 name|GL_APIENTRY
@@ -3499,6 +3518,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+begin_function
 DECL|function|MapBufferOES
 name|void
 modifier|*
@@ -3683,6 +3704,8 @@ return|return
 name|NULL
 return|;
 block|}
+end_function
+begin_function
 DECL|function|UnmapBufferOES
 name|GLboolean
 name|GL_APIENTRY
@@ -3813,6 +3836,8 @@ return|return
 name|GL_FALSE
 return|;
 block|}
+end_function
+begin_function
 DECL|function|MapBufferRangeEXT
 name|void
 modifier|*
@@ -4222,6 +4247,8 @@ return|return
 name|NULL
 return|;
 block|}
+end_function
+begin_function
 DECL|function|FlushMappedBufferRangeEXT
 name|void
 name|GL_APIENTRY
@@ -4437,6 +4464,6 @@ block|}
 comment|// We do not currently support a non-trivial implementation of FlushMappedBufferRange
 block|}
 block|}
-block|}
-end_namespace
+end_function
+unit|}
 end_unit

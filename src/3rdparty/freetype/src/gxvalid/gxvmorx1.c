@@ -21,7 +21,10 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2005, 2007 by suzuki toshiya, Masatake YAMATO, Red Hat K.K., */
+comment|/*  Copyright 2005-2015 by                                                 */
+end_comment
+begin_comment
+comment|/*  suzuki toshiya, Masatake YAMATO, Red Hat K.K.,                         */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -535,7 +538,7 @@ operator|->
 name|substitutionTable_num_lookupTables
 operator|=
 call|(
-name|FT_Short
+name|FT_UShort
 call|)
 argument_list|(
 name|markIndex
@@ -558,7 +561,7 @@ operator|->
 name|substitutionTable_num_lookupTables
 operator|=
 call|(
-name|FT_Short
+name|FT_UShort
 call|)
 argument_list|(
 name|currentIndex

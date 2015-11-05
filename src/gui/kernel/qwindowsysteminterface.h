@@ -475,6 +475,11 @@ name|ushort
 name|count
 operator|=
 literal|1
+argument_list|,
+name|bool
+name|tryShortcutOverride
+operator|=
+name|true
 argument_list|)
 decl_stmt|;
 specifier|static

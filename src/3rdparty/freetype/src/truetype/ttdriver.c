@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2014 by                                                 */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -70,7 +70,7 @@ end_include
 begin_include
 include|#
 directive|include
-include|FT_SERVICE_XFREE86_NAME_H
+include|FT_SERVICE_FONT_FORMAT_H
 end_include
 begin_ifdef
 ifdef|#
@@ -418,24 +418,6 @@ end_comment
 begin_comment
 comment|/*************************************************************************/
 end_comment
-begin_undef
-DECL|macro|PAIR_TAG
-undef|#
-directive|undef
-name|PAIR_TAG
-end_undef
-begin_define
-DECL|macro|PAIR_TAG
-define|#
-directive|define
-name|PAIR_TAG
-parameter_list|(
-name|left
-parameter_list|,
-name|right
-parameter_list|)
-value|( ( (FT_ULong)left<< 16 ) | \                                      (FT_ULong)right        )
-end_define
 begin_comment
 comment|/*************************************************************************/
 end_comment
@@ -607,12 +589,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_undef
-DECL|macro|PAIR_TAG
-undef|#
-directive|undef
-name|PAIR_TAG
-end_undef
 begin_function
 specifier|static
 name|FT_Error
@@ -1450,9 +1426,9 @@ name|FT_DEFINE_SERVICEDESCREC5
 argument_list|(
 argument|tt_services
 argument_list|,
-argument|FT_SERVICE_ID_XF86_NAME
+argument|FT_SERVICE_ID_FONT_FORMAT
 argument_list|,
-argument|FT_XF86_FORMAT_TRUETYPE
+argument|FT_FONT_FORMAT_TRUETYPE
 argument_list|,
 argument|FT_SERVICE_ID_MULTI_MASTERS
 argument_list|,
@@ -1480,9 +1456,9 @@ name|FT_DEFINE_SERVICEDESCREC4
 argument_list|(
 argument|tt_services
 argument_list|,
-argument|FT_SERVICE_ID_XF86_NAME
+argument|FT_SERVICE_ID_FONT_FORMAT
 argument_list|,
-argument|FT_XF86_FORMAT_TRUETYPE
+argument|FT_FONT_FORMAT_TRUETYPE
 argument_list|,
 argument|FT_SERVICE_ID_TRUETYPE_ENGINE
 argument_list|,

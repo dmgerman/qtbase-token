@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2009 by                                                      */
+comment|/*  Copyright 2009-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  Oran Agra and Mickey Gabel.                                            */
@@ -58,14 +58,14 @@ define|#
 directive|define
 name|__FTSPIC_H__
 end_define
-begin_macro
-name|FT_BEGIN_HEADER
-end_macro
 begin_include
 include|#
 directive|include
 include|FT_INTERNAL_PIC_H
 end_include
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef

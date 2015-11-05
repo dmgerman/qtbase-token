@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 2002, 2003, 2005, 2007 by                                    */
+comment|/*  Copyright 2002-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -679,7 +679,7 @@ name|FT_UInt
 name|flags
 decl_stmt|;
 DECL|member|standard_advance
-name|FT_UInt
+name|FT_Int
 name|standard_advance
 decl_stmt|;
 DECL|member|ascent
@@ -777,7 +777,7 @@ name|kern_items_tail
 decl_stmt|;
 comment|/* not part of the spec, but used during load */
 DECL|member|bct_offset
-name|FT_Long
+name|FT_ULong
 name|bct_offset
 decl_stmt|;
 DECL|member|cursor

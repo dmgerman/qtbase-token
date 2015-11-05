@@ -3347,6 +3347,8 @@ decl_stmt|;
 if|if
 condition|(
 name|newScreen
+operator|&&
+name|newScreen
 operator|!=
 name|currentScreen
 condition|)
@@ -8738,6 +8740,10 @@ if|if
 condition|(
 operator|!
 name|m_mapped
+operator|||
+operator|!
+name|xcbScreen
+argument_list|()
 condition|)
 block|{
 name|m_deferredActivation

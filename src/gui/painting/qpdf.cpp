@@ -7841,10 +7841,7 @@ name|now
 init|=
 name|QDateTime
 operator|::
-name|currentDateTime
-argument_list|()
-operator|.
-name|toUTC
+name|currentDateTimeUtc
 argument_list|()
 decl_stmt|;
 name|QTime

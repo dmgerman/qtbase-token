@@ -1503,7 +1503,7 @@ argument_list|)
 expr_stmt|;
 comment|// returns 4
 comment|//! [93]
-comment|//! [97]
+comment|//! [99]
 name|QString
 name|str
 init|=
@@ -1529,7 +1529,7 @@ argument_list|)
 expr_stmt|;
 comment|// returns 4
 comment|// match.captured() == mi
-comment|//! [97]
+comment|//! [99]
 block|}
 end_function
 begin_function
@@ -1739,7 +1739,7 @@ argument_list|)
 expr_stmt|;
 comment|// returns 8
 comment|//! [94]
-comment|//! [98]
+comment|//! [100]
 name|QString
 name|str
 init|=
@@ -1766,7 +1766,7 @@ argument_list|)
 expr_stmt|;
 comment|// returns 8
 comment|// match.captured() == mu
-comment|//! [98]
+comment|//! [100]
 block|}
 end_function
 begin_function

@@ -18,7 +18,7 @@ begin_comment
 comment|/*                                                                         */
 end_comment
 begin_comment
-comment|/*  Copyright 1996-2014 by                                                 */
+comment|/*  Copyright 1996-2015 by                                                 */
 end_comment
 begin_comment
 comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
@@ -1075,9 +1075,12 @@ name|size
 operator|->
 name|internal
 decl_stmt|;
-name|FT_ULong
+name|FT_Long
 name|top_upm
 init|=
+operator|(
+name|FT_Long
+operator|)
 name|font
 operator|->
 name|top_font
@@ -1142,9 +1145,12 @@ operator|-
 literal|1
 index|]
 decl_stmt|;
-name|FT_ULong
+name|FT_Long
 name|sub_upm
 init|=
+operator|(
+name|FT_Long
+operator|)
 name|sub
 operator|->
 name|font_dict
@@ -1399,9 +1405,12 @@ name|size
 operator|->
 name|internal
 decl_stmt|;
-name|FT_ULong
+name|FT_Long
 name|top_upm
 init|=
+operator|(
+name|FT_Long
+operator|)
 name|font
 operator|->
 name|top_font
@@ -1466,9 +1475,12 @@ operator|-
 literal|1
 index|]
 decl_stmt|;
-name|FT_ULong
+name|FT_Long
 name|sub_upm
 init|=
+operator|(
+name|FT_Long
+operator|)
 name|sub
 operator|->
 name|font_dict
@@ -1602,7 +1614,7 @@ name|internal
 operator|->
 name|glyph_hints
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
 block|}
 end_block
@@ -2462,6 +2474,17 @@ condition|)
 goto|goto
 name|Exit
 goto|;
+comment|/* if we are performing a simple font format check, exit immediately */
+comment|/* (this is here for pure CFF)                                       */
+if|if
+condition|(
+name|face_index
+operator|<
+literal|0
+condition|)
+return|return
+name|FT_Err_Ok
+return|;
 name|cff
 operator|->
 name|pshinter
@@ -2479,6 +2502,8 @@ operator|->
 name|face_index
 operator|=
 name|face_index
+operator|&
+literal|0xFFFF
 expr_stmt|;
 comment|/* Complement the root flags with some interesting information. */
 comment|/* Note that this is only necessary for pure CFF and CEF fonts; */
@@ -2487,6 +2512,9 @@ name|cffface
 operator|->
 name|num_glyphs
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|cff
 operator|->
 name|num_glyphs
@@ -2622,7 +2650,7 @@ name|root
 operator|.
 name|units_per_EM
 expr_stmt|;
-comment|/* Normalize the font matrix so that `matrix->xx' is 1; the */
+comment|/* Normalize the font matrix so that `matrix->yy' is 1; the */
 comment|/* scaling is done with `units_per_em' then (at this point, */
 comment|/* it already contains the scaling factor, but without      */
 comment|/* normalization of the matrix).                            */
@@ -2677,8 +2705,14 @@ block|{
 operator|*
 name|upm
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|FT_DivFix
 argument_list|(
+operator|(
+name|FT_Long
+operator|)
 operator|*
 name|upm
 argument_list|,
@@ -2868,6 +2902,9 @@ literal|1
 condition|)
 name|scaling
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|FT_MIN
 argument_list|(
 name|top
@@ -2918,12 +2955,21 @@ name|sub
 operator|->
 name|units_per_em
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|FT_MulDiv
 argument_list|(
+operator|(
+name|FT_Long
+operator|)
 name|sub
 operator|->
 name|units_per_em
 argument_list|,
+operator|(
+name|FT_Long
+operator|)
 name|top
 operator|->
 name|units_per_em
@@ -3000,8 +3046,14 @@ block|{
 operator|*
 name|upm
 operator|=
+operator|(
+name|FT_ULong
+operator|)
 name|FT_DivFix
 argument_list|(
+operator|(
+name|FT_Long
+operator|)
 operator|*
 name|upm
 argument_list|,
@@ -3116,6 +3168,9 @@ name|cffface
 operator|->
 name|num_faces
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|cff
 operator|->
 name|num_faces
@@ -3133,6 +3188,10 @@ name|cffface
 operator|->
 name|num_glyphs
 operator|=
+call|(
+name|FT_Long
+call|)
+argument_list|(
 name|cff
 operator|->
 name|charset
@@ -3140,12 +3199,16 @@ operator|.
 name|max_cid
 operator|+
 literal|1
+argument_list|)
 expr_stmt|;
 else|else
 name|cffface
 operator|->
 name|num_glyphs
 operator|=
+operator|(
+name|FT_Long
+operator|)
 name|cff
 operator|->
 name|charstrings_index
@@ -3350,7 +3413,14 @@ name|cff_index_get_name
 argument_list|(
 name|cff
 argument_list|,
+call|(
+name|FT_UInt
+call|)
+argument_list|(
 name|face_index
+operator|&
+literal|0xFFFF
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
