@@ -13650,10 +13650,23 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_DARWIN
+comment|// on OS X& iOS mouse wheel shall have no effect on combo box
+name|expected
+operator|=
+name|start
+expr_stmt|;
+else|#
+directive|else
+comment|// on other OSes we should jump to next enabled item (no. 5)
 name|expected
 operator|=
 literal|5
 expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
