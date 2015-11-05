@@ -9004,7 +9004,7 @@ argument_list|()
 condition|?
 literal|0xb6
 else|:
-literal|0x20
+literal|0xA7
 argument_list|)
 expr_stmt|;
 block|}
