@@ -4665,9 +4665,31 @@ name|response_type
 operator|==
 name|XCB_FOCUS_IN
 condition|)
+block|{
+comment|// Ignore focus events that are being sent only because the pointer is over
+comment|// our window, even if the input focus is in a different window.
+name|xcb_focus_in_event_t
+modifier|*
+name|e
+init|=
+operator|(
+name|xcb_focus_in_event_t
+operator|*
+operator|)
+name|event
+decl_stmt|;
+if|if
+condition|(
+name|e
+operator|->
+name|detail
+operator|!=
+name|XCB_NOTIFY_DETAIL_POINTER
+condition|)
 return|return
 literal|true
 return|;
+block|}
 comment|/* We are also interested in XEMBED_FOCUS_IN events */
 if|if
 condition|(
@@ -13810,8 +13832,20 @@ parameter_list|(
 specifier|const
 name|xcb_focus_in_event_t
 modifier|*
+name|event
 parameter_list|)
 block|{
+comment|// Ignore focus events that are being sent only because the pointer is over
+comment|// our window, even if the input focus is in a different window.
+if|if
+condition|(
+name|event
+operator|->
+name|detail
+operator|==
+name|XCB_NOTIFY_DETAIL_POINTER
+condition|)
+return|return;
 name|doFocusIn
 argument_list|()
 expr_stmt|;
@@ -13825,8 +13859,20 @@ parameter_list|(
 specifier|const
 name|xcb_focus_out_event_t
 modifier|*
+name|event
 parameter_list|)
 block|{
+comment|// Ignore focus events that are being sent only because the pointer is over
+comment|// our window, even if the input focus is in a different window.
+if|if
+condition|(
+name|event
+operator|->
+name|detail
+operator|==
+name|XCB_NOTIFY_DETAIL_POINTER
+condition|)
+return|return;
 name|doFocusOut
 argument_list|()
 expr_stmt|;
