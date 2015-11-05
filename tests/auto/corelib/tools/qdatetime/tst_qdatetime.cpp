@@ -493,9 +493,9 @@ literal|1
 block|}
 name|localTimeType
 enum|;
-DECL|member|europeanTimeZone
+DECL|member|zoneIsCET
 name|bool
-name|europeanTimeZone
+name|zoneIsCET
 decl_stmt|;
 DECL|function|defDate
 name|QDate
@@ -686,7 +686,7 @@ operator|.
 name|toTime_t
 argument_list|()
 decl_stmt|;
-name|europeanTimeZone
+name|zoneIsCET
 operator|=
 operator|(
 name|x1
@@ -865,7 +865,7 @@ literal|"ahead of"
 expr_stmt|;
 name|typemsg2
 operator|=
-name|europeanTimeZone
+name|zoneIsCET
 condition|?
 literal|"and is"
 else|:
@@ -1168,7 +1168,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QVERIFY
@@ -3760,7 +3760,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QDateTime
@@ -3850,7 +3850,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QDateTime
@@ -3940,7 +3940,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QDateTime
@@ -4023,7 +4023,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QDateTime
@@ -4196,7 +4196,7 @@ argument_list|<
 name|QDateTime
 argument_list|>
 argument_list|(
-literal|"european"
+literal|"cet"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -4855,7 +4855,7 @@ name|QFETCH
 argument_list|(
 name|QDateTime
 argument_list|,
-name|european
+name|cet
 argument_list|)
 expr_stmt|;
 name|QDateTime
@@ -4924,7 +4924,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QCOMPARE
@@ -4934,7 +4934,7 @@ operator|.
 name|toLocalTime
 argument_list|()
 argument_list|,
-name|european
+name|cet
 argument_list|)
 expr_stmt|;
 comment|// Test converting from LocalTime to UTC back to LocalTime.
@@ -5022,7 +5022,7 @@ operator|.
 name|date
 argument_list|()
 argument_list|,
-name|european
+name|cet
 operator|.
 name|date
 argument_list|()
@@ -5060,7 +5060,7 @@ operator|.
 name|time
 argument_list|()
 argument_list|,
-name|european
+name|cet
 operator|.
 name|time
 argument_list|()
@@ -5200,7 +5200,7 @@ name|QFETCH
 argument_list|(
 name|QDateTime
 argument_list|,
-name|european
+name|cet
 argument_list|)
 expr_stmt|;
 name|QDateTime
@@ -5369,7 +5369,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QCOMPARE
@@ -5379,7 +5379,7 @@ operator|.
 name|toLocalTime
 argument_list|()
 argument_list|,
-name|european
+name|cet
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -5389,7 +5389,7 @@ operator|.
 name|toLocalTime
 argument_list|()
 argument_list|,
-name|european
+name|cet
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -5399,7 +5399,7 @@ operator|.
 name|toLocalTime
 argument_list|()
 argument_list|,
-name|european
+name|cet
 argument_list|)
 expr_stmt|;
 block|}
@@ -6340,7 +6340,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QTest
@@ -9391,7 +9391,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QTest
@@ -10790,7 +10790,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QTest
@@ -11102,7 +11102,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QFETCH
@@ -11571,7 +11571,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"Not tested with timezone other than Central European (CET/CST)"
+literal|"Not tested with timezone other than Central European (CET/CEST)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -11600,7 +11600,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QFETCH
@@ -11669,7 +11669,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"Not tested with timezone other than Central European (CET/CST)"
+literal|"Not tested with timezone other than Central European (CET/CEST)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -11698,7 +11698,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QFETCH
@@ -11767,7 +11767,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"Not tested with timezone other than Central European (CET/CST)"
+literal|"Not tested with timezone other than Central European (CET/CEST)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -14135,14 +14135,14 @@ expr_stmt|;
 comment|// minutes ahead of UTC on day stepped from
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Europe from day before"
+literal|"CET from day before"
 argument_list|)
 operator|<<
 name|QDate
@@ -14171,7 +14171,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Europe from day after"
+literal|"CET from day after"
 argument_list|)
 operator|<<
 name|QDate
@@ -14871,7 +14871,7 @@ literal|false
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QTest
@@ -15091,7 +15091,7 @@ if|if
 condition|(
 name|checkEuro
 operator|&&
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QVERIFY
@@ -21215,7 +21215,7 @@ expr_stmt|;
 comment|// LocalTime should vary
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 comment|// Time definitely in Standard Time so 1 hour ahead
@@ -22139,7 +22139,7 @@ expr_stmt|;
 comment|// LocalTime should vary
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 comment|// Time definitely in Standard Time
@@ -23159,7 +23159,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 name|QDateTime
@@ -23245,7 +23245,7 @@ specifier|const
 block|{
 if|if
 condition|(
-name|europeanTimeZone
+name|zoneIsCET
 condition|)
 block|{
 comment|// CET transitions occur at 01:00:00 UTC on last Sunday in March and October
