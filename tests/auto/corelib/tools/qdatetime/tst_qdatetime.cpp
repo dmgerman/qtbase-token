@@ -817,7 +817,11 @@ specifier|const
 name|char
 modifier|*
 name|typemsg1
-decl_stmt|,
+init|=
+literal|"exactly"
+decl_stmt|;
+specifier|const
+name|char
 modifier|*
 name|typemsg2
 init|=
@@ -831,10 +835,6 @@ block|{
 case|case
 name|LocalTimeIsUtc
 case|:
-name|typemsg1
-operator|=
-literal|"exactly"
-expr_stmt|;
 break|break;
 case|case
 name|LocalTimeBehindUtc
