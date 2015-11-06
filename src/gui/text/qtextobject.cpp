@@ -1615,6 +1615,20 @@ name|block
 expr_stmt|;
 block|}
 end_constructor
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
 begin_comment
 comment|/*!     Copy constructor. Constructs a copy of the \a other iterator. */
 end_comment
@@ -1722,6 +1736,10 @@ name|this
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Returns the current frame pointed to by the iterator, or 0 if the     iterator currently points to a block.      \sa currentBlock() */
 end_comment
