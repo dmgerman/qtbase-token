@@ -7444,6 +7444,9 @@ block|{
 comment|// Test default
 name|QPrinterInfo
 name|printerInfo
+argument_list|(
+name|native
+argument_list|)
 decl_stmt|;
 name|bool
 name|expected
@@ -7466,12 +7469,16 @@ operator|.
 name|doubleSidedPrinting
 argument_list|()
 argument_list|,
-literal|false
+name|expected
 argument_list|)
 expr_stmt|;
-comment|// Test set/get
+comment|// Test set/get, changing the expected value if possible
 name|expected
 operator|=
+name|expected
+condition|?
+literal|false
+else|:
 operator|(
 name|printerInfo
 operator|.
