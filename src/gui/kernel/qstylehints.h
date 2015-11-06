@@ -66,7 +66,7 @@ argument|int mouseDoubleClickInterval READ mouseDoubleClickInterval NOTIFY mouse
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int mousePressAndHoldInterval READ mousePressAndHoldInterval STORED false CONSTANT FINAL
+argument|int mousePressAndHoldInterval READ mousePressAndHoldInterval NOTIFY mousePressAndHoldIntervalChanged FINAL
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -120,6 +120,12 @@ name|int
 name|mouseDoubleClickInterval
 argument_list|()
 specifier|const
+block|;
+name|void
+name|setMousePressAndHoldInterval
+argument_list|(
+argument|int mousePressAndHoldInterval
+argument_list|)
 block|;
 name|int
 name|mousePressAndHoldInterval
@@ -240,6 +246,12 @@ name|void
 name|mouseDoubleClickIntervalChanged
 argument_list|(
 argument|int mouseDoubleClickInterval
+argument_list|)
+block|;
+name|void
+name|mousePressAndHoldIntervalChanged
+argument_list|(
+argument|int mousePressAndHoldInterval
 argument_list|)
 block|;
 name|void
