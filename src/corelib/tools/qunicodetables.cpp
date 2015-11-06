@@ -27,7 +27,7 @@ name|uc_property_trie
 index|[]
 init|=
 block|{
-comment|// 0 - 0x11000
+comment|// [0x0..0x11000)
 literal|6256
 block|,
 literal|6288
@@ -4380,7 +4380,7 @@ literal|8400
 block|,
 literal|8400
 block|,
-comment|// 0x11000 - 0x110000
+comment|// [0x11000..0x110000)
 literal|23120
 block|,
 literal|23376
@@ -81084,7 +81084,7 @@ block|,
 literal|2489
 block|,
 literal|2489
-block|, }
+block|}
 decl_stmt|;
 DECL|macro|GET_PROP_INDEX
 define|#
@@ -193156,19 +193156,13 @@ name|ucs4
 parameter_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|const
-name|int
-name|index
-init|=
+return|return
+name|uc_properties
+operator|+
 name|GET_PROP_INDEX
 argument_list|(
 name|ucs4
 argument_list|)
-decl_stmt|;
-return|return
-name|uc_properties
-operator|+
-name|index
 return|;
 block|}
 name|Q_DECL_CONST_FUNCTION
@@ -193184,19 +193178,13 @@ name|ucs2
 parameter_list|)
 name|Q_DECL_NOTHROW
 block|{
-specifier|const
-name|int
-name|index
-init|=
+return|return
+name|uc_properties
+operator|+
 name|GET_PROP_INDEX_UCS2
 argument_list|(
 name|ucs2
 argument_list|)
-decl_stmt|;
-return|return
-name|uc_properties
-operator|+
-name|index
 return|;
 block|}
 name|Q_DECL_CONST_FUNCTION
@@ -193250,15 +193238,18 @@ parameter_list|)
 name|Q_DECL_NOTHROW
 block|{
 return|return
-operator|(
+cast|static_cast
+argument_list|<
 name|GraphemeBreakClass
-operator|)
+argument_list|>
+argument_list|(
 name|qGetProp
 argument_list|(
 name|ucs4
 argument_list|)
 operator|->
 name|graphemeBreakClass
+argument_list|)
 return|;
 block|}
 name|Q_CORE_EXPORT
@@ -193272,15 +193263,18 @@ parameter_list|)
 name|Q_DECL_NOTHROW
 block|{
 return|return
-operator|(
+cast|static_cast
+argument_list|<
 name|WordBreakClass
-operator|)
+argument_list|>
+argument_list|(
 name|qGetProp
 argument_list|(
 name|ucs4
 argument_list|)
 operator|->
 name|wordBreakClass
+argument_list|)
 return|;
 block|}
 name|Q_CORE_EXPORT
@@ -193294,15 +193288,18 @@ parameter_list|)
 name|Q_DECL_NOTHROW
 block|{
 return|return
-operator|(
+cast|static_cast
+argument_list|<
 name|SentenceBreakClass
-operator|)
+argument_list|>
+argument_list|(
 name|qGetProp
 argument_list|(
 name|ucs4
 argument_list|)
 operator|->
 name|sentenceBreakClass
+argument_list|)
 return|;
 block|}
 name|Q_CORE_EXPORT
@@ -193316,21 +193313,25 @@ parameter_list|)
 name|Q_DECL_NOTHROW
 block|{
 return|return
-operator|(
+cast|static_cast
+argument_list|<
 name|LineBreakClass
-operator|)
+argument_list|>
+argument_list|(
 name|qGetProp
 argument_list|(
 name|ucs4
 argument_list|)
 operator|->
 name|lineBreakClass
+argument_list|)
 return|;
 block|}
 DECL|member|specialCaseMap
 specifier|static
 specifier|const
-name|ushort
+name|unsigned
+name|short
 name|specialCaseMap
 index|[]
 init|=
@@ -219303,7 +219304,7 @@ parameter_list|(
 name|ucs4
 parameter_list|)
 define|\
-value|(ucs4< 0x3400 \         ? (uc_decomposition_trie[uc_decomposition_trie[ucs4>>4] + (ucs4& 0xf)]) \         : (ucs4< 0x30000\            ? uc_decomposition_trie[uc_decomposition_trie[((ucs4 - 0x3400)>>8) + 0x340] + (ucs4& 0xff)]\            : 0xffff))
+value|(ucs4< 0x3400 \         ? (uc_decomposition_trie[uc_decomposition_trie[ucs4>>4] + (ucs4& 0xf)]) \         : (ucs4< 0x30000 \            ? uc_decomposition_trie[uc_decomposition_trie[((ucs4 - 0x3400)>>8) + 0x340] + (ucs4& 0xff)] \            : 0xffff))
 DECL|member|uc_decomposition_map
 specifier|static
 specifier|const
@@ -253762,7 +253763,7 @@ parameter_list|(
 name|ucs4
 parameter_list|)
 define|\
-value|(ucs4< 0x3100 \         ? (uc_ligature_trie[uc_ligature_trie[ucs4>>5] + (ucs4& 0x1f)]) \         : (ucs4< 0x12000\            ? uc_ligature_trie[uc_ligature_trie[((ucs4 - 0x3100)>>8) + 0x188] + (ucs4& 0xff)]\            : 0xffff))
+value|(ucs4< 0x3100 \         ? (uc_ligature_trie[uc_ligature_trie[ucs4>>5] + (ucs4& 0x1f)]) \         : (ucs4< 0x12000 \            ? uc_ligature_trie[uc_ligature_trie[((ucs4 - 0x3100)>>8) + 0x188] + (ucs4& 0xff)] \            : 0xffff))
 DECL|member|uc_ligature_map
 specifier|static
 specifier|const
@@ -257778,7 +257779,7 @@ literal|0x4d57
 block|,
 literal|7
 block|}
-block|, }
+block|}
 decl_stmt|;
 DECL|enumerator|NumNormalizationCorrections
 enum|enum
