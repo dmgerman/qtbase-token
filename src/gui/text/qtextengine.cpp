@@ -7115,19 +7115,23 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
-comment|// CTRunGetPosition has a bug which applies matrix on 10.6, so we disable
-comment|// scaling the advances for this particular version
+name|Q_OS_DARWIN
 if|if
 condition|(
 name|actualFontEngine
 operator|->
-name|fontDef
-operator|.
-name|stretch
-operator|!=
-literal|100
-operator|&&
+name|type
+argument_list|()
+operator|==
+name|QFontEngine
+operator|::
+name|Mac
+condition|)
+block|{
+comment|// CTRunGetPosition has a bug which applies matrix on 10.6, so we disable
+comment|// scaling the advances for this particular version
+if|if
+condition|(
 name|QSysInfo
 operator|::
 name|MacintoshVersion
@@ -7135,6 +7139,14 @@ operator|!=
 name|QSysInfo
 operator|::
 name|MV_10_6
+operator|&&
+name|actualFontEngine
+operator|->
+name|fontDef
+operator|.
+name|stretch
+operator|!=
+literal|100
 condition|)
 block|{
 name|QFixed
@@ -7225,6 +7237,7 @@ operator|.
 name|round
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 endif|#
 directive|endif
