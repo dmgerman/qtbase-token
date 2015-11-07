@@ -6581,11 +6581,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_COMPILER_DECLTYPE
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
 name|Q_COMPILER_VARIADIC_TEMPLATES
 argument_list|)
 end_if

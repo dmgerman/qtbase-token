@@ -1821,11 +1821,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_COMPILER_DECLTYPE
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
 name|Q_COMPILER_VARIADIC_TEMPLATES
 argument_list|)
 typedef|typedef
@@ -1927,82 +1922,6 @@ end_comment
 begin_comment
 comment|/* If you get an error such as:              couldn't deduce template parameter 'Func2Operator'         or              cannot resolve address of overloaded function         It means the functor does not have a single operator().         Functors with overloaded or templated operator() are only supported if the compiler supports         C++11 variadic templates       */
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_COMPILER_DECLTYPE
-end_ifndef
-begin_comment
-comment|//Workaround the lack of decltype using another function as indirection
-end_comment
-begin_return
-return|return
-name|connect_functor
-argument_list|(
-name|sender
-argument_list|,
-name|signal
-argument_list|,
-name|context
-argument_list|,
-name|slot
-argument_list|,
-operator|&
-name|Func2
-operator|::
-name|operator
-argument_list|()
-argument_list|,
-name|type
-argument_list|)
-return|;
-end_return
-begin_expr_stmt
-unit|}     template
-operator|<
-name|typename
-name|Func1
-operator|,
-name|typename
-name|Func2
-operator|,
-name|typename
-name|Func2Operator
-operator|>
-specifier|static
-specifier|inline
-name|QMetaObject
-operator|::
-name|Connection
-name|connect_functor
-argument_list|(
-argument|const QObject *sender
-argument_list|,
-argument|Func1 signal
-argument_list|,
-argument|const QObject *context
-argument_list|,
-argument|Func2 slot
-argument_list|,
-argument|Func2Operator
-argument_list|,
-argument|Qt::ConnectionType type
-argument_list|)
-block|{
-typedef|typedef
-name|QtPrivate
-operator|::
-name|FunctionPointer
-operator|<
-name|Func2Operator
-operator|>
-name|SlotType
-expr_stmt|;
-end_expr_stmt
-begin_else
-else|#
-directive|else
-end_else
 begin_typedef
 typedef|typedef
 name|QtPrivate
@@ -2021,10 +1940,6 @@ operator|>
 name|SlotType
 expr_stmt|;
 end_typedef
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_typedef
 typedef|typedef
 name|QtPrivate
