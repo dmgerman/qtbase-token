@@ -108,13 +108,6 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QWindowsWindowData
-name|createWindowData
-argument_list|(
-argument|QWindow *window
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
@@ -329,6 +322,19 @@ name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif
+name|protected
+operator|:
+name|virtual
+name|QWindowsWindow
+operator|*
+name|createPlatformWindowHelper
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|const QWindowsWindowData&
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|QScopedPointer
