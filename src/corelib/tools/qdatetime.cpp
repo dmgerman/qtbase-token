@@ -3982,7 +3982,7 @@ begin_comment
 comment|/*****************************************************************************   QTime member functions  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QTime     \inmodule QtCore     \reentrant      \brief The QTime class provides clock time functions.       A QTime object contains a clock time, i.e. the number of hours,     minutes, seconds, and milliseconds since midnight. It can read the     current time from the system clock and measure a span of elapsed     time. It provides functions for comparing times and for     manipulating a time by adding a number of milliseconds.      QTime uses the 24-hour clock format; it has no concept of AM/PM.     Unlike QDateTime, QTime knows nothing about time zones or     daylight savings time (DST).      A QTime object is typically created either by giving the number     of hours, minutes, seconds, and milliseconds explicitly, or by     using the static function currentTime(), which creates a QTime     object that contains the system's local time. Note that the     accuracy depends on the accuracy of the underlying operating     system; not all systems provide 1-millisecond accuracy.      The hour(), minute(), second(), and msec() functions provide     access to the number of hours, minutes, seconds, and milliseconds     of the time. The same information is provided in textual format by     the toString() function.      QTime provides a full set of operators to compare two QTime     objects. QTime A is considered smaller than QTime B if A is     earlier than B.      The addSecs() and addMSecs() functions provide the time a given     number of seconds or milliseconds later than a given time.     Correspondingly, the number of seconds or milliseconds     between two times can be found using secsTo() or msecsTo().      QTime can be used to measure a span of elapsed time using the     start(), restart(), and elapsed() functions.      \sa QDate, QDateTime */
+comment|/*!     \class QTime     \inmodule QtCore     \reentrant      \brief The QTime class provides clock time functions.       A QTime object contains a clock time, i.e. the number of hours,     minutes, seconds, and milliseconds since midnight. It can read the     current time from the system clock and measure a span of elapsed     time. It provides functions for comparing times and for     manipulating a time by adding a number of milliseconds.      QTime uses the 24-hour clock format; it has no concept of AM/PM.     Unlike QDateTime, QTime knows nothing about time zones or     daylight-saving time (DST).      A QTime object is typically created either by giving the number     of hours, minutes, seconds, and milliseconds explicitly, or by     using the static function currentTime(), which creates a QTime     object that contains the system's local time. Note that the     accuracy depends on the accuracy of the underlying operating     system; not all systems provide 1-millisecond accuracy.      The hour(), minute(), second(), and msec() functions provide     access to the number of hours, minutes, seconds, and milliseconds     of the time. The same information is provided in textual format by     the toString() function.      QTime provides a full set of operators to compare two QTime     objects. QTime A is considered smaller than QTime B if A is     earlier than B.      The addSecs() and addMSecs() functions provide the time a given     number of seconds or milliseconds later than a given time.     Correspondingly, the number of seconds or milliseconds     between two times can be found using secsTo() or msecsTo().      QTime can be used to measure a span of elapsed time using the     start(), restart(), and elapsed() functions.      \sa QDate, QDateTime */
 end_comment
 begin_comment
 comment|/*!     \fn QTime::QTime()      Constructs a null time object. A null time can be a QTime(0, 0, 0, 0)     (i.e., midnight) object, except that isNull() returns \c true and isValid()     returns \c false.      \sa isNull(), isValid() */
@@ -5567,7 +5567,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets this time to the current time and returns the number of     milliseconds that have elapsed since the last time start() or     restart() was called.      This function is guaranteed to be atomic and is thus very handy     for repeated measurements. Call start() to start the first     measurement, and restart() for each later measurement.      Note that the counter wraps to zero 24 hours after the last call     to start() or restart().      \warning If the system's clock setting has been changed since the     last time start() or restart() was called, the result is     undefined. This can happen when daylight savings time is turned on     or off.      \sa start(), elapsed(), currentTime() */
+comment|/*!     Sets this time to the current time and returns the number of     milliseconds that have elapsed since the last time start() or     restart() was called.      This function is guaranteed to be atomic and is thus very handy     for repeated measurements. Call start() to start the first     measurement, and restart() for each later measurement.      Note that the counter wraps to zero 24 hours after the last call     to start() or restart().      \warning If the system's clock setting has been changed since the     last time start() or restart() was called, the result is     undefined. This can happen when daylight-saving time is turned on     or off.      \sa start(), elapsed(), currentTime() */
 end_comment
 begin_function
 DECL|function|restart
@@ -5615,7 +5615,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of milliseconds that have elapsed since the     last time start() or restart() was called.      Note that the counter wraps to zero 24 hours after the last call     to start() or restart.      Note that the accuracy depends on the accuracy of the underlying     operating system; not all systems provide 1-millisecond accuracy.      \warning If the system's clock setting has been changed since the     last time start() or restart() was called, the result is     undefined. This can happen when daylight savings time is turned on     or off.      \sa start(), restart() */
+comment|/*!     Returns the number of milliseconds that have elapsed since the     last time start() or restart() was called.      Note that the counter wraps to zero 24 hours after the last call     to start() or restart.      Note that the accuracy depends on the accuracy of the underlying     operating system; not all systems provide 1-millisecond accuracy.      \warning If the system's clock setting has been changed since the     last time start() or restart() was called, the result is     undefined. This can happen when daylight-saving time is turned on     or off.      \sa start(), restart() */
 end_comment
 begin_function
 DECL|function|elapsed
@@ -6730,7 +6730,7 @@ begin_comment
 comment|// Calls the platform variant of localtime for the given msecs, and updates
 end_comment
 begin_comment
-comment|// the date, time, and daylight status with the returned values.
+comment|// the date, time, and DST status with the returned values.
 end_comment
 begin_function
 DECL|function|qt_localtime
@@ -7369,7 +7369,7 @@ literal|1000
 operator|)
 condition|)
 block|{
-comment|// Docs state any LocalTime after 2037-12-31 *will* have any Daylight Time applied
+comment|// Docs state any LocalTime after 2037-12-31 *will* have any DST applied
 comment|// but this may fall outside the supported time_t range, so need to fake it.
 comment|// Use existing method to fake the conversion, but this is deeply flawed as it may
 comment|// apply the conversion from the wrong day number, e.g. if rule is last Sunday of month
@@ -7508,7 +7508,7 @@ begin_comment
 comment|// Convert a LocalTime expressed in local msecs encoding and the corresponding
 end_comment
 begin_comment
-comment|// daylight status into a UTC epoch msecs. Optionally populate the returned
+comment|// DST status into a UTC epoch msecs. Optionally populate the returned
 end_comment
 begin_comment
 comment|// values from mktime for the adjusted local date and time.
@@ -7585,9 +7585,9 @@ name|MSECS_PER_DAY
 argument_list|)
 condition|)
 block|{
-comment|// Docs state any LocalTime before 1970-01-01 will *not* have any Daylight Time applied
+comment|// Docs state any LocalTime before 1970-01-01 will *not* have any DST applied
 comment|// First, if localMsecs is within +/- 1 day of minimum time_t try mktime in case it does
-comment|// fall after minimum and needs proper daylight conversion
+comment|// fall after minimum and needs proper DST conversion
 if|if
 condition|(
 name|localMsecs
@@ -7726,10 +7726,10 @@ operator|-
 name|MSECS_PER_DAY
 condition|)
 block|{
-comment|// Docs state any LocalTime after 2037-12-31 *will* have any Daylight Time applied
+comment|// Docs state any LocalTime after 2037-12-31 *will* have any DST applied
 comment|// but this may fall outside the supported time_t range, so need to fake it.
 comment|// First, if localMsecs is within +/- 1 day of maximum time_t try mktime in case it does
-comment|// fall before maximum and can use proper daylight conversion
+comment|// fall before maximum and can use proper DST conversion
 if|if
 condition|(
 name|localMsecs
@@ -8504,7 +8504,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// Get the Daylight Status if LocalTime set via msecs
+comment|// Get the DST Status if LocalTime set via msecs
 end_comment
 begin_function
 DECL|function|daylightStatus
@@ -8789,7 +8789,7 @@ endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
 comment|// We have a valid date and time and a Qt::LocalTime or Qt::TimeZone that needs calculating
-comment|// LocalTime and TimeZone might fall into "missing" DaylightTime transition hour
+comment|// LocalTime and TimeZone might fall into a "missing" DST transition hour
 comment|// Calling toEpochMSecs will adjust the returned date/time if it does
 name|QDate
 name|testDate
@@ -8944,8 +8944,8 @@ argument_list|(
 name|zoneMSecs
 argument_list|)
 decl_stmt|;
-comment|// Docs state any LocalTime before 1970-01-01 will *not* have any Daylight Time applied
-comment|// but all times afterwards will have Daylight Time applied.
+comment|// Docs state any LocalTime before 1970-01-01 will *not* have any DST applied
+comment|// but all affected times afterwards will have DST applied.
 if|if
 condition|(
 name|data
@@ -9016,7 +9016,7 @@ begin_comment
 comment|/*****************************************************************************   QDateTime member functions  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QDateTime     \inmodule QtCore     \ingroup shared     \reentrant     \brief The QDateTime class provides date and time functions.       A QDateTime object contains a calendar date and a clock time (a     "datetime"). It is a combination of the QDate and QTime classes.     It can read the current datetime from the system clock. It     provides functions for comparing datetimes and for manipulating a     datetime by adding a number of seconds, days, months, or years.      A QDateTime object is typically created either by giving a date     and time explicitly in the constructor, or by using the static     function currentDateTime() that returns a QDateTime object set     to the system clock's time. The date and time can be changed with     setDate() and setTime(). A datetime can also be set using the     setTime_t() function that takes a POSIX-standard "number of     seconds since 00:00:00 on January 1, 1970" value. The fromString()     function returns a QDateTime, given a string and a date format     used to interpret the date within the string.      The date() and time() functions provide access to the date and     time parts of the datetime. The same information is provided in     textual format by the toString() function.      QDateTime provides a full set of operators to compare two     QDateTime objects, where smaller means earlier and larger means     later.      You can increment (or decrement) a datetime by a given number of     milliseconds using addMSecs(), seconds using addSecs(), or days     using addDays(). Similarly, you can use addMonths() and addYears().     The daysTo() function returns the number of days between two datetimes,     secsTo() returns the number of seconds between two datetimes, and     msecsTo() returns the number of milliseconds between two datetimes.      QDateTime can store datetimes as \l{Qt::LocalTime}{local time} or     as \l{Qt::UTC}{UTC}. QDateTime::currentDateTime() returns a     QDateTime expressed as local time; use toUTC() to convert it to     UTC. You can also use timeSpec() to find out if a QDateTime     object stores a UTC time or a local time. Operations such as     addSecs() and secsTo() are aware of daylight saving time (DST).      \note QDateTime does not account for leap seconds.      \section1      \section2 No Year 0      There is no year 0. Dates in that year are considered invalid. The     year -1 is the year "1 before Christ" or "1 before current era."     The day before 1 January 1 CE is 31 December 1 BCE.      \section2 Range of Valid Dates      The range of valid values able to be stored in QDateTime is dependent on     the internal storage implementation. QDateTime is currently stored in a     qint64 as a serial msecs value encoding the date and time.  This restricts     the date range to about +/- 292 million years, compared to the QDate range     of +/- 2 billion years.  Care must be taken when creating a QDateTime with     extreme values that you do not overflow the storage.  The exact range of     supported values varies depending on the Qt::TimeSpec and time zone.      \section2     Use of System Timezone      QDateTime uses the system's time zone information to determine the     offset of local time from UTC. If the system is not configured     correctly or not up-to-date, QDateTime will give wrong results as     well.      \section2 Daylight Savings Time (DST)      QDateTime takes into account the system's time zone information     when dealing with DST. On modern Unix systems, this means it     applies the correct historical DST data whenever possible. On     Windows and Windows CE, where the system doesn't support     historical DST data, historical accuracy is not maintained with     respect to DST.      The range of valid dates taking DST into account is 1970-01-01 to     the present, and rules are in place for handling DST correctly     until 2037-12-31, but these could change. For dates falling     outside that range, QDateTime makes a \e{best guess} using the     rules for year 1970 or 2037, but we can't guarantee accuracy. This     means QDateTime doesn't take into account changes in a locale's     time zone before 1970, even if the system's time zone database     supports that information.      QDateTime takes into consideration the Standard Time to Daylight Time     transition.  For example if the transition is at 2am and the clock goes     forward to 3am, then there is a "missing" hour from 02:00:00 to 02:59:59.999     which QDateTime considers to be invalid.  Any date maths performed     will take this missing hour into account and return a valid result.      \section2 Offset From UTC      A Qt::TimeSpec of Qt::OffsetFromUTC is also supported. This allows you     to define a QDateTime relative to UTC at a fixed offset of a given number     of seconds from UTC.  For example, an offset of +3600 seconds is one hour     ahead of UTC and is usually written in ISO standard notation as     "UTC+01:00".  Daylight Savings Time never applies with this TimeSpec.      There is no explicit size restriction to the offset seconds, but there is     an implicit limit imposed when using the toString() and fromString()     methods which use a format of [+|-]hh:mm, effectively limiting the range     to +/- 99 hours and 59 minutes and whole minutes only.  Note that currently     no time zone lies outside the range of +/- 14 hours.      \section2 Time Zone Support      A Qt::TimeSpec of Qt::TimeZone is also supported in conjunction with the     QTimeZone class.  This allows you to define a datetime in a named time zone     adhering to a consistent set of daylight savings transition rules.  For     example a time zone of "Europe/Berlin" will apply the daylight savings     rules as used in Germany since 1970.  Note that the transition rules     applied depend on the platform support.  See the QTimeZone documentation     for more details.      \sa QDate, QTime, QDateTimeEdit, QTimeZone */
+comment|/*!     \class QDateTime     \inmodule QtCore     \ingroup shared     \reentrant     \brief The QDateTime class provides date and time functions.       A QDateTime object contains a calendar date and a clock time (a     "datetime"). It is a combination of the QDate and QTime classes.     It can read the current datetime from the system clock. It     provides functions for comparing datetimes and for manipulating a     datetime by adding a number of seconds, days, months, or years.      A QDateTime object is typically created either by giving a date     and time explicitly in the constructor, or by using the static     function currentDateTime() that returns a QDateTime object set     to the system clock's time. The date and time can be changed with     setDate() and setTime(). A datetime can also be set using the     setTime_t() function that takes a POSIX-standard "number of     seconds since 00:00:00 on January 1, 1970" value. The fromString()     function returns a QDateTime, given a string and a date format     used to interpret the date within the string.      The date() and time() functions provide access to the date and     time parts of the datetime. The same information is provided in     textual format by the toString() function.      QDateTime provides a full set of operators to compare two     QDateTime objects, where smaller means earlier and larger means     later.      You can increment (or decrement) a datetime by a given number of     milliseconds using addMSecs(), seconds using addSecs(), or days     using addDays(). Similarly, you can use addMonths() and addYears().     The daysTo() function returns the number of days between two datetimes,     secsTo() returns the number of seconds between two datetimes, and     msecsTo() returns the number of milliseconds between two datetimes.      QDateTime can store datetimes as \l{Qt::LocalTime}{local time} or     as \l{Qt::UTC}{UTC}. QDateTime::currentDateTime() returns a     QDateTime expressed as local time; use toUTC() to convert it to     UTC. You can also use timeSpec() to find out if a QDateTime     object stores a UTC time or a local time. Operations such as     addSecs() and secsTo() are aware of daylight-saving time (DST).      \note QDateTime does not account for leap seconds.      \section1      \section2 No Year 0      There is no year 0. Dates in that year are considered invalid. The     year -1 is the year "1 before Christ" or "1 before current era."     The day before 1 January 1 CE is 31 December 1 BCE.      \section2 Range of Valid Dates      The range of valid values able to be stored in QDateTime is dependent on     the internal storage implementation. QDateTime is currently stored in a     qint64 as a serial msecs value encoding the date and time.  This restricts     the date range to about +/- 292 million years, compared to the QDate range     of +/- 2 billion years.  Care must be taken when creating a QDateTime with     extreme values that you do not overflow the storage.  The exact range of     supported values varies depending on the Qt::TimeSpec and time zone.      \section2     Use of System Timezone      QDateTime uses the system's time zone information to determine the     offset of local time from UTC. If the system is not configured     correctly or not up-to-date, QDateTime will give wrong results as     well.      \section2 Daylight-Saving Time (DST)      QDateTime takes into account the system's time zone information     when dealing with DST. On modern Unix systems, this means it     applies the correct historical DST data whenever possible. On     Windows and Windows CE, where the system doesn't support     historical DST data, historical accuracy is not maintained with     respect to DST.      The range of valid dates taking DST into account is 1970-01-01 to     the present, and rules are in place for handling DST correctly     until 2037-12-31, but these could change. For dates falling     outside that range, QDateTime makes a \e{best guess} using the     rules for year 1970 or 2037, but we can't guarantee accuracy. This     means QDateTime doesn't take into account changes in a locale's     time zone before 1970, even if the system's time zone database     supports that information.      QDateTime takes into consideration the Standard Time to Daylight-Saving Time     transition.  For example if the transition is at 2am and the clock goes     forward to 3am, then there is a "missing" hour from 02:00:00 to 02:59:59.999     which QDateTime considers to be invalid.  Any date maths performed     will take this missing hour into account and return a valid result.      \section2 Offset From UTC      A Qt::TimeSpec of Qt::OffsetFromUTC is also supported. This allows you     to define a QDateTime relative to UTC at a fixed offset of a given number     of seconds from UTC.  For example, an offset of +3600 seconds is one hour     ahead of UTC and is usually written in ISO standard notation as     "UTC+01:00".  Daylight-Saving Time never applies with this TimeSpec.      There is no explicit size restriction to the offset seconds, but there is     an implicit limit imposed when using the toString() and fromString()     methods which use a format of [+|-]hh:mm, effectively limiting the range     to +/- 99 hours and 59 minutes and whole minutes only.  Note that currently     no time zone lies outside the range of +/- 14 hours.      \section2 Time Zone Support      A Qt::TimeSpec of Qt::TimeZone is also supported in conjunction with the     QTimeZone class.  This allows you to define a datetime in a named time zone     adhering to a consistent set of daylight-saving transition rules.  For     example a time zone of "Europe/Berlin" will apply the daylight-saving     rules as used in Germany since 1970.  Note that the transition rules     applied depend on the platform support.  See the QTimeZone documentation     for more details.      \sa QDate, QTime, QDateTimeEdit, QTimeZone */
 end_comment
 begin_comment
 comment|/*!     Constructs a null datetime (i.e. null date and null time). A null     datetime is invalid, since the date is invalid.      \sa isValid() */
@@ -9305,7 +9305,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if both the date and the time are valid and they are valid in     the current Qt::TimeSpec, otherwise returns \c false.      If the timeSpec() is Qt::LocalTime or Qt::TimeZone then the date and time are     checked to see if they fall in the Standard Time to Daylight Time transition     hour, i.e. if the transition is at 2am and the clock goes forward to 3am     then the time from 02:00:00 to 02:59:59.999 is considered to be invalid.      \sa QDate::isValid(), QTime::isValid() */
+comment|/*!     Returns \c true if both the date and the time are valid and they are valid in     the current Qt::TimeSpec, otherwise returns \c false.      If the timeSpec() is Qt::LocalTime or Qt::TimeZone then the date and time are     checked to see if they fall in the Standard Time to Daylight-Saving Time transition     hour, i.e. if the transition is at 2am and the clock goes forward to 3am     then the time from 02:00:00 to 02:59:59.999 is considered to be invalid.      \sa QDate::isValid(), QTime::isValid() */
 end_comment
 begin_function
 DECL|function|isValid
@@ -9527,7 +9527,7 @@ begin_comment
 comment|// QT_BOOTSTRAPPED
 end_comment
 begin_comment
-comment|/*!     \since 5.2      Returns the current Offset From UTC in seconds.      If the timeSpec() is Qt::OffsetFromUTC this will be the value originally set.      If the timeSpec() is Qt::TimeZone this will be the offset effective in the     Time Zone including any Daylight Saving Offset.      If the timeSpec() is Qt::LocalTime this will be the difference between the     Local Time and UTC including any Daylight Saving Offset.      If the timeSpec() is Qt::UTC this will be 0.      \sa setOffsetFromUtc() */
+comment|/*!     \since 5.2      Returns the current Offset From UTC in seconds.      If the timeSpec() is Qt::OffsetFromUTC this will be the value originally set.      If the timeSpec() is Qt::TimeZone this will be the offset effective in the     Time Zone including any Daylight-Saving Offset.      If the timeSpec() is Qt::LocalTime this will be the difference between the     Local Time and UTC including any Daylight-Saving Offset.      If the timeSpec() is Qt::UTC this will be 0.      \sa setOffsetFromUtc() */
 end_comment
 begin_function
 DECL|function|offsetFromUtc
@@ -9671,7 +9671,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.2      Returns if this datetime falls in Daylight Savings Time.      If the Qt::TimeSpec is not Qt::LocalTime or Qt::TimeZone then will always     return false.      \sa timeSpec() */
+comment|/*!     \since 5.2      Returns if this datetime falls in Daylight-Saving Time.      If the Qt::TimeSpec is not Qt::LocalTime or Qt::TimeZone then will always     return false.      \sa timeSpec() */
 end_comment
 begin_function
 DECL|function|isDaylightTime
@@ -10188,8 +10188,8 @@ case|:
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
-comment|// Docs state any LocalTime before 1970-01-01 will *not* have any Daylight Time applied
-comment|// but all times afterwards will have Daylight Time applied.
+comment|// Docs state any LocalTime before 1970-01-01 will *not* have any DST applied
+comment|// but all affected times afterwards will have DST applied.
 if|if
 condition|(
 name|msecs
@@ -10845,7 +10845,7 @@ begin_comment
 comment|//QT_NO_DATESTRING
 end_comment
 begin_comment
-comment|/*!     Returns a QDateTime object containing a datetime \a ndays days     later than the datetime of this object (or earlier if \a ndays is     negative).      If the timeSpec() is Qt::LocalTime and the resulting     date and time fall in the Standard Time to Daylight Time transition     hour then the result will be adjusted accordingly, i.e. if the transition     is at 2am and the clock goes forward to 3am and the result falls between     2am and 3am then the result will be adjusted to fall after 3am.      \sa daysTo(), addMonths(), addYears(), addSecs() */
+comment|/*!     Returns a QDateTime object containing a datetime \a ndays days     later than the datetime of this object (or earlier if \a ndays is     negative).      If the timeSpec() is Qt::LocalTime and the resulting     date and time fall in the Standard Time to Daylight-Saving Time transition     hour then the result will be adjusted accordingly, i.e. if the transition     is at 2am and the clock goes forward to 3am and the result falls between     2am and 3am then the result will be adjusted to fall after 3am.      \sa daysTo(), addMonths(), addYears(), addSecs() */
 end_comment
 begin_function
 DECL|function|addDays
@@ -11005,7 +11005,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QDateTime object containing a datetime \a nmonths months     later than the datetime of this object (or earlier if \a nmonths     is negative).      If the timeSpec() is Qt::LocalTime and the resulting     date and time fall in the Standard Time to Daylight Time transition     hour then the result will be adjusted accordingly, i.e. if the transition     is at 2am and the clock goes forward to 3am and the result falls between     2am and 3am then the result will be adjusted to fall after 3am.      \sa daysTo(), addDays(), addYears(), addSecs() */
+comment|/*!     Returns a QDateTime object containing a datetime \a nmonths months     later than the datetime of this object (or earlier if \a nmonths     is negative).      If the timeSpec() is Qt::LocalTime and the resulting     date and time fall in the Standard Time to Daylight-Saving Time transition     hour then the result will be adjusted accordingly, i.e. if the transition     is at 2am and the clock goes forward to 3am and the result falls between     2am and 3am then the result will be adjusted to fall after 3am.      \sa daysTo(), addDays(), addYears(), addSecs() */
 end_comment
 begin_function
 DECL|function|addMonths
@@ -11165,7 +11165,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QDateTime object containing a datetime \a nyears years     later than the datetime of this object (or earlier if \a nyears is     negative).      If the timeSpec() is Qt::LocalTime and the resulting     date and time fall in the Standard Time to Daylight Time transition     hour then the result will be adjusted accordingly, i.e. if the transition     is at 2am and the clock goes forward to 3am and the result falls between     2am and 3am then the result will be adjusted to fall after 3am.      \sa daysTo(), addDays(), addMonths(), addSecs() */
+comment|/*!     Returns a QDateTime object containing a datetime \a nyears years     later than the datetime of this object (or earlier if \a nyears is     negative).      If the timeSpec() is Qt::LocalTime and the resulting     date and time fall in the Standard Time to Daylight-Saving Time transition     hour then the result will be adjusted accordingly, i.e. if the transition     is at 2am and the clock goes forward to 3am and the result falls between     2am and 3am then the result will be adjusted to fall after 3am.      \sa daysTo(), addDays(), addMonths(), addSecs() */
 end_comment
 begin_function
 DECL|function|addYears
@@ -11399,7 +11399,7 @@ name|Qt
 operator|::
 name|TimeZone
 condition|)
-comment|// Convert to real UTC first in case crosses daylight transition
+comment|// Convert to real UTC first in case crosses DST transition
 name|dt
 operator|.
 name|setMSecsSinceEpoch
@@ -11465,7 +11465,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of seconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Returns 0 if either datetime is invalid.      Example:     \snippet code/src_corelib_tools_qdatetime.cpp 11      \sa addSecs(), daysTo(), QTime::secsTo() */
+comment|/*!     Returns the number of seconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if daylight-saving     (DST) applies to one of the two datetimes but not the other.      Returns 0 if either datetime is invalid.      Example:     \snippet code/src_corelib_tools_qdatetime.cpp 11      \sa addSecs(), daysTo(), QTime::secsTo() */
 end_comment
 begin_function
 DECL|function|secsTo
@@ -11494,7 +11494,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of milliseconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Returns 0 if either datetime is invalid.      \sa addMSecs(), daysTo(), QTime::msecsTo() */
+comment|/*!     Returns the number of milliseconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if daylight-saving     (DST) applies to one of the two datetimes and but not the other.      Returns 0 if either datetime is invalid.      \sa addMSecs(), daysTo(), QTime::msecsTo() */
 end_comment
 begin_function
 DECL|function|msecsTo
