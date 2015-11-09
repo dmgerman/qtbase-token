@@ -715,6 +715,9 @@ name|pointerModeGroup
 init|=
 operator|new
 name|QButtonGroup
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 name|pointerModeGroup
 operator|->

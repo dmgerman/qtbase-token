@@ -229,6 +229,9 @@ name|scene
 operator|=
 operator|new
 name|QGraphicsScene
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 name|QImage
 name|image
