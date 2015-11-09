@@ -725,7 +725,11 @@ name|bool
 name|QProcessPrivate
 operator|::
 name|processStarted
-parameter_list|()
+parameter_list|(
+name|QString
+modifier|*
+comment|/*errorMessage*/
+parameter_list|)
 block|{
 return|return
 name|processState

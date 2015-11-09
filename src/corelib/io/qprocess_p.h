@@ -1554,7 +1554,13 @@ endif|#
 directive|endif
 name|bool
 name|processStarted
-parameter_list|()
+parameter_list|(
+name|QString
+modifier|*
+name|errorMessage
+init|=
+name|Q_NULLPTR
+parameter_list|)
 function_decl|;
 name|void
 name|terminateProcess

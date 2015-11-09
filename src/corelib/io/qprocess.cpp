@@ -2763,10 +2763,16 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|QString
+name|errorMessage
+decl_stmt|;
 if|if
 condition|(
 name|processStarted
-argument_list|()
+argument_list|(
+operator|&
+name|errorMessage
+argument_list|)
 condition|)
 block|{
 name|q
@@ -2807,6 +2813,8 @@ argument_list|(
 name|QProcess
 operator|::
 name|FailedToStart
+argument_list|,
+name|errorMessage
 argument_list|)
 expr_stmt|;
 ifdef|#
