@@ -11496,30 +11496,6 @@ block|}
 else|else
 block|{
 comment|// Handle normal numbers
-comment|// Chop trailing zeros
-name|int
-name|last_nonzero_idx
-init|=
-name|length
-operator|-
-literal|1
-decl_stmt|;
-while|while
-condition|(
-name|last_nonzero_idx
-operator|>
-literal|0
-operator|&&
-name|buf
-index|[
-name|last_nonzero_idx
-index|]
-operator|==
-literal|'0'
-condition|)
-operator|--
-name|last_nonzero_idx
-expr_stmt|;
 name|QString
 name|digits
 init|=
@@ -11532,9 +11508,7 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
-name|last_nonzero_idx
-operator|+
-literal|1
+name|length
 argument_list|)
 decl_stmt|;
 if|if

@@ -1141,6 +1141,25 @@ block|}
 endif|#
 directive|endif
 comment|// QT_NO_DOUBLECONVERSION || QT_BOOTSTRAPPED
+while|while
+condition|(
+name|length
+operator|>
+literal|1
+operator|&&
+name|buf
+index|[
+name|length
+operator|-
+literal|1
+index|]
+operator|==
+literal|'0'
+condition|)
+comment|// drop trailing zeroes
+operator|--
+name|length
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2685,25 +2704,6 @@ name|length
 argument_list|,
 name|nonNullDecpt
 argument_list|)
-expr_stmt|;
-comment|// Skip trailing zeroes. The DoubleMaxSignificant precision is the worst case.
-while|while
-condition|(
-name|length
-operator|>
-literal|0
-operator|&&
-name|result
-index|[
-name|length
-operator|-
-literal|1
-index|]
-operator|==
-literal|'0'
-condition|)
-operator|--
-name|length
 expr_stmt|;
 if|if
 condition|(
