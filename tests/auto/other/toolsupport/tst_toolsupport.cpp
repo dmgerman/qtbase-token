@@ -418,8 +418,7 @@ argument_list|)
 decl_stmt|;
 name|data
 operator|<<
-operator|-
-literal|1
+literal|168
 operator|<<
 literal|248
 expr_stmt|;
