@@ -9948,9 +9948,10 @@ literal|"{\n"
 literal|"    \"Array\": [\n"
 literal|"        1.234567,\n"
 literal|"        1.7976931348623157e+308,\n"
-comment|//     ((4.9406564584124654e-324 == 5e-324) == true)
-comment|// I can only think JavaScript has a special formatter to
-comment|//  emit this value for this IEEE754 bit pattern.
+ifdef|#
+directive|ifdef
+name|QT_NO_DOUBLECONVERSION
+comment|// "shortest" double conversion is not very short then
 literal|"        4.9406564584124654e-324,\n"
 literal|"        2.2250738585072014e-308,\n"
 literal|"        1.7976931348623157e+308,\n"
@@ -9961,6 +9962,20 @@ literal|"        -2.2250738585072014e-308,\n"
 literal|"        -1.7976931348623157e+308,\n"
 literal|"        -2.2204460492503131e-16,\n"
 literal|"        -4.9406564584124654e-324,\n"
+else|#
+directive|else
+literal|"        5e-324,\n"
+literal|"        2.2250738585072014e-308,\n"
+literal|"        1.7976931348623157e+308,\n"
+literal|"        2.220446049250313e-16,\n"
+literal|"        5e-324,\n"
+literal|"        0,\n"
+literal|"        -2.2250738585072014e-308,\n"
+literal|"        -1.7976931348623157e+308,\n"
+literal|"        -2.220446049250313e-16,\n"
+literal|"        -5e-324,\n"
+endif|#
+directive|endif
 literal|"        0,\n"
 literal|"        9007199254740992,\n"
 literal|"        -9007199254740992\n"

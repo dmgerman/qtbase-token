@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<qlocale.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qjsonwriter_p.h"
 end_include
 begin_include
@@ -605,19 +610,11 @@ name|d
 argument_list|,
 literal|'g'
 argument_list|,
-name|std
+name|QLocale
 operator|::
-name|numeric_limits
-argument_list|<
-name|double
-argument_list|>
-operator|::
-name|digits10
-operator|+
-literal|2
+name|FloatingPointShortest
 argument_list|)
 expr_stmt|;
-comment|// ::digits10 is 15
 else|else
 name|json
 operator|+=
