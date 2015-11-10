@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsguieventdispatcher.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/QGuiApplication>
 end_include
 begin_include
@@ -71,6 +66,11 @@ begin_include
 include|#
 directive|include
 file|<QtCore/QUrl>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtPlatformSupport/private/qwindowsguieventdispatcher_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

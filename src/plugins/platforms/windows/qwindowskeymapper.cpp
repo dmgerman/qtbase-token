@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsguieventdispatcher.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qwindowsinputcontext.h"
 end_include
 begin_include
@@ -56,6 +51,11 @@ begin_include
 include|#
 directive|include
 file|<QtGui/QKeyEvent>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtPlatformSupport/private/qwindowsguieventdispatcher_p.h>
 end_include
 begin_if
 if|#

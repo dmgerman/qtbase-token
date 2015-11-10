@@ -56,11 +56,6 @@ include|#
 directive|include
 file|"qwindowsfontdatabase.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"qwindowsguieventdispatcher.h"
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -165,7 +160,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/private/qeventdispatcher_win_p.h>
+file|<QtPlatformSupport/private/qwindowsguieventdispatcher_p.h>
 end_include
 begin_include
 include|#
