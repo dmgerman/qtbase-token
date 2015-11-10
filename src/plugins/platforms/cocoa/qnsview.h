@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QSet>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QImage>
 end_include
 begin_include
@@ -188,6 +193,12 @@ name|m_currentlyInterpretedKeyEvent
 block|;
 name|bool
 name|m_isMenuView
+block|;
+name|QSet
+operator|<
+name|quint32
+operator|>
+name|m_acceptedKeyDowns
 block|; }
 operator|-
 operator|(
@@ -814,7 +825,7 @@ end_expr_stmt
 begin_expr_stmt
 operator|-
 operator|(
-name|void
+name|bool
 operator|)
 name|handleKeyEvent
 operator|:
