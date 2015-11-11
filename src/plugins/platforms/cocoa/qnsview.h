@@ -97,6 +97,9 @@ block|;
 name|QPoint
 name|m_backingStoreOffset
 block|;
+name|QRegion
+name|m_maskRegion
+block|;
 name|CGImageRef
 name|m_maskImage
 block|;
@@ -125,6 +128,11 @@ name|Qt
 operator|::
 name|MouseButtons
 name|m_buttons
+block|;
+name|Qt
+operator|::
+name|MouseButtons
+name|m_acceptedMouseDowns
 block|;
 name|Qt
 operator|::
