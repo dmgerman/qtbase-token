@@ -3102,7 +3102,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Creation order shouldn't affect the geometry
-name|QCOMPARE
+comment|// Use try compare since on X11 the window manager may still re-position the window after expose
+name|QTRY_COMPARE
 argument_list|(
 name|topLevelWindowFirst
 operator|.
@@ -3115,7 +3116,7 @@ name|geometry
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|childWindowAfter
 operator|.
