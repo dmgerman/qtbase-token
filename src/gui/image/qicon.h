@@ -792,6 +792,12 @@ name|baseFileName
 parameter_list|,
 name|qreal
 name|targetDevicePixelRatio
+parameter_list|,
+name|qreal
+modifier|*
+name|sourceDevicePixelRatio
+init|=
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
