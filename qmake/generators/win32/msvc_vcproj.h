@@ -165,21 +165,6 @@ name|false
 return|;
 block|}
 comment|//never necesary
-name|virtual
-name|void
-name|processSources
-argument_list|()
-block|{
-name|filterIncludedFiles
-argument_list|(
-literal|"SOURCES"
-argument_list|)
-block|;
-name|filterIncludedFiles
-argument_list|(
-literal|"GENERATED_SOURCES"
-argument_list|)
-block|; }
 name|using
 name|Win32MakefileGenerator
 operator|::
