@@ -121,6 +121,7 @@ directive|endif
 end_endif
 begin_function
 name|QT_BEGIN_NAMESPACE
+comment|// FIXME: a line ending in CRLF gets counted as two lines.
 if|#
 directive|if
 literal|1
