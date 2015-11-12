@@ -1642,6 +1642,29 @@ begin_comment
 comment|//! [37]
 end_comment
 begin_comment
+comment|//! [qUtf16Printable]
+end_comment
+begin_expr_stmt
+name|qWarning
+argument_list|(
+literal|"%ls: %ls"
+argument_list|,
+name|qUtf16Printable
+argument_list|(
+name|key
+argument_list|)
+argument_list|,
+name|qUtf16Printable
+argument_list|(
+name|value
+argument_list|)
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|//! [qUtf16Printable]
+end_comment
+begin_comment
 comment|//! [38]
 end_comment
 begin_struct

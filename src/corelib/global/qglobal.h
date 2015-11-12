@@ -3437,6 +3437,29 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*     Wrap QString::utf16() with enough casts to allow passing it     to QString::asprintf("%ls") without warnings. */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|qUtf16Printable
+end_ifndef
+begin_define
+DECL|macro|qUtf16Printable
+define|#
+directive|define
+name|qUtf16Printable
+parameter_list|(
+name|string
+parameter_list|)
+define|\
+value|static_cast<const wchar_t*>(static_cast<const void*>(QString(string).utf16()))
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 DECL|variable|QString
 name|class
