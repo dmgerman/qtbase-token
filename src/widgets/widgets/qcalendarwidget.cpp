@@ -13956,11 +13956,14 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|date
 operator|.
 name|isValid
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning

@@ -750,6 +750,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|index
 argument_list|<
 literal|0
@@ -774,6 +776,7 @@ name|idx
 operator|+
 literal|1
 operator|)
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -951,6 +954,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|index
 argument_list|<
 literal|0
@@ -973,6 +978,7 @@ name|index
 operator|<=
 name|idx
 operator|)
+argument_list|)
 condition|)
 block|{
 name|qWarning

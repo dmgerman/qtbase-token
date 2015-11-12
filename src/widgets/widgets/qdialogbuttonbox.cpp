@@ -1504,13 +1504,21 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|role
-operator|!=
+operator|==
 name|QPlatformDialogHelper
 operator|::
 name|InvalidRole
+argument_list|)
 condition|)
-block|{
+name|qWarning
+argument_list|(
+literal|"QDialogButtonBox::createButton: Invalid ButtonRole, button not added"
+argument_list|)
+expr_stmt|;
+else|else
 name|addButton
 argument_list|(
 name|button
@@ -1528,15 +1536,6 @@ argument_list|,
 name|doLayout
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|qWarning
-argument_list|(
-literal|"QDialogButtonBox::createButton: Invalid ButtonRole, button not added"
-argument_list|)
-expr_stmt|;
-block|}
 ifdef|#
 directive|ifdef
 name|Q_DEAD_CODE_FROM_QT4_MAC
@@ -2583,6 +2582,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|role
 operator|<=
 name|InvalidRole
@@ -2590,6 +2591,7 @@ operator|||
 name|role
 operator|>=
 name|NRoles
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -2649,6 +2651,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|role
 operator|<=
 name|InvalidRole
@@ -2656,6 +2660,7 @@ operator|||
 name|role
 operator|>=
 name|NRoles
+argument_list|)
 condition|)
 block|{
 name|qWarning

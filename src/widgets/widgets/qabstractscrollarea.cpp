@@ -3548,8 +3548,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|scrollBar
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -3714,8 +3717,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|scrollBar
+argument_list|)
 condition|)
 block|{
 name|qWarning

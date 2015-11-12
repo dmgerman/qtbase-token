@@ -7453,6 +7453,8 @@ name|ret
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|arg1
 operator|.
 name|type
@@ -7462,6 +7464,7 @@ name|arg2
 operator|.
 name|type
 argument_list|()
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -7695,6 +7698,8 @@ name|ret
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|arg1
 operator|.
 name|type
@@ -7704,6 +7709,7 @@ name|arg2
 operator|.
 name|type
 argument_list|()
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(

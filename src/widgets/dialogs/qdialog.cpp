@@ -1343,9 +1343,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|d
 operator|->
 name|eventLoop
+argument_list|)
 condition|)
 block|{
 name|qWarning

@@ -1375,6 +1375,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
@@ -1382,6 +1384,7 @@ name|macro_stack
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -1498,6 +1501,8 @@ condition|)
 return|return;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
@@ -1505,6 +1510,7 @@ name|macro_stack
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -1578,6 +1584,8 @@ condition|)
 return|return;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
@@ -1585,6 +1593,7 @@ name|macro_stack
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -1697,6 +1706,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
@@ -1704,6 +1715,7 @@ name|macro_stack
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -2496,12 +2508,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|d
 operator|->
 name|macro_stack
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -2678,6 +2693,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
@@ -2685,6 +2702,7 @@ name|command_list
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning

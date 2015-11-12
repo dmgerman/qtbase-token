@@ -4828,6 +4828,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|index
 operator|<
 literal|0
@@ -4840,6 +4842,7 @@ name|list
 operator|.
 name|size
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -4893,6 +4896,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|index
 operator|<
 literal|0
@@ -4905,6 +4910,7 @@ name|list
 operator|.
 name|size
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -5307,6 +5313,8 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|c
 operator|->
 name|type
@@ -5326,6 +5334,7 @@ name|c
 operator|->
 name|child
 argument_list|()
+argument_list|)
 argument_list|)
 condition|)
 name|qWarning

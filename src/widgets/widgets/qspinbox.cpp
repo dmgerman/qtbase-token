@@ -905,6 +905,8 @@ expr_stmt|;
 comment|// Falls back to base 10 on invalid bases (like QString)
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|base
 argument_list|<
 literal|2
@@ -912,6 +914,7 @@ operator|||
 name|base
 argument_list|>
 literal|36
+argument_list|)
 condition|)
 block|{
 name|qWarning

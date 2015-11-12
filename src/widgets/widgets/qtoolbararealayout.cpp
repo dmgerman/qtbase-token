@@ -7018,8 +7018,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|item
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -7860,10 +7863,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|objectName
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning

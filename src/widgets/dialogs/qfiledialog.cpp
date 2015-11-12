@@ -3248,10 +3248,13 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|d
 operator|->
 name|usingWidgets
 argument_list|()
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(

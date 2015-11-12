@@ -11264,11 +11264,14 @@ return|return;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|widget
 operator|==
 name|d
 operator|->
 name|baseWidget
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -11906,6 +11909,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|systemMenu
 operator|&&
 name|systemMenu
@@ -11913,6 +11918,7 @@ operator|==
 name|d
 operator|->
 name|systemMenu
+argument_list|)
 condition|)
 block|{
 name|qWarning

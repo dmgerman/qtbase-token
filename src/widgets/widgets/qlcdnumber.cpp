@@ -1702,9 +1702,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|numDigits
 operator|>
 literal|99
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -1728,9 +1731,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|numDigits
 operator|<
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning

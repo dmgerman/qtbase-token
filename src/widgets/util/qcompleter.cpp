@@ -5901,6 +5901,8 @@ condition|)
 return|return;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|filterMode
 operator|!=
 name|Qt
@@ -5918,6 +5920,7 @@ operator|!=
 name|Qt
 operator|::
 name|MatchEndsWith
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -7929,9 +7932,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|maxItems
 operator|<
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning

@@ -1263,10 +1263,13 @@ directive|endif
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|txt
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(

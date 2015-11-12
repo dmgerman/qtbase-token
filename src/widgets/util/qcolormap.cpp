@@ -109,11 +109,14 @@ name|QColormapPrivate
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|QGuiApplication
 operator|::
 name|primaryScreen
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning

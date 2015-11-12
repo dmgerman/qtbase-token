@@ -2324,6 +2324,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|start
 operator|<
 literal|0
@@ -2339,6 +2341,7 @@ name|control
 operator|->
 name|end
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning

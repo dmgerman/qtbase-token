@@ -791,6 +791,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|curve
 operator|.
 name|type
@@ -808,6 +810,7 @@ operator|<
 name|QEasingCurve
 operator|::
 name|Custom
+argument_list|)
 condition|)
 block|{
 name|qWarning

@@ -2027,8 +2027,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|calendarWidget
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -2040,10 +2043,13 @@ return|return;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
 name|calendarPopup
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -2055,6 +2061,8 @@ return|return;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 operator|(
 name|d
@@ -2065,6 +2073,7 @@ name|QDateTimeParser
 operator|::
 name|DateSectionMask
 operator|)
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -6869,10 +6878,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|pos
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 name|qWarning

@@ -9882,10 +9882,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|name
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -18995,6 +18998,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|docks
 operator|.
 name|count
@@ -19004,6 +19009,7 @@ name|sizes
 operator|.
 name|count
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -19056,10 +19062,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|path
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -19079,9 +19088,12 @@ index|]
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|size
 operator|<=
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning

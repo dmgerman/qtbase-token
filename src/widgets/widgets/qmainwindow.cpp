@@ -1713,8 +1713,11 @@ break|break;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|valid
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(

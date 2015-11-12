@@ -356,6 +356,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|d
 operator|->
 name|layout
@@ -367,6 +369,7 @@ argument_list|)
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 name|qWarning
