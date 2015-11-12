@@ -961,9 +961,12 @@ else|#
 directive|else
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|version
 operator|!=
 name|QObjectPrivateVersion
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

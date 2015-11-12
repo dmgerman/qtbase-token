@@ -800,11 +800,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|setLayeredWindowAttributes
 operator|||
 operator|!
 name|updateLayeredWindow
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

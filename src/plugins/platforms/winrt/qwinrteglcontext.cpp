@@ -74,9 +74,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|eglDisplay
 operator|==
 name|EGL_NO_DISPLAY
+argument_list|)
 condition|)
 name|qCritical
 argument_list|(
@@ -360,11 +363,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|g
 operator|->
 name|eglDisplay
 operator|==
 name|EGL_NO_DISPLAY
+argument_list|)
 condition|)
 name|qCritical
 argument_list|(
@@ -376,6 +382,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|eglInitialize
 argument_list|(
@@ -386,6 +394,7 @@ argument_list|,
 literal|nullptr
 argument_list|,
 literal|nullptr
+argument_list|)
 argument_list|)
 condition|)
 name|qCritical

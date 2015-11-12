@@ -1059,8 +1059,11 @@ directive|endif
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|qApp
+argument_list|)
 condition|)
 block|{
 name|qFatal
@@ -1084,9 +1087,12 @@ else|#
 directive|else
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|version
 operator|!=
 name|QObjectPrivateVersion
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -2636,6 +2642,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|qobject_cast
 argument_list|<
@@ -2647,6 +2655,7 @@ name|QCoreApplication
 operator|::
 name|instance
 argument_list|()
+argument_list|)
 argument_list|)
 condition|)
 name|qFatal

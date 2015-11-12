@@ -368,8 +368,11 @@ index|]
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|m_buffer
+argument_list|)
 condition|)
 block|{
 name|qCritical
@@ -531,6 +534,8 @@ return|return;
 comment|// nread is the real space necessary, not the amount read.
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 cast|static_cast
 argument_list|<
 name|size_t
@@ -542,6 +547,7 @@ operator|>
 name|ms_bufferSize
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 name|qCritical
@@ -602,6 +608,8 @@ name|value
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|pps_decoder_get_string
 argument_list|(
 name|m_decoder
@@ -613,6 +621,7 @@ name|value
 argument_list|)
 operator|==
 name|PPS_DECODER_OK
+argument_list|)
 condition|)
 block|{
 name|qCritical
@@ -791,6 +800,8 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|pps_decoder_push
 argument_list|(
 name|m_decoder
@@ -799,6 +810,7 @@ literal|"dat"
 argument_list|)
 operator|!=
 name|PPS_DECODER_OK
+argument_list|)
 condition|)
 block|{
 name|qCritical
@@ -810,6 +822,8 @@ return|return;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|pps_decoder_get_int
 argument_list|(
 name|m_decoder
@@ -821,6 +835,7 @@ name|newHeight
 argument_list|)
 operator|!=
 name|PPS_DECODER_OK
+argument_list|)
 condition|)
 block|{
 name|qCritical

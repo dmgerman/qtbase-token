@@ -366,9 +366,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|m_display
 operator|==
 name|EGL_NO_DISPLAY
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -382,6 +385,8 @@ name|minor
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|eglInitialize
 argument_list|(
@@ -392,6 +397,7 @@ name|major
 argument_list|,
 operator|&
 name|minor
+argument_list|)
 argument_list|)
 condition|)
 name|qFatal

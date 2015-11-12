@@ -477,9 +477,12 @@ directive|ifndef
 name|QT_NO_LIBRARY
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|qdbus_loadLibDBus
 argument_list|()
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -502,8 +505,11 @@ end_expr_stmt
 begin_if
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|ptr
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

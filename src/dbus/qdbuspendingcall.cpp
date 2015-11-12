@@ -450,8 +450,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|typeSig
+argument_list|)
 condition|)
 block|{
 name|qFatal

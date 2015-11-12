@@ -11558,6 +11558,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|status
 index|[
 literal|0
@@ -11569,6 +11571,7 @@ name|status
 index|[
 literal|1
 index|]
+argument_list|)
 condition|)
 block|{
 name|qCritical

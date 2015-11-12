@@ -132,11 +132,14 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|QCoreApplication
 operator|::
 name|instance
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qFatal

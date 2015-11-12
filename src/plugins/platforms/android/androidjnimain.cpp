@@ -2169,9 +2169,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+operator|!
 name|m_mainLibraryHnd
-operator|==
-literal|nullptr
+argument_list|)
 condition|)
 block|{
 name|qCritical
@@ -2221,8 +2223,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|m_main
+argument_list|)
 condition|)
 block|{
 name|qCritical

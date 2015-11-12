@@ -85,9 +85,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|FAILED
 argument_list|(
 name|hr
+argument_list|)
 argument_list|)
 condition|)
 name|qFatal

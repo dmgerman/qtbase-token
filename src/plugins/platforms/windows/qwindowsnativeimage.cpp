@@ -298,11 +298,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|bitmap
 operator|||
 operator|!
 name|bits
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

@@ -1272,9 +1272,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|bufferCount
 operator|!=
 name|MAX_BUFFER_COUNT
+argument_list|)
 condition|)
 block|{
 name|qFatal
@@ -1581,6 +1584,9 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+operator|!
 name|m_parentWindow
 operator|->
 name|m_childWindows
@@ -1589,16 +1595,17 @@ name|removeAll
 argument_list|(
 name|this
 argument_list|)
+argument_list|)
 condition|)
-name|m_parentWindow
-operator|=
-literal|0
-expr_stmt|;
-else|else
 name|qFatal
 argument_list|(
 literal|"QQnxWindow: Window Hierarchy broken; window has parent, but parent hasn't got child."
 argument_list|)
+expr_stmt|;
+else|else
+name|m_parentWindow
+operator|=
+literal|0
 expr_stmt|;
 block|}
 elseif|else

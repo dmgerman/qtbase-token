@@ -1577,9 +1577,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|displayCount
 operator|<
 literal|1
+argument_list|)
 condition|)
 block|{
 comment|// Never happens, even if there's no display, libscreen returns 1

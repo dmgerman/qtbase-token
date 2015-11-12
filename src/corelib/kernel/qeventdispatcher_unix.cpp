@@ -539,7 +539,10 @@ endif|#
 directive|endif
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|pipefail
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

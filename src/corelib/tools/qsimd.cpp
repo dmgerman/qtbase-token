@@ -2850,10 +2850,11 @@ endif|#
 directive|endif
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|runningOnValgrind
 operator|&&
-operator|(
 name|minFeature
 operator|!=
 literal|0
@@ -2865,7 +2866,7 @@ name|minFeature
 operator|)
 operator|!=
 name|minFeature
-operator|)
+argument_list|)
 condition|)
 block|{
 name|quint64

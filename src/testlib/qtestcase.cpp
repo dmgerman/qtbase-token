@@ -4934,6 +4934,8 @@ condition|)
 break|break;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|waitCondition
 operator|.
@@ -4943,6 +4945,7 @@ operator|&
 name|mutex
 argument_list|,
 name|t
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -5506,6 +5509,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|idx
 operator|==
 operator|-
@@ -5517,6 +5522,7 @@ name|data
 operator|->
 name|dataCount
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qFatal
@@ -5529,6 +5535,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|typeId
 operator|!=
 name|data
@@ -5539,6 +5547,7 @@ operator|->
 name|elementTypeId
 argument_list|(
 name|idx
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -8586,8 +8595,11 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|qApp
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

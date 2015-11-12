@@ -291,10 +291,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|bytes
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -332,10 +335,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|bytes
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -412,11 +418,14 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|responseFields
 operator|.
 name|contains
 argument_list|(
 literal|"err"
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -490,12 +499,12 @@ decl_stmt|;
 comment|// validate pps object
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|lines
 operator|.
-name|size
+name|empty
 argument_list|()
-operator|==
-literal|0
 operator|||
 name|lines
 operator|.
@@ -505,6 +514,7 @@ literal|0
 argument_list|)
 operator|!=
 literal|"@control"
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

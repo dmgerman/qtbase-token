@@ -77,9 +77,12 @@ name|platformInit
 argument_list|()
 argument_list|{     if
 operator|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|query_egl_device
 argument_list|()
+argument_list|)
 operator|)
 name|qFatal
 argument_list|(
@@ -101,8 +104,11 @@ name|EGL_DRM_DEVICE_FILE_EXT
 argument_list|)
 argument_list|;     if
 operator|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|deviceName
+argument_list|)
 operator|)
 name|qFatal
 argument_list|(
@@ -128,9 +134,12 @@ name|Q_NULLPTR
 argument_list|)
 argument_list|;     if
 operator|(
+name|Q_UNLIKELY
+argument_list|(
 name|m_dri_fd
 operator|<
 literal|0
+argument_list|)
 operator|)
 name|qFatal
 argument_list|(
@@ -138,9 +147,12 @@ literal|"Could not open DRM device"
 argument_list|)
 argument_list|;      if
 operator|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|setup_kms
 argument_list|()
+argument_list|)
 operator|)
 name|qFatal
 argument_list|(
@@ -263,9 +275,12 @@ argument_list|)
 block|;     }
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|display
 operator|==
 name|EGL_NO_DISPLAY
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -283,6 +298,8 @@ end_decl_stmt
 begin_if
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|eglInitialize
 argument_list|(
@@ -294,6 +311,7 @@ argument_list|,
 operator|&
 name|minor
 argument_list|)
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -304,10 +322,13 @@ end_if
 begin_if
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|eglBindAPI
 argument_list|(
 name|EGL_OPENGL_ES_API
+argument_list|)
 argument_list|)
 condition|)
 name|qFatal
@@ -1115,6 +1136,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 operator|(
 name|m_funcs
@@ -1137,6 +1160,7 @@ name|m_funcs
 operator|->
 name|has_egl_stream_consumer_egloutput
 operator|)
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -1323,7 +1347,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|ret
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -1612,9 +1639,12 @@ block|}
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|crtc
 operator|==
 literal|0
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -1697,10 +1727,13 @@ name|QEGLStreamConvenience
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|m_funcs
 operator|->
 name|has_egl_device_base
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

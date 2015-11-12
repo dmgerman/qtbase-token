@@ -176,9 +176,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+operator|!
 name|dataPtr
-operator|==
-literal|0
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -380,9 +382,11 @@ expr_stmt|;
 comment|// Verify native buffer exists
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+operator|!
 name|m_buffer
-operator|==
-literal|0
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -421,9 +425,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 literal|0
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

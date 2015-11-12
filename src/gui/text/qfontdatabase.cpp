@@ -7222,6 +7222,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|qApp
 operator|||
@@ -7230,6 +7232,7 @@ name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

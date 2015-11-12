@@ -1654,6 +1654,8 @@ comment|// rcc uses a QHash to store files in the resource system.
 comment|// we must force a certain hash order when testing or tst_rcc will fail, see QTBUG-25078
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|qEnvironmentVariableIsEmpty
 argument_list|(
@@ -1669,6 +1671,7 @@ operator|-
 literal|1
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 condition|)
 name|qFatal

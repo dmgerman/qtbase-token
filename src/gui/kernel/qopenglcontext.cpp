@@ -2303,6 +2303,8 @@ literal|false
 return|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|thread
 argument_list|()
 operator|!=
@@ -2310,6 +2312,7 @@ name|QThread
 operator|::
 name|currentThread
 argument_list|()
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

@@ -346,16 +346,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|numAvailablePipelines
+argument_list|)
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"Not possible to make screen that is not possible to create WFPort with no pipline"
 argument_list|)
 expr_stmt|;
-block|}
 name|WFDint
 name|pipeIds
 index|[
@@ -446,11 +447,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|mPipeline
 operator|==
 name|WFD_INVALID_HANDLE
+argument_list|)
 condition|)
-block|{
 name|qFatal
 argument_list|(
 literal|"Failed to create pipeline for port %p"
@@ -458,7 +461,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 break|break;
 block|}
 block|}

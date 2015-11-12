@@ -249,10 +249,13 @@ name|call
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|reply
 operator|.
 name|isError
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qCritical
@@ -333,10 +336,13 @@ name|call
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|reply
 operator|.
 name|isError
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qCritical
@@ -480,16 +486,17 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|ok
+argument_list|)
 condition|)
-block|{
 name|qCritical
 argument_list|(
 literal|"QMirClientClipboard - Failed to connect to ContentsChanged signal form the D-Bus system clipboard."
 argument_list|)
 expr_stmt|;
-block|}
 name|mDBusClipboard
 operator|=
 operator|new

@@ -3295,10 +3295,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
 name|getMessageHook
+argument_list|)
 condition|)
 block|{
 name|int

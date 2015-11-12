@@ -334,11 +334,14 @@ comment|// If your application aborts here, you are probably creating a QWindow
 comment|// before the screen list is populated.
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|parentWindow
 operator|&&
 operator|!
 name|topLevelScreen
+argument_list|)
 condition|)
 block|{
 name|qFatal

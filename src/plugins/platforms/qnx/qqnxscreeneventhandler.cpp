@@ -2590,6 +2590,8 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|screen_get_event_property_pv
 argument_list|(
 name|event
@@ -2606,6 +2608,7 @@ name|window
 argument_list|)
 operator|!=
 literal|0
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -2623,6 +2626,8 @@ name|property
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|screen_get_event_property_iv
 argument_list|(
 name|event
@@ -2634,6 +2639,7 @@ name|property
 argument_list|)
 operator|!=
 literal|0
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -2692,6 +2698,8 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|window
 operator|&&
 name|screen_get_window_property_iv
@@ -2705,6 +2713,7 @@ name|focus
 argument_list|)
 operator|!=
 literal|0
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

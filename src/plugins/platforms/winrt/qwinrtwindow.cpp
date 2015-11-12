@@ -850,9 +850,12 @@ name|EGL_NO_SURFACE
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|value
 operator|==
 name|EGL_FALSE
+argument_list|)
 condition|)
 name|qCritical
 argument_list|(
@@ -1694,11 +1697,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|d
 operator|->
 name|surface
 operator|==
 name|EGL_NO_SURFACE
+argument_list|)
 condition|)
 name|qCritical
 argument_list|(

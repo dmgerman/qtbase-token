@@ -2862,7 +2862,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|fakeNext
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -2901,8 +2904,11 @@ name|n
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|n
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -2941,10 +2947,13 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|n
 operator|->
 name|next
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

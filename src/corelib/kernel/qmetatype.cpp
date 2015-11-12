@@ -2731,9 +2731,12 @@ end_if
 begin_if
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|previousSize
 operator|!=
 name|size
+argument_list|)
 condition|)
 block|{
 name|qFatal
@@ -2778,6 +2781,8 @@ end_decl_stmt
 begin_if
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|(
 name|previousFlags
 operator|^
@@ -2785,6 +2790,7 @@ name|flags
 operator|)
 operator|&
 name|binaryCompatibilityFlag
+argument_list|)
 condition|)
 block|{
 specifier|const

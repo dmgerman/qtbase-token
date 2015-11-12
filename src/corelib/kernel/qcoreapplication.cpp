@@ -1860,6 +1860,8 @@ name|Q_OS_UNIX
 argument_list|)
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|setuidAllowed
 operator|&&
@@ -1870,6 +1872,7 @@ operator|!=
 name|getuid
 argument_list|()
 operator|)
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

@@ -2182,7 +2182,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|bytesDownloaded
+argument_list|)
 condition|)
 block|{
 comment|// refuse to enable in this case
@@ -2557,6 +2560,8 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|cacheSaveDevice
 operator|&&
 operator|!
@@ -2564,6 +2569,7 @@ name|cacheSaveDevice
 operator|->
 name|isOpen
 argument_list|()
+argument_list|)
 condition|)
 name|qCritical
 argument_list|(
@@ -2877,7 +2883,10 @@ return|return;
 comment|// read until EOF from data
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|copyDevice
+argument_list|)
 condition|)
 block|{
 name|qCritical

@@ -141,9 +141,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|result
 operator|!=
 literal|0
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

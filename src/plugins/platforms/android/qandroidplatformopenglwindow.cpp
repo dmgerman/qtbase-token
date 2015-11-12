@@ -768,9 +768,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|m_eglSurface
 operator|==
 name|EGL_NO_SURFACE
+argument_list|)
 condition|)
 block|{
 name|EGLint

@@ -4708,6 +4708,8 @@ index|]
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|QDBusMetaType
 operator|::
@@ -4724,6 +4726,7 @@ name|out
 operator|.
 name|data
 argument_list|()
+argument_list|)
 argument_list|)
 condition|)
 name|qFatal

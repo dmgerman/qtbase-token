@@ -2999,6 +2999,8 @@ directive|ifdef
 name|Q_OS_QNX
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|ThreadCtl
 argument_list|(
 name|_NTO_TCTL_THREADS_CONT
@@ -3008,6 +3010,7 @@ argument_list|)
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(

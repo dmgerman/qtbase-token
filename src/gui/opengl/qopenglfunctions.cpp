@@ -12403,9 +12403,21 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+operator|!
 name|init
 argument_list|()
+argument_list|)
 condition|)
+block|{
+name|qFatal
+argument_list|(
+literal|"Failed to load libGLESv2"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 specifier|const
 name|QPair
@@ -16375,14 +16387,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
-name|qFatal
-argument_list|(
-literal|"Failed to load libGLESv2"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_constructor

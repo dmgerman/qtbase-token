@@ -8228,12 +8228,15 @@ name|family
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|fam
 operator|.
 name|size
 argument_list|()
 operator|>=
 name|LF_FACESIZE
+argument_list|)
 condition|)
 block|{
 name|qCritical

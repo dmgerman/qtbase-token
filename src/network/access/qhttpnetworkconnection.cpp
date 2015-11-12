@@ -1259,6 +1259,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|request
 operator|.
 name|contentLength
@@ -1274,6 +1276,7 @@ argument_list|()
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 name|qFatal
