@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qhighdpiscaling_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qandroidplatformintegration.h>
 end_include
 begin_macro
@@ -1222,10 +1227,10 @@ block|{
 name|double
 name|pixelDensity
 init|=
-name|qEnvironmentVariableIsSet
-argument_list|(
-literal|"QT_AUTO_SCREEN_SCALE_FACTOR"
-argument_list|)
+name|QHighDpiScaling
+operator|::
+name|isActive
+argument_list|()
 condition|?
 name|QtAndroid
 operator|::
