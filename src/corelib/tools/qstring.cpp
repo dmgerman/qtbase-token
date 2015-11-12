@@ -19279,22 +19279,14 @@ name|qint64
 operator|*
 argument_list|)
 decl_stmt|;
-specifier|volatile
-name|uint
-name|tmp
-init|=
+operator|*
+name|n
+operator|=
 name|result
 operator|.
 name|length
 argument_list|()
-decl_stmt|;
-comment|// egcs-2.91.66 gets internal
-operator|*
-name|n
-operator|=
-name|tmp
 expr_stmt|;
-comment|// compiler error without volatile
 break|break;
 block|}
 default|default:
