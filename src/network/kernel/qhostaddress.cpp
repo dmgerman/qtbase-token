@@ -332,11 +332,6 @@ DECL|member|scopeId
 name|QString
 name|scopeId
 decl_stmt|;
-DECL|member|a
-name|quint32
-name|a
-decl_stmt|;
-comment|// IPv4 address
 union|union
 block|{
 DECL|member|a6
@@ -372,10 +367,13 @@ name|a6_32
 struct|;
 block|}
 union|;
+DECL|member|a
+name|quint32
+name|a
+decl_stmt|;
+comment|// IPv4 address
 DECL|member|protocol
-name|QAbstractSocket
-operator|::
-name|NetworkLayerProtocol
+name|qint8
 name|protocol
 decl_stmt|;
 DECL|member|isParsed
@@ -2367,9 +2365,14 @@ name|this
 argument_list|)
 expr_stmt|;
 return|return
+name|QAbstractSocket
+operator|::
+name|NetworkLayerProtocol
+argument_list|(
 name|d
 operator|->
 name|protocol
+argument_list|)
 return|;
 block|}
 end_function
