@@ -1,0 +1,16 @@
+begin_unit
+begin_function
+DECL|function|needed
+specifier|extern
+name|int
+name|needed
+parameter_list|(
+name|void
+parameter_list|)
+block|{
+return|return
+literal|1
+return|;
+block|}
+end_function
+end_unit
