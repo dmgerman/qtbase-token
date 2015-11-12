@@ -9890,11 +9890,11 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QMainWindow::saveState(): 'objectName' not set for QDockWidget %p '%s;"
+literal|"QMainWindow::saveState(): 'objectName' not set for QDockWidget %p '%ls;"
 argument_list|,
 name|w
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|w
 operator|->

@@ -316,10 +316,10 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLayout: Attempting to add QLayout \"%s\" to %s \"%s\", which"
+literal|"QLayout: Attempting to add QLayout \"%ls\" to %s \"%ls\", which"
 literal|" already has a layout"
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|QObject
 operator|::
@@ -335,16 +335,13 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
+name|qUtf16Printable
+argument_list|(
 name|w
 operator|->
 name|objectName
 argument_list|()
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|data
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setParent
@@ -2986,18 +2983,15 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLayout::addChildLayout: layout \"%s\" already has a parent"
+literal|"QLayout::addChildLayout: layout \"%ls\" already has a parent"
 argument_list|,
+name|qUtf16Printable
+argument_list|(
 name|l
 operator|->
 name|objectName
 argument_list|()
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|data
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3238,7 +3232,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLayout::addChildLayout: widget %s \"%s\" in wrong parent; moved to correct parent"
+literal|"QLayout::addChildLayout: widget %s \"%ls\" in wrong parent; moved to correct parent"
 argument_list|,
 name|w
 operator|->
@@ -3248,16 +3242,13 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
+name|qUtf16Printable
+argument_list|(
 name|w
 operator|->
 name|objectName
 argument_list|()
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|data
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3374,7 +3365,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLayout: Cannot add a null widget to %s/%s"
+literal|"QLayout: Cannot add a null widget to %s/%ls"
 argument_list|,
 name|q
 operator|->
@@ -3384,7 +3375,7 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|q
 operator|->
@@ -3409,7 +3400,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLayout: Cannot add parent widget %s/%s to its child layout %s/%s"
+literal|"QLayout: Cannot add parent widget %s/%ls to its child layout %s/%ls"
 argument_list|,
 name|widget
 operator|->
@@ -3419,7 +3410,7 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|widget
 operator|->
@@ -3435,7 +3426,7 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|q
 operator|->
@@ -3483,7 +3474,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLayout: Cannot add a null layout to %s/%s"
+literal|"QLayout: Cannot add a null layout to %s/%ls"
 argument_list|,
 name|q
 operator|->
@@ -3493,7 +3484,7 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|q
 operator|->
@@ -3515,7 +3506,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLayout: Cannot add layout %s/%s to itself"
+literal|"QLayout: Cannot add layout %s/%ls to itself"
 argument_list|,
 name|q
 operator|->
@@ -3525,7 +3516,7 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|q
 operator|->
@@ -3621,7 +3612,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"QLayout::addChildWidget: %s \"%s\" is already in a layout; moved to new layout"
+literal|"QLayout::addChildWidget: %s \"%ls\" is already in a layout; moved to new layout"
 argument_list|,
 name|w
 operator|->
@@ -3631,16 +3622,13 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
+name|qUtf16Printable
+argument_list|(
 name|w
 operator|->
 name|objectName
 argument_list|()
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|data
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3668,7 +3656,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"QLayout::addChildWidget: %s \"%s\" in wrong parent; moved to correct parent"
+literal|"QLayout::addChildWidget: %s \"%ls\" in wrong parent; moved to correct parent"
 argument_list|,
 name|w
 operator|->
@@ -3678,16 +3666,13 @@ operator|->
 name|className
 argument_list|()
 argument_list|,
+name|qUtf16Printable
+argument_list|(
 name|w
 operator|->
 name|objectName
 argument_list|()
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|data
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -4183,26 +4168,19 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLayout::activate: %s \"%s\" does not have a main widget"
+literal|"QLayout::activate: %s \"%ls\" does not have a main widget"
 argument_list|,
-name|QObject
-operator|::
 name|metaObject
 argument_list|()
 operator|->
 name|className
 argument_list|()
 argument_list|,
-name|QObject
-operator|::
+name|qUtf16Printable
+argument_list|(
 name|objectName
 argument_list|()
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|data
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

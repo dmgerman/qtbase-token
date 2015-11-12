@@ -13446,18 +13446,15 @@ argument_list|)
 condition|)
 name|qWarning
 argument_list|(
-literal|"Could not write to %s"
+literal|"Could not write to %ls"
 argument_list|,
+name|qUtf16Printable
+argument_list|(
 name|file
 operator|.
 name|fileName
 argument_list|()
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QString

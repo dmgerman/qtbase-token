@@ -4307,9 +4307,9 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QWizardPage::addField: Duplicate field '%s'"
+literal|"QWizardPage::addField: Duplicate field '%ls'"
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|myField
 operator|.
@@ -11921,9 +11921,9 @@ return|return;
 block|}
 name|qWarning
 argument_list|(
-literal|"QWizard::setField: No such field '%s'"
+literal|"QWizard::setField: No such field '%ls'"
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|name
 argument_list|)
@@ -12006,9 +12006,9 @@ return|;
 block|}
 name|qWarning
 argument_list|(
-literal|"QWizard::field: No such field '%s'"
+literal|"QWizard::field: No such field '%ls'"
 argument_list|,
-name|qPrintable
+name|qUtf16Printable
 argument_list|(
 name|name
 argument_list|)
