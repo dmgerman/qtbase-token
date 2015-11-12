@@ -76,6 +76,21 @@ argument|QWindow *window
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
+name|void
+operator|*
+name|nativeResourceForCursor
+argument_list|(
+argument|const QByteArray&resource
+argument_list|,
+argument|const QCursor&cursor
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+endif|#
+directive|endif
 name|Q_INVOKABLE
 name|void
 operator|*

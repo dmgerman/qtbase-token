@@ -386,6 +386,13 @@ argument|Qt::DropAction action
 argument_list|)
 specifier|const
 block|;
+name|HCURSOR
+name|hCursor
+argument_list|(
+argument|const QCursor&c
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 typedef|typedef
