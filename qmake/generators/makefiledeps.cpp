@@ -3337,7 +3337,55 @@ index|]
 operator|==
 literal|'#'
 condition|)
+block|{
+comment|// Advance to start of preprocessing directive
+while|while
+condition|(
+operator|++
+name|x
+operator|<
+name|buffer_len
+operator|&&
+operator|(
+name|buffer
+index|[
+name|x
+index|]
+operator|==
+literal|' '
+operator|||
+name|buffer
+index|[
+name|x
+index|]
+operator|==
+literal|'\t'
+operator|)
+condition|)
+block|{}
+comment|// skip
+if|if
+condition|(
+name|qmake_endOfLine
+argument_list|(
+name|buffer
+index|[
+name|x
+index|]
+argument_list|)
+condition|)
+block|{
+operator|++
+name|line_count
+expr_stmt|;
+name|beginning
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
 break|break;
+block|}
 comment|// quoted strings
 if|if
 condition|(
@@ -3437,38 +3485,7 @@ operator|>=
 name|buffer_len
 condition|)
 break|break;
-comment|//got a preprocessor symbol
-operator|++
-name|x
-expr_stmt|;
-while|while
-condition|(
-name|x
-operator|<
-name|buffer_len
-condition|)
-block|{
-if|if
-condition|(
-name|buffer
-index|[
-name|x
-index|]
-operator|!=
-literal|' '
-operator|&&
-name|buffer
-index|[
-name|x
-index|]
-operator|!=
-literal|'\t'
-condition|)
-break|break;
-operator|++
-name|x
-expr_stmt|;
-block|}
+comment|// Got a preprocessor directive
 name|int
 name|keyword_len
 init|=
