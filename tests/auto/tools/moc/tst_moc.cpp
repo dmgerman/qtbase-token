@@ -221,7 +221,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|QTBUG_31218_Derived
 struct|struct
 name|QTBUG_31218_Derived
 super|:
@@ -2719,6 +2718,8 @@ literal|"/dev/null"
 operator|<<
 literal|"-fPIC"
 operator|<<
+literal|"-std=c++11"
+operator|<<
 literal|"-"
 expr_stmt|;
 name|proc
@@ -3172,6 +3173,8 @@ operator|<<
 literal|"/dev/null"
 operator|<<
 literal|"-fPIC"
+operator|<<
+literal|"-std=c++11"
 operator|<<
 literal|"-"
 expr_stmt|;
@@ -4374,11 +4377,9 @@ argument_list|(
 literal|"myNS::Points"
 argument_list|)
 expr_stmt|;
-DECL|member|tst
 name|TestClass
 name|tst
 decl_stmt|;
-DECL|member|ba
 name|QByteArray
 name|ba
 init|=
@@ -4387,7 +4388,6 @@ argument_list|(
 literal|"points"
 argument_list|)
 decl_stmt|;
-DECL|member|v
 name|QVariant
 name|v
 init|=
@@ -4406,7 +4406,6 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-DECL|member|p
 name|myNS
 operator|::
 name|Points
@@ -4469,7 +4468,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-DECL|member|pp
 name|myNS
 operator|::
 name|Points
@@ -4515,7 +4513,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|slotsWithVoidTemplate
 name|void
 name|tst_Moc
 operator|::
@@ -4624,7 +4621,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|structQObject
 name|void
 name|tst_Moc
 operator|::
@@ -4661,7 +4657,6 @@ directive|include
 file|"namespaced-flags.h"
 end_include
 begin_expr_stmt
-DECL|variable|QList
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QList
@@ -4676,7 +4671,6 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_function
-DECL|function|namespacedFlags
 name|void
 name|tst_Moc
 operator|::
@@ -4839,7 +4833,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|warnOnMultipleInheritance
 name|void
 name|tst_Moc
 operator|::
@@ -4981,7 +4974,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|ignoreOptionClashes
 name|void
 name|tst_Moc
 operator|::
@@ -5173,6 +5165,8 @@ literal|"/dev/null"
 operator|<<
 literal|"-fPIC"
 operator|<<
+literal|"-std=c++11"
+operator|<<
 literal|"-"
 expr_stmt|;
 name|proc
@@ -5240,7 +5234,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|forgottenQInterface
 name|void
 name|tst_Moc
 operator|::
@@ -5382,7 +5375,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|os9Newline
 name|void
 name|tst_Moc
 operator|::
@@ -5481,7 +5473,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|winNewline
 name|void
 name|tst_Moc
 operator|::
@@ -5636,7 +5627,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|escapesInStringLiterals
 name|void
 name|tst_Moc
 operator|::
@@ -5793,7 +5783,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|frameworkSearchPath
 name|void
 name|tst_Moc
 operator|::
@@ -5938,7 +5927,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|cstyleEnums
 name|void
 name|tst_Moc
 operator|::
@@ -6075,7 +6063,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|templateGtGt
 name|void
 name|tst_Moc
 operator|::
@@ -6197,7 +6184,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|defineMacroViaCmdline
 name|void
 name|tst_Moc
 operator|::
@@ -6335,12 +6321,10 @@ parameter_list|()
 function_decl|;
 end_extern
 begin_class
-DECL|class|StaticPluginInstance
 class|class
 name|StaticPluginInstance
 block|{
 public|public:
-DECL|function|StaticPluginInstance
 name|StaticPluginInstance
 parameter_list|()
 block|{
@@ -6365,14 +6349,12 @@ block|}
 class|;
 end_class
 begin_decl_stmt
-DECL|variable|staticInstance
 specifier|static
 name|StaticPluginInstance
 name|staticInstance
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|specifyMetaTagsFromCmdline
 name|void
 name|tst_Moc
 operator|::
@@ -6494,7 +6476,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|invokable
 name|void
 name|tst_Moc
 operator|::
@@ -6600,7 +6581,6 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|singleFunctionKeywordSignalAndSlot
 name|void
 name|tst_Moc
 operator|::
@@ -6786,7 +6766,6 @@ directive|include
 file|"qprivateslots.h"
 end_include
 begin_function
-DECL|function|qprivateslots
 name|void
 name|tst_Moc
 operator|::
@@ -6836,7 +6815,6 @@ comment|//tast204730
 block|}
 end_function
 begin_class
-DECL|class|PrivatePropertyTest
 class|class
 name|PrivatePropertyTest
 super|:
@@ -6966,13 +6944,11 @@ name|MEMBER
 name|mConst
 name|CONSTANT
 argument_list|)
-DECL|class|MyDPointer
 name|class
 name|MyDPointer
 argument_list|{
 specifier|public
 operator|:
-DECL|function|MyDPointer
 name|MyDPointer
 argument_list|()
 operator|:
@@ -6991,7 +6967,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
-DECL|function|bar
 name|int
 name|bar
 argument_list|()
@@ -7000,7 +6975,6 @@ return|return
 name|mBar
 return|;
 block|}
-DECL|function|setBar
 name|void
 name|setBar
 argument_list|(
@@ -7011,7 +6985,6 @@ name|mBar
 operator|=
 name|value
 block|; }
-DECL|function|plop
 name|int
 name|plop
 argument_list|()
@@ -7020,7 +6993,6 @@ return|return
 name|mPlop
 return|;
 block|}
-DECL|function|setPlop
 name|void
 name|setPlop
 argument_list|(
@@ -7031,7 +7003,6 @@ name|mPlop
 operator|=
 name|value
 block|; }
-DECL|function|baz
 name|int
 name|baz
 argument_list|()
@@ -7040,7 +7011,6 @@ return|return
 name|mBaz
 return|;
 block|}
-DECL|function|setBaz
 name|void
 name|setBaz
 argument_list|(
@@ -7051,7 +7021,6 @@ name|mBaz
 operator|=
 name|value
 block|; }
-DECL|function|blub
 name|QString
 name|blub
 argument_list|()
@@ -7061,7 +7030,6 @@ return|return
 name|mBlub
 return|;
 block|}
-DECL|function|setBlub
 name|void
 name|setBlub
 argument_list|(
@@ -7072,32 +7040,26 @@ name|mBlub
 operator|=
 name|value
 block|; }
-DECL|member|mBlub
 name|QString
 name|mBlub
 argument_list|;
-DECL|member|mConst
 specifier|const
 name|QString
 name|mConst
 argument_list|;
 specifier|private
 operator|:
-DECL|member|mBar
 name|int
 name|mBar
 argument_list|;
-DECL|member|mPlop
 name|int
 name|mPlop
 argument_list|;
-DECL|member|mBaz
 name|int
 name|mBaz
 argument_list|;     }
 decl_stmt|;
 public|public:
-DECL|function|PrivatePropertyTest
 name|PrivatePropertyTest
 parameter_list|(
 name|QObject
@@ -7123,7 +7085,6 @@ operator|new
 name|MyDPointer
 argument_list|)
 block|{}
-DECL|function|foo
 name|int
 name|foo
 parameter_list|()
@@ -7132,7 +7093,6 @@ return|return
 name|mFoo
 return|;
 block|}
-DECL|function|setFoo
 name|void
 name|setFoo
 parameter_list|(
@@ -7145,7 +7105,6 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-DECL|function|d_func
 name|MyDPointer
 modifier|*
 name|d_func
@@ -7173,11 +7132,9 @@ name|newBlub
 parameter_list|)
 function_decl|;
 private|private:
-DECL|member|mFoo
 name|int
 name|mFoo
 decl_stmt|;
-DECL|member|d
 name|QScopedPointer
 argument_list|<
 name|MyDPointer
@@ -7188,7 +7145,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|qprivateproperties
 name|void
 name|tst_Moc
 operator|::
@@ -7310,7 +7266,6 @@ directive|include
 file|"task189996.h"
 end_include
 begin_function
-DECL|function|c
 name|void
 name|InlineSlotsWithThrowDeclaration
 operator|::
@@ -7321,7 +7276,6 @@ argument_list|()
 block|{}
 end_function
 begin_function
-DECL|function|inlineSlotsWithThrowDeclaration
 name|void
 name|tst_Moc
 operator|::
@@ -7409,7 +7363,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|warnOnPropertyWithoutREAD
 name|void
 name|tst_Moc
 operator|::
@@ -7541,7 +7494,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|constructors
 name|void
 name|tst_Moc
 operator|::
@@ -8157,7 +8109,6 @@ directive|include
 file|"task240368.h"
 end_include
 begin_function
-DECL|function|typenameWithUnsigned
 name|void
 name|tst_Moc
 operator|::
@@ -8336,7 +8287,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|warnOnVirtualSignal
 name|void
 name|tst_Moc
 operator|::
@@ -8475,7 +8425,6 @@ directive|endif
 block|}
 end_function
 begin_class
-DECL|class|QTBUG5590_DummyObject
 class|class
 name|QTBUG5590_DummyObject
 super|:
@@ -8492,7 +8441,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|QTBUG5590_PropertyObject
 class|class
 name|QTBUG5590_PropertyObject
 super|:
@@ -8520,7 +8468,6 @@ name|setValue2
 argument_list|)
 decl|public
 range|:
-DECL|function|QTBUG5590_PropertyObject
 name|QTBUG5590_PropertyObject
 argument_list|()
 operator|:
@@ -8534,7 +8481,6 @@ argument_list|(
 literal|40
 argument_list|)
 argument_list|{ }
-DECL|function|value
 name|int
 name|value
 argument_list|()
@@ -8542,7 +8488,6 @@ decl|const
 argument_list|{ return
 name|m_value
 argument_list|; }
-DECL|function|setValue
 name|void
 name|setValue
 argument_list|(
@@ -8554,7 +8499,6 @@ name|m_value
 operator|=
 name|value
 argument_list|; }
-DECL|function|value2
 name|int
 name|value2
 argument_list|()
@@ -8562,7 +8506,6 @@ decl|const
 argument_list|{ return
 name|m_value2
 argument_list|; }
-DECL|function|setValue2
 name|void
 name|setValue2
 argument_list|(
@@ -8576,8 +8519,6 @@ name|value
 argument_list|; }
 decl|private
 range|:
-DECL|member|m_value
-DECL|member|m_value2
 name|int
 name|m_value
 decl_stmt|,
@@ -8587,7 +8528,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|QTBUG5590_dummyProperty
 name|void
 name|tst_Moc
 operator|::
@@ -8668,7 +8608,6 @@ expr_stmt|;
 block|}
 end_function
 begin_class
-DECL|class|QTBUG7421_ReturnConstTemplate
 class|class
 name|QTBUG7421_ReturnConstTemplate
 super|:
@@ -8679,7 +8618,6 @@ name|Q_OBJECT
 public|public
 name|slots
 public|:
-DECL|function|returnConstTemplate1
 specifier|const
 name|QList
 argument_list|<
@@ -8696,7 +8634,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|returnConstTemplate2
 name|QList
 argument_list|<
 name|int
@@ -8713,7 +8650,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|returnConstInt
 specifier|const
 name|int
 name|returnConstInt
@@ -8723,7 +8659,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|returnConstString
 specifier|const
 name|QString
 name|returnConstString
@@ -8737,7 +8672,6 @@ return|return
 name|s
 return|;
 block|}
-DECL|function|returnConstString2
 name|QString
 specifier|const
 name|returnConstString2
@@ -8755,7 +8689,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|QTBUG9354_constInName
 class|class
 name|QTBUG9354_constInName
 super|:
@@ -8766,7 +8699,6 @@ name|Q_OBJECT
 public|public
 name|slots
 public|:
-DECL|function|slotChooseScientificConst0
 name|void
 name|slotChooseScientificConst0
 parameter_list|(
@@ -8777,7 +8709,6 @@ modifier|&
 parameter_list|)
 block|{}
 empty_stmt|;
-DECL|function|foo
 name|void
 name|foo
 parameter_list|(
@@ -8788,7 +8719,6 @@ modifier|&
 parameter_list|)
 block|{}
 empty_stmt|;
-DECL|function|foo
 name|void
 name|foo
 parameter_list|(
@@ -8799,7 +8729,6 @@ modifier|&
 parameter_list|)
 block|{}
 empty_stmt|;
-DECL|function|foo
 name|void
 name|foo
 parameter_list|(
@@ -8809,7 +8738,6 @@ modifier|*
 parameter_list|)
 block|{}
 empty_stmt|;
-DECL|function|foo
 name|void
 name|foo
 parameter_list|(
@@ -8832,14 +8760,12 @@ name|typename
 name|T2
 parameter_list|>
 class|class
-DECL|class|TestTemplate2
 name|TestTemplate2
 block|{
 block|}
 class|;
 end_class
 begin_class
-DECL|class|QTBUG11647_constInTemplateParameter
 class|class
 name|QTBUG11647_constInTemplateParameter
 super|:
@@ -8850,7 +8776,6 @@ name|Q_OBJECT
 public|public
 name|slots
 public|:
-DECL|function|testSlot
 name|void
 name|testSlot
 parameter_list|(
@@ -8865,7 +8790,6 @@ modifier|*
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|testSlot2
 name|void
 name|testSlot2
 parameter_list|(
@@ -8880,7 +8804,6 @@ specifier|const
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|testSlot3
 name|void
 name|testSlot3
 parameter_list|(
@@ -8933,7 +8856,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|QTBUG12260_defaultTemplate_Object
 class|class
 name|QTBUG12260_defaultTemplate_Object
 super|:
@@ -8966,7 +8888,6 @@ name|defined
 argument_list|(
 name|Q_MOC_RUN
 argument_list|)
-DECL|function|doSomething
 name|void
 name|doSomething
 parameter_list|(
@@ -8993,7 +8914,6 @@ name|values
 argument_list|)
 expr_stmt|;
 block|}
-DECL|member|val
 name|void
 name|doSomethingElse
 argument_list|(
@@ -9290,7 +9210,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|QTBUG12260_defaultTemplate
 name|void
 name|tst_Moc
 operator|::
@@ -9360,7 +9279,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|notifyError
 name|void
 name|tst_Moc
 operator|::
@@ -9503,7 +9421,6 @@ directive|endif
 block|}
 end_function
 begin_class
-DECL|class|QTBUG_17635_InvokableAndProperty
 class|class
 name|QTBUG_17635_InvokableAndProperty
 super|:
@@ -9520,7 +9437,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|int numberOfChickens READ numberOfChickens
 argument_list|)
-DECL|function|getEgg
 name|Q_INVOKABLE
 name|QString
 name|getEgg
@@ -9543,7 +9459,6 @@ literal|"Egg"
 argument_list|)
 return|;
 block|}
-DECL|function|getChicken
 name|Q_INVOKABLE
 name|QString
 name|getChicken
@@ -9566,7 +9481,6 @@ literal|"Chicken"
 argument_list|)
 return|;
 block|}
-DECL|function|numberOfEggs
 name|int
 name|numberOfEggs
 parameter_list|()
@@ -9575,7 +9489,6 @@ return|return
 literal|2
 return|;
 block|}
-DECL|function|numberOfChickens
 name|int
 name|numberOfChickens
 parameter_list|()
@@ -9588,7 +9501,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|QTBUG17635_invokableAndProperty
 name|void
 name|tst_Moc
 operator|::
@@ -9712,7 +9624,6 @@ begin_comment
 comment|// If changed, update VersionTestNotify below
 end_comment
 begin_class
-DECL|class|VersionTest
 class|class
 name|VersionTest
 super|:
@@ -9738,7 +9649,6 @@ literal|2
 argument_list|)
 decl|public
 range|:
-DECL|function|foo
 name|int
 name|foo
 argument_list|()
@@ -9748,13 +9658,11 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|method1
 name|Q_INVOKABLE
 name|void
 name|method1
 parameter_list|()
 block|{}
-DECL|function|method2
 name|Q_INVOKABLE
 name|Q_REVISION
 argument_list|(
@@ -9765,9 +9673,6 @@ name|method2
 argument_list|()
 argument_list|{}
 decl|enum
-DECL|enum|TestEnum
-DECL|enumerator|One
-DECL|enumerator|Two
 name|TestEnum
 argument_list|{
 name|One
@@ -9783,12 +9688,10 @@ constructor_decl|;
 public|public
 name|slots
 public|:
-DECL|function|slot1
 name|void
 name|slot1
 parameter_list|()
 block|{}
-DECL|function|slot2
 name|Q_REVISION
 argument_list|(
 literal|3
@@ -9817,12 +9720,10 @@ argument_list|(
 literal|6
 argument_list|)
 range|:
-DECL|function|slot3
 name|void
 name|slot3
 argument_list|()
 block|{}
-DECL|function|slot4
 name|void
 name|slot4
 argument_list|()
@@ -9848,7 +9749,6 @@ begin_comment
 comment|// If changed, update VersionTest above
 end_comment
 begin_class
-DECL|class|VersionTestNotify
 class|class
 name|VersionTestNotify
 super|:
@@ -9876,7 +9776,6 @@ literal|2
 argument_list|)
 decl|public
 range|:
-DECL|function|foo
 name|int
 name|foo
 argument_list|()
@@ -9886,13 +9785,11 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|method1
 name|Q_INVOKABLE
 name|void
 name|method1
 parameter_list|()
 block|{}
-DECL|function|method2
 name|Q_INVOKABLE
 name|Q_REVISION
 argument_list|(
@@ -9903,9 +9800,6 @@ name|method2
 argument_list|()
 argument_list|{}
 decl|enum
-DECL|enum|TestEnum
-DECL|enumerator|One
-DECL|enumerator|Two
 name|TestEnum
 argument_list|{
 name|One
@@ -9921,12 +9815,10 @@ constructor_decl|;
 public|public
 name|slots
 public|:
-DECL|function|slot1
 name|void
 name|slot1
 parameter_list|()
 block|{}
-DECL|function|slot2
 name|Q_REVISION
 argument_list|(
 literal|3
@@ -9959,12 +9851,10 @@ argument_list|(
 literal|6
 argument_list|)
 range|:
-DECL|function|slot3
 name|void
 name|slot3
 argument_list|()
 block|{}
-DECL|function|slot4
 name|void
 name|slot4
 argument_list|()
@@ -9992,7 +9882,6 @@ parameter_list|<
 name|class
 name|T
 parameter_list|>
-DECL|function|revisions_T
 name|void
 name|tst_Moc
 operator|::
@@ -10389,7 +10278,6 @@ begin_comment
 comment|// test using both class that has properties with and without NOTIFY signals
 end_comment
 begin_function
-DECL|function|revisions
 name|void
 name|tst_Moc
 operator|::
@@ -10411,7 +10299,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|warnings_data
 name|void
 name|tst_Moc
 operator|::
@@ -10861,7 +10748,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|warnings
 name|void
 name|tst_Moc
 operator|::
@@ -11089,7 +10975,6 @@ expr_stmt|;
 block|}
 end_function
 begin_class
-DECL|class|PrivateClass
 class|class
 name|tst_Moc
 operator|::
@@ -11117,7 +11002,6 @@ begin_public
 public|public
 name|Q_SLOTS
 public|:
-DECL|function|someSlot
 name|int
 name|someSlot
 parameter_list|()
@@ -11126,7 +11010,6 @@ return|return
 literal|1
 return|;
 block|}
-DECL|function|someSlot2
 name|void
 name|someSlot2
 parameter_list|(
@@ -11136,16 +11019,13 @@ block|{}
 end_public
 begin_public
 public|public:
-DECL|function|PrivateClass
 name|Q_INVOKABLE
 name|PrivateClass
 parameter_list|()
 block|{}
 end_public
 begin_function
-DECL|function|PrivateClass
 unit|};
-DECL|function|privateClass
 name|void
 name|tst_Moc
 operator|::
@@ -11183,7 +11063,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|cxx11Enums_data
 name|void
 name|tst_Moc
 operator|::
@@ -11373,7 +11252,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|cxx11Enums
 name|void
 name|tst_Moc
 operator|::
@@ -11564,7 +11442,6 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|returnRefs
 name|void
 name|tst_Moc
 operator|::
@@ -11615,7 +11492,6 @@ comment|// they used to cause miscompilation of the moc generated file.
 block|}
 end_function
 begin_function
-DECL|function|memberProperties_data
 name|void
 name|tst_Moc
 operator|::
@@ -11959,7 +11835,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|memberProperties
 name|void
 name|tst_Moc
 operator|::
@@ -12263,7 +12138,6 @@ begin_comment
 comment|//this used to fail to compile
 end_comment
 begin_class
-DECL|class|ClassWithOneMember
 class|class
 name|ClassWithOneMember
 super|:
@@ -12280,7 +12154,6 @@ parameter_list|)
 name|Q_OBJECT
 specifier|public
 private|:
-DECL|member|member
 name|int
 name|member
 decl_stmt|;
@@ -12288,7 +12161,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|memberProperties2
 name|void
 name|tst_Moc
 operator|::
@@ -12343,7 +12215,6 @@ expr_stmt|;
 block|}
 end_function
 begin_class
-DECL|class|SignalConnectionTester
 class|class
 name|SignalConnectionTester
 super|:
@@ -12352,7 +12223,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|SignalConnectionTester
 name|SignalConnectionTester
 parameter_list|(
 name|QObject
@@ -12375,7 +12245,6 @@ block|{      }
 public|public
 name|Q_SLOTS
 public|:
-DECL|function|testSlot
 name|void
 name|testSlot
 parameter_list|()
@@ -12385,7 +12254,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-DECL|function|testSlotWith1Arg
 name|void
 name|testSlotWith1Arg
 parameter_list|(
@@ -12400,7 +12268,6 @@ operator|==
 literal|42
 expr_stmt|;
 block|}
-DECL|function|testSlotWith2Args
 name|void
 name|testSlotWith2Args
 parameter_list|(
@@ -12425,7 +12292,6 @@ literal|"Hello"
 expr_stmt|;
 block|}
 public|public:
-DECL|member|testPassed
 name|bool
 name|testPassed
 decl_stmt|;
@@ -12433,7 +12299,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|ClassWithPrivateSignals
 class|class
 name|ClassWithPrivateSignals
 super|:
@@ -12442,7 +12307,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|ClassWithPrivateSignals
 name|ClassWithPrivateSignals
 parameter_list|(
 name|QObject
@@ -12457,7 +12321,6 @@ argument_list|(
 name|parent
 argument_list|)
 block|{      }
-DECL|function|emitPrivateSignals
 name|void
 name|emitPrivateSignals
 parameter_list|()
@@ -12580,7 +12443,6 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|SubClassFromPrivateSignals
 class|class
 name|SubClassFromPrivateSignals
 super|:
@@ -12589,7 +12451,6 @@ name|ClassWithPrivateSignals
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|SubClassFromPrivateSignals
 name|SubClassFromPrivateSignals
 parameter_list|(
 name|QObject
@@ -12604,7 +12465,6 @@ argument_list|(
 name|parent
 argument_list|)
 block|{      }
-DECL|function|emitProtectedSignals
 name|void
 name|emitProtectedSignals
 parameter_list|()
@@ -12630,7 +12490,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|privateSignalConnection
 name|void
 name|tst_Moc
 operator|::
@@ -14353,7 +14212,6 @@ comment|// Which doesn't work as ClassWithPrivateSignals::QPrivateSignal is priv
 block|}
 end_function
 begin_function
-DECL|function|finalClasses_data
 name|void
 name|tst_Moc
 operator|::
@@ -14527,7 +14385,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|finalClasses
 name|void
 name|tst_Moc
 operator|::
@@ -14558,7 +14415,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|explicitOverrideControl_data
 name|void
 name|tst_Moc
 operator|::
@@ -14632,7 +14488,6 @@ name|ADD
 block|}
 end_function
 begin_function
-DECL|function|explicitOverrideControl
 name|void
 name|tst_Moc
 operator|::
@@ -14731,7 +14586,6 @@ directive|endif
 block|}
 end_function
 begin_class
-DECL|class|CustomQObject
 class|class
 name|CustomQObject
 super|:
@@ -14745,21 +14599,16 @@ name|Number
 parameter_list|)
 specifier|public
 private|:
-DECL|enum|Number
 enum|enum
 name|Number
 block|{
-DECL|enumerator|Zero
 name|Zero
 block|,
-DECL|enumerator|One
 name|One
 block|,
-DECL|enumerator|Two
 name|Two
 block|}
 enum|;
-DECL|function|CustomQObject
 specifier|explicit
 name|CustomQObject
 parameter_list|(
@@ -14785,7 +14634,6 @@ argument|CustomQObject::Number
 argument_list|)
 end_macro
 begin_typedef
-DECL|typedef|CustomQObjectStar
 typedef|typedef
 name|CustomQObject
 modifier|*
@@ -14800,11 +14648,9 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_namespace
-DECL|namespace|SomeNamespace
 namespace|namespace
 name|SomeNamespace
 block|{
-DECL|class|NamespacedQObject
 class|class
 name|NamespacedQObject
 super|:
@@ -14813,7 +14659,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|NamespacedQObject
 specifier|explicit
 name|NamespacedQObject
 parameter_list|(
@@ -14831,7 +14676,6 @@ argument_list|)
 block|{      }
 block|}
 class|;
-DECL|struct|NamespacedNonQObject
 struct|struct
 name|NamespacedNonQObject
 block|{
@@ -14852,7 +14696,6 @@ begin_comment
 comment|// done in the property test would interfere.
 end_comment
 begin_class
-DECL|class|CustomQObject2
 class|class
 name|CustomQObject2
 super|:
@@ -14866,21 +14709,16 @@ name|Number
 parameter_list|)
 specifier|public
 private|:
-DECL|enum|Number
 enum|enum
 name|Number
 block|{
-DECL|enumerator|Zero
 name|Zero
 block|,
-DECL|enumerator|One
 name|One
 block|,
-DECL|enumerator|Two
 name|Two
 block|}
 enum|;
-DECL|function|CustomQObject2
 specifier|explicit
 name|CustomQObject2
 parameter_list|(
@@ -14906,7 +14744,6 @@ argument|CustomQObject2::Number
 argument_list|)
 end_macro
 begin_typedef
-DECL|typedef|CustomQObject2Star
 typedef|typedef
 name|CustomQObject2
 modifier|*
@@ -14921,11 +14758,9 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_namespace
-DECL|namespace|SomeNamespace2
 namespace|namespace
 name|SomeNamespace2
 block|{
-DECL|class|NamespacedQObject2
 class|class
 name|NamespacedQObject2
 super|:
@@ -14934,7 +14769,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|NamespacedQObject2
 specifier|explicit
 name|NamespacedQObject2
 parameter_list|(
@@ -14952,7 +14786,6 @@ argument_list|)
 block|{      }
 block|}
 class|;
-DECL|struct|NamespacedNonQObject2
 struct|struct
 name|NamespacedNonQObject2
 block|{
@@ -14967,7 +14800,6 @@ argument|SomeNamespace2::NamespacedNonQObject2
 argument_list|)
 end_macro
 begin_struct
-DECL|struct|CustomObject3
 struct|struct
 name|CustomObject3
 block|{
@@ -14975,7 +14807,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject4
 struct|struct
 name|CustomObject4
 block|{
@@ -14983,7 +14814,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject5
 struct|struct
 name|CustomObject5
 block|{
@@ -14991,7 +14821,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject6
 struct|struct
 name|CustomObject6
 block|{
@@ -14999,7 +14828,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject7
 struct|struct
 name|CustomObject7
 block|{
@@ -15007,7 +14835,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject8
 struct|struct
 name|CustomObject8
 block|{
@@ -15015,7 +14842,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject9
 struct|struct
 name|CustomObject9
 block|{
@@ -15023,7 +14849,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject10
 struct|struct
 name|CustomObject10
 block|{
@@ -15031,7 +14856,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject11
 struct|struct
 name|CustomObject11
 block|{
@@ -15039,7 +14863,6 @@ block|}
 struct|;
 end_struct
 begin_struct
-DECL|struct|CustomObject12
 struct|struct
 name|CustomObject12
 block|{
@@ -15107,7 +14930,6 @@ argument|CustomObject12
 argument_list|)
 end_macro
 begin_class
-DECL|class|AutoRegistrationObject
 class|class
 name|AutoRegistrationObject
 super|:
@@ -15270,7 +15092,6 @@ name|CONSTANT
 argument_list|)
 decl|public
 range|:
-DECL|function|AutoRegistrationObject
 name|AutoRegistrationObject
 argument_list|(
 name|QObject
@@ -15285,7 +15106,6 @@ argument_list|(
 argument|parent
 argument_list|)
 block|{     }
-DECL|function|object
 name|QObject
 operator|*
 name|object
@@ -15296,7 +15116,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|customObjectP
 name|QSharedPointer
 argument_list|<
 name|CustomQObject
@@ -15313,7 +15132,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|customObjectWP
 name|QWeakPointer
 argument_list|<
 name|CustomQObject
@@ -15330,7 +15148,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|customObjectTP
 name|QPointer
 argument_list|<
 name|CustomQObject
@@ -15347,7 +15164,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|customObject
 name|CustomQObject
 modifier|*
 name|customObject
@@ -15358,7 +15174,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|listInt
 name|QList
 argument_list|<
 name|int
@@ -15375,7 +15190,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|vectorVariant
 name|QVector
 argument_list|<
 name|QVariant
@@ -15392,7 +15206,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|listObject
 name|QList
 argument_list|<
 name|CustomQObject
@@ -15411,7 +15224,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|vectorListInt
 name|QVector
 argument_list|<
 name|QList
@@ -15434,7 +15246,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|vectorListObject
 name|QVector
 argument_list|<
 name|QList
@@ -15459,7 +15270,6 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-DECL|function|enumValue
 name|CustomQObject
 operator|::
 name|Number
@@ -15473,7 +15283,6 @@ operator|::
 name|Zero
 return|;
 block|}
-DECL|function|customObjectTypedef
 name|CustomQObjectStar
 name|customObjectTypedef
 parameter_list|()
@@ -15483,7 +15292,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|customObjectNamespaced
 name|SomeNamespace
 operator|::
 name|NamespacedQObject
@@ -15496,7 +15304,6 @@ return|return
 literal|0
 return|;
 block|}
-DECL|function|customNonQObjectNamespaced
 name|SomeNamespace
 operator|::
 name|NamespacedNonQObject
@@ -15514,7 +15321,6 @@ block|}
 public|public
 name|slots
 public|:
-DECL|function|objectSlot
 name|void
 name|objectSlot
 parameter_list|(
@@ -15522,7 +15328,6 @@ name|QObject
 modifier|*
 parameter_list|)
 block|{}
-DECL|function|customObjectSlot
 name|void
 name|customObjectSlot
 parameter_list|(
@@ -15530,7 +15335,6 @@ name|CustomQObject2
 modifier|*
 parameter_list|)
 block|{}
-DECL|function|sharedPointerSlot
 name|void
 name|sharedPointerSlot
 parameter_list|(
@@ -15540,7 +15344,6 @@ name|CustomQObject2
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|weakPointerSlot
 name|void
 name|weakPointerSlot
 parameter_list|(
@@ -15550,7 +15353,6 @@ name|CustomQObject2
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|trackingPointerSlot
 name|void
 name|trackingPointerSlot
 parameter_list|(
@@ -15560,7 +15362,6 @@ name|CustomQObject2
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|listIntSlot
 name|void
 name|listIntSlot
 parameter_list|(
@@ -15570,7 +15371,6 @@ name|int
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|vectorVariantSlot
 name|void
 name|vectorVariantSlot
 parameter_list|(
@@ -15580,7 +15380,6 @@ name|QVariant
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|listCustomObjectSlot
 name|void
 name|listCustomObjectSlot
 parameter_list|(
@@ -15591,7 +15390,6 @@ modifier|*
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|vectorListIntSlot
 name|void
 name|vectorListIntSlot
 parameter_list|(
@@ -15604,7 +15402,6 @@ argument_list|>
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|vectorListCustomObjectSlot
 name|void
 name|vectorListCustomObjectSlot
 parameter_list|(
@@ -15618,7 +15415,6 @@ argument_list|>
 argument_list|>
 parameter_list|)
 block|{}
-DECL|function|enumSlot
 name|void
 name|enumSlot
 parameter_list|(
@@ -15627,14 +15423,12 @@ operator|::
 name|Number
 parameter_list|)
 block|{}
-DECL|function|typedefSlot
 name|void
 name|typedefSlot
 parameter_list|(
 name|CustomQObject2Star
 parameter_list|)
 block|{}
-DECL|function|namespacedQObjectSlot
 name|void
 name|namespacedQObjectSlot
 parameter_list|(
@@ -15644,7 +15438,6 @@ name|NamespacedQObject2
 modifier|*
 parameter_list|)
 block|{}
-DECL|function|namespacedNonQObjectSlot
 name|void
 name|namespacedNonQObjectSlot
 parameter_list|(
@@ -15653,7 +15446,6 @@ operator|::
 name|NamespacedNonQObject2
 parameter_list|)
 block|{}
-DECL|function|bu1
 name|void
 name|bu1
 parameter_list|(
@@ -15662,7 +15454,6 @@ parameter_list|,
 name|CustomObject3
 parameter_list|)
 block|{}
-DECL|function|bu2
 name|void
 name|bu2
 parameter_list|(
@@ -15671,7 +15462,6 @@ parameter_list|,
 name|int
 parameter_list|)
 block|{}
-DECL|function|bu3
 name|void
 name|bu3
 parameter_list|(
@@ -15680,7 +15470,6 @@ parameter_list|,
 name|CustomObject6
 parameter_list|)
 block|{}
-DECL|function|bu4
 name|void
 name|bu4
 parameter_list|(
@@ -15691,7 +15480,6 @@ parameter_list|,
 name|CustomObject8
 parameter_list|)
 block|{}
-DECL|function|bu5
 name|void
 name|bu5
 parameter_list|(
@@ -15702,7 +15490,6 @@ parameter_list|,
 name|CustomObject10
 parameter_list|)
 block|{}
-DECL|function|bu6
 name|void
 name|bu6
 parameter_list|(
@@ -15714,7 +15501,6 @@ name|int
 parameter_list|)
 block|{}
 comment|// these can't be registered, but they should at least compile
-DECL|function|ref1
 name|void
 name|ref1
 parameter_list|(
@@ -15722,7 +15508,6 @@ name|int
 modifier|&
 parameter_list|)
 block|{}
-DECL|function|ref2
 name|void
 name|ref2
 parameter_list|(
@@ -15733,7 +15518,6 @@ argument_list|>
 modifier|&
 parameter_list|)
 block|{}
-DECL|function|ref3
 name|void
 name|ref3
 parameter_list|(
@@ -15741,7 +15525,6 @@ name|CustomQObject2
 modifier|&
 parameter_list|)
 block|{}
-DECL|function|ref4
 name|void
 name|ref4
 parameter_list|(
@@ -15763,7 +15546,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|autoPropertyMetaTypeRegistration
 name|void
 name|tst_Moc
 operator|::
@@ -16030,10 +15812,8 @@ name|typename
 name|T
 parameter_list|>
 struct|struct
-DECL|struct|DefaultConstructor
 name|DefaultConstructor
 block|{
-DECL|function|construct
 specifier|static
 specifier|inline
 name|T
@@ -16055,14 +15835,12 @@ name|typename
 name|T
 parameter_list|>
 struct|struct
-DECL|struct|DefaultConstructor
 name|DefaultConstructor
 argument_list|<
 name|T
 modifier|*
 argument_list|>
 block|{
-DECL|function|construct
 specifier|static
 specifier|inline
 name|T
@@ -16078,7 +15856,6 @@ block|}
 struct|;
 end_struct
 begin_function
-DECL|function|autoMethodArgumentMetaTypeRegistration
 name|void
 name|tst_Moc
 operator|::
@@ -16958,7 +16735,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|autoSignalSpyMetaTypeRegistration
 name|void
 name|tst_Moc
 operator|::
@@ -17071,7 +16847,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|parseDefines
 name|void
 name|tst_Moc
 operator|::
@@ -17602,7 +17377,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|preprocessorOnly
 name|void
 name|tst_Moc
 operator|::
@@ -17726,7 +17500,6 @@ directive|endif
 block|}
 end_function
 begin_function
-DECL|function|unterminatedFunctionMacro
 name|void
 name|tst_Moc
 operator|::
@@ -17850,15 +17623,12 @@ directive|endif
 block|}
 end_function
 begin_namespace
-DECL|namespace|QTBUG32933_relatedObjectsDontIncludeItself
 namespace|namespace
 name|QTBUG32933_relatedObjectsDontIncludeItself
 block|{
-DECL|namespace|NS
 namespace|namespace
 name|NS
 block|{
-DECL|class|Obj
 class|class
 name|Obj
 super|:
@@ -17911,9 +17681,6 @@ name|MyEnum
 argument_list|)
 decl_stmt|;
 public|public:
-DECL|enum|MyEnum
-DECL|enumerator|Something
-DECL|enumerator|SomethingElse
 enum|enum
 name|MyEnum
 block|{
@@ -17922,7 +17689,6 @@ block|,
 name|SomethingElse
 block|}
 enum|;
-DECL|member|member
 name|MyEnum
 name|member
 decl_stmt|;
@@ -17932,7 +17698,6 @@ block|}
 block|}
 end_namespace
 begin_function
-DECL|function|QTBUG32933_relatedObjectsDontIncludeItself
 name|void
 name|tst_Moc
 operator|::
@@ -17976,7 +17741,6 @@ expr_stmt|;
 block|}
 end_function
 begin_class
-DECL|class|UnrelatedClass
 class|class
 name|UnrelatedClass
 super|:
@@ -17990,17 +17754,14 @@ name|UnrelatedEnum
 parameter_list|)
 specifier|public
 private|:
-DECL|enum|UnrelatedEnum
 enum|enum
 name|UnrelatedEnum
 block|{
-DECL|enumerator|UnrelatedInvalidValue
 name|UnrelatedInvalidValue
 init|=
 operator|-
 literal|1
 block|,
-DECL|enumerator|UnrelatedValue
 name|UnrelatedValue
 init|=
 literal|42
@@ -18022,7 +17783,6 @@ argument|UnrelatedClass::UnrelatedEnum
 argument_list|)
 end_macro
 begin_class
-DECL|class|TestClassReferencingUnrelatedEnum
 class|class
 name|TestClassReferencingUnrelatedEnum
 super|:
@@ -18043,7 +17803,6 @@ name|setEnumProperty
 parameter_list|)
 specifier|public
 private|:
-DECL|function|TestClassReferencingUnrelatedEnum
 name|TestClassReferencingUnrelatedEnum
 parameter_list|()
 member_init_list|:
@@ -18054,7 +17813,6 @@ operator|::
 name|UnrelatedInvalidValue
 argument_list|)
 block|{}
-DECL|function|enumProperty
 name|UnrelatedClass
 operator|::
 name|UnrelatedEnum
@@ -18066,7 +17824,6 @@ return|return
 name|m_enumProperty
 return|;
 block|}
-DECL|function|setEnumProperty
 name|void
 name|setEnumProperty
 parameter_list|(
@@ -18082,7 +17839,6 @@ name|arg
 expr_stmt|;
 block|}
 private|private:
-DECL|member|m_enumProperty
 name|UnrelatedClass
 operator|::
 name|UnrelatedEnum
@@ -18092,7 +17848,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|writeEnumFromUnrelatedClass
 name|void
 name|tst_Moc
 operator|::
@@ -18138,7 +17893,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|relatedMetaObjectsWithinNamespaces
 name|void
 name|tst_Moc
 operator|::
@@ -18195,7 +17949,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|relatedMetaObjectsInGadget
 name|void
 name|tst_Moc
 operator|::
@@ -18252,7 +18005,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|relatedMetaObjectsNameConflict_data
 name|void
 name|tst_Moc
 operator|::
@@ -18529,7 +18281,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|relatedMetaObjectsNameConflict
 name|void
 name|tst_Moc
 operator|::
@@ -18638,7 +18389,6 @@ expr_stmt|;
 block|}
 end_function
 begin_class
-DECL|class|StringLiteralsInMacroExtension
 class|class
 name|StringLiteralsInMacroExtension
 super|:
@@ -18739,7 +18489,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|strignLiteralsInMacroExtension
 name|void
 name|tst_Moc
 operator|::
@@ -18919,7 +18668,6 @@ expr_stmt|;
 block|}
 end_function
 begin_class
-DECL|class|VeryLongStringData
 class|class
 name|VeryLongStringData
 super|:
@@ -19165,7 +18913,6 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|veryLongStringData
 name|void
 name|tst_Moc
 operator|::
@@ -19531,7 +19278,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|gadgetHierarchy
 name|void
 name|tst_Moc
 operator|::
