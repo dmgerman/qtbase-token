@@ -4970,8 +4970,11 @@ name|QT_CHECK_STATE
 argument_list|)
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|paintingActive
 argument_list|()
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -12145,8 +12148,11 @@ name|action
 argument_list|)
 argument_list|{     if
 operator|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|action
+argument_list|)
 operator|)
 block|{
 name|qWarning
@@ -13798,6 +13804,8 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|minw
 operator|>
 name|QWIDGETSIZE_MAX
@@ -13805,6 +13813,7 @@ operator|||
 name|minh
 operator|>
 name|QWIDGETSIZE_MAX
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -13867,6 +13876,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|minw
 operator|<
 literal|0
@@ -13874,6 +13885,7 @@ operator|||
 name|minh
 operator|<
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -14335,6 +14347,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|maxw
 operator|>
 name|QWIDGETSIZE_MAX
@@ -14342,6 +14356,7 @@ operator|||
 name|maxh
 operator|>
 name|QWIDGETSIZE_MAX
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -14400,6 +14415,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|maxw
 operator|<
 literal|0
@@ -14407,6 +14424,7 @@ operator|||
 name|maxh
 operator|<
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -18317,8 +18335,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|painter
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -18330,11 +18351,14 @@ return|return;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|painter
 operator|->
 name|isActive
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -20374,6 +20398,8 @@ block|{
 comment|//update the "in paint event" flag
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|q
 operator|->
 name|testAttribute
@@ -20381,6 +20407,7 @@ argument_list|(
 name|Qt
 operator|::
 name|WA_WState_InPaintEvent
+argument_list|)
 argument_list|)
 condition|)
 name|qWarning
@@ -20932,10 +20959,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|q
 operator|->
 name|paintingActive
 argument_list|()
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -21198,8 +21228,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|target
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -21961,8 +21994,11 @@ argument_list|()
 return|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|context
+argument_list|)
 condition|)
 block|{
 comment|// Device coordinates without context not yet supported.
@@ -22138,10 +22174,13 @@ operator|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|context
 operator|&&
 name|deviceCoordinates
+argument_list|)
 condition|)
 block|{
 comment|// Device coordinates without context not yet supported.
@@ -24083,9 +24122,12 @@ control|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|fp
 operator|==
 name|this
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -26032,6 +26074,8 @@ condition|)
 return|return;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|first
 operator|->
 name|window
@@ -26041,6 +26085,7 @@ name|second
 operator|->
 name|window
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -37731,8 +37776,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|l
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -37750,10 +37798,13 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|layout
 argument_list|()
 operator|!=
 name|l
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -43595,6 +43646,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|on
+operator|&&
 operator|!
 name|q
 operator|->
@@ -43608,8 +43663,7 @@ argument_list|(
 literal|"[*]"
 argument_list|)
 argument_list|)
-operator|&&
-name|on
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -46494,6 +46548,8 @@ else|#
 directive|else
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|extra
 operator|||
@@ -46508,6 +46564,7 @@ operator|->
 name|topextra
 operator|->
 name|window
+argument_list|)
 condition|)
 block|{
 name|qWarning

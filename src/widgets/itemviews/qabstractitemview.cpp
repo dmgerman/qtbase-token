@@ -2329,6 +2329,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|selectionModel
 operator|->
 name|model
@@ -2337,6 +2339,7 @@ operator|!=
 name|d
 operator|->
 name|model
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -3903,6 +3906,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|index
 operator|.
 name|isValid
@@ -3916,6 +3921,7 @@ operator|!=
 name|d
 operator|->
 name|model
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -4068,12 +4074,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|d
 operator|->
 name|isIndexValid
 argument_list|(
 name|index
+argument_list|)
 argument_list|)
 condition|)
 name|qWarning
@@ -4083,6 +4092,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|edit
 argument_list|(
@@ -4091,6 +4102,7 @@ argument_list|,
 name|AllEditTriggers
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 condition|)
 name|qWarning

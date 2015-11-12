@@ -1037,6 +1037,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|object
 argument_list|()
 operator|->
@@ -1049,6 +1051,7 @@ name|s
 argument_list|)
 operator|<
 literal|0
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(

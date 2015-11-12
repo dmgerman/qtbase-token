@@ -4410,6 +4410,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|n
 operator|->
@@ -4417,6 +4419,7 @@ name|info
 operator|.
 name|isDir
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -5100,6 +5103,8 @@ expr_stmt|;
 comment|// will also resolve symlinks
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|row
 operator|>=
 name|p
@@ -5108,6 +5113,7 @@ name|children
 operator|.
 name|count
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning

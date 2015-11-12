@@ -94,8 +94,11 @@ specifier|const
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|widget
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -158,8 +161,11 @@ specifier|const
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|widget
+argument_list|)
 condition|)
 block|{
 name|qWarning

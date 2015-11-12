@@ -1272,6 +1272,8 @@ expr_stmt|;
 comment|// E V I L, but ensureVisible is not public
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|QMetaObject
 operator|::
@@ -1286,6 +1288,7 @@ argument_list|(
 name|QRectF
 argument_list|,
 name|r
+argument_list|)
 argument_list|)
 argument_list|)
 condition|)

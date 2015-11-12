@@ -5123,7 +5123,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|qApp
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -10375,8 +10378,11 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|window
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -12509,9 +12515,11 @@ literal|true
 return|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+operator|!
 name|receiver
-operator|==
-literal|0
+argument_list|)
 condition|)
 block|{
 comment|// serious error
@@ -13807,6 +13815,8 @@ condition|)
 continue|continue;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|obj
 operator|->
 name|d_func
@@ -13820,6 +13830,7 @@ name|d_func
 argument_list|()
 operator|->
 name|threadData
+argument_list|)
 condition|)
 block|{
 name|qWarning

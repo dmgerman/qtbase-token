@@ -3592,6 +3592,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|row
 operator|<
 literal|0
@@ -3607,6 +3609,7 @@ operator|||
 name|columnSpan
 operator|<=
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -3729,6 +3732,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|rowSpan
 operator|==
 literal|1
@@ -3736,6 +3741,7 @@ operator|&&
 name|columnSpan
 operator|==
 literal|1
+argument_list|)
 condition|)
 block|{
 name|qWarning

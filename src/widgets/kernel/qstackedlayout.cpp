@@ -147,8 +147,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|wdg
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -1086,10 +1089,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|index
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -1261,9 +1267,20 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
+operator|!
 name|widget
+argument_list|)
 condition|)
 block|{
+name|qWarning
+argument_list|(
+literal|"QStackedLayout::addItem: Only widgets can be added"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|addWidget
 argument_list|(
 name|widget
@@ -1272,15 +1289,6 @@ expr_stmt|;
 operator|delete
 name|item
 expr_stmt|;
-block|}
-else|else
-block|{
-name|qWarning
-argument_list|(
-literal|"QStackedLayout::addItem: Only widgets can be added"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment

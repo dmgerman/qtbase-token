@@ -551,6 +551,8 @@ return|;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|system
 operator|==
 name|Qt
@@ -572,6 +574,7 @@ argument_list|()
 argument_list|)
 operator|->
 name|info
+argument_list|)
 condition|)
 block|{
 name|qWarning

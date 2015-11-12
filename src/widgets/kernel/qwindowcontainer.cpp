@@ -480,8 +480,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|embeddedWindow
+argument_list|)
 condition|)
 block|{
 name|qWarning

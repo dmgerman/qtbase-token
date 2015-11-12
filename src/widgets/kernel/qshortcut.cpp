@@ -77,7 +77,7 @@ parameter_list|(
 name|functionName
 parameter_list|)
 define|\
-value|if (!qApp) { \         qWarning("QShortcut: Initialize QApplication before calling '" functionName "'."); \         return; \     }
+value|if (Q_UNLIKELY(!qApp)) {                                            \         qWarning("QShortcut: Initialize QApplication before calling '" functionName "'."); \         return; \     }
 specifier|static
 name|bool
 name|correctWidgetContext
@@ -1655,8 +1655,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|parent
+argument_list|)
 condition|)
 block|{
 name|qWarning

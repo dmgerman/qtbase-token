@@ -675,9 +675,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|batchSize
 operator|<=
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning

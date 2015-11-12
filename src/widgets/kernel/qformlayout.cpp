@@ -5134,6 +5134,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|uint
 argument_list|(
 name|row
@@ -5153,6 +5155,7 @@ name|column
 argument_list|)
 operator|>
 literal|1U
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -5174,11 +5177,14 @@ condition|)
 return|return;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|m_matrix
 argument_list|(
 name|row
 argument_list|,
 name|column
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -5424,10 +5430,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|storageIndex
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 comment|// ### Qt6 - fix warning too when this class becomes public
@@ -6402,10 +6411,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|storageIndex
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 name|qWarning

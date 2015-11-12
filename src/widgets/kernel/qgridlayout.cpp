@@ -3334,6 +3334,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|row2
 operator|>=
 literal|0
@@ -3341,6 +3343,7 @@ operator|&&
 name|row2
 operator|<
 name|row1
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -3349,6 +3352,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|col2
 operator|>=
 literal|0
@@ -3356,6 +3361,7 @@ operator|&&
 name|col2
 operator|<
 name|col1
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -7938,6 +7944,8 @@ condition|)
 return|return;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|row
 operator|<
 literal|0
@@ -7945,6 +7953,7 @@ operator|||
 name|column
 operator|<
 literal|0
+argument_list|)
 condition|)
 block|{
 name|qWarning

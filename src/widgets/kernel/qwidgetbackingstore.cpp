@@ -8641,10 +8641,13 @@ endif|#
 directive|endif
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|q
 operator|->
 name|paintingActive
 argument_list|()
+argument_list|)
 condition|)
 name|qWarning
 argument_list|(

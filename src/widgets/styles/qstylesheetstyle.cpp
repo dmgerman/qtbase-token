@@ -10655,6 +10655,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|parser
 operator|.
@@ -10662,6 +10664,7 @@ name|parse
 argument_list|(
 operator|&
 name|appSs
+argument_list|)
 argument_list|)
 condition|)
 name|qWarning
@@ -10832,6 +10835,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|parser
 operator|.
@@ -10839,6 +10844,7 @@ name|parse
 argument_list|(
 operator|&
 name|ss
+argument_list|)
 argument_list|)
 condition|)
 name|qWarning
@@ -16520,10 +16526,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|index
 operator|==
 operator|-
 literal|1
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -16550,6 +16559,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|metaProperty
 operator|.
@@ -16561,6 +16572,7 @@ name|metaProperty
 operator|.
 name|isDesignable
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning

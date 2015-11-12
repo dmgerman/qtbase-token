@@ -969,6 +969,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|r
 operator|.
@@ -977,14 +979,16 @@ argument_list|()
 operator|&&
 operator|!
 name|w
+argument_list|)
 condition|)
+block|{
 name|qWarning
 argument_list|(
 literal|"QToolTip::setTipRect: Cannot pass null widget if rect is set"
 argument_list|)
 expr_stmt|;
-else|else
-block|{
+return|return;
+block|}
 name|widget
 operator|=
 name|w
@@ -993,7 +997,6 @@ name|rect
 operator|=
 name|r
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function

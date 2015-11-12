@@ -66,7 +66,7 @@ parameter_list|(
 name|functionName
 parameter_list|)
 define|\
-value|if (!qApp) { \         qWarning("QAction: Initialize QApplication before calling '" functionName "'."); \         return; \     }
+value|if (Q_UNLIKELY(!qApp)) { \         qWarning("QAction: Initialize QApplication before calling '" functionName "'."); \         return; \     }
 end_define
 begin_function
 name|QT_BEGIN_NAMESPACE

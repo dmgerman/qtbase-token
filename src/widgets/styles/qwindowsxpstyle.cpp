@@ -1877,6 +1877,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|theme
 operator|<
 literal|0
@@ -1887,6 +1889,7 @@ name|NThemes
 operator|||
 operator|!
 name|hwnd
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -1937,11 +1940,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|m_themes
 index|[
 name|theme
 index|]
+argument_list|)
 condition|)
 name|qErrnoWarning
 argument_list|(
@@ -2934,8 +2940,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|bufferBitmap
+argument_list|)
 condition|)
 block|{
 name|qErrnoWarning
@@ -2961,8 +2970,11 @@ return|;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|bufferPixels
+argument_list|)
 condition|)
 block|{
 name|qErrnoWarning

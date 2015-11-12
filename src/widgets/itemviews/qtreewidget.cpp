@@ -12437,8 +12437,11 @@ argument_list|)
 block|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|item
+argument_list|)
 condition|)
 block|{
 name|qWarning
@@ -12482,11 +12485,14 @@ argument_list|)
 block|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|index
 operator|.
 name|isValid
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|qWarning
