@@ -8603,7 +8603,7 @@ name|devMode
 operator|->
 name|dmPaperSize
 operator|>=
-name|DMPAPER_USER
+name|DMPAPER_LAST
 condition|)
 block|{
 comment|// Is a custom size
