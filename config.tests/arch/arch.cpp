@@ -423,9 +423,17 @@ literal|" xop"
 endif|#
 directive|endif
 comment|// -- ARM --
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__ARM_NEON
+argument_list|)
+operator|||
+name|defined
+argument_list|(
 name|__ARM_NEON__
+argument_list|)
 literal|" neon"
 endif|#
 directive|endif
