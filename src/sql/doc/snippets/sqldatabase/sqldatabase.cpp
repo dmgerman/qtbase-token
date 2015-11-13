@@ -763,15 +763,20 @@ expr_stmt|;
 comment|//! [20]
 block|}
 comment|//! [21]
-name|QSqlQueryModel
+name|QSqlTableModel
 name|model
 decl_stmt|;
 name|model
 operator|.
-name|setQuery
+name|setTable
 argument_list|(
-literal|"SELECT * FROM employee"
+literal|"employee"
 argument_list|)
+expr_stmt|;
+name|model
+operator|.
+name|select
+argument_list|()
 expr_stmt|;
 name|int
 name|salary
