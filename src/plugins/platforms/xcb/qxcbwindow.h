@@ -1040,12 +1040,6 @@ name|bool
 name|m_deferredActivation
 decl_stmt|;
 name|bool
-name|m_deferredExpose
-decl_stmt|;
-name|bool
-name|m_configureNotifyPending
-decl_stmt|;
-name|bool
 name|m_embedded
 decl_stmt|;
 name|bool
