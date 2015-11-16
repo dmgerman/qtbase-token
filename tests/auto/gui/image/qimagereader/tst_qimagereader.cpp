@@ -912,6 +912,25 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"PGM: longcomment"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"longcomment.pgm"
+argument_list|)
+operator|<<
+literal|true
+operator|<<
+name|QByteArray
+argument_list|(
+literal|"pgm"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"JPEG: beavis"
 argument_list|)
 operator|<<
