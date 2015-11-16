@@ -2865,7 +2865,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \deprecated      Use QSslConfiguration::systemDefaultCaCertificates instead.      This function provides the CA certificate database     provided by the operating system. The CA certificate database     returned by this function is used to initialize the database     returned by defaultCaCertificates(). You can replace that database     with your own with setDefaultCaCertificates().      \sa caCertificates(), defaultCaCertificates(), setDefaultCaCertificates() */
+comment|/*!     \deprecated      Use QSslConfiguration::systemDefaultCaCertificates instead.      This function provides the CA certificate database     provided by the operating system. The CA certificate database     returned by this function is used to initialize the database     returned by defaultCaCertificates(). You can replace that database     with your own with setDefaultCaCertificates().      \note: On OS X, only certificates that are either trusted for all     purposes or trusted for the purpose of SSL in the keychain will be     returned.      \sa caCertificates(), defaultCaCertificates(), setDefaultCaCertificates() */
 end_comment
 begin_function
 DECL|function|systemCaCertificates
