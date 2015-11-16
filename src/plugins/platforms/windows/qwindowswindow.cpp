@@ -5245,6 +5245,12 @@ argument_list|(
 literal|1.0
 argument_list|)
 member_init_list|,
+name|m_cursor
+argument_list|(
+operator|new
+name|CursorHandle
+argument_list|)
+member_init_list|,
 name|m_dropTarget
 argument_list|(
 literal|0
@@ -11891,7 +11897,7 @@ begin_function
 DECL|function|defaultCursor
 specifier|static
 specifier|inline
-name|QWindowsWindowCursor
+name|CursorHandlePtr
 name|defaultCursor
 parameter_list|(
 specifier|const
@@ -11952,11 +11958,20 @@ name|ArrowCursor
 argument_list|)
 return|;
 return|return
-name|QWindowsWindowCursor
+name|CursorHandlePtr
+argument_list|(
+operator|new
+name|CursorHandle
+argument_list|(
+name|QWindowsCursor
+operator|::
+name|createCursorFromShape
 argument_list|(
 name|Qt
 operator|::
 name|ArrowCursor
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -12045,7 +12060,7 @@ argument_list|)
 operator|->
 name|cursor
 argument_list|()
-operator|.
+operator|->
 name|isNull
 argument_list|()
 condition|)
@@ -12082,7 +12097,7 @@ name|QT_NO_CURSOR
 if|if
 condition|(
 name|m_cursor
-operator|.
+operator|->
 name|isNull
 argument_list|()
 condition|)
@@ -12122,7 +12137,7 @@ argument_list|(
 name|window
 argument_list|()
 argument_list|)
-operator|.
+operator|->
 name|handle
 argument_list|()
 argument_list|)
@@ -12134,7 +12149,7 @@ block|{
 name|SetCursor
 argument_list|(
 name|m_cursor
-operator|.
+operator|->
 name|handle
 argument_list|()
 argument_list|)
@@ -12152,7 +12167,7 @@ operator|::
 name|setCursor
 parameter_list|(
 specifier|const
-name|QWindowsWindowCursor
+name|CursorHandlePtr
 modifier|&
 name|c
 parameter_list|)
@@ -12163,12 +12178,12 @@ name|QT_NO_CURSOR
 if|if
 condition|(
 name|c
-operator|.
+operator|->
 name|handle
 argument_list|()
 operator|!=
 name|m_cursor
-operator|.
+operator|->
 name|handle
 argument_list|()
 condition|)
@@ -12194,11 +12209,8 @@ operator|<<
 name|__FUNCTION__
 operator|<<
 name|c
-operator|.
-name|cursor
-argument_list|()
-operator|.
-name|shape
+operator|->
+name|handle
 argument_list|()
 operator|<<
 literal|" doApply="
