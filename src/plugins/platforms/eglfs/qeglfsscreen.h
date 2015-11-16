@@ -92,6 +92,12 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|qreal
+name|pixelDensity
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|Qt
 operator|::
 name|ScreenOrientation

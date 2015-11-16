@@ -168,6 +168,12 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
+name|qreal
+name|pixelDensity
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
 name|Qt
 operator|::
 name|ScreenOrientation
