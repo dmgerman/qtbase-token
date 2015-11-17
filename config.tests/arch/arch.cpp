@@ -492,6 +492,18 @@ name|__ALTIVEC__
 literal|" altivec"
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|__SPE__
+literal|" spe"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|__VSX__
+literal|" vsx"
+endif|#
+directive|endif
 literal|""
 decl_stmt|;
 end_decl_stmt
