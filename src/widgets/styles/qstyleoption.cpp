@@ -602,10 +602,10 @@ begin_comment
 comment|/*!     \class QStyleOptionFrame     \brief The QStyleOptionFrame class is used to describe the     parameters for drawing a frame.      \inmodule QtWidgets      QStyleOptionFrame is used for drawing several built-in Qt widgets,     including QFrame, QGroupBox, QLineEdit, and QMenu.      An instance of the QStyleOptionFrame class has     \l{QStyleOption::type} {type} SO_Frame and \l{QStyleOption::version}     {version} 3.      The type is used internally by QStyleOption, its subclasses, and     qstyleoption_cast() to determine the type of style option. In     general you do not need to worry about this unless you want to     create your own QStyleOption subclass and your own styles.  The     version is used by QStyleOption subclasses to implement extensions     without breaking compatibility. If you use qstyleoption_cast(),     you normally do not need to check it.      For an example demonstrating how style options can be used, see     the \l {widgets/styles}{Styles} example.      \sa QStyleOption */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionFrameV2     \relates QStyleOptionFrame      Synonym for QStyleOptionFrame. */
+comment|/*!     \typedef QStyleOptionFrameV2     \relates QStyleOptionFrame     \obsolete      Synonym for QStyleOptionFrame. */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionFrameV3     \relates QStyleOptionFrame      Synonym for QStyleOptionFrame. */
+comment|/*!     \typedef QStyleOptionFrameV3     \relates QStyleOptionFrame     \obsolete      Synonym for QStyleOptionFrame. */
 end_comment
 begin_comment
 comment|/*!     Constructs a QStyleOptionFrame, initializing the members     variables to their default values. */
@@ -1245,10 +1245,10 @@ begin_comment
 comment|/*!     \class QStyleOptionTab     \brief The QStyleOptionTab class is used to describe the     parameters for drawing a tab bar.      \inmodule QtWidgets      The QStyleOptionTab class is used for drawing several built-in Qt     widgets including \l QTabBar and the panel for \l QTabWidget.      An instance of the QStyleOptionTab class has     \l{QStyleOption::type} {type} \l SO_Tab and     \l{QStyleOption::version} {version} 3. The type is used internally     by QStyleOption, its subclasses, and qstyleoption_cast() to     determine the type of style option. In general you do not need to     worry about this unless you want to create your own QStyleOption     subclass and your own styles. The version is used by QStyleOption     subclasses to implement extensions without breaking     compatibility. If you use qstyleoption_cast(), you normally do not     need to check it.      For an example demonstrating how style options can be used, see     the \l {widgets/styles}{Styles} example.      \sa QStyleOption */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionTabV2     \relates QStyleOptionTab      Synonym for QStyleOptionTab. */
+comment|/*!     \typedef QStyleOptionTabV2     \relates QStyleOptionTab     \obsolete      Synonym for QStyleOptionTab. */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionTabV3     \relates QStyleOptionTab      Synonym for QStyleOptionTab. */
+comment|/*!     \typedef QStyleOptionTabV3     \relates QStyleOptionTab     \obsolete      Synonym for QStyleOptionTab. */
 end_comment
 begin_comment
 comment|/*!     Constructs a QStyleOptionTab object, initializing the members     variables to their default values. */
@@ -1438,7 +1438,7 @@ begin_comment
 comment|/*!     \class QStyleOptionProgressBar     \brief The QStyleOptionProgressBar class is used to describe the     parameters necessary for drawing a progress bar.      \inmodule QtWidgets      An instance of the QStyleOptionProgressBar class has type     SO_ProgressBar and version 2.      The type is used internally by QStyleOption, its subclasses, and     qstyleoption_cast() to determine the type of style option. In     general you do not need to worry about this unless you want to     create your own QStyleOption subclass and your own styles.  The     version is used by QStyleOption subclasses to implement extensions     without breaking compatibility. If you use qstyleoption_cast(),     you normally do not need to check it.      For an example demonstrating how style options can be used, see     the \l {widgets/styles}{Styles} example.      \sa QStyleOption */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionProgressBarV2     \relates QStyleOptionProgressBar      Synonym for QStyleOptionProgressBar. */
+comment|/*!     \typedef QStyleOptionProgressBarV2     \relates QStyleOptionProgressBar     \obsolete      Synonym for QStyleOptionProgressBar. */
 end_comment
 begin_comment
 comment|/*!     Constructs a QStyleOptionProgressBar, initializing the members     variables to their default values. */
@@ -2151,7 +2151,7 @@ begin_comment
 comment|/*!     \class QStyleOptionDockWidget     \brief The QStyleOptionDockWidget class is used to describe the     parameters for drawing a dock widget.      \inmodule QtWidgets      QStyleOptionDockWidget contains all the information that QStyle     functions need to draw graphical elements like QDockWidget.      For performance reasons, the access to the member variables is     direct (i.e., using the \c . or \c -> operator). This low-level feel     makes the structures straightforward to use and emphasizes that     these are simply parameters used by the style functions.      For an example demonstrating how style options can be used, see     the \l {widgets/styles}{Styles} example.      \sa QStyleOption */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionDockWidgetV2     \relates QStyleOptionDockWidget      Synonym for QStyleOptionDockWidget. */
+comment|/*!     \typedef QStyleOptionDockWidgetV2     \relates QStyleOptionDockWidget     \obsolete      Synonym for QStyleOptionDockWidget. */
 end_comment
 begin_comment
 comment|/*!     Constructs a QStyleOptionDockWidget, initializing the member     variables to their default values. */
@@ -2462,7 +2462,7 @@ begin_comment
 comment|/*!     \class QStyleOptionToolBox     \brief The QStyleOptionToolBox class is used to describe the     parameters needed for drawing a tool box.      \inmodule QtWidgets      QStyleOptionToolBox contains all the information that QStyle     functions need to draw QToolBox.      For performance reasons, the access to the member variables is     direct (i.e., using the \c . or \c -> operator). This low-level feel     makes the structures straightforward to use and emphasizes that     these are simply parameters used by the style functions.      For an example demonstrating how style options can be used, see     the \l {widgets/styles}{Styles} example.      \sa QStyleOption, QToolBox */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionToolBoxV2     \relates QStyleOptionToolBox      Synonym for QStyleOptionToolBox. */
+comment|/*!     \typedef QStyleOptionToolBoxV2     \relates QStyleOptionToolBox     \obsolete      Synonym for QStyleOptionToolBox. */
 end_comment
 begin_comment
 comment|/*!     Creates a QStyleOptionToolBox, initializing the members variables     to their default values. */
@@ -2732,13 +2732,13 @@ begin_comment
 comment|/*!     \class QStyleOptionViewItem     \brief The QStyleOptionViewItem class is used to describe the     parameters used to draw an item in a view widget.      \inmodule QtWidgets      QStyleOptionViewItem contains all the information that QStyle     functions need to draw the items for Qt's model/view classes.      For performance reasons, the access to the member variables is     direct (i.e., using the \c . or \c -> operator). This low-level feel     makes the structures straightforward to use and emphasizes that     these are simply parameters used by the style functions.      For an example demonstrating how style options can be used, see     the \l {widgets/styles}{Styles} example.      \sa QStyleOption, {model-view-programming.html}{Model/View     Programming} */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionViewItemV2     \relates QStyleOptionViewItem      Synonym for QStyleOptionViewItem. */
+comment|/*!     \typedef QStyleOptionViewItemV2     \relates QStyleOptionViewItem     \obsolete      Synonym for QStyleOptionViewItem. */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionViewItemV3     \relates QStyleOptionViewItem      Synonym for QStyleOptionViewItem. */
+comment|/*!     \typedef QStyleOptionViewItemV3     \relates QStyleOptionViewItem     \obsolete      Synonym for QStyleOptionViewItem. */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionViewItemV4     \relates QStyleOptionViewItem      Synonym for QStyleOptionViewItem. */
+comment|/*!     \typedef QStyleOptionViewItemV4     \relates QStyleOptionViewItem     \obsolete      Synonym for QStyleOptionViewItem. */
 end_comment
 begin_comment
 comment|/*!     \enum QStyleOptionViewItem::Position      This enum describes the position of the item's decoration.      \value Left On the left of the text.     \value Right On the right of the text.     \value Top Above the text.     \value Bottom Below the text.      \sa decorationPosition */
@@ -2971,7 +2971,7 @@ begin_comment
 comment|/*!     \class QStyleOptionTabWidgetFrame     \brief The QStyleOptionTabWidgetFrame class is used to describe the     parameters for drawing the frame around a tab widget.      \inmodule QtWidgets      QStyleOptionTabWidgetFrame contains all the information that     QStyle functions need to draw the frame around QTabWidget.      For performance reasons, the access to the member variables is     direct (i.e., using the \c . or \c -> operator). This low-level feel     makes the structures straightforward to use and emphasizes that     these are simply parameters used by the style functions.      For an example demonstrating how style options can be used, see     the \l {widgets/styles}{Styles} example.      \sa QStyleOption, QTabWidget */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionTabWidgetFrameV2     \relates QStyleOptionTabWidgetFrame      Synonym for QStyleOptionTabWidgetFrame. */
+comment|/*!     \typedef QStyleOptionTabWidgetFrameV2     \relates QStyleOptionTabWidgetFrame     \obsolete      Synonym for QStyleOptionTabWidgetFrame. */
 end_comment
 begin_comment
 comment|/*!     Constructs a QStyleOptionTabWidgetFrame, initializing the members     variables to their default values. */
@@ -3095,7 +3095,7 @@ begin_comment
 comment|/*!     \class QStyleOptionTabBarBase     \brief The QStyleOptionTabBarBase class is used to describe     the base of a tab bar, i.e. the part that the tab bar usually     overlaps with.      \inmodule QtWidgets      QStyleOptionTabBarBase  contains all the information that QStyle     functions need to draw the tab bar base. Note that this is only     drawn for a standalone QTabBar (one that isn't part of a     QTabWidget).      For performance reasons, the access to the member variables is     direct (i.e., using the \c . or \c -> operator). This low-level feel     makes the structures straightforward to use and emphasizes that     these are simply parameters used by the style functions.      For an example demonstrating how style options can be used, see     the \l {widgets/styles}{Styles} example.      \sa QStyleOption, QTabBar::drawBase() */
 end_comment
 begin_comment
-comment|/*!     \typedef QStyleOptionTabBarBaseV2     \relates QStyleOptionTabBarBase      Synonym for QStyleOptionTabBarBase. */
+comment|/*!     \typedef QStyleOptionTabBarBaseV2     \relates QStyleOptionTabBarBase     \obsolete      Synonym for QStyleOptionTabBarBase. */
 end_comment
 begin_comment
 comment|/*!     Construct a QStyleOptionTabBarBase, initializing the members     vaiables to their default values. */
