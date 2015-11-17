@@ -7583,7 +7583,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     Returns the indexes in the given \a column for the rows where all columns are selected.     The list is not sorted.      \sa selectedIndexes(), selectedColumns() */
+comment|/*!     \since 4.2     Returns the indexes in the given \a column for the rows where all columns are selected.      \sa selectedIndexes(), selectedColumns() */
 end_comment
 begin_function
 DECL|function|selectedRows
