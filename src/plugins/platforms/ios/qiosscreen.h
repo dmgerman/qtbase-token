@@ -162,7 +162,7 @@ name|int
 name|m_depth
 decl_stmt|;
 name|uint
-name|m_unscaledDpi
+name|m_pixelDensity
 decl_stmt|;
 name|QSizeF
 name|m_physicalSize
