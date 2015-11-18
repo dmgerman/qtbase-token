@@ -6810,6 +6810,17 @@ name|i
 argument_list|)
 decl_stmt|;
 comment|// mapped to the tlw already
+comment|// Set a flag to indicate that the paint event for this
+comment|// render-to-texture widget must not to be optimized away.
+name|w
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|renderToTextureReallyDirty
+operator|=
+literal|1
+expr_stmt|;
 name|dirty
 operator|+=
 name|rect

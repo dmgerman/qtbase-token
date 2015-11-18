@@ -983,6 +983,16 @@ literal|0
 argument_list|)
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+member_init_list|,
+name|renderToTextureReallyDirty
+argument_list|(
+literal|1
+argument_list|)
+endif|#
+directive|endif
 if|#
 directive|if
 name|defined
@@ -20616,7 +20626,7 @@ block|qDebug()<< "painting"<< q<< "opaque =="<< isOpaque();             qDebug()
 endif|#
 directive|endif
 name|bool
-name|grabbed
+name|skipPaintEvent
 init|=
 literal|false
 decl_stmt|;
@@ -20697,7 +20707,7 @@ name|grabFramebuffer
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|grabbed
+name|skipPaintEvent
 operator|=
 literal|true
 expr_stmt|;
@@ -20706,6 +20716,19 @@ name|endBackingStorePainting
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|renderToTextureReallyDirty
+condition|)
+name|renderToTextureReallyDirty
+operator|=
+literal|0
+expr_stmt|;
+else|else
+name|skipPaintEvent
+operator|=
+literal|true
+expr_stmt|;
 block|}
 endif|#
 directive|endif
@@ -20713,7 +20736,7 @@ comment|// QT_NO_OPENGL
 if|if
 condition|(
 operator|!
-name|grabbed
+name|skipPaintEvent
 condition|)
 block|{
 comment|//actually send the paint event
