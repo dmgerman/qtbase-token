@@ -268,8 +268,14 @@ name|QPoint
 name|hotSpot
 block|;     }
 block|;
+name|explicit
 name|QWindowsCursor
-argument_list|()
+argument_list|(
+specifier|const
+name|QPlatformScreen
+operator|*
+name|screen
+argument_list|)
 block|;
 name|void
 name|changeCursor
@@ -392,6 +398,14 @@ operator|>
 name|PixmapCursorCache
 expr_stmt|;
 end_typedef
+begin_decl_stmt
+specifier|const
+name|QPlatformScreen
+modifier|*
+specifier|const
+name|m_screen
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|StandardCursorCache
 name|m_standardCursorCache
