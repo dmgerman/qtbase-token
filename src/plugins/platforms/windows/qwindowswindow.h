@@ -524,6 +524,11 @@ operator|~
 name|QWindowsWindow
 argument_list|()
 block|;
+name|using
+name|QPlatformWindow
+operator|::
+name|screenForGeometry
+block|;
 name|QSurfaceFormat
 name|format
 argument_list|()

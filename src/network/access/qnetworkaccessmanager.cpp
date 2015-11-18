@@ -1912,7 +1912,6 @@ return|;
 block|}
 else|else
 block|{
-comment|// Network accessibility is either disabled or unknown.
 if|if
 condition|(
 name|d
@@ -2554,10 +2553,11 @@ comment|// Return a disabled network reply if network access is disabled.
 comment|// Except if the scheme is empty or file://.
 if|if
 condition|(
-operator|!
 name|d
 operator|->
 name|networkAccessible
+operator|==
+name|NotAccessible
 operator|&&
 operator|!
 name|isLocalFile

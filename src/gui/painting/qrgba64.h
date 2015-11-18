@@ -782,6 +782,7 @@ end_label
 begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
+name|Q_ALWAYS_INLINE
 name|quint64
 name|alphaMask
 parameter_list|()
@@ -799,6 +800,7 @@ end_function
 begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
+name|Q_ALWAYS_INLINE
 name|uint
 name|div_257_floor
 parameter_list|(
@@ -824,6 +826,7 @@ end_function
 begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
+name|Q_ALWAYS_INLINE
 name|uint
 name|div_257
 parameter_list|(
@@ -844,6 +847,7 @@ end_function
 begin_function
 specifier|static
 name|Q_DECL_CONSTEXPR
+name|Q_ALWAYS_INLINE
 name|uint
 name|div_65535
 parameter_list|(
@@ -870,6 +874,7 @@ block|}
 end_function
 begin_expr_stmt
 name|Q_DECL_RELAXED_CONSTEXPR
+name|Q_ALWAYS_INLINE
 name|QRgba64
 name|unpremultiplied_32bit
 argument_list|()
@@ -977,6 +982,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}     Q_DECL_RELAXED_CONSTEXPR
+name|Q_ALWAYS_INLINE
 name|QRgba64
 name|unpremultiplied_64bit
 argument_list|()

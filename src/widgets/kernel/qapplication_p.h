@@ -809,10 +809,6 @@ return|return
 name|self
 return|;
 block|}
-specifier|static
-name|QString
-name|styleOverride
-block|;
 ifdef|#
 directive|ifdef
 name|QT_KEYPAD_NAVIGATION

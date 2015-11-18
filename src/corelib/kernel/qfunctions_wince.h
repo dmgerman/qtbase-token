@@ -286,7 +286,7 @@ DECL|member|tm_isdst
 name|int
 name|tm_isdst
 decl_stmt|;
-comment|/* daylight savings time flag */
+comment|/* daylight-saving time flag */
 block|}
 struct|;
 endif|#

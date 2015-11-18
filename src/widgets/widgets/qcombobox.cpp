@@ -15443,6 +15443,16 @@ modifier|*
 name|e
 parameter_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_DARWIN
+name|Q_UNUSED
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|Q_D
 argument_list|(
 name|QComboBox
@@ -15618,6 +15628,8 @@ name|accept
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_endif

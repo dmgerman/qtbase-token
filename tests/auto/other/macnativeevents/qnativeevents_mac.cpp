@@ -126,7 +126,10 @@ block|{
 name|CGEventFlags
 name|flags
 init|=
+name|CGEventFlags
+argument_list|(
 literal|0
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -142,8 +145,13 @@ name|ShiftModifier
 argument_list|)
 condition|)
 name|flags
-operator||=
+operator|=
+name|CGEventFlags
+argument_list|(
+name|flags
+operator||
 name|kCGEventFlagMaskShift
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -159,8 +167,13 @@ name|ControlModifier
 argument_list|)
 condition|)
 name|flags
-operator||=
+operator|=
+name|CGEventFlags
+argument_list|(
+name|flags
+operator||
 name|kCGEventFlagMaskControl
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -176,8 +189,13 @@ name|AltModifier
 argument_list|)
 condition|)
 name|flags
-operator||=
+operator|=
+name|CGEventFlags
+argument_list|(
+name|flags
+operator||
 name|kCGEventFlagMaskAlternate
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -193,8 +211,13 @@ name|MetaModifier
 argument_list|)
 condition|)
 name|flags
-operator||=
+operator|=
+name|CGEventFlags
+argument_list|(
+name|flags
+operator||
 name|kCGEventFlagMaskCommand
+argument_list|)
 expr_stmt|;
 name|CGEventSetFlags
 argument_list|(
@@ -1167,7 +1190,8 @@ name|kCGEventMouseMoved
 argument_list|,
 name|pos
 argument_list|,
-literal|0
+name|kCGMouseButtonLeft
+comment|/* ignored */
 argument_list|)
 decl_stmt|;
 name|setModifiersFromQNativeEvent
@@ -1241,7 +1265,7 @@ expr_stmt|;
 name|CGEventType
 name|type
 init|=
-literal|0
+name|kCGEventNull
 decl_stmt|;
 if|if
 condition|(
@@ -1307,6 +1331,25 @@ name|kCGEventOtherMouseDown
 else|:
 name|kCGEventOtherMouseUp
 expr_stmt|;
+comment|// The mouseButton argument to CGEventCreateMouseEvent() is ignored unless the type
+comment|// is kCGEventOtherSomething, so defaulting to kCGMouseButtonLeft is fine.
+name|CGMouseButton
+name|mouseButton
+init|=
+operator|(
+name|type
+operator|==
+name|kCGEventOtherMouseDown
+operator|||
+name|type
+operator|==
+name|kCGEventOtherMouseUp
+operator|)
+condition|?
+name|kCGMouseButtonCenter
+else|:
+name|kCGMouseButtonLeft
+decl_stmt|;
 name|CGEventRef
 name|e
 init|=
@@ -1318,9 +1361,7 @@ name|type
 argument_list|,
 name|pos
 argument_list|,
-name|event
-operator|.
-name|button
+name|mouseButton
 argument_list|)
 decl_stmt|;
 name|setModifiersFromQNativeEvent
@@ -1405,7 +1446,7 @@ expr_stmt|;
 name|CGEventType
 name|type
 init|=
-literal|0
+name|kCGEventNull
 decl_stmt|;
 if|if
 condition|(
@@ -1441,6 +1482,19 @@ name|type
 operator|=
 name|kCGEventOtherMouseDragged
 expr_stmt|;
+comment|// The mouseButton argument to CGEventCreateMouseEvent() is ignored unless the type
+comment|// is kCGEventOtherSomething, so defaulting to kCGMouseButtonLeft is fine.
+name|CGMouseButton
+name|mouseButton
+init|=
+name|type
+operator|==
+name|kCGEventOtherMouseDragged
+condition|?
+name|kCGMouseButtonCenter
+else|:
+name|kCGMouseButtonLeft
+decl_stmt|;
 name|CGEventRef
 name|e
 init|=
@@ -1452,9 +1506,7 @@ name|type
 argument_list|,
 name|pos
 argument_list|,
-name|event
-operator|.
-name|button
+name|mouseButton
 argument_list|)
 decl_stmt|;
 name|setModifiersFromQNativeEvent

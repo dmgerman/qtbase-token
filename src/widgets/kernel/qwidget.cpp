@@ -16785,6 +16785,13 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|inheritedMask
+operator|!=
+literal|0
+condition|)
+block|{
 name|QFont
 name|inheritedFont
 init|=
@@ -16810,6 +16817,8 @@ name|naturalFont
 argument_list|)
 expr_stmt|;
 block|}
+comment|// else nothing to do (naturalFont = naturalFont)
+block|}
 else|else
 block|{
 name|naturalFont
@@ -16833,6 +16842,13 @@ operator|&&
 name|extra
 operator|->
 name|proxyWidget
+condition|)
+block|{
+if|if
+condition|(
+name|inheritedMask
+operator|!=
+literal|0
 condition|)
 block|{
 name|QFont
@@ -16861,6 +16877,8 @@ argument_list|(
 name|naturalFont
 argument_list|)
 expr_stmt|;
+block|}
+comment|// else nothing to do (naturalFont = naturalFont)
 block|}
 endif|#
 directive|endif

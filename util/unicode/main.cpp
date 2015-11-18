@@ -61,14 +61,14 @@ DECL|macro|DATA_VERSION_S
 define|#
 directive|define
 name|DATA_VERSION_S
-value|"7.0"
+value|"8.0"
 end_define
 begin_define
 DECL|macro|DATA_VERSION_STR
 define|#
 directive|define
 name|DATA_VERSION_STR
-value|"QChar::Unicode_7_0"
+value|"QChar::Unicode_8_0"
 end_define
 begin_decl_stmt
 DECL|variable|age_map
@@ -236,6 +236,14 @@ operator|::
 name|Unicode_7_0
 block|,
 literal|"7.0"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Unicode_8_0
+block|,
+literal|"8.0"
 block|}
 block|,
 block|{
@@ -3581,6 +3589,55 @@ block|,
 literal|"WarangCiti"
 block|}
 block|,
+comment|// 8.0
+block|{
+name|QChar
+operator|::
+name|Script_Ahom
+block|,
+literal|"Ahom"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_AnatolianHieroglyphs
+block|,
+literal|"AnatolianHieroglyphs"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Hatran
+block|,
+literal|"Hatran"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_Multani
+block|,
+literal|"Multani"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_OldHungarian
+block|,
+literal|"OldHungarian"
+block|}
+block|,
+block|{
+name|QChar
+operator|::
+name|Script_SignWriting
+block|,
+literal|"SignWriting"
+block|}
+block|,
 comment|// unhandled
 block|{
 name|QChar
@@ -3660,6 +3717,38 @@ literal|"    ushort script              : 8;\n"
 literal|"};\n\n"
 literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(uint ucs4) Q_DECL_NOTHROW;\n"
 literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(ushort ucs2) Q_DECL_NOTHROW;\n"
+literal|"\n"
+literal|"struct LowercaseTraits\n"
+literal|"{\n"
+literal|"    static inline signed short caseDiff(const Properties *prop)\n"
+literal|"    { return prop->lowerCaseDiff; }\n"
+literal|"    static inline bool caseSpecial(const Properties *prop)\n"
+literal|"    { return prop->lowerCaseSpecial; }\n"
+literal|"};\n"
+literal|"\n"
+literal|"struct UppercaseTraits\n"
+literal|"{\n"
+literal|"    static inline signed short caseDiff(const Properties *prop)\n"
+literal|"    { return prop->upperCaseDiff; }\n"
+literal|"    static inline bool caseSpecial(const Properties *prop)\n"
+literal|"    { return prop->upperCaseSpecial; }\n"
+literal|"};\n"
+literal|"\n"
+literal|"struct TitlecaseTraits\n"
+literal|"{\n"
+literal|"    static inline signed short caseDiff(const Properties *prop)\n"
+literal|"    { return prop->titleCaseDiff; }\n"
+literal|"    static inline bool caseSpecial(const Properties *prop)\n"
+literal|"    { return prop->titleCaseSpecial; }\n"
+literal|"};\n"
+literal|"\n"
+literal|"struct CasefoldTraits\n"
+literal|"{\n"
+literal|"    static inline signed short caseDiff(const Properties *prop)\n"
+literal|"    { return prop->caseFoldDiff; }\n"
+literal|"    static inline bool caseSpecial(const Properties *prop)\n"
+literal|"    { return prop->caseFoldSpecial; }\n"
+literal|"};\n"
 literal|"\n"
 decl_stmt|;
 end_decl_stmt
@@ -4006,8 +4095,8 @@ operator|++
 name|i
 control|)
 block|{
-name|int
-name|val
+name|uint
+name|codepoint
 init|=
 name|map
 operator|.
@@ -4016,13 +4105,25 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+comment|// if the condition below doesn't hold anymore we need to modify our special case mapping code
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|QChar
 operator|::
 name|requiresSurrogates
 argument_list|(
-name|val
+name|codepoint
 argument_list|)
 condition|)
 block|{
@@ -4032,7 +4133,7 @@ name|QChar
 operator|::
 name|highSurrogate
 argument_list|(
-name|val
+name|codepoint
 argument_list|)
 expr_stmt|;
 name|utf16map
@@ -4041,7 +4142,7 @@ name|QChar
 operator|::
 name|lowSurrogate
 argument_list|(
-name|val
+name|codepoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -4049,7 +4150,7 @@ else|else
 block|{
 name|utf16map
 operator|<<
-name|val
+name|codepoint
 expr_stmt|;
 block|}
 block|}
@@ -4597,7 +4698,9 @@ expr_stmt|;
 comment|// XX -> AL
 comment|// LineBreak.txt
 comment|// The unassigned code points that default to "ID" include ranges in the following blocks:
-comment|//     [U+3400..U+4DBF, U+4E00..U+9FFF, U+F900..U+FAFF, U+20000..U+2A6DF, U+2A700..U+2B73F, U+2B740..U+2B81F, U+2F800..U+2FA1F, U+20000..U+2FFFD, U+30000..U+3FFFD]
+comment|//     [U+3400..U+4DBF, U+4E00..U+9FFF, U+F900..U+FAFF, U+20000..U+2A6DF, U+2A700..U+2B73F, U+2B740..U+2B81F, U+2B820..U+2CEAF, U+2F800..U+2FA1F]
+comment|// and any other reserved code points on
+comment|//     [U+20000..U+2FFFD, U+30000..U+3FFFD]
 if|if
 condition|(
 operator|(
@@ -4658,6 +4761,16 @@ operator|&&
 name|codepoint
 operator|<=
 literal|0x2B81F
+operator|)
+operator|||
+operator|(
+name|codepoint
+operator|>=
+literal|0x2B820
+operator|&&
+name|codepoint
+operator|<=
+literal|0x2CEAF
 operator|)
 operator|||
 operator|(
@@ -5617,6 +5730,71 @@ name|upperCase
 operator|-
 name|codepoint
 decl_stmt|;
+comment|// if the conditions below doesn't hold anymore we need to modify our upper casing code
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+operator|==
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|upperCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|highSurrogate
+argument_list|(
+name|codepoint
+argument_list|)
+operator|==
+name|QChar
+operator|::
+name|highSurrogate
+argument_list|(
+name|upperCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|codepoint
+argument_list|)
+operator|+
+name|diff
+operator|==
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|upperCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|qAbs
@@ -5645,26 +5823,6 @@ operator|<<
 name|upperCase
 operator|<<
 literal|"); map it for special case"
-expr_stmt|;
-comment|// if the condition below doesn't hold anymore we need to modify our special upper casing code in qchar.cpp
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|codepoint
-argument_list|)
-operator|&&
-operator|!
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|upperCase
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|data
 operator|.
@@ -5715,61 +5873,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|codepoint
-argument_list|)
-operator|||
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|upperCase
-argument_list|)
-condition|)
-block|{
-comment|// if the conditions below doesn't hold anymore we need to modify our upper casing code
-name|Q_ASSERT
-argument_list|(
-name|QChar
-operator|::
-name|highSurrogate
-argument_list|(
-name|codepoint
-argument_list|)
-operator|==
-name|QChar
-operator|::
-name|highSurrogate
-argument_list|(
-name|upperCase
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|codepoint
-argument_list|)
-operator|+
-name|diff
-operator|==
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|upperCase
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -5811,6 +5914,71 @@ name|lowerCase
 operator|-
 name|codepoint
 decl_stmt|;
+comment|// if the conditions below doesn't hold anymore we need to modify our lower casing code
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+operator|==
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|lowerCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|highSurrogate
+argument_list|(
+name|codepoint
+argument_list|)
+operator|==
+name|QChar
+operator|::
+name|highSurrogate
+argument_list|(
+name|lowerCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|codepoint
+argument_list|)
+operator|+
+name|diff
+operator|==
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|lowerCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|qAbs
@@ -5839,26 +6007,6 @@ operator|<<
 name|lowerCase
 operator|<<
 literal|"); map it for special case"
-expr_stmt|;
-comment|// if the condition below doesn't hold anymore we need to modify our special lower casing code in qchar.cpp
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|codepoint
-argument_list|)
-operator|&&
-operator|!
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|lowerCase
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|data
 operator|.
@@ -5905,61 +6053,6 @@ argument_list|,
 name|qAbs
 argument_list|(
 name|diff
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|codepoint
-argument_list|)
-operator|||
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|lowerCase
-argument_list|)
-condition|)
-block|{
-comment|// if the conditions below doesn't hold anymore we need to modify our lower casing code
-name|Q_ASSERT
-argument_list|(
-name|QChar
-operator|::
-name|highSurrogate
-argument_list|(
-name|codepoint
-argument_list|)
-operator|==
-name|QChar
-operator|::
-name|highSurrogate
-argument_list|(
-name|lowerCase
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|codepoint
-argument_list|)
-operator|+
-name|diff
-operator|==
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|lowerCase
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6026,6 +6119,71 @@ name|titleCase
 operator|-
 name|codepoint
 decl_stmt|;
+comment|// if the conditions below doesn't hold anymore we need to modify our title casing code
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+operator|==
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|titleCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|highSurrogate
+argument_list|(
+name|codepoint
+argument_list|)
+operator|==
+name|QChar
+operator|::
+name|highSurrogate
+argument_list|(
+name|titleCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|codepoint
+argument_list|)
+operator|+
+name|diff
+operator|==
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|titleCase
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|qAbs
@@ -6054,26 +6212,6 @@ operator|<<
 name|titleCase
 operator|<<
 literal|"); map it for special case"
-expr_stmt|;
-comment|// if the condition below doesn't hold anymore we need to modify our special title casing code in qchar.cpp
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|codepoint
-argument_list|)
-operator|&&
-operator|!
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|titleCase
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|data
 operator|.
@@ -6120,61 +6258,6 @@ argument_list|,
 name|qAbs
 argument_list|(
 name|diff
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|codepoint
-argument_list|)
-operator|||
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|titleCase
-argument_list|)
-condition|)
-block|{
-comment|// if the conditions below doesn't hold anymore we need to modify our title casing code
-name|Q_ASSERT
-argument_list|(
-name|QChar
-operator|::
-name|highSurrogate
-argument_list|(
-name|codepoint
-argument_list|)
-operator|==
-name|QChar
-operator|::
-name|highSurrogate
-argument_list|(
-name|titleCase
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|codepoint
-argument_list|)
-operator|+
-name|diff
-operator|==
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|titleCase
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8367,9 +8450,25 @@ name|maxVersion
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|out
+operator|.
+name|endsWith
+argument_list|(
+literal|",\n"
+argument_list|)
+condition|)
+name|out
+operator|.
+name|chop
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 name|out
 operator|+=
-literal|"};\n\n"
+literal|"\n};\n\n"
 literal|"enum { NumNormalizationCorrections = "
 operator|+
 name|QByteArray
@@ -9610,6 +9709,71 @@ name|caseFolded
 operator|-
 name|codepoint
 decl_stmt|;
+comment|// if the conditions below doesn't hold anymore we need to modify our case folding code
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+operator|==
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|caseFolded
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|codepoint
+argument_list|)
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|highSurrogate
+argument_list|(
+name|codepoint
+argument_list|)
+operator|==
+name|QChar
+operator|::
+name|highSurrogate
+argument_list|(
+name|caseFolded
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|codepoint
+argument_list|)
+operator|+
+name|diff
+operator|==
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|caseFolded
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|qAbs
@@ -9638,26 +9802,6 @@ operator|<<
 name|caseFolded
 operator|<<
 literal|"); map it for special case"
-expr_stmt|;
-comment|// if the condition below doesn't hold anymore we need to modify our special case folding code in qchar.cpp
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|codepoint
-argument_list|)
-operator|&&
-operator|!
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|caseFolded
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|ud
 operator|.
@@ -9702,63 +9846,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|codepoint
-argument_list|)
-operator|||
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|caseFolded
-argument_list|)
-condition|)
-block|{
-comment|// if the conditions below doesn't hold anymore we need to modify our case folding code
-name|Q_ASSERT
-argument_list|(
-name|QChar
-operator|::
-name|highSurrogate
-argument_list|(
-name|codepoint
-argument_list|)
-operator|==
-name|QChar
-operator|::
-name|highSurrogate
-argument_list|(
-name|caseFolded
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|codepoint
-argument_list|)
-operator|+
-name|diff
-operator|==
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|caseFolded
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-comment|//            if (caseFolded != codepoint + ud.p.lowerCaseDiff)
-comment|//                qDebug()<< hex<< codepoint;
 block|}
 else|else
 block|{
@@ -11846,7 +11933,7 @@ expr_stmt|;
 comment|// first write the map
 name|out
 operator|+=
-literal|"    // 0 - 0x"
+literal|"    // [0x0..0x"
 operator|+
 name|QByteArray
 operator|::
@@ -11856,6 +11943,8 @@ name|BMP_END
 argument_list|,
 literal|16
 argument_list|)
+operator|+
+literal|")"
 expr_stmt|;
 for|for
 control|(
@@ -11964,7 +12053,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|+=
-literal|"\n\n    // 0x"
+literal|"\n\n    // [0x"
 operator|+
 name|QByteArray
 operator|::
@@ -11975,7 +12064,7 @@ argument_list|,
 literal|16
 argument_list|)
 operator|+
-literal|" - 0x"
+literal|"..0x"
 operator|+
 name|QByteArray
 operator|::
@@ -11986,7 +12075,7 @@ argument_list|,
 literal|16
 argument_list|)
 operator|+
-literal|"\n"
+literal|")\n"
 expr_stmt|;
 for|for
 control|(
@@ -12230,14 +12319,14 @@ name|out
 operator|.
 name|endsWith
 argument_list|(
-literal|' '
+literal|", "
 argument_list|)
 condition|)
 name|out
 operator|.
 name|chop
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|out
@@ -12731,6 +12820,15 @@ operator|+=
 literal|" },"
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|out
+operator|.
+name|endsWith
+argument_list|(
+literal|','
+argument_list|)
+condition|)
 name|out
 operator|.
 name|chop
@@ -12746,14 +12844,12 @@ name|out
 operator|+=
 literal|"Q_DECL_CONST_FUNCTION static inline const Properties *qGetProp(uint ucs4) Q_DECL_NOTHROW\n"
 literal|"{\n"
-literal|"    const int index = GET_PROP_INDEX(ucs4);\n"
-literal|"    return uc_properties + index;\n"
+literal|"    return uc_properties + GET_PROP_INDEX(ucs4);\n"
 literal|"}\n"
 literal|"\n"
 literal|"Q_DECL_CONST_FUNCTION static inline const Properties *qGetProp(ushort ucs2) Q_DECL_NOTHROW\n"
 literal|"{\n"
-literal|"    const int index = GET_PROP_INDEX_UCS2(ucs2);\n"
-literal|"    return uc_properties + index;\n"
+literal|"    return uc_properties + GET_PROP_INDEX_UCS2(ucs2);\n"
 literal|"}\n"
 literal|"\n"
 literal|"Q_DECL_CONST_FUNCTION Q_CORE_EXPORT const Properties * QT_FASTCALL properties(uint ucs4) Q_DECL_NOTHROW\n"
@@ -12770,22 +12866,22 @@ name|out
 operator|+=
 literal|"Q_CORE_EXPORT GraphemeBreakClass QT_FASTCALL graphemeBreakClass(uint ucs4) Q_DECL_NOTHROW\n"
 literal|"{\n"
-literal|"    return (GraphemeBreakClass)qGetProp(ucs4)->graphemeBreakClass;\n"
+literal|"    return static_cast<GraphemeBreakClass>(qGetProp(ucs4)->graphemeBreakClass);\n"
 literal|"}\n"
 literal|"\n"
 literal|"Q_CORE_EXPORT WordBreakClass QT_FASTCALL wordBreakClass(uint ucs4) Q_DECL_NOTHROW\n"
 literal|"{\n"
-literal|"    return (WordBreakClass)qGetProp(ucs4)->wordBreakClass;\n"
+literal|"    return static_cast<WordBreakClass>(qGetProp(ucs4)->wordBreakClass);\n"
 literal|"}\n"
 literal|"\n"
 literal|"Q_CORE_EXPORT SentenceBreakClass QT_FASTCALL sentenceBreakClass(uint ucs4) Q_DECL_NOTHROW\n"
 literal|"{\n"
-literal|"    return (SentenceBreakClass)qGetProp(ucs4)->sentenceBreakClass;\n"
+literal|"    return static_cast<SentenceBreakClass>(qGetProp(ucs4)->sentenceBreakClass);\n"
 literal|"}\n"
 literal|"\n"
 literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4) Q_DECL_NOTHROW\n"
 literal|"{\n"
-literal|"    return (LineBreakClass)qGetProp(ucs4)->lineBreakClass;\n"
+literal|"    return static_cast<LineBreakClass>(qGetProp(ucs4)->lineBreakClass);\n"
 literal|"}\n"
 literal|"\n"
 expr_stmt|;
@@ -12811,7 +12907,7 @@ name|out
 decl_stmt|;
 name|out
 operator|+=
-literal|"static const ushort specialCaseMap[] = {\n"
+literal|"static const unsigned short specialCaseMap[] = {\n"
 literal|"    0x0, // placeholder"
 expr_stmt|;
 name|int
@@ -14224,7 +14320,7 @@ argument_list|,
 literal|16
 argument_list|)
 operator|+
-literal|"\\\n"
+literal|" \\\n"
 literal|"           ? uc_decomposition_trie[uc_decomposition_trie[((ucs4 - 0x"
 operator|+
 name|QByteArray
@@ -14272,7 +14368,7 @@ argument_list|,
 literal|16
 argument_list|)
 operator|+
-literal|")]\\\n"
+literal|")] \\\n"
 literal|"           : 0xffff))\n\n"
 expr_stmt|;
 name|out
@@ -15768,7 +15864,7 @@ argument_list|,
 literal|16
 argument_list|)
 operator|+
-literal|"\\\n"
+literal|" \\\n"
 literal|"           ? uc_ligature_trie[uc_ligature_trie[((ucs4 - 0x"
 operator|+
 name|QByteArray
@@ -15816,7 +15912,7 @@ argument_list|,
 literal|16
 argument_list|)
 operator|+
-literal|")]\\\n"
+literal|")] \\\n"
 literal|"           : 0xffff))\n\n"
 expr_stmt|;
 name|out

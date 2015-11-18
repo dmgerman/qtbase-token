@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsguieventdispatcher.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qwindowsmousehandler.h"
 end_include
 begin_include
@@ -164,6 +159,11 @@ begin_include
 include|#
 directive|include
 file|<QtCore/private/qsystemlibrary_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtPlatformSupport/private/qwindowsguieventdispatcher_p.h>
 end_include
 begin_include
 include|#

@@ -2763,10 +2763,16 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|QString
+name|errorMessage
+decl_stmt|;
 if|if
 condition|(
 name|processStarted
-argument_list|()
+argument_list|(
+operator|&
+name|errorMessage
+argument_list|)
 condition|)
 block|{
 name|q
@@ -2808,10 +2814,9 @@ name|QProcess
 operator|::
 name|FailedToStart
 argument_list|,
-name|errorString
+name|errorMessage
 argument_list|)
 expr_stmt|;
-comment|// the error string was already set
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX

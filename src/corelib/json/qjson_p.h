@@ -1148,6 +1148,8 @@ name|val
 operator|>>
 literal|63
 operator|)
+operator|!=
+literal|0
 decl_stmt|;
 name|val
 operator|&=
@@ -2886,6 +2888,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
+operator|!
+operator|!
 name|is_object
 return|;
 block|}

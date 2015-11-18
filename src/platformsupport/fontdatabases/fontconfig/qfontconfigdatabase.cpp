@@ -875,7 +875,25 @@ literal|"mai"
 block|,
 comment|// Tirhuta
 literal|"hoc"
+block|,
 comment|// WarangCiti
+literal|""
+block|,
+comment|// Ahom
+literal|""
+block|,
+comment|// AnatolianHieroglyphs
+literal|""
+block|,
+comment|// Hatran
+literal|""
+block|,
+comment|// Multani
+literal|""
+block|,
+comment|// OldHungarian
+literal|""
+comment|// SignWriting
 block|}
 decl_stmt|;
 end_decl_stmt

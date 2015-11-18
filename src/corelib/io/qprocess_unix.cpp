@@ -3862,7 +3862,11 @@ name|bool
 name|QProcessPrivate
 operator|::
 name|processStarted
-parameter_list|()
+parameter_list|(
+name|QString
+modifier|*
+name|errorMessage
+parameter_list|)
 block|{
 name|char
 name|buf
@@ -3987,15 +3991,17 @@ directive|endif
 comment|// did we read an error message?
 if|if
 condition|(
+operator|(
 name|i
 operator|>
 literal|0
+operator|)
+operator|&&
+name|errorMessage
 condition|)
-name|q_func
-argument_list|()
-operator|->
-name|setErrorString
-argument_list|(
+operator|*
+name|errorMessage
+operator|=
 name|QString
 operator|::
 name|fromLocal8Bit
@@ -4003,7 +4009,6 @@ argument_list|(
 name|buf
 argument_list|,
 name|i
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

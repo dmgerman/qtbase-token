@@ -656,6 +656,19 @@ name|Script_Tirhuta
 block|,
 name|Script_WarangCiti
 block|,
+comment|// Unicode 8.0 additions
+name|Script_Ahom
+block|,
+name|Script_AnatolianHieroglyphs
+block|,
+name|Script_Hatran
+block|,
+name|Script_Multani
+block|,
+name|Script_OldHungarian
+block|,
+name|Script_SignWriting
+block|,
 name|ScriptCount
 block|}
 enum|;
@@ -903,6 +916,8 @@ block|,
 name|Unicode_6_3
 block|,
 name|Unicode_7_0
+block|,
+name|Unicode_8_0
 block|}
 enum|;
 comment|// ****** WHEN ADDING FUNCTIONS, CONSIDER ADDING TO QCharRef TOO

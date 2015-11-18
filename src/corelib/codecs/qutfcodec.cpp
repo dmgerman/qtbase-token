@@ -1467,11 +1467,6 @@ operator|::
 name|ReplacementCharacter
 decl_stmt|;
 name|int
-name|need
-init|=
-literal|0
-decl_stmt|;
-name|int
 name|invalid
 init|=
 literal|0
@@ -1497,8 +1492,6 @@ comment|//   3 of 4 bytes       same                        +1 (same)
 name|QString
 name|result
 argument_list|(
-name|need
-operator|+
 name|len
 operator|+
 literal|1

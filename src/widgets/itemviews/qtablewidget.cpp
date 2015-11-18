@@ -7866,7 +7866,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the horizontal header item for column \a column to \a item. */
+comment|/*!   Sets the horizontal header item for column \a column to \a item.   If necessary, the column count is increased to fit the item.   The previous header item (if there was one) is deleted. */
 end_comment
 begin_function
 DECL|function|setHorizontalHeaderItem

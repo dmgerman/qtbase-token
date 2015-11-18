@@ -344,7 +344,10 @@ name|this
 operator|->
 name|dbl
 operator|=
+name|double
+argument_list|(
 name|n
+argument_list|)
 expr_stmt|;
 block|}
 end_constructor
@@ -1175,7 +1178,10 @@ operator|==
 name|dbl
 condition|)
 return|return
+name|int
+argument_list|(
 name|dbl
+argument_list|)
 return|;
 return|return
 name|defaultValue

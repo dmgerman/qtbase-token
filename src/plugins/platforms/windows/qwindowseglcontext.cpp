@@ -43,7 +43,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QtANGLE/EGL/eglext.h>
+file|<EGL/eglext.h>
 end_include
 begin_endif
 endif|#

@@ -13,11 +13,36 @@ define|#
 directive|define
 name|QWINDOWSGUIEVENTDISPATCHER_H
 end_define
-begin_include
-include|#
-directive|include
-file|"qtwindows_additional.h"
-end_include
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//  W A R N I N G
+end_comment
+begin_comment
+comment|//  -------------
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This file is not part of the Qt API.  It exists for the convenience
+end_comment
+begin_comment
+comment|// of the QLibrary class.  This header file may change from
+end_comment
+begin_comment
+comment|// version to version without notice, or even be removed.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// We mean it.
+end_comment
+begin_comment
+comment|//
+end_comment
 begin_include
 include|#
 directive|include

@@ -3121,6 +3121,11 @@ argument_list|)
 name|char
 name|c
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|Q_ALIGNOF

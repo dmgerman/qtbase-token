@@ -941,8 +941,8 @@ name|hasTransitions
 argument_list|()
 condition|)
 block|{
-comment|// No daylight time means same offset for all local msecs
-comment|// Having daylight time but no transitions means we can't calculate, so use nearest
+comment|// No DST means same offset for all local msecs
+comment|// Having DST but no transitions means we can't calculate, so use nearest
 return|return
 name|data
 argument_list|(
@@ -1091,7 +1091,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// If tran is in StandardTime, then need to check if falls close either daylight transition
+comment|// If tran is in StandardTime, then need to check if falls close to either DST transition.
 comment|// If it does, then it may need adjusting for missing hour or for second occurrence
 name|qint64
 name|diffPrevTran
@@ -1140,9 +1140,9 @@ operator|<
 name|MSECS_TRAN_WINDOW
 condition|)
 block|{
-comment|// If tran picked is for standard time check if changed from daylight in last 6 hours,
+comment|// If tran picked is for standard time check if changed from DST in last 6 hours,
 comment|// as the local msecs may be ambiguous and represent two valid utc msecs.
-comment|// If in last 6 hours then get prev tran and if diff falls within the daylight offset
+comment|// If in last 6 hours then get prev tran and if diff falls within the DST offset
 comment|// then use the prev tran as we default to the FirstOccurrence
 comment|// TODO Check if faster to just always get prev tran, or if faster using 6 hour check.
 name|Data

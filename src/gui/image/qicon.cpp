@@ -5479,7 +5479,7 @@ begin_comment
 comment|/*!     \typedef QIcon::DataPtr     \internal */
 end_comment
 begin_comment
-comment|/*!     \internal     \since 5.6     Attempts to find a suitable @Nx file for the given \a targetDevicePixelRatio     Returns the the \a baseFileName if no such file was found.      Given base foo.png and a target dpr of 2.5, this function will look for     foo@3x.png, then foo@2x, then fall back to foo.png if not found. */
+comment|/*!     \internal     \since 5.6     Attempts to find a suitable @Nx file for the given \a targetDevicePixelRatio     Returns the the \a baseFileName if no such file was found.      Given base foo.png and a target dpr of 2.5, this function will look for     foo@3x.png, then foo@2x, then fall back to foo.png if not found.      \a sourceDevicePixelRatio will be set to the value of N if the argument is     a non-null pointer */
 end_comment
 begin_function
 DECL|function|qt_findAtNxFile
@@ -5493,6 +5493,10 @@ name|baseFileName
 parameter_list|,
 name|qreal
 name|targetDevicePixelRatio
+parameter_list|,
+name|qreal
+modifier|*
+name|sourceDevicePixelRatio
 parameter_list|)
 block|{
 if|if
@@ -5605,9 +5609,20 @@ argument_list|(
 name|atNxfileName
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
+name|sourceDevicePixelRatio
+condition|)
+operator|*
+name|sourceDevicePixelRatio
+operator|=
+name|n
+expr_stmt|;
 return|return
 name|atNxfileName
 return|;
+block|}
 block|}
 return|return
 name|baseFileName

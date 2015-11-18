@@ -596,7 +596,7 @@ operator|.
 name|isValid
 argument_list|()
 condition|)
-comment|/* note: the Java function only tests for future daylight transtions, not past */
+comment|/* note: the Java function only tests for future DST transtions, not past */
 return|return
 name|androidTimeZone
 operator|.
@@ -864,7 +864,7 @@ block|{
 name|qint64
 name|UTCepochMSecs
 decl_stmt|;
-comment|// compare the UTC time with standard offset against normal daylight offset of one hour
+comment|// compare the UTC time with standard offset against normal DST offset of one hour
 name|qint64
 name|standardUTCMSecs
 argument_list|(
@@ -883,8 +883,8 @@ decl_stmt|;
 name|qint64
 name|daylightUTCMsecs
 decl_stmt|;
-comment|// Check if daylight time does apply,
-comment|// checking also for daylight time boundaries
+comment|// Check if daylight-saving time applies,
+comment|// checking also for DST boundaries
 if|if
 condition|(
 name|isDaylightTime
@@ -893,7 +893,7 @@ name|standardUTCMSecs
 argument_list|)
 condition|)
 block|{
-comment|// If daylight does apply, then standardUTCMSecs will be an hour or so ahead of the real epoch time
+comment|// If DST does apply, then standardUTCMSecs will be an hour or so ahead of the real epoch time
 comment|// so check that time
 name|daylightUTCMsecs
 operator|=
@@ -914,7 +914,7 @@ name|daylightUTCMsecs
 argument_list|)
 condition|)
 block|{
-comment|// daylight time confirmed
+comment|// DST confirmed
 name|UTCepochMSecs
 operator|=
 name|daylightUTCMsecs
@@ -922,7 +922,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// daylight time has just finished
+comment|// DST has just finished
 name|UTCepochMSecs
 operator|=
 name|standardUTCMSecs
@@ -932,7 +932,7 @@ block|}
 else|else
 block|{
 comment|// Standard time indicated, but check for a false negative.
-comment|// Would a standard one-hour daylight offset indicate daylight time?
+comment|// Would a standard one-hour DST offset indicate DST?
 name|daylightUTCMsecs
 operator|=
 name|standardUTCMSecs
@@ -948,8 +948,8 @@ name|daylightUTCMsecs
 argument_list|)
 condition|)
 block|{
-comment|// daylight time may have just started,
-comment|// but double check against timezone's own daylight offset
+comment|// DST may have just started,
+comment|// but double check against timezone's own DST offset
 comment|// (don't necessarily assume a one-hour offset)
 name|daylightUTCMsecs
 operator|=
@@ -970,7 +970,7 @@ name|daylightUTCMsecs
 argument_list|)
 condition|)
 block|{
-comment|// daylight time confirmed
+comment|// DST confirmed
 name|UTCepochMSecs
 operator|=
 name|daylightUTCMsecs

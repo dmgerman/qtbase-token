@@ -1024,6 +1024,12 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|static
+name|QString
+name|styleOverride
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|static
 name|QStyleHints
 modifier|*
 name|styleHints
