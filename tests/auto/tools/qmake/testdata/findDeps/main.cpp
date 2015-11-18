@@ -13,6 +13,21 @@ end_define
 begin_comment
 comment|// if not ignored, symbol needed() won't be available ...
 end_comment
+begin_comment
+comment|// Check we're not confused by string juxtaposition:
+end_comment
+begin_decl_stmt
+DECL|variable|text
+specifier|static
+specifier|const
+name|char
+name|text
+index|[]
+init|=
+literal|"lorem "
+literal|"ipsum /*"
+decl_stmt|;
+end_decl_stmt
 begin_include
 include|#
 directive|include
