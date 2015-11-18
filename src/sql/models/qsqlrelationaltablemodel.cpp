@@ -2448,6 +2448,9 @@ argument_list|(
 name|QSqlRelationalTableModel
 argument_list|)
 expr_stmt|;
+name|beginResetModel
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|clearChanges
@@ -2463,6 +2466,9 @@ expr_stmt|;
 name|QSqlTableModel
 operator|::
 name|clear
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}
