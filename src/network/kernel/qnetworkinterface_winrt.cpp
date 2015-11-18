@@ -225,6 +225,16 @@ operator|&
 name|adapter
 argument_list|)
 expr_stmt|;
+comment|// Indicates that no internet connection is available/the device is in airplane mode
+if|if
+condition|(
+name|hr
+operator|==
+name|E_INVALIDARG
+condition|)
+return|return
+literal|0
+return|;
 name|Q_ASSERT_SUCCEEDED
 argument_list|(
 name|hr
