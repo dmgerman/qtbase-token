@@ -1917,14 +1917,6 @@ operator|.
 name|fileSystemType
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|isPseudoFs
-argument_list|(
-name|it
-argument_list|)
-condition|)
-continue|continue;
 comment|// we try to find most suitable entry
 if|if
 condition|(
