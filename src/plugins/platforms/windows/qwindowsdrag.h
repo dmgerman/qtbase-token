@@ -35,6 +35,12 @@ struct_decl|;
 end_struct_decl
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QPlatformScreen
+name|class
+name|QPlatformScreen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QWindowsDropMimeData
 range|:
@@ -285,13 +291,6 @@ operator|*
 name|dropHelper
 argument_list|()
 block|;
-name|QPixmap
-name|defaultCursor
-argument_list|(
-argument|Qt::DropAction action
-argument_list|)
-specifier|const
-block|;
 name|private
 operator|:
 name|QWindowsDropMimeData
@@ -304,22 +303,6 @@ block|;
 name|IDropTargetHelper
 operator|*
 name|m_cachedDropTargetHelper
-block|;
-name|mutable
-name|QPixmap
-name|m_copyDragCursor
-block|;
-name|mutable
-name|QPixmap
-name|m_moveDragCursor
-block|;
-name|mutable
-name|QPixmap
-name|m_linkDragCursor
-block|;
-name|mutable
-name|QPixmap
-name|m_ignoreDragCursor
 block|; }
 decl_stmt|;
 end_decl_stmt
