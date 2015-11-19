@@ -168,9 +168,9 @@ file|<sqlext.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QODBCPrivate
+DECL|variable|QODBCResultPrivate
 name|class
-name|QODBCPrivate
+name|QODBCResultPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -323,7 +323,7 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|QODBCPrivate
+name|QODBCResultPrivate
 operator|*
 name|d
 block|; }
@@ -481,7 +481,7 @@ argument_list|()
 block|;
 name|friend
 name|class
-name|QODBCPrivate
+name|QODBCResultPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt

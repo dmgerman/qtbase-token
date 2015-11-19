@@ -648,13 +648,13 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|QODBCPrivate
+DECL|class|QODBCResultPrivate
 class|class
-name|QODBCPrivate
+name|QODBCResultPrivate
 block|{
 public|public:
-DECL|function|QODBCPrivate
-name|QODBCPrivate
+DECL|function|QODBCResultPrivate
+name|QODBCResultPrivate
 parameter_list|(
 name|QODBCDriverPrivate
 modifier|*
@@ -830,7 +830,7 @@ end_class
 begin_function
 DECL|function|isStmtHandleValid
 name|bool
-name|QODBCPrivate
+name|QODBCResultPrivate
 operator|::
 name|isStmtHandleValid
 parameter_list|(
@@ -870,7 +870,7 @@ end_function
 begin_function
 DECL|function|updateStmtHandleState
 name|void
-name|QODBCPrivate
+name|QODBCResultPrivate
 operator|::
 name|updateStmtHandleState
 parameter_list|(
@@ -1297,7 +1297,7 @@ name|QString
 name|qODBCWarn
 parameter_list|(
 specifier|const
-name|QODBCPrivate
+name|QODBCResultPrivate
 modifier|*
 name|odbc
 parameter_list|,
@@ -1378,7 +1378,7 @@ modifier|&
 name|message
 parameter_list|,
 specifier|const
-name|QODBCPrivate
+name|QODBCResultPrivate
 modifier|*
 name|odbc
 parameter_list|)
@@ -1475,7 +1475,7 @@ name|ErrorType
 name|type
 parameter_list|,
 specifier|const
-name|QODBCPrivate
+name|QODBCResultPrivate
 modifier|*
 name|p
 parameter_list|)
@@ -3175,7 +3175,7 @@ name|QSqlField
 name|qMakeFieldInfo
 parameter_list|(
 specifier|const
-name|QODBCPrivate
+name|QODBCResultPrivate
 modifier|*
 name|p
 parameter_list|,
@@ -4915,7 +4915,7 @@ block|{
 name|d
 operator|=
 operator|new
-name|QODBCPrivate
+name|QODBCResultPrivate
 argument_list|(
 name|p
 argument_list|)
