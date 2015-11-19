@@ -303,15 +303,12 @@ specifier|static
 name|HCURSOR
 name|createPixmapCursor
 argument_list|(
-specifier|const
-name|QPixmap
-operator|&
-name|pixmap
+argument|QPixmap pixmap
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|hotSpot
+argument|const QPoint&hotSpot
+argument_list|,
+argument|qreal scaleFactor =
+literal|1
 argument_list|)
 block|;
 specifier|static
@@ -319,6 +316,9 @@ name|HCURSOR
 name|createPixmapCursor
 argument_list|(
 argument|const PixmapCursor&pc
+argument_list|,
+argument|qreal scaleFactor =
+literal|1
 argument_list|)
 block|{
 return|return
@@ -331,6 +331,8 @@ argument_list|,
 name|pc
 operator|.
 name|hotSpot
+argument_list|,
+name|scaleFactor
 argument_list|)
 return|;
 block|}
