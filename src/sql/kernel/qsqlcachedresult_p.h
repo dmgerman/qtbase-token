@@ -332,9 +332,6 @@ name|int
 name|colCount
 block|;
 name|bool
-name|forwardOnly
-block|;
-name|bool
 name|atEnd
 block|; }
 decl_stmt|;

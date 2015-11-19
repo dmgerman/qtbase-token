@@ -72,11 +72,6 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|forwardOnly
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|atEnd
 argument_list|(
 literal|false
@@ -95,10 +90,6 @@ name|cache
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|forwardOnly
-operator|=
-literal|false
 expr_stmt|;
 name|atEnd
 operator|=
