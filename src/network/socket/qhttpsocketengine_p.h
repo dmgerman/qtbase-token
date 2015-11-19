@@ -554,12 +554,6 @@ name|bool
 name|exceptNotificationEnabled
 block|;
 name|bool
-name|readNotificationActivated
-block|;
-name|bool
-name|writeNotificationActivated
-block|;
-name|bool
 name|readNotificationPending
 block|;
 name|bool

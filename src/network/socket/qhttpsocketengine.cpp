@@ -3712,12 +3712,6 @@ argument_list|(
 name|QHttpSocketEngine
 argument_list|)
 expr_stmt|;
-name|d
-operator|->
-name|readNotificationActivated
-operator|=
-literal|true
-expr_stmt|;
 comment|// if there is a connection notification pending we have to emit the readNotification
 comment|// incase there is connection error. This is only needed for Windows, but it does not
 comment|// hurt in other cases.
@@ -3773,12 +3767,6 @@ name|Q_D
 argument_list|(
 name|QHttpSocketEngine
 argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|writeNotificationActivated
-operator|=
-literal|true
 expr_stmt|;
 if|if
 condition|(
@@ -3875,16 +3863,6 @@ literal|false
 argument_list|)
 member_init_list|,
 name|exceptNotificationEnabled
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
-name|readNotificationActivated
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
-name|writeNotificationActivated
 argument_list|(
 literal|false
 argument_list|)
