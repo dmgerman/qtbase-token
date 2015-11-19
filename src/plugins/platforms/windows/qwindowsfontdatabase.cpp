@@ -6340,6 +6340,14 @@ operator|.
 name|familyName
 argument_list|()
 expr_stmt|;
+name|fontEngine
+operator|->
+name|fontDef
+operator|.
+name|hintingPreference
+operator|=
+name|hintingPreference
+expr_stmt|;
 name|directWriteFontFace
 operator|->
 name|Release
