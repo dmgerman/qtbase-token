@@ -341,6 +341,8 @@ name|PixmapCursor
 name|customCursor
 argument_list|(
 argument|Qt::CursorShape cursorShape
+argument_list|,
+argument|const QPlatformScreen *screen = Q_NULLPTR
 argument_list|)
 block|;
 specifier|static
@@ -348,6 +350,8 @@ name|HCURSOR
 name|createCursorFromShape
 argument_list|(
 argument|Qt::CursorShape cursorShape
+argument_list|,
+argument|const QPlatformScreen *screen = Q_NULLPTR
 argument_list|)
 block|;
 specifier|static
