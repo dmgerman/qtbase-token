@@ -633,7 +633,6 @@ end_struct_decl
 begin_class
 DECL|class|QOCIResult
 class|class
-name|Q_EXPORT_SQLDRIVER_OCI
 name|QOCIResult
 super|:
 specifier|public
