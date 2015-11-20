@@ -12372,6 +12372,8 @@ argument_list|(
 name|lineEnd
 operator|-
 literal|1
+argument_list|,
+name|itm
 argument_list|)
 decl_stmt|;
 name|int
@@ -13114,6 +13116,8 @@ operator|+
 name|line_length
 operator|-
 literal|1
+argument_list|,
+name|firstItem
 argument_list|)
 decl_stmt|;
 name|int
