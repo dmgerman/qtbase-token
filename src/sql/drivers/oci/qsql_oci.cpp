@@ -2638,11 +2638,11 @@ name|int
 name|serverVersion
 decl_stmt|;
 DECL|member|prefetchRows
-name|ub4
+name|int
 name|prefetchRows
 decl_stmt|;
 DECL|member|prefetchMem
-name|ub2
+name|int
 name|prefetchMem
 decl_stmt|;
 DECL|member|user
