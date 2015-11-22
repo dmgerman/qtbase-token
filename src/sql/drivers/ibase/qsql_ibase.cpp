@@ -8155,13 +8155,11 @@ block|{
 name|QSqlQuery
 name|q
 argument_list|(
-operator|new
-name|QIBaseResult
-argument_list|(
-name|d
+name|driver
+argument_list|()
 operator|->
-name|db
-argument_list|)
+name|createResult
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|q
