@@ -4650,6 +4650,9 @@ argument_list|(
 name|QSqlTableModel
 argument_list|)
 expr_stmt|;
+name|beginResetModel
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|clear
@@ -4658,6 +4661,9 @@ expr_stmt|;
 name|QSqlQueryModel
 operator|::
 name|clear
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

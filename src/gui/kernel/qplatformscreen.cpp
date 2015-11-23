@@ -246,10 +246,17 @@ operator|->
 name|isVisible
 argument_list|()
 operator|&&
+name|QHighDpi
+operator|::
+name|toNativePixels
+argument_list|(
 name|w
 operator|->
 name|geometry
 argument_list|()
+argument_list|,
+name|w
+argument_list|)
 operator|.
 name|contains
 argument_list|(

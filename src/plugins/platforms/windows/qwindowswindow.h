@@ -1015,7 +1015,7 @@ comment|// !Q_OS_WINCE
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
-name|QWindowsWindowCursor
+name|CursorHandlePtr
 name|cursor
 argument_list|()
 specifier|const
@@ -1030,7 +1030,7 @@ name|void
 name|setCursor
 argument_list|(
 specifier|const
-name|QWindowsWindowCursor
+name|CursorHandlePtr
 operator|&
 name|c
 argument_list|)
@@ -1320,7 +1320,7 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
-name|QWindowsWindowCursor
+name|CursorHandlePtr
 name|m_cursor
 block|;
 endif|#

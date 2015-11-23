@@ -9049,6 +9049,9 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*! \fn QXmlStreamStringRef::swap(QXmlStreamStringRef&other)     \since 5.6      Swaps this string reference's contents with \a other.     This function is very fast and never fails. */
+end_comment
+begin_comment
 comment|/*! \fn QStringRef QXmlStreamEntityDeclaration::name() const  Returns the entity name. */
 end_comment
 begin_comment

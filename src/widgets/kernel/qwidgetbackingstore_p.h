@@ -162,11 +162,7 @@ name|bool
 name|isLocked
 argument_list|()
 specifier|const
-block|{
-return|return
-name|m_locked
-return|;
-block|}
+block|;
 name|private
 name|slots
 operator|:
@@ -178,7 +174,13 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|QHash
+operator|<
+name|QPlatformTextureList
+operator|*
+block|,
 name|bool
+operator|>
 name|m_locked
 block|;
 name|QWidgetBackingStore
@@ -408,10 +410,6 @@ operator|*
 operator|>
 name|staticWidgets
 expr_stmt|;
-name|QPlatformTextureList
-modifier|*
-name|widgetTextures
-decl_stmt|;
 name|QBackingStore
 modifier|*
 name|store

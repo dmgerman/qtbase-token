@@ -293,7 +293,15 @@ name|top
 argument_list|()
 argument_list|)
 argument_list|,
-name|window
+cast|static_cast
+argument_list|<
+specifier|const
+name|QWindow
+operator|*
+argument_list|>
+argument_list|(
+name|Q_NULLPTR
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

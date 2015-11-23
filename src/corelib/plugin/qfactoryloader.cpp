@@ -97,6 +97,9 @@ literal|"IID"
 argument_list|)
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_SHARED
 DECL|function|versionKeyLiteral
 specifier|inline
 name|QString
@@ -110,6 +113,8 @@ literal|"version"
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 DECL|function|metaDataKeyLiteral
 specifier|inline
 name|QString

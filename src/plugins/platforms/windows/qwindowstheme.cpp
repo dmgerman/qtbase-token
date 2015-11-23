@@ -2845,6 +2845,17 @@ argument_list|(
 literal|true
 argument_list|)
 return|;
+case|case
+name|WheelScrollLines
+case|:
+return|return
+name|dWordSystemParametersInfo
+argument_list|(
+name|SPI_GETWHEELSCROLLLINES
+argument_list|,
+literal|3
+argument_list|)
+return|;
 default|default:
 break|break;
 block|}

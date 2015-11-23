@@ -11957,7 +11957,7 @@ begin_comment
 comment|/*!     \fn int QTextLine::cursorToX(int cursorPos, Edge edge) const      \overload */
 end_comment
 begin_comment
-comment|/*!     Converts the cursor position \a cursorPos to the corresponding x position     inside the line, taking account of the \a edge.      If \a cursorPos is not a valid cursor position, the nearest valid     cursor position will be used instead, and cpos will be modified to     point to this valid cursor position.      \sa xToCursor() */
+comment|/*!     Converts the cursor position \a cursorPos to the corresponding x position     inside the line, taking account of the \a edge.      If \a cursorPos is not a valid cursor position, the nearest valid     cursor position will be used instead, and \a cursorPos will be modified to     point to this valid cursor position.      \sa xToCursor() */
 end_comment
 begin_function
 DECL|function|cursorToX
