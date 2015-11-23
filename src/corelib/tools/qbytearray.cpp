@@ -8981,7 +8981,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn void QByteArray::clear()      Clears the contents of the byte array and makes it empty.      \sa resize(), isEmpty() */
+comment|/*! \fn void QByteArray::clear()      Clears the contents of the byte array and makes it null.      \sa resize(), isNull() */
 end_comment
 begin_function
 DECL|function|clear
