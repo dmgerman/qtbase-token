@@ -2634,6 +2634,27 @@ argument|int line
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|reply_t
+operator|>
+name|friend
+name|reply_t
+operator|*
+name|q_xcb_call_template
+argument_list|(
+argument|reply_t *reply
+argument_list|,
+argument|QXcbConnection *connection
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
@@ -2927,6 +2948,44 @@ argument_list|)
 block|;
 return|return
 name|cookie
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|reply_t
+operator|>
+DECL|function|q_xcb_call_template
+name|reply_t
+operator|*
+name|q_xcb_call_template
+argument_list|(
+argument|reply_t *reply
+argument_list|,
+argument|QXcbConnection *connection
+argument_list|,
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|)
+block|{
+name|connection
+operator|->
+name|log
+argument_list|(
+name|file
+argument_list|,
+name|line
+argument_list|,
+name|reply
+operator|->
+name|sequence
+argument_list|)
+block|;
+return|return
+name|reply
 return|;
 block|}
 end_expr_stmt

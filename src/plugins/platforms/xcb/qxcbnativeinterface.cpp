@@ -2045,7 +2045,7 @@ decl_stmt|;
 name|xcb_get_property_cookie_t
 name|cookie
 init|=
-name|Q_XCB_CALL
+name|Q_XCB_CALL2
 argument_list|(
 name|xcb_get_property
 argument_list|(
@@ -2069,13 +2069,15 @@ literal|0
 argument_list|,
 literal|128
 argument_list|)
+argument_list|,
+name|defaultConnection
 argument_list|)
 decl_stmt|;
 name|xcb_get_property_reply_t
 modifier|*
 name|reply
 init|=
-name|Q_XCB_CALL
+name|Q_XCB_CALL2
 argument_list|(
 name|xcb_get_property_reply
 argument_list|(
@@ -2088,6 +2090,8 @@ name|cookie
 argument_list|,
 literal|0
 argument_list|)
+argument_list|,
+name|defaultConnection
 argument_list|)
 decl_stmt|;
 name|Q_ASSERT

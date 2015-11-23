@@ -4196,8 +4196,6 @@ name|qDebug
 argument_list|(
 literal|"Caused by: %s:%d"
 argument_list|,
-name|qPrintable
-argument_list|(
 name|m_callLog
 operator|.
 name|at
@@ -4206,7 +4204,9 @@ name|i
 argument_list|)
 operator|.
 name|file
-argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|m_callLog
 operator|.
@@ -4241,8 +4241,6 @@ name|qDebug
 argument_list|(
 literal|"Caused some time before: %s:%d"
 argument_list|,
-name|qPrintable
-argument_list|(
 name|m_callLog
 operator|.
 name|at
@@ -4251,7 +4249,9 @@ name|i
 argument_list|)
 operator|.
 name|file
-argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|m_callLog
 operator|.
@@ -4273,8 +4273,6 @@ name|qDebug
 argument_list|(
 literal|"and after: %s:%d"
 argument_list|,
-name|qPrintable
-argument_list|(
 name|m_callLog
 operator|.
 name|at
@@ -4285,7 +4283,9 @@ literal|1
 argument_list|)
 operator|.
 name|file
-argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|m_callLog
 operator|.
@@ -4321,15 +4321,15 @@ name|qDebug
 argument_list|(
 literal|"Caused some time after: %s:%d"
 argument_list|,
-name|qPrintable
-argument_list|(
 name|m_callLog
 operator|.
 name|first
 argument_list|()
 operator|.
 name|file
-argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|m_callLog
 operator|.
