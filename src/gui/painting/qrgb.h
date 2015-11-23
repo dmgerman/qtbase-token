@@ -174,7 +174,7 @@ operator|(
 operator|(
 name|r
 operator|&
-literal|0xff
+literal|0xffu
 operator|)
 operator|<<
 literal|16
@@ -184,7 +184,7 @@ operator|(
 operator|(
 name|g
 operator|&
-literal|0xff
+literal|0xffu
 operator|)
 operator|<<
 literal|8
@@ -193,7 +193,7 @@ operator||
 operator|(
 name|b
 operator|&
-literal|0xff
+literal|0xffu
 operator|)
 return|;
 block|}
@@ -224,7 +224,7 @@ operator|(
 operator|(
 name|a
 operator|&
-literal|0xff
+literal|0xffu
 operator|)
 operator|<<
 literal|24
@@ -234,7 +234,7 @@ operator|(
 operator|(
 name|r
 operator|&
-literal|0xff
+literal|0xffu
 operator|)
 operator|<<
 literal|16
@@ -244,7 +244,7 @@ operator|(
 operator|(
 name|g
 operator|&
-literal|0xff
+literal|0xffu
 operator|)
 operator|<<
 literal|8
@@ -253,7 +253,7 @@ operator||
 operator|(
 name|b
 operator|&
-literal|0xff
+literal|0xffu
 operator|)
 return|;
 block|}
