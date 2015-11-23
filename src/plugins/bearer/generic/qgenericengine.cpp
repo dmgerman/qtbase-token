@@ -994,6 +994,18 @@ operator|&
 name|adapter
 argument_list|)
 expr_stmt|;
+comment|// Indicates that no internet connection is available/the device is in airplane mode
+if|if
+condition|(
+name|hr
+operator|==
+name|E_INVALIDARG
+condition|)
+return|return
+name|QNetworkConfiguration
+operator|::
+name|BearerUnknown
+return|;
 name|Q_ASSERT_SUCCEEDED
 argument_list|(
 name|hr

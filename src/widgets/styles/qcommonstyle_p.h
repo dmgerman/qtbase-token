@@ -302,7 +302,7 @@ name|QT_NO_TABBAR
 name|void
 name|tabLayout
 argument_list|(
-argument|const QStyleOptionTabV3 *opt
+argument|const QStyleOptionTab *opt
 argument_list|,
 argument|const QWidget *widget
 argument_list|,

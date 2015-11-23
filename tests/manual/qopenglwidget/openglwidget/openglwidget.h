@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtWidgets/QOpenGLWidget>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QVector3D>
+end_include
 begin_decl_stmt
 DECL|variable|OpenGLWidgetPrivate
 name|class
@@ -36,10 +41,18 @@ name|public
 operator|:
 name|OpenGLWidget
 argument_list|(
-name|QWidget
-operator|*
-name|parent
-operator|=
+argument|int interval =
+literal|30
+argument_list|,
+argument|const QVector3D&rotAxis = QVector3D(
+literal|0
+argument|,
+literal|1
+argument|,
+literal|0
+argument|)
+argument_list|,
+argument|QWidget *parent =
 literal|0
 argument_list|)
 block|;
@@ -65,8 +78,10 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|QScopedPointer
+operator|<
 name|OpenGLWidgetPrivate
-operator|*
+operator|>
 name|d
 block|; }
 decl_stmt|;

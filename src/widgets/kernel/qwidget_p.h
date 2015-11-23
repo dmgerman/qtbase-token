@@ -175,6 +175,12 @@ name|QOpenGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformTextureList
+name|class
+name|QPlatformTextureList
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QStyle
 name|class
 name|QStyle
@@ -415,6 +421,16 @@ name|QPainter
 modifier|*
 name|sharedPainter
 decl_stmt|;
+DECL|member|window
+name|QWidgetWindow
+modifier|*
+name|window
+decl_stmt|;
+DECL|member|shareContext
+name|QOpenGLContext
+modifier|*
+name|shareContext
+decl_stmt|;
 comment|// Implicit pointers (shared_null).
 DECL|member|caption
 name|QString
@@ -470,6 +486,19 @@ name|WindowFlags
 name|savedFlags
 expr_stmt|;
 comment|// Save widget flags while showing fullscreen
+DECL|member|initialScreenIndex
+name|int
+name|initialScreenIndex
+decl_stmt|;
+comment|// Screen number when passing a QDesktop[Screen]Widget as parent.
+DECL|member|widgetTextures
+name|QVector
+operator|<
+name|QPlatformTextureList
+operator|*
+operator|>
+name|widgetTextures
+expr_stmt|;
 comment|// *************************** Cross-platform bit fields ****************************
 DECL|member|opacity
 name|uint
@@ -659,21 +688,6 @@ name|wasMaximized
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|window
-name|QWidgetWindow
-modifier|*
-name|window
-decl_stmt|;
-DECL|member|shareContext
-name|QOpenGLContext
-modifier|*
-name|shareContext
-decl_stmt|;
-DECL|member|initialScreenIndex
-name|int
-name|initialScreenIndex
-decl_stmt|;
-comment|// Screen number when passing a QDesktop[Screen]Widget as parent.
 block|}
 struct|;
 end_struct
