@@ -77,10 +77,51 @@ comment|/*!     \fn bool QFileSystemModel::rmdir(const QModelIndex&index)      R
 comment|/*!     \fn QIcon QFileSystemModel::fileName(const QModelIndex&index) const      Returns the file name for the item stored in the model under the given     \a index. */
 comment|/*!     \fn QIcon QFileSystemModel::fileIcon(const QModelIndex&index) const      Returns the icon for the item stored in the model under the given     \a index. */
 comment|/*!     \fn QFileInfo QFileSystemModel::fileInfo(const QModelIndex&index) const      Returns the QFileInfo for the item stored in the model under the given     \a index. */
+DECL|function|fileInfo
+name|QFileInfo
+name|QFileSystemModel
+operator|::
+name|fileInfo
+parameter_list|(
+specifier|const
+name|QModelIndex
+modifier|&
+name|index
+parameter_list|)
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QFileSystemModel
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|node
+argument_list|(
+name|index
+argument_list|)
+operator|->
+name|fileInfo
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \fn void QFileSystemModel::rootPathChanged(const QString&newPath);      This signal is emitted whenever the root path has been changed to a \a newPath. */
+end_comment
+begin_comment
 comment|/*!     \fn void QFileSystemModel::fileRenamed(const QString&path, const QString&oldName, const QString&newName)      This signal is emitted whenever a file with the \a oldName is successfully     renamed to \a newName.  The file is located in in the directory \a path. */
+end_comment
+begin_comment
 comment|/*!     \since 4.7     \fn void QFileSystemModel::directoryLoaded(const QString&path)      This signal is emitted when the gatherer thread has finished to load the \a path.  */
+end_comment
+begin_comment
 comment|/*!     \fn bool QFileSystemModel::remove(const QModelIndex&index)      Removes the model item \a index from the file system model and \b{deletes the     corresponding file from the file system}, returning true if successful. If the     item cannot be removed, false is returned.      \warning This function deletes files from the file system; it does \b{not}     move them to a location where they can be recovered.      \sa rmdir() */
+end_comment
+begin_function
 DECL|function|remove
 name|bool
 name|QFileSystemModel

@@ -513,7 +513,6 @@ argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|;
-specifier|inline
 name|QFileInfo
 name|fileInfo
 argument_list|(
@@ -652,29 +651,6 @@ operator|::
 name|DecorationRole
 argument_list|)
 operator|)
-return|;
-block|}
-end_expr_stmt
-begin_expr_stmt
-DECL|function|fileInfo
-specifier|inline
-name|QFileInfo
-name|QFileSystemModel
-operator|::
-name|fileInfo
-argument_list|(
-argument|const QModelIndex&aindex
-argument_list|)
-specifier|const
-block|{
-return|return
-name|QFileInfo
-argument_list|(
-name|filePath
-argument_list|(
-name|aindex
-argument_list|)
-argument_list|)
 return|;
 block|}
 end_expr_stmt
