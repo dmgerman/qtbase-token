@@ -91,11 +91,6 @@ argument|QSqlCachedResult
 argument_list|)
 name|public
 operator|:
-name|virtual
-operator|~
-name|QSqlCachedResult
-argument_list|()
-block|;
 typedef|typedef
 name|QVector
 operator|<

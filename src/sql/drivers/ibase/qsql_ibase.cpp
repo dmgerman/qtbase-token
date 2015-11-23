@@ -1747,11 +1747,6 @@ modifier|*
 name|db
 parameter_list|)
 constructor_decl|;
-specifier|virtual
-name|~
-name|QIBaseResult
-parameter_list|()
-destructor_decl|;
 DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|prepare
@@ -5191,15 +5186,6 @@ argument_list|)
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~QIBaseResult
-name|QIBaseResult
-operator|::
-name|~
-name|QIBaseResult
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|prepare
 name|bool

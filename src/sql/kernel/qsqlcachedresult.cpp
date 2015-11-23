@@ -340,15 +340,6 @@ name|d
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~QSqlCachedResult
-name|QSqlCachedResult
-operator|::
-name|~
-name|QSqlCachedResult
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|init
 name|void
