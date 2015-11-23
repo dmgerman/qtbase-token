@@ -2003,7 +2003,7 @@ begin_comment
 comment|/*! \fn void QList::prepend(const T&value)      Inserts \a value at the beginning of the list.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 7      This is the same as list.insert(0, \a value).      If this list is not shared, this operation is typically     very fast (amortized \l{Algorithmic Complexity}{constant time}),     because QList preallocates extra space on both sides of its     internal buffer to allow for fast growth at both ends of the list.      \sa append(), insert() */
 end_comment
 begin_comment
-comment|/*! \fn void QList::insert(int i, const T&value)      Inserts \a value at index position \a i in the list. If \a i     is 0, the value is prepended to the list. If \a i is size(), the     value is appended to the list.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 8      \sa append(), prepend(), replace(), removeAt() */
+comment|/*! \fn void QList::insert(int i, const T&value)      Inserts \a value at index position \a i in the list. If \a i<= 0,     the value is prepended to the list. If \a i>= size(), the     value is appended to the list.      Example:     \snippet code/src_corelib_tools_qlistdata.cpp 8      \sa append(), prepend(), replace(), removeAt() */
 end_comment
 begin_comment
 comment|/*! \fn QList::iterator QList::insert(iterator before, const T&value)      \overload      Inserts \a value in front of the item pointed to by the     iterator \a before. Returns an iterator pointing at the inserted     item. Note that the iterator passed to the function will be     invalid after the call; the returned iterator should be used     instead. */
