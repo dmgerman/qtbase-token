@@ -51,11 +51,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtSql/qsqldriver.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"qsqlerror.h"
 end_include
 begin_include
@@ -153,6 +148,12 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_decl_stmt
+DECL|variable|QSqlDriver
+name|class
+name|QSqlDriver
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_SQL_EXPORT
