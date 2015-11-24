@@ -303,6 +303,7 @@ name|q_ptr
 decl_stmt|;
 name|QPointer
 operator|<
+specifier|const
 name|QSqlDriver
 operator|>
 name|sqldriver
