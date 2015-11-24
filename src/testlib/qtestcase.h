@@ -545,10 +545,14 @@ name|me
 operator|.
 name|key
 argument_list|(
+name|int
+argument_list|(
 name|e
 argument_list|)
 argument_list|)
+argument_list|)
 return|;
+comment|// int cast is necessary to support enum classes
 block|}
 name|template
 operator|<
