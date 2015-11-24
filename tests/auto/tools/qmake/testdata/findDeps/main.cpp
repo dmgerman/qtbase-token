@@ -39,7 +39,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<moc_object2.cpp>
+file|"\ moc_object2.cpp\ "
 end_include
 begin_comment
 comment|/**/
@@ -50,10 +50,10 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<moc_object3.cpp>
+file|<moc_\ o\ b\ j\ e\ c\ t\ 3\ .cpp>
 end_include
 begin_comment
-comment|/*'*/
+comment|/*'"*/
 end_comment
 begin_include
 include|#
@@ -61,7 +61,7 @@ directive|include
 file|<moc_object4.cpp>
 end_include
 begin_comment
-comment|/* */
+comment|/*"' */
 end_comment
 begin_include
 include|#
@@ -69,14 +69,18 @@ directive|include
 file|<moc_object5.cpp>
 end_include
 begin_comment
-comment|//
+comment|/* #include "missing.cpp" */
 end_comment
-begin_include
-include|#
-directive|include
-file|<moc_object6.cpp>
-end_include
+begin_comment
+comment|// a backslash newline does make the next line part of this comment \
+end_comment
+begin_comment
+comment|/* so this text is in last line's C++-style comment, not a C-comment ! #include<moc_object6.cpp> #if 0 #pragma "ignore me" '&' L"me" #line 4321 "main.cpp" more /* preprocessing */
+end_comment
 begin_function_decl
+name|tokens
+endif|#
+directive|endif
 specifier|static
 name|void
 name|function1
@@ -86,6 +90,7 @@ end_function_decl
 begin_include
 include|#
 directive|include
+comment|/* every comment gets replaced (in phase 3) by a single space */
 file|<moc_object7.cpp>
 end_include
 begin_function_decl
@@ -101,6 +106,7 @@ end_comment
 begin_include
 include|#
 directive|include
+include|\
 file|<moc_object8.cpp>
 end_include
 begin_function_decl
@@ -118,23 +124,12 @@ include|#
 directive|include
 file|<moc_object9.cpp>
 end_include
-begin_function
-DECL|function|main
-name|int
-name|main
-parameter_list|()
-block|{
-specifier|extern
-name|int
-name|needed
-argument_list|(
-name|void
-argument_list|)
-decl_stmt|;
-return|return
-name|needed
-argument_list|()
-return|;
-block|}
-end_function
+begin_comment
+comment|/* backslash-newline elimination happens in phase 2 *\ / # /* and that's valid here, too. *\ / include/* and, of course, here *\ /<moc_objecta.cpp>// while we're here, ... \ #include "needed.cpp"  int main () {     extern int needed(void);     return needed(); }  /*   Deliberately end file in a #include, with nothing after it but the mandatory   (unescaped) newline at the end of every source file. */
+end_comment
+begin_include
+include|#
+directive|include
+file|"moc_objectf.cpp"
+end_include
 end_unit
