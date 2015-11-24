@@ -130,11 +130,11 @@ operator|::
 name|currentContext
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|ctx
-argument_list|)
-expr_stmt|;
+condition|)
+block|{
 if|if
 condition|(
 name|textureId
@@ -161,6 +161,21 @@ operator|->
 name|destroy
 argument_list|()
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|textureId
+operator|||
+name|blitter
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"No context current during QPlatformBackingStore destruction, OpenGL resources not released"
+argument_list|)
+expr_stmt|;
+block|}
 operator|delete
 name|blitter
 expr_stmt|;
