@@ -583,7 +583,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_fileSystemChanged(const QString&path, const QList<QPair<QString, QFileInfo>>&)
+argument|void _q_fileSystemChanged(const QString&path, const QVector<QPair<QString, QFileInfo>>&)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(

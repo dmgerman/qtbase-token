@@ -5177,7 +5177,7 @@ init|=
 name|persistentIndexList
 argument_list|()
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -8325,7 +8325,7 @@ modifier|&
 name|path
 parameter_list|,
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -8940,7 +8940,7 @@ argument_list|)
 expr_stmt|;
 name|qRegisterMetaType
 argument_list|<
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -8998,7 +8998,7 @@ name|updates
 argument_list|(
 name|QString
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -9018,7 +9018,7 @@ name|_q_fileSystemChanged
 argument_list|(
 name|QString
 argument_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<

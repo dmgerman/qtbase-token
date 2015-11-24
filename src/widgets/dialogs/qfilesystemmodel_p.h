@@ -1889,7 +1889,7 @@ operator|&
 name|path
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<
