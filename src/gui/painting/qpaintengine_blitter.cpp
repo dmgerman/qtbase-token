@@ -843,7 +843,7 @@ name|drawPixmapMask
 argument_list|,
 name|STATE_XFORM_SCALE
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|updateStateBits
@@ -957,7 +957,7 @@ expr_stmt|;
 name|updateStateBits
 argument_list|(
 operator|&
-name|drawRectMask
+name|drawPixmapMask
 argument_list|,
 name|STATE_XFORM_SCALE
 argument_list|,
