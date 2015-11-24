@@ -502,7 +502,8 @@ operator|->
 name|parentScreen
 argument_list|()
 else|:
-name|m_xcbScreen
+name|xcbScreen
+argument_list|()
 return|;
 block|}
 end_function
@@ -1135,11 +1136,6 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|m_xcbScreen
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
 name|m_syncCounter
 argument_list|(
 literal|0
@@ -1366,10 +1362,6 @@ name|rect
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|m_xcbScreen
-operator|=
-name|platformScreen
-expr_stmt|;
 if|if
 condition|(
 name|type
@@ -3279,7 +3271,8 @@ name|QXcbScreen
 modifier|*
 name|currentScreen
 init|=
-name|m_xcbScreen
+name|xcbScreen
+argument_list|()
 decl_stmt|;
 name|QXcbScreen
 modifier|*
@@ -3312,10 +3305,6 @@ name|newScreen
 operator|=
 name|xcbScreen
 argument_list|()
-expr_stmt|;
-name|m_xcbScreen
-operator|=
-name|newScreen
 expr_stmt|;
 specifier|const
 name|QRect
@@ -11340,23 +11329,6 @@ argument_list|(
 name|actualGeometry
 argument_list|)
 decl_stmt|;
-name|QXcbScreen
-modifier|*
-name|currentScreen
-init|=
-name|m_xcbScreen
-decl_stmt|;
-name|m_xcbScreen
-operator|=
-cast|static_cast
-argument_list|<
-name|QXcbScreen
-operator|*
-argument_list|>
-argument_list|(
-name|newScreen
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -11397,12 +11369,9 @@ name|QRect
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|newScreen
-operator|!=
-name|currentScreen
-condition|)
+comment|// QPlatformScreen::screen() is updated asynchronously, so we can't compare it
+comment|// with the newScreen. Just send the WindowScreenChanged event and QGuiApplication
+comment|// will make the comparison later.
 name|QWindowSystemInterface
 operator|::
 name|handleWindowScreenChanged

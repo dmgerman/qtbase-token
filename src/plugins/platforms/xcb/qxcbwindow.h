@@ -998,10 +998,6 @@ decl_stmt|;
 name|xcb_window_t
 name|m_window
 decl_stmt|;
-name|QXcbScreen
-modifier|*
-name|m_xcbScreen
-decl_stmt|;
 name|uint
 name|m_depth
 decl_stmt|;
