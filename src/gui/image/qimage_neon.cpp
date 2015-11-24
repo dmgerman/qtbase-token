@@ -24,12 +24,6 @@ name|defined
 argument_list|(
 name|__ARM_NEON__
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_PROCESSOR_ARM_64
-argument_list|)
 end_if
 begin_function
 name|QT_BEGIN_NAMESPACE
@@ -150,6 +144,13 @@ name|end
 operator|-
 literal|7
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_64
+argument_list|)
 specifier|register
 name|uint8x8_t
 name|fullVector
@@ -188,6 +189,48 @@ operator|<
 name|simdEnd
 condition|)
 do|;
+else|#
+directive|else
+specifier|register
+name|uint8x8_t
+name|fullVector
+name|asm
+argument_list|(
+literal|"v3"
+argument_list|)
+init|=
+name|vdup_n_u8
+argument_list|(
+literal|0xff
+argument_list|)
+decl_stmt|;
+do|do
+block|{
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|==
+name|Q_BIG_ENDIAN
+asm|asm
+specifier|volatile
+asm|(                 "ld3     { v4.8b, v5.8b, v6.8b }, [%[SRC]], #24 \n\t"                 "st4     { v3.8b, v4.8b, v5.8b, v6.8b }, [%[DST]], #32 \n\t"                 : [DST]"+r" (dst), [SRC]"+r" (src)                 : "w"(fullVector)                 : "memory", "v4", "v5", "v6"             );
+else|#
+directive|else
+asm|asm
+specifier|volatile
+asm|(                 "ld3     { v0.8b, v1.8b, v2.8b }, [%[SRC]], #24 \n\t"                 "mov v4.8b, v2.8b\n\t"                 "mov v2.8b, v0.8b\n\t"                 "mov v0.8b, v4.8b\n\t"                 "st4     { v0.8b, v1.8b, v2.8b, v3.8b }, [%[DST]], #32 \n\t"                 : [DST]"+r" (dst), [SRC]"+r" (src)                 : "w"(fullVector)                 : "memory", "v0", "v1", "v2", "v4"             );
+endif|#
+directive|endif
+block|}
+do|while
+condition|(
+name|dst
+operator|<
+name|simdEnd
+condition|)
+do|;
+endif|#
+directive|endif
 block|}
 while|while
 condition|(
@@ -392,6 +435,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// defined(__ARM_NEON__)&& !defined(Q_PROCESSOR_ARM_64)
+comment|// defined(__ARM_NEON__)
 end_comment
 end_unit

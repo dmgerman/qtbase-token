@@ -5434,12 +5434,6 @@ name|defined
 argument_list|(
 name|__ARM_NEON__
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_PROCESSOR_ARM_64
-argument_list|)
 comment|// from qimage_neon.cpp
 if|if
 condition|(
