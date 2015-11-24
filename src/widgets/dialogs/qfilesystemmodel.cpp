@@ -4688,9 +4688,9 @@ block|{
 name|int
 name|compare
 init|=
-name|QString
-operator|::
-name|localeAwareCompare
+name|naturalCompare
+operator|.
+name|compare
 argument_list|(
 name|l
 operator|->
