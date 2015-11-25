@@ -465,11 +465,6 @@ name|void
 name|finalize
 parameter_list|()
 function_decl|;
-DECL|member|access
-name|sqlite
-modifier|*
-name|access
-decl_stmt|;
 comment|// and we have too keep our own struct for the data (sqlite works via
 comment|// callback.
 DECL|member|currentTail
@@ -493,10 +488,6 @@ name|bool
 name|skipRow
 decl_stmt|;
 comment|// skip the next fetchNext()?
-DECL|member|utf8
-name|bool
-name|utf8
-decl_stmt|;
 DECL|member|rInf
 name|QSqlRecord
 name|rInf
@@ -560,11 +551,6 @@ literal|false
 argument_list|)
 member_init_list|,
 name|skipRow
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
-name|utf8
 argument_list|(
 literal|false
 argument_list|)
@@ -1127,6 +1113,9 @@ operator|+
 name|idx
 index|]
 operator|=
+name|drv_d_func
+argument_list|()
+operator|->
 name|utf8
 condition|?
 name|QString
@@ -1235,35 +1224,7 @@ argument_list|,
 name|db
 argument_list|)
 argument_list|)
-block|{
-name|Q_D
-argument_list|(
-name|QSQLite2Result
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|access
-operator|=
-name|d
-operator|->
-name|drv_d_func
-argument_list|()
-operator|->
-name|access
-expr_stmt|;
-name|d
-operator|->
-name|utf8
-operator|=
-name|d
-operator|->
-name|drv_d_func
-argument_list|()
-operator|->
-name|utf8
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~QSQLite2Result
@@ -1384,9 +1345,15 @@ name|sqlite_compile
 argument_list|(
 name|d
 operator|->
+name|drv_d_func
+argument_list|()
+operator|->
 name|access
 argument_list|,
 name|d
+operator|->
+name|drv_d_func
+argument_list|()
 operator|->
 name|utf8
 condition|?
@@ -1608,7 +1575,6 @@ parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-specifier|const
 name|QSQLite2Result
 argument_list|)
 expr_stmt|;
@@ -1616,6 +1582,9 @@ return|return
 name|sqlite_changes
 argument_list|(
 name|d
+operator|->
+name|drv_d_func
+argument_list|()
 operator|->
 name|access
 argument_list|)
