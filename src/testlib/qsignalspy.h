@@ -787,7 +787,8 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Don't know how to handle '%s', use qRegisterMetaType to register it."
+literal|"QSignalSpy: Unable to handle parameter '%s' of type '%s' of method '%s',"
+literal|" use qRegisterMetaType to register it."
 argument_list|,
 name|member
 operator|.
@@ -798,6 +799,27 @@ name|at
 argument_list|(
 name|i
 argument_list|)
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|member
+operator|.
+name|parameterTypes
+argument_list|()
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|member
+operator|.
+name|name
+argument_list|()
 operator|.
 name|constData
 argument_list|()
