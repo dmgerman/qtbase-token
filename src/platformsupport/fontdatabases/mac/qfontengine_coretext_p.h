@@ -345,6 +345,16 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|doKerning
+argument_list|(
+argument|QGlyphLayout *g
+argument_list|,
+argument|ShaperFlags flags
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|bool
 name|supportsTransformation
 argument_list|(
@@ -550,6 +560,12 @@ name|FaceId
 name|face_id
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|mutable
+name|bool
+name|kerningPairsLoaded
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 unit|};
 name|CGAffineTransform
