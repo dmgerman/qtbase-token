@@ -254,7 +254,10 @@ name|SecTrustSettingsCopyTrustSettings
 argument_list|(
 name|cfCert
 argument_list|,
+name|SecTrustSettingsDomain
+argument_list|(
 name|domain
+argument_list|)
 argument_list|,
 operator|&
 name|cfTrustSettings
@@ -421,7 +424,10 @@ name|kSecTrustSettingsDomainUser
 init|;
 name|dom
 operator|<=
+name|int
+argument_list|(
 name|kSecTrustSettingsDomainSystem
+argument_list|)
 condition|;
 name|dom
 operator|++
@@ -432,7 +438,10 @@ name|status
 init|=
 name|SecTrustSettingsCopyCertificates
 argument_list|(
+name|SecTrustSettingsDomain
+argument_list|(
 name|dom
+argument_list|)
 argument_list|,
 operator|&
 name|cfCerts
