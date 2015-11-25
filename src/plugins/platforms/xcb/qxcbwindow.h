@@ -833,6 +833,15 @@ name|flags
 argument_list|)
 decl_stmt|;
 name|void
+name|setNetWmStateWindowFlags
+argument_list|(
+name|Qt
+operator|::
+name|WindowFlags
+name|flags
+argument_list|)
+decl_stmt|;
+name|void
 name|updateMotifWmHintsBeforeMap
 parameter_list|()
 function_decl|;
