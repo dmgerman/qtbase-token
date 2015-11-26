@@ -5426,6 +5426,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+else|else
+block|{
+comment|// not a comment, in fact; undo the extra x++ we did.
+name|x
+operator|--
+expr_stmt|;
+block|}
 block|}
 block|}
 elseif|else
