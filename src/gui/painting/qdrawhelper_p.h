@@ -1194,12 +1194,6 @@ union|;
 block|}
 struct|;
 end_struct
-begin_function_decl
-name|void
-name|qInitDrawhelperAsm
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_decl_stmt
 DECL|variable|QRasterPaintEngine
 name|class

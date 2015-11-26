@@ -440,12 +440,6 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_function_decl
-name|void
-name|qInitImageConversions
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
 specifier|const
 name|uchar
 modifier|*
