@@ -68,6 +68,10 @@ argument|QRectF cursorRectangle READ cursorRectangle NOTIFY cursorRectangleChang
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|QRectF anchorRectangle READ anchorRectangle NOTIFY anchorRectangleChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|QRectF keyboardRectangle READ keyboardRectangle NOTIFY keyboardRectangleChanged
 argument_list|)
 name|Q_PROPERTY
@@ -123,6 +127,12 @@ argument_list|()
 specifier|const
 block|;
 comment|// ### what if we have rotations for the item?
+name|QRectF
+name|anchorRectangle
+argument_list|()
+specifier|const
+block|;
+comment|// ### ditto
 comment|// keyboard geometry in window coords
 name|QRectF
 name|keyboardRectangle
@@ -215,6 +225,10 @@ name|Q_SIGNALS
 operator|:
 name|void
 name|cursorRectangleChanged
+argument_list|()
+block|;
+name|void
+name|anchorRectangleChanged
 argument_list|()
 block|;
 name|void

@@ -4171,6 +4171,10 @@ name|ImEnterKeyType
 init|=
 literal|0x2000
 block|,
+name|ImAnchorRectangle
+init|=
+literal|0x4000
+block|,
 name|ImPlatformData
 init|=
 literal|0x80000000
