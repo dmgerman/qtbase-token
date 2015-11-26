@@ -44,6 +44,18 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
+name|QGuiApplication
+operator|::
+name|setApplicationDisplayName
+argument_list|(
+name|Server
+operator|::
+name|tr
+argument_list|(
+literal|"Fortune Server"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Server
 name|server
 decl_stmt|;

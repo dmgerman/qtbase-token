@@ -34,6 +34,18 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
+name|QGuiApplication
+operator|::
+name|setApplicationDisplayName
+argument_list|(
+name|Client
+operator|::
+name|tr
+argument_list|(
+literal|"Fortune Client"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Client
 name|client
 decl_stmt|;
