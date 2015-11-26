@@ -179,7 +179,7 @@ argument_list|)
 name|Q_OBJECT
 name|friend
 name|class
-name|QTDSResult
+name|QTDSResultPrivate
 block|;
 name|public
 operator|:

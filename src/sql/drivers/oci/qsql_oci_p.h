@@ -117,12 +117,12 @@ argument|QOCIDriver
 argument_list|)
 name|Q_OBJECT
 name|friend
-expr|struct
-name|QOCIResultPrivate
+name|class
+name|QOCICols
 block|;
 name|friend
 name|class
-name|QOCIPrivate
+name|QOCIResultPrivate
 block|;
 name|public
 operator|:

@@ -99,6 +99,10 @@ argument_list|(
 argument|QDB2Driver
 argument_list|)
 name|Q_OBJECT
+name|friend
+name|class
+name|QDB2ResultPrivate
+block|;
 name|public
 operator|:
 name|explicit

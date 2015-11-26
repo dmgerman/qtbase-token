@@ -181,6 +181,10 @@ argument_list|(
 argument|QODBCDriver
 argument_list|)
 name|Q_OBJECT
+name|friend
+name|class
+name|QODBCResultPrivate
+block|;
 name|public
 operator|:
 name|explicit
@@ -331,10 +335,6 @@ block|;
 name|void
 name|cleanup
 argument_list|()
-block|;
-name|friend
-name|class
-name|QODBCResultPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt

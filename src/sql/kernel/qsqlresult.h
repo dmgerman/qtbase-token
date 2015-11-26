@@ -130,11 +130,6 @@ argument_list|(
 name|QSqlResultPrivate
 operator|&
 name|dd
-argument_list|,
-specifier|const
-name|QSqlDriver
-operator|*
-name|db
 argument_list|)
 expr_stmt|;
 name|int

@@ -107,7 +107,7 @@ argument_list|)
 name|Q_OBJECT
 name|friend
 name|class
-name|QSQLiteResult
+name|QSQLiteResultPrivate
 block|;
 name|public
 operator|:
