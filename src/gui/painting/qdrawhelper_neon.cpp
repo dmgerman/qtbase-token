@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<private/qdrawhelper_p.h>
+file|<private/qdrawhelper_neon_p.h>
 end_include
 begin_include
 include|#
@@ -25,17 +25,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<private/qdrawhelper_neon_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qpaintengine_raster_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<arm_neon.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

@@ -2556,6 +2556,11 @@ name|findItem
 argument_list|(
 name|int
 name|strPos
+argument_list|,
+name|int
+name|firstItem
+operator|=
+literal|0
 argument_list|)
 decl|const
 decl_stmt|;

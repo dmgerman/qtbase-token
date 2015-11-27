@@ -2226,6 +2226,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Set initial pixel density
+name|onDpiChanged
+argument_list|(
+name|Q_NULLPTR
+argument_list|,
+name|Q_NULLPTR
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|orientation
@@ -4233,13 +4241,6 @@ expr_stmt|;
 name|Q_ASSERT_SUCCEEDED
 argument_list|(
 name|hr
-argument_list|)
-expr_stmt|;
-name|onDpiChanged
-argument_list|(
-name|Q_NULLPTR
-argument_list|,
-name|Q_NULLPTR
 argument_list|)
 expr_stmt|;
 name|onOrientationChanged
