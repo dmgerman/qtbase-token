@@ -755,7 +755,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QStyleHints::showIsFullScreen     \brief \c true if the platform defaults to windows being fullscreen,     otherwise \c false.      \note The platform may still choose to show certain windows non-fullscreen,     such as popups or dialogs. This property only reports the default behavior.      \sa QWindow::show() */
+comment|/*!     \property QStyleHints::showIsFullScreen     \brief \c true if the platform defaults to windows being fullscreen,     otherwise \c false.      \note The platform may still choose to show certain windows non-fullscreen,     such as popups or dialogs. This property only reports the default behavior.      \sa QWindow::show(), showIsMaximized() */
 end_comment
 begin_function
 DECL|function|showIsFullScreen
@@ -772,6 +772,31 @@ argument_list|(
 name|QPlatformIntegration
 operator|::
 name|ShowIsFullScreen
+argument_list|)
+operator|.
+name|toBool
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \property QStyleHints::showIsMaximized     \brief \c true if the platform defaults to windows being maximized,     otherwise \c false.      \note The platform may still choose to show certain windows non-maximized,     such as popups or dialogs. This property only reports the default behavior.      \sa QWindow::show(), showIsFullScreen()     \since 5.6 */
+end_comment
+begin_function
+DECL|function|showIsMaximized
+name|bool
+name|QStyleHints
+operator|::
+name|showIsMaximized
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|hint
+argument_list|(
+name|QPlatformIntegration
+operator|::
+name|ShowIsMaximized
 argument_list|)
 operator|.
 name|toBool
