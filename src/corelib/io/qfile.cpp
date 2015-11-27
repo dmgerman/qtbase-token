@@ -370,7 +370,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|/*!     \internal */
+comment|/*!     Constructs a QFile object. */
 end_comment
 begin_constructor
 DECL|function|QFile
