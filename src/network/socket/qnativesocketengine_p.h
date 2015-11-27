@@ -397,6 +397,33 @@ name|close
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+name|qint64
+name|bytesAvailable
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
+name|qint64
+name|read
+argument_list|(
+argument|char *data
+argument_list|,
+argument|qint64 maxlen
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|qint64
+name|write
+argument_list|(
+argument|const char *data
+argument_list|,
+argument|qint64 len
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_UDPSOCKET
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKINTERFACE
@@ -434,30 +461,6 @@ block|;
 endif|#
 directive|endif
 name|qint64
-name|bytesAvailable
-argument_list|()
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
-name|qint64
-name|read
-argument_list|(
-argument|char *data
-argument_list|,
-argument|qint64 maxlen
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|qint64
-name|write
-argument_list|(
-argument|const char *data
-argument_list|,
-argument|qint64 len
-argument_list|)
-name|Q_DECL_OVERRIDE
-block|;
-name|qint64
 name|readDatagram
 argument_list|(
 argument|char *data
@@ -494,6 +497,9 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
+comment|// QT_NO_UDPSOCKET
 name|qint64
 name|bytesToWrite
 argument_list|()
