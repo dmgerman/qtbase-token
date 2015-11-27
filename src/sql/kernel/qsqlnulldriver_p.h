@@ -118,6 +118,7 @@ name|data
 argument_list|(
 argument|int
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QVariant
@@ -130,6 +131,7 @@ name|reset
 argument_list|(
 argument|const QString&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -141,6 +143,7 @@ name|fetch
 argument_list|(
 argument|int
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -150,6 +153,7 @@ specifier|inline
 name|bool
 name|fetchFirst
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -159,6 +163,7 @@ specifier|inline
 name|bool
 name|fetchLast
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -170,6 +175,7 @@ name|isNull
 argument_list|(
 argument|int
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -179,6 +185,7 @@ specifier|inline
 name|int
 name|size
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 operator|-
@@ -189,6 +196,7 @@ specifier|inline
 name|int
 name|numRowsAffected
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|0
@@ -200,6 +208,7 @@ name|setAt
 argument_list|(
 argument|int
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|void
@@ -207,6 +216,7 @@ name|setActive
 argument_list|(
 argument|bool
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|void
@@ -214,6 +224,7 @@ name|setLastError
 argument_list|(
 argument|const QSqlError&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|void
@@ -221,6 +232,7 @@ name|setQuery
 argument_list|(
 argument|const QString&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|void
@@ -228,6 +240,7 @@ name|setSelect
 argument_list|(
 argument|bool
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|void
@@ -235,11 +248,13 @@ name|setForwardOnly
 argument_list|(
 argument|bool
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|bool
 name|exec
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -251,6 +266,7 @@ name|prepare
 argument_list|(
 argument|const QString&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -262,6 +278,7 @@ name|savePrepare
 argument_list|(
 argument|const QString&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -277,6 +294,7 @@ argument|const QVariant&
 argument_list|,
 argument|QSql::ParamType
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|void
@@ -288,6 +306,7 @@ argument|const QVariant&
 argument_list|,
 argument|QSql::ParamType
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 expr|}
 block|;
@@ -335,6 +354,7 @@ argument_list|(
 argument|DriverFeature
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -356,6 +376,7 @@ argument|int
 argument_list|,
 argument|const QString&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|false
@@ -365,6 +386,7 @@ specifier|inline
 name|void
 name|close
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|QSqlResult
@@ -372,6 +394,7 @@ operator|*
 name|createResult
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|new
@@ -389,6 +412,7 @@ name|setOpen
 argument_list|(
 argument|bool
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|void
@@ -396,6 +420,7 @@ name|setOpenError
 argument_list|(
 argument|bool
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 specifier|inline
 name|void
@@ -403,6 +428,7 @@ name|setLastError
 argument_list|(
 argument|const QSqlError&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|{}
 expr|}
 block|;
