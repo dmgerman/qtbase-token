@@ -7590,6 +7590,16 @@ specifier|const
 name|QFileDialog
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|model
+condition|)
+return|return
+name|Q_NULLPTR
+return|;
 return|return
 name|d
 operator|->

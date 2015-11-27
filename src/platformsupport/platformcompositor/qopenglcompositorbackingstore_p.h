@@ -181,6 +181,10 @@ block|;
 name|uint
 name|m_bsTexture
 block|;
+name|QOpenGLContext
+operator|*
+name|m_bsTextureContext
+block|;
 name|QPlatformTextureList
 operator|*
 name|m_textures
