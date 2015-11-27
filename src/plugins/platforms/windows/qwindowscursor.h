@@ -268,8 +268,14 @@ name|QPoint
 name|hotSpot
 block|;     }
 block|;
+name|explicit
 name|QWindowsCursor
-argument_list|()
+argument_list|(
+specifier|const
+name|QPlatformScreen
+operator|*
+name|screen
+argument_list|)
 block|;
 name|void
 name|changeCursor
@@ -297,15 +303,12 @@ specifier|static
 name|HCURSOR
 name|createPixmapCursor
 argument_list|(
-specifier|const
-name|QPixmap
-operator|&
-name|pixmap
+argument|QPixmap pixmap
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|hotSpot
+argument|const QPoint&hotSpot
+argument_list|,
+argument|qreal scaleFactor =
+literal|1
 argument_list|)
 block|;
 specifier|static
@@ -313,6 +316,9 @@ name|HCURSOR
 name|createPixmapCursor
 argument_list|(
 argument|const PixmapCursor&pc
+argument_list|,
+argument|qreal scaleFactor =
+literal|1
 argument_list|)
 block|{
 return|return
@@ -325,6 +331,8 @@ argument_list|,
 name|pc
 operator|.
 name|hotSpot
+argument_list|,
+name|scaleFactor
 argument_list|)
 return|;
 block|}
@@ -333,6 +341,8 @@ name|PixmapCursor
 name|customCursor
 argument_list|(
 argument|Qt::CursorShape cursorShape
+argument_list|,
+argument|const QPlatformScreen *screen = Q_NULLPTR
 argument_list|)
 block|;
 specifier|static
@@ -340,6 +350,8 @@ name|HCURSOR
 name|createCursorFromShape
 argument_list|(
 argument|Qt::CursorShape cursorShape
+argument_list|,
+argument|const QPlatformScreen *screen = Q_NULLPTR
 argument_list|)
 block|;
 specifier|static
@@ -367,6 +379,13 @@ operator|&
 name|c
 argument_list|)
 block|;
+name|QPixmap
+name|dragDefaultCursor
+argument_list|(
+argument|Qt::DropAction action
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 typedef|typedef
@@ -393,6 +412,14 @@ name|PixmapCursorCache
 expr_stmt|;
 end_typedef
 begin_decl_stmt
+specifier|const
+name|QPlatformScreen
+modifier|*
+specifier|const
+name|m_screen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|StandardCursorCache
 name|m_standardCursorCache
 decl_stmt|;
@@ -400,6 +427,30 @@ end_decl_stmt
 begin_decl_stmt
 name|PixmapCursorCache
 name|m_pixmapCursorCache
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|mutable
+name|QPixmap
+name|m_copyDragCursor
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|mutable
+name|QPixmap
+name|m_moveDragCursor
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|mutable
+name|QPixmap
+name|m_linkDragCursor
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|mutable
+name|QPixmap
+name|m_ignoreDragCursor
 decl_stmt|;
 end_decl_stmt
 begin_macro

@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QSharedPointer>
+file|<QtCore/QScopedPointer>
 end_include
 begin_include
 include|#
@@ -149,7 +149,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
 typedef|typedef
-name|QSharedPointer
+name|QScopedPointer
 operator|<
 name|QPlatformCursor
 operator|>
