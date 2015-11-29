@@ -5274,10 +5274,9 @@ name|QSharedPointer
 argument_list|<
 name|QWindowsFontEngineData
 argument_list|>
-argument_list|(
-operator|new
-name|QWindowsFontEngineData
-argument_list|)
+operator|::
+name|create
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -5327,10 +5326,9 @@ operator|*
 name|data
 operator|=
 name|QWindowsFontEngineDataPtr
-argument_list|(
-operator|new
-name|QWindowsFontEngineData
-argument_list|)
+operator|::
+name|create
+argument_list|()
 expr_stmt|;
 return|return
 operator|*
