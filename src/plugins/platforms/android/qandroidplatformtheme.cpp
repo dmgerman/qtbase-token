@@ -1241,10 +1241,14 @@ argument_list|<
 name|AndroidStyle
 argument_list|>
 name|style
-argument_list|(
-operator|new
+init|=
+name|std
+operator|::
+name|make_shared
+argument_list|<
 name|AndroidStyle
-argument_list|)
+argument_list|>
+argument_list|()
 decl_stmt|;
 name|style
 operator|->
