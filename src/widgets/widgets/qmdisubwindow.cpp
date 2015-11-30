@@ -10865,6 +10865,7 @@ parameter_list|)
 specifier|const
 block|{
 comment|// See if we can find any size grips
+specifier|const
 name|QList
 argument_list|<
 name|QSizeGrip
@@ -10882,12 +10883,12 @@ operator|*
 argument_list|>
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QSizeGrip
 modifier|*
 name|grip
-decl|,
+range|:
 name|sizeGrips
 control|)
 name|grip

@@ -2479,12 +2479,15 @@ operator|<=
 literal|2
 condition|)
 block|{
-name|Q_FOREACH
-argument_list|(
-argument|const QHeaderView *header
-argument_list|,
-argument|headers
-argument_list|)
+for|for
+control|(
+specifier|const
+name|QHeaderView
+modifier|*
+name|header
+range|:
+name|headers
+control|)
 block|{
 specifier|const
 name|QRect
