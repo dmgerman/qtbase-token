@@ -639,6 +639,7 @@ name|QVector
 argument_list|<
 name|QDirNode
 argument_list|>
+modifier|&
 name|children
 init|=
 name|current
