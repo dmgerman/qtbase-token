@@ -10117,12 +10117,10 @@ name|GraphPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
-control|(
-name|AnchorVertex
-modifier|*
-name|v
-decl|,
+specifier|const
+specifier|auto
+name|adjacentVertices
+init|=
 name|graph
 index|[
 name|orientation
@@ -10132,8 +10130,15 @@ name|adjacentVertices
 argument_list|(
 name|root
 argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|AnchorVertex
+modifier|*
+name|v
+range|:
+name|adjacentVertices
 control|)
-block|{
 name|queue
 operator|.
 name|enqueue
@@ -10146,7 +10151,6 @@ name|v
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 while|while
 condition|(
 operator|!
@@ -10266,12 +10270,10 @@ argument_list|,
 name|current
 argument_list|)
 expr_stmt|;
-foreach|foreach
-control|(
-name|AnchorVertex
-modifier|*
-name|v
-decl|,
+specifier|const
+specifier|auto
+name|adjacentVertices
+init|=
 name|graph
 index|[
 name|orientation
@@ -10283,8 +10285,15 @@ name|pair
 operator|.
 name|second
 argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|AnchorVertex
+modifier|*
+name|v
+range|:
+name|adjacentVertices
 control|)
-block|{
 name|queue
 operator|.
 name|enqueue
@@ -10299,7 +10308,6 @@ name|v
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// We will walk through every reachable items (non-float) store them in a temporary set.
 comment|// We them create a set of all items and subtract the non-floating items from the set in
@@ -12055,12 +12063,10 @@ name|root
 argument_list|)
 expr_stmt|;
 comment|// Add initial edges to the queue
-foreach|foreach
-control|(
-name|AnchorVertex
-modifier|*
-name|v
-decl|,
+specifier|const
+specifier|auto
+name|adjacentVertices
+init|=
 name|graph
 index|[
 name|orientation
@@ -12070,8 +12076,15 @@ name|adjacentVertices
 argument_list|(
 name|root
 argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|AnchorVertex
+modifier|*
+name|v
+range|:
+name|adjacentVertices
 control|)
-block|{
 name|queue
 operator|.
 name|enqueue
@@ -12084,7 +12097,6 @@ name|v
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Do initial calculation required by "interpolateEdge()"
 name|setupEdgesInterpolation
 argument_list|(

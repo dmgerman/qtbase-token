@@ -512,14 +512,20 @@ name|d
 operator|->
 name|layout
 decl_stmt|;
-foreach|foreach
+specifier|const
+specifier|auto
+name|items
+init|=
+name|childItems
+argument_list|()
+decl_stmt|;
+for|for
 control|(
 name|QGraphicsItem
 modifier|*
 name|item
-decl|,
-name|childItems
-argument_list|()
+range|:
+name|items
 control|)
 block|{
 comment|// In case of a custom layout which doesn't remove and delete items, we ensure that
