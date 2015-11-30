@@ -12671,7 +12671,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QModelIndex assocated with the given \a item in the given \a column.      \sa itemFromIndex(), topLevelItem() */
+comment|/*!     Returns the QModelIndex assocated with the given \a item in the given \a column.      \note In Qt versions prior to 5.7, this function took a non-\c{const} \a item.      \sa itemFromIndex(), topLevelItem() */
 end_comment
 begin_function
 DECL|function|indexFromItem
@@ -12680,6 +12680,7 @@ name|QTreeWidget
 operator|::
 name|indexFromItem
 parameter_list|(
+specifier|const
 name|QTreeWidgetItem
 modifier|*
 name|item
@@ -12701,6 +12702,43 @@ operator|->
 name|index
 argument_list|(
 name|item
+argument_list|,
+name|column
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \overload     \internal */
+end_comment
+begin_function
+DECL|function|indexFromItem
+name|QModelIndex
+name|QTreeWidget
+operator|::
+name|indexFromItem
+parameter_list|(
+name|QTreeWidgetItem
+modifier|*
+name|item
+parameter_list|,
+name|int
+name|column
+parameter_list|)
+specifier|const
+block|{
+return|return
+name|indexFromItem
+argument_list|(
+cast|const_cast
+argument_list|<
+specifier|const
+name|QTreeWidgetItem
+operator|*
+argument_list|>
+argument_list|(
+name|item
+argument_list|)
 argument_list|,
 name|column
 argument_list|)

@@ -2087,6 +2087,16 @@ block|;
 name|QModelIndex
 name|indexFromItem
 argument_list|(
+argument|const QTreeWidgetItem *item
+argument_list|,
+argument|int column =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QModelIndex
+name|indexFromItem
+argument_list|(
 argument|QTreeWidgetItem *item
 argument_list|,
 argument|int column =
@@ -2094,6 +2104,7 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+comment|// ### Qt 6: remove
 name|QTreeWidgetItem
 operator|*
 name|itemFromIndex
