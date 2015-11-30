@@ -221,6 +221,8 @@ block|,
 name|AllGLFunctionsQueryable
 block|,
 name|ApplicationIcon
+block|,
+name|SwitchableWidgetComposition
 block|}
 enum|;
 name|virtual

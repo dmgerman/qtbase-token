@@ -370,15 +370,6 @@ condition|(
 name|widgetTextures
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
-operator|!
-name|widgetTextures
-operator|->
-name|isEmpty
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|qt_window_private
 argument_list|(
 name|tlw
@@ -5277,6 +5268,14 @@ block|}
 block|}
 block|}
 end_function
+begin_macro
+name|Q_GLOBAL_STATIC
+argument_list|(
+argument|QPlatformTextureList
+argument_list|,
+argument|qt_dummy_platformTextureList
+argument_list|)
+end_macro
 begin_function
 DECL|function|widgetTexturesFor
 specifier|static
@@ -5389,6 +5388,52 @@ return|return
 name|tl
 return|;
 block|}
+block|}
+if|if
+condition|(
+name|QWidgetPrivate
+operator|::
+name|get
+argument_list|(
+name|tlw
+argument_list|)
+operator|->
+name|textureChildSeen
+condition|)
+block|{
+comment|// No render-to-texture widgets in the (sub-)tree due to hidden or native
+comment|// children. Returning null results in using the normal backingstore flush path
+comment|// without OpenGL-based compositing. This is very desirable normally. However,
+comment|// some platforms cannot handle switching between the non-GL and GL paths for
+comment|// their windows so it has to be opt-in.
+specifier|static
+name|bool
+name|switchableWidgetComposition
+init|=
+name|QGuiApplicationPrivate
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|platformIntegration
+argument_list|()
+operator|->
+name|hasCapability
+argument_list|(
+name|QPlatformIntegration
+operator|::
+name|SwitchableWidgetComposition
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|switchableWidgetComposition
+condition|)
+return|return
+name|qt_dummy_platformTextureList
+argument_list|()
+return|;
 block|}
 return|return
 literal|0
