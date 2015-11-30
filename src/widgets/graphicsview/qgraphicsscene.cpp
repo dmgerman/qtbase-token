@@ -9207,12 +9207,12 @@ argument_list|(
 name|group
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QGraphicsItem
 modifier|*
 name|item
-decl|,
+range|:
 name|items
 control|)
 name|group
@@ -15150,6 +15150,7 @@ argument_list|(
 name|QGraphicsScene
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QGraphicsItem
@@ -15314,12 +15315,12 @@ name|hasSetFocus
 init|=
 literal|false
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QGraphicsItem
 modifier|*
 name|item
-decl|,
+range|:
 name|wheelCandidates
 control|)
 block|{
@@ -25496,12 +25497,12 @@ argument_list|>
 name|normalGestures
 decl_stmt|;
 comment|// that are not in conflicted state.
-foreach|foreach
+for|for
 control|(
 name|QGesture
 modifier|*
 name|gesture
-decl|,
+range|:
 name|gestures
 control|)
 block|{
@@ -25804,6 +25805,7 @@ operator|!
 name|graphicsView
 condition|)
 return|return;
+specifier|const
 name|QList
 argument_list|<
 name|QGesture
@@ -25869,12 +25871,12 @@ operator|.
 name|inverted
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QGesture
 modifier|*
 name|gesture
-decl|,
+range|:
 name|allGestures
 control|)
 block|{
@@ -26087,6 +26089,7 @@ name|i
 argument_list|)
 decl_stmt|;
 comment|// get gestures to deliver to the current item
+specifier|const
 name|QSet
 argument_list|<
 name|QGesture
@@ -26162,12 +26165,12 @@ operator|.
 name|ignore
 argument_list|()
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QGesture
 modifier|*
 name|g
-decl|,
+range|:
 name|gestures
 control|)
 name|ev
@@ -26191,12 +26194,12 @@ name|ev
 argument_list|)
 expr_stmt|;
 comment|// mark all accepted gestures to deliver them as normal gesture events
-foreach|foreach
+for|for
 control|(
 name|QGesture
 modifier|*
 name|g
-decl|,
+range|:
 name|gestures
 control|)
 block|{
@@ -26472,12 +26475,12 @@ modifier|*
 argument_list|>
 name|parentPropagatedGestures
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QGesture
 modifier|*
 name|gesture
-decl|,
+range|:
 name|allGestures
 control|)
 block|{
@@ -27132,12 +27135,12 @@ expr_stmt|;
 block|}
 block|}
 comment|// forget about targets for gestures that have ended
-foreach|foreach
+for|for
 control|(
 name|QGesture
 modifier|*
 name|g
-decl|,
+range|:
 name|allGestures
 control|)
 block|{
@@ -27435,6 +27438,7 @@ argument_list|(
 name|target
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QGesture
@@ -27470,12 +27474,12 @@ name|isAccepted
 argument_list|()
 condition|)
 block|{
-foreach|foreach
+for|for
 control|(
 name|QGesture
 modifier|*
 name|g
-decl|,
+range|:
 name|list
 control|)
 block|{

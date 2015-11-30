@@ -9031,13 +9031,13 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QPoint
 modifier|&
 name|point
-decl|,
+range|:
 name|polygon
 control|)
 name|poly
@@ -9430,13 +9430,13 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QPointF
 modifier|&
 name|point
-decl|,
+range|:
 name|polygon
 control|)
 name|poly
@@ -9990,13 +9990,13 @@ name|viewportTransform
 argument_list|()
 decl_stmt|;
 comment|// Convert scene rects to viewport rects.
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QRectF
 modifier|&
 name|rect
-decl|,
+range|:
 name|rects
 control|)
 block|{

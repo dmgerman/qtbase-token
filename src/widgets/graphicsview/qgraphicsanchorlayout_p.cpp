@@ -11484,13 +11484,13 @@ modifier|*
 argument_list|>
 name|nonFloating
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|AnchorData
 modifier|*
 name|ad
-decl|,
+range|:
 name|visited
 control|)
 name|identifyNonFloatItems_helper
