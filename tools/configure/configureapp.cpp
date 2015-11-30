@@ -12903,7 +12903,7 @@ literal|"system"
 argument_list|,
 literal|"-system-freetype"
 argument_list|,
-literal|"Use the libfreetype provided by the system."
+literal|"Use the libfreetype provided by the system.\n"
 argument_list|)
 expr_stmt|;
 name|desc
