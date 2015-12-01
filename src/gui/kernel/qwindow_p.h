@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qelapsedtimer.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QIcon>
 end_include
 begin_decl_stmt
@@ -715,6 +720,11 @@ end_endif
 begin_decl_stmt
 name|bool
 name|compositing
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|QElapsedTimer
+name|lastComposeTime
 decl_stmt|;
 end_decl_stmt
 begin_macro
