@@ -9385,7 +9385,10 @@ comment|// was autodetected from environment
 name|cout
 operator|<<
 literal|"Unable to detect the platform from environment. Use -platform command line"
-literal|"argument or set the QMAKESPEC environment variable and run configure again"
+operator|<<
+name|endl
+operator|<<
+literal|"argument or set the QMAKESPEC environment variable and run configure again."
 operator|<<
 name|endl
 expr_stmt|;
