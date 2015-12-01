@@ -11294,9 +11294,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// The original geometry requested by setGeometry() might be different
+comment|// from what we end up with after applying window constraints.
+name|QRect
+name|requestedGeometry
+init|=
+name|geometry
+argument_list|()
+decl_stmt|;
 specifier|const
 name|QRect
-name|rect
+name|actualGeometry
 init|=
 name|QRect
 argument_list|(
@@ -11329,7 +11337,7 @@ argument_list|()
 else|:
 name|screenForGeometry
 argument_list|(
-name|rect
+name|actualGeometry
 argument_list|)
 decl_stmt|;
 name|QXcbScreen
@@ -11355,13 +11363,21 @@ operator|!
 name|newScreen
 condition|)
 return|return;
+comment|// Persist the actual geometry so that QWindow::geometry() can
+comment|// be queried in the resize event.
 name|QPlatformWindow
 operator|::
 name|setGeometry
 argument_list|(
-name|rect
+name|actualGeometry
 argument_list|)
 expr_stmt|;
+comment|// As we're delivering the geometry change through QPA in n async fashion we can't
+comment|// pass on the current geometry of the QWindowPrivate, as that may have not been
+comment|// updated yet by a geometry change that's still in the QPA event queue. Instead
+comment|// we fall back to the default argument value of QRect(), which will result in
+comment|// QGuiApplication looking up the previous geometry from QWindowPrivate, but this
+comment|// time in sync with the even delivery/processing.
 name|QWindowSystemInterface
 operator|::
 name|handleGeometryChange
@@ -11369,7 +11385,16 @@ argument_list|(
 name|window
 argument_list|()
 argument_list|,
-name|rect
+name|actualGeometry
+argument_list|,
+name|requestedGeometry
+operator|!=
+name|actualGeometry
+condition|?
+name|requestedGeometry
+else|:
+name|QRect
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -11391,9 +11416,39 @@ name|screen
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// For expose events we have no way of telling QGuiApplication to used the locally
+comment|// cached version of the previous state, so we may in some situations end up with
+comment|// an additional expose event.
+name|QRect
+name|previousGeometry
+init|=
+name|requestedGeometry
+operator|!=
+name|actualGeometry
+condition|?
+name|requestedGeometry
+else|:
+name|qt_window_private
+argument_list|(
+name|window
+argument_list|()
+argument_list|)
+operator|->
+name|geometry
+decl_stmt|;
 if|if
 condition|(
 name|m_mapped
+operator|&&
+name|actualGeometry
+operator|.
+name|size
+argument_list|()
+operator|!=
+name|previousGeometry
+operator|.
+name|size
+argument_list|()
 condition|)
 name|QWindowSystemInterface
 operator|::
@@ -11407,8 +11462,7 @@ argument_list|(
 name|QPoint
 argument_list|()
 argument_list|,
-name|geometry
-argument_list|()
+name|actualGeometry
 operator|.
 name|size
 argument_list|()
