@@ -543,7 +543,7 @@ name|qstrdup
 argument_list|(
 name|me
 operator|.
-name|key
+name|valueToKey
 argument_list|(
 name|int
 argument_list|(
