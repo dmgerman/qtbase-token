@@ -286,54 +286,61 @@ block|;
 name|bool
 name|begin
 argument_list|(
-name|QPaintDevice
-operator|*
-name|device
+argument|QPaintDevice *device
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|end
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|penChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|brushChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|brushOriginChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|opacityChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|compositionModeChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|renderHintsChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|transformChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|clipEnabledChanged
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|setState
 argument_list|(
-name|QPainterState
-operator|*
-name|s
+argument|QPainterState *s
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QPainterState
 operator|*
@@ -342,6 +349,7 @@ argument_list|(
 argument|QPainterState *orig
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 name|QRasterPaintEngineState
@@ -413,26 +421,7 @@ operator|&
 name|matrix
 argument_list|)
 block|;
-name|void
-name|drawPolygon
-argument_list|(
-argument|const QPointF *points
-argument_list|,
-argument|int pointCount
-argument_list|,
-argument|PolygonDrawMode mode
-argument_list|)
-block|;
-name|void
-name|drawPolygon
-argument_list|(
-argument|const QPoint *points
-argument_list|,
-argument|int pointCount
-argument_list|,
-argument|PolygonDrawMode mode
-argument_list|)
-block|;
+name|virtual
 name|void
 name|fillPath
 argument_list|(
@@ -446,6 +435,7 @@ operator|*
 name|fillData
 argument_list|)
 block|;
+name|virtual
 name|void
 name|fillPolygon
 argument_list|(
@@ -457,41 +447,51 @@ argument|PolygonDrawMode mode
 argument_list|)
 block|;
 name|void
+name|drawPolygon
+argument_list|(
+argument|const QPointF *points
+argument_list|,
+argument|int pointCount
+argument_list|,
+argument|PolygonDrawMode mode
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
+name|drawPolygon
+argument_list|(
+argument|const QPoint *points
+argument_list|,
+argument|int pointCount
+argument_list|,
+argument|PolygonDrawMode mode
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
+name|void
 name|drawEllipse
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rect
+argument|const QRectF&rect
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fillRect
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rect
+argument|const QRectF&rect
 argument_list|,
-specifier|const
-name|QBrush
-operator|&
-name|brush
+argument|const QBrush&brush
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fillRect
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|rect
+argument|const QRectF&rect
 argument_list|,
-specifier|const
-name|QColor
-operator|&
-name|color
+argument|const QColor&color
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawRects
@@ -500,6 +500,7 @@ argument|const QRect  *rects
 argument_list|,
 argument|int rectCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawRects
@@ -508,53 +509,36 @@ argument|const QRectF *rects
 argument_list|,
 argument|int rectCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPixmap
 argument_list|(
-specifier|const
-name|QPointF
-operator|&
-name|p
+argument|const QPointF&p
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pm
+argument|const QPixmap&pm
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
+argument|const QRectF&r
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pm
+argument|const QPixmap&pm
 argument_list|,
-specifier|const
-name|QRectF
-operator|&
-name|sr
+argument|const QRectF&sr
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawImage
 argument_list|(
-specifier|const
-name|QPointF
-operator|&
-name|p
+argument|const QPointF&p
 argument_list|,
-specifier|const
-name|QImage
-operator|&
-name|img
+argument|const QImage&img
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawImage
@@ -567,39 +551,27 @@ argument|const QRectF&sr
 argument_list|,
 argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawTiledPixmap
 argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
+argument|const QRectF&r
 argument_list|,
-specifier|const
-name|QPixmap
-operator|&
-name|pm
+argument|const QPixmap&pm
 argument_list|,
-specifier|const
-name|QPointF
-operator|&
-name|sr
+argument|const QPointF&sr
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawTextItem
 argument_list|(
-specifier|const
-name|QPointF
-operator|&
-name|p
+argument|const QPointF&p
 argument_list|,
-specifier|const
-name|QTextItem
-operator|&
-name|textItem
+argument|const QTextItem&textItem
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawLines
@@ -608,6 +580,7 @@ argument|const QLine *line
 argument_list|,
 argument|int lineCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawLines
@@ -616,6 +589,7 @@ argument|const QLineF *line
 argument_list|,
 argument|int lineCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPoints
@@ -624,6 +598,7 @@ argument|const QPointF *points
 argument_list|,
 argument|int pointCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|drawPoints
@@ -632,34 +607,25 @@ argument|const QPoint *points
 argument_list|,
 argument|int pointCount
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|stroke
 argument_list|(
-specifier|const
-name|QVectorPath
-operator|&
-name|path
+argument|const QVectorPath&path
 argument_list|,
-specifier|const
-name|QPen
-operator|&
-name|pen
+argument|const QPen&pen
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|fill
 argument_list|(
-specifier|const
-name|QVectorPath
-operator|&
-name|path
+argument|const QVectorPath&path
 argument_list|,
-specifier|const
-name|QBrush
-operator|&
-name|brush
+argument|const QBrush&brush
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|clip
@@ -668,6 +634,7 @@ argument|const QVectorPath&path
 argument_list|,
 argument|Qt::ClipOperation op
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|clip
@@ -676,6 +643,7 @@ argument|const QRect&rect
 argument_list|,
 argument|Qt::ClipOperation op
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|clip
@@ -684,6 +652,7 @@ argument|const QRegion&region
 argument_list|,
 argument|Qt::ClipOperation op
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 specifier|inline
 specifier|const
@@ -696,10 +665,9 @@ block|;
 name|void
 name|drawStaticTextItem
 argument_list|(
-name|QStaticTextItem
-operator|*
-name|textItem
+argument|QStaticTextItem *textItem
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
@@ -807,6 +775,7 @@ name|Type
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Raster
@@ -825,6 +794,7 @@ argument_list|,
 argument|const QTransform&m
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|shouldDrawCachedGlyphs
@@ -834,6 +804,7 @@ argument_list|,
 argument|const QTransform&m
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:
