@@ -21092,9 +21092,7 @@ name|painter
 operator|->
 name|setPen
 argument_list|(
-name|Qt
-operator|::
-name|NoPen
+name|subtleEdge
 argument_list|)
 expr_stmt|;
 name|painter
