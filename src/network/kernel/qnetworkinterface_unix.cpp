@@ -1708,10 +1708,11 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
 name|ptr
 operator|->
 name|ifa_addr
-operator|&&
+operator|||
 name|ptr
 operator|->
 name|ifa_addr
