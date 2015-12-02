@@ -425,8 +425,6 @@ comment|// event ignored
 name|qScreenEventDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"unknown event"
 operator|<<
 name|qnxType
@@ -701,8 +699,6 @@ argument_list|)
 expr_stmt|;
 name|qScreenEventDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Qt key t="
 operator|<<
@@ -1232,8 +1228,6 @@ expr_stmt|;
 name|qScreenEventDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"Qt leave, w="
 operator|<<
 name|wOld
@@ -1253,8 +1247,6 @@ argument_list|)
 expr_stmt|;
 name|qScreenEventDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Qt enter, w="
 operator|<<
@@ -1451,8 +1443,6 @@ expr_stmt|;
 name|qScreenEventDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"Qt mouse, w="
 operator|<<
 name|w
@@ -1508,8 +1498,6 @@ argument_list|)
 expr_stmt|;
 name|qScreenEventDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Qt wheel, w="
 operator|<<
@@ -1772,8 +1760,6 @@ expr_stmt|;
 name|qScreenEventDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"Qt leave, w="
 operator|<<
 name|wOld
@@ -1793,8 +1779,6 @@ argument_list|)
 expr_stmt|;
 name|qScreenEventDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Qt enter, w="
 operator|<<
@@ -2206,8 +2190,6 @@ expr_stmt|;
 name|qScreenEventDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"Qt touch, w ="
 operator|<<
 name|w
@@ -2421,8 +2403,6 @@ return|return;
 block|}
 name|qScreenEventDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"display attachment is now:"
 operator|<<
@@ -2666,8 +2646,6 @@ default|default:
 comment|// event ignored
 name|qScreenEventDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"Ignore property event for property: "
 operator|<<

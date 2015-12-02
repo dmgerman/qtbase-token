@@ -871,9 +871,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Cowardly refusing to send clipboard message to hung application..."
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Cowardly refusing to send clipboard message to hung application..."
 argument_list|)
 expr_stmt|;
 return|return;

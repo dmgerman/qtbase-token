@@ -3307,9 +3307,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Unable to determine KDE dirs"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Unable to determine KDE dirs"
 argument_list|)
 expr_stmt|;
 return|return

@@ -16238,9 +16238,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Unable to create the treeview helper window."
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Unable to create the treeview helper window."
 argument_list|)
 expr_stmt|;
 return|return
@@ -16274,9 +16272,7 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"%s: SetWindowTheme() failed."
-argument_list|,
-name|Q_FUNC_INFO
+literal|"SetWindowTheme() failed."
 argument_list|)
 expr_stmt|;
 return|return

@@ -4551,8 +4551,6 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 name|m_widget
 operator|<<
 literal|": No drag target set."

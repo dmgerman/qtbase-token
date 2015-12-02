@@ -9010,6 +9010,19 @@ argument_list|(
 name|wnd
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
+name|widgetWindow
+operator|->
+name|widget
+argument_list|()
+operator|->
+name|inherits
+argument_list|(
+literal|"QAxHostWidget"
+argument_list|)
+condition|)
 name|widgetWindow
 operator|->
 name|widget
@@ -9022,6 +9035,7 @@ operator|::
 name|ActiveWindowFocusReason
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function

@@ -377,6 +377,31 @@ parameter_list|(
 name|HWND
 parameter_list|)
 function_decl|;
+DECL|typedef|GetDisplayAutoRotationPreferences
+typedef|typedef
+name|BOOL
+function_decl|(
+name|WINAPI
+modifier|*
+name|GetDisplayAutoRotationPreferences
+function_decl|)
+parameter_list|(
+name|DWORD
+modifier|*
+parameter_list|)
+function_decl|;
+DECL|typedef|SetDisplayAutoRotationPreferences
+typedef|typedef
+name|BOOL
+function_decl|(
+name|WINAPI
+modifier|*
+name|SetDisplayAutoRotationPreferences
+function_decl|)
+parameter_list|(
+name|DWORD
+parameter_list|)
+function_decl|;
 comment|// Functions missing in Q_CC_GNU stub libraries.
 DECL|member|setLayeredWindowAttributes
 name|SetLayeredWindowAttributes
@@ -429,6 +454,15 @@ decl_stmt|;
 DECL|member|removeClipboardFormatListener
 name|RemoveClipboardFormatListener
 name|removeClipboardFormatListener
+decl_stmt|;
+comment|// Rotation API
+DECL|member|getDisplayAutoRotationPreferences
+name|GetDisplayAutoRotationPreferences
+name|getDisplayAutoRotationPreferences
+decl_stmt|;
+DECL|member|setDisplayAutoRotationPreferences
+name|SetDisplayAutoRotationPreferences
+name|setDisplayAutoRotationPreferences
 decl_stmt|;
 block|}
 struct|;

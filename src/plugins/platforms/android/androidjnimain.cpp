@@ -2237,9 +2237,8 @@ literal|"dlsym failed:"
 operator|<<
 name|dlerror
 argument_list|()
-expr_stmt|;
-name|qCritical
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"Could not find main method"
 expr_stmt|;

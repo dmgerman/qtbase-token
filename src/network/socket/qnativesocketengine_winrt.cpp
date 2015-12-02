@@ -273,9 +273,85 @@ argument_list|>
 name|IAsyncBufferOperation
 typedef|;
 end_typedef
-begin_macro
+begin_function
 name|QT_BEGIN_NAMESPACE
-end_macro
+DECL|function|socketDescription
+specifier|static
+name|QByteArray
+name|socketDescription
+parameter_list|(
+specifier|const
+name|QAbstractSocketEngine
+modifier|*
+name|s
+parameter_list|)
+block|{
+name|QByteArray
+name|result
+decl_stmt|;
+if|if
+condition|(
+specifier|const
+name|QObject
+modifier|*
+name|o
+init|=
+name|s
+operator|->
+name|parent
+argument_list|()
+condition|)
+block|{
+specifier|const
+name|QString
+name|name
+init|=
+name|o
+operator|->
+name|objectName
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|name
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|result
+operator|+=
+literal|'"'
+expr_stmt|;
+name|result
+operator|+=
+name|name
+operator|.
+name|toLocal8Bit
+argument_list|()
+expr_stmt|;
+name|result
+operator|+=
+literal|"\"/"
+expr_stmt|;
+block|}
+name|result
+operator|+=
+name|o
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|className
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|result
+return|;
+block|}
+end_function
 begin_comment
 comment|// Common constructs
 end_comment
@@ -1338,7 +1414,23 @@ name|qErrnoWarning
 argument_list|(
 name|hr
 argument_list|,
-literal|"QNativeSocketEngine::connectToHostByName: Unable to connect to host. \                           Please check your manifest capabilities."
+literal|"QNativeSocketEngine::connectToHostByName: Unable to connect to host (%s:%hu/%s). "
+literal|"Please check your manifest capabilities."
+argument_list|,
+name|qPrintable
+argument_list|(
+name|name
+argument_list|)
+argument_list|,
+name|port
+argument_list|,
+name|socketDescription
+argument_list|(
+name|this
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1723,7 +1815,25 @@ name|qErrnoWarning
 argument_list|(
 name|hr
 argument_list|,
-literal|"Unable to bind socket. Please check your manifest capabilities."
+literal|"Unable to bind socket (%s:%hu/%s). Please check your manifest capabilities."
+argument_list|,
+name|qPrintable
+argument_list|(
+name|address
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+argument_list|,
+name|port
+argument_list|,
+name|socketDescription
+argument_list|(
+name|this
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2058,7 +2168,15 @@ name|qErrnoWarning
 argument_list|(
 name|hr
 argument_list|,
-literal|"Faild to read from the socket buffer."
+literal|"accept(): Failed to read from the socket buffer (%s)."
+argument_list|,
+name|socketDescription
+argument_list|(
+name|this
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2101,7 +2219,15 @@ name|qErrnoWarning
 argument_list|(
 name|hr
 argument_list|,
-literal|"Failed to set socket read callback."
+literal|"accept(): Failed to set socket read callback (%s)."
+argument_list|,
+name|socketDescription
+argument_list|(
+name|this
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -6567,7 +6693,15 @@ name|qErrnoWarning
 argument_list|(
 name|hr
 argument_list|,
-literal|"Could not read into socket stream buffer."
+literal|"handleReadyRead(): Could not read into socket stream buffer (%s)."
+argument_list|,
+name|socketDescription
+argument_list|(
+name|q
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -6609,7 +6743,15 @@ name|qErrnoWarning
 argument_list|(
 name|hr
 argument_list|,
-literal|"Failed to set socket read callback."
+literal|"handleReadyRead(): Failed to set socket read callback (%s)."
+argument_list|,
+name|socketDescription
+argument_list|(
+name|q
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

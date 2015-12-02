@@ -1109,7 +1109,7 @@ name|i
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -1169,7 +1169,7 @@ name|firstTime
 init|=
 literal|true
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -1394,7 +1394,7 @@ name|bool
 modifier|&
 name|firstTime
 parameter_list|,
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<

@@ -284,11 +284,9 @@ name|hideKeyboard
 argument_list|()
 expr_stmt|;
 name|qInputContextDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"hiding virtual keyboard"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -312,11 +310,9 @@ name|showKeyboard
 argument_list|()
 expr_stmt|;
 name|qInputContextDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"requesting virtual keyboard"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -441,8 +437,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|m_virtualKeyboard
 operator|.
@@ -461,8 +455,6 @@ parameter_list|()
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|m_virtualKeyboard
 operator|.
@@ -526,8 +518,6 @@ block|{
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"visible="
 operator|<<
 name|visible
@@ -565,8 +555,6 @@ block|{
 name|qInputContextDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"locale="
 operator|<<
 name|locale
@@ -602,8 +590,6 @@ parameter_list|)
 block|{
 name|qInputContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"input item="
 operator|<<

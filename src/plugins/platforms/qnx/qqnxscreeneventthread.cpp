@@ -252,11 +252,9 @@ name|run
 parameter_list|()
 block|{
 name|qScreenEventThreadDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"screen event thread started"
+argument_list|)
 expr_stmt|;
 name|int
 name|errorCounter
@@ -369,11 +367,9 @@ condition|)
 block|{
 comment|// treat all user events as shutdown requests
 name|qScreenEventThreadDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"QNX user screen event"
+argument_list|)
 expr_stmt|;
 name|m_quit
 operator|=
@@ -403,11 +399,9 @@ emit|;
 block|}
 block|}
 name|qScreenEventThreadDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"screen event thread stopped"
+argument_list|)
 expr_stmt|;
 comment|// cleanup
 name|m_mutex
@@ -508,22 +502,18 @@ name|event
 argument_list|)
 expr_stmt|;
 name|qScreenEventThreadDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"screen event thread shutdown begin"
+argument_list|)
 expr_stmt|;
 comment|// block until thread terminates
 name|wait
 argument_list|()
 expr_stmt|;
 name|qScreenEventThreadDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"screen event thread shutdown end"
+argument_list|)
 expr_stmt|;
 block|}
 end_function

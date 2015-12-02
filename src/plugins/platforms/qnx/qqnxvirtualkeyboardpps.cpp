@@ -182,11 +182,9 @@ name|start
 parameter_list|()
 block|{
 name|qVirtualKeyboardDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"starting keyboard event processing"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -338,9 +336,7 @@ block|{
 name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|": Unable to open"
+literal|"Unable to open"
 operator|<<
 name|ms_PPSPath
 operator|<<
@@ -502,8 +498,6 @@ argument_list|)
 decl_stmt|;
 name|qVirtualKeyboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"keyboardMessage size: "
 operator|<<
@@ -713,11 +707,9 @@ operator|==
 literal|0
 condition|)
 name|qVirtualKeyboardDebug
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"Unhandled command 'connect'"
+argument_list|)
 expr_stmt|;
 else|else
 name|qCritical
@@ -853,8 +845,6 @@ expr_stmt|;
 name|qVirtualKeyboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"size="
 operator|<<
 name|newHeight
@@ -871,8 +861,6 @@ parameter_list|()
 block|{
 name|qVirtualKeyboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(
@@ -927,8 +915,6 @@ parameter_list|()
 block|{
 name|qVirtualKeyboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(

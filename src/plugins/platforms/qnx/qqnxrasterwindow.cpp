@@ -209,8 +209,6 @@ block|{
 name|qRasterWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -381,8 +379,6 @@ block|{
 name|qRasterWindowDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -416,8 +412,6 @@ parameter_list|()
 block|{
 name|qRasterWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"window ="
 operator|<<
@@ -705,8 +699,6 @@ parameter_list|)
 block|{
 name|qRasterWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"window ="
 operator|<<

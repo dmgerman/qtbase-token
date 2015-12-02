@@ -171,11 +171,9 @@ comment|// For supoprting IPv6 nameserver addresses, we'll need to switch
 comment|// from DnsQuey() to DnsQueryEx() as it supports passing an IPv6
 comment|// address in the nameserver list
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
-literal|"IPv6 addresses for nameservers is currently not supported"
+argument_list|(
+literal|"IPv6 addresses for nameservers are currently not supported"
+argument_list|)
 expr_stmt|;
 name|reply
 operator|->
@@ -191,7 +189,7 @@ name|errorString
 operator|=
 name|tr
 argument_list|(
-literal|"IPv6 addresses for nameservers is currently not supported"
+literal|"IPv6 addresses for nameservers are currently not supported"
 argument_list|)
 expr_stmt|;
 return|return;

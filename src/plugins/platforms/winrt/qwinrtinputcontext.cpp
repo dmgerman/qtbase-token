@@ -228,8 +228,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-name|Q_FUNC_INFO
-literal|": failed to retrieve input pane statics."
+literal|"failed to retrieve input pane statics."
 argument_list|)
 expr_stmt|;
 return|return;
@@ -334,8 +333,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-name|Q_FUNC_INFO
-literal|": failed to retrieve InputPane."
+literal|"failed to retrieve InputPane."
 argument_list|)
 expr_stmt|;
 block|}

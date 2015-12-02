@@ -457,7 +457,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QCollator::setIgnorePunctuation(bool on)      If \a on is set to true, punctuation characters and symbols are ignored when determining sort order.      The default is locale dependent.      \sa ignorePunctuation()  */
+comment|/*!     \fn void QCollator::setIgnorePunctuation(bool on)      If \a on is set to true, punctuation characters and symbols are ignored when determining sort order.      The default is locale dependent.      \note This method is not currently supported on Apple platforms or if Qt is configured to not use ICU on Linux.      \sa ignorePunctuation()  */
 end_comment
 begin_function
 DECL|function|setIgnorePunctuation

@@ -485,7 +485,7 @@ operator|&
 name|directory
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<
@@ -660,7 +660,7 @@ name|bool
 operator|&
 name|firstTime
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<

@@ -472,6 +472,30 @@ return|;
 end_return
 begin_expr_stmt
 unit|}         inline
+name|QFileInfo
+name|fileInfo
+argument_list|()
+specifier|const
+block|{
+if|if
+condition|(
+name|info
+condition|)
+return|return
+name|info
+operator|->
+name|fileInfo
+argument_list|()
+return|;
+end_expr_stmt
+begin_return
+return|return
+name|QFileInfo
+argument_list|()
+return|;
+end_return
+begin_expr_stmt
+unit|}         inline
 name|bool
 name|isFile
 argument_list|()
@@ -1865,7 +1889,7 @@ operator|&
 name|path
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<

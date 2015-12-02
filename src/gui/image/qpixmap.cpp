@@ -2503,9 +2503,7 @@ argument|p
 argument_list|)
 name|qWarning
 argument_list|(
-literal|"%s is deprecated, ignored"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"this function is deprecated, ignored"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4114,10 +4112,8 @@ parameter_list|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s is deprecated, use QScreen::grabWindow() instead."
+literal|"this function is deprecated, use QScreen::grabWindow() instead."
 literal|" Defaulting to primary screen."
-argument_list|,
-name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 return|return

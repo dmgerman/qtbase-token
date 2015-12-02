@@ -3279,15 +3279,8 @@ literal|"No file found for"
 operator|<<
 name|file
 operator|<<
-literal|", even though update-mime-info said it would exist."
-expr_stmt|;
-name|qWarning
-argument_list|()
-operator|<<
+literal|", even though update-mime-info said it would exist.\n"
 literal|"Either it was just removed, or the directory doesn't have executable permission..."
-expr_stmt|;
-name|qWarning
-argument_list|()
 operator|<<
 name|QStandardPaths
 operator|::
@@ -4407,7 +4400,7 @@ operator|::
 name|NoDotAndDotDot
 argument_list|)
 decl_stmt|;
-comment|//qDebug()<< static_cast<const void *>(this)<< Q_FUNC_INFO<< packageDir<< files;
+comment|//qDebug()<< static_cast<const void *>(this)<< packageDir<< files;
 if|if
 condition|(
 operator|!

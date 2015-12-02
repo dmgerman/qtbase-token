@@ -94,8 +94,6 @@ block|{
 name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"w ="
 operator|<<
 name|window
@@ -116,8 +114,6 @@ parameter_list|()
 block|{
 name|qRasterBackingStoreDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"w ="
 operator|<<
@@ -189,8 +185,6 @@ argument|offset
 argument_list|)
 name|qRasterBackingStoreDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"w ="
 operator|<<
@@ -297,8 +291,6 @@ expr_stmt|;
 name|qRasterBackingStoreDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"w ="
 operator|<<
 name|window
@@ -333,8 +325,6 @@ parameter_list|)
 block|{
 name|qRasterBackingStoreDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"w ="
 operator|<<
@@ -398,8 +388,6 @@ argument_list|)
 expr_stmt|;
 name|qRasterBackingStoreDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"w ="
 operator|<<
@@ -546,8 +534,6 @@ parameter_list|()
 block|{
 name|qRasterBackingStoreDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"w ="
 operator|<<

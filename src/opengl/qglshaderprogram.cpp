@@ -552,9 +552,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Could not create shader of type %d."
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Could not create shader of type %d."
 argument_list|,
 name|int
 argument_list|(

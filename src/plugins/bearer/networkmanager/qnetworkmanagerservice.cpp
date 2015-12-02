@@ -197,8 +197,6 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"propsReply"
 operator|<<
 name|propsReply
@@ -253,8 +251,6 @@ else|else
 block|{
 name|qWarning
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"nmReply"
 operator|<<
@@ -3892,11 +3888,9 @@ operator|=
 literal|false
 expr_stmt|;
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"NewConnection could not be connected"
+argument_list|)
 expr_stmt|;
 block|}
 return|return

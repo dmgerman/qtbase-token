@@ -7195,8 +7195,18 @@ operator|*=
 name|stretch
 expr_stmt|;
 block|}
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
+operator|!
+name|actualFontEngine
+operator|->
+name|supportsSubPixelPositions
+argument_list|()
+operator|||
+operator|(
 name|actualFontEngine
 operator|->
 name|fontDef
@@ -7206,6 +7216,7 @@ operator|&
 name|QFont
 operator|::
 name|ForceIntegerMetrics
+operator|)
 condition|)
 block|{
 for|for
@@ -7240,9 +7251,6 @@ name|round
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-endif|#
-directive|endif
 name|glyphs_shaped
 operator|+=
 name|num_glyphs

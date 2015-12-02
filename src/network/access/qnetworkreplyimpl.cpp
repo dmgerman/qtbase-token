@@ -486,6 +486,11 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
+if|if
+condition|(
+name|session
+condition|)
+block|{
 name|QObject
 operator|::
 name|connect
@@ -522,6 +527,7 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 block|}

@@ -626,8 +626,6 @@ argument_list|)
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Cache initial orientation of this display
 name|int
@@ -815,8 +813,6 @@ parameter_list|()
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|Q_FOREACH
 argument_list|(
@@ -1444,8 +1440,6 @@ parameter_list|()
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 specifier|static
 name|int
@@ -1500,8 +1494,6 @@ specifier|const
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// available geometry = total geometry - keyboard
 return|return
@@ -1605,8 +1597,6 @@ return|;
 block|}
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"screen mode:"
 operator|<<
@@ -1796,8 +1786,6 @@ block|}
 name|qScreenDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"orientation ="
 operator|<<
 name|orient
@@ -1923,8 +1911,6 @@ block|{
 name|qScreenDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"orientation ="
 operator|<<
 name|rotation
@@ -2047,8 +2033,6 @@ condition|)
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"resize, size ="
 operator|<<
@@ -2986,8 +2970,6 @@ block|{
 name|qScreenDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -3074,8 +3056,6 @@ block|{
 name|qScreenDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -3144,8 +3124,6 @@ block|{
 name|qScreenDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -3187,8 +3165,6 @@ block|{
 name|qScreenDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"window ="
 operator|<<
 name|window
@@ -3225,8 +3201,6 @@ parameter_list|()
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QList
 argument_list|<
@@ -3950,8 +3924,6 @@ parameter_list|)
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(
@@ -4011,8 +3983,6 @@ parameter_list|)
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(
@@ -4087,8 +4057,6 @@ parameter_list|)
 block|{
 name|qScreenDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 if|if
 condition|(

@@ -485,9 +485,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s ByteOrder byte %d not 0 or 1"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"ByteOrder byte %d not 0 or 1"
 argument_list|,
 name|byteOrder
 argument_list|)
@@ -515,7 +513,7 @@ parameter_list|(
 name|x
 parameter_list|)
 define|\
-value|if ((size_t)xSettings.length()< (offset + local_offset + 12 + x)) { \             qWarning("%s Length %d runs past end of data", Q_FUNC_INFO , x); \             return;                                                     \         }
+value|if ((size_t)xSettings.length()< (offset + local_offset + 12 + x)) { \             qWarning("Length %d runs past end of data", x); \             return;                                                     \         }
 name|uint
 name|number_of_settings
 init|=

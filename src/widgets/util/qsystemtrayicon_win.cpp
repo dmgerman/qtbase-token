@@ -1883,9 +1883,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: The platform plugin failed to create a message window."
-argument_list|,
-name|Q_FUNC_INFO
+literal|"The platform plugin failed to create a message window."
 argument_list|)
 expr_stmt|;
 block|}
