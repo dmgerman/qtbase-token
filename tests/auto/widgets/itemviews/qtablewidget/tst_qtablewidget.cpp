@@ -60,13 +60,9 @@ public|public:
 name|tst_QTableWidget
 parameter_list|()
 constructor_decl|;
-name|~
-name|tst_QTableWidget
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase
 parameter_list|()
@@ -79,13 +75,6 @@ name|void
 name|init
 parameter_list|()
 function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|getSetCheck
 parameter_list|()
@@ -610,15 +599,6 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QTableWidget
-name|tst_QTableWidget
-operator|::
-name|~
-name|tst_QTableWidget
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -729,15 +709,6 @@ name|column
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QTableWidget
-operator|::
-name|cleanup
-parameter_list|()
-block|{  }
 end_function
 begin_function
 DECL|function|clearContents

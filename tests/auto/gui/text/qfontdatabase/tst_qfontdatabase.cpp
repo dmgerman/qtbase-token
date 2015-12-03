@@ -50,29 +50,13 @@ public|public:
 name|tst_QFontDatabase
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QFontDatabase
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase
 parameter_list|()
 function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|styles_data
 parameter_list|()
@@ -151,15 +135,6 @@ argument_list|)
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QFontDatabase
-name|tst_QFontDatabase
-operator|::
-name|~
-name|tst_QFontDatabase
-parameter_list|()
-block|{  }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -177,30 +152,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QFontDatabase
-operator|::
-name|init
-parameter_list|()
-block|{
-comment|// TODO: Add initialization code here.
-comment|// This will be executed immediately before each test is run.
-block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QFontDatabase
-operator|::
-name|cleanup
-parameter_list|()
-block|{
-comment|// TODO: Add cleanup code here.
-comment|// This will be executed immediately after each test is run.
 block|}
 end_function
 begin_function

@@ -303,11 +303,6 @@ public|public:
 name|tst_QStyle
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QStyle
-parameter_list|()
-destructor_decl|;
 private|private:
 name|bool
 name|testAllFunctions
@@ -344,19 +339,11 @@ name|drawItemPixmap
 parameter_list|()
 function_decl|;
 name|void
-name|initTestCase
+name|init
 parameter_list|()
 function_decl|;
 name|void
 name|cleanup
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
 parameter_list|()
 function_decl|;
 ifndef|#
@@ -507,15 +494,6 @@ literal|0
 expr_stmt|;
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QStyle
-name|tst_QStyle
-operator|::
-name|~
-name|tst_QStyle
-parameter_list|()
-block|{ }
-end_destructor
 begin_class
 DECL|class|MyWidget
 class|class
@@ -588,24 +566,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QStyle
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QStyle
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|testStyleFactory

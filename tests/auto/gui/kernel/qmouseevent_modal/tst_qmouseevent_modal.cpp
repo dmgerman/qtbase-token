@@ -62,18 +62,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_qmouseevent_modal
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_qmouseevent_modal
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase
 parameter_list|()
@@ -82,17 +73,6 @@ name|void
 name|cleanupTestCase
 parameter_list|()
 function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|mousePressRelease
 parameter_list|()
@@ -207,23 +187,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_qmouseevent_modal
-name|tst_qmouseevent_modal
-operator|::
-name|tst_qmouseevent_modal
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_qmouseevent_modal
-name|tst_qmouseevent_modal
-operator|::
-name|~
-name|tst_qmouseevent_modal
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -260,24 +223,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_qmouseevent_modal
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_qmouseevent_modal
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_comment
 comment|/*   Test for task 22500 */

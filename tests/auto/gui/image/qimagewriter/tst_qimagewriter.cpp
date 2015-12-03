@@ -118,9 +118,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-name|tst_QImageWriter
-parameter_list|()
-constructor_decl|;
 specifier|virtual
 name|~
 name|tst_QImageWriter
@@ -130,15 +127,7 @@ public|public
 name|slots
 public|:
 name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
 name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
 parameter_list|()
 function_decl|;
 private|private
@@ -576,14 +565,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QImageWriter
-name|tst_QImageWriter
-operator|::
-name|tst_QImageWriter
-parameter_list|()
-block|{ }
-end_constructor
 begin_destructor
 DECL|function|~tst_QImageWriter
 name|tst_QImageWriter
@@ -642,24 +623,6 @@ expr_stmt|;
 block|}
 block|}
 end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QImageWriter
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QImageWriter
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|writeImage_data
 name|void

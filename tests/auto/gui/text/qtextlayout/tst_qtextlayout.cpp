@@ -63,14 +63,9 @@ public|public:
 name|tst_QTextLayout
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QTextLayout
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|init
 parameter_list|()
@@ -79,9 +74,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|getSetCheck
 parameter_list|()
@@ -608,15 +600,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_destructor
-DECL|function|~tst_QTextLayout
-name|tst_QTextLayout
-operator|::
-name|~
-name|tst_QTextLayout
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|init
 name|void

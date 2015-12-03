@@ -291,14 +291,9 @@ public|public:
 name|tst_QFileDialog2
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QFileDialog2
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase
 parameter_list|()
@@ -311,9 +306,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
@@ -532,15 +524,6 @@ endif|#
 directive|endif
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QFileDialog2
-name|tst_QFileDialog2
-operator|::
-name|~
-name|tst_QFileDialog2
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|cleanupSettingsFile
 name|void

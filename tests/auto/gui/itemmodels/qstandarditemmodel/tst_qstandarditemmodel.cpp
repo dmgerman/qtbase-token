@@ -35,11 +35,6 @@ public|public:
 name|tst_QStandardItemModel
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QStandardItemModel
-parameter_list|()
-destructor_decl|;
 DECL|enum|ModelChanged
 enum|enum
 name|ModelChanged
@@ -613,27 +608,6 @@ literal|8
 argument_list|,
 literal|0
 argument_list|)
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QStandardItemModel
-name|tst_QStandardItemModel
-operator|::
-name|~
-name|tst_QStandardItemModel
-parameter_list|()
-block|{ }
-end_destructor
-begin_comment
-comment|/*   This test usually uses a model with a 3x3 table   ---------------------------   |  0,0  |  0,1    |  0,2  |   ---------------------------   |  1,0  |  1,1    |  1,2  |   ---------------------------   |  2,0  |  2,1    |  2,2  |   --------------------------- */
-end_comment
-begin_function
-DECL|function|init
-name|void
-name|tst_QStandardItemModel
-operator|::
-name|init
-parameter_list|()
 block|{
 name|qRegisterMetaType
 argument_list|<
@@ -654,6 +628,19 @@ argument_list|(
 literal|"Qt::Orientation"
 argument_list|)
 expr_stmt|;
+block|}
+end_constructor
+begin_comment
+comment|/*   This test usually uses a model with a 3x3 table   ---------------------------   |  0,0  |  0,1    |  0,2  |   ---------------------------   |  1,0  |  1,1    |  1,2  |   ---------------------------   |  2,0  |  2,1    |  2,2  |   --------------------------- */
+end_comment
+begin_function
+DECL|function|init
+name|void
+name|tst_QStandardItemModel
+operator|::
+name|init
+parameter_list|()
+block|{
 name|m_model
 operator|=
 operator|new

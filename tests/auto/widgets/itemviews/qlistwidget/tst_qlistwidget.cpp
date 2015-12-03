@@ -45,10 +45,6 @@ public|public:
 name|tst_QListWidget
 parameter_list|()
 constructor_decl|;
-name|~
-name|tst_QListWidget
-parameter_list|()
-destructor_decl|;
 DECL|enum|ModelChanged
 enum|enum
 name|ModelChanged
@@ -78,9 +74,9 @@ DECL|enumerator|ColumnsRemoved
 name|ColumnsRemoved
 block|}
 enum|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase
 parameter_list|()
@@ -93,13 +89,6 @@ name|void
 name|init
 parameter_list|()
 function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|addItem
 parameter_list|()
@@ -650,15 +639,6 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QListWidget
-name|tst_QListWidget
-operator|::
-name|~
-name|tst_QListWidget
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -1038,15 +1018,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QListWidget
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|populate

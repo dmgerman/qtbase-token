@@ -116,14 +116,9 @@ public|public:
 name|tst_QTextDocument
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QTextDocument
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|init
 parameter_list|()
@@ -136,9 +131,6 @@ name|void
 name|cleanupTestCase
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|getSetCheck
 parameter_list|()
@@ -837,15 +829,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QTextDocument
-name|tst_QTextDocument
-operator|::
-name|~
-name|tst_QTextDocument
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|init
 name|void

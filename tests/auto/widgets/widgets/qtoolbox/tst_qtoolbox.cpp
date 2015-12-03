@@ -32,15 +32,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QToolBox
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QToolBox
-parameter_list|()
-destructor_decl|;
 protected|protected
 name|slots
 protected|:
@@ -50,17 +41,9 @@ parameter_list|(
 name|int
 parameter_list|)
 function_decl|;
-public|public
+private|private
 name|slots
-public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
+private|:
 name|void
 name|init
 parameter_list|()
@@ -69,9 +52,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|getSetCheck
 parameter_list|()
@@ -329,23 +309,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QToolBox
-name|tst_QToolBox
-operator|::
-name|tst_QToolBox
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QToolBox
-name|tst_QToolBox
-operator|::
-name|~
-name|tst_QToolBox
-parameter_list|()
-block|{ }
-end_destructor
 begin_class
 DECL|class|tst_QToolBoxPrivate
 class|class
@@ -758,24 +721,6 @@ operator|delete
 name|d
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QToolBox
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QToolBox
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|currentChanged

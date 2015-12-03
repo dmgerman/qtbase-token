@@ -196,13 +196,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QTabWidget
-parameter_list|()
-constructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|init
 parameter_list|()
@@ -211,9 +207,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|getSetCheck
 parameter_list|()
@@ -610,14 +603,6 @@ expr_stmt|;
 comment|// current not changed
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QTabWidget
-name|tst_QTabWidget
-operator|::
-name|tst_QTabWidget
-parameter_list|()
-block|{ }
-end_constructor
 begin_function
 DECL|function|init
 name|void

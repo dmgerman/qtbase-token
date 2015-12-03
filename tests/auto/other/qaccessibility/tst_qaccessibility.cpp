@@ -828,11 +828,6 @@ public|public:
 name|tst_QAccessibility
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QAccessibility
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
@@ -1118,15 +1113,6 @@ literal|0
 expr_stmt|;
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QAccessibility
-name|tst_QAccessibility
-operator|::
-name|~
-name|tst_QAccessibility
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|onClicked
 name|void

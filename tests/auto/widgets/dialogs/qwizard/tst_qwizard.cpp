@@ -107,20 +107,13 @@ public|public:
 name|tst_QWizard
 parameter_list|()
 constructor_decl|;
-public|public
+private|private
 name|slots
-public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
+private|:
 name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|buttonText
 parameter_list|()
@@ -296,15 +289,6 @@ name|tst_QWizard
 operator|::
 name|tst_QWizard
 parameter_list|()
-block|{ }
-end_constructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QWizard
-operator|::
-name|init
-parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
@@ -321,7 +305,7 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
+end_constructor
 begin_function
 DECL|function|cleanup
 name|void

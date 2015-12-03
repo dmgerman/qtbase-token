@@ -196,15 +196,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-DECL|function|tst_QSyntaxHighlighter
-specifier|inline
-name|tst_QSyntaxHighlighter
-parameter_list|()
-block|{}
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|init
 parameter_list|()
@@ -213,9 +207,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|basic
 parameter_list|()

@@ -41,10 +41,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QHttpNetworkConnection
-parameter_list|()
-constructor_decl|;
 public|public
 name|Q_SLOTS
 public|:
@@ -115,19 +111,7 @@ private|private
 name|Q_SLOTS
 private|:
 name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-name|void
 name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
 parameter_list|()
 function_decl|;
 name|void
@@ -280,14 +264,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QHttpNetworkConnection
-name|tst_QHttpNetworkConnection
-operator|::
-name|tst_QHttpNetworkConnection
-parameter_list|()
-block|{ }
-end_constructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -305,33 +281,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QHttpNetworkConnection
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QHttpNetworkConnection
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QHttpNetworkConnection
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|options_data

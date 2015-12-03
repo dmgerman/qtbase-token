@@ -45,29 +45,13 @@ public|public:
 name|tst_QTextScriptEngine
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QTextScriptEngine
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase
 parameter_list|()
 function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|devanagari_data
 parameter_list|()
@@ -226,15 +210,6 @@ argument_list|)
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QTextScriptEngine
-name|tst_QTextScriptEngine
-operator|::
-name|~
-name|tst_QTextScriptEngine
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -260,24 +235,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QTextScriptEngine
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QTextScriptEngine
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_struct
 DECL|struct|ShapeTable

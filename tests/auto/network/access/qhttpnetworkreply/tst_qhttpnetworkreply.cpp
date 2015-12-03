@@ -25,22 +25,6 @@ private|private
 name|Q_SLOTS
 private|:
 name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
 name|parseHeader_data
 parameter_list|()
 function_decl|;
@@ -51,42 +35,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QHttpNetworkReply
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QHttpNetworkReply
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QHttpNetworkReply
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QHttpNetworkReply
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|parseHeader_data
 name|void

@@ -257,11 +257,6 @@ public|public:
 name|tst_QTcpSocket
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QTcpSocket
-parameter_list|()
-destructor_decl|;
 DECL|function|enterLoop
 specifier|static
 name|void
@@ -1172,15 +1167,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QTcpSocket
-name|tst_QTcpSocket
-operator|::
-name|~
-name|tst_QTcpSocket
-parameter_list|()
-block|{  }
-end_destructor
 begin_function
 DECL|function|initTestCase_data
 name|void

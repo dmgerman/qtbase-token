@@ -114,22 +114,9 @@ public|public:
 name|tst_QPixmap
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QPixmap
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 name|void
 name|initTestCase
 parameter_list|()
@@ -746,33 +733,6 @@ argument_list|)
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QPixmap
-name|tst_QPixmap
-operator|::
-name|~
-name|tst_QPixmap
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QPixmap
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QPixmap
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|initTestCase
 name|void

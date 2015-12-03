@@ -180,15 +180,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QMouseEvent
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QMouseEvent
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
@@ -202,10 +193,6 @@ parameter_list|()
 function_decl|;
 name|void
 name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
 parameter_list|()
 function_decl|;
 private|private
@@ -236,23 +223,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QMouseEvent
-name|tst_QMouseEvent
-operator|::
-name|tst_QMouseEvent
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QMouseEvent
-name|tst_QMouseEvent
-operator|::
-name|~
-name|tst_QMouseEvent
-parameter_list|()
-block|{  }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -346,15 +316,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QMouseEvent
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|checkMousePressEvent_data

@@ -339,11 +339,6 @@ public|public:
 name|tst_QSslSocket
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QSslSocket
-parameter_list|()
-destructor_decl|;
 DECL|function|enterLoop
 specifier|static
 name|void
@@ -1051,15 +1046,6 @@ endif|#
 directive|endif
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QSslSocket
-name|tst_QSslSocket
-operator|::
-name|~
-name|tst_QSslSocket
-parameter_list|()
-block|{ }
-end_destructor
 begin_enum
 DECL|enum|ProxyTests
 enum|enum

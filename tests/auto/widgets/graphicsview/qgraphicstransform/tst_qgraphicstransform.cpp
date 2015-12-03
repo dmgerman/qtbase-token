@@ -26,25 +26,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public
-name|slots
-public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -84,60 +65,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_comment
-comment|// This will be called before the first test function is executed.
-end_comment
-begin_comment
-comment|// It is only called once.
-end_comment
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QGraphicsTransform
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// This will be called after the last test function is executed.
-end_comment
-begin_comment
-comment|// It is only called once.
-end_comment
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QGraphicsTransform
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// This will be called before each test function is executed.
-end_comment
-begin_function
-DECL|function|init
-name|void
-name|tst_QGraphicsTransform
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// This will be called after every test function.
-end_comment
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QGraphicsTransform
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|transform2D
 specifier|static

@@ -56,22 +56,6 @@ public|public
 name|slots
 public|:
 name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-name|void
 name|accessAfterRemoveReadyReadSlot
 parameter_list|()
 function_decl|;
@@ -82,6 +66,14 @@ function_decl|;
 private|private
 name|slots
 private|:
+name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
+name|void
+name|cleanupTestCase
+parameter_list|()
+function_decl|;
 name|void
 name|qnetworkdiskcache_data
 parameter_list|()
@@ -687,30 +679,6 @@ name|removeRecursively
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_comment
-comment|// This will be called before each test function is executed.
-end_comment
-begin_function
-DECL|function|init
-name|void
-name|tst_QNetworkDiskCache
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// This will be called after every test function.
-end_comment
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QNetworkDiskCache
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|qnetworkdiskcache_data

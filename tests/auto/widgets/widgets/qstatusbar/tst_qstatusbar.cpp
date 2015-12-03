@@ -36,15 +36,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QStatusBar
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QStatusBar
-parameter_list|()
-destructor_decl|;
 protected|protected
 name|slots
 protected|:
@@ -56,17 +47,9 @@ name|QString
 modifier|&
 parameter_list|)
 function_decl|;
-public|public
+private|private
 name|slots
-public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
+private|:
 name|void
 name|init
 parameter_list|()
@@ -75,9 +58,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|tempMessage
 parameter_list|()
@@ -123,23 +103,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QStatusBar
-name|tst_QStatusBar
-operator|::
-name|tst_QStatusBar
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QStatusBar
-name|tst_QStatusBar
-operator|::
-name|~
-name|tst_QStatusBar
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|init
 name|void
@@ -213,24 +176,6 @@ operator|delete
 name|testWidget
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QStatusBar
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QStatusBar
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|messageChanged

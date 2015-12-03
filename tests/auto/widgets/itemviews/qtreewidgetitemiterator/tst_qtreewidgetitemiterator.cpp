@@ -45,13 +45,9 @@ public|public:
 name|tst_QTreeWidgetItemIterator
 parameter_list|()
 constructor_decl|;
-name|~
-name|tst_QTreeWidgetItemIterator
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase
 parameter_list|()
@@ -60,17 +56,6 @@ name|void
 name|cleanupTestCase
 parameter_list|()
 function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|postincrement
 parameter_list|()
@@ -165,15 +150,6 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QTreeWidgetItemIterator
-name|tst_QTreeWidgetItemIterator
-operator|::
-name|~
-name|tst_QTreeWidgetItemIterator
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -817,24 +793,6 @@ operator|delete
 name|testWidget
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QTreeWidgetItemIterator
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QTreeWidgetItemIterator
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|iteratorflags_data

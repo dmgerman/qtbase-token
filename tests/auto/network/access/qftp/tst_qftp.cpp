@@ -138,14 +138,9 @@ public|public:
 name|tst_QFtp
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QFtp
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase_data
 parameter_list|()
@@ -166,9 +161,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|connectToHost_data
 parameter_list|()
@@ -685,15 +677,6 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QFtp
-name|tst_QFtp
-operator|::
-name|~
-name|tst_QFtp
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase_data
 name|void

@@ -71,18 +71,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QHttpSocketEngine
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QHttpSocketEngine
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase
 parameter_list|()
@@ -91,13 +82,6 @@ name|void
 name|init
 parameter_list|()
 function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|construction
 parameter_list|()
@@ -410,23 +394,6 @@ block|}
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QHttpSocketEngine
-name|tst_QHttpSocketEngine
-operator|::
-name|tst_QHttpSocketEngine
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QHttpSocketEngine
-name|tst_QHttpSocketEngine
-operator|::
-name|~
-name|tst_QHttpSocketEngine
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -462,15 +429,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QHttpSocketEngine
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_comment
 comment|//---------------------------------------------------------------------------

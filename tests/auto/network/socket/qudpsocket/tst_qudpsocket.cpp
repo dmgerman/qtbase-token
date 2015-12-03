@@ -112,18 +112,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QUdpSocket
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QUdpSocket
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
+private|:
 name|void
 name|initTestCase_data
 parameter_list|()
@@ -140,9 +131,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|constructing
 parameter_list|()
@@ -428,23 +416,6 @@ name|address
 return|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QUdpSocket
-name|tst_QUdpSocket
-operator|::
-name|tst_QUdpSocket
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QUdpSocket
-name|tst_QUdpSocket
-operator|::
-name|~
-name|tst_QUdpSocket
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase_data
 name|void

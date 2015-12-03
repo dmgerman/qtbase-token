@@ -65,14 +65,6 @@ name|int
 name|proxyAuthCalled
 decl_stmt|;
 public|public:
-name|tst_QSslSocket_onDemandCertificates_static
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QSslSocket_onDemandCertificates_static
-parameter_list|()
-destructor_decl|;
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENSSL
@@ -135,23 +127,6 @@ comment|// QT_NO_OPENSSL
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QSslSocket_onDemandCertificates_static
-name|tst_QSslSocket_onDemandCertificates_static
-operator|::
-name|tst_QSslSocket_onDemandCertificates_static
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QSslSocket_onDemandCertificates_static
-name|tst_QSslSocket_onDemandCertificates_static
-operator|::
-name|~
-name|tst_QSslSocket_onDemandCertificates_static
-parameter_list|()
-block|{ }
-end_destructor
 begin_enum
 DECL|enum|ProxyTests
 enum|enum

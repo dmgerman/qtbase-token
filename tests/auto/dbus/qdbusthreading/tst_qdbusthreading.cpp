@@ -281,10 +281,6 @@ private|private
 name|Q_SLOTS
 private|:
 name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
 name|dyingThread
 parameter_list|()
 function_decl|;
@@ -955,15 +951,6 @@ literal|500
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QDBusThreading
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|dyingThread_thread

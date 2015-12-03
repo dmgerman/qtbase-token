@@ -50,22 +50,9 @@ public|public:
 name|tst_QStackedLayout
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QStackedLayout
-parameter_list|()
-destructor_decl|;
-public|public
+private|private
 name|slots
-public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
+private|:
 name|void
 name|init
 parameter_list|()
@@ -74,9 +61,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|getSetCheck
 parameter_list|()
@@ -257,33 +241,6 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QStackedLayout
-name|tst_QStackedLayout
-operator|::
-name|~
-name|tst_QStackedLayout
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QStackedLayout
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QStackedLayout
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|init
 name|void
