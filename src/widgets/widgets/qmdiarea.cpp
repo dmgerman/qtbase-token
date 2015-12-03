@@ -2459,8 +2459,10 @@ name|overlap
 expr_stmt|;
 name|result
 operator|.
-name|clear
-argument_list|()
+name|resize
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 block|}
 name|result
