@@ -18503,14 +18503,13 @@ modifier|*
 name|editor
 parameter_list|)
 block|{
-name|QEditorIndexHash
-operator|::
-name|iterator
+specifier|const
+specifier|auto
 name|it
 init|=
 name|editorIndexHash
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|editor
 argument_list|)
@@ -18521,7 +18520,7 @@ name|it
 operator|!=
 name|editorIndexHash
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{

@@ -2099,7 +2099,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|old
 argument_list|)
@@ -2681,7 +2681,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|data
 operator|->
@@ -3222,7 +3222,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|old
 argument_list|)
@@ -3360,7 +3360,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|data
 operator|->
@@ -3618,7 +3618,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|old
 argument_list|)
@@ -3984,7 +3984,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|old
 argument_list|)
@@ -4122,7 +4122,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|data
 operator|->
@@ -8540,15 +8540,7 @@ condition|)
 return|return;
 comment|// find the data and reinsert it sorted
 specifier|const
-name|QHash
-argument_list|<
-name|QModelIndex
-argument_list|,
-name|QPersistentModelIndexData
-modifier|*
-argument_list|>
-operator|::
-name|iterator
+specifier|auto
 name|it
 init|=
 name|d
@@ -8557,7 +8549,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|from
 argument_list|)
@@ -8572,7 +8564,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{
@@ -8719,15 +8711,7 @@ argument_list|)
 condition|)
 continue|continue;
 specifier|const
-name|QHash
-argument_list|<
-name|QModelIndex
-argument_list|,
-name|QPersistentModelIndexData
-modifier|*
-argument_list|>
-operator|::
-name|iterator
+specifier|auto
 name|it
 init|=
 name|d
@@ -8736,7 +8720,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|from
 operator|.
@@ -8756,7 +8740,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{

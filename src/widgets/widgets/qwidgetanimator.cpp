@@ -62,14 +62,13 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_ANIMATION
-name|AnimationMap
-operator|::
-name|iterator
+specifier|const
+specifier|auto
 name|it
 init|=
 name|m_animation_map
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|w
 argument_list|)
@@ -80,7 +79,7 @@ name|it
 operator|==
 name|m_animation_map
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 return|return;

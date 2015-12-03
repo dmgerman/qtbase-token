@@ -475,22 +475,15 @@ argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 block|{
-name|QHash
-operator|<
-name|QModelIndex
-block|,
-name|QPersistentModelIndexData
-operator|*
-operator|>
-operator|::
-name|iterator
+specifier|const
+name|auto
 name|it
 operator|=
 name|persistent
 operator|.
 name|indexes
 operator|.
-name|find
+name|constFind
 argument_list|(
 name|index
 argument_list|)
@@ -503,7 +496,7 @@ name|persistent
 operator|.
 name|indexes
 operator|.
-name|end
+name|cend
 argument_list|()
 condition|)
 block|{
