@@ -3337,7 +3337,10 @@ begin_comment
 comment|/*! \fn QHash::key_iterator QHash::keyEnd() const     \since 5.6      Returns a const \l{STL-style iterators}{STL-style iterator} pointing to the imaginary     item after the last key in the hash.      \sa keyBegin() */
 end_comment
 begin_comment
-comment|/*! \fn QHash::iterator QHash::erase(iterator pos)      Removes the (key, value) pair associated with the iterator \a pos     from the hash, and returns an iterator to the next item in the     hash.      Unlike remove() and take(), this function never causes QHash to     rehash its internal data structure. This means that it can safely     be called while iterating, and won't affect the order of items in     the hash. For example:      \snippet code/src_corelib_tools_qhash.cpp 15      \sa remove(), take(), find() */
+comment|/*! \fn QHash::iterator QHash::erase(const_iterator pos)     \since 5.7      Removes the (key, value) pair associated with the iterator \a pos     from the hash, and returns an iterator to the next item in the     hash.      Unlike remove() and take(), this function never causes QHash to     rehash its internal data structure. This means that it can safely     be called while iterating, and won't affect the order of items in     the hash. For example:      \snippet code/src_corelib_tools_qhash.cpp 15      \sa remove(), take(), find() */
+end_comment
+begin_comment
+comment|/*! \fn QHash::iterator QHash::erase(iterator pos)     \overload */
 end_comment
 begin_comment
 comment|/*! \fn QHash::iterator QHash::find(const Key&key)      Returns an iterator pointing to the item with the \a key in the     hash.      If the hash contains no item with the \a key, the function     returns end().      If the hash contains multiple items with the \a key, this     function returns an iterator that points to the most recently     inserted value. The other values are accessible by incrementing     the iterator. For example, here's some code that iterates over all     the items with the same key:      \snippet code/src_corelib_tools_qhash.cpp 16      \sa value(), values(), QMultiHash::find() */

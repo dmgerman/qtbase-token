@@ -431,6 +431,13 @@ name|friend
 name|class
 name|const_iterator
 decl_stmt|;
+name|friend
+name|class
+name|QSet
+operator|<
+name|T
+operator|>
+expr_stmt|;
 name|public
 label|:
 typedef|typedef
@@ -1410,6 +1417,25 @@ name|iterator
 name|i
 parameter_list|)
 block|{
+return|return
+name|erase
+argument_list|(
+name|m2c
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
+name|iterator
+name|erase
+parameter_list|(
+name|const_iterator
+name|i
+parameter_list|)
+block|{
 name|Q_ASSERT_X
 argument_list|(
 name|isValidIterator
@@ -1427,7 +1453,7 @@ name|q_hash
 operator|.
 name|erase
 argument_list|(
-argument|reinterpret_cast<typename Hash::iterator&>(i)
+argument|reinterpret_cast<typename Hash::const_iterator&>(i)
 argument_list|)
 return|;
 block|}
@@ -2174,6 +2200,24 @@ name|Hash
 name|q_hash
 decl_stmt|;
 end_decl_stmt
+begin_function
+specifier|static
+name|const_iterator
+name|m2c
+parameter_list|(
+name|iterator
+name|it
+parameter_list|)
+function|Q_DECL_NOTHROW
+block|{
+return|return
+name|const_iterator
+argument_list|(
+argument|typename Hash::const_iterator(it.i.i)
+argument_list|)
+return|;
+block|}
+end_function
 begin_decl_stmt
 name|bool
 name|isValidIterator
@@ -2191,6 +2235,28 @@ operator|.
 name|isValidIterator
 argument_list|(
 argument|reinterpret_cast<const typename Hash::iterator&>(i)
+argument_list|)
+return|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|isValidIterator
+argument_list|(
+specifier|const
+name|const_iterator
+operator|&
+name|i
+argument_list|)
+decl|const
+name|Q_DECL_NOTHROW
+block|{
+return|return
+name|q_hash
+operator|.
+name|isValidIterator
+argument_list|(
+argument|reinterpret_cast<const typename Hash::const_iterator&>(i)
 argument_list|)
 return|;
 block|}
