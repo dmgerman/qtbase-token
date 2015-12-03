@@ -359,8 +359,6 @@ parameter_list|()
 block|{
 name|qEglWindowDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Set current rendering API
 name|EGLBoolean

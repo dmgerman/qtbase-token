@@ -1571,9 +1571,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s invoked with handle==0"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"invoked with handle==0"
 argument_list|)
 expr_stmt|;
 return|return

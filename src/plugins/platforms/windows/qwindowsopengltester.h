@@ -192,6 +192,14 @@ block|,
 name|SoftwareRasterizer
 init|=
 literal|0x0020
+block|,
+name|RendererMask
+init|=
+literal|0x00FF
+block|,
+name|DisableRotationFlag
+init|=
+literal|0x0100
 block|}
 enum|;
 name|Q_DECLARE_FLAGS

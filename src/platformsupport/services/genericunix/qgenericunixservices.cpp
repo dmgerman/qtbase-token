@@ -586,9 +586,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Unable to detect a web browser to launch '%s'"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Unable to detect a web browser to launch '%s'"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -648,9 +646,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Unable to detect a launcher for '%s'"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"Unable to detect a launcher for '%s'"
 argument_list|,
 name|qPrintable
 argument_list|(

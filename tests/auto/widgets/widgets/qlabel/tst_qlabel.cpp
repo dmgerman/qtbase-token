@@ -60,11 +60,8 @@ super|:
 specifier|public
 name|QWidget
 block|{
+name|Q_OBJECT
 public|public:
-DECL|function|Widget
-name|Widget
-parameter_list|()
-block|{ }
 DECL|member|events
 name|QList
 argument_list|<
@@ -75,7 +72,6 @@ argument_list|>
 name|events
 decl_stmt|;
 protected|protected:
-DECL|function|event
 name|bool
 name|event
 parameter_list|(
@@ -83,6 +79,7 @@ name|QEvent
 modifier|*
 name|ev
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 name|events
 operator|.
@@ -115,18 +112,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QLabel
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QLabel
-parameter_list|()
-destructor_decl|;
-public|public
-name|slots
-public|:
+private|private
+name|Q_SLOTS
+private|:
 name|void
 name|initTestCase
 parameter_list|()
@@ -143,9 +131,6 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
-private|private
-name|slots
-private|:
 name|void
 name|getSetCheck
 parameter_list|()
@@ -424,28 +409,6 @@ name|var3
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QLabel
-name|tst_QLabel
-operator|::
-name|tst_QLabel
-parameter_list|()
-member_init_list|:
-name|test_box
-argument_list|(
-literal|0
-argument_list|)
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QLabel
-name|tst_QLabel
-operator|::
-name|~
-name|tst_QLabel
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -494,10 +457,6 @@ name|testWidget
 operator|=
 literal|0
 expr_stmt|;
-if|if
-condition|(
-name|test_box
-condition|)
 operator|delete
 name|test_box
 expr_stmt|;

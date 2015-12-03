@@ -63,7 +63,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_WIN
+name|Q_CC_MSVC
 argument_list|)
 operator|&&
 operator|!

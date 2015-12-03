@@ -661,7 +661,7 @@ name|layout_direction
 init|=
 name|Qt
 operator|::
-name|LeftToRight
+name|LayoutDirectionAuto
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -4784,15 +4784,6 @@ name|force_reverse
 operator|=
 literal|true
 expr_stmt|;
-name|QGuiApplication
-operator|::
-name|setLayoutDirection
-argument_list|(
-name|Qt
-operator|::
-name|RightToLeft
-argument_list|)
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
@@ -5422,6 +5413,32 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// QT_NO_LIBRARY
+if|if
+condition|(
+name|layout_direction
+operator|==
+name|Qt
+operator|::
+name|LayoutDirectionAuto
+operator|||
+name|force_reverse
+condition|)
+name|QGuiApplication
+operator|::
+name|setLayoutDirection
+argument_list|(
+name|qt_detectRTLLanguage
+argument_list|()
+condition|?
+name|Qt
+operator|::
+name|RightToLeft
+else|:
+name|Qt
+operator|::
+name|LeftToRight
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function_decl
@@ -14579,7 +14596,20 @@ operator|::
 name|layoutDirection
 parameter_list|()
 block|{
+comment|// layout_direction is only ever Qt::LayoutDirectionAuto if setLayoutDirection
+comment|// was never called, or called with Qt::LayoutDirectionAuto (which is a no-op).
+comment|// In that case we return the default LeftToRight.
 return|return
+name|layout_direction
+operator|==
+name|Qt
+operator|::
+name|LayoutDirectionAuto
+condition|?
+name|Qt
+operator|::
+name|LeftToRight
+else|:
 name|layout_direction
 return|;
 block|}

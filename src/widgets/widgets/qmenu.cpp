@@ -3107,6 +3107,11 @@ literal|0
 expr_stmt|;
 name|menu
 operator|->
+name|close
+argument_list|()
+expr_stmt|;
+name|menu
+operator|->
 name|d_func
 argument_list|()
 operator|->
@@ -3115,11 +3120,6 @@ operator|.
 name|widget
 operator|=
 literal|0
-expr_stmt|;
-name|menu
-operator|->
-name|close
-argument_list|()
 expr_stmt|;
 if|if
 condition|(

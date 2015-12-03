@@ -4297,8 +4297,6 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"got unexpected zlib return value:"
 operator|<<
 name|zlibRet
@@ -5646,11 +5644,9 @@ name|SPDYClosed
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"Trying to upload to closed stream"
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -6413,8 +6409,6 @@ default|default:
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"cannot handle frame of type"
 operator|<<
 name|type
@@ -6623,11 +6617,9 @@ argument_list|)
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"error reading header from SYN_REPLY message"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -6655,11 +6647,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"error parsing header from SYN_REPLY message"
+argument_list|)
 expr_stmt|;
 name|sendRST_STREAM
 argument_list|(
@@ -6734,11 +6724,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"error parsing header from SYN_REPLY message"
+argument_list|)
 expr_stmt|;
 name|sendRST_STREAM
 argument_list|(
@@ -6792,11 +6780,9 @@ argument_list|()
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"error parsing header from SYN_REPLY message"
+argument_list|)
 expr_stmt|;
 name|sendRST_STREAM
 argument_list|(
@@ -7298,11 +7284,9 @@ expr_stmt|;
 break|break;
 default|default:
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"could not understand servers RST_STREAM status code"
+argument_list|)
 expr_stmt|;
 name|errorCode
 operator|=
@@ -7558,8 +7542,6 @@ default|default:
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"found unknown settings value"
 operator|<<
 name|value
@@ -7719,8 +7701,6 @@ block|}
 default|default:
 name|qWarning
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"unexpected status code"
 operator|<<
@@ -8411,11 +8391,9 @@ name|flag_compress
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-name|Q_FUNC_INFO
-operator|<<
+argument_list|(
 literal|"SPDY level compression is not supported"
+argument_list|)
 expr_stmt|;
 block|}
 if|if

@@ -9965,7 +9965,7 @@ operator|)
 condition|?
 name|SW_MAXIMIZE
 else|:
-name|SW_SHOWNOACTIVATE
+name|SW_SHOWNORMAL
 argument_list|)
 expr_stmt|;
 block|}

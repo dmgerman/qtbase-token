@@ -1111,8 +1111,6 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"Could not link shader program:\n"
 operator|<<
 name|p

@@ -277,8 +277,6 @@ expr_stmt|;
 name|qClipboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"formats="
 operator|<<
 name|m_formatsToCheck
@@ -314,8 +312,6 @@ literal|0
 decl_stmt|;
 name|qClipboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"mimetype="
 operator|<<
@@ -367,8 +363,6 @@ expr_stmt|;
 block|}
 name|qClipboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"result="
 operator|<<
@@ -445,8 +439,6 @@ block|{
 name|qClipboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"mimetype="
 operator|<<
 name|mimetype
@@ -519,8 +511,6 @@ condition|)
 block|{
 name|qClipboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"user data formats="
 operator|<<
@@ -695,8 +685,6 @@ decl_stmt|;
 name|qClipboardDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"formats="
 operator|<<
 name|formats
@@ -753,8 +741,6 @@ argument_list|)
 decl_stmt|;
 name|qClipboardDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"set "
 operator|<<

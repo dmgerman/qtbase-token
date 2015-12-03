@@ -66,7 +66,7 @@ begin_comment
 comment|/*! \fn bool QVector::isEmpty() const      Returns \c true if the vector has size 0; otherwise returns \c false.      \sa size(), resize() */
 end_comment
 begin_comment
-comment|/*! \fn void QVector::resize(int size)      Sets the size of the vector to \a size. If \a size is greater than the     current size, elements are added to the end; the new elements are     initialized with a \l{default-constructed value}. If \a size is less     than the current size, elements are removed from the end.      \sa size() */
+comment|/*! \fn void QVector::resize(int size)      Sets the size of the vector to \a size. If \a size is greater than the     current size, elements are added to the end; the new elements are     initialized with a \l{default-constructed value}. If \a size is less     than the current size, elements are removed from the end.      Since Qt 5.6, resize() doesn't shrink the capacity anymore.     To shed excess capacity, use squeeze().      \sa size() */
 end_comment
 begin_comment
 comment|/*! \fn int QVector::capacity() const      Returns the maximum number of items that can be stored in the     vector without forcing a reallocation.      The sole purpose of this function is to provide a means of fine     tuning QVector's memory usage. In general, you will rarely ever     need to call this function. If you want to know how many items are     in the vector, call size().      \sa reserve(), squeeze() */

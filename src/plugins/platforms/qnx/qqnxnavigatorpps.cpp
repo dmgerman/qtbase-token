@@ -171,8 +171,6 @@ block|}
 name|qNavigatorDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"successfully connected to Navigator. fd="
 operator|<<
 name|m_fd
@@ -259,8 +257,6 @@ literal|"\n"
 expr_stmt|;
 name|qNavigatorDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"sending PPS message:\n"
 operator|<<
@@ -369,8 +365,6 @@ expr_stmt|;
 name|qNavigatorDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"received PPS message:\n"
 operator|<<
 name|buffer
@@ -476,8 +470,6 @@ block|{
 name|qNavigatorDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"data="
 operator|<<
 name|ppsData
@@ -561,8 +553,6 @@ decl_stmt|;
 name|qNavigatorDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"attr="
 operator|<<
 name|attr
@@ -638,16 +628,12 @@ decl_stmt|;
 name|qNavigatorDebug
 argument_list|()
 operator|<<
-name|Q_FUNC_INFO
-operator|<<
 literal|"key="
 operator|<<
 name|key
 expr_stmt|;
 name|qNavigatorDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 operator|<<
 literal|"val="
 operator|<<

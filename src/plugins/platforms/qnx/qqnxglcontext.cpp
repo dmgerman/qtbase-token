@@ -104,8 +104,6 @@ argument_list|)
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QSurfaceFormat
 name|format
@@ -474,8 +472,6 @@ parameter_list|()
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Cleanup EGL context if it exists
 if|if
@@ -582,8 +578,6 @@ parameter_list|()
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Initialize connection to EGL
 name|ms_eglDisplay
@@ -662,8 +656,6 @@ parameter_list|()
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Close connection to EGL
 name|eglTerminate
@@ -687,8 +679,6 @@ parameter_list|)
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(
@@ -840,8 +830,6 @@ parameter_list|()
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// set current rendering API
 name|EGLBoolean
@@ -916,8 +904,6 @@ parameter_list|)
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 name|QQnxEglWindow
 modifier|*
@@ -960,8 +946,6 @@ parameter_list|)
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Set current rendering API
 name|EGLBoolean
@@ -1052,8 +1036,6 @@ parameter_list|)
 block|{
 name|qGLContextDebug
 argument_list|()
-operator|<<
-name|Q_FUNC_INFO
 expr_stmt|;
 comment|// Choose EGL settings based on OpenGL version
 if|#

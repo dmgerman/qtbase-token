@@ -2532,9 +2532,7 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"%s: RegisterClass() failed"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"%s RegisterClass() failed"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -2684,9 +2682,7 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"%s: CreateWindow() for QEventDispatcherWin32 internal window failed"
-argument_list|,
-name|Q_FUNC_INFO
+literal|"CreateWindow() for QEventDispatcherWin32 internal window failed"
 argument_list|)
 expr_stmt|;
 return|return

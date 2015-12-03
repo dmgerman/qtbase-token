@@ -2258,7 +2258,7 @@ name|QT_TRANSLATE_NOOP
 argument_list|(
 literal|"QNetworkReply"
 argument_list|,
-literal|"Error downloading %1 - server replied: %2"
+literal|"Error transferring %1 - server replied: %2"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2430,7 +2430,7 @@ name|QT_TRANSLATE_NOOP
 argument_list|(
 literal|"QNetworkReply"
 argument_list|,
-literal|"Error downloading %1 - server replied: %2"
+literal|"Error transferring %1 - server replied: %2"
 argument_list|)
 argument_list|)
 decl_stmt|;

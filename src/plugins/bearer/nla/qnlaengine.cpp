@@ -133,9 +133,8 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"==== BEGIN NLA_BLOB ===="
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"type:"
 operator|<<
@@ -144,9 +143,8 @@ operator|->
 name|header
 operator|.
 name|type
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"size:"
 operator|<<
@@ -155,9 +153,8 @@ operator|->
 name|header
 operator|.
 name|dwSize
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"next offset:"
 operator|<<
@@ -183,9 +180,8 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"Raw Data"
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|'\t'
 operator|<<
@@ -203,9 +199,8 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"Interface"
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\ttype:"
 operator|<<
@@ -216,9 +211,8 @@ operator|.
 name|interfaceData
 operator|.
 name|dwType
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\tspeed:"
 operator|<<
@@ -229,9 +223,8 @@ operator|.
 name|interfaceData
 operator|.
 name|dwSpeed
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\tadapter:"
 operator|<<
@@ -251,9 +244,8 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"802.1x Location"
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|'\t'
 operator|<<
@@ -273,9 +265,8 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"Connectivity"
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\ttype:"
 operator|<<
@@ -286,9 +277,8 @@ operator|.
 name|connectivity
 operator|.
 name|type
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\tinternet:"
 operator|<<
@@ -308,9 +298,8 @@ name|qDebug
 argument_list|()
 operator|<<
 literal|"ICS"
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\tspeed:"
 operator|<<
@@ -323,9 +312,8 @@ operator|.
 name|remote
 operator|.
 name|speed
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\ttype:"
 operator|<<
@@ -338,9 +326,8 @@ operator|.
 name|remote
 operator|.
 name|type
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\tstate:"
 operator|<<
@@ -353,9 +340,8 @@ operator|.
 name|remote
 operator|.
 name|state
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\tmachine name:"
 operator|<<
@@ -368,9 +354,8 @@ operator|.
 name|remote
 operator|.
 name|machineName
-expr_stmt|;
-name|qDebug
-argument_list|()
+operator|<<
+name|endl
 operator|<<
 literal|"\tshared adapter name:"
 operator|<<
