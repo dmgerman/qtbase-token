@@ -55,6 +55,21 @@ define|\
 value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg); \         ret; \     }
 end_define
 begin_define
+DECL|macro|RETURN_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+name|ret
+parameter_list|,
+modifier|...
+parameter_list|)
+define|\
+value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg, __VA_ARGS__); \         ret; \     }
+end_define
+begin_define
 DECL|macro|RETURN_HR_IF_FAILED
 define|#
 directive|define
@@ -93,6 +108,54 @@ parameter_list|(
 name|msg
 parameter_list|)
 value|RETURN_IF_FAILED(msg, return)
+end_define
+begin_define
+DECL|macro|RETURN_HR_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_HR_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+modifier|...
+parameter_list|)
+value|RETURN_IF_FAILED_WITH_ARGS(msg, return hr, __VA_ARGS__)
+end_define
+begin_define
+DECL|macro|RETURN_OK_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_OK_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+modifier|...
+parameter_list|)
+value|RETURN_IF_FAILED_WITH_ARGS(msg, return S_OK, __VA_ARGS__)
+end_define
+begin_define
+DECL|macro|RETURN_FALSE_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_FALSE_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+modifier|...
+parameter_list|)
+value|RETURN_IF_FAILED_WITH_ARGS(msg, return false, __VA_ARGS__)
+end_define
+begin_define
+DECL|macro|RETURN_VOID_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_VOID_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+modifier|...
+parameter_list|)
+value|RETURN_IF_FAILED_WITH_ARGS(msg, return, __VA_ARGS__)
 end_define
 begin_define
 DECL|macro|Q_ASSERT_SUCCEEDED
