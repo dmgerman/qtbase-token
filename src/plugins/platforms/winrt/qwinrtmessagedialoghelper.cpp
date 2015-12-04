@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QTextDocument>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qfunctions_winrt.h>
 end_include
 begin_include
@@ -380,6 +385,25 @@ operator|+
 name|informativeText
 operator|)
 decl_stmt|;
+if|if
+condition|(
+name|Qt
+operator|::
+name|mightBeRichText
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Rich text detected, defaulting to QtWidgets-based dialog."
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|HRESULT
 name|hr
 decl_stmt|;
