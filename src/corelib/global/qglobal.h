@@ -3851,6 +3851,12 @@ name|defined
 argument_list|(
 name|QT_NO_DEBUG
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_FORCE_ASSERTS
+argument_list|)
 end_if
 begin_define
 DECL|macro|Q_CHECK_PTR
