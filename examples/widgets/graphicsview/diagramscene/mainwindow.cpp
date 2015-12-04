@@ -2120,7 +2120,7 @@ name|setShortcut
 argument_list|(
 name|tr
 argument_list|(
-literal|"Ctrl+B"
+literal|"Ctrl+T"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2453,7 +2453,7 @@ name|setShortcut
 argument_list|(
 name|tr
 argument_list|(
-literal|"Ctrl+B"
+literal|"F1"
 argument_list|)
 argument_list|)
 expr_stmt|;
