@@ -5344,6 +5344,21 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// The TZ value can be ":/etc/localtime" which libc considers
+comment|// to be a "default timezone", in which case it will be read
+comment|// by one of the blocks below, so unset it here so it is not
+comment|// considered as a valid/found ianaId
+if|if
+condition|(
+name|ianaId
+operator|==
+literal|"/etc/localtime"
+condition|)
+name|ianaId
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 comment|// On Debian Etch and later /etc/localtime is real file with name held in /etc/timezone
 if|if
 condition|(
