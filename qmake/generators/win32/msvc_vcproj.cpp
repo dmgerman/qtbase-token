@@ -3769,13 +3769,15 @@ operator|++
 name|it
 control|)
 block|{
+specifier|const
 name|QString
 name|opt
 init|=
-operator|(
+name|fixLibFlag
+argument_list|(
 operator|*
 name|it
-operator|)
+argument_list|)
 operator|.
 name|toQString
 argument_list|()
