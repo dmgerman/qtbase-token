@@ -171,33 +171,11 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_MSVC2005
-block|,
-literal|"Microsoft (R) Visual Studio 2005 C/C++ Compiler (8.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\8.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
 name|CC_MSVC2008
 block|,
 literal|"Microsoft (R) Visual Studio 2008 C/C++ Compiler (9.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\9.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
-name|CC_MSVC2008
-block|,
-literal|"Microsoft (R) Visual Studio 2008 C/C++ Compiler (9.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\9.0"
 block|,
 literal|"cl.exe"
 block|}
@@ -215,33 +193,11 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
-name|CC_MSVC2010
-block|,
-literal|"Microsoft (R) Visual Studio 2010 C/C++ Compiler (10.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\10.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
 name|CC_MSVC2012
 block|,
 literal|"Microsoft (R) Visual Studio 2012 C/C++ Compiler (11.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\11.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
-block|{
-name|CC_MSVC2012
-block|,
-literal|"Microsoft (R) Visual Studio 2012 C/C++ Compiler (11.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\11.0"
 block|,
 literal|"cl.exe"
 block|}
@@ -258,29 +214,7 @@ literal|"cl.exe"
 block|}
 block|,
 comment|// link.exe, lib.exe
-block|{
-name|CC_MSVC2013
-block|,
-literal|"Microsoft (R) Visual Studio 2013 C/C++ Compiler (12.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\12.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
 comment|// Microsoft skipped version 13
-block|{
-name|CC_MSVC2015
-block|,
-literal|"Microsoft (R) Visual Studio 2015 C/C++ Compiler (14.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VS7\\14.0"
-block|,
-literal|"cl.exe"
-block|}
-block|,
-comment|// link.exe, lib.exe
 block|{
 name|CC_MSVC2015
 block|,
@@ -758,6 +692,8 @@ name|i
 index|]
 operator|.
 name|regKey
+argument_list|,
+name|KEY_WOW64_32KEY
 argument_list|)
 operator|.
 name|toLower

@@ -158,6 +158,10 @@ specifier|const
 name|QString
 modifier|&
 name|rSubkey
+parameter_list|,
+name|unsigned
+name|long
+name|options
 parameter_list|)
 block|{
 name|QString
@@ -206,6 +210,8 @@ argument_list|,
 literal|0
 argument_list|,
 name|KEY_READ
+operator||
+name|options
 argument_list|,
 operator|&
 name|handle
@@ -559,6 +565,11 @@ name|Q_UNUSED
 argument_list|(
 argument|rSubkey
 argument_list|)
+name|Q_UNUSED
+argument_list|(
+name|options
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 return|return
