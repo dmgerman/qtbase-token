@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QRect>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|namespace
@@ -61,6 +66,10 @@ parameter_list|()
 function_decl|;
 name|bool
 name|isSoftwareKeyboardVisible
+parameter_list|()
+function_decl|;
+name|QRect
+name|softwareKeyboardRect
 parameter_list|()
 function_decl|;
 name|void

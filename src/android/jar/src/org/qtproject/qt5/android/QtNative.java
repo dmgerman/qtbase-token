@@ -3319,6 +3319,26 @@ name|boolean
 name|visibility
 parameter_list|)
 function_decl|;
+DECL|method|keyboardGeometryChanged
+specifier|public
+specifier|static
+specifier|native
+name|void
+name|keyboardGeometryChanged
+parameter_list|(
+name|int
+name|x
+parameter_list|,
+name|int
+name|y
+parameter_list|,
+name|int
+name|width
+parameter_list|,
+name|int
+name|height
+parameter_list|)
+function_decl|;
 comment|// keyboard methods
 comment|// dispatch events methods
 DECL|method|dispatchGenericMotionEvent
