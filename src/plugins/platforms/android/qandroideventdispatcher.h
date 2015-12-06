@@ -68,20 +68,6 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|int
-name|select
-argument_list|(
-argument|int nfds
-argument_list|,
-argument|fd_set *readfds
-argument_list|,
-argument|fd_set *writefds
-argument_list|,
-argument|fd_set *exceptfds
-argument_list|,
-argument|timespec *timeout
-argument_list|)
-block|;
 name|bool
 name|processEvents
 argument_list|(
