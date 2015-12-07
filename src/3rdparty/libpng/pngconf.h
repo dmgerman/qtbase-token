@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngconf.h - machine configurable file for libpng  *  * libpng version 1.6.17, March 26, 2015  *  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  * Any machine specific code is near the front of this file, so if you  * are configuring libpng for a machine, you may want to read the section  * starting here down to where it starts to typedef png_color, png_text,  * and png_info.  */
+comment|/* pngconf.h - machine configurable file for libpng  *  * libpng version 1.6.19, July 23, 2015  *  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  * Any machine specific code is near the front of this file, so if you  * are configuring libpng for a machine, you may want to read the section  * starting here down to where it starts to typedef png_color, png_text,  * and png_info.  */
 end_comment
 begin_ifndef
 ifndef|#
@@ -110,7 +110,7 @@ DECL|macro|PNG_CONST
 comment|/* backward compatibility only */
 end_comment
 begin_comment
-comment|/* This controls optimization of the reading of 16 and 32 bit values  * from PNG files.  It can be set on a per-app-file basis - it  * just changes whether a macro is used when the function is called.  * The library builder sets the default; if read functions are not  * built into the library the macro implementation is forced on.  */
+comment|/* This controls optimization of the reading of 16-bit and 32-bit values  * from PNG files.  It can be set on a per-app-file basis - it  * just changes whether a macro is used when the function is called.  * The library builder sets the default; if read functions are not  * built into the library the macro implementation is forced on.  */
 end_comment
 begin_ifndef
 ifndef|#
@@ -708,7 +708,7 @@ parameter_list|,
 name|attributes
 parameter_list|)
 define|\
-value|PNG_FUNCTION(PNG_EXPORT_TYPE(type),(PNGAPI name),PNGARG(args), \         extern attributes)
+value|PNG_FUNCTION(PNG_EXPORT_TYPE(type), (PNGAPI name), PNGARG(args), \       PNG_LINKAGE_API attributes)
 end_define
 begin_endif
 endif|#
@@ -1618,7 +1618,7 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"libpng requires 8 bit bytes"
+literal|"libpng requires 8-bit bytes"
 end_error
 begin_endif
 endif|#
@@ -1669,7 +1669,7 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"libpng requires a signed 16 bit type"
+literal|"libpng requires a signed 16-bit type"
 end_error
 begin_endif
 endif|#
@@ -1712,7 +1712,7 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"libpng requires an unsigned 16 bit type"
+literal|"libpng requires an unsigned 16-bit type"
 end_error
 begin_endif
 endif|#
@@ -1764,7 +1764,7 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"libpng requires a signed 32 bit (or more) type"
+literal|"libpng requires a signed 32-bit (or more) type"
 end_error
 begin_endif
 endif|#
@@ -1808,7 +1808,7 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"libpng requires an unsigned 32 bit (or more) type"
+literal|"libpng requires an unsigned 32-bit (or more) type"
 end_error
 begin_endif
 endif|#

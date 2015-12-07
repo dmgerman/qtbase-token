@@ -13,7 +13,7 @@ directive|ifdef
 name|PNG_READ_SUPPORTED
 end_ifdef
 begin_comment
-comment|/* Read the data from whatever input you are using.  The default routine  * reads from a file pointer.  Note that this routine sometimes gets called  * with very small lengths, so you should implement some kind of simple  * buffering if you are using unbuffered reads.  This should never be asked  * to read more than 64K on a 16 bit machine.  */
+comment|/* Read the data from whatever input you are using.  The default routine  * reads from a file pointer.  Note that this routine sometimes gets called  * with very small lengths, so you should implement some kind of simple  * buffering if you are using unbuffered reads.  This should never be asked  * to read more than 64K on a 16-bit machine.  */
 end_comment
 begin_function
 name|void

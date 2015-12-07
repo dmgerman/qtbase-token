@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngpriv.h - private declarations for use inside libpng  *  * Last changed in libpng 1.6.17 [March 26, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pngpriv.h - private declarations for use inside libpng  *  * Last changed in libpng 1.6.18 [July 23, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_comment
 comment|/* The symbols declared in this file (including the functions declared  * as extern) are PRIVATE.  They are not part of the libpng public  * interface, and are not recommended for use by regular applications.  * Some of them may become public in the future; others may stay private,  * change in an incompatible way, or even disappear.  * Although the libpng users are not forbidden to include this header,  * they should be well aware of the issues that may arise from doing so.  */
@@ -223,7 +223,7 @@ directive|ifndef
 name|PNG_ARM_NEON_OPT
 end_ifndef
 begin_comment
-comment|/* ARM NEON optimizations are being controlled by the compiler settings,     * typically the target FPU.  If the FPU has been set to NEON (-mfpu=neon     * with GCC) then the compiler will define __ARM_NEON__ and we can rely     * unconditionally on NEON instructions not crashing, otherwise we must     * disable use of NEON instructions.     *     * NOTE: at present these optimizations depend on 'ALIGNED_MEMORY', so they     * can only be turned on automatically if that is supported too.  If     * PNG_ARM_NEON_OPT is set in CPPFLAGS (to>0) then arm/arm_init.c will fail     * to compile with an appropriate #error if ALIGNED_MEMORY has been turned     * off.     *     * Note that gcc-4.9 defines __ARM_NEON instead of __ARM_NEON__, so we     * check both variants.     */
+comment|/* ARM NEON optimizations are being controlled by the compiler settings,     * typically the target FPU.  If the FPU has been set to NEON (-mfpu=neon     * with GCC) then the compiler will define __ARM_NEON__ and we can rely     * unconditionally on NEON instructions not crashing, otherwise we must     * disable use of NEON instructions.     *     * NOTE: at present these optimizations depend on 'ALIGNED_MEMORY', so they     * can only be turned on automatically if that is supported too.  If     * PNG_ARM_NEON_OPT is set in CPPFLAGS (to>0) then arm/arm_init.c will fail     * to compile with an appropriate #error if ALIGNED_MEMORY has been turned     * off.     *     * Note that gcc-4.9 defines __ARM_NEON instead of the deprecated     * __ARM_NEON__, so we check both variants.     *     * To disable ARM_NEON optimizations entirely, and skip compiling the     * associated assembler code, pass --enable-arm-neon=no to configure     * or put -DPNG_ARM_NEON_OPT=0 in CPPFLAGS.     */
 end_comment
 begin_if
 if|#
@@ -623,7 +623,7 @@ name|name
 parameter_list|,
 name|array
 parameter_list|)
-value|extern type name array
+value|PNG_LINKAGE_DATA type name array
 end_define
 begin_endif
 endif|#
@@ -649,7 +649,7 @@ parameter_list|,
 name|attributes
 parameter_list|)
 define|\
-value|extern PNG_FUNCTION(type, name, args, PNG_EMPTY attributes)
+value|PNG_LINKAGE_FUNCTION PNG_FUNCTION(type, name, args, PNG_EMPTY attributes)
 end_define
 begin_endif
 endif|#
@@ -675,7 +675,7 @@ parameter_list|,
 name|attributes
 parameter_list|)
 define|\
-value|extern PNG_FUNCTION(type, (PNGCBAPI name), args, PNG_EMPTY attributes)
+value|PNG_LINKAGE_CALLBACK PNG_FUNCTION(type, (PNGCBAPI name), args,\          PNG_EMPTY attributes)
 end_define
 begin_endif
 endif|#
@@ -815,6 +815,25 @@ DECL|macro|PNG_DLL_EXPORT
 define|#
 directive|define
 name|PNG_DLL_EXPORT
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* This is a global switch to set the compilation for an installed system  * (a release build).  It can be set for testing debug builds to ensure that  * they will compile when the build type is switched to RC or STABLE, the  * default is just to use PNG_LIBPNG_BUILD_BASE_TYPE.  Set this in CPPFLAGS  * with either:  *  *   -DPNG_RELEASE_BUILD Turns on the release compile path  *   -DPNG_RELEASE_BUILD=0 Turns it off  * or in your pngusr.h with  *   #define PNG_RELEASE_BUILD=1 Turns on the release compile path  *   #define PNG_RELEASE_BUILD=0 Turns it off  */
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|PNG_RELEASE_BUILD
+end_ifndef
+begin_define
+DECL|macro|PNG_RELEASE_BUILD
+define|#
+directive|define
+name|PNG_RELEASE_BUILD
+value|(PNG_LIBPNG_BUILD_BASE_TYPE>= PNG_LIBPNG_BUILD_RC)
 end_define
 begin_endif
 endif|#
@@ -2064,23 +2083,6 @@ name|PNG_STRUCT_INFO
 value|0x0002
 end_define
 begin_comment
-comment|/* Scaling factor for filter heuristic weighting calculations */
-end_comment
-begin_define
-DECL|macro|PNG_WEIGHT_FACTOR
-define|#
-directive|define
-name|PNG_WEIGHT_FACTOR
-value|(1<<(PNG_WEIGHT_SHIFT))
-end_define
-begin_define
-DECL|macro|PNG_COST_FACTOR
-define|#
-directive|define
-name|PNG_COST_FACTOR
-value|(1<<(PNG_COST_SHIFT))
-end_define
-begin_comment
 comment|/* Flags for the png_ptr->flags rather than declaring a byte for each one */
 end_comment
 begin_define
@@ -2399,7 +2401,7 @@ parameter_list|)
 value|(.00001 * (fixed))
 end_define
 begin_comment
-comment|/* The fixed point conversion performs range checking and evaluates  * its argument multiple times, so must be used with care.  The  * range checking uses the PNG specification values for a signed  * 32 bit fixed point value except that the values are deliberately  * rounded-to-zero to an integral value - 21474 (21474.83 is roughly  * (2^31-1) * 100000). 's' is a string that describes the value being  * converted.  *  * NOTE: this macro will raise a png_error if the range check fails,  * therefore it is normally only appropriate to use this on values  * that come from API calls or other sources where an out of range  * error indicates a programming error, not a data error!  *  * NOTE: by default this is off - the macro is not used - because the  * function call saves a lot of code.  */
+comment|/* The fixed point conversion performs range checking and evaluates  * its argument multiple times, so must be used with care.  The  * range checking uses the PNG specification values for a signed  * 32-bit fixed point value except that the values are deliberately  * rounded-to-zero to an integral value - 21474 (21474.83 is roughly  * (2^31-1) * 100000). 's' is a string that describes the value being  * converted.  *  * NOTE: this macro will raise a png_error if the range check fails,  * therefore it is normally only appropriate to use this on values  * that come from API calls or other sources where an out of range  * error indicates a programming error, not a data error!  *  * NOTE: by default this is off - the macro is not used - because the  * function call saves a lot of code.  */
 end_comment
 begin_ifdef
 ifdef|#
@@ -2828,7 +2830,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* This is used for 16 bit gamma tables -- only the top level pointers are  * const; this could be changed:  */
+comment|/* This is used for 16-bit gamma tables -- only the top level pointers are  * const; this could be changed:  */
 end_comment
 begin_typedef
 DECL|typedef|png_const_uint_16pp
@@ -5334,37 +5336,6 @@ argument_list|(
 name|void
 argument_list|,
 name|png_push_check_crc
-argument_list|,
-operator|(
-name|png_structrp
-name|png_ptr
-operator|)
-argument_list|,
-name|PNG_EMPTY
-argument_list|)
-expr_stmt|;
-name|PNG_INTERNAL_FUNCTION
-argument_list|(
-name|void
-argument_list|,
-name|png_push_crc_skip
-argument_list|,
-operator|(
-name|png_structrp
-name|png_ptr
-operator|,
-name|png_uint_32
-name|length
-operator|)
-argument_list|,
-name|PNG_EMPTY
-argument_list|)
-expr_stmt|;
-name|PNG_INTERNAL_FUNCTION
-argument_list|(
-name|void
-argument_list|,
-name|png_push_crc_finish
 argument_list|,
 operator|(
 name|png_structrp

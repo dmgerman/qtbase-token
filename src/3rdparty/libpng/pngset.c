@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngset.c - storage of image information into info struct  *  * Last changed in libpng 1.6.17 [March 26, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  * The functions here are used during reads to store data from the file  * into the info struct, and during writes to store application data  * into the info struct for writing into the file.  This abstracts the  * info struct and allows us to change the structure in the future.  */
+comment|/* pngset.c - storage of image information into info struct  *  * Last changed in libpng 1.6.19 [November 12, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  * The functions here are used during reads to store data from the file  * into the info struct, and during writes to store application data  * into the info struct for writing into the file.  This abstracts the  * info struct and allows us to change the structure in the future.  */
 end_comment
 begin_include
 include|#
@@ -589,7 +589,7 @@ name|png_ptr
 argument_list|,
 name|green_X
 argument_list|,
-literal|"cHRM Red X"
+literal|"cHRM Green X"
 argument_list|)
 argument_list|,
 name|png_fixed
@@ -598,7 +598,7 @@ name|png_ptr
 argument_list|,
 name|green_Y
 argument_list|,
-literal|"cHRM Red Y"
+literal|"cHRM Green Y"
 argument_list|)
 argument_list|,
 name|png_fixed
@@ -607,7 +607,7 @@ name|png_ptr
 argument_list|,
 name|green_Z
 argument_list|,
-literal|"cHRM Red Z"
+literal|"cHRM Green Z"
 argument_list|)
 argument_list|,
 name|png_fixed
@@ -616,7 +616,7 @@ name|png_ptr
 argument_list|,
 name|blue_X
 argument_list|,
-literal|"cHRM Red X"
+literal|"cHRM Blue X"
 argument_list|)
 argument_list|,
 name|png_fixed
@@ -625,7 +625,7 @@ name|png_ptr
 argument_list|,
 name|blue_Y
 argument_list|,
-literal|"cHRM Red Y"
+literal|"cHRM Blue Y"
 argument_list|)
 argument_list|,
 name|png_fixed
@@ -634,7 +634,7 @@ name|png_ptr
 argument_list|,
 name|blue_Z
 argument_list|,
-literal|"cHRM Red Z"
+literal|"cHRM Blue Z"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2451,6 +2451,9 @@ name|int
 name|num_palette
 parameter_list|)
 block|{
+name|png_uint_32
+name|max_palette_length
+decl_stmt|;
 name|png_debug1
 argument_list|(
 literal|1
@@ -2471,6 +2474,26 @@ operator|==
 name|NULL
 condition|)
 return|return;
+name|max_palette_length
+operator|=
+operator|(
+name|png_ptr
+operator|->
+name|color_type
+operator|==
+name|PNG_COLOR_TYPE_PALETTE
+operator|)
+condition|?
+operator|(
+literal|1
+operator|<<
+name|png_ptr
+operator|->
+name|bit_depth
+operator|)
+else|:
+name|PNG_MAX_PALETTE_LENGTH
+expr_stmt|;
 if|if
 condition|(
 name|num_palette
@@ -2479,7 +2502,10 @@ literal|0
 operator|||
 name|num_palette
 operator|>
-name|PNG_MAX_PALETTE_LENGTH
+operator|(
+name|int
+operator|)
+name|max_palette_length
 condition|)
 block|{
 if|if
@@ -2563,7 +2589,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|/* Changed in libpng-1.2.1 to allocate PNG_MAX_PALETTE_LENGTH instead     * of num_palette entries, in case of an invalid PNG file that has     * too-large sample values.     */
+comment|/* Changed in libpng-1.2.1 to allocate PNG_MAX_PALETTE_LENGTH instead     * of num_palette entries, in case of an invalid PNG file or incorrect     * call to png_set_PLTE() with too-large sample values.     */
 name|png_ptr
 operator|->
 name|palette
@@ -3064,10 +3090,6 @@ argument_list|,
 name|new_iccp_name
 argument_list|)
 expr_stmt|;
-name|new_iccp_name
-operator|=
-name|NULL
-expr_stmt|;
 name|png_benign_error
 argument_list|(
 name|png_ptr
@@ -3220,7 +3242,7 @@ name|png_ptr
 operator|==
 name|NULL
 condition|?
-literal|"unexpected"
+literal|0xabadca11U
 else|:
 operator|(
 name|unsigned
@@ -6367,6 +6389,7 @@ block|}
 ifndef|#
 directive|ifndef
 name|__COVERITY__
+comment|/* Some compilers complain that this is always false.  However, it           * can be true when integer overflow happens.           */
 if|if
 condition|(
 name|size
@@ -6499,7 +6522,7 @@ name|png_uint_32
 name|user_height_max
 parameter_list|)
 block|{
-comment|/* Images with dimensions larger than these limits will be     * rejected by png_set_IHDR().  To accept any PNG datastream     * regardless of dimensions, set both limits to 0x7ffffffL.     */
+comment|/* Images with dimensions larger than these limits will be     * rejected by png_set_IHDR().  To accept any PNG datastream     * regardless of dimensions, set both limits to 0x7ffffff.     */
 if|if
 condition|(
 name|png_ptr

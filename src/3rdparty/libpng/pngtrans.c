@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngtrans.c - transforms the data in a row (used by both readers and writers)  *  * Last changed in libpng 1.6.17 [March 26, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pngtrans.c - transforms the data in a row (used by both readers and writers)  *  * Last changed in libpng 1.6.18 [July 23, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_include
 include|#
@@ -86,7 +86,7 @@ name|PNG_WRITE_SWAP_SUPPORTED
 argument_list|)
 end_if
 begin_comment
-comment|/* Turn on 16 bit byte swapping */
+comment|/* Turn on 16-bit byte swapping */
 end_comment
 begin_function
 name|void
@@ -1067,7 +1067,7 @@ name|PNG_WRITE_SWAP_SUPPORTED
 argument_list|)
 end_if
 begin_comment
-comment|/* Swaps byte order on 16 bit depth images */
+comment|/* Swaps byte order on 16-bit depth images */
 end_comment
 begin_function
 name|void
@@ -3855,10 +3855,12 @@ control|)
 block|{
 if|if
 condition|(
+operator|(
 operator|*
 name|rp
 operator|>>
 name|padding
+operator|)
 operator|!=
 literal|0
 condition|)
