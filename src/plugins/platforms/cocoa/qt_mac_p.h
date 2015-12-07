@@ -255,14 +255,13 @@ block|; }
 specifier|inline
 name|QMacCGContext
 argument_list|(
-argument|const QPaintDevice *pdev
+argument|QPaintDevice *pdev
 argument_list|)
 block|{
 specifier|extern
 name|CGContextRef
 name|qt_mac_cg_context
 argument_list|(
-specifier|const
 name|QPaintDevice
 operator|*
 argument_list|)
