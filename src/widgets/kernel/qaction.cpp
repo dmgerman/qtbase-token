@@ -3617,7 +3617,7 @@ begin_comment
 comment|/*!     \enum QAction::ActionEvent      This enum type is used when calling QAction::activate()      \value Trigger this will cause the QAction::triggered() signal to be emitted.      \value Hover this will cause the QAction::hovered() signal to be emitted. */
 end_comment
 begin_comment
-comment|/*!     \property QAction::menuRole     \brief the action's menu role     \since 4.2      This indicates what role the action serves in the application menu on Mac     OS X. By default all action have the TextHeuristicRole, which means that     the action is added based on its text (see QMenuBar for more information).      The menu role can only be changed before the actions are put into the menu     bar in OS X (usually just before the first application window is     shown). */
+comment|/*!     \property QAction::menuRole     \brief the action's menu role     \since 4.2      This indicates what role the action serves in the application menu on Mac     OS X. By default all actions have the TextHeuristicRole, which means that     the action is added based on its text (see QMenuBar for more information).      The menu role can only be changed before the actions are put into the menu     bar in OS X (usually just before the first application window is     shown). */
 end_comment
 begin_function
 DECL|function|setMenuRole
