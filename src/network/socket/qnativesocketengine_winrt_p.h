@@ -262,9 +262,10 @@ argument|char *data
 argument_list|,
 argument|qint64 maxlen
 argument_list|,
-argument|QIpPacketHeader *
+argument|QIpPacketHeader * =
+literal|0
 argument_list|,
-argument|PacketHeaderOptions
+argument|PacketHeaderOptions = WantNone
 argument_list|)
 block|;
 name|qint64
