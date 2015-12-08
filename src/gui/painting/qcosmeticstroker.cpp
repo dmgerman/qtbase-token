@@ -3257,7 +3257,7 @@ init|=
 operator|(
 operator|!
 name|closed
-operator|&
+operator|&&
 name|drawCaps
 operator|)
 condition|?
@@ -3600,7 +3600,7 @@ init|=
 operator|(
 operator|!
 name|closed
-operator|&
+operator|&&
 name|drawCaps
 operator|)
 condition|?
