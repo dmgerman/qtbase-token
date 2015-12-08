@@ -1876,8 +1876,8 @@ operator|.
 name|constEnd
 argument_list|()
 condition|;
-name|iter
 operator|++
+name|iter
 control|)
 block|{
 if|if
