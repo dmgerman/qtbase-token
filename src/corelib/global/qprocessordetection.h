@@ -434,6 +434,15 @@ define|#
 directive|define
 name|Q_PROCESSOR_ARM_V5
 end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_error
+error|#
+directive|error
+literal|"ARM architecture too old"
+end_error
 begin_endif
 endif|#
 directive|endif
