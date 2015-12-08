@@ -1220,19 +1220,6 @@ name|isActiveNetworkMetered
 parameter_list|()
 specifier|const
 block|{
-comment|// This function was added in JB
-if|if
-condition|(
-name|QtAndroidPrivate
-operator|::
-name|androidSdkVersion
-argument_list|()
-operator|<
-literal|16
-condition|)
-return|return
-literal|false
-return|;
 return|return
 name|m_connectivityManager
 operator|.

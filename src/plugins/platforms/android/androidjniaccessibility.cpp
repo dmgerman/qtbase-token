@@ -190,17 +190,6 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-comment|// API level> 16 is required.
-if|if
-condition|(
-name|QtAndroidPrivate
-operator|::
-name|androidSdkVersion
-argument_list|()
-operator|<
-literal|16
-condition|)
-return|return;
 name|QJNIObjectPrivate
 operator|::
 name|callStaticMethod
@@ -1623,19 +1612,6 @@ modifier|*
 name|env
 parameter_list|)
 block|{
-if|if
-condition|(
-name|QtAndroidPrivate
-operator|::
-name|androidSdkVersion
-argument_list|()
-operator|<
-literal|16
-condition|)
-return|return
-literal|true
-return|;
-comment|// We need API level 16 or higher
 name|jclass
 name|clazz
 decl_stmt|;

@@ -1532,17 +1532,6 @@ name|pointerType
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
-name|Build
-operator|.
-name|VERSION
-operator|.
-name|SDK_INT
-operator|>=
-literal|14
-condition|)
-block|{
 switch|switch
 condition|(
 name|event
@@ -1576,7 +1565,6 @@ expr_stmt|;
 comment|// QTabletEvent::Eraser
 break|break;
 comment|// TODO TOOL_TYPE_MOUSE
-block|}
 block|}
 if|if
 condition|(
