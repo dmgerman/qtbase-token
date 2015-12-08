@@ -3161,16 +3161,10 @@ name|private
 name|Q_SLOTS
 range|:
 name|void
-name|_q_clipboardChanged
+name|_q_deleteSelected
 argument_list|()
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
-name|void
-name|_q_deleteSelected
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_label
 name|private
 label|:
