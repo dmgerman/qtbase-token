@@ -1189,19 +1189,23 @@ comment|// cache the wrong information as updateAccessibility is called
 comment|// during construction of widgets. If you see cases where the
 comment|// cache seems wrong, this call is "to blame", but the code that
 comment|// caches dynamic data should be updated to handle change events.
-if|if
-condition|(
-operator|!
-name|isActive
-argument_list|()
-operator|||
-operator|!
+name|QAccessibleInterface
+modifier|*
+name|iface
+init|=
 name|event
 operator|->
 name|accessibleInterface
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|isActive
+argument_list|()
+operator|&&
+name|iface
 condition|)
-return|return;
+block|{
 if|if
 condition|(
 name|event
@@ -1214,19 +1218,8 @@ operator|::
 name|TableModelChanged
 condition|)
 block|{
-name|QAccessibleInterface
-modifier|*
-name|iface
-init|=
-name|event
-operator|->
-name|accessibleInterface
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|iface
-operator|&&
 name|iface
 operator|->
 name|tableInterface
@@ -1261,6 +1254,7 @@ name|event
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
 block|}
 if|if
 condition|(

@@ -12,6 +12,7 @@ name|mgr
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|activeConfigs
 name|QList
 argument_list|<
 name|QNetworkConfiguration
@@ -22,8 +23,11 @@ name|mgr
 operator|.
 name|allConfigurations
 argument_list|(
-argument|QNetworkConfiguration::Active
+name|QNetworkConfiguration
+operator|::
+name|Active
 argument_list|)
+decl_stmt|;
 end_decl_stmt
 begin_if
 if|if
@@ -37,13 +41,22 @@ literal|0
 condition|)
 name|Q_ASSERT
 argument_list|(
-argument|mgr.isOnline()
+name|mgr
+operator|.
+name|isOnline
+argument_list|()
 argument_list|)
+expr_stmt|;
 else|else
 name|Q_ASSERT
 argument_list|(
-argument|!mgr.isOnline()
+operator|!
+name|mgr
+operator|.
+name|isOnline
+argument_list|()
 argument_list|)
+expr_stmt|;
 end_if
 begin_comment
 comment|//! [0]

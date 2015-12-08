@@ -283,7 +283,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QInputMethod::keyboardRectangle     \brief Virtual keyboard's geometry in window coordinates. */
+comment|/*!     \property QInputMethod::keyboardRectangle     \brief Virtual keyboard's geometry in window coordinates.      This might be an empty rectangle if it is not possible to know the geometry     of the keyboard. This is the case for a floating keyboard on android. */
 end_comment
 begin_function
 DECL|function|keyboardRectangle

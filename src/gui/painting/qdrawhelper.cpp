@@ -45893,9 +45893,10 @@ endif|#
 directive|endif
 end_endif
 begin_function
-DECL|function|qInitDrawhelperAsm
+DECL|function|qInitDrawhelperFunctions
+specifier|static
 name|void
-name|qInitDrawhelperAsm
+name|qInitDrawhelperFunctions
 parameter_list|()
 block|{
 ifdef|#
@@ -47603,6 +47604,45 @@ directive|endif
 comment|// QT_COMPILER_SUPPORTS_MIPS_DSP || QT_COMPILER_SUPPORTS_MIPS_DSPR2
 block|}
 end_function
+begin_function_decl
+specifier|extern
+name|void
+name|qInitBlendFunctions
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_class
+DECL|class|DrawHelperInitializer
+class|class
+name|DrawHelperInitializer
+block|{
+public|public:
+DECL|function|DrawHelperInitializer
+name|DrawHelperInitializer
+parameter_list|()
+block|{
+comment|// Set up basic blend function tables.
+name|qInitBlendFunctions
+argument_list|()
+expr_stmt|;
+comment|// Set up architecture optimized methods for the current machine.
+name|qInitDrawhelperFunctions
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+class|;
+end_class
+begin_comment
+comment|// Ensure initialization if this object file is linked.
+end_comment
+begin_decl_stmt
+DECL|variable|drawHelperInitializer
+specifier|static
+name|DrawHelperInitializer
+name|drawHelperInitializer
+decl_stmt|;
+end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

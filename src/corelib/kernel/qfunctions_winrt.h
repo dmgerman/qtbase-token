@@ -55,6 +55,21 @@ define|\
 value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg); \         ret; \     }
 end_define
 begin_define
+DECL|macro|RETURN_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+name|ret
+parameter_list|,
+modifier|...
+parameter_list|)
+define|\
+value|if (FAILED(hr)) { \         qErrnoWarning(hr, msg, __VA_ARGS__); \         ret; \     }
+end_define
+begin_define
 DECL|macro|RETURN_HR_IF_FAILED
 define|#
 directive|define
@@ -95,6 +110,54 @@ parameter_list|)
 value|RETURN_IF_FAILED(msg, return)
 end_define
 begin_define
+DECL|macro|RETURN_HR_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_HR_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+modifier|...
+parameter_list|)
+value|RETURN_IF_FAILED_WITH_ARGS(msg, return hr, __VA_ARGS__)
+end_define
+begin_define
+DECL|macro|RETURN_OK_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_OK_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+modifier|...
+parameter_list|)
+value|RETURN_IF_FAILED_WITH_ARGS(msg, return S_OK, __VA_ARGS__)
+end_define
+begin_define
+DECL|macro|RETURN_FALSE_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_FALSE_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+modifier|...
+parameter_list|)
+value|RETURN_IF_FAILED_WITH_ARGS(msg, return false, __VA_ARGS__)
+end_define
+begin_define
+DECL|macro|RETURN_VOID_IF_FAILED_WITH_ARGS
+define|#
+directive|define
+name|RETURN_VOID_IF_FAILED_WITH_ARGS
+parameter_list|(
+name|msg
+parameter_list|,
+modifier|...
+parameter_list|)
+value|RETURN_IF_FAILED_WITH_ARGS(msg, return, __VA_ARGS__)
+end_define
+begin_define
 DECL|macro|Q_ASSERT_SUCCEEDED
 define|#
 directive|define
@@ -119,7 +182,7 @@ endif|#
 directive|endif
 comment|// Environment ------------------------------------------------------
 name|errno_t
-name|qt_winrt_getenv_s
+name|qt_fake_getenv_s
 parameter_list|(
 name|size_t
 modifier|*
@@ -137,7 +200,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|errno_t
-name|qt_winrt__putenv_s
+name|qt_fake__putenv_s
 parameter_list|(
 specifier|const
 name|char
@@ -226,12 +289,14 @@ name|funcname
 parameter_list|,
 name|returntype
 parameter_list|,
+name|prependnamespace
+parameter_list|,
 name|param1
 parameter_list|,
 name|param2
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2); \         }
+value|inline returntype funcname(param1 p1, param2 p2) \         { \             return QT_PREPEND_NAMESPACE(prependnamespace##funcname)(p1,  p2); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func3
@@ -262,6 +327,8 @@ name|funcname
 parameter_list|,
 name|returntype
 parameter_list|,
+name|prependnamespace
+parameter_list|,
 name|param1
 parameter_list|,
 name|param2
@@ -271,7 +338,7 @@ parameter_list|,
 name|param4
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4) \         { \             return QT_PREPEND_NAMESPACE(qt_winrt_##funcname)(p1,  p2, p3, p4); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4) \         { \             return QT_PREPEND_NAMESPACE(prependnamespace##funcname)(p1,  p2, p3, p4); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func5
@@ -404,6 +471,8 @@ argument|getenv_s
 argument_list|,
 argument|errno_t
 argument_list|,
+argument|qt_fake_
+argument_list|,
 argument|size_t *
 argument_list|,
 argument|char *
@@ -419,6 +488,8 @@ argument_list|(
 argument|_putenv_s
 argument_list|,
 argument|errno_t
+argument_list|,
+argument|qt_fake_
 argument_list|,
 argument|const char *
 argument_list|,

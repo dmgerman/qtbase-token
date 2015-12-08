@@ -55,13 +55,14 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|Server
 argument_list|(
 name|QWidget
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 block|;
 name|private
@@ -80,10 +81,6 @@ operator|:
 name|QLabel
 operator|*
 name|statusLabel
-block|;
-name|QPushButton
-operator|*
-name|quitButton
 block|;
 name|QTcpServer
 operator|*

@@ -488,6 +488,10 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|isActive
+argument_list|()
+operator|||
+operator|!
 name|iface
 operator|||
 operator|!

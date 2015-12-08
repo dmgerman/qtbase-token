@@ -166,7 +166,7 @@ endif|#
 directive|endif
 comment|// Environment ------------------------------------------------------
 name|errno_t
-name|qt_wince_getenv_s
+name|qt_fake_getenv_s
 parameter_list|(
 name|size_t
 modifier|*
@@ -184,7 +184,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|errno_t
-name|qt_wince__putenv_s
+name|qt_fake__putenv_s
 parameter_list|(
 specifier|const
 name|char
@@ -1533,12 +1533,14 @@ name|funcname
 parameter_list|,
 name|returntype
 parameter_list|,
+name|prependnamespace
+parameter_list|,
 name|param1
 parameter_list|,
 name|param2
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2) \         { \             return qt_wince_##funcname(p1,  p2); \         }
+value|inline returntype funcname(param1 p1, param2 p2) \         { \             return prependnamespace##funcname(p1,  p2); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func3
@@ -1569,6 +1571,8 @@ name|funcname
 parameter_list|,
 name|returntype
 parameter_list|,
+name|prependnamespace
+parameter_list|,
 name|param1
 parameter_list|,
 name|param2
@@ -1578,7 +1582,7 @@ parameter_list|,
 name|param4
 parameter_list|)
 define|\
-value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4) \         { \             return qt_wince_##funcname(p1,  p2, p3, p4); \         }
+value|inline returntype funcname(param1 p1, param2 p2, param3 p3, param4 p4) \         { \             return prependnamespace##funcname(p1,  p2, p3, p4); \         }
 end_define
 begin_define
 DECL|macro|generate_inline_return_func5
@@ -1711,6 +1715,8 @@ argument|getenv_s
 argument_list|,
 argument|errno_t
 argument_list|,
+argument|qt_fake_
+argument_list|,
 argument|size_t *
 argument_list|,
 argument|char *
@@ -1726,6 +1732,8 @@ argument_list|(
 argument|_putenv_s
 argument_list|,
 argument|errno_t
+argument_list|,
+argument|qt_fake_
 argument_list|,
 argument|const char *
 argument_list|,
@@ -1775,6 +1783,8 @@ argument|_waccess
 argument_list|,
 argument|int
 argument_list|,
+argument|qt_wince_
+argument_list|,
 argument|const wchar_t *
 argument_list|,
 argument|int
@@ -1801,6 +1811,8 @@ argument|_fdopen
 argument_list|,
 argument|FILE *
 argument_list|,
+argument|qt_wince_
+argument_list|,
 argument|int
 argument_list|,
 argument|const char *
@@ -1812,6 +1824,8 @@ argument_list|(
 argument|fdopen
 argument_list|,
 argument|FILE *
+argument_list|,
+argument|qt_wince_
 argument_list|,
 argument|int
 argument_list|,
@@ -1842,6 +1856,8 @@ argument_list|(
 argument|_rename
 argument_list|,
 argument|int
+argument_list|,
+argument|qt_wince_
 argument_list|,
 argument|const char *
 argument_list|,
@@ -1882,6 +1898,8 @@ argument|_chmod
 argument_list|,
 argument|bool
 argument_list|,
+argument|qt_wince_
+argument_list|,
 argument|const char *
 argument_list|,
 argument|int
@@ -1893,6 +1911,8 @@ argument_list|(
 argument|_wchmod
 argument_list|,
 argument|bool
+argument_list|,
+argument|qt_wince_
 argument_list|,
 argument|const wchar_t *
 argument_list|,
@@ -1932,6 +1952,8 @@ argument|SetWindowOrgEx
 argument_list|,
 argument|BOOL
 argument_list|,
+argument|qt_wince_
+argument_list|,
 argument|HDC
 argument_list|,
 argument|int
@@ -1947,6 +1969,8 @@ argument_list|(
 argument|calloc
 argument_list|,
 argument|void *
+argument_list|,
+argument|qt_wince_
 argument_list|,
 argument|size_t
 argument_list|,

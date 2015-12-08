@@ -288,6 +288,11 @@ if|if
 condition|(
 name|isActive
 argument_list|()
+operator|&&
+name|event
+operator|->
+name|accessibleInterface
+argument_list|()
 condition|)
 name|dbusAdaptor
 operator|->

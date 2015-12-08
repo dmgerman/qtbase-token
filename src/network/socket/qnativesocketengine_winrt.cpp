@@ -2055,10 +2055,25 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
+name|d
+operator|->
+name|setError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|TemporaryError
+argument_list|,
+name|QNativeSocketEnginePrivate
+operator|::
+name|TemporaryErrorString
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
 return|;
+block|}
 comment|// Start processing incoming data
 if|if
 condition|(

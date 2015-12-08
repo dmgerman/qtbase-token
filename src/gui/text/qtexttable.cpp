@@ -4280,7 +4280,7 @@ comment|//     qDebug()<< "-------- end removeCols"<< pos<< num;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Merges the cell at the specified \a row and \a column with the adjacent cells     into one cell. The new cell will span \a numRows rows and \a numCols columns.     If \a numRows or \a numCols is less than the current number of rows or columns     the cell spans then this method does nothing.      \sa splitCell() */
+comment|/*!     \since 4.1      Merges the cell at the specified \a row and \a column with the adjacent cells     into one cell. The new cell will span \a numRows rows and \a numCols columns.     This method does nothing if \a numRows or \a numCols is less than the current     number of rows or columns spanned by the cell.      \sa splitCell() */
 end_comment
 begin_function
 DECL|function|mergeCells

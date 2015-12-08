@@ -86,6 +86,10 @@ argument|bool showIsFullScreen READ showIsFullScreen STORED false CONSTANT FINAL
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|bool showIsMaximized READ showIsMaximized STORED false CONSTANT FINAL
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|int startDragDistance READ startDragDistance NOTIFY startDragDistanceChanged FINAL
 argument_list|)
 name|Q_PROPERTY
@@ -188,6 +192,11 @@ specifier|const
 block|;
 name|bool
 name|showIsFullScreen
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|showIsMaximized
 argument_list|()
 specifier|const
 block|;

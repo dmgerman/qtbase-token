@@ -2391,7 +2391,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-specifier|const
 name|QString
 name|suffix
 init|=
@@ -2409,6 +2408,29 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|suffix
+operator|.
+name|startsWith
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
+argument_list|)
+condition|)
+name|suffix
+operator|.
+name|prepend
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|HStringReference
 name|nativeSuffix
 argument_list|(
@@ -2443,9 +2465,14 @@ name|Get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|RETURN_FALSE_IF_FAILED
+name|RETURN_FALSE_IF_FAILED_WITH_ARGS
 argument_list|(
-literal|"Failed to set default file extension"
+literal|"Failed to set default file extension \"%s\""
+argument_list|,
+name|qPrintable
+argument_list|(
+name|suffix
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

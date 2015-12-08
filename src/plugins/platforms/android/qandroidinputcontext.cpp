@@ -2588,9 +2588,9 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QPlatformInputContext
+name|QtAndroidInput
 operator|::
-name|keyboardRect
+name|softwareKeyboardRect
 argument_list|()
 return|;
 block|}
