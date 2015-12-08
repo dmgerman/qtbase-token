@@ -10377,6 +10377,21 @@ return|return;
 block|}
 if|if
 condition|(
+name|image
+operator|.
+name|isNull
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QOpenGLTexture::setData() tried to set a null image"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|context
 operator|->
 name|isOpenGLES
