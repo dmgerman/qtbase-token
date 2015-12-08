@@ -2244,6 +2244,17 @@ modifier|*
 name|winVer_helper
 parameter_list|()
 block|{
+specifier|const
+name|bool
+name|workstation
+init|=
+name|winOsVersion
+argument_list|()
+operator|.
+name|wProductType
+operator|==
+name|VER_NT_WORKSTATION
+decl_stmt|;
 switch|switch
 condition|(
 name|int
@@ -2292,7 +2303,11 @@ operator|::
 name|WV_VISTA
 case|:
 return|return
+name|workstation
+condition|?
 literal|"Vista"
+else|:
+literal|"Server 2008"
 return|;
 case|case
 name|QSysInfo
@@ -2300,7 +2315,11 @@ operator|::
 name|WV_WINDOWS7
 case|:
 return|return
+name|workstation
+condition|?
 literal|"7"
+else|:
+literal|"Server 2008 R2"
 return|;
 case|case
 name|QSysInfo
@@ -2308,7 +2327,11 @@ operator|::
 name|WV_WINDOWS8
 case|:
 return|return
+name|workstation
+condition|?
 literal|"8"
+else|:
+literal|"Server 2012"
 return|;
 case|case
 name|QSysInfo
@@ -2316,7 +2339,11 @@ operator|::
 name|WV_WINDOWS8_1
 case|:
 return|return
+name|workstation
+condition|?
 literal|"8.1"
+else|:
+literal|"Server 2012 R2"
 return|;
 case|case
 name|QSysInfo
@@ -2324,7 +2351,11 @@ operator|::
 name|WV_WINDOWS10
 case|:
 return|return
+name|workstation
+condition|?
 literal|"10"
+else|:
+literal|"Server 2016"
 return|;
 case|case
 name|QSysInfo
@@ -4375,12 +4406,25 @@ if|if
 condition|(
 name|version
 condition|)
+block|{
+specifier|const
+name|QLatin1Char
+name|spaceChar
+argument_list|(
+literal|' '
+argument_list|)
+decl_stmt|;
 return|return
 name|QString
 operator|::
 name|fromLatin1
 argument_list|(
 name|version
+argument_list|)
+operator|.
+name|remove
+argument_list|(
+name|spaceChar
 argument_list|)
 operator|.
 name|toLower
@@ -4391,15 +4435,13 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|' '
-argument_list|)
+name|spaceChar
 argument_list|)
 operator|.
 name|toLower
 argument_list|()
 return|;
+block|}
 comment|// fall through
 comment|// Android should not fall through to the Unix code
 elif|#
