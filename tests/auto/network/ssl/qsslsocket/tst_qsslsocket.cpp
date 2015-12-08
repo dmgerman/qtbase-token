@@ -2201,6 +2201,9 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QCOMPARE
 argument_list|(
 name|socket
@@ -2216,6 +2219,8 @@ operator|::
 name|DefaultProxy
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|socket
@@ -13136,6 +13141,9 @@ operator|::
 name|resetProxy
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_NETWORKPROXY
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -13382,6 +13390,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_NETWORKPROXY
 block|}
 end_function
 begin_function
