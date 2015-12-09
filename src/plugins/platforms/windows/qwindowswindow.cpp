@@ -9531,6 +9531,12 @@ operator|==
 name|Qt
 operator|::
 name|WindowMinimized
+operator|||
+name|oldState
+operator|==
+name|Qt
+operator|::
+name|WindowMaximized
 condition|)
 block|{
 specifier|const
@@ -9870,7 +9876,7 @@ operator|)
 condition|?
 name|SW_MAXIMIZE
 else|:
-name|SW_SHOWNOACTIVATE
+name|SW_SHOWNA
 argument_list|)
 expr_stmt|;
 name|clearFlag
