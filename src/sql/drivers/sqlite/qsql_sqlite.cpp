@@ -1660,6 +1660,13 @@ argument_list|(
 name|QSQLiteResult
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|drv_d_func
+argument_list|()
+condition|)
 cast|const_cast
 argument_list|<
 name|QSQLiteDriverPrivate
