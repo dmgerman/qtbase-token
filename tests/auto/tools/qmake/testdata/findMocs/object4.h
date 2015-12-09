@@ -15,7 +15,7 @@ comment|// Now we poison moc, just to make sure this doesn't get moc'ed :)
 end_comment
 begin_decl_stmt
 name|class
-name|NonMocObject
+name|NonMocObject4
 comment|/*  : QObject */
 block|{
 comment|/* qmake ignore Q_OBJECT */
