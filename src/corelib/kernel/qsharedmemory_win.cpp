@@ -135,9 +135,23 @@ break|break;
 case|case
 name|ERROR_FILE_NOT_FOUND
 case|:
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WINCE
+argument_list|)
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|<
+literal|1900
+operator|)
 comment|// This happens on CE only if no file is present as CreateFileMappingW
 comment|// bails out with this error code
 case|case
