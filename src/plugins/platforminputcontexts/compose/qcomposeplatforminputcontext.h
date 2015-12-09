@@ -131,8 +131,6 @@ name|uint
 name|m_composeBuffer
 index|[
 name|QT_KEYSEQUENCE_MAX_LEN
-operator|+
-literal|1
 index|]
 block|;
 name|TableGenerator
