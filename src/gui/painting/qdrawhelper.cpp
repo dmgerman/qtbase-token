@@ -7,27 +7,6 @@ include|#
 directive|include
 file|<qglobal.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_IOS
-end_ifdef
-begin_comment
-comment|// We don't build the NEON drawhelpers as they are implemented partly
-end_comment
-begin_comment
-comment|// in GAS syntax assembly, which is not supported by the iOS toolchain.
-end_comment
-begin_undef
-DECL|macro|__ARM_NEON__
-undef|#
-directive|undef
-name|__ARM_NEON__
-end_undef
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -46858,12 +46837,6 @@ name|defined
 argument_list|(
 name|__ARM_NEON__
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
-argument_list|)
 name|qBlendFunctions
 index|[
 name|QImage
@@ -47047,10 +47020,9 @@ name|qt_fetch_radial_gradient_neon
 expr_stmt|;
 if|#
 directive|if
-operator|!
 name|defined
 argument_list|(
-name|Q_PROCESSOR_ARM_64
+name|ENABLE_PIXMAN_DRAWHELPERS
 argument_list|)
 comment|// The RGB16 helpers are using Arm32 assemblythat has not been ported to AArch64
 name|qBlendFunctions
