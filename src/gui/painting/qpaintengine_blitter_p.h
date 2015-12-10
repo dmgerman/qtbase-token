@@ -101,6 +101,7 @@ name|Type
 name|type
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|Blitter
@@ -110,15 +111,15 @@ name|virtual
 name|bool
 name|begin
 argument_list|(
-name|QPaintDevice
-operator|*
-name|pdev
+argument|QPaintDevice *pdev
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|virtual
 name|bool
 name|end
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 comment|// Call down into QBlittable
 name|void
