@@ -404,6 +404,7 @@ name|QWeakPointer
 operator|<
 name|T
 operator|>
+operator|&
 name|operator
 operator|=
 operator|(
@@ -420,6 +421,7 @@ name|QWeakPointer
 operator|<
 name|T
 operator|>
+operator|&
 name|operator
 operator|=
 operator|(
@@ -444,6 +446,7 @@ name|QWeakPointer
 operator|<
 name|T
 operator|>
+operator|&
 name|operator
 operator|=
 operator|(
