@@ -6364,17 +6364,14 @@ argument_list|)
 operator|+
 literal|"."
 expr_stmt|;
-comment|//File dialog Mode means sub trees are not sorted, only the current root
 if|if
 condition|(
 name|fileDialogMode
 condition|)
 block|{
-comment|// FIXME: we were only able to disableRecursiveSort in developer builds, so we can only
-comment|// stably perform this test for developer builds
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
+comment|// File dialog Mode means sub trees are not sorted, only the current root.
+comment|// There's no way we can check that the sub tree is "not sorted"; just check if it
+comment|// has the same contents of the expected list
 name|QList
 argument_list|<
 name|QString
@@ -6432,15 +6429,43 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
-name|QVERIFY
+name|std
+operator|::
+name|sort
+argument_list|(
+name|expectedOrder
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|expectedOrder
+operator|.
+name|end
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|std
+operator|::
+name|sort
 argument_list|(
 name|actualRows
-operator|!=
+operator|.
+name|begin
+argument_list|()
+argument_list|,
+name|actualRows
+operator|.
+name|end
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actualRows
+argument_list|,
 name|expectedOrder
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 else|else
 block|{
