@@ -1939,6 +1939,9 @@ begin_comment
 comment|/*! \typedef QJsonObject::iterator::value_type      \internal */
 end_comment
 begin_comment
+comment|/*! \typedef QJsonObject::iterator::pointer      \internal */
+end_comment
+begin_comment
 comment|/*! \fn QJsonObject::iterator::iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QJsonObject::begin(), QJsonObject::end() */
 end_comment
 begin_comment
@@ -2000,6 +2003,9 @@ comment|/*! \typedef QJsonObject::const_iterator::reference      \internal */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonObject::const_iterator::value_type      \internal */
+end_comment
+begin_comment
+comment|/*! \typedef QJsonObject::const_iterator::pointer      \internal */
 end_comment
 begin_comment
 comment|/*! \fn QJsonObject::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QJsonObject::constBegin(), QJsonObject::constEnd() */
