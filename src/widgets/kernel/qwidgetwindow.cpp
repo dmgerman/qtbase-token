@@ -2164,11 +2164,11 @@ name|QWidget
 modifier|*
 name|alien
 init|=
-name|receiver
+name|m_widget
 operator|->
 name|childAt
 argument_list|(
-name|receiver
+name|m_widget
 operator|->
 name|mapFromGlobal
 argument_list|(
