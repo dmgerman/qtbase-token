@@ -5265,30 +5265,8 @@ block|}
 comment|// If the font data's native stretch matches the requested stretch we need to set stretch to 100
 comment|// to avoid the fontengine synthesizing stretch. If they didn't match exactly we need to calculate
 comment|// the new stretch factor. This only done if not matched by styleName.
-name|bool
-name|styleNameMatch
-init|=
-operator|!
-name|request
-operator|.
-name|styleName
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-name|request
-operator|.
-name|styleName
-operator|==
-name|style
-operator|->
-name|styleName
-decl_stmt|;
 if|if
 condition|(
-operator|!
-name|styleNameMatch
-operator|&&
 name|style
 operator|->
 name|key
@@ -5302,7 +5280,25 @@ operator|.
 name|stretch
 operator|!=
 literal|0
+operator|&&
+operator|(
+name|request
+operator|.
+name|styleName
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|request
+operator|.
+name|styleName
+operator|!=
+name|style
+operator|->
+name|styleName
+operator|)
 condition|)
+block|{
 name|def
 operator|.
 name|stretch
@@ -5323,6 +5319,7 @@ name|key
 operator|.
 name|stretch
 expr_stmt|;
+block|}
 name|engine
 operator|=
 name|pfdb
