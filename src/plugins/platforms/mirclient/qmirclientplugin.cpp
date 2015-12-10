@@ -26,7 +26,10 @@ name|list
 decl_stmt|;
 name|list
 operator|<<
+name|QStringLiteral
+argument_list|(
 literal|"mirclient"
+argument_list|)
 expr_stmt|;
 return|return
 name|list
@@ -58,7 +61,10 @@ operator|.
 name|toLower
 argument_list|()
 operator|==
+name|QLatin1String
+argument_list|(
 literal|"mirclient"
+argument_list|)
 condition|)
 block|{
 return|return
