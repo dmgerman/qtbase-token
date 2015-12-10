@@ -23,6 +23,16 @@ include|#
 directive|include
 file|<qpa/qplatformtheme.h>
 end_include
+begin_expr_stmt
+name|Q_FORWARD_DECLARE_OBJC_CLASS
+argument_list|(
+name|QT_MANGLE_NAMESPACE
+argument_list|(
+name|QCocoaThemeNotificationReceiver
+argument_list|)
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QPalette
@@ -44,6 +54,10 @@ argument_list|()
 block|;
 operator|~
 name|QCocoaTheme
+argument_list|()
+block|;
+name|void
+name|reset
 argument_list|()
 block|;
 name|QPlatformMenuItem
@@ -191,6 +205,11 @@ name|QFont
 operator|*
 operator|>
 name|m_fonts
+block|;
+name|mutable
+name|QCocoaThemeNotificationReceiver
+operator|*
+name|m_notificationReceiver
 block|; }
 decl_stmt|;
 end_decl_stmt
