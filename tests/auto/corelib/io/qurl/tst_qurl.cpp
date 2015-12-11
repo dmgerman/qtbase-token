@@ -23167,6 +23167,16 @@ name|QDir
 operator|::
 name|currentPath
 argument_list|()
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
+endif|#
+directive|endif
 argument_list|)
 expr_stmt|;
 comment|// fromUserInput cleans the path
@@ -23205,6 +23215,10 @@ operator|<<
 name|url
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
+comment|// WinRT cannot cd outside current / sandbox
 name|QDir
 name|parent
 init|=
@@ -23252,6 +23266,8 @@ name|parentUrl
 operator|<<
 name|parentUrl
 expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow

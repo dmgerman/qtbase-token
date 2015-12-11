@@ -244,6 +244,23 @@ operator|::
 name|ApplicationModel
 namespace|;
 end_using
+begin_if
+if|#
+directive|if
+name|_MSC_VER
+operator|<
+literal|1900
+end_if
+begin_define
+DECL|macro|Q_OS_WINRT_WIN81
+define|#
+directive|define
+name|Q_OS_WINRT_WIN81
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -3001,7 +3018,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_WINRT
+name|Q_OS_WINRT_WIN81
 argument_list|)
 name|QVarLengthArray
 argument_list|<
@@ -3126,6 +3143,57 @@ argument_list|,
 name|retLen
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+comment|// Win32 returns eg C:/ as root directory with a trailing /.
+comment|// WinRT returns the sandbox root without /.
+comment|// Also C:/../.. returns C:/ on Win32, while for WinRT it steps outside the package
+comment|// and goes beyond package root. Hence force the engine to stay inside
+comment|// the package.
+specifier|const
+name|QString
+name|rootPath
+init|=
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|QDir
+operator|::
+name|rootPath
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|absPath
+operator|.
+name|size
+argument_list|()
+operator|<
+name|rootPath
+operator|.
+name|size
+argument_list|()
+operator|&&
+name|rootPath
+operator|.
+name|startsWith
+argument_list|(
+name|absPath
+argument_list|)
+condition|)
+name|absPath
+operator|=
+name|rootPath
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WINRT
 elif|#
 directive|elif
 operator|!
@@ -3375,7 +3443,7 @@ else|else
 block|{
 ifndef|#
 directive|ifndef
-name|Q_OS_WINRT
+name|Q_OS_WINRT_WIN81
 name|ret
 operator|=
 name|QDir
@@ -7442,8 +7510,10 @@ condition|)
 return|return
 name|ret
 return|;
-name|ret
-operator|=
+specifier|const
+name|QString
+name|qtWinPath
+init|=
 name|QDir
 operator|::
 name|fromNativeSeparators
@@ -7459,6 +7529,27 @@ argument_list|(
 literal|nullptr
 argument_list|)
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|ret
+operator|=
+name|qtWinPath
+operator|.
+name|endsWith
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
+argument_list|)
+condition|?
+name|qtWinPath
+else|:
+name|qtWinPath
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
 argument_list|)
 expr_stmt|;
 else|#
@@ -8226,7 +8317,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_WINRT
+name|Q_OS_WINRT_WIN81
 argument_list|)
 comment|//TODO: this should really be using nativeFilePath(), but that returns a path in long format \\?\c:\foo
 comment|//which causes many problems later on when it's returned through currentPath()
@@ -8296,7 +8387,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_WINRT
+name|Q_OS_WINRT_WIN81
 argument_list|)
 name|DWORD
 name|size
@@ -8423,7 +8514,7 @@ expr_stmt|;
 comment|// Force uppercase drive letters.
 else|#
 directive|else
-comment|// !Q_OS_WINCE&& !Q_OS_WINRT
+comment|// !Q_OS_WINCE&& !Q_OS_WINRT_WIN81
 comment|//TODO - a race condition exists when using currentPath / setCurrentPath from multiple threads
 if|if
 condition|(
@@ -8434,7 +8525,7 @@ argument_list|()
 condition|)
 ifndef|#
 directive|ifndef
-name|Q_OS_WINRT
+name|Q_OS_WINRT_WIN81
 name|qfsPrivateCurrentDir
 operator|=
 name|QCoreApplication
@@ -8459,7 +8550,7 @@ name|qfsPrivateCurrentDir
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_OS_WINCE || Q_OS_WINRT
+comment|// Q_OS_WINCE || Q_OS_WINRT_WIN81
 return|return
 name|QFileSystemEntry
 argument_list|(

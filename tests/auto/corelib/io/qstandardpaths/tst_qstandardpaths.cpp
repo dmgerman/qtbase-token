@@ -2686,6 +2686,10 @@ operator|::
 name|testFindExecutableLinkToDirectory
 parameter_list|()
 block|{
+comment|// WinRT has no link support
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 comment|// link to directory
 specifier|const
 name|QString
@@ -2752,6 +2756,8 @@ argument_list|(
 name|target
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2762,6 +2768,9 @@ operator|::
 name|testRuntimeDirectory
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_XDG_PLATFORM
 specifier|const
 name|QString
 name|runtimeDir
@@ -2785,9 +2794,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Check that it can automatically fix permissions
-ifdef|#
-directive|ifdef
-name|Q_XDG_PLATFORM
 name|QFile
 name|file
 argument_list|(

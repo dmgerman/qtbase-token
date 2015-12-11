@@ -268,6 +268,11 @@ name|defined
 argument_list|(
 name|Q_OS_FREEBSD
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|distributionName
 operator|=
 name|QSysInfo
