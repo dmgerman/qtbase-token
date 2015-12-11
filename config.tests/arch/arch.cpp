@@ -443,6 +443,12 @@ name|__IWMMXT__
 literal|" iwmmxt"
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|__ARM_FEATURE_CRC32
+literal|" crc32"
+endif|#
+directive|endif
 comment|// -- SPARC --
 ifdef|#
 directive|ifdef

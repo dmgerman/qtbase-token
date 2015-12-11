@@ -169,6 +169,26 @@ name|HWCAP_VFPv3D16
 value|16384
 end_define
 begin_comment
+comment|// copied from<asm/hwcap.h> (ARM):
+end_comment
+begin_define
+DECL|macro|HWCAP2_CRC32
+define|#
+directive|define
+name|HWCAP2_CRC32
+value|(1<< 4)
+end_define
+begin_comment
+comment|// copied from<asm/hwcap.h> (Aarch64)
+end_comment
+begin_define
+DECL|macro|HWCAP_CRC32
+define|#
+directive|define
+name|HWCAP_CRC32
+value|(1<< 7)
+end_define
+begin_comment
 comment|// copied from<linux/auxvec.h>
 end_comment
 begin_define
@@ -181,6 +201,17 @@ end_define
 begin_comment
 DECL|macro|AT_HWCAP
 comment|/* arch dependent hints at CPU capabilities */
+end_comment
+begin_define
+DECL|macro|AT_HWCAP2
+define|#
+directive|define
+name|AT_HWCAP2
+value|26
+end_define
+begin_comment
+DECL|macro|AT_HWCAP2
+comment|/* extension of AT_HWCAP */
 end_comment
 begin_elif
 elif|#
@@ -335,8 +366,65 @@ if|#
 directive|if
 name|defined
 argument_list|(
+name|Q_OS_IOS
+argument_list|)
+name|features
+operator||=
+name|Q_UINT64_C
+argument_list|(
+literal|1
+argument_list|)
+operator|<<
+name|CpuFeatureNEON
+expr_stmt|;
+comment|// On iOS, NEON is always available.
+ifdef|#
+directive|ifdef
+name|Q_PROCESSOR_ARM_V8
+name|features
+operator||=
+name|Q_UINT64_C
+argument_list|(
+literal|1
+argument_list|)
+operator|<<
+name|CpuFeatureCRC32
+expr_stmt|;
+comment|// On iOS, crc32 is always available if the architecture is Aarch32/64.
+endif|#
+directive|endif
+return|return
+name|features
+return|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|Q_OS_LINUX
 argument_list|)
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_V8
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_64
+argument_list|)
+name|features
+operator||=
+name|Q_UINT64_C
+argument_list|(
+literal|1
+argument_list|)
+operator|<<
+name|CpuFeatureNEON
+expr_stmt|;
+comment|// NEON is always available on ARMv8 64bit.
+endif|#
+directive|endif
 name|int
 name|auxv
 init|=
@@ -426,6 +514,7 @@ name|i
 operator|+=
 literal|2
 control|)
+block|{
 if|if
 condition|(
 name|vector
@@ -436,6 +525,41 @@ operator|==
 name|AT_HWCAP
 condition|)
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_V8
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_64
+argument_list|)
+comment|// For Aarch64:
+if|if
+condition|(
+name|vector
+index|[
+name|i
+operator|+
+literal|1
+index|]
+operator|&
+name|HWCAP_CRC32
+condition|)
+name|features
+operator||=
+name|Q_UINT64_C
+argument_list|(
+literal|1
+argument_list|)
+operator|<<
+name|CpuFeatureCRC32
+expr_stmt|;
+endif|#
+directive|endif
+comment|// Aarch32, or ARMv7 or before:
 if|if
 condition|(
 name|vector
@@ -456,7 +580,47 @@ argument_list|)
 operator|<<
 name|CpuFeatureNEON
 expr_stmt|;
-break|break;
+block|}
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_PROCESSOR_ARM_32
+argument_list|)
+comment|// For Aarch32:
+if|if
+condition|(
+name|vector
+index|[
+name|i
+index|]
+operator|==
+name|AT_HWCAP2
+condition|)
+block|{
+if|if
+condition|(
+name|vector
+index|[
+name|i
+operator|+
+literal|1
+index|]
+operator|&
+name|HWCAP2_CRC32
+condition|)
+name|features
+operator||=
+name|Q_UINT64_C
+argument_list|(
+literal|1
+argument_list|)
+operator|<<
+name|CpuFeatureCRC32
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 block|}
 block|}
 name|qt_safe_close
@@ -485,6 +649,23 @@ literal|1
 argument_list|)
 operator|<<
 name|CpuFeatureNEON
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__ARM_FEATURE_CRC32
+argument_list|)
+name|features
+operator|=
+name|Q_UINT64_C
+argument_list|(
+literal|1
+argument_list|)
+operator|<<
+name|CpuFeatureCRC32
 expr_stmt|;
 endif|#
 directive|endif
@@ -2295,7 +2476,7 @@ name|Q_PROCESSOR_ARM
 argument_list|)
 end_if
 begin_comment
-comment|/* Data:  neon  */
+comment|/* Data:  neon  crc32  */
 end_comment
 begin_decl_stmt
 DECL|variable|features_string
@@ -2306,6 +2487,8 @@ name|features_string
 index|[]
 init|=
 literal|" neon\0"
+literal|" crc32\0"
+literal|"\0"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2318,6 +2501,8 @@ index|[]
 init|=
 block|{
 literal|0
+block|,
+literal|6
 block|}
 decl_stmt|;
 end_decl_stmt
