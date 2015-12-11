@@ -379,7 +379,7 @@ block|{
 return|return
 operator|!
 operator|!
-name|_isnanf
+name|_isnan
 argument_list|(
 name|f
 argument_list|)
@@ -396,7 +396,7 @@ parameter_list|)
 block|{
 return|return
 operator|!
-name|_finitef
+name|_finite
 argument_list|(
 name|f
 argument_list|)
