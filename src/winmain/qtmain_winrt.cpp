@@ -1289,7 +1289,8 @@ name|FILE_SHARE_READ
 argument_list|,
 name|CREATE_ALWAYS
 argument_list|,
-literal|0
+operator|&
+name|params
 argument_list|)
 expr_stmt|;
 comment|// Install the develMode message handler
