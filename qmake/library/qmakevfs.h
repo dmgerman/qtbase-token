@@ -80,6 +80,9 @@ operator|::
 name|OpenMode
 name|mode
 argument_list|,
+name|bool
+name|exe
+argument_list|,
 specifier|const
 name|QString
 operator|&

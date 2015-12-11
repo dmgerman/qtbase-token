@@ -1124,6 +1124,8 @@ argument|const QString&fn
 argument_list|,
 argument|QIODevice::OpenMode mode
 argument_list|,
+argument|bool exe
+argument_list|,
 argument|const QString&contents
 argument_list|)
 block|;
