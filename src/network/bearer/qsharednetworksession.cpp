@@ -102,7 +102,9 @@ name|QSharedNetworkSessionManager
 operator|::
 name|getSession
 parameter_list|(
+specifier|const
 name|QNetworkConfiguration
+modifier|&
 name|config
 parameter_list|)
 block|{
@@ -194,7 +196,9 @@ name|QSharedNetworkSessionManager
 operator|::
 name|setSession
 parameter_list|(
+specifier|const
 name|QNetworkConfiguration
+modifier|&
 name|config
 parameter_list|,
 name|QSharedPointer

@@ -5912,7 +5912,9 @@ name|QHttpNetworkConnectionPrivate
 operator|::
 name|_q_hostLookupFinished
 parameter_list|(
+specifier|const
 name|QHostInfo
+modifier|&
 name|info
 parameter_list|)
 block|{

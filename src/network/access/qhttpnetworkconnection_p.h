@@ -719,7 +719,10 @@ comment|// send the next request from the queue
 name|void
 name|_q_hostLookupFinished
 argument_list|(
-argument|QHostInfo info
+specifier|const
+name|QHostInfo
+operator|&
+name|info
 argument_list|)
 block|;
 name|void

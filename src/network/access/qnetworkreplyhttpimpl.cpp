@@ -5479,6 +5479,7 @@ name|QNetworkReplyHttpImplPrivate
 operator|::
 name|replyDownloadMetaData
 parameter_list|(
+specifier|const
 name|QList
 argument_list|<
 name|QPair
@@ -5488,12 +5489,15 @@ argument_list|,
 name|QByteArray
 argument_list|>
 argument_list|>
+modifier|&
 name|hm
 parameter_list|,
 name|int
 name|sc
 parameter_list|,
+specifier|const
 name|QString
+modifier|&
 name|rp
 parameter_list|,
 name|bool

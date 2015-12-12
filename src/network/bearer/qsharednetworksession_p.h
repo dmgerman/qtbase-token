@@ -103,14 +103,19 @@ name|QNetworkSession
 operator|>
 name|getSession
 argument_list|(
-argument|QNetworkConfiguration config
+specifier|const
+name|QNetworkConfiguration
+operator|&
+name|config
 argument_list|)
 expr_stmt|;
 specifier|static
 name|void
 name|setSession
 argument_list|(
+specifier|const
 name|QNetworkConfiguration
+operator|&
 name|config
 argument_list|,
 name|QSharedPointer

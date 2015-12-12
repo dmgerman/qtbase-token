@@ -486,7 +486,7 @@ name|haveUploadData
 argument_list|(
 argument|const qint64 pos
 argument_list|,
-argument|QByteArray dataArray
+argument|const QByteArray&dataArray
 argument_list|,
 argument|bool dataAtEnd
 argument_list|,
@@ -907,6 +907,7 @@ block|;
 name|void
 name|replyDownloadMetaData
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|QPair
@@ -916,10 +917,13 @@ argument_list|,
 name|QByteArray
 operator|>
 expr|>
+operator|&
 argument_list|,
 name|int
 argument_list|,
+specifier|const
 name|QString
+operator|&
 argument_list|,
 name|bool
 argument_list|,

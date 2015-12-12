@@ -362,6 +362,7 @@ name|sslConfigurationChanged
 argument_list|(
 specifier|const
 name|QSslConfiguration
+operator|&
 argument_list|)
 block|;
 name|void
@@ -376,6 +377,7 @@ directive|endif
 name|void
 name|downloadMetaData
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|QPair
@@ -385,10 +387,13 @@ argument_list|,
 name|QByteArray
 operator|>
 expr|>
+operator|&
 argument_list|,
 name|int
 argument_list|,
+specifier|const
 name|QString
+operator|&
 argument_list|,
 name|bool
 argument_list|,
@@ -413,7 +418,9 @@ block|;
 name|void
 name|downloadData
 argument_list|(
+specifier|const
 name|QByteArray
+operator|&
 argument_list|)
 block|;
 name|void
@@ -425,6 +432,7 @@ name|NetworkError
 argument_list|,
 specifier|const
 name|QString
+operator|&
 argument_list|)
 block|;
 name|void
@@ -911,7 +919,7 @@ name|haveDataSlot
 argument_list|(
 argument|qint64 pos
 argument_list|,
-argument|QByteArray dataArray
+argument|const QByteArray&dataArray
 argument_list|,
 argument|bool dataAtEnd
 argument_list|,

@@ -459,7 +459,9 @@ function_decl|;
 name|void
 name|sendSYN_STREAM
 parameter_list|(
+specifier|const
 name|HttpMessagePair
+modifier|&
 name|pair
 parameter_list|,
 name|qint32

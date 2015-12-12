@@ -314,7 +314,7 @@ name|setPrivateConfiguration
 argument_list|(
 argument|QNetworkConfiguration&config
 argument_list|,
-argument|QNetworkConfigurationPrivatePointer ptr
+argument|const QNetworkConfigurationPrivatePointer&ptr
 argument_list|)
 specifier|const
 block|{
