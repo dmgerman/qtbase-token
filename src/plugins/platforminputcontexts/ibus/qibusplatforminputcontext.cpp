@@ -340,13 +340,10 @@ decl_stmt|;
 name|int
 name|enableSync
 init|=
-name|qgetenv
+name|qEnvironmentVariableIntValue
 argument_list|(
 literal|"IBUS_ENABLE_SYNC_MODE"
-argument_list|)
-operator|.
-name|toInt
-argument_list|(
+argument_list|,
 operator|&
 name|ok
 argument_list|)
