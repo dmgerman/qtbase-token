@@ -8276,7 +8276,6 @@ begin_comment
 comment|/*!   \relates QString   Returns \c true if string \a s1 is equal to string \a s2; otherwise   returns \c false.    The comparison is based exclusively on the numeric Unicode values of   the characters and is very fast, but is not what a human would   expect. Consider sorting user-interface strings with   localeAwareCompare(). */
 end_comment
 begin_function
-DECL|function|operator ==
 name|bool
 name|operator
 name|==
@@ -8291,6 +8290,7 @@ name|QString
 modifier|&
 name|s2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -8339,7 +8339,6 @@ begin_comment
 comment|/*!     \overload operator==()     Returns \c true if this string is equal to \a other; otherwise     returns \c false. */
 end_comment
 begin_function
-DECL|function|operator ==
 name|bool
 name|QString
 operator|::
@@ -8350,6 +8349,7 @@ name|QLatin1String
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -8407,7 +8407,6 @@ begin_comment
 comment|/*!    \relates QString     Returns \c true if string \a s1 is lexically less than string     \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_function
-DECL|function|operator <
 name|bool
 name|operator
 name|<
@@ -8422,6 +8421,7 @@ name|QString
 modifier|&
 name|s2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ucstrcmp
@@ -8455,7 +8455,6 @@ begin_comment
 comment|/*!    \overload operator<()      Returns \c true if this string is lexically less than the parameter     string called \a other; otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|operator <
 name|bool
 name|QString
 operator|::
@@ -8466,6 +8465,7 @@ name|QLatin1String
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|uchar
@@ -8540,7 +8540,6 @@ begin_comment
 comment|/*!    \overload operator>()      Returns \c true if this string is lexically greater than the parameter     string \a other; otherwise returns \c false. */
 end_comment
 begin_function
-DECL|function|operator >
 name|bool
 name|QString
 operator|::
@@ -8551,6 +8550,7 @@ name|QLatin1String
 name|other
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|uchar
@@ -15745,7 +15745,6 @@ begin_comment
 comment|/*!     \overload compare()     \since 4.2      Lexically compares this string with the \a other string and     returns an integer less than, equal to, or greater than zero if     this string is less than, equal to, or greater than the other     string.      Same as compare(*this, \a other, \a cs). */
 end_comment
 begin_function
-DECL|function|compare
 name|int
 name|QString
 operator|::
@@ -15762,6 +15761,7 @@ name|CaseSensitivity
 name|cs
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -15835,7 +15835,6 @@ begin_comment
 comment|/*!     \internal     \since 4.5 */
 end_comment
 begin_function
-DECL|function|compare_helper
 name|int
 name|QString
 operator|::
@@ -15862,6 +15861,7 @@ operator|::
 name|CaseSensitivity
 name|cs
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -15935,7 +15935,6 @@ begin_comment
 comment|/*!     \overload compare()     \since 4.2      Same as compare(*this, \a other, \a cs). */
 end_comment
 begin_function
-DECL|function|compare
 name|int
 name|QString
 operator|::
@@ -15950,6 +15949,7 @@ name|CaseSensitivity
 name|cs
 parameter_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|compare_helper
@@ -16065,7 +16065,6 @@ begin_comment
 comment|/*!     \internal     \since 4.5 */
 end_comment
 begin_function
-DECL|function|compare_helper
 name|int
 name|QString
 operator|::
@@ -16087,6 +16086,7 @@ operator|::
 name|CaseSensitivity
 name|cs
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 specifier|const
 name|ushort
@@ -26125,7 +26125,6 @@ begin_comment
 comment|/*! \relates QStringRef     Returns \c true if string reference \a s1 is lexically equal to string reference \a s2; otherwise    returns \c false. */
 end_comment
 begin_function
-DECL|function|operator ==
 name|bool
 name|operator
 name|==
@@ -26140,6 +26139,7 @@ name|QStringRef
 modifier|&
 name|s2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -26188,7 +26188,6 @@ begin_comment
 comment|/*! \relates QStringRef     Returns \c true if string \a s1 is lexically equal to string reference \a s2; otherwise    returns \c false. */
 end_comment
 begin_function
-DECL|function|operator ==
 name|bool
 name|operator
 name|==
@@ -26203,6 +26202,7 @@ name|QStringRef
 modifier|&
 name|s2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -26251,7 +26251,6 @@ begin_comment
 comment|/*! \relates QStringRef     Returns \c true if string  \a s1 is lexically equal to string reference \a s2; otherwise    returns \c false. */
 end_comment
 begin_function
-DECL|function|operator ==
 name|bool
 name|operator
 name|==
@@ -26264,6 +26263,7 @@ name|QStringRef
 modifier|&
 name|s2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -26333,7 +26333,6 @@ begin_comment
 comment|/*!    \relates QStringRef      Returns \c true if string reference \a s1 is lexically less than     string reference \a s2; otherwise returns \c false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_function
-DECL|function|operator <
 name|bool
 name|operator
 name|<
@@ -26348,6 +26347,7 @@ name|QStringRef
 modifier|&
 name|s2
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|ucstrcmp

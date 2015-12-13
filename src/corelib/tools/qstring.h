@@ -5126,6 +5126,7 @@ operator|::
 name|CaseSensitive
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -5145,6 +5146,7 @@ operator|::
 name|CaseSensitive
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -5172,6 +5174,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s1
@@ -5208,6 +5211,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s1
@@ -5244,6 +5248,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|-
@@ -5277,6 +5282,7 @@ operator|::
 name|CaseSensitive
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -5302,6 +5308,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -5814,6 +5821,7 @@ name|QString
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -5833,6 +5841,7 @@ name|QString
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -5852,6 +5861,7 @@ name|QString
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s2
@@ -5877,6 +5887,7 @@ name|QString
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -5905,6 +5916,7 @@ name|QString
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -5933,6 +5945,7 @@ name|QString
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -5953,6 +5966,7 @@ name|QLatin1String
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -5964,6 +5978,7 @@ name|QLatin1String
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -5975,6 +5990,7 @@ name|QLatin1String
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -5987,6 +6003,7 @@ name|QLatin1String
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -6008,6 +6025,7 @@ name|QLatin1String
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -6029,6 +6047,7 @@ name|QLatin1String
 name|s
 operator|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -7696,6 +7715,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -7755,6 +7775,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_function_decl
@@ -15864,6 +15885,7 @@ operator|::
 name|CaseSensitive
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -15885,6 +15907,7 @@ operator|::
 name|CaseSensitive
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -15904,6 +15927,7 @@ operator|::
 name|CaseSensitive
 argument_list|)
 decl|const
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -15929,6 +15953,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -15954,6 +15979,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -15978,6 +16004,7 @@ name|Qt
 operator|::
 name|CaseSensitive
 argument_list|)
+name|Q_DECL_NOTHROW
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -16339,10 +16366,10 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -16358,6 +16385,7 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -16385,10 +16413,10 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -16404,6 +16432,7 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -16416,7 +16445,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -16432,6 +16460,7 @@ name|QString
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s2
@@ -16441,7 +16470,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -16457,6 +16485,7 @@ name|QString
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s2
@@ -16479,10 +16508,10 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -16496,6 +16525,7 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -16508,7 +16538,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -16522,6 +16551,7 @@ operator|,
 name|QLatin1String
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s2
@@ -16531,7 +16561,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -16545,6 +16574,7 @@ operator|,
 name|QLatin1String
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s2
@@ -16569,10 +16599,10 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|function|operator
 specifier|inline
 name|bool
 name|operator
@@ -16588,6 +16618,7 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|s2
@@ -16612,6 +16643,7 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -16639,6 +16671,7 @@ name|QStringRef
 operator|&
 name|s2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -17164,6 +17197,7 @@ argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QString
@@ -17204,6 +17238,7 @@ argument|const QStringRef&s2
 argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QString
@@ -17247,6 +17282,7 @@ argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QString
@@ -17286,6 +17322,7 @@ argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QString
@@ -17325,6 +17362,7 @@ argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
 specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QString
@@ -17357,6 +17395,7 @@ argument|const QString&s2
 argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QString
@@ -17401,6 +17440,7 @@ argument|const QStringRef&s2
 argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QString
@@ -17445,6 +17485,7 @@ argument|QLatin1String s2
 argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|QString
