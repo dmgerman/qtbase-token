@@ -2644,6 +2644,7 @@ operator|,
 name|QChar
 name|c2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -2670,6 +2671,7 @@ operator|,
 name|QChar
 name|c2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -2696,6 +2698,7 @@ operator|,
 name|QChar
 name|c2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|operator
@@ -2721,6 +2724,7 @@ operator|,
 name|QChar
 name|c2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
