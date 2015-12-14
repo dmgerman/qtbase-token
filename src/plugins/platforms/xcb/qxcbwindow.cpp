@@ -11236,12 +11236,10 @@ argument_list|(
 name|actualGeometry
 argument_list|)
 expr_stmt|;
-comment|// As we're delivering the geometry change through QPA in n async fashion we can't
-comment|// pass on the current geometry of the QWindowPrivate, as that may have not been
-comment|// updated yet by a geometry change that's still in the QPA event queue. Instead
-comment|// we fall back to the default argument value of QRect(), which will result in
-comment|// QGuiApplication looking up the previous geometry from QWindowPrivate, but this
-comment|// time in sync with the even delivery/processing.
+comment|// FIXME: In the case of the requestedGeometry not matching the actualGeometry due
+comment|// to e.g. the window manager applying restrictions to the geometry, the application
+comment|// will never see a move/resize event if the actualGeometry is the same as the current
+comment|// geometry, and may think the requested geometry was fulfilled.
 name|QWindowSystemInterface
 operator|::
 name|handleGeometryChange
@@ -11250,15 +11248,6 @@ name|window
 argument_list|()
 argument_list|,
 name|actualGeometry
-argument_list|,
-name|requestedGeometry
-operator|!=
-name|actualGeometry
-condition|?
-name|requestedGeometry
-else|:
-name|QRect
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// QPlatformScreen::screen() is updated asynchronously, so we can't compare it
