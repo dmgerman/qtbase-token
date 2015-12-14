@@ -328,6 +328,10 @@ name|QOpenGLTexture
 operator|::
 name|BindingTargetCubeMap
 expr_stmt|;
+name|faces
+operator|=
+literal|6
+expr_stmt|;
 break|break;
 case|case
 name|QOpenGLTexture
@@ -339,6 +343,10 @@ operator|=
 name|QOpenGLTexture
 operator|::
 name|BindingTargetCubeMapArray
+expr_stmt|;
+name|faces
+operator|=
+literal|6
 expr_stmt|;
 break|break;
 case|case
