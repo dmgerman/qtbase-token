@@ -36,6 +36,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QElapsedTimer>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qt_windows.h>
 end_include
 begin_comment
@@ -565,6 +570,8 @@ argument_list|(
 argument|const Microsoft::WRL::ComPtr<T>&asyncOp
 argument_list|,
 argument|AwaitStyle awaitStyle
+argument_list|,
+argument|uint timeout
 argument_list|)
 block|{
 name|Microsoft
@@ -601,6 +608,18 @@ return|;
 name|AsyncStatus
 name|status
 expr_stmt|;
+name|QElapsedTimer
+name|t
+decl_stmt|;
+if|if
+condition|(
+name|timeout
+condition|)
+name|t
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 switch|switch
 condition|(
 name|awaitStyle
@@ -628,11 +647,27 @@ name|status
 operator|==
 name|Started
 condition|)
+block|{
 name|QCoreApplication
 operator|::
 name|processEvents
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|timeout
+operator|&&
+name|t
+operator|.
+name|hasExpired
+argument_list|(
+name|timeout
+argument_list|)
+condition|)
+return|return
+name|ERROR_TIMEOUT
+return|;
+block|}
 break|break;
 case|case
 name|ProcessThreadEvents
@@ -671,6 +706,7 @@ name|status
 operator|==
 name|Started
 condition|)
+block|{
 name|dispatcher
 operator|->
 name|processEvents
@@ -680,6 +716,21 @@ operator|::
 name|AllEvents
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|timeout
+operator|&&
+name|t
+operator|.
+name|hasExpired
+argument_list|(
+name|timeout
+argument_list|)
+condition|)
+return|return
+name|ERROR_TIMEOUT
+return|;
+block|}
 break|break;
 block|}
 comment|// fall through
@@ -706,11 +757,27 @@ name|status
 operator|==
 name|Started
 condition|)
+block|{
 name|QThread
 operator|::
 name|yieldCurrentThread
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|timeout
+operator|&&
+name|t
+operator|.
+name|hasExpired
+argument_list|(
+name|timeout
+argument_list|)
+condition|)
+return|return
+name|ERROR_TIMEOUT
+return|;
+block|}
 break|break;
 block|}
 if|if
@@ -771,6 +838,9 @@ argument_list|(
 argument|const Microsoft::WRL::ComPtr<T>&asyncOp
 argument_list|,
 argument|AwaitStyle awaitStyle = YieldThread
+argument_list|,
+argument|uint timeout =
+literal|0
 argument_list|)
 block|{
 name|HRESULT
@@ -781,6 +851,8 @@ argument_list|(
 name|asyncOp
 argument_list|,
 name|awaitStyle
+argument_list|,
+name|timeout
 argument_list|)
 block|;
 if|if
@@ -821,6 +893,9 @@ argument_list|,
 argument|U *results
 argument_list|,
 argument|AwaitStyle awaitStyle = YieldThread
+argument_list|,
+argument|uint timeout =
+literal|0
 argument_list|)
 block|{
 name|HRESULT
@@ -831,6 +906,8 @@ argument_list|(
 name|asyncOp
 argument_list|,
 name|awaitStyle
+argument_list|,
+name|timeout
 argument_list|)
 block|;
 if|if
