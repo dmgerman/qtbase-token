@@ -643,7 +643,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|context
+name|textureId
 condition|)
 block|{
 comment|// not created or already destroyed
