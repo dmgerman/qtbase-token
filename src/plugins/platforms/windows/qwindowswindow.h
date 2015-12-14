@@ -506,6 +506,10 @@ block|,
 name|Compositing
 operator|=
 literal|0x200000
+block|,
+name|HasBorderInFullScreen
+operator|=
+literal|0x400000
 block|}
 block|;
 name|QWindowsWindow
@@ -1171,6 +1175,21 @@ name|void
 name|registerTouchWindow
 argument_list|(
 argument|QWindowsWindowFunctions::TouchWindowTouchTypes touchTypes = QWindowsWindowFunctions::NormalTouch
+argument_list|)
+block|;
+specifier|static
+name|void
+name|setHasBorderInFullScreenStatic
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|bool border
+argument_list|)
+block|;
+name|void
+name|setHasBorderInFullScreen
+argument_list|(
+argument|bool border
 argument_list|)
 block|;
 name|private
