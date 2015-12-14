@@ -10182,7 +10182,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the QModelIndex assocated with the given \a item. */
+comment|/*!   Returns the QModelIndex associated with the given \a item. */
 end_comment
 begin_function
 DECL|function|indexFromItem
@@ -10217,7 +10217,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns a pointer to the QTableWidgetItem assocated with the given \a index. */
+comment|/*!   Returns a pointer to the QTableWidgetItem associated with the given \a index. */
 end_comment
 begin_function
 DECL|function|itemFromIndex

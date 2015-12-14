@@ -12671,7 +12671,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QModelIndex assocated with the given \a item in the given \a column.      \note In Qt versions prior to 5.7, this function took a non-\c{const} \a item.      \sa itemFromIndex(), topLevelItem() */
+comment|/*!     Returns the QModelIndex associated with the given \a item in the given \a column.      \note In Qt versions prior to 5.7, this function took a non-\c{const} \a item.      \sa itemFromIndex(), topLevelItem() */
 end_comment
 begin_function
 DECL|function|indexFromItem
@@ -12746,7 +12746,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a pointer to the QTreeWidgetItem assocated with the given \a index.      \sa indexFromItem() */
+comment|/*!     Returns a pointer to the QTreeWidgetItem associated with the given \a index.      \sa indexFromItem() */
 end_comment
 begin_function
 DECL|function|itemFromIndex

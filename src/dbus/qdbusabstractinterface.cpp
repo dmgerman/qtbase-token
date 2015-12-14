@@ -1745,7 +1745,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the connection this interface is assocated with. */
+comment|/*!     Returns the connection this interface is associated with. */
 end_comment
 begin_function
 DECL|function|connection
