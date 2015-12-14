@@ -3051,7 +3051,7 @@ begin_comment
 comment|/*!     \fn void QGuiApplication::screenRemoved(QScreen *screen)      This signal is emitted whenever a \a screen is removed from the system. It     provides an opportunity to manage the windows on the screen before Qt falls back     to moving them to the primary screen.      \sa screens(), screenAdded(), QObject::destroyed(), QWindow::setScreen()      \since 5.4 */
 end_comment
 begin_comment
-comment|/*!     \property QGuiApplication::primaryScreen      \brief the primary (or default) screen of the application, or null if there is none.      This will be the screen where QWindows are initially shown, unless otherwise specified.      On some platforms, it may be null when there are actually no screens connected.     It is not possible to start a new QGuiApplication while there are no screens.     Applications which were running at the time the primary screen was removed     will stop rendering graphics until one or more screens are restored.      The primaryScreenChanged signal was introduced in Qt 5.6.      \sa screens() */
+comment|/*!     \property QGuiApplication::primaryScreen      \brief the primary (or default) screen of the application.      This will be the screen where QWindows are initially shown, unless otherwise specified.      The primaryScreenChanged signal was introduced in Qt 5.6.      \sa screens() */
 end_comment
 begin_comment
 comment|/*!     Returns the highest screen device pixel ratio found on     the system. This is the ratio between physical pixels and     device-independent pixels.      Use this function only when you don't know which window you are targeting.     If you do know the target window, use QWindow::devicePixelRatio() instead.      \sa QWindow::devicePixelRatio() */
