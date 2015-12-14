@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<qpa/qplatformbackingstore.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtPlatformSupport/private/qrasterbackingstore_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QOpenGLPaintDevice
@@ -26,23 +31,11 @@ name|QOpenGLPaintDevice
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QOpenGLFramebufferObject
-name|class
-name|QOpenGLFramebufferObject
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QOffscreenSurface
-name|class
-name|QOffscreenSurface
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QIOSBackingStore
 range|:
 name|public
-name|QPlatformBackingStore
+name|QRasterBackingStore
 block|{
 name|public
 operator|:
@@ -61,61 +54,39 @@ name|QPaintDevice
 operator|*
 name|paintDevice
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|beginPaint
 argument_list|(
-specifier|const
-name|QRegion
-operator|&
+argument|const QRegion&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|endPaint
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|flush
 argument_list|(
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|region
+argument|const QRegion&region
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|offset
+argument|const QPoint&offset
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resize
 argument_list|(
-specifier|const
-name|QSize
-operator|&
-name|size
+argument|const QSize&size
 argument_list|,
-specifier|const
-name|QRegion
-operator|&
-name|staticContents
+argument|const QRegion&staticContents
 argument_list|)
-block|;
-name|GLuint
-name|toTexture
-argument_list|(
-argument|const QRegion&dirtyRegion
-argument_list|,
-argument|QSize *textureSize
-argument_list|,
-argument|TextureFlags *flags
-argument_list|)
-specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|makeCurrent
@@ -129,15 +100,7 @@ name|m_context
 block|;
 name|QOpenGLPaintDevice
 operator|*
-name|m_device
-block|;
-name|QOpenGLFramebufferObject
-operator|*
-name|m_fbo
-block|;
-name|QOffscreenSurface
-operator|*
-name|m_surface
+name|m_glDevice
 block|; }
 decl_stmt|;
 end_decl_stmt
