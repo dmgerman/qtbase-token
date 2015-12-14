@@ -2090,6 +2090,15 @@ name|GCS_RESULTSTR
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|lParam
+operator|&
+name|GCS_DELTASTART
+operator|)
+condition|)
 name|endContextComposition
 argument_list|()
 expr_stmt|;
