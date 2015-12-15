@@ -5194,14 +5194,18 @@ init|=
 literal|1
 decl_stmt|;
 name|bool
-name|ignore_qobject
+name|ignore
+index|[
+literal|2
+index|]
 init|=
+block|{
 literal|false
-decl_stmt|,
-name|ignore_qgadget
-init|=
+block|,
 literal|false
+block|}
 decl_stmt|;
+comment|// [0] for Q_OBJECT, [1] for Q_GADGET
 comment|/* qmake ignore Q_GADGET */
 comment|/* qmake ignore Q_OBJECT */
 for|for
@@ -5433,7 +5437,10 @@ name|x
 operator|+=
 literal|20
 expr_stmt|;
-name|ignore_qobject
+name|ignore
+index|[
+literal|0
+index|]
 operator|=
 literal|true
 expr_stmt|;
@@ -5490,7 +5497,10 @@ name|x
 operator|+=
 literal|20
 expr_stmt|;
-name|ignore_qgadget
+name|ignore
+index|[
+literal|1
+index|]
 operator|=
 literal|true
 expr_stmt|;
@@ -5714,21 +5724,10 @@ control|)
 block|{
 if|if
 condition|(
+name|ignore
+index|[
 name|interest
-operator|==
-literal|0
-operator|&&
-name|ignore_qobject
-condition|)
-continue|continue;
-elseif|else
-if|if
-condition|(
-name|interest
-operator|==
-literal|1
-operator|&&
-name|ignore_qgadget
+index|]
 condition|)
 continue|continue;
 name|int
