@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qgraphicsanchorlayout_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtWidgets/qwidget.h>
 end_include
 begin_include
@@ -36,11 +41,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_include
-include|#
-directive|include
-file|"qgraphicsanchorlayout_p.h"
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
