@@ -58,6 +58,11 @@ struct_decl|struct
 name|IDWriteGdiInterop
 struct_decl|;
 end_struct_decl
+begin_struct_decl
+struct_decl|struct
+name|IDWriteGlyphRunAnalysis
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWindowsFontEngineData
@@ -269,6 +274,17 @@ argument|const QTransform&xform
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|QImage
+name|bitmapForGlyph
+argument_list|(
+argument|glyph_t
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QFontEngine
 operator|*
 name|cloneWithSize
@@ -337,6 +353,24 @@ block|;
 name|void
 name|collectMetrics
 argument_list|()
+block|;
+name|void
+name|renderGlyphRun
+argument_list|(
+argument|QImage *destination
+argument_list|,
+argument|float r
+argument_list|,
+argument|float g
+argument_list|,
+argument|float b
+argument_list|,
+argument|float a
+argument_list|,
+argument|IDWriteGlyphRunAnalysis *glyphAnalysis
+argument_list|,
+argument|const QRect&boundingRect
+argument_list|)
 block|;
 specifier|const
 name|QSharedPointer
