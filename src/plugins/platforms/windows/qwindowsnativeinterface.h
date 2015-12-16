@@ -116,11 +116,6 @@ specifier|const
 block|;
 name|Q_INVOKABLE
 name|void
-name|beep
-argument_list|()
-block|;
-name|Q_INVOKABLE
-name|void
 name|registerWindowsMime
 argument_list|(
 name|void

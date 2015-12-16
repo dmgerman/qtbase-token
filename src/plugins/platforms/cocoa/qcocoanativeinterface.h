@@ -104,11 +104,6 @@ argument|const QByteArray&resource
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|Q_INVOKABLE
-name|void
-name|beep
-argument_list|()
-block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL

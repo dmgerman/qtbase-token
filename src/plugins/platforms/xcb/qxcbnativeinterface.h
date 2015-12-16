@@ -345,11 +345,6 @@ argument|xcb_timestamp_t time
 argument_list|)
 block|;
 name|Q_INVOKABLE
-name|void
-name|beep
-argument_list|()
-block|;
-name|Q_INVOKABLE
 name|bool
 name|systemTrayAvailable
 argument_list|(

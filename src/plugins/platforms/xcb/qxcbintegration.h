@@ -312,6 +312,12 @@ name|sync
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|beep
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 specifier|static
 name|QXcbIntegration
 operator|*

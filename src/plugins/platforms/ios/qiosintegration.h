@@ -241,6 +241,12 @@ name|screen
 argument_list|)
 expr_stmt|;
 block|}
+name|void
+name|beep
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 specifier|static
 name|QIOSIntegration
 modifier|*

@@ -1188,6 +1188,19 @@ name|sync
 parameter_list|()
 block|{ }
 end_function
+begin_comment
+comment|/*!    \since 5.7      Should sound a bell, using the default volume and sound.      \sa QApplication::beep() */
+end_comment
+begin_function
+DECL|function|beep
+name|void
+name|QPlatformIntegration
+operator|::
+name|beep
+parameter_list|()
+specifier|const
+block|{ }
+end_function
 begin_ifndef
 ifndef|#
 directive|ifndef

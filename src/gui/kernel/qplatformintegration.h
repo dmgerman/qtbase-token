@@ -566,6 +566,12 @@ modifier|*
 name|screen
 parameter_list|)
 function_decl|;
+name|virtual
+name|void
+name|beep
+argument_list|()
+specifier|const
+expr_stmt|;
 name|protected
 label|:
 name|void

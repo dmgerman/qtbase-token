@@ -296,6 +296,12 @@ name|options
 argument_list|()
 specifier|const
 block|;
+name|void
+name|beep
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 if|#
 directive|if
 operator|!

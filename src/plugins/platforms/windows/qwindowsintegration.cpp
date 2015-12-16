@@ -2759,6 +2759,23 @@ name|m_services
 return|;
 block|}
 end_function
+begin_function
+DECL|function|beep
+name|void
+name|QWindowsIntegration
+operator|::
+name|beep
+parameter_list|()
+specifier|const
+block|{
+name|MessageBeep
+argument_list|(
+name|MB_OK
+argument_list|)
+expr_stmt|;
+comment|// For QApplication
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
