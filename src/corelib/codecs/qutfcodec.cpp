@@ -1855,6 +1855,13 @@ name|nextAscii
 init|=
 name|src
 decl_stmt|;
+specifier|const
+name|uchar
+modifier|*
+name|start
+init|=
+name|src
+decl_stmt|;
 while|while
 condition|(
 name|res
@@ -1922,7 +1929,17 @@ name|headerdone
 operator|=
 literal|true
 expr_stmt|;
-comment|// eat the UTF-8 BOM
+if|if
+condition|(
+name|src
+operator|==
+name|start
+operator|+
+literal|3
+condition|)
+block|{
+comment|// 3 == sizeof(utf8-bom)
+comment|// eat the UTF-8 BOM (it can only appear at the beginning of the string).
 if|if
 condition|(
 name|dst
@@ -1936,6 +1953,7 @@ condition|)
 operator|--
 name|dst
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
