@@ -4115,6 +4115,8 @@ expr_stmt|;
 name|cache_cost
 operator|=
 literal|100
+operator|*
+literal|1024
 expr_stmt|;
 name|kerning_pairs_loaded
 operator|=
