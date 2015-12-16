@@ -4323,6 +4323,7 @@ parameter_list|(
 name|int
 name|screen
 parameter_list|)
+specifier|const
 block|{
 if|#
 directive|if
@@ -5462,7 +5463,9 @@ operator|::
 name|Orientation
 name|orientation
 parameter_list|)
+specifier|const
 block|{
+specifier|const
 name|QQueue
 argument_list|<
 name|ScrollSegment
@@ -9594,6 +9597,7 @@ operator|::
 name|Orientation
 name|orientation
 parameter_list|)
+specifier|const
 block|{
 name|qreal
 name|bestSnapPos

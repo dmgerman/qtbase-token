@@ -306,6 +306,7 @@ name|realDpi
 argument_list|(
 argument|int screen
 argument_list|)
+specifier|const
 block|;
 name|QPointF
 name|dpi
@@ -375,6 +376,7 @@ name|scrollingSegmentsValid
 argument_list|(
 argument|Qt::Orientation orientation
 argument_list|)
+specifier|const
 block|;
 name|void
 name|createScrollToSegments
@@ -445,6 +447,7 @@ argument|int dir
 argument_list|,
 argument|Qt::Orientation orientation
 argument_list|)
+specifier|const
 block|;
 specifier|static
 name|qreal
