@@ -8008,19 +8008,18 @@ name|QEvent
 operator|::
 name|LayoutDirectionChange
 case|:
-foreach|foreach
+for|for
 control|(
 specifier|const
-name|QLineEditPrivate
-operator|::
-name|SideWidgetEntry
+specifier|auto
 modifier|&
 name|e
-decl|,
+range|:
 name|d
 operator|->
 name|trailingSideWidgets
 control|)
+block|{
 comment|// Refresh icon to show arrow in right direction.
 if|if
 condition|(
@@ -8051,6 +8050,7 @@ name|clearButtonIcon
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|d
 operator|->
 name|positionSideWidgets
