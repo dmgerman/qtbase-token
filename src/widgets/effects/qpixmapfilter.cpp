@@ -5352,6 +5352,21 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QPixmapColorizeFilter
+name|QPixmapColorizeFilter
+operator|::
+name|~
+name|QPixmapColorizeFilter
+parameter_list|()
+block|{
+comment|// was inline until Qt 5.6, so essentially
+comment|// must stay empty until ### Qt 6
+block|}
+end_destructor
+begin_comment
 comment|/*!     Gets the color of the colorize filter.      \internal */
 end_comment
 begin_function

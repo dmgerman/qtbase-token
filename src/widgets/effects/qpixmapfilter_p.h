@@ -381,6 +381,10 @@ operator|=
 literal|0
 argument_list|)
 block|;
+operator|~
+name|QPixmapColorizeFilter
+argument_list|()
+block|;
 name|void
 name|setColor
 argument_list|(

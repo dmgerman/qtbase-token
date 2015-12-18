@@ -173,10 +173,7 @@ block|{}
 operator|~
 name|QDialogPrivate
 argument_list|()
-block|{
-name|delete
-name|m_platformHelper
-block|; }
+block|;
 name|QWindow
 operator|*
 name|parentWindow

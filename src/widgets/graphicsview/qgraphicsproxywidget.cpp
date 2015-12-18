@@ -183,6 +183,18 @@ end_constructor
 begin_comment
 comment|/*!     \internal */
 end_comment
+begin_destructor
+DECL|function|~QGraphicsProxyWidgetPrivate
+name|QGraphicsProxyWidgetPrivate
+operator|::
+name|~
+name|QGraphicsProxyWidgetPrivate
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|init
 name|void
