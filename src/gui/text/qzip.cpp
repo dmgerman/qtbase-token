@@ -1257,7 +1257,7 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|mode
+name|perms
 operator|&
 operator|(
 name|QFile
@@ -1277,7 +1277,7 @@ name|ReadUser
 expr_stmt|;
 if|if
 condition|(
-name|mode
+name|perms
 operator|&
 operator|(
 name|QFile
@@ -1297,7 +1297,7 @@ name|WriteUser
 expr_stmt|;
 if|if
 condition|(
-name|mode
+name|perms
 operator|&
 operator|(
 name|QFile
