@@ -17,7 +17,9 @@ range|:
 name|public
 name|QObject
 block|{
-name|Q_OBJECT
+name|Q_OBJ
+expr|\
+name|ECT
 block|}
 decl_stmt|;
 end_decl_stmt

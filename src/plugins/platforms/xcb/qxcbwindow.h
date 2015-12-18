@@ -741,14 +741,6 @@ name|void
 name|destroy
 parameter_list|()
 function_decl|;
-name|void
-name|maybeSetScreen
-parameter_list|(
-name|QXcbScreen
-modifier|*
-name|screen
-parameter_list|)
-function_decl|;
 name|QXcbScreen
 modifier|*
 name|screenForNativeGeometry
@@ -1006,10 +998,6 @@ argument_list|)
 decl_stmt|;
 name|xcb_window_t
 name|m_window
-decl_stmt|;
-name|QXcbScreen
-modifier|*
-name|m_xcbScreen
 decl_stmt|;
 name|uint
 name|m_depth

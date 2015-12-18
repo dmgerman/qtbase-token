@@ -113,6 +113,10 @@ block|,
 name|RoleCount
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|MenuRole
+argument_list|)
 name|virtual
 name|void
 name|setTag
@@ -297,6 +301,10 @@ block|,
 name|EditMenu
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|MenuType
+argument_list|)
 name|virtual
 name|void
 name|insertMenuItem

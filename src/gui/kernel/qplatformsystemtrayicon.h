@@ -72,7 +72,12 @@ name|Trigger
 block|,
 name|MiddleClick
 block|}
-block|;      enum
+block|;
+name|Q_ENUM
+argument_list|(
+name|ActivationReason
+argument_list|)
+expr|enum
 name|MessageIcon
 block|{
 name|NoIcon
@@ -84,6 +89,10 @@ block|,
 name|Critical
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|MessageIcon
+argument_list|)
 name|QPlatformSystemTrayIcon
 argument_list|()
 block|;

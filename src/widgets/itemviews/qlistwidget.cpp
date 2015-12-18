@@ -4726,7 +4726,7 @@ begin_comment
 comment|/*!     \fn void QListWidget::itemDoubleClicked(QListWidgetItem *item)      This signal is emitted with the specified \a item when a mouse button is     double clicked on an item in the widget.      \sa itemClicked(), itemPressed() */
 end_comment
 begin_comment
-comment|/*!     \fn void QListWidget::itemActivated(QListWidgetItem *item)      This signal is emitted when the \a item is activated. The \a item is     activated when the user clicks or double clicks on it, depending on the     system configuration. It is also activated when the user presses the     activation key (on Windows and X11 this is the \uicontrol Return key, on Mac OS     X it is \uicontrol{Ctrl+0}). */
+comment|/*!     \fn void QListWidget::itemActivated(QListWidgetItem *item)      This signal is emitted when the \a item is activated. The \a item is     activated when the user clicks or double clicks on it, depending on the     system configuration. It is also activated when the user presses the     activation key (on Windows and X11 this is the \uicontrol Return key, on Mac OS     X it is \uicontrol{Command+O}). */
 end_comment
 begin_comment
 comment|/*!     \fn void QListWidget::itemEntered(QListWidgetItem *item)      This signal is emitted when the mouse cursor enters an item. The \a item is     the item entered. This signal is only emitted when mouseTracking is turned     on, or when a mouse button is pressed while moving into an item.      \sa QWidget::setMouseTracking() */

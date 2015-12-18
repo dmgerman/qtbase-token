@@ -959,6 +959,11 @@ argument_list|(
 name|QEventDispatcherWinRT
 argument_list|)
 expr_stmt|;
+name|DWORD
+name|waitTime
+init|=
+literal|0
+decl_stmt|;
 do|do
 block|{
 comment|// Additional user events have to be handled before timer events, but the function may not
@@ -972,10 +977,6 @@ argument_list|(
 name|flags
 argument_list|)
 decl_stmt|;
-emit|emit
-name|aboutToBlock
-argument_list|()
-emit|;
 specifier|const
 name|QVector
 argument_list|<
@@ -993,6 +994,14 @@ operator|.
 name|toVector
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|waitTime
+condition|)
+emit|emit
+name|aboutToBlock
+argument_list|()
+emit|;
 name|DWORD
 name|waitResult
 init|=
@@ -1010,7 +1019,7 @@ argument_list|()
 argument_list|,
 name|FALSE
 argument_list|,
-literal|1
+name|waitTime
 argument_list|,
 name|TRUE
 argument_list|)
@@ -1139,6 +1148,15 @@ condition|)
 return|return
 literal|true
 return|;
+comment|// We cannot wait infinitely like on other platforms, as
+comment|// WaitForMultipleObjectsEx might not return.
+comment|// For instance win32 uses MsgWaitForMultipleObjects to hook
+comment|// into the native event loop, while WinRT handles those
+comment|// via callbacks.
+name|waitTime
+operator|=
+literal|1
+expr_stmt|;
 block|}
 do|while
 condition|(

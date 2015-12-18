@@ -2328,6 +2328,22 @@ argument_list|(
 name|classinfo
 argument_list|)
 decl_stmt|;
+comment|// Some devices (mice) report a resolution of 0; they will be excluded later,
+comment|// for now just prevent a division by zero
+specifier|const
+name|int
+name|vciResolution
+init|=
+name|vci
+operator|->
+name|resolution
+condition|?
+name|vci
+operator|->
+name|resolution
+else|:
+literal|1
+decl_stmt|;
 if|if
 condition|(
 name|vci
@@ -2439,9 +2455,7 @@ operator|)
 operator|*
 literal|1000.0
 operator|/
-name|vci
-operator|->
-name|resolution
+name|vciResolution
 argument_list|)
 expr_stmt|;
 block|}
@@ -2482,9 +2496,7 @@ operator|)
 operator|*
 literal|1000.0
 operator|/
-name|vci
-operator|->
-name|resolution
+name|vciResolution
 argument_list|)
 expr_stmt|;
 block|}
@@ -2527,9 +2539,7 @@ operator|)
 operator|*
 literal|1000.0
 operator|/
-name|vci
-operator|->
-name|resolution
+name|vciResolution
 argument_list|)
 expr_stmt|;
 block|}
@@ -2572,9 +2582,7 @@ operator|)
 operator|*
 literal|1000.0
 operator|/
-name|vci
-operator|->
-name|resolution
+name|vciResolution
 argument_list|)
 expr_stmt|;
 block|}

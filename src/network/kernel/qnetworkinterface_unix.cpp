@@ -1797,9 +1797,22 @@ name|QString
 argument_list|>
 name|seenInterfaces
 decl_stmt|;
-comment|// on Linux, AF_PACKET addresses carry the hardware address and interface index;
-comment|// scan for them first (they're usually first, but we have no guarantee this
-comment|// will be the case forever)
+name|QVarLengthArray
+argument_list|<
+name|int
+argument_list|,
+literal|16
+argument_list|>
+name|seenIndexes
+decl_stmt|;
+comment|// faster than QSet<int>
+comment|// On Linux, glibc, uClibc and MUSL obtain the address listing via two
+comment|// netlink calls: first an RTM_GETLINK to obtain the interface listing,
+comment|// then one RTM_GETADDR to get all the addresses (uClibc implementation is
+comment|// copied from glibc; Bionic currently doesn't support getifaddrs). They
+comment|// synthesize AF_PACKET addresses from the RTM_GETLINK responses, which
+comment|// means by construction they currently show up first in the interface
+comment|// listing.
 for|for
 control|(
 name|ifaddrs
@@ -1908,6 +1921,28 @@ operator|->
 name|sll_addr
 argument_list|)
 expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|seenIndexes
+operator|.
+name|contains
+argument_list|(
+name|iface
+operator|->
+name|index
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|seenIndexes
+operator|.
+name|append
+argument_list|(
+name|iface
+operator|->
+name|index
+argument_list|)
+expr_stmt|;
 name|seenInterfaces
 operator|.
 name|insert
@@ -1920,7 +1955,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// see if we missed anything:
-comment|// virtual interfaces with no HW address have no AF_PACKET
+comment|// - virtual interfaces with no HW address have no AF_PACKET
+comment|// - interface labels have no AF_PACKET, but shouldn't be shown as a new interface
 for|for
 control|(
 name|ifaddrs
@@ -1975,6 +2011,26 @@ name|name
 argument_list|)
 condition|)
 continue|continue;
+name|int
+name|ifindex
+init|=
+name|if_nametoindex
+argument_list|(
+name|ptr
+operator|->
+name|ifa_name
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|seenIndexes
+operator|.
+name|contains
+argument_list|(
+name|ifindex
+argument_list|)
+condition|)
+continue|continue;
 name|QNetworkInterfacePrivate
 modifier|*
 name|iface
@@ -2007,12 +2063,7 @@ name|iface
 operator|->
 name|index
 operator|=
-name|if_nametoindex
-argument_list|(
-name|ptr
-operator|->
-name|ifa_name
-argument_list|)
+name|ifindex
 expr_stmt|;
 block|}
 block|}
@@ -2394,7 +2445,7 @@ operator|->
 name|ifa_next
 control|)
 block|{
-comment|// Get the interface index
+comment|// Find the interface
 name|QString
 name|name
 init|=
@@ -2459,6 +2510,63 @@ operator|*
 name|if_it
 expr_stmt|;
 break|break;
+block|}
+if|if
+condition|(
+operator|!
+name|iface
+condition|)
+block|{
+comment|// it may be an interface label, search by interface index
+name|int
+name|ifindex
+init|=
+name|if_nametoindex
+argument_list|(
+name|ptr
+operator|->
+name|ifa_name
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|if_it
+operator|=
+name|interfaces
+operator|.
+name|begin
+argument_list|()
+init|;
+name|if_it
+operator|!=
+name|interfaces
+operator|.
+name|end
+argument_list|()
+condition|;
+operator|++
+name|if_it
+control|)
+if|if
+condition|(
+operator|(
+operator|*
+name|if_it
+operator|)
+operator|->
+name|index
+operator|==
+name|ifindex
+condition|)
+block|{
+comment|// found this interface already
+name|iface
+operator|=
+operator|*
+name|if_it
+expr_stmt|;
+break|break;
+block|}
 block|}
 if|if
 condition|(

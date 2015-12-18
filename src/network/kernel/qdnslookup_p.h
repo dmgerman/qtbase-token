@@ -193,6 +193,12 @@ operator|&
 name|reply
 argument_list|)
 block|;
+specifier|static
+specifier|const
+name|char
+operator|*
+name|msgNoIpV6NameServerAdresses
+block|;
 name|bool
 name|isFinished
 block|;

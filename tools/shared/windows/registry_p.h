@@ -82,7 +82,7 @@ directive|include
 file|<QtCore/qstring.h>
 end_include
 begin_comment
-comment|/**  * Read a value from the Windows registry.  *  * If the key is not found, or the registry cannot be accessed (for example  * if this code is compiled for a platform other than Windows), a null  * string is returned.  */
+comment|/**  * Read a value from the Windows registry.  *  * If the key is not found, or the registry cannot be accessed (for example  * if this code is compiled for a platform other than Windows), a null  * string is returned.  *  * 32-bit code reads from the registry's 32 bit view (Wow6432Node),  * 64 bit code reads from the 64 bit view.  * Pass KEY_WOW64_32KEY to access the 32 bit view regardless of the  * application's architecture, KEY_WOW64_64KEY respectively.  */
 end_comment
 begin_function_decl
 name|QString
@@ -95,6 +95,12 @@ specifier|const
 name|QString
 modifier|&
 name|rSubkey
+parameter_list|,
+name|unsigned
+name|long
+name|options
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -359,6 +359,14 @@ argument_list|()
 operator|->
 name|showIsFullScreen
 argument_list|()
+operator|||
+name|QGuiApplication
+operator|::
+name|styleHints
+argument_list|()
+operator|->
+name|showIsMaximized
+argument_list|()
 condition|)
 block|{
 name|QVBoxLayout
