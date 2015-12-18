@@ -1071,7 +1071,7 @@ begin_comment
 comment|/************************************************* *    Find first set of multiple named strings    * *************************************************/
 end_comment
 begin_comment
-comment|/* This function allows for duplicate names in the table of named substrings. It returns the number of the first one that was set in a pattern match.  Arguments:   code         the compiled regex   stringname   the name of the capturing substring   ovector      the vector of matched substrings  Returns:       the number of the first that is set,                or the number of the last one if none are set,                or a negative number on error */
+comment|/* This function allows for duplicate names in the table of named substrings. It returns the number of the first one that was set in a pattern match.  Arguments:   code         the compiled regex   stringname   the name of the capturing substring   ovector      the vector of matched substrings   stringcount  number of captured substrings   Returns:       the number of the first that is set,                or the number of the last one if none are set,                or a negative number on error */
 end_comment
 begin_if
 if|#
@@ -1098,6 +1098,9 @@ argument_list|,
 name|int
 operator|*
 name|ovector
+argument_list|,
+name|int
+name|stringcount
 argument_list|)
 elif|#
 directive|elif
@@ -1118,6 +1121,9 @@ argument_list|,
 name|int
 operator|*
 name|ovector
+argument_list|,
+name|int
+name|stringcount
 argument_list|)
 elif|#
 directive|elif
@@ -1138,6 +1144,9 @@ argument_list|,
 name|int
 operator|*
 name|ovector
+argument_list|,
+name|int
+name|stringcount
 argument_list|)
 endif|#
 directive|endif
@@ -1389,6 +1398,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|n
+operator|<
+name|stringcount
+operator|&&
 name|ovector
 index|[
 name|n
@@ -1717,6 +1730,8 @@ argument_list|,
 name|stringname
 argument_list|,
 name|ovector
+argument_list|,
+name|stringcount
 argument_list|)
 decl_stmt|;
 if|if
@@ -1923,6 +1938,7 @@ name|i
 operator|+=
 literal|2
 control|)
+block|{
 name|size
 operator|+=
 sizeof|sizeof
@@ -1931,6 +1947,27 @@ name|pcre_uchar
 operator|*
 argument_list|)
 operator|+
+name|IN_UCHARS
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ovector
+index|[
+name|i
+operator|+
+literal|1
+index|]
+operator|>
+name|ovector
+index|[
+name|i
+index|]
+condition|)
+name|size
+operator|+=
 name|IN_UCHARS
 argument_list|(
 name|ovector
@@ -1944,10 +1981,9 @@ name|ovector
 index|[
 name|i
 index|]
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
+block|}
 name|stringlist
 operator|=
 operator|(
@@ -2049,6 +2085,21 @@ block|{
 name|int
 name|len
 init|=
+operator|(
+name|ovector
+index|[
+name|i
+operator|+
+literal|1
+index|]
+operator|>
+name|ovector
+index|[
+name|i
+index|]
+operator|)
+condition|?
+operator|(
 name|ovector
 index|[
 name|i
@@ -2060,6 +2111,9 @@ name|ovector
 index|[
 name|i
 index|]
+operator|)
+else|:
+literal|0
 decl_stmt|;
 name|memcpy
 argument_list|(
@@ -2529,6 +2583,8 @@ argument_list|,
 name|stringname
 argument_list|,
 name|ovector
+argument_list|,
+name|stringcount
 argument_list|)
 decl_stmt|;
 if|if
