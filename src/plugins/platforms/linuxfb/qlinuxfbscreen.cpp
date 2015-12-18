@@ -1874,7 +1874,6 @@ operator|!=
 operator|-
 literal|1
 condition|)
-block|{
 name|resetTty
 argument_list|(
 name|mTtyFd
@@ -1882,12 +1881,6 @@ argument_list|,
 name|mOldTtyMode
 argument_list|)
 expr_stmt|;
-name|close
-argument_list|(
-name|mTtyFd
-argument_list|)
-expr_stmt|;
-block|}
 operator|delete
 name|mBlitter
 expr_stmt|;
