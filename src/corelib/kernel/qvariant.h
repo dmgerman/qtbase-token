@@ -4262,7 +4262,7 @@ name|it
 control|)
 name|l
 operator|.
-name|insert
+name|insertMulti
 argument_list|(
 name|it
 operator|.
@@ -4394,7 +4394,7 @@ name|it
 control|)
 name|l
 operator|.
-name|insert
+name|insertMulti
 argument_list|(
 name|it
 operator|.

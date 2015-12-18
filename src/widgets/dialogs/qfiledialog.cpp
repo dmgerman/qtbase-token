@@ -17301,7 +17301,7 @@ condition|)
 block|{
 name|q
 operator|->
-name|hide
+name|reject
 argument_list|()
 expr_stmt|;
 return|return

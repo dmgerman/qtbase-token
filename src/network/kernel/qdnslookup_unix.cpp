@@ -854,7 +854,11 @@ else|#
 directive|else
 name|qWarning
 argument_list|(
-literal|"IPv6 addresses for nameservers is currently not supported"
+literal|"%s"
+argument_list|,
+name|QDnsLookupPrivate
+operator|::
+name|msgNoIpV6NameServerAdresses
 argument_list|)
 expr_stmt|;
 name|reply
@@ -871,7 +875,9 @@ name|errorString
 operator|=
 name|tr
 argument_list|(
-literal|"IPv6 addresses for nameservers is currently not supported"
+name|QDnsLookupPrivate
+operator|::
+name|msgNoIpV6NameServerAdresses
 argument_list|)
 expr_stmt|;
 return|return;

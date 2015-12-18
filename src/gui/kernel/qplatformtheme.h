@@ -353,6 +353,10 @@ name|MiniFont
 block|,
 name|FixedFont
 block|,
+name|GroupBoxTitleFont
+block|,
+name|TabButtonFont
+block|,
 name|NFonts
 block|}
 enum|;

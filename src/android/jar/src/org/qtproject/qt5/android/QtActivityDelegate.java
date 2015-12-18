@@ -5234,6 +5234,11 @@ condition|(
 name|m_quitApp
 condition|)
 block|{
+name|QtNative
+operator|.
+name|terminateQt
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|m_debuggerProcess

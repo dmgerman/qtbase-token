@@ -257,7 +257,7 @@ name|result
 operator|.
 name|append
 argument_list|(
-name|QPlatformFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|fallbacksForFamily
 argument_list|(

@@ -11834,7 +11834,7 @@ literal|"yes"
 argument_list|,
 literal|"-optimized-tools"
 argument_list|,
-literal|"Do not build optimized host tools even in debug build."
+literal|"Build optimized host tools even in debug build."
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11845,7 +11845,7 @@ literal|"no"
 argument_list|,
 literal|"-no-optimized-tools"
 argument_list|,
-literal|"Build optimized host tools even in debug build.\n"
+literal|"Do not build optimized host tools even in debug build.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -12577,28 +12577,6 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|"FONT_CONFIG"
-argument_list|,
-literal|"yes"
-argument_list|,
-literal|"-fontconfig"
-argument_list|,
-literal|"Build with FontConfig support."
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"FONT_CONFIG"
-argument_list|,
-literal|"no"
-argument_list|,
-literal|"-no-fontconfig"
-argument_list|,
-literal|"Do not build with FontConfig support.\n"
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
 literal|"POSIX_IPC"
 argument_list|,
 literal|"yes"
@@ -12935,7 +12913,29 @@ literal|"system"
 argument_list|,
 literal|"-system-freetype"
 argument_list|,
-literal|"Use the libfreetype provided by the system."
+literal|"Use the libfreetype provided by the system.\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"FONT_CONFIG"
+argument_list|,
+literal|"yes"
+argument_list|,
+literal|"-fontconfig"
+argument_list|,
+literal|"Build with FontConfig support."
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"FONT_CONFIG"
+argument_list|,
+literal|"no"
+argument_list|,
+literal|"-no-fontconfig"
+argument_list|,
+literal|"Do not build with FontConfig support.\n"
 argument_list|)
 expr_stmt|;
 name|desc

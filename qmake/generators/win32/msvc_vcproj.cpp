@@ -199,115 +199,6 @@ name|dotNetCombo
 index|[]
 operator|=
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN64
-block|{
-name|NET2015
-block|,
-literal|"MSVC.NET 2015 (14.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\14.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2013
-block|,
-literal|"MSVC.NET 2013 (12.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\12.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2013
-block|,
-literal|"MSVC.NET 2013 Express Edition (12.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VCExpress\\12.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2012
-block|,
-literal|"MSVC.NET 2012 (11.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\11.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2012
-block|,
-literal|"MSVC.NET 2012 Express Edition (11.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VCExpress\\11.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2010
-block|,
-literal|"MSVC.NET 2010 (10.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\10.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2010
-block|,
-literal|"MSVC.NET 2010 Express Edition (10.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VCExpress\\10.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2008
-block|,
-literal|"MSVC.NET 2008 (9.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\9.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2008
-block|,
-literal|"MSVC.NET 2008 Express Edition (9.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VCExpress\\9.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2005
-block|,
-literal|"MSVC.NET 2005 (8.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\8.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2005
-block|,
-literal|"MSVC.NET 2005 Express Edition (8.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VCExpress\\8.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2003
-block|,
-literal|"MSVC.NET 2003 (7.1)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\7.1\\Setup\\VC\\ProductDir"
-block|}
-block|,
-block|{
-name|NET2002
-block|,
-literal|"MSVC.NET 2002 (7.0)"
-block|,
-literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\7.0\\Setup\\VC\\ProductDir"
-block|}
-block|,
-else|#
-directive|else
 block|{
 name|NET2015
 block|,
@@ -412,8 +303,6 @@ block|,
 literal|"Software\\Microsoft\\VisualStudio\\7.0\\Setup\\VC\\ProductDir"
 block|}
 block|,
-endif|#
-directive|endif
 block|{
 name|NETUnknown
 block|,
@@ -529,6 +418,8 @@ name|i
 index|]
 operator|.
 name|regKey
+argument_list|,
+name|KEY_WOW64_32KEY
 argument_list|)
 decl_stmt|;
 if|if

@@ -596,6 +596,23 @@ block|}
 block|}
 block|}
 end_function
+begin_decl_stmt
+DECL|member|msgNoIpV6NameServerAdresses
+specifier|const
+name|char
+modifier|*
+name|QDnsLookupPrivate
+operator|::
+name|msgNoIpV6NameServerAdresses
+init|=
+name|QT_TRANSLATE_NOOP
+argument_list|(
+literal|"QDnsLookupRunnable"
+argument_list|,
+literal|"IPv6 addresses for nameservers are currently not supported"
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*!     \class QDnsLookup     \brief The QDnsLookup class represents a DNS lookup.     \since 5.0      \inmodule QtNetwork     \ingroup network      QDnsLookup uses the mechanisms provided by the operating system to perform     DNS lookups. To perform a lookup you need to specify a \l name and \l type     then invoke the \l{QDnsLookup::lookup()}{lookup()} slot. The     \l{QDnsLookup::finished()}{finished()} signal will be emitted upon     completion.      For example, you can determine which servers an XMPP chat client should     connect to for a given domain with:      \snippet code/src_network_kernel_qdnslookup.cpp 0      Once the request finishes you can handle the results with:      \snippet code/src_network_kernel_qdnslookup.cpp 1      \note If you simply want to find the IP address(es) associated with a host     name, or the host name associated with an IP address you should use     QHostInfo instead. */
 end_comment

@@ -1102,8 +1102,13 @@ literal|"XCOMPOSEFILE"
 argument_list|)
 condition|)
 block|{
+specifier|const
 name|QString
 name|path
+init|=
+name|QFile
+operator|::
+name|decodeName
 argument_list|(
 name|qgetenv
 argument_list|(
@@ -1113,14 +1118,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|QFile
+operator|::
+name|exists
+argument_list|(
 name|path
-operator|.
-name|endsWith
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"Compose"
-argument_list|)
 argument_list|)
 condition|)
 return|return
@@ -1129,7 +1131,7 @@ return|;
 else|else
 name|qWarning
 argument_list|(
-literal|"Qt Warning: XCOMPOSEFILE doesn't point to a valid Compose file"
+literal|"$XCOMPOSEFILE doesn't point to an existing file"
 argument_list|)
 expr_stmt|;
 block|}

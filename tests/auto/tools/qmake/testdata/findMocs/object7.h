@@ -13,6 +13,13 @@ include|#
 directive|include
 file|<QObject>
 end_include
+begin_define
+DECL|macro|bogon
+define|#
+directive|define
+name|bogon
+value|/"/*"
+end_define
 begin_decl_stmt
 name|class
 name|Object7

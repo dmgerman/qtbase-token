@@ -2607,8 +2607,7 @@ name|ptr
 operator|->
 name|initializeFromSharedPointer
 argument_list|(
-operator|*
-name|this
+argument|constCast<typename QtPrivate::remove_cv<T>::type>()
 argument_list|)
 block|;     }
 specifier|inline

@@ -20,7 +20,9 @@ range|:
 name|public
 name|QObject
 block|{
-name|Q_OBJECT
+name|Q
+expr|\
+name|_OBJECT
 block|}
 decl_stmt|;
 end_decl_stmt

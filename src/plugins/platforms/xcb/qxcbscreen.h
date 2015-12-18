@@ -227,6 +227,14 @@ operator|*
 name|s
 argument_list|)
 block|;
+name|void
+name|setPrimaryScreen
+argument_list|(
+name|QPlatformScreen
+operator|*
+name|s
+argument_list|)
+block|;
 name|QXcbXSettings
 operator|*
 name|xSettings
@@ -321,15 +329,21 @@ argument|QXcbVirtualDesktop *virtualDesktop
 argument_list|,
 argument|xcb_randr_output_t outputId
 argument_list|,
-argument|xcb_randr_get_output_info_reply_t *output
-argument_list|,
-argument|QString outputName
+argument|xcb_randr_get_output_info_reply_t *outputInfo
 argument_list|)
 empty_stmt|;
 operator|~
 name|QXcbScreen
 argument_list|()
 expr_stmt|;
+name|QString
+name|getOutputName
+parameter_list|(
+name|xcb_randr_get_output_info_reply_t
+modifier|*
+name|outputInfo
+parameter_list|)
+function_decl|;
 name|QPixmap
 name|grabWindow
 argument_list|(
@@ -598,6 +612,29 @@ block|{
 return|return
 name|m_mode
 return|;
+block|}
+name|void
+name|setOutput
+parameter_list|(
+name|xcb_randr_output_t
+name|outputId
+parameter_list|,
+name|xcb_randr_get_output_info_reply_t
+modifier|*
+name|outputInfo
+parameter_list|)
+function_decl|;
+name|void
+name|setCrtc
+parameter_list|(
+name|xcb_randr_crtc_t
+name|crtc
+parameter_list|)
+block|{
+name|m_crtc
+operator|=
+name|crtc
+expr_stmt|;
 block|}
 name|void
 name|windowShown

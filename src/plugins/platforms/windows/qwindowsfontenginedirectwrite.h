@@ -236,6 +236,16 @@ argument|QFixed subPixelPosition
 argument_list|)
 block|;
 name|QImage
+name|alphaMapForGlyph
+argument_list|(
+argument|glyph_t glyph
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+block|;
+name|QImage
 name|alphaRGBMapForGlyph
 argument_list|(
 argument|glyph_t t

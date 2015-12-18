@@ -394,6 +394,10 @@ typedef|typedef
 name|QJsonValueRef
 name|reference
 typedef|;
+typedef|typedef
+name|QJsonValuePtr
+name|pointer
+typedef|;
 name|Q_DECL_CONSTEXPR
 specifier|inline
 name|iterator
@@ -818,6 +822,10 @@ typedef|;
 typedef|typedef
 name|QJsonValue
 name|reference
+typedef|;
+typedef|typedef
+name|QJsonValuePtr
+name|pointer
 typedef|;
 name|Q_DECL_CONSTEXPR
 specifier|inline

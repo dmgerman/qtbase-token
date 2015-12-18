@@ -172,7 +172,11 @@ comment|// from DnsQuey() to DnsQueryEx() as it supports passing an IPv6
 comment|// address in the nameserver list
 name|qWarning
 argument_list|(
-literal|"IPv6 addresses for nameservers are currently not supported"
+literal|"%s"
+argument_list|,
+name|QDnsLookupPrivate
+operator|::
+name|msgNoIpV6NameServerAdresses
 argument_list|)
 expr_stmt|;
 name|reply
@@ -189,7 +193,9 @@ name|errorString
 operator|=
 name|tr
 argument_list|(
-literal|"IPv6 addresses for nameservers are currently not supported"
+name|QDnsLookupPrivate
+operator|::
+name|msgNoIpV6NameServerAdresses
 argument_list|)
 expr_stmt|;
 return|return;

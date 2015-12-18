@@ -7,27 +7,6 @@ include|#
 directive|include
 file|<qglobal.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_IOS
-end_ifdef
-begin_comment
-comment|// We don't build the NEON drawhelpers as they are implemented partly
-end_comment
-begin_comment
-comment|// in GAS syntax assembly, which is not supported by the iOS toolchain.
-end_comment
-begin_undef
-DECL|macro|__ARM_NEON__
-undef|#
-directive|undef
-name|__ARM_NEON__
-end_undef
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -45765,6 +45744,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_function_decl
+specifier|extern
+name|void
+name|qInitBlendFunctions
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_function
 DECL|function|qInitDrawhelperFunctions
 specifier|static
@@ -45772,6 +45758,10 @@ name|void
 name|qInitDrawhelperFunctions
 parameter_list|()
 block|{
+comment|// Set up basic blend function tables.
+name|qInitBlendFunctions
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|__SSE2__
@@ -46731,12 +46721,6 @@ name|defined
 argument_list|(
 name|__ARM_NEON__
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_IOS
-argument_list|)
 name|qBlendFunctions
 index|[
 name|QImage
@@ -46920,10 +46904,9 @@ name|qt_fetch_radial_gradient_neon
 expr_stmt|;
 if|#
 directive|if
-operator|!
 name|defined
 argument_list|(
-name|Q_PROCESSOR_ARM_64
+name|ENABLE_PIXMAN_DRAWHELPERS
 argument_list|)
 comment|// The RGB16 helpers are using Arm32 assemblythat has not been ported to AArch64
 name|qBlendFunctions
@@ -47477,45 +47460,17 @@ directive|endif
 comment|// QT_COMPILER_SUPPORTS_MIPS_DSP || QT_COMPILER_SUPPORTS_MIPS_DSPR2
 block|}
 end_function
-begin_function_decl
-specifier|extern
-name|void
-name|qInitBlendFunctions
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_class
-DECL|class|DrawHelperInitializer
-class|class
-name|DrawHelperInitializer
-block|{
-public|public:
-DECL|function|DrawHelperInitializer
-name|DrawHelperInitializer
-parameter_list|()
-block|{
-comment|// Set up basic blend function tables.
-name|qInitBlendFunctions
-argument_list|()
-expr_stmt|;
-comment|// Set up architecture optimized methods for the current machine.
-name|qInitDrawhelperFunctions
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-class|;
-end_class
 begin_comment
 comment|// Ensure initialization if this object file is linked.
 end_comment
-begin_decl_stmt
-DECL|variable|drawHelperInitializer
-specifier|static
-name|DrawHelperInitializer
-name|drawHelperInitializer
-decl_stmt|;
-end_decl_stmt
+begin_expr_stmt
+DECL|variable|qInitDrawhelperFunctions
+name|Q_CONSTRUCTOR_FUNCTION
+argument_list|(
+name|qInitDrawhelperFunctions
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

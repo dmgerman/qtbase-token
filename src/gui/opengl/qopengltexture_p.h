@@ -570,14 +570,6 @@ decl_stmt|;
 name|bool
 name|storageAllocated
 decl_stmt|;
-name|QPair
-operator|<
-name|int
-operator|,
-name|int
-operator|>
-name|glVersion
-expr_stmt|;
 name|QOpenGLTextureHelper
 modifier|*
 name|texFuncs

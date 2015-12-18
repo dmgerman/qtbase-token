@@ -1159,7 +1159,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the system backend supports obtaining transitions. */
+comment|/*!     Returns \c true if the system backend supports obtaining transitions.      Transitions are changes in the time-zone: these happen when DST turns on or     off and when authorities alter the offsets for the time-zone.      \sa nextTransition(), previousTransition(), transitions() */
 end_comment
 begin_function
 DECL|function|hasTransitions
