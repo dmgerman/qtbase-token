@@ -1281,7 +1281,7 @@ condition|)
 return|return
 literal|true
 return|;
-name|msecs
+name|t
 operator|=
 name|qt_subtract_from_timeout
 argument_list|(
