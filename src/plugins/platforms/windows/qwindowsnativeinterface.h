@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtGui/qpa/qplatformnativeinterface.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtPlatformHeaders/qwindowswindowfunctions.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QWindowsNativeInterface     \brief Provides access to native handles.      Currently implemented keys     \list     \li handle (HWND)     \li getDC (DC)     \li releaseDC Releases the previously acquired DC and returns 0.     \endlist      \internal     \ingroup qt-lighthouse-win */
@@ -208,6 +213,32 @@ argument|const QVariant&value
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+specifier|static
+name|QWindowsWindowFunctions
+operator|::
+name|WindowActivationBehavior
+name|windowActivationBehavior
+argument_list|()
+block|{
+return|return
+name|QWindowsNativeInterface
+operator|::
+name|m_windowActivationBehavior
+return|;
+block|}
+specifier|static
+name|void
+name|setWindowActivationBehavior
+argument_list|(
+argument|QWindowsWindowFunctions::WindowActivationBehavior b
+argument_list|)
+block|{
+name|QWindowsNativeInterface
+operator|::
+name|m_windowActivationBehavior
+operator|=
+name|b
+block|; }
 name|QFunctionPointer
 name|platformFunction
 argument_list|(
@@ -215,6 +246,14 @@ argument|const QByteArray&function
 argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
+block|;
+name|private
+operator|:
+specifier|static
+name|QWindowsWindowFunctions
+operator|::
+name|WindowActivationBehavior
+name|m_windowActivationBehavior
 block|; }
 decl_stmt|;
 end_decl_stmt

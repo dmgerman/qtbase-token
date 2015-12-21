@@ -2589,7 +2589,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Requests the window to be activated, i.e. receive keyboard focus.      \sa isActive(), QGuiApplication::focusWindow() */
+comment|/*!     Requests the window to be activated, i.e. receive keyboard focus.      \sa isActive(), QGuiApplication::focusWindow(), QWindowsWindowFunctions::setWindowActivationBehavior() */
 end_comment
 begin_function
 DECL|function|requestActivate
