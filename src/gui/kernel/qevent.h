@@ -4473,7 +4473,18 @@ block|;
 name|friend
 name|class
 name|QApplicationPrivate
-block|; }
+block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_GRAPHICSVIEW
+name|friend
+name|class
+name|QGraphicsScenePrivate
+block|;
+comment|// direct access to _touchPoints
+endif|#
+directive|endif
+block|}
 block|;
 name|Q_DECLARE_TYPEINFO
 argument_list|(
