@@ -1012,16 +1012,15 @@ argument_list|(
 name|simpleExtension
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|mime
-decl|,
+range|:
 name|matchingMimeTypes
 control|)
-block|{
 name|result
 operator|.
 name|addMatch
@@ -1038,7 +1037,6 @@ operator|+
 name|simpleExtension
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Can't return yet; *.tar.bz2 has to win over *.bz2, so we need the low-weight mimetypes anyway,
 comment|// at least those with weight 50.
 block|}

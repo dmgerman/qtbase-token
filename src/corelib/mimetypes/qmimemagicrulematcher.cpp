@@ -169,13 +169,13 @@ name|data
 parameter_list|)
 specifier|const
 block|{
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QMimeMagicRule
 modifier|&
 name|magicRule
-decl|,
+range|:
 name|m_list
 control|)
 block|{

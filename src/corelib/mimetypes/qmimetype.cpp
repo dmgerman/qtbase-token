@@ -510,12 +510,18 @@ operator|.
 name|uiLanguages
 argument_list|()
 expr_stmt|;
-name|Q_FOREACH
+for|for
+control|(
+specifier|const
+name|QString
+modifier|&
+name|language
+range|:
+name|qAsConst
 argument_list|(
-argument|const QString&language
-argument_list|,
-argument|languageList
+name|languageList
 argument_list|)
+control|)
 block|{
 specifier|const
 name|QString
@@ -886,6 +892,7 @@ modifier|&
 name|allParents
 parameter_list|)
 block|{
+specifier|const
 name|QStringList
 name|parents
 init|=
@@ -902,13 +909,13 @@ argument_list|(
 name|mime
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|parent
-decl|,
+range|:
 name|parents
 control|)
 block|{
@@ -933,16 +940,15 @@ expr_stmt|;
 block|}
 comment|// We want a breadth-first search, so that the least-specific parent (octet-stream) is last
 comment|// This means iterating twice, unfortunately.
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|parent
-decl|,
+range|:
 name|parents
 control|)
-block|{
 name|collectParentMimeTypes
 argument_list|(
 name|parent
@@ -950,7 +956,6 @@ argument_list|,
 name|allParents
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment
@@ -1041,16 +1046,19 @@ expr_stmt|;
 name|QStringList
 name|result
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|pattern
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|d
 operator|->
 name|globPatterns
+argument_list|)
 control|)
 block|{
 comment|// Not a simple suffix if it looks like: README or *. or *.* or *.JP*G or *.JP?
