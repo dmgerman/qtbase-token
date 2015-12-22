@@ -207,7 +207,10 @@ operator|>
 name|m_fonts
 block|;
 name|mutable
+name|QT_MANGLE_NAMESPACE
+argument_list|(
 name|QCocoaThemeNotificationReceiver
+argument_list|)
 operator|*
 name|m_notificationReceiver
 block|; }
