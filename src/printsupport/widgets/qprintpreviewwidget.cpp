@@ -1009,6 +1009,7 @@ operator|::
 name|FitInView
 condition|)
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|QGraphicsItem
@@ -1027,12 +1028,12 @@ operator|::
 name|ContainsItemBoundingRect
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QGraphicsItem
 modifier|*
 name|item
-decl|,
+range|:
 name|containedItems
 control|)
 block|{
