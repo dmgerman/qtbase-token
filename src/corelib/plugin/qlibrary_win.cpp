@@ -245,12 +245,18 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|Q_FOREACH
+for|for
+control|(
+specifier|const
+name|QString
+modifier|&
+name|attempt
+range|:
+name|qAsConst
 argument_list|(
-argument|const QString&attempt
-argument_list|,
-argument|attempts
+name|attempts
 argument_list|)
+control|)
 block|{
 ifndef|#
 directive|ifndef

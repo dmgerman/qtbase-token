@@ -1204,15 +1204,18 @@ argument_list|()
 condition|)
 block|{
 comment|// dump all objects that remain
-foreach|foreach
+for|for
 control|(
 name|QLibraryPrivate
 modifier|*
 name|lib
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|data
 operator|->
 name|libraryMap
+argument_list|)
 control|)
 block|{
 if|if
