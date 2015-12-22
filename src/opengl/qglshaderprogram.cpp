@@ -3011,22 +3011,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-foreach|foreach
-control|(
-name|QGLShader
-modifier|*
-name|shader
-decl|,
+comment|// Delete shader objects that were created anonymously.
+name|qDeleteAll
+argument_list|(
 name|d
 operator|->
 name|anonShaders
-control|)
-block|{
-comment|// Delete shader objects that were created anonymously.
-operator|delete
-name|shader
+argument_list|)
 expr_stmt|;
-block|}
 name|d
 operator|->
 name|shaders
