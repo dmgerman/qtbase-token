@@ -514,13 +514,13 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|wArg
-decl|,
+range|:
 name|wArgv
 control|)
 name|argv

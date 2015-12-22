@@ -953,13 +953,16 @@ name|removeSocketNotifiers
 parameter_list|()
 block|{
 comment|// Remove CFSockets from the runloop.
-foreach|foreach
+for|for
 control|(
 name|MacSocketInfo
 modifier|*
 name|socketInfo
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|macSockets
+argument_list|)
 control|)
 block|{
 name|unregisterSocketInfo
@@ -1109,6 +1112,7 @@ argument_list|(
 name|activity
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QCFSocketNotifier
 modifier|*
 name|that
@@ -1122,12 +1126,12 @@ argument_list|(
 name|info
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|MacSocketInfo
 modifier|*
 name|socketInfo
-decl|,
+range|:
 name|that
 operator|->
 name|macSockets

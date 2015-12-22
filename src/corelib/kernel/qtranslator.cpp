@@ -2273,12 +2273,15 @@ block|}
 endif|#
 directive|endif
 comment|// try explicit locales names first
-foreach|foreach
+for|for
 control|(
 name|QString
 name|localeName
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|languages
+argument_list|)
 control|)
 block|{
 name|localeName
@@ -2350,12 +2353,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// start guessing
-foreach|foreach
+for|for
 control|(
 name|QString
 name|localeName
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|fuzzyLocales
+argument_list|)
 control|)
 block|{
 for|for
@@ -4069,12 +4075,12 @@ expr_stmt|;
 block|}
 name|searchDependencies
 label|:
-foreach|foreach
+for|for
 control|(
 name|QTranslator
 modifier|*
 name|translator
-decl|,
+range|:
 name|subTranslators
 control|)
 block|{
