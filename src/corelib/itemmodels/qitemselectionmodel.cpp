@@ -1189,12 +1189,15 @@ argument_list|>
 argument_list|>
 name|result
 decl_stmt|;
-name|Q_FOREACH
-argument_list|(
-argument|const QItemSelectionRange&range
-argument_list|,
-argument|sel
-argument_list|)
+for|for
+control|(
+specifier|const
+name|QItemSelectionRange
+modifier|&
+name|range
+range|:
+name|sel
+control|)
 name|rowLengthsFromRange
 argument_list|(
 name|range

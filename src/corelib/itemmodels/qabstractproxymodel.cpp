@@ -1262,13 +1262,13 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QModelIndex
 modifier|&
 name|index
-decl|,
+range|:
 name|indexes
 control|)
 name|list
