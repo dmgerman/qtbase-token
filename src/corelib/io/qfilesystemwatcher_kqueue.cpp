@@ -216,12 +216,15 @@ argument_list|(
 name|kqfd
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|int
 name|id
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|pathToID
+argument_list|)
 control|)
 operator|::
 name|close

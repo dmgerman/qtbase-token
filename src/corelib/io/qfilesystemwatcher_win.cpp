@@ -707,13 +707,16 @@ name|found
 init|=
 literal|false
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QWindowsFileSystemWatcherEngineThread
 modifier|*
 name|thread
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|threads
+argument_list|)
 control|)
 block|{
 name|QMutexLocker
@@ -1596,12 +1599,15 @@ index|]
 operator|=
 name|INVALID_HANDLE_VALUE
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|HANDLE
 name|h
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|handles
+argument_list|)
 control|)
 block|{
 if|if
@@ -1648,7 +1654,7 @@ name|str
 operator|<<
 literal|"QFileSystemWatcher: FindNextChangeNotification failed for"
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QWindowsFileSystemWatcherEngine
@@ -1656,7 +1662,7 @@ operator|::
 name|PathInfo
 modifier|&
 name|pathInfo
-decl|,
+range|:
 name|pathInfos
 control|)
 name|str

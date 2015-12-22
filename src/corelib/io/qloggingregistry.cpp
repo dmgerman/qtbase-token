@@ -1632,6 +1632,7 @@ modifier|*
 name|cat
 parameter_list|)
 block|{
+specifier|const
 name|QLoggingRegistry
 modifier|*
 name|reg
@@ -1764,13 +1765,13 @@ name|categoryName
 argument_list|()
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QLoggingRule
 modifier|&
 name|item
-decl|,
+range|:
 name|reg
 operator|->
 name|rules

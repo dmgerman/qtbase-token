@@ -382,13 +382,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|s
-decl|,
+range|:
 name|selectors
 control|)
 block|{

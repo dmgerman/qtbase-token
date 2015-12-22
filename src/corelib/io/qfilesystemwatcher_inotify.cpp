@@ -1129,12 +1129,15 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|int
 name|id
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|pathToID
+argument_list|)
 control|)
 name|inotify_rm_watch
 argument_list|(
