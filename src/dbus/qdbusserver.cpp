@@ -258,13 +258,20 @@ operator|->
 name|mutex
 argument_list|)
 decl_stmt|;
-name|Q_FOREACH
+for|for
+control|(
+specifier|const
+name|QString
+modifier|&
+name|name
+range|:
+name|qAsConst
 argument_list|(
-argument|const QString&name
-argument_list|,
-argument|d->serverConnectionNames
+name|d
+operator|->
+name|serverConnectionNames
 argument_list|)
-block|{
+control|)
 name|QDBusConnectionManager
 operator|::
 name|instance
@@ -275,7 +282,6 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 name|d
 operator|->
 name|serverConnectionNames

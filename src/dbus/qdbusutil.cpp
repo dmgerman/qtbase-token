@@ -248,6 +248,7 @@ argument_list|(
 literal|'{'
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QStringList
 name|list
 init|=
@@ -256,13 +257,13 @@ operator|.
 name|toStringList
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|item
-decl|,
+range|:
 name|list
 control|)
 name|out
@@ -407,6 +408,7 @@ argument_list|(
 literal|'{'
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QVariant
@@ -418,13 +420,13 @@ operator|.
 name|toList
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QVariant
 modifier|&
 name|item
-decl|,
+range|:
 name|list
 control|)
 block|{

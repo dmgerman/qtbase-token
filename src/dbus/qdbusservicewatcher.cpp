@@ -253,14 +253,17 @@ argument_list|()
 condition|)
 block|{
 comment|// remove older rules
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|s
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|servicesWatched
+argument_list|)
 control|)
 name|removeService
 argument_list|(
@@ -289,14 +292,17 @@ argument_list|()
 condition|)
 block|{
 comment|// add new rules
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|s
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|servicesWatched
+argument_list|)
 control|)
 name|addService
 argument_list|(
