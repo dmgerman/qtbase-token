@@ -3883,14 +3883,17 @@ literal|false
 decl_stmt|;
 comment|// Since ApplicationLanguages:::Languages uses long names, we compare the "pre-dash" part of
 comment|// the language and filter it out, if it is already covered by a more specialized form.
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|lang
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|result
+argument_list|)
 control|)
 block|{
 name|int

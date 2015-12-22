@@ -1318,6 +1318,7 @@ name|hasTransitions
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QTimeZonePrivate
 operator|::
 name|DataList
@@ -1348,7 +1349,7 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QTimeZonePrivate
@@ -1356,7 +1357,7 @@ operator|::
 name|Data
 modifier|&
 name|pdata
-decl|,
+range|:
 name|plist
 control|)
 name|list

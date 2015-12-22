@@ -11536,14 +11536,17 @@ operator|=
 literal|0
 expr_stmt|;
 comment|// add the after string, with replacements for the backreferences
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QStringCapture
 modifier|&
 name|backReference
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|backReferences
+argument_list|)
 control|)
 block|{
 comment|// part of "after" before the backreference
@@ -11720,14 +11723,17 @@ init|=
 name|data
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QStringRef
 modifier|&
 name|chunk
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|chunks
+argument_list|)
 control|)
 block|{
 name|int
