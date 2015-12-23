@@ -472,11 +472,6 @@ literal|0
 argument_list|)
 block|{ }
 specifier|inline
-operator|~
-name|ObjectTreeNode
-argument_list|()
-block|{ }
-specifier|inline
 name|bool
 name|operator
 operator|<
