@@ -1012,6 +1012,17 @@ argument_list|(
 name|simpleExtension
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QString
+name|simplePattern
+init|=
+name|QLatin1String
+argument_list|(
+literal|"*."
+argument_list|)
+operator|+
+name|simpleExtension
+decl_stmt|;
 for|for
 control|(
 specifier|const
@@ -1029,12 +1040,7 @@ name|mime
 argument_list|,
 literal|50
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"*."
-argument_list|)
-operator|+
-name|simpleExtension
+name|simplePattern
 argument_list|)
 expr_stmt|;
 comment|// Can't return yet; *.tar.bz2 has to win over *.bz2, so we need the low-weight mimetypes anyway,
