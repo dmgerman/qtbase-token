@@ -276,7 +276,6 @@ argument_list|(
 literal|"inode/directory"
 argument_list|)
 return|;
-specifier|const
 name|QStringList
 name|matchingMimeTypes
 init|=
@@ -296,6 +295,12 @@ argument_list|,
 name|foundSuffix
 argument_list|)
 decl_stmt|;
+name|matchingMimeTypes
+operator|.
+name|sort
+argument_list|()
+expr_stmt|;
+comment|// make it deterministic
 return|return
 name|matchingMimeTypes
 return|;
@@ -734,12 +739,6 @@ name|accuracyPtr
 operator|=
 literal|20
 expr_stmt|;
-name|candidatesByName
-operator|.
-name|sort
-argument_list|()
-expr_stmt|;
-comment|// to make it deterministic
 specifier|const
 name|QMimeType
 name|mime
@@ -1360,12 +1359,6 @@ block|}
 else|else
 block|{
 comment|// We have to pick one.
-name|matches
-operator|.
-name|sort
-argument_list|()
-expr_stmt|;
-comment|// Make it deterministic
 return|return
 name|d
 operator|->
@@ -1444,12 +1437,6 @@ name|QMimeType
 argument_list|>
 name|mimes
 decl_stmt|;
-name|matches
-operator|.
-name|sort
-argument_list|()
-expr_stmt|;
-comment|// Make it deterministic
 name|mimes
 operator|.
 name|reserve
