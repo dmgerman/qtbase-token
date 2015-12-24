@@ -3650,15 +3650,6 @@ name|argv
 parameter_list|)
 block|{
 name|QApplication
-operator|::
-name|setAttribute
-argument_list|(
-name|Qt
-operator|::
-name|AA_X11InitThreads
-argument_list|)
-expr_stmt|;
-name|QApplication
 name|app
 argument_list|(
 name|argc
