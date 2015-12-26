@@ -14,6 +14,13 @@ directive|define
 name|_GNU_SOURCE
 end_define
 begin_define
+DECL|macro|_NETBSD_SOURCE
+define|#
+directive|define
+name|_NETBSD_SOURCE
+value|1
+end_define
+begin_define
 DECL|macro|_POSIX_C_SOURCE
 define|#
 directive|define
@@ -26,6 +33,13 @@ define|#
 directive|define
 name|_XOPEN_SOURCE
 value|700
+end_define
+begin_define
+DECL|macro|__BSD_VISIBLE
+define|#
+directive|define
+name|__BSD_VISIBLE
+value|1
 end_define
 begin_endif
 endif|#
