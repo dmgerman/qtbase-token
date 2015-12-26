@@ -2355,8 +2355,10 @@ block|}
 comment|// start guessing
 for|for
 control|(
+specifier|const
 name|QString
-name|localeName
+modifier|&
+name|fuzzyLocale
 range|:
 name|qAsConst
 argument_list|(
@@ -2364,6 +2366,13 @@ name|fuzzyLocales
 argument_list|)
 control|)
 block|{
+name|QStringRef
+name|localeName
+argument_list|(
+operator|&
+name|fuzzyLocale
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 init|;
