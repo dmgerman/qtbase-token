@@ -219,6 +219,24 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// make a method call: those should work even if delivery is disabled
+name|QVERIFY
+argument_list|(
+name|session
+operator|.
+name|interface
+argument_list|()
+operator|->
+name|isServiceRegistered
+argument_list|(
+name|other
+operator|.
+name|baseService
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// acquire a name in the main session bus connection: the effect is immediate
 name|QString
 name|name
 init|=
@@ -232,7 +250,6 @@ name|getpid
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// acquire a name in the main session bus connection
 name|QVERIFY
 argument_list|(
 name|session
