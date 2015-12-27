@@ -2547,9 +2547,15 @@ condition|)
 return|return
 name|realname
 return|;
+name|realname
+operator|.
+name|truncate
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 return|return
-name|QString
-argument_list|()
+name|realname
 return|;
 block|}
 end_function
