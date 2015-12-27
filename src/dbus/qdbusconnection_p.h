@@ -675,6 +675,15 @@ expr_stmt|;
 end_typedef
 begin_typedef
 typedef|typedef
+name|QVector
+operator|<
+name|QDBusMessage
+operator|>
+name|PendingMessageList
+expr_stmt|;
+end_typedef
+begin_typedef
+typedef|typedef
 name|QMultiHash
 operator|<
 name|QString
@@ -796,6 +805,15 @@ begin_function_decl
 name|void
 name|createBusService
 parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|setDispatchEnabled
+parameter_list|(
+name|bool
+name|enable
+parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
@@ -1838,6 +1856,11 @@ name|TimeoutHash
 name|timeouts
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|PendingMessageList
+name|pendingMessages
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// the master lock protects our own internal state
 end_comment
@@ -1891,6 +1914,14 @@ name|bool
 name|anonymousAuthenticationAllowed
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|bool
+name|dispatchEnabled
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// protected by the dispatch lock, not the main lock
+end_comment
 begin_label
 name|public
 label|:

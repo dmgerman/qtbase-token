@@ -132,6 +132,8 @@ argument_list|(
 argument|QDBusConnection::BusType type
 argument_list|,
 argument|const QString&name
+argument_list|,
+argument|bool suspendedDelivery
 argument_list|)
 block|;
 name|QDBusConnectionPrivate
