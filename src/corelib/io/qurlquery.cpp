@@ -276,7 +276,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|// use QMap so we end up sorting the items by key
 DECL|member|itemList
 name|Map
 name|itemList
