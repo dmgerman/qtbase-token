@@ -305,6 +305,8 @@ parameter_list|(
 name|QDBusPendingCallWatcher
 modifier|*
 name|self
+init|=
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 name|private
