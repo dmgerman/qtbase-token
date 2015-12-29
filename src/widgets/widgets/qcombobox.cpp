@@ -7188,9 +7188,6 @@ specifier|const
 name|QComboBox
 argument_list|)
 expr_stmt|;
-name|QModelIndexList
-name|result
-decl_stmt|;
 name|QModelIndex
 name|start
 init|=
@@ -7211,8 +7208,10 @@ operator|->
 name|root
 argument_list|)
 decl_stmt|;
+specifier|const
+name|QModelIndexList
 name|result
-operator|=
+init|=
 name|d
 operator|->
 name|model
@@ -7229,7 +7228,7 @@ literal|1
 argument_list|,
 name|flags
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|result
