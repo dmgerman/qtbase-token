@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<qxml.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<stack>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|//
@@ -64,9 +69,13 @@ name|initIncrementalParsing
 parameter_list|()
 function_decl|;
 comment|// used to determine if elements are correctly nested
-name|QStack
+name|std
+operator|::
+name|stack
 operator|<
 name|QString
+operator|,
+name|QStringList
 operator|>
 name|tags
 expr_stmt|;
