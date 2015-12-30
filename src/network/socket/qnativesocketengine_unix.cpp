@@ -5207,7 +5207,7 @@ name|cmsg_type
 operator|=
 name|IP_SENDSRCADDR
 expr_stmt|;
-name|addr
+name|data
 operator|->
 name|s_addr
 operator|=
