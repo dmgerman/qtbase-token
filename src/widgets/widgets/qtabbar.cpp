@@ -2785,7 +2785,7 @@ name|bottomEdge
 operator|!=
 name|tabList
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|rect
@@ -3066,7 +3066,7 @@ name|rightEdge
 operator|!=
 name|tabList
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|rect
@@ -3233,7 +3233,7 @@ name|horiz
 condition|?
 name|tabList
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|rect
@@ -3243,7 +3243,7 @@ argument_list|()
 else|:
 name|tabList
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|rect

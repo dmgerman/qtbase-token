@@ -1750,7 +1750,7 @@ argument_list|()
 operator|&&
 name|lines
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|toolBarItems

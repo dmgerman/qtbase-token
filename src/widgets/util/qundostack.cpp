@@ -1112,7 +1112,7 @@ name|d
 operator|->
 name|macro_stack
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 if|if
@@ -1135,7 +1135,7 @@ name|d
 operator|->
 name|child_list
 operator|.
-name|last
+name|constLast
 argument_list|()
 expr_stmt|;
 block|}
@@ -1311,7 +1311,7 @@ name|d
 operator|->
 name|macro_stack
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|d
@@ -2427,7 +2427,7 @@ name|d
 operator|->
 name|macro_stack
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|d

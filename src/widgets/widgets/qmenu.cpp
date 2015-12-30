@@ -439,7 +439,7 @@ name|d
 operator|->
 name|causedStack
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 if|if

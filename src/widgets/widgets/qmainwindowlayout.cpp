@@ -5732,7 +5732,7 @@ argument_list|()
 operator|&&
 name|currentGapPos
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|==
 literal|0
@@ -7344,6 +7344,7 @@ name|widget
 parameter_list|)
 specifier|const
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|int
@@ -8873,7 +8874,7 @@ argument_list|()
 operator|&&
 name|currentGapPos
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|==
 literal|0
@@ -10575,7 +10576,7 @@ name|idx
 init|=
 name|path
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 name|Q_ASSERT
@@ -11700,7 +11701,7 @@ name|Q_ASSERT
 argument_list|(
 name|path
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|==
 literal|1

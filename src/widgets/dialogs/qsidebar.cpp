@@ -378,7 +378,7 @@ argument_list|(
 name|mimeTypes
 argument_list|()
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 condition|)
@@ -488,7 +488,7 @@ argument_list|(
 name|mimeTypes
 argument_list|()
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 condition|)

@@ -18889,6 +18889,7 @@ modifier|*
 name|second
 parameter_list|)
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|int
@@ -19152,7 +19153,7 @@ name|item_list
 index|[
 name|path
 operator|.
-name|last
+name|constLast
 argument_list|()
 index|]
 operator|.
@@ -19238,7 +19239,7 @@ name|dockNum
 init|=
 name|path
 operator|.
-name|first
+name|constFirst
 argument_list|()
 decl_stmt|;
 name|Q_ASSERT

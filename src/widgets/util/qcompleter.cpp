@@ -3838,7 +3838,7 @@ name|buildIndices
 argument_list|(
 name|curParts
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|,
 name|curParent
@@ -3865,7 +3865,7 @@ name|saveInCache
 argument_list|(
 name|curParts
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|,
 name|curParent

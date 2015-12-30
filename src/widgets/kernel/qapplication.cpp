@@ -2943,10 +2943,10 @@ name|QApplicationPrivate
 operator|::
 name|popupWidgets
 operator|->
-name|last
+name|constLast
 argument_list|()
 else|:
-literal|0
+literal|nullptr
 return|;
 block|}
 end_function
@@ -9700,7 +9700,10 @@ specifier|const
 name|QPoint
 name|windowPos
 init|=
+name|qAsConst
+argument_list|(
 name|enterList
+argument_list|)
 operator|.
 name|back
 argument_list|()
@@ -17106,7 +17109,7 @@ name|QApplicationPrivate
 operator|::
 name|popupWidgets
 operator|->
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 if|if

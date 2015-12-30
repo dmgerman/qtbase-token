@@ -1174,7 +1174,7 @@ argument_list|)
 operator|+
 name|pathElements
 operator|.
-name|first
+name|constFirst
 argument_list|()
 decl_stmt|;
 if|if

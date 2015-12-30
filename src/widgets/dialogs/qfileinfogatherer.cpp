@@ -735,7 +735,10 @@ specifier|const
 name|QString
 name|thisPath
 init|=
+name|qAsConst
+argument_list|(
 name|path
+argument_list|)
 operator|.
 name|front
 argument_list|()
@@ -749,7 +752,10 @@ specifier|const
 name|QStringList
 name|thisList
 init|=
+name|qAsConst
+argument_list|(
 name|files
+argument_list|)
 operator|.
 name|front
 argument_list|()

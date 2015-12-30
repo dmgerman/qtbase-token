@@ -4602,7 +4602,7 @@ name|Q_ASSERT
 argument_list|(
 name|history
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|==
 name|oldId
@@ -4617,7 +4617,7 @@ name|Q_ASSERT
 argument_list|(
 name|history
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|==
 name|newId
