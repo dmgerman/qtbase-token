@@ -2352,6 +2352,9 @@ block|{
 if|if
 condition|(
 name|d
+operator|.
+name|constData
+argument_list|()
 condition|)
 block|{
 name|Map
