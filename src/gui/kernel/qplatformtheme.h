@@ -504,6 +504,8 @@ name|MediaVolume
 block|,
 name|MediaVolumeMuted
 block|,
+name|LineEditClearButton
+block|,
 comment|// do not add any values below/greater than this
 name|CustomBase
 init|=
