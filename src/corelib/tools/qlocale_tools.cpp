@@ -1182,6 +1182,9 @@ parameter_list|,
 name|int
 modifier|&
 name|processed
+parameter_list|,
+name|TrailingJunkMode
+name|trailingJunkMode
 parameter_list|)
 block|{
 if|if
@@ -1364,6 +1367,18 @@ argument_list|)
 name|int
 name|conv_flags
 init|=
+operator|(
+name|trailingJunkMode
+operator|==
+name|TrailingJunkAllowed
+operator|)
+condition|?
+name|double_conversion
+operator|::
+name|StringToDoubleConverter
+operator|::
+name|ALLOW_TRAILING_JUNK
+else|:
 name|double_conversion
 operator|::
 name|StringToDoubleConverter
@@ -1466,9 +1481,15 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|trailingJunkMode
+operator|==
+name|TrailingJunkProhibited
+operator|&&
 name|processed
 operator|!=
 name|numLen
+operator|)
 operator|||
 name|qIsNaN
 argument_list|(
@@ -1514,7 +1535,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|numLen
+name|processed
 condition|;
 operator|++
 name|i
@@ -1574,14 +1595,18 @@ block|}
 endif|#
 directive|endif
 comment|// !defined(QT_NO_DOUBLECONVERSION)&& !defined(QT_BOOTSTRAPPED)
+comment|// Otherwise we would have gotten NaN or sorted it out above.
 name|Q_ASSERT
 argument_list|(
+name|trailingJunkMode
+operator|==
+name|TrailingJunkAllowed
+operator|||
 name|processed
 operator|==
 name|numLen
 argument_list|)
 expr_stmt|;
-comment|// Otherwise we would have gotten NaN or sorted it out above.
 comment|// Check if underflow has occurred.
 if|if
 condition|(
@@ -1600,7 +1625,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|numLen
+name|processed
 condition|;
 operator|++
 name|i
@@ -2608,6 +2633,8 @@ argument_list|,
 name|nonNullOk
 argument_list|,
 name|processed
+argument_list|,
+name|TrailingJunkAllowed
 argument_list|)
 decl_stmt|;
 if|if
