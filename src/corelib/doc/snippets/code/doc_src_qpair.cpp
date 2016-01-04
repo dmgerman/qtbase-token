@@ -42,6 +42,50 @@ begin_comment
 comment|//! [1]
 end_comment
 begin_comment
+comment|//! [struct]
+end_comment
+begin_struct
+DECL|struct|Variable
+struct|struct
+name|Variable
+block|{
+DECL|member|name
+name|QString
+name|name
+decl_stmt|;
+DECL|member|value
+name|double
+name|value
+decl_stmt|;
+block|}
+struct|;
+end_struct
+begin_decl_stmt
+DECL|variable|v
+name|Variable
+name|v
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+name|v
+operator|.
+name|name
+operator|=
+literal|"pi"
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|v
+operator|.
+name|value
+operator|=
+literal|3.14159265358979323846
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|//! [struct]
+end_comment
+begin_comment
 comment|//! [2]
 end_comment
 begin_decl_stmt
