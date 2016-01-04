@@ -8925,6 +8925,14 @@ condition|)
 block|{
 if|if
 condition|(
+name|window
+operator|->
+name|isTopLevel
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|QScreen
 modifier|*
 name|screen
@@ -8958,6 +8966,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 comment|// we may have changed scaling, so trigger resize event if needed
 if|if
 condition|(
