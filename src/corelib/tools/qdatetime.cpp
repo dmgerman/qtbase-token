@@ -2013,8 +2013,6 @@ operator|::
 name|isLeapYear
 argument_list|(
 name|year
-operator|+
-literal|1
 argument_list|)
 condition|?
 literal|1
