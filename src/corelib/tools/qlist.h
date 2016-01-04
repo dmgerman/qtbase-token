@@ -7540,8 +7540,12 @@ condition|)
 block|{
 if|if
 condition|(
-name|isEmpty
-argument_list|()
+name|d
+operator|==
+operator|&
+name|QListData
+operator|::
+name|shared_null
 condition|)
 block|{
 operator|*
