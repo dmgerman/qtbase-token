@@ -1566,6 +1566,11 @@ if|if
 condition|(
 operator|!
 name|m_xi2Enabled
+operator|||
+name|window
+operator|==
+name|rootWindow
+argument_list|()
 condition|)
 return|return;
 name|Display
