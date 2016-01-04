@@ -9228,7 +9228,7 @@ comment|//  structure (for instance for plugins). However, the MDILXapCompile ca
 comment|//  itself contains the original subdirectories as parameters and hence the
 comment|//  call fails.
 comment|//  Neither there is a way to disable this behavior for Windows Phone, nor
-comment|//  to influence the parameters. Hence the only way to get a release build
+comment|//  to influence the parameters. Hence the only way to get a build
 comment|//  done is to recreate the directory structure manually by invoking
 comment|//  windeployqt a second time, so that the MDILXapCompile call succeeds and
 comment|//  deployment continues.
@@ -9237,15 +9237,6 @@ condition|(
 name|conf
 operator|.
 name|WinPhone
-operator|&&
-name|conf
-operator|.
-name|Name
-operator|==
-name|QStringLiteral
-argument_list|(
-literal|"Release|ARM"
-argument_list|)
 condition|)
 block|{
 name|conf
