@@ -565,7 +565,7 @@ begin_function
 DECL|function|dWordSystemParametersInfo
 specifier|static
 specifier|inline
-name|bool
+name|DWORD
 name|dWordSystemParametersInfo
 parameter_list|(
 name|UINT
@@ -2849,11 +2849,17 @@ case|case
 name|WheelScrollLines
 case|:
 return|return
+name|QVariant
+argument_list|(
+name|int
+argument_list|(
 name|dWordSystemParametersInfo
 argument_list|(
 name|SPI_GETWHEELSCROLLLINES
 argument_list|,
 literal|3
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 default|default:
