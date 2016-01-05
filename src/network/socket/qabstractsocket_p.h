@@ -455,9 +455,6 @@ modifier|*
 name|disconnectTimer
 decl_stmt|;
 name|int
-name|connectTimeElapsed
-decl_stmt|;
-name|int
 name|hostLookupId
 decl_stmt|;
 name|QAbstractSocket

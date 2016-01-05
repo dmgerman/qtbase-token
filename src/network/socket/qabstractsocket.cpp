@@ -506,11 +506,6 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|connectTimeElapsed
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
 name|hostLookupId
 argument_list|(
 operator|-
@@ -2043,10 +2038,6 @@ argument_list|(
 name|state
 argument_list|)
 emit|;
-name|connectTimeElapsed
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|cachedSocketDescriptor
@@ -2422,11 +2413,6 @@ operator|->
 name|hostFound
 argument_list|()
 emit|;
-comment|// Reset the total time spent connecting.
-name|connectTimeElapsed
-operator|=
-literal|0
-expr_stmt|;
 comment|// The addresses returned by the lookup will be tested one after
 comment|// another by _q_connectToNextAddress().
 name|_q_connectToNextAddress
