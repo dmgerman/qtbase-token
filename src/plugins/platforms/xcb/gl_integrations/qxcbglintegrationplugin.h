@@ -73,12 +73,25 @@ name|create
 argument_list|()
 operator|=
 literal|0
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_macro
+block|;
+comment|// the pattern expected by qLoadPlugin calls for a QString argument.
+comment|// we don't need it, so don't bother subclasses with it:
+name|QXcbGlIntegration
+operator|*
+name|create
+argument_list|(
+argument|const QString&
+argument_list|)
+block|{
+return|return
+name|create
+argument_list|()
+return|;
+block|}
+expr|}
+block|;
 name|QT_END_NAMESPACE
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
