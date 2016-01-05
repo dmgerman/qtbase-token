@@ -3793,6 +3793,7 @@ operator|&
 name|m_mutex
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QOpenGLSharedResource
@@ -3813,7 +3814,7 @@ name|QOpenGLSharedResource
 modifier|*
 argument_list|>
 operator|::
-name|iterator
+name|const_iterator
 name|it
 init|=
 name|pending
@@ -3827,7 +3828,7 @@ name|QOpenGLSharedResource
 modifier|*
 argument_list|>
 operator|::
-name|iterator
+name|const_iterator
 name|end
 init|=
 name|pending
