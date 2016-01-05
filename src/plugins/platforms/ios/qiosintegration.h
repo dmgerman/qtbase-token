@@ -38,6 +38,11 @@ include|#
 directive|include
 file|"qiosfileenginefactory.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qiostextinputoverlay.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QIOSServices
@@ -312,6 +317,9 @@ name|m_accessibility
 decl_stmt|;
 name|QIOSFileEngineFactory
 name|m_fileEngineFactory
+decl_stmt|;
+name|QIOSTextInputOverlay
+name|m_textInputOverlay
 decl_stmt|;
 name|bool
 name|m_debugWindowManagement
