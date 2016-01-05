@@ -123,7 +123,7 @@ name|QObject
 operator|*
 name|object
 operator|=
-name|qLoadPlugin1
+name|qLoadPlugin
 argument_list|<
 name|QObject
 argument_list|,

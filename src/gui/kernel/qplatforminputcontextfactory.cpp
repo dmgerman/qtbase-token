@@ -206,7 +206,7 @@ name|QPlatformInputContext
 operator|*
 name|ic
 operator|=
-name|qLoadPlugin1
+name|qLoadPlugin
 argument_list|<
 name|QPlatformInputContext
 argument_list|,
