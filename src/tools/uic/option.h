@@ -105,6 +105,13 @@ name|implicitIncludes
 range|:
 literal|1
 decl_stmt|;
+DECL|member|idBased
+name|unsigned
+name|int
+name|idBased
+range|:
+literal|1
+decl_stmt|;
 DECL|member|generator
 name|Generator
 name|generator
@@ -201,6 +208,11 @@ operator|,
 name|implicitIncludes
 argument_list|(
 literal|1
+argument_list|)
+operator|,
+name|idBased
+argument_list|(
+literal|0
 argument_list|)
 operator|,
 name|generator
