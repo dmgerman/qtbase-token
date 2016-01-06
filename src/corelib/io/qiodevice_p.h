@@ -276,6 +276,11 @@ argument_list|,
 name|len
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|r
+condition|)
+block|{
 name|memcpy
 argument_list|(
 name|target
@@ -293,6 +298,7 @@ name|first
 operator|+=
 name|r
 expr_stmt|;
+block|}
 return|return
 name|r
 return|;
@@ -318,6 +324,10 @@ argument_list|,
 name|len
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|r
+condition|)
 name|memcpy
 argument_list|(
 name|target
@@ -491,6 +501,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|first
+operator|&&
 name|memchr
 argument_list|(
 name|first
@@ -670,6 +682,10 @@ index|[
 name|newCapacity
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|first
+condition|)
 name|memmove
 argument_list|(
 name|newBuf
