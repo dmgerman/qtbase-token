@@ -127,6 +127,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QFontDialogPrivate
 range|:
 name|public
@@ -138,22 +139,13 @@ argument|QFontDialog
 argument_list|)
 name|public
 operator|:
-specifier|inline
 name|QFontDialogPrivate
 argument_list|()
-operator|:
-name|writingSystem
-argument_list|(
-name|QFontDatabase
-operator|::
-name|Any
-argument_list|)
-block|,
-name|options
-argument_list|(
-argument|new QFontDialogOptions
-argument_list|)
-block|{ }
+block|;
+operator|~
+name|QFontDialogPrivate
+argument_list|()
+block|;
 name|QPlatformFontDialogHelper
 operator|*
 name|platformFontDialogHelper

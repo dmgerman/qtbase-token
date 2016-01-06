@@ -108,6 +108,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|QAbstractSpinBoxPrivate
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QDateTimeEditPrivate
 range|:
 name|public
@@ -122,6 +123,10 @@ argument|QDateTimeEdit
 argument_list|)
 name|public
 label|:
+name|QDateTimeEditPrivate
+argument_list|()
+expr_stmt|;
+operator|~
 name|QDateTimeEditPrivate
 argument_list|()
 expr_stmt|;

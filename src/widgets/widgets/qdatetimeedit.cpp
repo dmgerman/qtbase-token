@@ -5927,6 +5927,15 @@ endif|#
 directive|endif
 block|}
 end_constructor
+begin_destructor
+DECL|function|~QDateTimeEditPrivate
+name|QDateTimeEditPrivate
+operator|::
+name|~
+name|QDateTimeEditPrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|updateTimeSpec
 name|void
