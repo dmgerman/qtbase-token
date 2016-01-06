@@ -393,8 +393,13 @@ argument_list|)
 member_init_list|,
 name|options
 argument_list|(
-operator|new
+name|QSharedPointer
+argument_list|<
 name|QFontDialogOptions
+argument_list|>
+operator|::
+name|create
+argument_list|()
 argument_list|)
 block|{ }
 end_constructor
