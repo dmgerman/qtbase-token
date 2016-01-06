@@ -47928,9 +47928,15 @@ init|=
 operator|new
 name|QObject
 decl_stmt|;
-name|QAbstractDeclarativeData
+name|QAbstractDeclarativeDataImpl
 name|dummy
 decl_stmt|;
+name|dummy
+operator|.
+name|ownedByQml1
+operator|=
+literal|false
+expr_stmt|;
 name|QObjectPrivate
 operator|::
 name|get
