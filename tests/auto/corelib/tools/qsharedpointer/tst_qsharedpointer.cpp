@@ -954,6 +954,12 @@ argument_list|,
 name|aData
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isNull
+condition|)
+block|{
 name|Data
 modifier|&
 name|dataReference
@@ -969,6 +975,7 @@ argument_list|,
 name|aData
 argument_list|)
 expr_stmt|;
+block|}
 name|QVERIFY
 argument_list|(
 name|ptr
