@@ -1948,6 +1948,7 @@ literal|"                         csv      : CSV format (suitable for benchmarks
 literal|"                         xunitxml : XML XUnit document\n"
 literal|"                         xml      : XML document\n"
 literal|"                         lightxml : A stream of XML tags\n"
+literal|"                         teamcity : TeamCity format\n"
 literal|"\n"
 literal|"     *** Multiple loggers can be specified, but at most one can log to stdout.\n"
 literal|"\n"
@@ -1958,6 +1959,7 @@ literal|" -csv                : Output results in a CSV format (suitable for ben
 literal|" -xunitxml           : Output results as XML XUnit document\n"
 literal|" -xml                : Output results as XML document\n"
 literal|" -lightxml           : Output results as stream of XML tags\n"
+literal|" -teamcity           : Output results in TeamCity format\n"
 literal|"\n"
 literal|"     *** If no output file is specified, stdout is assumed.\n"
 literal|"     *** If no output format is specified, -txt is assumed.\n"
@@ -2307,6 +2309,29 @@ index|[
 name|i
 index|]
 argument_list|,
+literal|"-teamcity"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|TeamCity
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|,
 literal|"-silent"
 argument_list|)
 operator|==
@@ -2590,13 +2615,31 @@ name|QTestLog
 operator|::
 name|XunitXML
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|format
+argument_list|,
+literal|"teamcity"
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|TeamCity
+expr_stmt|;
 else|else
 block|{
 name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"output format must be one of txt, csv, lightxml, xml or xunitxml\n"
+literal|"output format must be one of txt, csv, lightxml, xml, teamcity or xunitxml\n"
 argument_list|)
 expr_stmt|;
 name|exit

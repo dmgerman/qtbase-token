@@ -83,6 +83,8 @@ name|XunitXML
 block|,
 name|CSV
 block|,
+name|TeamCity
+block|,
 if|#
 directive|if
 name|defined
