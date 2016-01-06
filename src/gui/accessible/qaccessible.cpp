@@ -107,9 +107,6 @@ operator|)
 block|{ }
 comment|/*!     \typedef QAccessible::Id      Synonym for unsigned, used by the QAccessibleInterface cache. */
 comment|/* accessible widgets plugin discovery stuff */
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
 argument|QFactoryLoader
@@ -142,10 +139,6 @@ argument_list|,
 argument|qAccessiblePlugins
 argument_list|)
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// FIXME turn this into one global static struct
 end_comment
@@ -689,9 +682,6 @@ name|iface
 return|;
 block|}
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 comment|// Find a QAccessiblePlugin (factory) for the class name. If there's
 comment|// no entry in the cache try to create it using the plugin loader.
 if|if
@@ -840,8 +830,6 @@ return|return
 name|result
 return|;
 block|}
-endif|#
-directive|endif
 name|mo
 operator|=
 name|mo

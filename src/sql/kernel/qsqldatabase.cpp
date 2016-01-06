@@ -291,9 +291,6 @@ file|<stdlib.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
 name|QFactoryLoader
@@ -309,8 +306,6 @@ literal|"/sqldrivers"
 argument_list|)
 operator|)
 argument_list|)
-endif|#
-directive|endif
 if|#
 directive|if
 operator|!
@@ -1622,9 +1617,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 if|if
 condition|(
 name|QFactoryLoader
@@ -1706,8 +1698,6 @@ name|value
 argument_list|()
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 name|DriverDict
 name|dict
 init|=
@@ -2319,9 +2309,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 if|if
 condition|(
 operator|!
@@ -2345,9 +2332,6 @@ argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_NO_LIBRARY
 if|if
 condition|(
 operator|!

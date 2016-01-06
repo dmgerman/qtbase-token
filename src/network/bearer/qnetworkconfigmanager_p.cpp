@@ -1431,9 +1431,6 @@ operator|::
 name|updateConfigurations
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 typedef|typedef
 name|QMultiMap
 argument_list|<
@@ -1449,8 +1446,6 @@ operator|::
 name|const_iterator
 name|PluginKeyMapConstIterator
 typedef|;
-endif|#
-directive|endif
 name|QMutexLocker
 name|locker
 argument_list|(
@@ -1480,9 +1475,6 @@ name|updating
 operator|=
 literal|false
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 name|bool
 name|envOK
 init|=
@@ -1766,9 +1758,6 @@ name|generic
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// QT_NO_LIBRARY
 block|}
 name|QBearerEngine
 modifier|*

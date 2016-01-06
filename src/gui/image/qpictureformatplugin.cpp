@@ -13,12 +13,6 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_LIBRARY
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|QT_NO_PICTURE
 argument_list|)
 end_if
@@ -158,7 +152,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_LIBRARY || QT_NO_PICTURE
+comment|// QT_NO_PICTURE
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

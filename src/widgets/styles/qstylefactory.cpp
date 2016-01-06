@@ -141,9 +141,6 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
 name|QFactoryLoader
@@ -163,8 +160,6 @@ operator|::
 name|CaseInsensitive
 operator|)
 argument_list|)
-endif|#
-directive|endif
 comment|/*!     \class QStyleFactory     \brief The QStyleFactory class creates QStyle objects.      \ingroup appearance     \inmodule QtWidgets      The QStyle class is an abstract base class that encapsulates the     look and feel of a GUI. QStyleFactory creates a QStyle object     using the create() function and a key identifying the style. The     styles are either built-in or dynamically loaded from a style     plugin (see QStylePlugin).      The valid keys can be retrieved using the keys()     function. Typically they include "windows" and "fusion".     Depending on the platform, "windowsxp", "windowsvista"     and "macintosh" may be available.     Note that keys are case insensitive.      \sa QStyle */
 comment|/*!     Creates and returns a QStyle object that matches the given \a key, or     returns 0 if no matching style is found.      Both built-in styles and styles from style plugins are queried for a     matching style.      \note The keys used are case insensitive.      \sa keys() */
 DECL|function|create
@@ -375,9 +370,6 @@ endif|#
 directive|endif
 block|{ }
 comment|// Keep these here - they make the #ifdefery above work
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 if|if
 condition|(
 operator|!
@@ -399,10 +391,6 @@ name|style
 argument_list|)
 expr_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_if
 if|if
 condition|(
@@ -440,9 +428,6 @@ block|{
 name|QStringList
 name|list
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 typedef|typedef
 name|QMultiMap
 argument_list|<
@@ -507,10 +492,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 end_for
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef

@@ -5281,9 +5281,6 @@ name|void
 name|qt_init_picture_plugins
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 typedef|typedef
 name|QMultiMap
 argument_list|<
@@ -5392,8 +5389,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

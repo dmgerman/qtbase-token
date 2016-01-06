@@ -2950,11 +2950,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
-end_ifndef
 begin_macro
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
@@ -2980,10 +2975,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   \class QIcon    \brief The QIcon class provides scalable icons in different modes   and states.    \ingroup painting   \ingroup shared   \inmodule QtGui    A QIcon can generate smaller, larger, active, and disabled pixmaps   from the set of pixmaps it is given. Such pixmaps are used by Qt   widgets to show an icon representing a particular action.    The simplest use of QIcon is to create one from a QPixmap file or   resource, and then use it, allowing Qt to work out all the required   icon styles and sizes. For example:    \snippet code/src_gui_image_qicon.cpp 0    To undo a QIcon, simply set a null icon in its place:    \snippet code/src_gui_image_qicon.cpp 1    Use the QImageReader::supportedImageFormats() and   QImageWriter::supportedImageFormats() functions to retrieve a   complete list of the supported file formats.    When you retrieve a pixmap using pixmap(QSize, Mode, State), and no   pixmap for this given size, mode and state has been added with   addFile() or addPixmap(), then QIcon will generate one on the   fly. This pixmap generation happens in a QIconEngineV2. The default   engine scales pixmaps down if required, but never up, and it uses   the current style to calculate a disabled appearance. By using   custom icon engines, you can customize every aspect of generated   icons. With QIconEnginePluginV2 it is possible to register different   icon engines for different file suffixes, making it possible for   third parties to provide additional icon engines to those included   with Qt.    \note Since Qt 4.2, an icon engine that supports SVG is included.    \section1 Making Classes that Use QIcon    If you write your own widgets that have an option to set a small   pixmap, consider allowing a QIcon to be set for that pixmap.  The   Qt class QToolButton is an example of such a widget.    Provide a method to set a QIcon, and when you draw the icon, choose   whichever pixmap is appropriate for the current state of your widget.   For example:   \snippet code/src_gui_image_qicon.cpp 2    You might also make use of the \c Active mode, perhaps making your   widget \c Active when the mouse is over the widget (see \l   QWidget::enterEvent()), while the mouse is pressed pending the   release that will activate the function, or when it is the currently   selected item. If the widget can be toggled, the "On" mode might be   used to draw a different icon.    \image icon.png QIcon    \note QIcon needs a QGuiApplication instance before the icon is created.    \sa {fowler}{GUI Design Handbook: Iconic Label}, {Icons Example} */
 end_comment
@@ -4122,9 +4113,6 @@ operator|!
 name|d
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 name|QFileInfo
 name|info
 argument_list|(
@@ -4220,8 +4208,6 @@ block|}
 block|}
 block|}
 block|}
-endif|#
-directive|endif
 comment|// ...then fall back to the default engine
 if|if
 condition|(
@@ -5142,9 +5128,6 @@ argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 block|}
 else|else
 block|{
@@ -5230,8 +5213,6 @@ block|}
 comment|// instance
 block|}
 comment|// index
-endif|#
-directive|endif
 block|}
 block|}
 elseif|else

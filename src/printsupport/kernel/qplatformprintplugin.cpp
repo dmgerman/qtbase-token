@@ -29,9 +29,6 @@ file|<qcoreapplication.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
 name|QFactoryLoader
@@ -51,8 +48,6 @@ operator|::
 name|CaseInsensitive
 operator|)
 argument_list|)
-endif|#
-directive|endif
 DECL|function|QPlatformPrinterSupportPlugin
 name|QPlatformPrinterSupportPlugin
 operator|::
@@ -85,11 +80,6 @@ operator|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
-end_ifndef
 begin_function
 DECL|function|cleanupPrinterSupport
 specifier|static
@@ -97,27 +87,15 @@ name|void
 name|cleanupPrinterSupport
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
 operator|delete
 name|printerSupport
 expr_stmt|;
-endif|#
-directive|endif
 name|printerSupport
 operator|=
 literal|0
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// !QT_NO_LIBRARY
-end_comment
 begin_comment
 comment|/*!     \internal      Returns a lazily-initialized singleton. Ownership is granted to the     QPlatformPrinterSupportPlugin, which is never unloaded or destroyed until     application exit, i.e. you can expect this pointer to always be valid and     multiple calls to this function will always return the same pointer. */
 end_comment
@@ -130,9 +108,6 @@ operator|::
 name|get
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 if|if
 condition|(
 operator|!
@@ -193,9 +168,6 @@ name|cleanupPrinterSupport
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// !QT_NO_LIBRARY
 return|return
 name|printerSupport
 return|;

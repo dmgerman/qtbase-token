@@ -43,9 +43,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
 comment|/* accessiblebridge plugin discovery stuff */
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
 name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
 name|QFactoryLoader
@@ -61,8 +58,6 @@ literal|"/accessiblebridge"
 argument_list|)
 operator|)
 argument_list|)
-endif|#
-directive|endif
 name|Q_GLOBAL_STATIC
 argument_list|(
 name|QVector
@@ -267,11 +262,6 @@ end_expr_stmt
 begin_comment
 comment|// ### not atomic
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_LIBRARY
-end_ifndef
 begin_typedef
 typedef|typedef
 name|QMultiMap
@@ -414,10 +404,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_for
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 unit|}  void
 DECL|function|cleanup
