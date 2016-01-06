@@ -45641,17 +45641,12 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|accessSender
+using|using
 name|QObject
-modifier|*
-name|accessSender
-parameter_list|()
-block|{
-return|return
+operator|::
 name|sender
-argument_list|()
-return|;
-block|}
+using|;
+comment|// make public
 public|public
 name|Q_SLOTS
 public|:
@@ -45754,7 +45749,7 @@ operator|*
 name|this
 return|;
 block|}
-comment|// accessSender here allows us to check if there's a deadlock
+comment|// calling sender() here allows us to check if there's a deadlock
 DECL|function|~CountedStruct
 name|~
 name|CountedStruct
@@ -45766,15 +45761,13 @@ expr_stmt|;
 if|if
 condition|(
 name|sender
-operator|!=
-name|Q_NULLPTR
 condition|)
 operator|(
 name|void
 operator|)
 name|sender
 operator|->
-name|accessSender
+name|sender
 argument_list|()
 expr_stmt|;
 block|}
