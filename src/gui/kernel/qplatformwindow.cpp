@@ -1153,11 +1153,14 @@ name|fallback
 init|=
 name|currentScreen
 decl_stmt|;
-comment|//QRect::center can return a value outside the rectangle if it's empty
+comment|// QRect::center can return a value outside the rectangle if it's empty.
+comment|// Apply mapToGlobal() in case it is a foreign/embedded window.
 specifier|const
 name|QPoint
 name|center
 init|=
+name|mapToGlobal
+argument_list|(
 name|newGeometry
 operator|.
 name|isEmpty
@@ -1172,6 +1175,7 @@ name|newGeometry
 operator|.
 name|center
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
