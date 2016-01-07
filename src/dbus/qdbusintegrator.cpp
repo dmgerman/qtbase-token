@@ -10028,14 +10028,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// the reply would not be delivered to anything
-emit|emit
-name|messageNeedsSending
-argument_list|(
-name|Q_NULLPTR
-argument_list|,
-name|msg
-argument_list|)
-emit|;
 name|qDBusDebug
 argument_list|()
 operator|<<
@@ -10045,6 +10037,14 @@ literal|"sending message (no reply):"
 operator|<<
 name|message
 expr_stmt|;
+emit|emit
+name|messageNeedsSending
+argument_list|(
+name|Q_NULLPTR
+argument_list|,
+name|msg
+argument_list|)
+emit|;
 return|return
 literal|true
 return|;
@@ -11043,6 +11043,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|qDBusDebug
+argument_list|()
+operator|<<
+name|this
+operator|<<
+literal|"sending message:"
+operator|<<
+name|message
+expr_stmt|;
 emit|emit
 name|messageNeedsSending
 argument_list|(
@@ -11053,15 +11062,6 @@ argument_list|,
 name|timeout
 argument_list|)
 emit|;
-name|qDBusDebug
-argument_list|()
-operator|<<
-name|this
-operator|<<
-literal|"sending message:"
-operator|<<
-name|message
-expr_stmt|;
 block|}
 return|return
 name|pcall
