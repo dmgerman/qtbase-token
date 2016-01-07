@@ -643,7 +643,7 @@ index|[
 operator|&
 name|ICoreApplication
 operator|::
-name|remove_Resuming
+name|remove_Suspending
 index|]
 argument_list|)
 expr_stmt|;
