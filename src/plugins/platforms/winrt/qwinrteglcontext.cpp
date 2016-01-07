@@ -64,29 +64,7 @@ block|{
 DECL|function|WinRTEGLDisplay
 name|WinRTEGLDisplay
 parameter_list|()
-block|{
-name|eglDisplay
-operator|=
-name|eglGetDisplay
-argument_list|(
-name|EGL_DEFAULT_DISPLAY
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|eglDisplay
-operator|==
-name|EGL_NO_DISPLAY
-condition|)
-name|qCritical
-argument_list|(
-literal|"Failed to initialize EGL display: 0x%x"
-argument_list|,
-name|eglGetError
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|function|~WinRTEGLDisplay
 name|~
 name|WinRTEGLDisplay
@@ -374,6 +352,21 @@ name|eglGetError
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// eglInitialize checks for EGL_PLATFORM_ANGLE_ENABLE_AUTOMATIC_TRIM_ANGLE
+comment|// which adds a suspending handler. This needs to be added from the Xaml
+comment|// thread itself, otherwise it will not be invoked. add_Suspending does
+comment|// not return an error unfortunately, so it silently fails and causes
+comment|// applications to not quit when the system wants to terminate the app
+comment|// after suspend.
+name|hr
+operator|=
+name|QEventDispatcherWinRT
+operator|::
+name|runOnXamlThread
+argument_list|(
+capture|[]
+parameter_list|()
+block|{
 if|if
 condition|(
 operator|!
@@ -394,6 +387,12 @@ literal|"Failed to initialize EGL: 0x%x"
 argument_list|,
 name|eglGetError
 argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|S_OK
+return|;
+block|}
 argument_list|)
 expr_stmt|;
 name|d
