@@ -141,6 +141,9 @@ argument_list|(
 argument|quint16 state
 argument_list|)
 block|;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XINPUT22
 name|void
 name|updateXKBStateFromXI
 argument_list|(
@@ -153,6 +156,8 @@ operator|*
 name|groupInfo
 argument_list|)
 block|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_XKB

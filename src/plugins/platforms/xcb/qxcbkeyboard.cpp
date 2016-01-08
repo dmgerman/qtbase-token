@@ -4162,6 +4162,11 @@ block|}
 block|}
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|XCB_USE_XINPUT22
+end_ifdef
 begin_function
 DECL|function|updateXKBStateFromXI
 name|void
@@ -4178,9 +4183,6 @@ modifier|*
 name|groupInfo
 parameter_list|)
 block|{
-ifdef|#
-directive|ifdef
-name|XCB_USE_XINPUT22
 if|if
 condition|(
 name|m_config
@@ -4266,28 +4268,12 @@ block|{
 comment|//qWarning("TODO: Support KeyboardLayoutChange on QPA (QTBUG-27681)");
 block|}
 block|}
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-name|modInfo
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|groupInfo
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// this can't be
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|xkbModMask
 name|quint32

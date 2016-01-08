@@ -3089,16 +3089,16 @@ expr_stmt|;
 name|initializeXRender
 argument_list|()
 expr_stmt|;
-name|m_xi2Enabled
-operator|=
-literal|false
-expr_stmt|;
 if|#
 directive|if
 name|defined
 argument_list|(
 name|XCB_USE_XINPUT2
 argument_list|)
+name|m_xi2Enabled
+operator|=
+literal|false
+expr_stmt|;
 name|initializeXInput2
 argument_list|()
 expr_stmt|;
@@ -5437,6 +5437,20 @@ break|break;
 case|case
 name|XCB_ENTER_NOTIFY
 case|:
+ifdef|#
+directive|ifdef
+name|XCB_USE_XINPUT22
+if|if
+condition|(
+name|isAtLeastXI22
+argument_list|()
+operator|&&
+name|xi2MouseEvents
+argument_list|()
+condition|)
+break|break;
+endif|#
+directive|endif
 name|HANDLE_PLATFORM_WINDOW_EVENT
 argument_list|(
 name|xcb_enter_notify_event_t
@@ -5449,6 +5463,20 @@ expr_stmt|;
 case|case
 name|XCB_LEAVE_NOTIFY
 case|:
+ifdef|#
+directive|ifdef
+name|XCB_USE_XINPUT22
+if|if
+condition|(
+name|isAtLeastXI22
+argument_list|()
+operator|&&
+name|xi2MouseEvents
+argument_list|()
+condition|)
+break|break;
+endif|#
+directive|endif
 name|m_keyboard
 operator|->
 name|updateXKBStateFromCore
@@ -10087,6 +10115,14 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|XCB_USE_XINPUT22
+argument_list|)
+end_if
 begin_function
 DECL|function|xi2MouseEvents
 name|bool
@@ -10106,8 +10142,8 @@ argument_list|(
 literal|"QT_XCB_NO_XI2_MOUSE"
 argument_list|)
 decl_stmt|;
-comment|// Don't use XInput2 when Xinerama extension is enabled,
-comment|// because it causes problems with multi-monitor setup.
+comment|// FIXME: Don't use XInput2 mouse events when Xinerama extension
+comment|// is enabled, because it causes problems with multi-monitor setup.
 return|return
 name|mouseViaXI2
 operator|&&
@@ -10116,6 +10152,10 @@ name|has_xinerama_extension
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
