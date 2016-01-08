@@ -1533,7 +1533,7 @@ name|bytesToRead
 operator|=
 sizeof|sizeof
 argument_list|(
-name|offsetTable
+name|quint32
 argument_list|)
 operator|*
 name|ttcTableHeader

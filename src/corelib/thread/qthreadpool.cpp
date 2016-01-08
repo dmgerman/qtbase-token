@@ -651,7 +651,7 @@ operator|->
 name|ref
 expr_stmt|;
 comment|// put it on the queue
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -670,7 +670,7 @@ operator|.
 name|constBegin
 argument_list|()
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -1153,7 +1153,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -1247,7 +1247,7 @@ operator|&
 name|mutex
 argument_list|)
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<
@@ -1266,7 +1266,7 @@ operator|.
 name|begin
 argument_list|()
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<

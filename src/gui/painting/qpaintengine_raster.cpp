@@ -24865,6 +24865,7 @@ name|hash_val
 init|=
 literal|0
 decl_stmt|;
+specifier|const
 name|QGradientStops
 name|stops
 init|=

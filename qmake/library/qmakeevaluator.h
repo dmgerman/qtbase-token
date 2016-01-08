@@ -48,11 +48,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qiodevice.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qlist.h>
 end_include
 begin_include
@@ -100,6 +95,15 @@ include|#
 directive|include
 file|<qprocess.h>
 end_include
+begin_else
+else|#
+directive|else
+end_else
+begin_include
+include|#
+directive|include
+file|<qiodevice.h>
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -141,6 +145,10 @@ name|SourceEvaluator
 operator|=
 literal|0x10
 block|,
+name|CumulativeEvalMessage
+operator|=
+literal|0x1000
+block|,
 name|EvalWarnLanguage
 operator|=
 name|SourceEvaluator
@@ -169,10 +177,9 @@ name|virtual
 name|void
 name|fileMessage
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|msg
+argument|int type
+argument_list|,
+argument|const QString&msg
 argument_list|)
 operator|=
 literal|0
@@ -1123,6 +1130,8 @@ argument_list|,
 argument|const QString&fn
 argument_list|,
 argument|QIODevice::OpenMode mode
+argument_list|,
+argument|bool exe
 argument_list|,
 argument|const QString&contents
 argument_list|)

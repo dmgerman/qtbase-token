@@ -200,7 +200,7 @@ operator|*
 operator|>
 name|expiredThreads
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPair
 operator|<

@@ -5354,6 +5354,7 @@ literal|""
 operator|<<
 literal|true
 expr_stmt|;
+comment|// FIXME: This also tests that 'exe' is accepted, but does not test whether it actually works.
 name|QTest
 operator|::
 name|newRow
@@ -5366,7 +5367,7 @@ literal|"write_file("
 operator|+
 name|wpath
 operator|+
-literal|", VAR, append): OK = 1\n"
+literal|", VAR, append exe): OK = 1\n"
 literal|"OUT = $$cat("
 operator|+
 name|wpath
@@ -5444,7 +5445,22 @@ literal|"write_file(1, 2, 3, 4): OK = 1"
 operator|<<
 literal|"OK = UNDEF"
 operator|<<
-literal|"##:1: write_file(name, [content var, [append]]) requires one to three arguments."
+literal|"##:1: write_file(name, [content var, [append] [exe]]) requires one to three arguments."
+operator|<<
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"write_file(): invalid flag"
+argument_list|)
+operator|<<
+literal|"write_file(file, VAR, fail): OK = 1"
+operator|<<
+literal|"OK = UNDEF"
+operator|<<
+literal|"##:1: write_file(): invalid flag fail."
 operator|<<
 literal|true
 expr_stmt|;

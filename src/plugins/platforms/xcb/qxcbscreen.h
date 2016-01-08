@@ -41,6 +41,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<xcb/xinerama.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qxcbobject.h"
 end_include
 begin_include
@@ -330,6 +335,11 @@ argument_list|,
 argument|xcb_randr_output_t outputId
 argument_list|,
 argument|xcb_randr_get_output_info_reply_t *outputInfo
+argument_list|,
+argument|const xcb_xinerama_screen_info_t *xineramaScreenInfo = Q_NULLPTR
+argument_list|,
+argument|int xineramaScreenIdx = -
+literal|1
 argument_list|)
 empty_stmt|;
 operator|~

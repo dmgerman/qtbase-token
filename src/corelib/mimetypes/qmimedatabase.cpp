@@ -1040,6 +1040,7 @@ ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
 comment|// Cannot access statBuf.st_mode from the filesystem engine, so we have to stat again.
+comment|// In addition we want to follow symlinks.
 specifier|const
 name|QByteArray
 name|nativeFilePath
@@ -1059,7 +1060,7 @@ name|statBuffer
 decl_stmt|;
 if|if
 condition|(
-name|QT_LSTAT
+name|QT_STAT
 argument_list|(
 name|nativeFilePath
 operator|.

@@ -1549,7 +1549,7 @@ begin_comment
 comment|/*! \enum QHostAddress::SpecialAddress      \value Null The null address object. Equivalent to QHostAddress().     \value LocalHost The IPv4 localhost address. Equivalent to QHostAddress("127.0.0.1").     \value LocalHostIPv6 The IPv6 localhost address. Equivalent to QHostAddress("::1").     \value Broadcast The IPv4 broadcast address. Equivalent to QHostAddress("255.255.255.255").     \value AnyIPv4 The IPv4 any-address. Equivalent to QHostAddress("0.0.0.0"). A socket bound with this address will listen only on IPv4 interaces.     \value AnyIPv6 The IPv6 any-address. Equivalent to QHostAddress("::"). A socket bound with this address will listen only on IPv6 interaces.     \value Any The dual stack any-address. A socket bound with this address will listen on both IPv4 and IPv6 interfaces. */
 end_comment
 begin_comment
-comment|/*!  Constructs a host address object with the IP address 0.0.0.0.      \sa clear() */
+comment|/*!  Constructs a null host address object, i.e. an address which is not valid for any host or interface.      \sa clear() */
 end_comment
 begin_constructor
 DECL|function|QHostAddress

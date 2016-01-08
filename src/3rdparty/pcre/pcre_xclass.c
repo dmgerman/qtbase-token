@@ -836,7 +836,7 @@ operator|||
 operator|(
 name|c
 operator|<
-literal|256
+literal|128
 operator|&&
 name|PRIV
 argument_list|(

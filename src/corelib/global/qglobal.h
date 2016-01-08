@@ -3072,12 +3072,6 @@ directive|define
 name|QT_NO_FILESYSTEMWATCHER
 end_define
 begin_define
-DECL|macro|QT_NO_GETADDRINFO
-define|#
-directive|define
-name|QT_NO_GETADDRINFO
-end_define
-begin_define
 DECL|macro|QT_NO_NETWORKPROXY
 define|#
 directive|define

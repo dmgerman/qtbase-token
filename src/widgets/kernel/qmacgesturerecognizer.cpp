@@ -1348,6 +1348,11 @@ name|_panCanceled
 operator|=
 literal|true
 expr_stmt|;
+name|_panTimer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|g
 operator|->
 name|setOffset

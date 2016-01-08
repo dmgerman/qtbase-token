@@ -233,7 +233,11 @@ name|DoDispatchAction
 operator|=
 literal|24
 operator|,
-comment|// unused: 25,
+DECL|enumerator|SetDispatchEnabledAction
+name|SetDispatchEnabledAction
+operator|=
+literal|25
+operator|,
 DECL|enumerator|MessageResultReceivedAction
 name|MessageResultReceivedAction
 operator|=

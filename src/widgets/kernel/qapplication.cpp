@@ -2719,7 +2719,7 @@ name|insert
 argument_list|(
 name|QByteArrayLiteral
 argument_list|(
-literal|"QListViewFont"
+literal|"QListView"
 argument_list|)
 argument_list|,
 operator|*
@@ -2748,7 +2748,7 @@ name|insert
 argument_list|(
 name|QByteArrayLiteral
 argument_list|(
-literal|"QHeaderViewFont"
+literal|"QHeaderView"
 argument_list|)
 argument_list|,
 operator|*
@@ -2806,7 +2806,7 @@ name|insert
 argument_list|(
 name|QByteArrayLiteral
 argument_list|(
-literal|"QComboMenuItemFont"
+literal|"QComboMenuItem"
 argument_list|)
 argument_list|,
 operator|*
@@ -2835,7 +2835,7 @@ name|insert
 argument_list|(
 name|QByteArrayLiteral
 argument_list|(
-literal|"QComboLineEditFont"
+literal|"QComboLineEdit"
 argument_list|)
 argument_list|,
 operator|*

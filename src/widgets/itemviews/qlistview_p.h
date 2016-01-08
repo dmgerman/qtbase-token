@@ -1651,6 +1651,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QListViewPrivate
 range|:
 name|public

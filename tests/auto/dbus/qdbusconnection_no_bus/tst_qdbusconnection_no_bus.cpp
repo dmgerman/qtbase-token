@@ -51,6 +51,9 @@ argument_list|,
 literal|"unix:abstract=/tmp/does_not_exist"
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|SIMULATE_LOAD_FAIL
 name|qputenv
 argument_list|(
 literal|"QT_SIMULATE_DBUS_LIBFAIL"
@@ -58,6 +61,8 @@ argument_list|,
 literal|"1"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 private|private
 name|slots
@@ -100,7 +105,11 @@ argument_list|()
 decl_stmt|;
 name|QVERIFY
 argument_list|(
-literal|true
+operator|!
+name|con
+operator|.
+name|isConnected
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// if we didn't crash here, the test passed :)

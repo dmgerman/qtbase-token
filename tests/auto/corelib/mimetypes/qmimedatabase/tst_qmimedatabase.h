@@ -137,6 +137,10 @@ name|knownSuffix
 argument_list|()
 block|;
 name|void
+name|symlinkToFifo
+argument_list|()
+block|;
+name|void
 name|fromThreads
 argument_list|()
 block|;

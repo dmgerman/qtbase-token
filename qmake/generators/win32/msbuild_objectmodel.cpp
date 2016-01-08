@@ -4494,7 +4494,7 @@ expr_stmt|;
 name|isWinPhone
 operator|=
 name|isWinPhone
-operator|=
+operator|||
 name|tool
 operator|.
 name|SingleProjects

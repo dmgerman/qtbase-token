@@ -84,7 +84,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|OVERLAPPED *_q_notified()
+argument|void _q_notified()
 argument_list|)
 name|friend
 name|class

@@ -377,6 +377,41 @@ operator|::
 name|WindowSystemMenuHint
 decl_stmt|;
 end_decl_stmt
+begin_constructor
+DECL|function|QFontDialogPrivate
+name|QFontDialogPrivate
+operator|::
+name|QFontDialogPrivate
+parameter_list|()
+member_init_list|:
+name|writingSystem
+argument_list|(
+name|QFontDatabase
+operator|::
+name|Any
+argument_list|)
+member_init_list|,
+name|options
+argument_list|(
+name|QSharedPointer
+argument_list|<
+name|QFontDialogOptions
+argument_list|>
+operator|::
+name|create
+argument_list|()
+argument_list|)
+block|{ }
+end_constructor
+begin_destructor
+DECL|function|~QFontDialogPrivate
+name|QFontDialogPrivate
+operator|::
+name|~
+name|QFontDialogPrivate
+parameter_list|()
+block|{ }
+end_destructor
 begin_comment
 comment|/*!   \class QFontDialog   \ingroup standard-dialogs   \inmodule QtWidgets    \brief The QFontDialog class provides a dialog widget for selecting a font.      A font dialog is created through one of the static getFont()     functions.    Examples:    \snippet code/src_gui_dialogs_qfontdialog.cpp 0      The dialog can also be used to set a widget's font directly:   \snippet code/src_gui_dialogs_qfontdialog.cpp 1   If the user clicks OK the font they chose will be used for myWidget,   and if they click Cancel the original font is used.    \image fusion-fontdialog.png A font dialog in the Fusion widget style.    \sa QFont, QFontInfo, QFontMetrics, QColorDialog, QFileDialog,       {Standard Dialogs Example} */
 end_comment

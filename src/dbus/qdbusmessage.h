@@ -473,6 +473,16 @@ name|signature
 argument_list|()
 specifier|const
 expr_stmt|;
+name|uint
+name|serial
+argument_list|()
+specifier|const
+expr_stmt|;
+name|uint
+name|replySerial
+argument_list|()
+specifier|const
+expr_stmt|;
 name|bool
 name|isReplyRequired
 argument_list|()

@@ -1744,33 +1744,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// offset is usually (0, 0) unless we have native child widgets.
-if|if
-condition|(
-name|offset
-operator|.
-name|isNull
-argument_list|()
-condition|)
-block|{
-name|d_ptr
-operator|->
-name|blitter
-operator|->
-name|blit
-argument_list|(
-name|textureId
-argument_list|,
-name|QMatrix4x4
-argument_list|()
-argument_list|,
-name|origin
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// The backingstore is for the entire tlw. offset tells the position of the native child in the tlw.
+comment|// The backingstore is for the entire tlw.
+comment|// In case of native children offset tells the position relative to the tlw.
 specifier|const
 name|QRect
 name|srcRect
@@ -1828,7 +1803,6 @@ argument_list|,
 name|source
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|d_ptr

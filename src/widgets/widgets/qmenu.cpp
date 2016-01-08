@@ -13272,8 +13272,31 @@ name|e
 argument_list|)
 condition|)
 return|return;
+comment|// Workaround for XCB on multiple screens which doesn't have offset. If the menu is open on one screen
+comment|// and mouse clicks on second screen, e->pos() is QPoint(0,0) and the menu doesn't hide. This trick makes
+comment|// possible to hide the menu when mouse clicks on another screen (e->screenPos() returns correct value).
+comment|// Only when mouse clicks in QPoint(0,0) on second screen, the menu doesn't hide.
 if|if
 condition|(
+operator|(
+name|e
+operator|->
+name|pos
+argument_list|()
+operator|.
+name|isNull
+argument_list|()
+operator|&&
+operator|!
+name|e
+operator|->
+name|screenPos
+argument_list|()
+operator|.
+name|isNull
+argument_list|()
+operator|)
+operator|||
 operator|!
 name|rect
 argument_list|()

@@ -7374,6 +7374,9 @@ condition|(
 name|vr
 operator|==
 name|ReturnError
+operator|&&
+operator|!
+name|m_cumulative
 condition|)
 return|return
 name|vr

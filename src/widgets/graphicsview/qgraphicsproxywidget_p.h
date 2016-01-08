@@ -65,6 +65,7 @@ end_if
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QGraphicsProxyWidgetPrivate
 range|:
 name|public

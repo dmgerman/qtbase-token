@@ -410,16 +410,6 @@ block|}
 ifdef|#
 directive|ifdef
 name|Q_OS_LINUX
-if|if
-condition|(
-sizeof|sizeof
-argument_list|(
-name|void
-operator|*
-argument_list|)
-operator|==
-literal|8
-condition|)
 block|{
 name|QTestData
 modifier|&
