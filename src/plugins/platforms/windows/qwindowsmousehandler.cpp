@@ -1143,12 +1143,7 @@ name|hasMouseCapture
 argument_list|()
 condition|)
 block|{
-name|QWindowsWindow
-operator|::
-name|baseWindowOf
-argument_list|(
-name|window
-argument_list|)
+name|platformWindow
 operator|->
 name|applyCursor
 argument_list|()
@@ -1639,12 +1634,7 @@ literal|0
 expr_stmt|;
 comment|// We are not officially in any window, but we need to set some cursor to clear
 comment|// whatever cursor the left window had, so apply the cursor of the capture window.
-name|QWindowsWindow
-operator|::
-name|baseWindowOf
-argument_list|(
-name|window
-argument_list|)
+name|platformWindow
 operator|->
 name|applyCursor
 argument_list|()
@@ -1698,12 +1688,20 @@ literal|"Entering "
 operator|<<
 name|currentWindowUnderMouse
 expr_stmt|;
+if|if
+condition|(
+name|QWindowsWindow
+modifier|*
+name|wumPlatformWindow
+init|=
 name|QWindowsWindow
 operator|::
-name|baseWindowOf
+name|windowsWindowOf
 argument_list|(
 name|currentWindowUnderMouse
 argument_list|)
+condition|)
+name|wumPlatformWindow
 operator|->
 name|applyCursor
 argument_list|()
@@ -1828,7 +1826,7 @@ name|ww
 init|=
 name|QWindowsWindow
 operator|::
-name|baseWindowOf
+name|windowsWindowOf
 argument_list|(
 name|toplevel
 argument_list|)

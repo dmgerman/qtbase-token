@@ -198,11 +198,16 @@ name|rw
 init|=
 name|QWindowsWindow
 operator|::
-name|baseWindowOf
+name|windowsWindowOf
 argument_list|(
 name|window
 argument_list|)
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|rw
+argument_list|)
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
