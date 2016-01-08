@@ -243,15 +243,6 @@ name|_q_forceDisconnect
 parameter_list|()
 function_decl|;
 name|bool
-name|readSocketNotifierCalled
-decl_stmt|;
-name|bool
-name|readSocketNotifierState
-decl_stmt|;
-name|bool
-name|readSocketNotifierStateSet
-decl_stmt|;
-name|bool
 name|emittedReadyRead
 decl_stmt|;
 name|bool
