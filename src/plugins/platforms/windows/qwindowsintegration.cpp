@@ -862,6 +862,13 @@ operator|<<
 literal|"DpiAwareness="
 operator|<<
 name|dpiAwareness
+operator|<<
+literal|"effective process DPI awareness="
+operator|<<
+name|QWindowsContext
+operator|::
+name|processDpiAwareness
+argument_list|()
 expr_stmt|;
 name|m_context
 operator|.
