@@ -703,6 +703,7 @@ name|threads
 control|)
 block|{
 name|QMutexLocker
+name|locker
 argument_list|(
 operator|&
 operator|(
@@ -711,7 +712,7 @@ operator|->
 name|mutex
 operator|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|thread
