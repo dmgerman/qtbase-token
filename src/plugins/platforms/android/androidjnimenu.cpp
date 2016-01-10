@@ -274,6 +274,10 @@ operator|&
 name|visibleMenuMutex
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|visibleMenu
+condition|)
 name|pendingContextMenus
 operator|.
 name|append
