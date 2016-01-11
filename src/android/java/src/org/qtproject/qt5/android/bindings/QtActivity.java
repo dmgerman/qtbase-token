@@ -2449,12 +2449,12 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|String
-name|dataDir
+name|libsDir
 init|=
 name|getApplicationInfo
 argument_list|()
 operator|.
-name|dataDir
+name|nativeLibraryDir
 operator|+
 literal|"/"
 decl_stmt|;
@@ -2650,9 +2650,7 @@ decl_stmt|;
 name|String
 name|sourceFileName
 init|=
-name|dataDir
-operator|+
-literal|"lib/"
+name|libsDir
 operator|+
 name|split
 index|[
