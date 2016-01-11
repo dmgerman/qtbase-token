@@ -34,6 +34,10 @@ name|bool
 modifier|*
 name|swizzleRandB
 parameter_list|,
+name|bool
+modifier|*
+name|premultipliedB
+parameter_list|,
 specifier|const
 name|QRect
 modifier|&
@@ -54,6 +58,12 @@ parameter_list|,
 name|bool
 modifier|*
 name|swizzleRandB
+init|=
+name|Q_NULLPTR
+parameter_list|,
+name|bool
+modifier|*
+name|premultipliedB
 init|=
 name|Q_NULLPTR
 parameter_list|,

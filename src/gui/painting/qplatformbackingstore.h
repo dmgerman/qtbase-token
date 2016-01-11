@@ -379,7 +379,11 @@ block|,
 name|TextureFlip
 init|=
 literal|0x02
-block|}
+block|,
+name|TexturePremultiplied
+init|=
+literal|0x04
+block|,     }
 enum|;
 name|Q_DECLARE_FLAGS
 argument_list|(
