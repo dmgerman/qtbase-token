@@ -1421,10 +1421,6 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|exitCode
-operator|=
-literal|0
-expr_stmt|;
 name|crashed
 operator|=
 literal|false
