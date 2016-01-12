@@ -382,10 +382,6 @@ return|return
 name|QString
 argument_list|()
 return|;
-name|msg
-operator|=
-literal|0
-expr_stmt|;
 block|}
 return|return
 name|QString
