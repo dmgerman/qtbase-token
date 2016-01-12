@@ -1200,7 +1200,12 @@ argument_list|)
 operator|,
 name|m_intersections
 argument_list|(
-argument|reserve
+name|reserve
+argument_list|)
+operator|,
+name|m_pathId
+argument_list|(
+literal|0
 argument_list|)
 block|{ }
 DECL|function|segments
