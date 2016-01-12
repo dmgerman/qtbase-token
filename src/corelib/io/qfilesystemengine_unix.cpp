@@ -391,8 +391,6 @@ argument_list|,
 name|kLSRolesEditor
 operator||
 name|kLSRolesViewer
-operator||
-name|kLSRolesViewer
 argument_list|,
 name|NULL
 argument_list|,
