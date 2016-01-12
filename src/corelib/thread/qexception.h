@@ -171,6 +171,7 @@ operator|&
 name|other
 operator|)
 decl_stmt|;
+comment|// ### Qt6: copy-assign operator shouldn't return void. Remove this method and the copy-ctor, they are unneeded.
 operator|~
 name|ExceptionHolder
 argument_list|()
