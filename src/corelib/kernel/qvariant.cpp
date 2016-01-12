@@ -14041,6 +14041,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|r1
+operator|==
+name|r2
+operator|||
 name|qFuzzyCompare
 argument_list|(
 name|r1

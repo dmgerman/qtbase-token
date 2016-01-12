@@ -642,6 +642,7 @@ parameter_list|(
 name|HANDLE
 parameter_list|,
 name|int
+modifier|*
 parameter_list|)
 function_decl|;
 DECL|typedef|SetProcessDpiAwareness
@@ -968,6 +969,11 @@ name|ProcessDpiAwareness
 name|dpiAwareness
 argument_list|)
 decl_stmt|;
+specifier|static
+name|int
+name|processDpiAwareness
+parameter_list|()
+function_decl|;
 comment|// Returns a combination of SystemInfoFlags
 name|unsigned
 name|systemInfo

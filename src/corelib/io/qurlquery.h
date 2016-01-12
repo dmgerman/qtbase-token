@@ -713,6 +713,11 @@ name|removeAllQueryItems
 argument_list|(
 name|key
 argument_list|)
+block|;
+name|setQuery
+argument_list|(
+name|q
+argument_list|)
 block|; }
 DECL|function|addEncodedQueryItem
 specifier|inline
@@ -875,6 +880,11 @@ name|fromEncodedComponent_helper
 argument_list|(
 name|key
 argument_list|)
+argument_list|)
+block|;
+name|setQuery
+argument_list|(
+name|q
 argument_list|)
 block|; }
 DECL|function|setEncodedQueryItems

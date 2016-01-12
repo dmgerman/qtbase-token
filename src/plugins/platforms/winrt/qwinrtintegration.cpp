@@ -70,6 +70,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpa/qplatformoffscreensurface.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<functional>
 end_include
 begin_include
@@ -643,7 +648,7 @@ index|[
 operator|&
 name|ICoreApplication
 operator|::
-name|remove_Resuming
+name|remove_Suspending
 index|]
 argument_list|)
 expr_stmt|;
@@ -1134,6 +1139,12 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+comment|// Do not execute this on Windows Phone as the application is already
+comment|// shutting down and trying to unregister suspending/resume handler will
+comment|// cause exceptions and assert in debug mode
+ifndef|#
+directive|ifndef
+name|Q_OS_WINPHONE
 for|for
 control|(
 name|QHash
@@ -1194,6 +1205,8 @@ name|hr
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|destroyScreen
 argument_list|(
 name|d
@@ -2069,6 +2082,33 @@ argument_list|)
 expr_stmt|;
 return|return
 name|S_OK
+return|;
+block|}
+end_function
+begin_function
+DECL|function|createPlatformOffscreenSurface
+name|QPlatformOffscreenSurface
+modifier|*
+name|QWinRTIntegration
+operator|::
+name|createPlatformOffscreenSurface
+parameter_list|(
+name|QOffscreenSurface
+modifier|*
+name|surface
+parameter_list|)
+specifier|const
+block|{
+comment|// This is only used for shutdown of applications.
+comment|// In case we do not return an empty surface the scenegraph will try
+comment|// to create a new native window during application exit causing crashes
+comment|// or assertions.
+return|return
+operator|new
+name|QPlatformOffscreenSurface
+argument_list|(
+name|surface
+argument_list|)
 return|;
 block|}
 end_function

@@ -1643,9 +1643,11 @@ name|QString
 name|part
 init|=
 name|curParts
-index|[
+operator|.
+name|at
+argument_list|(
 name|i
-index|]
+argument_list|)
 decl_stmt|;
 name|int
 name|emi
@@ -1696,7 +1698,7 @@ if|if
 condition|(
 name|curParts
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|isEmpty
@@ -1733,7 +1735,7 @@ name|filter
 argument_list|(
 name|curParts
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|,
 name|curParent

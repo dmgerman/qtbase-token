@@ -149,9 +149,6 @@ block|,
 literal|961
 block|,
 literal|1005
-block|,
-operator|-
-literal|1
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -170,8 +167,6 @@ name|errorMessages_indices
 index|[
 literal|0
 index|]
-operator|-
-literal|1
 decl_stmt|;
 end_decl_stmt
 begin_function

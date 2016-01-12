@@ -240,6 +240,15 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QPlatformOffscreenSurface
+operator|*
+name|createPlatformOffscreenSurface
+argument_list|(
+argument|QOffscreenSurface *surface
+argument_list|)
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 ifdef|#

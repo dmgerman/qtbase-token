@@ -25194,6 +25194,7 @@ name|opacity
 parameter_list|)
 specifier|const
 block|{
+specifier|const
 name|QGradientStops
 name|stops
 init|=

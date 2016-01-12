@@ -252,14 +252,6 @@ modifier|&
 name|asSent
 parameter_list|)
 function_decl|;
-name|uint
-name|serial
-parameter_list|()
-function_decl|;
-name|uint
-name|replySerial
-parameter_list|()
-function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt

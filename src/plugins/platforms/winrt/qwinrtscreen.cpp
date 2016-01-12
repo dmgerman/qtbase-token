@@ -4374,6 +4374,11 @@ expr_stmt|;
 name|handleExpose
 argument_list|()
 expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|flushWindowSystemEvents
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -4454,6 +4459,11 @@ name|OtherFocusReason
 argument_list|)
 expr_stmt|;
 name|handleExpose
+argument_list|()
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|flushWindowSystemEvents
 argument_list|()
 expr_stmt|;
 block|}
