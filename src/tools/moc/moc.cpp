@@ -7664,10 +7664,6 @@ operator|&&
 name|braceCount
 operator|==
 literal|0
-operator|&&
-name|parenCount
-operator|==
-literal|0
 condition|)
 operator|++
 name|angleCount
