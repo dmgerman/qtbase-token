@@ -556,6 +556,7 @@ argument_list|(
 argument|&x->data.ptr
 argument_list|)
 name|T
+argument_list|()
 expr_stmt|;
 block|}
 end_else
