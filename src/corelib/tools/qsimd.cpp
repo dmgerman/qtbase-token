@@ -2627,6 +2627,11 @@ name|defined
 argument_list|(
 name|Q_OS_OSX
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_HAIKU
+argument_list|)
 end_elif
 begin_define
 DECL|macro|ffsll
