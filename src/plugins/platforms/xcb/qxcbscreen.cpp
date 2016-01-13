@@ -193,7 +193,7 @@ name|this
 operator|&&
 name|screen
 operator|->
-name|nativeGeometry
+name|geometry
 argument_list|()
 operator|.
 name|contains
@@ -976,10 +976,6 @@ operator|->
 name|height
 argument_list|)
 expr_stmt|;
-name|m_nativeGeometry
-operator|=
-name|m_geometry
-expr_stmt|;
 name|m_availableGeometry
 operator|=
 name|m_geometry
@@ -1031,7 +1027,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|m_geometry
 operator|=
 name|QRect
@@ -1042,17 +1037,6 @@ argument_list|,
 name|m_virtualSize
 argument_list|)
 expr_stmt|;
-name|m_nativeGeometry
-operator|=
-name|QRect
-argument_list|(
-name|QPoint
-argument_list|()
-argument_list|,
-name|m_virtualSize
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|m_availableGeometry
@@ -2781,21 +2765,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|m_nativeGeometry
-operator|=
-name|QRect
-argument_list|(
-name|xGeometry
-operator|.
-name|topLeft
-argument_list|()
-argument_list|,
-name|xGeometry
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|m_availableGeometry
 operator|=
 name|xGeometry
@@ -4292,21 +4261,7 @@ argument_list|)
 expr_stmt|;
 name|debug
 operator|<<
-literal|"), nativeGeometry="
-expr_stmt|;
-name|formatRect
-argument_list|(
-name|debug
-argument_list|,
-name|screen
-operator|->
-name|nativeGeometry
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|debug
-operator|<<
-literal|", orientation="
+literal|"), orientation="
 operator|<<
 name|screen
 operator|->

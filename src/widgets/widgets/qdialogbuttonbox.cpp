@@ -808,11 +808,13 @@ operator|->
 name|addStretch
 argument_list|()
 expr_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QAbstractButton
 modifier|*
 argument_list|>
+modifier|&
 name|acceptRoleList
 init|=
 name|buttonLists

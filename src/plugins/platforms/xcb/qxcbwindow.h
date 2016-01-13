@@ -741,17 +741,6 @@ name|void
 name|destroy
 parameter_list|()
 function_decl|;
-name|QXcbScreen
-modifier|*
-name|screenForNativeGeometry
-argument_list|(
-specifier|const
-name|QRect
-operator|&
-name|newGeometry
-argument_list|)
-decl|const
-decl_stmt|;
 name|public
 name|Q_SLOTS
 range|:

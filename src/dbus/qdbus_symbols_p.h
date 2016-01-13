@@ -1189,20 +1189,6 @@ end_macro
 begin_macro
 name|DEFINEFUNC
 argument_list|(
-argument|dbus_uint32_t
-argument_list|,
-argument|dbus_message_get_reply_serial
-argument_list|,
-argument|(DBusMessage   *message)
-argument_list|,
-argument|(message)
-argument_list|,
-argument|return
-argument_list|)
-end_macro
-begin_macro
-name|DEFINEFUNC
-argument_list|(
 argument|const char*
 argument_list|,
 argument|dbus_message_get_signature
