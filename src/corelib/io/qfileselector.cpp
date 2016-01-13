@@ -194,7 +194,7 @@ name|local
 init|=
 name|file
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"qrc"
 argument_list|)
@@ -206,7 +206,7 @@ name|local
 operator||=
 name|file
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"assets"
 argument_list|)
