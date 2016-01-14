@@ -132,6 +132,9 @@ operator|<
 name|QWindowsNativeImage
 operator|>
 name|m_image
+block|;
+name|bool
+name|m_alphaNeedsFill
 block|; }
 decl_stmt|;
 end_decl_stmt

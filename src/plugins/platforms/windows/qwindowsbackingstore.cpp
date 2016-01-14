@@ -40,6 +40,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qimage_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QDebug>
 end_include
 begin_macro
@@ -62,6 +67,11 @@ member_init_list|:
 name|QPlatformBackingStore
 argument_list|(
 name|window
+argument_list|)
+member_init_list|,
+name|m_alphaNeedsFill
+argument_list|(
+literal|false
 argument_list|)
 block|{
 name|qCDebug
@@ -864,7 +874,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-specifier|const
 name|QImage
 operator|::
 name|Format
@@ -888,6 +897,38 @@ operator|::
 name|systemFormat
 argument_list|()
 decl_stmt|;
+comment|// The backingstore composition (enabling render-to-texture widgets)
+comment|// punches holes in the backingstores using the alpha channel. Hence
+comment|// the need for a true alpha format.
+if|if
+condition|(
+name|QImage
+operator|::
+name|toPixelFormat
+argument_list|(
+name|format
+argument_list|)
+operator|.
+name|alphaUsage
+argument_list|()
+operator|==
+name|QPixelFormat
+operator|::
+name|UsesAlpha
+condition|)
+name|m_alphaNeedsFill
+operator|=
+literal|true
+expr_stmt|;
+else|else
+comment|// upgrade but here we know app painting does not rely on alpha hence no need to fill
+name|format
+operator|=
+name|qt_alphaVersionForPainting
+argument_list|(
+name|format
+argument_list|)
+expr_stmt|;
 name|QWindowsNativeImage
 modifier|*
 name|oldwni
@@ -1193,13 +1234,7 @@ name|region
 expr_stmt|;
 if|if
 condition|(
-name|m_image
-operator|->
-name|image
-argument_list|()
-operator|.
-name|hasAlphaChannel
-argument_list|()
+name|m_alphaNeedsFill
 condition|)
 block|{
 name|QPainter
