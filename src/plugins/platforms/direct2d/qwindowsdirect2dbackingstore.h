@@ -52,14 +52,14 @@ block|;
 name|void
 name|beginPaint
 argument_list|(
-specifier|const
-name|QRegion
-operator|&
+argument|const QRegion&
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|endPaint
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 name|QPaintDevice
 operator|*

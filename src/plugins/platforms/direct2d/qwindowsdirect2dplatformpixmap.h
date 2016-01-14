@@ -82,7 +82,6 @@ argument|int height
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|fromImage
 argument_list|(
@@ -90,6 +89,7 @@ argument|const QImage&image
 argument_list|,
 argument|Qt::ImageConversionFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|int
 name|metric
