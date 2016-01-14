@@ -1493,7 +1493,8 @@ specifier|const
 name|QString
 name|root
 init|=
-literal|"$(INSTALL_ROOT)"
+name|installRoot
+argument_list|()
 decl_stmt|;
 name|ProStringList
 modifier|&

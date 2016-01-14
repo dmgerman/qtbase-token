@@ -93,6 +93,18 @@ name|doDepends
 argument_list|()
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+comment|// MinGW x-compiling for QNX
+name|virtual
+name|QString
+name|installRoot
+argument_list|()
+specifier|const
+block|;
+endif|#
+directive|endif
 name|virtual
 name|QString
 name|defaultInstall

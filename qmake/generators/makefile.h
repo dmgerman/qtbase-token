@@ -835,6 +835,12 @@ name|QString
 operator|&
 argument_list|)
 block|;
+name|virtual
+name|QString
+name|installRoot
+argument_list|()
+specifier|const
+block|;
 comment|//for prl
 name|QString
 name|prlFileName
@@ -1343,6 +1349,24 @@ return|return
 name|QString
 argument_list|(
 literal|""
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+DECL|function|installRoot
+specifier|inline
+name|QString
+name|MakefileGenerator
+operator|::
+name|installRoot
+argument_list|()
+specifier|const
+block|{
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"$(INSTALL_ROOT)"
 argument_list|)
 return|;
 block|}
