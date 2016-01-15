@@ -675,6 +675,18 @@ argument|d_func()
 argument_list|,
 argument|void _q_onlineStateChanged(bool)
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_configurationChanged(const QNetworkConfiguration&)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_networkSessionFailed(QNetworkSession::SessionError)
+argument_list|)
 endif|#
 directive|endif
 block|}
