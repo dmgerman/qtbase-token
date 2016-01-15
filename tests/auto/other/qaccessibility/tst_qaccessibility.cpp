@@ -8951,6 +8951,16 @@ argument_list|,
 literal|200
 argument_list|)
 expr_stmt|;
+name|mw
+operator|.
+name|menuBar
+argument_list|()
+operator|->
+name|setNativeMenuBar
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|QMenu
 modifier|*
 name|file

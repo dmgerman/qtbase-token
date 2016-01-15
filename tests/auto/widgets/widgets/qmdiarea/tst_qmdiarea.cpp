@@ -3409,6 +3409,11 @@ name|mw
 operator|->
 name|menuBar
 argument_list|()
+operator|->
+name|setNativeMenuBar
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|mw
 operator|->
@@ -4006,6 +4011,11 @@ name|mw
 operator|->
 name|menuBar
 argument_list|()
+operator|->
+name|setNativeMenuBar
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|mw
 operator|->
@@ -12542,6 +12552,13 @@ operator|.
 name|menuBar
 argument_list|()
 decl_stmt|;
+name|menuBar
+operator|->
+name|setNativeMenuBar
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|QMdiArea
 modifier|*
 name|mdiArea
