@@ -816,6 +816,14 @@ argument_list|(
 name|QFocusFrame
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|widget
+condition|)
+return|return;
 name|QStylePainter
 name|p
 argument_list|(
