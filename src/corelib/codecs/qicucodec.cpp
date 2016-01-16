@@ -1380,6 +1380,15 @@ name|int
 argument_list|>
 name|mibs
 decl_stmt|;
+name|mibs
+operator|.
+name|reserve
+argument_list|(
+name|mibToNameSize
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
