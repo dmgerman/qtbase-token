@@ -66,6 +66,14 @@ end_include
 begin_include
 include|#
 directive|include
+file|<functional>
+end_include
+begin_comment
+comment|// for std::less
+end_comment
+begin_include
+include|#
+directive|include
 file|<float.h>
 end_include
 begin_expr_stmt
@@ -979,11 +987,21 @@ decl_stmt|;
 comment|// do not return (from,to) *and* (to,from)
 if|if
 condition|(
-name|from
+name|std
+operator|::
+name|less
 operator|<
+name|Vertex
+operator|*
+operator|>
+operator|(
+operator|)
+operator|(
+name|from
+operator|,
 name|to
+operator|)
 condition|)
-block|{
 name|conns
 operator|.
 name|append
@@ -998,11 +1016,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_expr_stmt
-begin_expr_stmt
-unit|}         return
+begin_return
+return|return
 name|conns
-expr_stmt|;
-end_expr_stmt
+return|;
+end_return
 begin_if
 unit|}
 if|#
