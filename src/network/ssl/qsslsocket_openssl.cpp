@@ -4787,14 +4787,16 @@ argument_list|)
 expr_stmt|;
 comment|// Check if the connection has been established. Get all errors from the
 comment|// verification stage.
+name|QMutexLocker
+name|locker
+argument_list|(
+operator|&
 name|_q_sslErrorList
 argument_list|()
 operator|->
 name|mutex
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
+argument_list|)
+decl_stmt|;
 name|_q_sslErrorList
 argument_list|()
 operator|->
@@ -4929,10 +4931,7 @@ name|errorList
 operator|<<
 name|lastErrors
 expr_stmt|;
-name|_q_sslErrorList
-argument_list|()
-operator|->
-name|mutex
+name|locker
 operator|.
 name|unlock
 argument_list|()
