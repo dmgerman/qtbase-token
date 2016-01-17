@@ -1843,15 +1843,25 @@ operator|>
 operator|&
 name|anchors
 argument_list|)
-block|;
-name|QList
-operator|<
+block|;     struct
+name|GraphParts
+block|{
 name|QList
 operator|<
 name|QSimplexConstraint
 operator|*
 operator|>
-expr|>
+name|trunkConstraints
+block|;
+name|QList
+operator|<
+name|QSimplexConstraint
+operator|*
+operator|>
+name|nonTrunkConstraints
+block|;     }
+block|;
+name|GraphParts
 name|getGraphParts
 argument_list|(
 argument|Orientation orientation
