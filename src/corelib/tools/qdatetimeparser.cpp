@@ -7532,7 +7532,7 @@ modifier|&
 name|str
 parameter_list|,
 name|int
-name|index
+name|sectionIndex
 parameter_list|,
 name|int
 modifier|*
@@ -7547,7 +7547,7 @@ name|s
 init|=
 name|sectionNode
 argument_list|(
-name|index
+name|sectionIndex
 argument_list|)
 decl_stmt|;
 if|if
@@ -7608,7 +7608,7 @@ name|size
 init|=
 name|sectionMaxSize
 argument_list|(
-name|index
+name|sectionIndex
 argument_list|)
 decl_stmt|;
 enum|enum
