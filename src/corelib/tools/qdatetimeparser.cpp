@@ -1687,6 +1687,10 @@ block|}
 elseif|else
 if|if
 condition|(
+name|i
+operator|>
+literal|0
+operator|&&
 name|newFormat
 operator|.
 name|at
