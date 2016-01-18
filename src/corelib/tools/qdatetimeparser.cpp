@@ -3816,7 +3816,7 @@ expr_stmt|;
 block|}
 break|break;
 block|}
-comment|// fall through
+comment|// else: fall through
 case|case
 name|DaySection
 case|:
