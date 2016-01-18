@@ -315,6 +315,7 @@ name|QDateTimeParser
 argument_list|()
 block|{}
 expr|enum
+name|AmPmFinder
 block|{
 name|Neither
 operator|=
@@ -879,12 +880,12 @@ decl|const
 decl_stmt|;
 endif|#
 directive|endif
-name|int
+name|AmPmFinder
 name|findAmPm
 argument_list|(
 name|QString
 operator|&
-name|str1
+name|str
 argument_list|,
 name|int
 name|index

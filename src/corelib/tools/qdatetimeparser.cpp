@@ -7464,11 +7464,13 @@ begin_comment
 comment|// QT_NO_TEXTDATE
 end_comment
 begin_comment
-comment|/*!   \internal    returns   0 if str == tr("AM")   1 if str == tr("PM")   2 if str can become tr("AM")   3 if str can become tr("PM")   4 if str can become tr("PM") and can become tr("AM")   -1 can't become anything sensible  */
+comment|/*!   \internal    Returns   AM if str == tr("AM")   PM if str == tr("PM")   PossibleAM if str can become tr("AM")   PossiblePM if str can become tr("PM")   PossibleBoth if str can become tr("PM") and can become tr("AM")   Neither if str can't become anything sensible */
 end_comment
 begin_function
 DECL|function|findAmPm
-name|int
+name|QDateTimeParser
+operator|::
+name|AmPmFinder
 name|QDateTimeParser
 operator|::
 name|findAmPm
@@ -7511,8 +7513,7 @@ literal|"QDateTimeParser::findAmPm Internal error"
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|Neither
 return|;
 block|}
 if|if
