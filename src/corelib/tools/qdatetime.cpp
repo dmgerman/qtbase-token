@@ -8616,9 +8616,12 @@ name|Qt
 operator|::
 name|TimeZone
 case|:
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|QT_BOOTSTRAPPED
+break|break;
+else|#
+directive|else
 return|return
 name|zoneMSecsToEpochMSecs
 argument_list|(
@@ -8629,7 +8632,6 @@ argument_list|)
 return|;
 endif|#
 directive|endif
-break|break;
 block|}
 name|Q_UNREACHABLE
 argument_list|()
@@ -9607,9 +9609,12 @@ name|Qt
 operator|::
 name|TimeZone
 case|:
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|QT_BOOTSTRAPPED
+break|break;
+else|#
+directive|else
 return|return
 name|d
 operator|->
@@ -9712,9 +9717,12 @@ name|Qt
 operator|::
 name|TimeZone
 case|:
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|QT_BOOTSTRAPPED
+break|break;
+else|#
+directive|else
 return|return
 name|d
 operator|->
@@ -14584,9 +14592,6 @@ name|Qt
 operator|::
 name|TimeZone
 case|:
-ifndef|#
-directive|ifndef
-name|QT_BOOTSTRAPPED
 name|out
 operator|<<
 operator|(
@@ -14597,9 +14602,6 @@ operator|::
 name|TimeZone
 expr_stmt|;
 break|break;
-endif|#
-directive|endif
-comment|// QT_BOOTSTRAPPED
 case|case
 name|Qt
 operator|::
@@ -14918,19 +14920,19 @@ name|QDateTimePrivate
 operator|::
 name|TimeZone
 case|:
-ifndef|#
-directive|ifndef
-name|QT_BOOTSTRAPPED
 name|spec
 operator|=
 name|Qt
 operator|::
 name|TimeZone
 expr_stmt|;
-break|break;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+comment|// FIXME: need to use a different constructor !
 endif|#
 directive|endif
-comment|// QT_BOOTSTRAPPED
+break|break;
 case|case
 name|QDateTimePrivate
 operator|::
@@ -15217,10 +15219,10 @@ operator|.
 name|id
 argument_list|()
 expr_stmt|;
-break|break;
 endif|#
 directive|endif
 comment|// QT_BOOTSTRAPPED
+break|break;
 case|case
 name|Qt
 operator|::
