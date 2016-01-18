@@ -2525,7 +2525,7 @@ condition|)
 block|{
 specifier|const
 name|int
-name|max
+name|count
 init|=
 name|newSectionNodes
 operator|.
@@ -2541,7 +2541,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|max
+name|count
 condition|;
 operator|++
 name|i
@@ -2576,10 +2576,7 @@ if|if
 condition|(
 name|index
 operator|<
-name|newFormat
-operator|.
-name|size
-argument_list|()
+name|max
 condition|)
 block|{
 name|appendSeparator
