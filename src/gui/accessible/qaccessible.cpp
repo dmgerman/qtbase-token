@@ -93,6 +93,9 @@ comment|/*!     \enum QAccessible::RelationFlag      This enum type defines bit 
 comment|/*!     \enum QAccessible::Text      This enum specifies string information that an accessible object     returns.      \value Name         The name of the object. This can be used both                         as an identifier or a short description by                         accessible clients.     \value Description  A short text describing the object.     \value Value        The value of the object.     \value Help         A longer text giving information about how to use the object.     \value Accelerator  The keyboard shortcut that executes the object's default action.     \value UserText     The first value to be used for user defined text.     \omitvalue DebugDescription */
 comment|/*! \enum QAccessible::TextBoundaryType     This enum describes different types of text boundaries. It follows the IAccessible2 API and is used in the \l QAccessibleTextInterface.      \value CharBoundary         Use individual characters as boundary.     \value WordBoundary         Use words as boundaries.     \value SentenceBoundary     Use sentences as boundary.     \value ParagraphBoundary    Use paragraphs as boundary.     \value LineBoundary         Use newlines as boundary.     \value NoBoundary           No boundary (use the whole text).      \sa QAccessibleTextInterface */
 comment|/*!     \enum QAccessible::InterfaceType      \l QAccessibleInterface supports several sub interfaces.     In order to provide more information about some objects, their accessible     representation should implement one or more of these interfaces.      \note When subclassing one of these interfaces, \l QAccessibleInterface::interface_cast() needs to be implemented.      \value TextInterface            For text that supports selections or is more than one line. Simple labels do not need to implement this interface.     \omitvalue EditableTextInterface    For text that can be edited by the user.     \value ValueInterface           For objects that are used to manipulate a value, for example slider or scroll bar.     \value ActionInterface          For interactive objects that allow the user to trigger an action. Basically everything that allows for example mouse interaction.     \omitvalue ImageInterface       For objects that represent an image. This interface is generally less important.     \value TableInterface           For lists, tables and trees.     \value TableCellInterface       For cells in a TableInterface object.      \sa QAccessibleInterface::interface_cast(), QAccessibleTextInterface, QAccessibleValueInterface, QAccessibleActionInterface, QAccessibleTableInterface, QAccessibleTableCellInterface */
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 comment|/*!     Destroys the QAccessibleInterface. */
 DECL|function|~QAccessibleInterface
 name|QAccessibleInterface
@@ -103,9 +106,6 @@ operator|(
 operator|)
 block|{ }
 comment|/*!     \typedef QAccessible::Id      Synonym for unsigned, used by the QAccessibleInterface cache. */
-ifndef|#
-directive|ifndef
-name|QT_NO_ACCESSIBILITY
 comment|/* accessible widgets plugin discovery stuff */
 ifndef|#
 directive|ifndef
