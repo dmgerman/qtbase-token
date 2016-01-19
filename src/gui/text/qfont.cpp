@@ -8649,6 +8649,18 @@ operator|.
 name|ref
 parameter_list|()
 constructor_decl|;
+comment|// Decrease now rather than waiting
+if|if
+condition|(
+name|total_cost
+operator|>
+name|min_cost
+operator|*
+literal|2
+condition|)
+name|decreaseCache
+argument_list|()
+expr_stmt|;
 name|engineDataCache
 operator|.
 name|insert
@@ -8902,6 +8914,18 @@ operator|.
 name|ref
 parameter_list|()
 constructor_decl|;
+comment|// Decrease now rather than waiting
+if|if
+condition|(
+name|total_cost
+operator|>
+name|min_cost
+operator|*
+literal|2
+condition|)
+name|decreaseCache
+argument_list|()
+expr_stmt|;
 name|Engine
 name|data
 argument_list|(
@@ -9167,6 +9191,19 @@ literal|false
 expr_stmt|;
 return|return;
 block|}
+name|decreaseCache
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|decreaseCache
+name|void
+name|QFontCache
+operator|::
+name|decreaseCache
+parameter_list|()
+block|{
 comment|// go through the cache and count up everything in use
 name|uint
 name|in_use_cost

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngrutil.c - utilities to read a PNG file  *  * Last changed in libpng 1.6.17 [March 26, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  * This file contains routines that are only called from within  * libpng itself during the course of reading an image.  */
+comment|/* pngrutil.c - utilities to read a PNG file  *  * Last changed in libpng 1.6.19 [November 12, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  * This file contains routines that are only called from within  * libpng itself during the course of reading an image.  */
 end_comment
 begin_include
 include|#
@@ -273,12 +273,27 @@ operator|+
 literal|1
 expr_stmt|;
 comment|/* 2's complement: -x = ~x+1 */
+if|if
+condition|(
+operator|(
+name|uval
+operator|&
+literal|0x80000000
+operator|)
+operator|==
+literal|0
+condition|)
+comment|/* no overflow */
 return|return
 operator|-
 operator|(
 name|png_int_32
 operator|)
 name|uval
+return|;
+comment|/* The following has to be safe; this function only gets called on PNG data     * and if we get here that data is invalid.  0 is the most safe value and     * if not then an attacker would surely just generate a PNG with 0 instead.     */
+return|return
+literal|0
 return|;
 block|}
 end_function
@@ -297,7 +312,7 @@ name|png_const_bytep
 name|buf
 parameter_list|)
 block|{
-comment|/* ANSI-C requires an int value to accomodate at least 16 bits so this     * works and allows the compiler not to worry about possible narrowing     * on 32 bit systems.  (Pre-ANSI systems did not make integers smaller     * than 16 bits either.)     */
+comment|/* ANSI-C requires an int value to accomodate at least 16 bits so this     * works and allows the compiler not to worry about possible narrowing     * on 32-bit systems.  (Pre-ANSI systems did not make integers smaller     * than 16 bits either.)     */
 name|unsigned
 name|int
 name|val
@@ -1203,9 +1218,7 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
-name|PNG_LIBPNG_BUILD_BASE_TYPE
-operator|>=
-name|PNG_LIBPNG_BUILD_RC
+name|PNG_RELEASE_BUILD
 name|png_chunk_warning
 argument_list|(
 name|png_ptr
@@ -1841,7 +1854,7 @@ name|PNG_SIZE_MAX
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|PNG_SET_CHUNK_MALLOC_LIMIT_SUPPORTED
+name|PNG_SET_USER_LIMITS_SUPPORTED
 if|if
 condition|(
 name|png_ptr
@@ -2167,10 +2180,6 @@ name|png_ptr
 argument_list|,
 name|text
 argument_list|)
-expr_stmt|;
-name|text
-operator|=
-name|NULL
 expr_stmt|;
 comment|/* This really is very benign, but it's still an error because                    * the extra space may otherwise be used as a Trojan Horse.                    */
 if|if
@@ -2966,6 +2975,8 @@ name|PNG_MAX_PALETTE_LENGTH
 index|]
 decl_stmt|;
 name|int
+name|max_palette_length
+decl_stmt|,
 name|num
 decl_stmt|,
 name|i
@@ -3169,6 +3180,40 @@ name|length
 operator|/
 literal|3
 expr_stmt|;
+comment|/* If the palette has 256 or fewer entries but is too large for the bit     * depth, we don't issue an error, to preserve the behavior of previous     * libpng versions. We silently truncate the unused extra palette entries     * here.     */
+if|if
+condition|(
+name|png_ptr
+operator|->
+name|color_type
+operator|==
+name|PNG_COLOR_TYPE_PALETTE
+condition|)
+name|max_palette_length
+operator|=
+operator|(
+literal|1
+operator|<<
+name|png_ptr
+operator|->
+name|bit_depth
+operator|)
+expr_stmt|;
+else|else
+name|max_palette_length
+operator|=
+name|PNG_MAX_PALETTE_LENGTH
+expr_stmt|;
+if|if
+condition|(
+name|num
+operator|>
+name|max_palette_length
+condition|)
+name|num
+operator|=
+name|max_palette_length
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|PNG_POINTER_INDEXING_SUPPORTED
@@ -3326,7 +3371,14 @@ name|png_crc_finish
 argument_list|(
 name|png_ptr
 argument_list|,
-literal|0
+operator|(
+name|int
+operator|)
+name|length
+operator|-
+name|num
+operator|*
+literal|3
 argument_list|)
 expr_stmt|;
 block|}
@@ -4034,6 +4086,7 @@ condition|;
 operator|++
 name|i
 control|)
+block|{
 if|if
 condition|(
 name|buf
@@ -4059,6 +4112,7 @@ literal|"invalid"
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
 block|}
 if|if
 condition|(
@@ -6846,12 +6900,20 @@ if|if
 condition|(
 name|length
 operator|>
+operator|(
+name|unsigned
+name|int
+operator|)
 name|png_ptr
 operator|->
 name|num_palette
 operator|||
 name|length
 operator|>
+operator|(
+name|unsigned
+name|int
+operator|)
 name|PNG_MAX_PALETTE_LENGTH
 operator|||
 name|length
@@ -7560,12 +7622,20 @@ if|if
 condition|(
 name|num
 operator|!=
+operator|(
+name|unsigned
+name|int
+operator|)
 name|png_ptr
 operator|->
 name|num_palette
 operator|||
 name|num
 operator|>
+operator|(
+name|unsigned
+name|int
+operator|)
 name|PNG_MAX_PALETTE_LENGTH
 condition|)
 block|{
@@ -10657,7 +10727,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|PNG_SET_CHUNK_MALLOC_LIMIT_SUPPORTED
+name|PNG_SET_USER_LIMITS_SUPPORTED
 if|if
 condition|(
 name|png_ptr
@@ -10919,7 +10989,7 @@ comment|/* One of the following methods will read the chunk or skip it (at least
 ifdef|#
 directive|ifdef
 name|PNG_READ_USER_CHUNKS_SUPPORTED
-comment|/* The user callback takes precedence over the chunk keep value, but the        * keep value is still required to validate a save of a critical chunk.        */
+comment|/* The user callback takes precedence over the chunk keep value, but the     * keep value is still required to validate a save of a critical chunk.     */
 if|if
 condition|(
 name|png_ptr
@@ -10962,7 +11032,7 @@ operator|->
 name|unknown_chunk
 operator|)
 decl_stmt|;
-comment|/* ret is:              * negative: An error occurred; png_chunk_error will be called.              *     zero: The chunk was not handled, the chunk will be discarded              *           unless png_set_keep_unknown_chunks has been used to set              *           a 'keep' behavior for this particular chunk, in which              *           case that will be used.  A critical chunk will cause an              *           error at this point unless it is to be saved.              * positive: The chunk was handled, libpng will ignore/discard it.              */
+comment|/* ret is:           * negative: An error occurred; png_chunk_error will be called.           *     zero: The chunk was not handled, the chunk will be discarded           *           unless png_set_keep_unknown_chunks has been used to set           *           a 'keep' behavior for this particular chunk, in which           *           case that will be used.  A critical chunk will cause an           *           error at this point unless it is to be saved.           * positive: The chunk was handled, libpng will ignore/discard it.           */
 if|if
 condition|(
 name|ret
@@ -10984,7 +11054,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* If the keep value is 'default' or 'never' override it, but                 * still error out on critical chunks unless the keep value is                 * 'always'  While this is weird it is the behavior in 1.4.12.                 * A possible improvement would be to obey the value set for the                 * chunk, but this would be an API change that would probably                 * damage some applications.                 *                 * The png_app_warning below catches the case that matters, where                 * the application has not set specific save or ignore for this                 * chunk or global save or ignore.                 */
+comment|/* If the keep value is 'default' or 'never' override it, but              * still error out on critical chunks unless the keep value is              * 'always'  While this is weird it is the behavior in 1.4.12.              * A possible improvement would be to obey the value set for the              * chunk, but this would be an API change that would probably              * damage some applications.              *              * The png_app_warning below catches the case that matters, where              * the application has not set specific save or ignore for this              * chunk or global save or ignore.              */
 if|if
 condition|(
 name|keep
@@ -11059,7 +11129,7 @@ ifdef|#
 directive|ifdef
 name|PNG_SAVE_UNKNOWN_CHUNKS_SUPPORTED
 block|{
-comment|/* keep is currently just the per-chunk setting, if there was no           * setting change it to the global default now (not that this may           * still be AS_DEFAULT) then obtain the cache of the chunk if required,           * if not simply skip the chunk.           */
+comment|/* keep is currently just the per-chunk setting, if there was no        * setting change it to the global default now (not that this may        * still be AS_DEFAULT) then obtain the cache of the chunk if required,        * if not simply skip the chunk.        */
 if|if
 condition|(
 name|keep
@@ -11128,7 +11198,7 @@ error|no method to support READ_UNKNOWN_CHUNKS
 endif|#
 directive|endif
 block|{
-comment|/* If here there is no read callback pointer set and no support is           * compiled in to just save the unknown chunks, so simply skip this           * chunk.  If 'keep' is something other than AS_DEFAULT or NEVER then           * the app has erroneously asked for unknown chunk saving when there           * is no support.           */
+comment|/* If here there is no read callback pointer set and no support is        * compiled in to just save the unknown chunks, so simply skip this        * chunk.  If 'keep' is something other than AS_DEFAULT or NEVER then        * the app has erroneously asked for unknown chunk saving when there        * is no support.        */
 if|if
 condition|(
 name|keep
@@ -11155,7 +11225,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|PNG_STORE_UNKNOWN_CHUNKS_SUPPORTED
-comment|/* Now store the chunk in the chunk list if appropriate, and if the limits        * permit it.        */
+comment|/* Now store the chunk in the chunk list if appropriate, and if the limits     * permit it.     */
 if|if
 condition|(
 name|keep
@@ -11206,7 +11276,7 @@ comment|/* FALL THROUGH */
 case|case
 literal|1
 case|:
-comment|/* NOTE: prior to 1.6.0 this case resulted in an unknown critical                 * chunk being skipped, now there will be a hard error below.                 */
+comment|/* NOTE: prior to 1.6.0 this case resulted in an unknown critical              * chunk being skipped, now there will be a hard error below.              */
 break|break;
 default|default:
 comment|/* not at limit */
@@ -11225,7 +11295,7 @@ comment|/* no limit */
 endif|#
 directive|endif
 comment|/* USER_LIMITS */
-comment|/* Here when the limit isn't reached or when limits are compiled                 * out; store the chunk.                 */
+comment|/* Here when the limit isn't reached or when limits are compiled              * out; store the chunk.              */
 name|png_set_unknown_chunks
 argument_list|(
 name|png_ptr
@@ -16413,7 +16483,7 @@ block|{
 ifdef|#
 directive|ifdef
 name|PNG_READ_EXPAND_SUPPORTED
-comment|/* In fact it is an error if it isn't supported, but checking is           * the safe way.           */
+comment|/* In fact it is an error if it isn't supported, but checking is        * the safe way.        */
 if|if
 condition|(
 operator|(

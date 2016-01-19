@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngrtran.c - transforms the data in a row for PNG readers  *  * Last changed in libpng 1.6.17 [March 26, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  * This file contains functions optionally called by an application  * in order to tell libpng how to handle data when reading a PNG.  * Transformations that are used in both reading and writing are  * in pngtrans.c.  */
+comment|/* pngrtran.c - transforms the data in a row for PNG readers  *  * Last changed in libpng 1.6.19 [November 12, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  * This file contains functions optionally called by an application  * in order to tell libpng how to handle data when reading a PNG.  * Transformations that are used in both reading and writing are  * in pngtrans.c.  */
 end_comment
 begin_include
 include|#
@@ -3598,7 +3598,6 @@ argument_list|,
 literal|"invalid error action to rgb_to_gray"
 argument_list|)
 expr_stmt|;
-break|break;
 block|}
 if|if
 condition|(
@@ -7407,7 +7406,7 @@ endif|#
 directive|endif
 else|#
 directive|else
-comment|/* No 16 bit support: force chopping 16-bit input down to 8, in this case        * the app program can chose if both APIs are available by setting the        * correct scaling to use.        */
+comment|/* No 16-bit support: force chopping 16-bit input down to 8, in this case        * the app program can chose if both APIs are available by setting the        * correct scaling to use.        */
 ifdef|#
 directive|ifdef
 name|PNG_READ_STRIP_16_TO_8_SUPPORTED
@@ -7839,13 +7838,11 @@ condition|)
 block|{
 if|if
 condition|(
-name|info_ptr
-operator|->
-name|bit_depth
-operator|<
 name|png_ptr
 operator|->
 name|user_transform_depth
+operator|!=
+literal|0
 condition|)
 name|info_ptr
 operator|->
@@ -7857,13 +7854,11 @@ name|user_transform_depth
 expr_stmt|;
 if|if
 condition|(
-name|info_ptr
-operator|->
-name|channels
-operator|<
 name|png_ptr
 operator|->
 name|user_transform_channels
+operator|!=
+literal|0
 condition|)
 name|info_ptr
 operator|->
@@ -8944,7 +8939,7 @@ operator|<
 name|ep
 condition|)
 block|{
-comment|/* The input is an array of 16 bit components, these must be scaled to           * 8 bits each.  For a 16 bit value V the required value (from the PNG           * specification) is:           *           *    (V * 255) / 65535           *           * This reduces to round(V / 257), or floor((V + 128.5)/257)           *           * Represent V as the two byte value vhi.vlo.  Make a guess that the           * result is the top byte of V, vhi, then the correction to this value           * is:           *           *    error = floor(((V-vhi.vhi) + 128.5) / 257)           *          = floor(((vlo-vhi) + 128.5) / 257)           *           * This can be approximated using integer arithmetic (and a signed           * shift):           *           *    error = (vlo-vhi+128)>> 8;           *           * The approximate differs from the exact answer only when (vlo-vhi) is           * 128; it then gives a correction of +1 when the exact correction is           * 0.  This gives 128 errors.  The exact answer (correct for all 16 bit           * input values) is:           *           *    error = (vlo-vhi+128)*65535>> 24;           *           * An alternative arithmetic calculation which also gives no errors is:           *           *    (V * 255 + 32895)>> 16           */
+comment|/* The input is an array of 16-bit components, these must be scaled to           * 8 bits each.  For a 16-bit value V the required value (from the PNG           * specification) is:           *           *    (V * 255) / 65535           *           * This reduces to round(V / 257), or floor((V + 128.5)/257)           *           * Represent V as the two byte value vhi.vlo.  Make a guess that the           * result is the top byte of V, vhi, then the correction to this value           * is:           *           *    error = floor(((V-vhi.vhi) + 128.5) / 257)           *          = floor(((vlo-vhi) + 128.5) / 257)           *           * This can be approximated using integer arithmetic (and a signed           * shift):           *           *    error = (vlo-vhi+128)>> 8;           *           * The approximate differs from the exact answer only when (vlo-vhi) is           * 128; it then gives a correction of +1 when the exact correction is           * 0.  This gives 128 errors.  The exact answer (correct for all 16-bit           * input values) is:           *           *    error = (vlo-vhi+128)*65535>> 24;           *           * An alternative arithmetic calculation which also gives no errors is:           *           *    (V * 255 + 32895)>> 16           */
 name|png_int_32
 name|tmp
 init|=
@@ -12704,7 +12699,7 @@ name|rgb_error
 operator||=
 literal|1
 expr_stmt|;
-comment|/* From 1.5.5 in the 16 bit case do the accurate conversion even                 * in the 'fast' case - this is because this is where the code                 * ends up when handling linear 16 bit data.                 */
+comment|/* From 1.5.5 in the 16-bit case do the accurate conversion even                 * in the 'fast' case - this is because this is where the code                 * ends up when handling linear 16-bit data.                 */
 name|gray16
 operator|=
 call|(
@@ -13508,7 +13503,7 @@ operator|*
 name|sp
 operator|&
 operator|(
-literal|0xf0f
+literal|0x0f0f
 operator|>>
 operator|(
 literal|4
@@ -13584,7 +13579,7 @@ operator|*
 name|sp
 operator|&
 operator|(
-literal|0xf0f
+literal|0x0f0f
 operator|>>
 operator|(
 literal|4
@@ -13691,7 +13686,7 @@ operator|*
 name|sp
 operator|&
 operator|(
-literal|0xf0f
+literal|0x0f0f
 operator|>>
 operator|(
 literal|4
@@ -20249,8 +20244,12 @@ control|)
 block|{
 if|if
 condition|(
+operator|(
 operator|*
 name|sp
+operator|&
+literal|0xffU
+operator|)
 operator|==
 name|gray
 condition|)
@@ -20347,18 +20346,26 @@ control|)
 block|{
 if|if
 condition|(
+operator|(
 operator|*
 operator|(
 name|sp
 operator|-
 literal|1
 operator|)
+operator|&
+literal|0xffU
+operator|)
 operator|==
 name|gray_high
 operator|&&
+operator|(
 operator|*
 operator|(
 name|sp
+operator|)
+operator|&
+literal|0xffU
 operator|)
 operator|==
 name|gray_low

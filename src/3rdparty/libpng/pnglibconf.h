@@ -1,12 +1,9 @@
 begin_unit
 begin_comment
-comment|/* libpng 1.6.17 STANDARD API DEFINITION */
-end_comment
-begin_comment
 comment|/* pnglibconf.h - library build configuration */
 end_comment
 begin_comment
-comment|/* Libpng version 1.6.17 - March 26, 2015 */
+comment|/* libpng version 1.6.19, July 23, 2015 */
 end_comment
 begin_comment
 comment|/* Copyright (c) 1998-2014 Glenn Randers-Pehrson */
@@ -1104,6 +1101,34 @@ define|#
 directive|define
 name|PNG_INFLATE_BUF_SIZE
 value|1024
+end_define
+begin_define
+DECL|macro|PNG_LINKAGE_API
+define|#
+directive|define
+name|PNG_LINKAGE_API
+value|extern
+end_define
+begin_define
+DECL|macro|PNG_LINKAGE_CALLBACK
+define|#
+directive|define
+name|PNG_LINKAGE_CALLBACK
+value|extern
+end_define
+begin_define
+DECL|macro|PNG_LINKAGE_DATA
+define|#
+directive|define
+name|PNG_LINKAGE_DATA
+value|extern
+end_define
+begin_define
+DECL|macro|PNG_LINKAGE_FUNCTION
+define|#
+directive|define
+name|PNG_LINKAGE_FUNCTION
+value|extern
 end_define
 begin_define
 DECL|macro|PNG_MAX_GAMMA_8

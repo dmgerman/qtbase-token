@@ -7597,6 +7597,8 @@ literal|".lock"
 argument_list|)
 argument_list|)
 decl_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -7610,12 +7612,17 @@ name|confFile
 operator|->
 name|isWritable
 argument_list|()
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 operator|||
 operator|!
 name|lockFile
 operator|.
 name|lock
 argument_list|()
+endif|#
+directive|endif
 condition|)
 block|{
 name|setStatus
@@ -7628,8 +7635,6 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-endif|#
-directive|endif
 comment|/*         We hold the lock. Let's reread the file if it has changed         since last time we read it.     */
 name|QFileInfo
 name|fileInfo

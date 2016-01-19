@@ -760,6 +760,10 @@ name|InvalidProxyTypeString
 block|,
 name|TemporaryErrorString
 block|,
+name|NetworkDroppedConnectionErrorString
+block|,
+name|ConnectionResetErrorString
+block|,
 name|UnknownSocketErrorString
 operator|=
 operator|-

@@ -1211,7 +1211,7 @@ struct|;
 name|uint
 name|cache_cost
 decl_stmt|;
-comment|// amount of mem used in kb by the font
+comment|// amount of mem used in bytes by the font
 name|uint
 name|fsType
 range|:
