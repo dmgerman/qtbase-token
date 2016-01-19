@@ -11522,12 +11522,17 @@ name|defined
 argument_list|(
 name|QT_NO_TABBAR
 argument_list|)
-name|QDockWidgetGroupWindow
-modifier|*
-name|floatingParent
-init|=
+if|if
+condition|(
+operator|!
+name|widget
+operator|->
+name|isWindow
+argument_list|()
+operator|&&
 name|qobject_cast
 argument_list|<
+specifier|const
 name|QDockWidgetGroupWindow
 operator|*
 argument_list|>
@@ -11537,18 +11542,11 @@ operator|->
 name|parentWidget
 argument_list|()
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
 if|if
 condition|(
 name|group
-operator|&&
-name|floatingParent
-operator|&&
-operator|!
-name|widget
-operator|->
-name|isWindow
-argument_list|()
 condition|)
 block|{
 comment|// We are just dragging a floating window as it, not need to do anything, we just have to
@@ -11585,11 +11583,7 @@ name|tabbedWindowPath
 argument_list|)
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|floatingParent
-condition|)
+else|else
 block|{
 comment|// We are unplugging a dock widget from a floating window.
 if|if
@@ -11624,6 +11618,7 @@ expr_stmt|;
 return|return
 literal|0
 return|;
+block|}
 block|}
 block|}
 endif|#
