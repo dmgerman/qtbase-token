@@ -8655,6 +8655,8 @@ if|if
 condition|(
 operator|!
 name|QFileInfo
+operator|::
+name|exists
 argument_list|(
 name|vcInstallDir
 operator|+
@@ -8665,9 +8667,6 @@ argument_list|()
 operator|+
 name|runtimeVersion
 argument_list|)
-operator|.
-name|exists
-argument_list|()
 condition|)
 name|runtime
 operator|.
