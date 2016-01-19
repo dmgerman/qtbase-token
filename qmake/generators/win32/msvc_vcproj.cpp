@@ -7730,7 +7730,7 @@ if|if
 condition|(
 name|fixedPath
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"."
 argument_list|)

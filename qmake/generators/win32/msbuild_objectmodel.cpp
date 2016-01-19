@@ -4319,7 +4319,7 @@ name|tool
 operator|.
 name|SdkVersion
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"10.0"
 argument_list|)

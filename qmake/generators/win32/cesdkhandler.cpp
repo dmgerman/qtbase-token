@@ -145,7 +145,7 @@ name|val
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"MSBuildToolsPath"
 argument_list|)
@@ -155,7 +155,7 @@ name|val
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"MSBuildToolsRoot"
 argument_list|)
@@ -603,9 +603,9 @@ name|sdkRootPath
 operator|.
 name|lastIndexOf
 argument_list|(
-name|QStringLiteral
+name|QLatin1Char
 argument_list|(
-literal|")"
+literal|')'
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -885,7 +885,7 @@ name|path
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"bin"
 argument_list|)
@@ -1604,7 +1604,7 @@ name|cpuInfoVal
 operator|.
 name|name
 operator|!=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"CpuName"
 argument_list|)

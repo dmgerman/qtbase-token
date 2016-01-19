@@ -1668,7 +1668,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".pbxproj"
 argument_list|)
@@ -1678,7 +1678,7 @@ name|dir
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".xcodeproj"
 argument_list|)

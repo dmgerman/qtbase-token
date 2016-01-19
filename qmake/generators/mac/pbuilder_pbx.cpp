@@ -3559,7 +3559,7 @@ name|filename
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".framework"
 argument_list|)
@@ -3577,7 +3577,7 @@ name|filename
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".a"
 argument_list|)
@@ -3595,7 +3595,7 @@ name|filename
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".pro"
 argument_list|)
@@ -3605,7 +3605,7 @@ name|filename
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|".qrc"
 argument_list|)
