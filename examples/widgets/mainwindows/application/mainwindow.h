@@ -38,6 +38,12 @@ name|QPlainTextEdit
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QSessionManager
+name|class
+name|QSessionManager
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QT_END_NAMESPACE
 comment|//! [0]
 name|class
@@ -96,6 +102,13 @@ block|;
 name|void
 name|documentWasModified
 argument_list|()
+block|;
+name|void
+name|commitData
+argument_list|(
+name|QSessionManager
+operator|&
+argument_list|)
 block|;
 name|private
 operator|:

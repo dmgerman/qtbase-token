@@ -1080,6 +1080,12 @@ directive|ifndef
 name|QT_NO_SESSIONMANAGER
 end_ifndef
 begin_decl_stmt
+specifier|static
+name|bool
+name|is_fallback_session_management_enabled
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QSessionManager
 modifier|*
 name|session_manager
