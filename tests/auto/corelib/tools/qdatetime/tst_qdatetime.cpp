@@ -21624,6 +21624,8 @@ operator|<<
 name|invalidDateTime
 argument_list|()
 expr_stmt|;
+comment|// Day non-conflict should not hide earlier year conflict (1963-03-01 was a
+comment|// Friday; asking for Thursday moves this, without conflict, to the 7th):
 name|QTest
 operator|::
 name|newRow
@@ -21633,28 +21635,18 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"101010"
+literal|"77 03 1963 "
+operator|+
+name|thu
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"dMyy"
+literal|"yy MM yyyy ddd"
 argument_list|)
 operator|<<
-name|QDateTime
-argument_list|(
-name|QDate
-argument_list|(
-literal|1910
-argument_list|,
-literal|10
-argument_list|,
-literal|10
-argument_list|)
-argument_list|,
-name|QTime
+name|invalidDateTime
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|QTest
 operator|::

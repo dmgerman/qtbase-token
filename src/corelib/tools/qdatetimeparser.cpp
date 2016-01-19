@@ -5326,11 +5326,15 @@ name|DayOfWeekSectionLong
 operator|)
 condition|)
 block|{
-name|conflicts
-operator|=
+if|if
+condition|(
 name|isSet
 operator|&
 name|DaySection
+condition|)
+name|conflicts
+operator|=
+literal|true
 expr_stmt|;
 specifier|const
 name|SectionNode
