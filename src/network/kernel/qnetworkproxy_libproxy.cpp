@@ -398,7 +398,7 @@ operator|.
 name|scheme
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"http"
 argument_list|)
@@ -419,7 +419,7 @@ operator|.
 name|scheme
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"socks"
 argument_list|)
@@ -429,7 +429,7 @@ operator|.
 name|scheme
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"socks5"
 argument_list|)
@@ -450,7 +450,7 @@ operator|.
 name|scheme
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"ftp"
 argument_list|)
@@ -471,7 +471,7 @@ operator|.
 name|scheme
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"direct"
 argument_list|)

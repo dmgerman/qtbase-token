@@ -217,9 +217,9 @@ name|line
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1Char
 argument_list|(
-literal|"#"
+literal|'#'
 argument_list|)
 argument_list|)
 condition|)
@@ -268,7 +268,7 @@ if|if
 condition|(
 name|value
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"*"
 argument_list|)
@@ -505,7 +505,7 @@ name|name
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"EXT"
 argument_list|)
@@ -717,7 +717,7 @@ if|if
 condition|(
 name|direction
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"in"
 argument_list|)
@@ -737,7 +737,7 @@ if|if
 condition|(
 name|direction
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"out"
 argument_list|)
@@ -780,7 +780,7 @@ if|if
 condition|(
 name|mode
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"value"
 argument_list|)
@@ -800,7 +800,7 @@ if|if
 condition|(
 name|mode
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"array"
 argument_list|)
@@ -820,7 +820,7 @@ if|if
 condition|(
 name|mode
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"reference"
 argument_list|)
@@ -1090,7 +1090,7 @@ if|if
 condition|(
 name|deprecatedVersion
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"3.1"
 argument_list|)
@@ -1391,14 +1391,12 @@ parameter_list|)
 specifier|const
 block|{
 return|return
-operator|(
 name|functionName
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"TexImage3D"
 argument_list|)
-operator|)
 return|;
 block|}
 end_function

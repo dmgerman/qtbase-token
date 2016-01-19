@@ -1827,7 +1827,7 @@ if|if
 condition|(
 name|arg
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"near"
 argument_list|)
@@ -1844,7 +1844,7 @@ if|if
 condition|(
 name|arg
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"far"
 argument_list|)
@@ -1860,7 +1860,7 @@ if|if
 condition|(
 name|arg
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"d"
 argument_list|)
@@ -4704,7 +4704,7 @@ name|f
 operator|.
 name|returnType
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"void"
 argument_list|)

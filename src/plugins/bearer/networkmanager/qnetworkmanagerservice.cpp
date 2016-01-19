@@ -953,7 +953,7 @@ operator|.
 name|key
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"State"
 argument_list|)
@@ -1011,7 +1011,7 @@ operator|.
 name|key
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"ActiveConnections"
 argument_list|)
@@ -1986,7 +1986,7 @@ operator|.
 name|key
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"AvailableConnections"
 argument_list|)
@@ -2488,12 +2488,11 @@ operator|.
 name|key
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Carrier"
 argument_list|)
 condition|)
-block|{
 name|Q_EMIT
 name|carrierChanged
 argument_list|(
@@ -2506,7 +2505,6 @@ name|toBool
 argument_list|()
 argument_list|)
 decl_stmt|;
-block|}
 block|}
 name|Q_EMIT
 name|propertiesChanged
@@ -3398,12 +3396,11 @@ operator|.
 name|key
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"ActiveAccessPoint"
 argument_list|)
 condition|)
-block|{
 comment|//DeviceWireless
 name|Q_EMIT
 name|propertiesChanged
@@ -3411,7 +3408,6 @@ argument_list|(
 name|map
 argument_list|)
 decl_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -5181,7 +5177,7 @@ operator|.
 name|key
 argument_list|()
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"State"
 argument_list|)
