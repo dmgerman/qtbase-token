@@ -1388,10 +1388,7 @@ name|createSeparatedList
 argument_list|(
 name|in
 operator|.
-name|value
-argument_list|<
-name|QStringList
-argument_list|>
+name|toStringList
 argument_list|()
 argument_list|)
 return|;
