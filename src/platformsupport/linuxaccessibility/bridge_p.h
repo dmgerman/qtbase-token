@@ -105,7 +105,6 @@ operator|~
 name|QSpiAccessibleBridge
 argument_list|()
 expr_stmt|;
-name|virtual
 name|void
 name|notifyAccessibilityUpdate
 argument_list|(

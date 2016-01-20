@@ -645,7 +645,6 @@ name|int
 name|fast_glyph_count
 block|;     }
 block|;
-name|virtual
 name|QFontEngine
 operator|::
 name|FaceId
@@ -654,7 +653,6 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFontEngine
 operator|::
 name|Properties
@@ -663,14 +661,12 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|emSquareSize
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|supportsSubPixelPositions
 argument_list|()
@@ -687,7 +683,6 @@ operator|==
 name|HintNone
 return|;
 block|}
-name|virtual
 name|bool
 name|getSfntTableData
 argument_list|(
@@ -700,70 +695,60 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|int
 name|synthesized
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|ascent
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|descent
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|leading
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|xHeight
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|averageCharWidth
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|qreal
 name|maxCharWidth
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|lineThickness
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFixed
 name|underlinePosition
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|glyph_t
 name|glyphIndex
 argument_list|(
@@ -782,7 +767,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|getUnscaledGlyph
 argument_list|(
@@ -794,7 +778,6 @@ argument|glyph_metrics_t *metrics
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|supportsTransformation
 argument_list|(
@@ -803,7 +786,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|addGlyphsToPath
 argument_list|(
@@ -819,7 +801,6 @@ argument|QTextItem::RenderFlags flags
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|addOutlineToPath
 argument_list|(
@@ -835,7 +816,6 @@ argument|QTextItem::RenderFlags flags
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|stringToCMap
 argument_list|(
@@ -852,7 +832,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
@@ -860,7 +839,6 @@ argument|const QGlyphLayout&glyphs
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
@@ -868,7 +846,6 @@ argument|glyph_t glyph
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
@@ -878,7 +855,6 @@ argument|const QTransform&matrix
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|recalcAdvances
 argument_list|(
@@ -889,7 +865,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 name|alphaMapForGlyph
 argument_list|(
@@ -906,7 +881,6 @@ literal|0
 argument_list|)
 return|;
 block|}
-name|virtual
 name|QImage
 name|alphaMapForGlyph
 argument_list|(
@@ -927,7 +901,6 @@ argument|const QTransform&t
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 name|alphaRGBMapForGlyph
 argument_list|(
@@ -939,7 +912,6 @@ argument|const QTransform&t
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|glyph_metrics_t
 name|alphaMapBoundingBox
 argument_list|(
@@ -953,7 +925,6 @@ argument|QFontEngine::GlyphFormat format
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QImage
 operator|*
 name|lockedAlphaMapForGlyph
@@ -970,7 +941,6 @@ argument|QPoint *offset
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|hasInternalCaching
 argument_list|()
@@ -981,13 +951,11 @@ return|return
 name|cacheEnabled
 return|;
 block|}
-name|virtual
 name|void
 name|unlockAlphaMapForGlyph
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|removeGlyphFromCache
 argument_list|(
@@ -995,7 +963,6 @@ argument|glyph_t glyph
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|int
 name|glyphMargin
 argument_list|(
@@ -1008,7 +975,6 @@ return|return
 literal|0
 return|;
 block|}
-name|virtual
 name|int
 name|glyphCount
 argument_list|()
@@ -1190,7 +1156,6 @@ argument_list|,
 argument|QFreetypeFace *freetypeFace
 argument_list|)
 block|;
-name|virtual
 name|int
 name|getPointInOutline
 argument_list|(
@@ -1214,7 +1179,6 @@ argument_list|(
 argument|QFont::HintingPreference hintingPreference
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setDefaultHintStyle
 argument_list|(
@@ -1222,7 +1186,6 @@ argument|HintStyle style
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QFontEngine
 operator|*
 name|cloneWithSize
