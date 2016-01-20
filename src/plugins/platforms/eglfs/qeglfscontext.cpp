@@ -293,6 +293,53 @@ block|}
 block|}
 end_function
 begin_function
+DECL|function|runGLChecks
+name|void
+name|QEglFSContext
+operator|::
+name|runGLChecks
+parameter_list|()
+block|{
+comment|// Note that even though there is an EGL context current here,
+comment|// QOpenGLContext and QOpenGLFunctions are not yet usable at this stage.
+specifier|const
+name|char
+modifier|*
+name|renderer
+init|=
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|char
+operator|*
+argument_list|>
+argument_list|(
+name|glGetString
+argument_list|(
+name|GL_RENDERER
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// Be nice and warn about a common source of confusion.
+if|if
+condition|(
+name|renderer
+operator|&&
+name|strstr
+argument_list|(
+name|renderer
+argument_list|,
+literal|"llvmpipe"
+argument_list|)
+condition|)
+name|qWarning
+argument_list|(
+literal|"Running on a software rasterizer (LLVMpipe), expect limited performance."
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|swapBuffers
 name|void
 name|QEglFSContext

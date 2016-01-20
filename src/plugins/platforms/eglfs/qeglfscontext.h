@@ -72,6 +72,11 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
+name|runGLChecks
+argument_list|()
+name|Q_DECL_OVERRIDE
+block|;
+name|void
 name|swapBuffers
 argument_list|(
 argument|QPlatformSurface *surface
