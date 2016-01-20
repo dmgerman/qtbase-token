@@ -132,6 +132,7 @@ operator|:
 expr|enum
 name|Section
 block|{
+comment|// a sub-type of QDateTimeParser's like-named enum.
 name|NoSection
 operator|=
 literal|0x0000
