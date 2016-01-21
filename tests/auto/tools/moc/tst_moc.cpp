@@ -2912,14 +2912,14 @@ name|header
 operator|+
 name|QString
 argument_list|(
-literal|":48: Warning: Function declaration Test::badFunctionDeclaration contains extra qualification. Ignoring as signal or slot.\n"
+literal|":43: Warning: Function declaration Test::badFunctionDeclaration contains extra qualification. Ignoring as signal or slot.\n"
 argument_list|)
 operator|+
 name|header
 operator|+
 name|QString
 argument_list|(
-literal|":51: Warning: parsemaybe: Function declaration Test::anotherOne contains extra qualification. Ignoring as signal or slot.\n"
+literal|":46: Warning: parsemaybe: Function declaration Test::anotherOne contains extra qualification. Ignoring as signal or slot.\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4958,7 +4958,7 @@ name|header
 operator|+
 name|QString
 argument_list|(
-literal|":48: Warning: Class Bar inherits from two QObject subclasses QWindow and Foo. This is not supported!\n"
+literal|":43: Warning: Class Bar inherits from two QObject subclasses QWindow and Foo. This is not supported!\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5359,7 +5359,7 @@ name|header
 operator|+
 name|QString
 argument_list|(
-literal|":50: Warning: Class Test implements the interface MyInterface but does not list it in Q_INTERFACES. qobject_cast to MyInterface will not work!\n"
+literal|":45: Warning: Class Test implements the interface MyInterface but does not list it in Q_INTERFACES. qobject_cast to MyInterface will not work!\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7478,7 +7478,7 @@ name|header
 operator|+
 name|QString
 argument_list|(
-literal|":41: Warning: Property declaration foo has no READ accessor function or associated MEMBER variable. The property will be invalid.\n"
+literal|":36: Warning: Property declaration foo has no READ accessor function or associated MEMBER variable. The property will be invalid.\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8402,14 +8402,14 @@ name|header
 operator|+
 name|QString
 argument_list|(
-literal|":43: Warning: Signals cannot be declared virtual\n"
+literal|":38: Warning: Signals cannot be declared virtual\n"
 argument_list|)
 operator|+
 name|header
 operator|+
 name|QString
 argument_list|(
-literal|":45: Warning: Signals cannot be declared virtual\n"
+literal|":40: Warning: Signals cannot be declared virtual\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9405,7 +9405,7 @@ name|header
 operator|+
 name|QString
 argument_list|(
-literal|":47: Error: NOTIFY signal 'fooChanged' of property 'foo' does not exist in class ClassWithWrongNOTIFY.\n"
+literal|":42: Error: NOTIFY signal 'fooChanged' of property 'foo' does not exist in class ClassWithWrongNOTIFY.\n"
 argument_list|)
 argument_list|)
 expr_stmt|;

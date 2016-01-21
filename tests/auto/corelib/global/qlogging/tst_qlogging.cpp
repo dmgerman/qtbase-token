@@ -3423,24 +3423,24 @@ name|QByteArray
 argument_list|>
 argument_list|()
 operator|<<
-literal|"debug  44 T::T static constructor"
+literal|"debug  39 T::T static constructor"
 comment|//  we can't be sure whether the QT_MESSAGE_PATTERN is already destructed
 operator|<<
 literal|"static destructor"
 operator|<<
-literal|"debug tst_qlogging 65 MyClass::myFunction from_a_function 34"
+literal|"debug tst_qlogging 60 MyClass::myFunction from_a_function 34"
 operator|<<
-literal|"debug tst_qlogging 75 main qDebug"
+literal|"debug tst_qlogging 70 main qDebug"
 operator|<<
-literal|"info tst_qlogging 76 main qInfo"
+literal|"info tst_qlogging 71 main qInfo"
 operator|<<
-literal|"warning tst_qlogging 77 main qWarning"
+literal|"warning tst_qlogging 72 main qWarning"
 operator|<<
-literal|"critical tst_qlogging 78 main qCritical"
+literal|"critical tst_qlogging 73 main qCritical"
 operator|<<
-literal|"warning tst_qlogging 81 main qDebug with category"
+literal|"warning tst_qlogging 76 main qDebug with category"
 operator|<<
-literal|"debug tst_qlogging 85 main qDebug2"
+literal|"debug tst_qlogging 80 main qDebug2"
 operator|)
 expr_stmt|;
 name|QTest
