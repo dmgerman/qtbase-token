@@ -231,6 +231,7 @@ argument|QPainterPath *path
 argument_list|,
 argument|QTextItem::RenderFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|HGDIOBJ
 name|selectDesignFont

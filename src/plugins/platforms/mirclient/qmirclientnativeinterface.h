@@ -37,6 +37,8 @@ block|,
 name|NativeOrientation
 block|,
 name|Display
+block|,
+name|MirConnection
 block|}
 block|;
 name|QMirClientNativeInterface
@@ -47,6 +49,14 @@ name|QMirClientNativeInterface
 argument_list|()
 block|;
 comment|// QPlatformNativeInterface methods.
+name|void
+operator|*
+name|nativeResourceForIntegration
+argument_list|(
+argument|const QByteArray&resource
+argument_list|)
+name|override
+block|;
 name|void
 operator|*
 name|nativeResourceForContext
@@ -89,6 +99,16 @@ return|return
 name|mGenericEventFilterType
 return|;
 block|}
+name|void
+name|setMirConnection
+argument_list|(
+argument|void *mirConnection
+argument_list|)
+block|{
+name|mMirConnection
+operator|=
+name|mirConnection
+block|; }
 name|private
 operator|:
 specifier|const
@@ -100,6 +120,10 @@ operator|::
 name|ScreenOrientation
 operator|*
 name|mNativeOrientation
+block|;
+name|void
+operator|*
+name|mMirConnection
 block|; }
 decl_stmt|;
 end_decl_stmt

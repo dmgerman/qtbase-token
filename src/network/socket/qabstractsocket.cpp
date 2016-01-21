@@ -4162,6 +4162,14 @@ argument_list|(
 name|state
 argument_list|)
 emit|;
+if|if
+condition|(
+name|socketType
+operator|==
+name|QAbstractSocket
+operator|::
+name|UdpSocket
+condition|)
 name|socketEngine
 operator|->
 name|setReadNotificationEnabled

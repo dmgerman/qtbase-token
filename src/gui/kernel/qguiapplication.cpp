@@ -1934,6 +1934,17 @@ block|;
 operator|delete
 name|QGuiApplicationPrivate
 operator|::
+name|m_inputDeviceManager
+block|;
+name|QGuiApplicationPrivate
+operator|::
+name|m_inputDeviceManager
+operator|=
+literal|0
+block|;
+operator|delete
+name|QGuiApplicationPrivate
+operator|::
 name|desktopFileName
 block|;
 name|QGuiApplicationPrivate

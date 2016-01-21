@@ -24,6 +24,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QAtomicInt>
+end_include
+begin_include
+include|#
+directive|include
 file|<mir_toolkit/mir_client_library.h>
 end_include
 begin_decl_stmt
@@ -91,12 +96,22 @@ return|return
 name|mIntegration
 return|;
 block|}
+name|QMirClientWindow
+operator|*
+name|lastFocusedWindow
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mLastFocusedWindow
+return|;
+block|}
 name|protected
 operator|:
 name|void
 name|dispatchKeyEvent
 argument_list|(
-name|QWindow
+name|QMirClientWindow
 operator|*
 name|window
 argument_list|,
@@ -109,7 +124,7 @@ block|;
 name|void
 name|dispatchPointerEvent
 argument_list|(
-name|QWindow
+name|QMirClientWindow
 operator|*
 name|window
 argument_list|,
@@ -122,7 +137,7 @@ block|;
 name|void
 name|dispatchTouchEvent
 argument_list|(
-name|QWindow
+name|QMirClientWindow
 operator|*
 name|window
 argument_list|,
@@ -135,7 +150,7 @@ block|;
 name|void
 name|dispatchInputEvent
 argument_list|(
-name|QWindow
+name|QMirClientWindow
 operator|*
 name|window
 argument_list|,
@@ -177,6 +192,13 @@ name|QEvent
 operator|::
 name|Type
 name|mEventType
+block|;
+name|QMirClientWindow
+operator|*
+name|mLastFocusedWindow
+block|;
+name|QAtomicInt
+name|mPendingFocusGainedEvents
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -1258,13 +1258,13 @@ name|Q_BYTE_ORDER
 operator|==
 name|Q_BIG_ENDIAN
 specifier|const
-name|qle_ushort
+name|ushort
 operator|*
 name|uc
 operator|=
 operator|(
 specifier|const
-name|qle_ushort
+name|ushort
 operator|*
 operator|)
 name|str

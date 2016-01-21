@@ -95,16 +95,11 @@ return|;
 block|}
 name|void
 argument_list|(
-operator|*
-name|getProcAddress
-argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|procName
+argument|*getProcAddress(const QByteArray& procName)
 argument_list|)
-argument_list|)
-argument_list|()
+operator|(
+operator|)
+name|override
 block|;
 name|EGLContext
 name|eglContext

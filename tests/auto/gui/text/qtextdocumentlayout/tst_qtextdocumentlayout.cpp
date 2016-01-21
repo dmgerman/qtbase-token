@@ -1539,12 +1539,7 @@ name|cursor
 operator|.
 name|insertText
 argument_list|(
-name|QString
-operator|::
-name|number
-argument_list|(
-name|i
-argument_list|)
+literal|"A"
 argument_list|)
 expr_stmt|;
 block|}

@@ -504,7 +504,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes all mappings for \a sender.      This is done automatically when mapped objects are destroyed. */
+comment|/*!     Removes all mappings for \a sender.      This is done automatically when mapped objects are destroyed.      \note This does not disconnect any signals. If \a sender is not destroyed     then this will need to be done explicitly if required. */
 end_comment
 begin_function
 DECL|function|removeMappings

@@ -54,6 +54,12 @@ name|QMirClientInput
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QMirClientNativeInterface
+name|class
+name|QMirClientNativeInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QMirClientScreen
 name|class
 name|QMirClientScreen
@@ -98,11 +104,7 @@ name|nativeInterface
 argument_list|()
 specifier|const
 name|override
-block|{
-return|return
-name|mNativeInterface
-return|;
-block|}
+block|;
 name|QPlatformBackingStore
 operator|*
 name|createPlatformBackingStore
@@ -227,7 +229,7 @@ name|void
 name|setupDescription
 argument_list|()
 block|;
-name|QPlatformNativeInterface
+name|QMirClientNativeInterface
 operator|*
 name|mNativeInterface
 block|;

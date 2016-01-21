@@ -1657,7 +1657,11 @@ operator|=
 operator|*
 name|data
 expr_stmt|;
-else|else
+elseif|else
+if|if
+condition|(
+name|len
+condition|)
 operator|::
 name|memcpy
 argument_list|(

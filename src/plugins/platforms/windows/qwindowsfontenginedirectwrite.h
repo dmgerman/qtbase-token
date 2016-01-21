@@ -102,11 +102,13 @@ name|QFixed
 name|lineThickness
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|underlinePosition
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|getSfntTableData
@@ -118,11 +120,13 @@ argument_list|,
 argument|uint *length
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|emSquareSize
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|glyph_t
 name|glyphIndex
@@ -146,6 +150,7 @@ argument_list|,
 argument|ShaperFlags flags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|recalcAdvances
@@ -155,6 +160,7 @@ argument_list|,
 argument|ShaperFlags
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|addGlyphsToPath
@@ -169,21 +175,21 @@ argument|QPainterPath *path
 argument_list|,
 argument|QTextItem::RenderFlags flags
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
-specifier|const
-name|QGlyphLayout
-operator|&
-name|glyphs
+argument|const QGlyphLayout&glyphs
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|glyph_metrics_t
 name|boundingBox
 argument_list|(
 argument|glyph_t g
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|glyph_metrics_t
 name|alphaMapBoundingBox
@@ -196,36 +202,43 @@ argument|const QTransform&matrix
 argument_list|,
 argument|GlyphFormat
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|ascent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|descent
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|leading
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QFixed
 name|xHeight
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|qreal
 name|maxCharWidth
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|supportsSubPixelPositions
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|alphaMapForGlyph
@@ -234,6 +247,7 @@ argument|glyph_t glyph
 argument_list|,
 argument|QFixed subPixelPosition
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|alphaMapForGlyph
@@ -244,6 +258,7 @@ argument|QFixed subPixelPosition
 argument_list|,
 argument|const QTransform&t
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QImage
 name|alphaRGBMapForGlyph
@@ -254,6 +269,7 @@ argument|QFixed subPixelPosition
 argument_list|,
 argument|const QTransform&xform
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|QFontEngine
 operator|*
@@ -262,6 +278,7 @@ argument_list|(
 argument|qreal pixelSize
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|const
 name|QSharedPointer

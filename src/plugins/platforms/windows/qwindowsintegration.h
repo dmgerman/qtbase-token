@@ -107,6 +107,7 @@ argument_list|(
 argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QPlatformWindow
 operator|*
@@ -115,6 +116,7 @@ argument_list|(
 argument|QWindow *window
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 ifndef|#
 directive|ifndef
@@ -133,6 +135,7 @@ operator|::
 name|OpenGLModuleType
 name|openGLModuleType
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|QWindowsStaticOpenGLContext
@@ -225,6 +228,7 @@ operator|*
 name|services
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 name|QVariant
 name|styleHint

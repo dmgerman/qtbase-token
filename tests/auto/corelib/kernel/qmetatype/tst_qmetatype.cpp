@@ -1918,7 +1918,7 @@ parameter_list|,
 name|RealType
 parameter_list|)
 define|\
-value|QTest::newRow(#RealType)<< QMetaType::MetaTypeName<< #RealType;
+value|QTest::newRow(#RealType)<< int(QMetaType::MetaTypeName)<< #RealType;
 end_define
 begin_function
 DECL|function|typeName_data
@@ -1932,9 +1932,7 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|>
 argument_list|(
 literal|"aType"
@@ -1961,9 +1959,12 @@ argument_list|(
 literal|"QMetaType::UnknownType"
 argument_list|)
 operator|<<
+name|int
+argument_list|(
 name|QMetaType
 operator|::
 name|UnknownType
+argument_list|)
 operator|<<
 cast|static_cast
 argument_list|<
@@ -1982,13 +1983,6 @@ argument_list|(
 literal|"Whity<double>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -1998,7 +1992,6 @@ name|double
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2014,13 +2007,6 @@ argument_list|(
 literal|"Whity<int>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2030,7 +2016,6 @@ name|int
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2046,13 +2031,6 @@ argument_list|(
 literal|"Testspace::Foo"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2061,7 +2039,6 @@ operator|::
 name|Foo
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2077,13 +2054,8 @@ argument_list|(
 literal|"-1"
 argument_list|)
 operator|<<
-name|QMetaType
-operator|::
-name|Type
-argument_list|(
 operator|-
 literal|1
-argument_list|)
 operator|<<
 name|QString
 argument_list|()
@@ -2095,13 +2067,8 @@ argument_list|(
 literal|"-124125534"
 argument_list|)
 operator|<<
-name|QMetaType
-operator|::
-name|Type
-argument_list|(
 operator|-
 literal|124125534
-argument_list|)
 operator|<<
 name|QString
 argument_list|()
@@ -2113,12 +2080,7 @@ argument_list|(
 literal|"124125534"
 argument_list|)
 operator|<<
-name|QMetaType
-operator|::
-name|Type
-argument_list|(
 literal|124125534
-argument_list|)
 operator|<<
 name|QString
 argument_list|()
@@ -2131,13 +2093,6 @@ argument_list|(
 literal|"QList<int>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2147,7 +2102,6 @@ name|int
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2163,13 +2117,6 @@ argument_list|(
 literal|"QHash<int,int>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2181,7 +2128,6 @@ name|int
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2197,13 +2143,6 @@ argument_list|(
 literal|"QMap<int,int>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2215,7 +2154,6 @@ name|int
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2231,13 +2169,6 @@ argument_list|(
 literal|"QVector<QList<int>>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2250,7 +2181,6 @@ argument_list|>
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2266,13 +2196,6 @@ argument_list|(
 literal|"QVector<QMap<int,int>>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2287,7 +2210,6 @@ argument_list|>
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2303,13 +2225,6 @@ argument_list|(
 literal|"CustomQObject*"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2317,7 +2232,6 @@ name|CustomQObject
 operator|*
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2333,20 +2247,12 @@ argument_list|(
 literal|"CustomGadget"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
 name|CustomGadget
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2362,13 +2268,6 @@ argument_list|(
 literal|"CustomQObject::CustomQEnum"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2377,7 +2276,6 @@ operator|::
 name|CustomQEnum
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2393,13 +2291,6 @@ argument_list|(
 literal|"Qt::ArrowType"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -2408,7 +2299,6 @@ operator|::
 name|ArrowType
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 name|QString
 operator|::
@@ -2429,9 +2319,7 @@ parameter_list|()
 block|{
 name|QFETCH
 argument_list|(
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|,
 name|aType
 argument_list|)
@@ -2500,9 +2388,7 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|>
 argument_list|(
 literal|"aType"
@@ -2530,7 +2416,7 @@ parameter_list|,
 name|RealType
 parameter_list|)
 define|\
-value|QTest::newRow(#RealType)<< QMetaType::MetaTypeName<< QByteArray( #RealType );
+value|QTest::newRow(#RealType)<< int(QMetaType::MetaTypeName)<< QByteArray( #RealType );
 DECL|macro|TST_QMETATYPE_TYPE_DATA_ALIAS
 define|#
 directive|define
@@ -2545,7 +2431,7 @@ parameter_list|,
 name|RealTypeString
 parameter_list|)
 define|\
-value|QTest::newRow(RealTypeString)<< QMetaType::MetaTypeName<< QByteArray( #AliasType );
+value|QTest::newRow(RealTypeString)<< int(QMetaType::MetaTypeName)<< QByteArray( #AliasType );
 name|QTest
 operator|::
 name|newRow
@@ -2553,9 +2439,12 @@ argument_list|(
 literal|"empty"
 argument_list|)
 operator|<<
+name|int
+argument_list|(
 name|QMetaType
 operator|::
 name|UnknownType
+argument_list|)
 operator|<<
 name|QByteArray
 argument_list|()
@@ -2588,9 +2477,7 @@ parameter_list|()
 block|{
 name|QFETCH
 argument_list|(
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|,
 name|aType
 argument_list|)
@@ -2612,10 +2499,7 @@ argument_list|(
 name|aTypeName
 argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|aType
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// QMetaType::type(const char *)
@@ -2631,10 +2515,7 @@ name|constData
 argument_list|()
 argument_list|)
 argument_list|,
-name|int
-argument_list|(
 name|aType
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -4938,9 +4819,7 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|>
 argument_list|(
 literal|"type"
@@ -4958,7 +4837,7 @@ parameter_list|,
 name|RealType
 parameter_list|)
 define|\
-value|QTest::newRow(QMetaType::typeName(QMetaType::MetaTypeName))<< QMetaType::MetaTypeName;
+value|QTest::newRow(QMetaType::typeName(QMetaType::MetaTypeName))<< int(QMetaType::MetaTypeName);
 name|FOR_EACH_CORE_METATYPE
 argument_list|(
 argument|ADD_METATYPE_TEST_ROW
@@ -5223,9 +5102,7 @@ block|}
 struct|;
 name|QFETCH
 argument_list|(
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|,
 name|type
 argument_list|)
@@ -5504,9 +5381,7 @@ block|}
 struct|;
 name|QFETCH
 argument_list|(
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|,
 name|type
 argument_list|)
@@ -5533,9 +5408,7 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|>
 argument_list|(
 literal|"type"
@@ -5558,9 +5431,12 @@ argument_list|(
 literal|"QMetaType::UnknownType"
 argument_list|)
 operator|<<
+name|int
+argument_list|(
 name|QMetaType
 operator|::
 name|UnknownType
+argument_list|)
 operator|<<
 name|size_t
 argument_list|(
@@ -5579,7 +5455,7 @@ parameter_list|,
 name|RealType
 parameter_list|)
 define|\
-value|QTest::newRow(#RealType)<< QMetaType::MetaTypeName<< size_t(QTypeInfo<RealType>::sizeOf);
+value|QTest::newRow(#RealType)<< int(QMetaType::MetaTypeName)<< size_t(QTypeInfo<RealType>::sizeOf);
 name|FOR_EACH_CORE_METATYPE
 argument_list|(
 argument|ADD_METATYPE_TEST_ROW
@@ -5595,13 +5471,6 @@ argument_list|(
 literal|"Whity<double>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -5611,7 +5480,6 @@ name|double
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 sizeof|sizeof
 argument_list|(
@@ -5628,13 +5496,6 @@ argument_list|(
 literal|"Whity<int>"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -5644,7 +5505,6 @@ name|int
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 sizeof|sizeof
 argument_list|(
@@ -5661,13 +5521,6 @@ argument_list|(
 literal|"Testspace::Foo"
 argument_list|)
 operator|<<
-cast|static_cast
-argument_list|<
-name|QMetaType
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 operator|::
 name|qMetaTypeId
 argument_list|<
@@ -5676,7 +5529,6 @@ operator|::
 name|Foo
 argument_list|>
 argument_list|()
-argument_list|)
 operator|<<
 sizeof|sizeof
 argument_list|(
@@ -5692,13 +5544,8 @@ argument_list|(
 literal|"-1"
 argument_list|)
 operator|<<
-name|QMetaType
-operator|::
-name|Type
-argument_list|(
 operator|-
 literal|1
-argument_list|)
 operator|<<
 name|size_t
 argument_list|(
@@ -5712,13 +5559,8 @@ argument_list|(
 literal|"-124125534"
 argument_list|)
 operator|<<
-name|QMetaType
-operator|::
-name|Type
-argument_list|(
 operator|-
 literal|124125534
-argument_list|)
 operator|<<
 name|size_t
 argument_list|(
@@ -5732,12 +5574,7 @@ argument_list|(
 literal|"124125534"
 argument_list|)
 operator|<<
-name|QMetaType
-operator|::
-name|Type
-argument_list|(
 literal|124125534
-argument_list|)
 operator|<<
 name|size_t
 argument_list|(
@@ -5756,9 +5593,7 @@ parameter_list|()
 block|{
 name|QFETCH
 argument_list|(
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|,
 name|type
 argument_list|)
@@ -5810,9 +5645,7 @@ parameter_list|()
 block|{
 name|QFETCH
 argument_list|(
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|,
 name|type
 argument_list|)
@@ -7588,9 +7421,7 @@ block|}
 struct|;
 name|QFETCH
 argument_list|(
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|,
 name|type
 argument_list|)
@@ -8009,9 +7840,7 @@ block|}
 struct|;
 name|QFETCH
 argument_list|(
-name|QMetaType
-operator|::
-name|Type
+name|int
 argument_list|,
 name|type
 argument_list|)

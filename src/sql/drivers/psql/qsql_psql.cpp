@@ -4138,6 +4138,11 @@ block|{
 comment|//Client version before QPSQLDriver::Version9 only supports escape mode for bytea type,
 comment|//but bytea format is set to hex by default in PSQL 9 and above. So need to force the
 comment|//server use the old escape mode when connects to the new server with old client library.
+name|PQclear
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
 name|result
 operator|=
 name|exec
