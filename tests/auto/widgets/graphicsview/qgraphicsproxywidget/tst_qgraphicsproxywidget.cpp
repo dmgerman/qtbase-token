@@ -23564,7 +23564,7 @@ operator|.
 name|size
 argument_list|()
 operator|/
-literal|5
+literal|4
 decl_stmt|;
 name|QGraphicsScene
 name|scene
@@ -23576,6 +23576,24 @@ operator|&
 name|scene
 argument_list|)
 decl_stmt|;
+name|view
+operator|.
+name|setHorizontalScrollBarPolicy
+argument_list|(
+name|Qt
+operator|::
+name|ScrollBarAlwaysOff
+argument_list|)
+expr_stmt|;
+name|view
+operator|.
+name|setVerticalScrollBarPolicy
+argument_list|(
+name|Qt
+operator|::
+name|ScrollBarAlwaysOff
+argument_list|)
+expr_stmt|;
 name|view
 operator|.
 name|setTransform
@@ -23643,13 +23661,38 @@ modifier|*
 name|embeddedWidget
 init|=
 operator|new
-name|QWidget
+name|QGroupBox
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"Embedded"
+argument_list|)
+argument_list|)
 decl_stmt|;
+name|embeddedWidget
+operator|->
+name|setStyleSheet
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"background-color: \"yellow\"; "
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|embeddedWidget
 operator|->
 name|setFixedSize
 argument_list|(
+operator|(
 name|size
+operator|-
+name|QSize
+argument_list|(
+literal|10
+argument_list|,
+literal|10
+argument_list|)
+operator|)
 operator|/
 literal|2
 argument_list|)
@@ -23659,8 +23702,13 @@ modifier|*
 name|childWidget
 init|=
 operator|new
-name|QWidget
+name|QGroupBox
 argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"Child"
+argument_list|)
+argument_list|,
 name|embeddedWidget
 argument_list|)
 decl_stmt|;
@@ -23797,7 +23845,7 @@ operator|.
 name|manhattanLength
 argument_list|()
 operator|<=
-literal|2
+literal|3
 argument_list|,
 name|msgPointMismatch
 argument_list|(
@@ -23810,8 +23858,7 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Same test with child centered on embeddedWidget. The correct
-comment|// mapping is not implemented yet, but at least make sure
+comment|// Same test with child centered on embeddedWidget. Also make sure
 comment|// the roundtrip maptoGlobal()/mapFromGlobal() returns the same
 comment|// point since that is important for mouse event handling (QTBUG-50030,
 comment|// QTBUG-50136).
@@ -23848,15 +23895,6 @@ name|childCenterGlobal
 argument_list|)
 argument_list|,
 name|childCenter
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Not implemented for child widgets of embedded widgets"
-argument_list|,
-name|Continue
 argument_list|)
 expr_stmt|;
 name|QVERIFY2
