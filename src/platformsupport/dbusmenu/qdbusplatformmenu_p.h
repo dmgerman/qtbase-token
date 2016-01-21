@@ -473,6 +473,15 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|void
+name|syncSubMenu
+argument_list|(
+specifier|const
+name|QDBusPlatformMenu
+operator|*
+name|menu
+argument_list|)
+block|;
+name|void
 name|syncMenuItem
 argument_list|(
 argument|QPlatformMenuItem *menuItem
@@ -609,15 +618,14 @@ argument_list|(
 name|type
 argument_list|)
 block|; }
-name|int
-name|dbusID
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_dbusID
-return|;
-block|}
+name|void
+name|setContainingMenuItem
+argument_list|(
+name|QDBusPlatformMenuItem
+operator|*
+name|item
+argument_list|)
+block|;
 name|void
 name|showPopup
 argument_list|(
@@ -715,27 +723,6 @@ operator|.
 name|m_tag
 return|;
 block|}
-specifier|static
-name|QDBusPlatformMenu
-operator|*
-name|byId
-argument_list|(
-argument|int id
-argument_list|)
-block|;
-specifier|static
-name|QList
-operator|<
-name|QDBusPlatformMenu
-operator|*
-operator|>
-name|topLevelMenus
-argument_list|()
-block|{
-return|return
-name|m_topLevelMenus
-return|;
-block|}
 name|uint
 name|revision
 argument_list|()
@@ -787,9 +774,6 @@ block|;
 name|bool
 name|m_isSeparator
 block|;
-name|int
-name|m_dbusID
-block|;
 name|uint
 name|m_revision
 block|;
@@ -812,14 +796,6 @@ block|;
 name|QDBusPlatformMenuItem
 operator|*
 name|m_containingMenuItem
-block|;
-specifier|static
-name|QList
-operator|<
-name|QDBusPlatformMenu
-operator|*
-operator|>
-name|m_topLevelMenus
 block|; }
 decl_stmt|;
 end_decl_stmt

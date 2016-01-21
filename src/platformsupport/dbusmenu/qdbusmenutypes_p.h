@@ -319,6 +319,11 @@ specifier|const
 name|QStringList
 modifier|&
 name|propertyNames
+parameter_list|,
+specifier|const
+name|QDBusPlatformMenu
+modifier|*
+name|topLevelMenu
 parameter_list|)
 function_decl|;
 name|void

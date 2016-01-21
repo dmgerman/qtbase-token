@@ -156,9 +156,9 @@ name|public
 operator|:
 name|QDBusMenuAdaptor
 argument_list|(
-name|QObject
+name|QDBusPlatformMenu
 operator|*
-name|parent
+name|topLevelMenu
 argument_list|)
 block|;
 name|virtual
@@ -321,6 +321,12 @@ argument|uint revision
 argument_list|,
 argument|int parent
 argument_list|)
+block|;
+name|private
+operator|:
+name|QDBusPlatformMenu
+operator|*
+name|m_topLevelMenu
 block|; }
 decl_stmt|;
 end_decl_stmt
