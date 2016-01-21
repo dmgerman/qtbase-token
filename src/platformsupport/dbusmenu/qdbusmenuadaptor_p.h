@@ -240,7 +240,10 @@ argument_list|,
 argument|uint timestamp
 argument_list|)
 block|;
-name|void
+name|QList
+operator|<
+name|int
+operator|>
 name|EventGroup
 argument_list|(
 specifier|const

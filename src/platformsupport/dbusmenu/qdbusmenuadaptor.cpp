@@ -315,7 +315,10 @@ block|}
 end_function
 begin_function
 DECL|function|EventGroup
-name|void
+name|QList
+argument_list|<
+name|int
+argument_list|>
 name|QDBusMenuAdaptor
 operator|::
 name|EventGroup
@@ -351,6 +354,14 @@ operator|.
 name|m_timestamp
 argument_list|)
 expr_stmt|;
+return|return
+name|QList
+argument_list|<
+name|int
+argument_list|>
+argument_list|()
+return|;
+comment|// idErrors
 block|}
 end_function
 begin_function
