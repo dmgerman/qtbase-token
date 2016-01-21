@@ -21897,7 +21897,7 @@ argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 operator|&
 name|box
@@ -21945,7 +21945,7 @@ argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
-name|qWaitForWindowShown
+name|qWaitForWindowExposed
 argument_list|(
 name|container
 argument_list|)
