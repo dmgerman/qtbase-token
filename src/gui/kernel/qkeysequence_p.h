@@ -177,6 +177,21 @@ name|SequenceFormat
 name|format
 argument_list|)
 decl_stmt|;
+comment|// used in dbusmenu
+name|Q_GUI_EXPORT
+specifier|static
+name|QString
+name|keyName
+argument_list|(
+name|int
+name|key
+argument_list|,
+name|QKeySequence
+operator|::
+name|SequenceFormat
+name|format
+argument_list|)
+decl_stmt|;
 specifier|static
 name|int
 name|decodeString
