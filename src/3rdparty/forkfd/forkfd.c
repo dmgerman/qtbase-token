@@ -308,6 +308,15 @@ name|defined
 argument_list|(
 name|__FreeBSD__
 argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|__FreeBSD_version
+argument_list|)
+operator|&&
+name|__FreeBSD_version
+operator|>=
+literal|1000032
 end_if
 begin_define
 DECL|macro|HAVE_PIPE2

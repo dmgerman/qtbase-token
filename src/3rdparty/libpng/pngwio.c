@@ -13,7 +13,7 @@ directive|ifdef
 name|PNG_WRITE_SUPPORTED
 end_ifdef
 begin_comment
-comment|/* Write the data to whatever output you are using.  The default routine  * writes to a file pointer.  Note that this routine sometimes gets called  * with very small lengths, so you should implement some kind of simple  * buffering if you are using unbuffered writes.  This should never be asked  * to write more than 64K on a 16 bit machine.  */
+comment|/* Write the data to whatever output you are using.  The default routine  * writes to a file pointer.  Note that this routine sometimes gets called  * with very small lengths, so you should implement some kind of simple  * buffering if you are using unbuffered writes.  This should never be asked  * to write more than 64K on a 16-bit machine.  */
 end_comment
 begin_function
 name|void

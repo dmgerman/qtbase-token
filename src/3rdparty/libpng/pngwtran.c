@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngwtran.c - transforms the data in a row for PNG writers  *  * Last changed in libpng 1.6.17 [March 26, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pngwtran.c - transforms the data in a row for PNG writers  *  * Last changed in libpng 1.6.18 [July 23, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_include
 include|#
@@ -197,9 +197,11 @@ name|sp
 decl_stmt|,
 name|dp
 decl_stmt|;
+name|unsigned
 name|int
 name|shift
-decl_stmt|,
+decl_stmt|;
+name|int
 name|v
 decl_stmt|;
 name|png_uint_32
@@ -326,9 +328,11 @@ name|sp
 decl_stmt|,
 name|dp
 decl_stmt|;
+name|unsigned
 name|int
 name|shift
-decl_stmt|,
+decl_stmt|;
+name|int
 name|v
 decl_stmt|;
 name|png_uint_32
@@ -1771,10 +1775,7 @@ operator|=
 name|sp
 expr_stmt|;
 operator|*
-operator|(
 name|dp
-operator|++
-operator|)
 operator|=
 call|(
 name|png_byte
@@ -1861,10 +1862,7 @@ operator|)
 argument_list|)
 expr_stmt|;
 operator|*
-operator|(
 name|dp
-operator|++
-operator|)
 operator|=
 call|(
 name|png_byte
@@ -2043,10 +2041,7 @@ operator|)
 argument_list|)
 expr_stmt|;
 operator|*
-operator|(
 name|dp
-operator|++
-operator|)
 operator|=
 call|(
 name|png_byte

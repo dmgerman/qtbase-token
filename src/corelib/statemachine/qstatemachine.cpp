@@ -9838,6 +9838,12 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|isInternalEventQueueEmpty
+argument_list|()
+condition|)
+block|{
 name|processing
 operator|=
 literal|false
@@ -9861,6 +9867,7 @@ literal|": no transitions enabled"
 expr_stmt|;
 endif|#
 directive|endif
+block|}
 block|}
 else|else
 block|{

@@ -11228,6 +11228,14 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
+emit|emit
+name|cb
+operator|->
+name|activated
+argument_list|(
+name|index
+argument_list|)
+emit|;
 block|}
 block|}
 struct|;

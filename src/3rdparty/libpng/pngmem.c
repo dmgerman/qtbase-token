@@ -162,6 +162,7 @@ argument|png_ptr
 argument_list|)
 endif|#
 directive|endif
+comment|/* Some compilers complain that this is always true.  However, it     * can be false when integer overflow happens.     */
 if|if
 condition|(
 name|size
