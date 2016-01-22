@@ -1051,6 +1051,16 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|// Using aggregate initialization instead of ctor so we can have a POD global static
+end_comment
+begin_define
+DECL|macro|Q_WINDOW_GEOMETRY_SPECIFICATION_INITIALIZER
+define|#
+directive|define
+name|Q_WINDOW_GEOMETRY_SPECIFICATION_INITIALIZER
+value|{ Qt::TopLeftCorner, -1, -1, -1, -1 }
+end_define
+begin_comment
 comment|// Geometry specification for top level windows following the convention of the
 end_comment
 begin_comment
@@ -1061,41 +1071,6 @@ DECL|struct|QWindowGeometrySpecification
 struct|struct
 name|QWindowGeometrySpecification
 block|{
-DECL|function|QWindowGeometrySpecification
-name|QWindowGeometrySpecification
-parameter_list|()
-member_init_list|:
-name|corner
-argument_list|(
-name|Qt
-operator|::
-name|TopLeftCorner
-argument_list|)
-member_init_list|,
-name|xOffset
-argument_list|(
-operator|-
-literal|1
-argument_list|)
-member_init_list|,
-name|yOffset
-argument_list|(
-operator|-
-literal|1
-argument_list|)
-member_init_list|,
-name|width
-argument_list|(
-operator|-
-literal|1
-argument_list|)
-member_init_list|,
-name|height
-argument_list|(
-operator|-
-literal|1
-argument_list|)
-block|{}
 specifier|static
 name|QWindowGeometrySpecification
 name|fromArgument
@@ -1314,6 +1289,8 @@ parameter_list|)
 block|{
 name|QWindowGeometrySpecification
 name|result
+init|=
+name|Q_WINDOW_GEOMETRY_SPECIFICATION_INITIALIZER
 decl_stmt|;
 name|int
 name|pos
@@ -1722,6 +1699,8 @@ DECL|variable|windowGeometrySpecification
 specifier|static
 name|QWindowGeometrySpecification
 name|windowGeometrySpecification
+init|=
+name|Q_WINDOW_GEOMETRY_SPECIFICATION_INITIALIZER
 decl_stmt|;
 end_decl_stmt
 begin_comment
