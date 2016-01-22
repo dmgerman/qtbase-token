@@ -7818,6 +7818,13 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
+literal|"                return;\n"
+argument_list|)
+expr_stmt|;
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
 literal|"            }\n        }\n"
 argument_list|)
 expr_stmt|;
