@@ -268,6 +268,18 @@ argument_list|(
 name|item
 argument_list|)
 block|; }
+name|virtual
+name|void
+name|setHasExclusiveGroup
+argument_list|(
+argument|bool hasExclusiveGroup
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|hasExclusiveGroup
+argument_list|)
+block|; }
 name|Q_SIGNALS
 operator|:
 name|void

@@ -567,6 +567,14 @@ name|group
 operator|=
 name|this
 expr_stmt|;
+name|a
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|sendDataChanged
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 name|a

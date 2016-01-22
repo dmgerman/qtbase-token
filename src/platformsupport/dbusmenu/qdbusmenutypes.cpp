@@ -854,8 +854,24 @@ name|isCheckable
 argument_list|()
 condition|)
 block|{
-comment|// dbusmenu supports "radio" too, but QPlatformMenuItem doesn't seem to
-comment|// (QAction would have an exclusive actionGroup)
+name|QString
+name|toggleType
+init|=
+name|item
+operator|->
+name|hasExclusiveGroup
+argument_list|()
+condition|?
+name|QLatin1String
+argument_list|(
+literal|"radio"
+argument_list|)
+else|:
+name|QLatin1String
+argument_list|(
+literal|"checkmark"
+argument_list|)
+decl_stmt|;
 name|m_properties
 operator|.
 name|insert
@@ -865,10 +881,7 @@ argument_list|(
 literal|"toggle-type"
 argument_list|)
 argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"checkmark"
-argument_list|)
+name|toggleType
 argument_list|)
 expr_stmt|;
 name|m_properties
