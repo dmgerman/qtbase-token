@@ -105,15 +105,15 @@ name|Stream
 block|{
 enum|enum
 block|{
-name|defaultVerbosity
+name|DefaultVerbosity
 init|=
 literal|2
 block|,
-name|verbosityShift
+name|VerbosityShift
 init|=
 literal|29
 block|,
-name|verbosityMask
+name|VerbosityMask
 init|=
 literal|0x7
 block|}
@@ -152,7 +152,7 @@ argument_list|)
 operator|,
 name|flags
 argument_list|(
-argument|defaultVerbosity<< verbosityShift
+argument|DefaultVerbosity<< VerbosityShift
 argument_list|)
 block|{}
 name|Stream
@@ -193,7 +193,7 @@ argument_list|)
 operator|,
 name|flags
 argument_list|(
-argument|defaultVerbosity<< verbosityShift
+argument|DefaultVerbosity<< VerbosityShift
 argument_list|)
 block|{}
 name|Stream
@@ -233,7 +233,7 @@ argument_list|)
 operator|,
 name|flags
 argument_list|(
-argument|defaultVerbosity<< verbosityShift
+argument|DefaultVerbosity<< VerbosityShift
 argument_list|)
 block|{}
 name|QTextStream
@@ -353,16 +353,16 @@ operator|?
 operator|(
 name|flags
 operator|>>
-name|verbosityShift
+name|VerbosityShift
 operator|)
 operator|&
-name|verbosityMask
+name|VerbosityMask
 operator|:
 name|int
 argument_list|(
 name|Stream
 operator|::
-name|defaultVerbosity
+name|DefaultVerbosity
 argument_list|)
 return|;
 block|}
@@ -386,9 +386,9 @@ name|flags
 operator|&=
 operator|~
 operator|(
-name|verbosityMask
+name|VerbosityMask
 operator|<<
-name|verbosityShift
+name|VerbosityShift
 operator|)
 expr_stmt|;
 name|flags
@@ -396,10 +396,10 @@ operator||=
 operator|(
 name|v
 operator|&
-name|verbosityMask
+name|VerbosityMask
 operator|)
 operator|<<
-name|verbosityShift
+name|VerbosityShift
 expr_stmt|;
 block|}
 block|}

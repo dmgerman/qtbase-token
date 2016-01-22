@@ -1339,7 +1339,7 @@ name|setVerbosity
 argument_list|(
 name|Stream
 operator|::
-name|defaultVerbosity
+name|DefaultVerbosity
 argument_list|)
 expr_stmt|;
 return|return
