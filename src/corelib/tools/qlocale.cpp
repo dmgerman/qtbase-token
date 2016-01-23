@@ -192,14 +192,13 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_macro
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|QLocaleData
-argument_list|,
-argument|globalLocaleData
-argument_list|)
-end_macro
+begin_decl_stmt
+DECL|variable|globalLocaleData
+specifier|static
+name|QLocaleData
+name|globalLocaleData
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
@@ -3303,8 +3302,8 @@ name|system_data
 condition|)
 name|system_data
 operator|=
+operator|&
 name|globalLocaleData
-argument_list|()
 expr_stmt|;
 comment|// tell the object that the system locale has changed.
 name|sys_locale
