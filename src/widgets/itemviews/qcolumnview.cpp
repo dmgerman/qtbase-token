@@ -2526,7 +2526,7 @@ name|passThroughRoot
 init|=
 literal|false
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QModelIndex
 argument_list|>

@@ -15295,7 +15295,10 @@ operator|->
 name|selectedRows
 argument_list|()
 decl_stmt|;
-name|QModelIndexList
+name|QVector
+argument_list|<
+name|QModelIndex
+argument_list|>
 name|newFiles
 decl_stmt|;
 for|for
