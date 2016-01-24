@@ -1384,9 +1384,7 @@ operator|.
 name|isNull
 argument_list|()
 condition|?
-name|QString
-operator|::
-name|fromLatin1
+name|QStringLiteral
 argument_list|(
 literal|"_."
 argument_list|)
@@ -1572,7 +1570,10 @@ name|realname
 operator|.
 name|startsWith
 argument_list|(
+name|QLatin1Char
+argument_list|(
 literal|':'
+argument_list|)
 argument_list|)
 condition|)
 block|{
