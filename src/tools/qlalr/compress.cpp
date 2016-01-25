@@ -677,12 +677,17 @@ name|previous_zeros
 init|=
 name|INT_MAX
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
+specifier|const
 name|UncompressedRow
+modifier|&
 name|row
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|sortedTable
+argument_list|)
 control|)
 block|{
 name|int
@@ -724,14 +729,17 @@ argument_list|,
 name|row_count
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|UncompressedRow
 modifier|&
 name|row
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|sortedTable
+argument_list|)
 control|)
 block|{
 name|int
@@ -1160,7 +1168,7 @@ block|}
 if|#
 directive|if
 literal|0
-block|foreach (UncompressedRow row, sortedTable)     {       int i = row.index ();       Q_ASSERT (i< sortedTable.size ());        for (int j = 0; j< row.size (); ++j)         {           if (row.at (j) == 0)             {               Q_ASSERT (index [i] + j< 0 || check [index [i] + j] != j);               continue;             }            Q_ASSERT ( info [index [i] + j] == row.at (j));           Q_ASSERT (check [index [i] + j] == j);         }     }
+block|for (const UncompressedRow&row : qAsConst(sortedTable))     {       int i = row.index ();       Q_ASSERT (i< sortedTable.size ());        for (int j = 0; j< row.size (); ++j)         {           if (row.at (j) == 0)             {               Q_ASSERT (index [i] + j< 0 || check [index [i] + j] != j);               continue;             }            Q_ASSERT ( info [index [i] + j] == row.at (j));           Q_ASSERT (check [index [i] + j] == j);         }     }
 endif|#
 directive|endif
 block|}
