@@ -2842,14 +2842,17 @@ literal|"#include<QtDBus/QtDBus>"
 operator|<<
 name|endl
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|include
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|includes
+argument_list|)
 control|)
 block|{
 name|hs
@@ -2919,7 +2922,7 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QDBusIntrospection
@@ -2927,7 +2930,7 @@ operator|::
 name|Interface
 modifier|*
 name|interface
-decl|,
+range|:
 name|interfaces
 control|)
 block|{
@@ -3096,7 +3099,7 @@ operator|<<
 name|endl
 expr_stmt|;
 comment|// properties:
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QDBusIntrospection
@@ -3104,7 +3107,7 @@ operator|::
 name|Property
 modifier|&
 name|property
-decl|,
+range|:
 name|interface
 operator|->
 name|properties
@@ -3311,7 +3314,7 @@ literal|"public Q_SLOTS: // METHODS"
 operator|<<
 name|endl
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QDBusIntrospection
@@ -3319,7 +3322,7 @@ operator|::
 name|Method
 modifier|&
 name|method
-decl|,
+range|:
 name|interface
 operator|->
 name|methods
@@ -3920,7 +3923,7 @@ literal|"Q_SIGNALS: // SIGNALS"
 operator|<<
 name|endl
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QDBusIntrospection
@@ -3928,7 +3931,7 @@ operator|::
 name|Signal
 modifier|&
 name|signal
-decl|,
+range|:
 name|interface
 operator|->
 name|signals_
@@ -4617,14 +4620,17 @@ literal|"#include<QtDBus/QtDBus>"
 operator|<<
 name|endl
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|include
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|includes
+argument_list|)
 control|)
 block|{
 name|hs
@@ -4732,7 +4738,7 @@ argument_list|(
 literal|"QObject"
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QDBusIntrospection
@@ -4740,7 +4746,7 @@ operator|::
 name|Interface
 modifier|*
 name|interface
-decl|,
+range|:
 name|interfaces
 control|)
 block|{
@@ -4960,7 +4966,7 @@ literal|"public: // PROPERTIES"
 operator|<<
 name|endl
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QDBusIntrospection
@@ -4968,7 +4974,7 @@ operator|::
 name|Property
 modifier|&
 name|property
-decl|,
+range|:
 name|interface
 operator|->
 name|properties
@@ -5249,7 +5255,7 @@ literal|"public Q_SLOTS: // METHODS"
 operator|<<
 name|endl
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QDBusIntrospection
@@ -5257,7 +5263,7 @@ operator|::
 name|Method
 modifier|&
 name|method
-decl|,
+range|:
 name|interface
 operator|->
 name|methods
@@ -5936,7 +5942,7 @@ literal|"Q_SIGNALS: // SIGNALS"
 operator|<<
 name|endl
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QDBusIntrospection
@@ -5944,7 +5950,7 @@ operator|::
 name|Signal
 modifier|&
 name|signal
-decl|,
+range|:
 name|interface
 operator|->
 name|signals_
