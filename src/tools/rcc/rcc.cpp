@@ -3380,15 +3380,19 @@ operator|->
 name|m_country
 condition|)
 block|{
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|name
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|m_fileNames
+argument_list|)
 control|)
+block|{
 name|qWarning
 argument_list|(
 literal|"%s: Warning: potential duplicate alias detected: '%s'"
@@ -3404,6 +3408,7 @@ name|filename
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 block|}
 block|}
