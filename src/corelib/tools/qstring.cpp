@@ -26530,6 +26530,9 @@ begin_comment
 comment|/*!     \fn const QChar QStringRef::at(int position) const      Returns the character at the given index \a position in the     string reference.      The \a position must be a valid index position in the string     (i.e., 0<= \a position< size()). */
 end_comment
 begin_comment
+comment|/*!     \fn QChar QStringRef::operator[](int position) const     \since 5.7      Returns the character at the given index \a position in the     string reference.      The \a position must be a valid index position in the string     reference (i.e., 0<= \a position< size()).      \sa at() */
+end_comment
+begin_comment
 comment|/*!     \fn void QStringRef::clear()      Clears the contents of the string reference by making it null and empty.      \sa isEmpty(), isNull() */
 end_comment
 begin_comment
