@@ -814,12 +814,19 @@ modifier|*
 name|event
 parameter_list|)
 block|{
-name|Q_FOREACH
+for|for
+control|(
+specifier|const
+name|QAccessibleEvent
+modifier|*
+name|ev
+range|:
+name|qAsConst
 argument_list|(
-argument|const QAccessibleEvent *ev
-argument_list|,
-argument|eventList()
+name|eventList
+argument_list|()
 argument_list|)
+control|)
 block|{
 if|if
 condition|(
@@ -1817,12 +1824,15 @@ argument_list|()
 operator|<<
 literal|" :"
 expr_stmt|;
-name|Q_FOREACH
-argument_list|(
-argument|const QAccessibleEvent *e
-argument_list|,
-argument|haystack
-argument_list|)
+for|for
+control|(
+specifier|const
+name|QAccessibleEvent
+modifier|*
+name|e
+range|:
+name|haystack
+control|)
 name|str
 operator|<<
 literal|' '

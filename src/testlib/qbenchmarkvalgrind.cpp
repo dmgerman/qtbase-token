@@ -398,6 +398,7 @@ argument_list|(
 name|base
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QFileInfoList
 name|fiList
 init|=
@@ -457,13 +458,13 @@ argument_list|(
 name|pattern
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QFileInfo
 modifier|&
 name|fileInfo
-decl|,
+range|:
 name|fiList
 control|)
 block|{
@@ -614,6 +615,7 @@ name|base
 argument_list|)
 expr_stmt|;
 comment|// individual dumps
+specifier|const
 name|QFileInfoList
 name|fiList
 init|=
@@ -633,13 +635,13 @@ operator|::
 name|Readable
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QFileInfo
 modifier|&
 name|fileInfo
-decl|,
+range|:
 name|fiList
 control|)
 block|{
