@@ -459,7 +459,7 @@ if|if
 condition|(
 name|arch
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"arm"
 argument_list|)
@@ -485,7 +485,7 @@ if|if
 condition|(
 name|arch
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"x64"
 argument_list|)
@@ -1493,7 +1493,8 @@ specifier|const
 name|QString
 name|root
 init|=
-literal|"$(INSTALL_ROOT)"
+name|installRoot
+argument_list|()
 decl_stmt|;
 name|ProStringList
 modifier|&

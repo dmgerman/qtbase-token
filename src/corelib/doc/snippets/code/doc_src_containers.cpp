@@ -635,59 +635,56 @@ argument_list|<
 name|QString
 argument_list|>
 operator|::
-name|iterator
+name|reverse_iterator
 name|i
-init|=
-name|list
-operator|.
-name|end
-argument_list|()
 decl_stmt|;
 end_decl_stmt
-begin_while
-while|while
-condition|(
+begin_for
+for|for
+control|(
+name|i
+operator|=
+name|list
+operator|.
+name|rbegin
+argument_list|()
+init|;
 name|i
 operator|!=
 name|list
 operator|.
-name|begin
+name|rend
 argument_list|()
-condition|)
-block|{
-operator|--
+condition|;
+operator|++
 name|i
-expr_stmt|;
+control|)
 operator|*
 name|i
 operator|=
-operator|(
-operator|*
 name|i
-operator|)
-operator|.
+operator|->
 name|toLower
 argument_list|()
 expr_stmt|;
-block|}
-end_while
+end_for
 begin_comment
+unit|}
 comment|//! [11]
 end_comment
 begin_comment
 comment|//! [12]
 end_comment
-begin_decl_stmt
-DECL|variable|i
-name|QList
-argument_list|<
+begin_expr_stmt
+unit|QList
+operator|<
 name|QString
-argument_list|>
+operator|>
 operator|::
 name|const_iterator
 name|i
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_for
 for|for
 control|(
@@ -722,7 +719,6 @@ begin_comment
 comment|//! [13]
 end_comment
 begin_decl_stmt
-DECL|variable|map
 name|QMap
 argument_list|<
 name|int
@@ -791,7 +787,6 @@ begin_comment
 comment|// RIGHT
 end_comment
 begin_decl_stmt
-DECL|variable|sizes
 specifier|const
 name|QList
 argument_list|<
@@ -806,7 +801,6 @@ argument_list|()
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|i
 name|QList
 argument_list|<
 name|int
@@ -909,7 +903,6 @@ begin_comment
 comment|//! [16]
 end_comment
 begin_decl_stmt
-DECL|variable|list
 name|QLinkedList
 argument_list|<
 name|QString
@@ -953,7 +946,6 @@ begin_comment
 comment|//! [17]
 end_comment
 begin_decl_stmt
-DECL|variable|list
 name|QLinkedList
 argument_list|<
 name|QString
@@ -987,7 +979,6 @@ begin_comment
 comment|//! [18]
 end_comment
 begin_decl_stmt
-DECL|variable|list
 name|QLinkedList
 argument_list|<
 name|QString
@@ -999,7 +990,6 @@ begin_expr_stmt
 operator|...
 end_expr_stmt
 begin_foreach
-DECL|function|foreach
 foreach|foreach
 control|(
 specifier|const
@@ -1032,7 +1022,6 @@ begin_comment
 comment|//! [19]
 end_comment
 begin_decl_stmt
-DECL|variable|map
 name|QMap
 argument_list|<
 name|QString
@@ -1080,7 +1069,6 @@ begin_comment
 comment|//! [20]
 end_comment
 begin_decl_stmt
-DECL|variable|map
 name|QMultiMap
 argument_list|<
 name|QString
@@ -1094,7 +1082,6 @@ begin_expr_stmt
 operator|...
 end_expr_stmt
 begin_foreach
-DECL|function|foreach
 foreach|foreach
 control|(
 specifier|const
@@ -1236,7 +1223,6 @@ begin_comment
 comment|// make a big vector filled with 0.
 end_comment
 begin_decl_stmt
-DECL|variable|i
 name|QVector
 argument_list|<
 name|int
@@ -1286,7 +1272,6 @@ begin_comment
 comment|// Now the iterator i is completely invalid.
 end_comment
 begin_decl_stmt
-DECL|variable|j
 name|int
 name|j
 init|=
@@ -1295,7 +1280,6 @@ name|i
 decl_stmt|;
 end_decl_stmt
 begin_comment
-DECL|variable|j
 comment|// Undefined behavior!
 end_comment
 begin_comment

@@ -3049,6 +3049,12 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 comment|//the path is a drive root, but the drive may not exist
 comment|//for backward compatibility, return true only if the drive exists
 if|if

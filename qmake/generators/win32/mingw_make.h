@@ -87,6 +87,12 @@ name|void
 name|init
 argument_list|()
 block|;
+name|virtual
+name|QString
+name|installRoot
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|void

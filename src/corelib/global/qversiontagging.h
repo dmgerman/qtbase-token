@@ -27,7 +27,7 @@ name|QVERSIONTAGGING_H
 end_define
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
-comment|/*  * Ugly hack warning and explanation:  *  * This file causes all ELF modules, be they libraries or applications, to use the  * qt_version_tag symbol that is present in QtCore. Such symbol is versioned,  * so the linker will automatically pull the current Qt version and add it to  * the ELF header of the library/application. The assembly produces one section  * called ".qtversion" containing two pointer-sized values. The first is a  * relocation to the qt_version_tag symbol (which is what causes the ELF  * version to get used). The second value is the current Qt version at the time  * of compilation.  *  * There will only be one copy of the section in the output library or application.  */
+comment|/*  * Ugly hack warning and explanation:  *  * This file causes all ELF modules, be they libraries or applications, to use the  * qt_version_tag symbol that is present in QtCore. Such symbol is versioned,  * so the linker will automatically pull the current Qt version and add it to  * the ELF header of the library/application. The assembly produces one section  * called ".qtversion" containing two 32-bit values. The first is a  * relocation to the qt_version_tag symbol (which is what causes the ELF  * version to get used). The second value is the current Qt version at the time  * of compilation.  *  * There will only be one copy of the section in the output library or application.  */
 if|#
 directive|if
 name|defined
@@ -75,23 +75,28 @@ argument_list|(
 name|Q_OS_FREEBSD_KERNEL
 argument_list|)
 operator|)
-ifdef|#
-directive|ifdef
-name|__LP64__
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_PROCESSOR_X86_64
+argument_list|)
+comment|// x86-64 or x32
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__code_model_large__
+argument_list|)
 define|#
 directive|define
 name|QT_VERSION_TAG_RELOC
 parameter_list|(
 name|sym
 parameter_list|)
-value|".quad " QT_STRINGIFY(QT_MANGLE_NAMESPACE(sym)) "@GOTPCREL\n"
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_PROCESSOR_X86_64
-argument_list|)
-comment|// x32
+value|".quad " QT_STRINGIFY(QT_MANGLE_NAMESPACE(sym)) "@GOT\n"
+else|#
+directive|else
 define|#
 directive|define
 name|QT_VERSION_TAG_RELOC
@@ -99,6 +104,8 @@ parameter_list|(
 name|sym
 parameter_list|)
 value|".long " QT_STRINGIFY(QT_MANGLE_NAMESPACE(sym)) "@GOTPCREL\n"
+endif|#
+directive|endif
 else|#
 directive|else
 comment|// x86

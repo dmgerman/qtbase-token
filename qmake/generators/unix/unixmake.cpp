@@ -3870,6 +3870,36 @@ literal|false
 return|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_comment
+comment|// MinGW x-compiling for QNX
+end_comment
+begin_function
+DECL|function|installRoot
+name|QString
+name|UnixMakefileGenerator
+operator|::
+name|installRoot
+parameter_list|()
+specifier|const
+block|{
+comment|/*       We include a magic prefix on the path to bypass mingw-make's "helpful"       intervention in the environment, recognising variables that look like       paths and adding the msys system root as prefix, which we don't want.       Once this hack has smuggled INSTALL_ROOT into make's variable space, we       can trivially strip the magic prefix back off to get the path we meant.      */
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"$(INSTALL_ROOT:@msyshack@%=%)"
+argument_list|)
+return|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 name|QString
 DECL|function|defaultInstall
@@ -3932,7 +3962,8 @@ specifier|const
 name|QString
 name|root
 init|=
-literal|"$(INSTALL_ROOT)"
+name|installRoot
+argument_list|()
 decl_stmt|;
 name|ProStringList
 modifier|&

@@ -6306,6 +6306,25 @@ argument_list|(
 literal|"expected"
 argument_list|)
 expr_stmt|;
+name|QString
+name|wednesdayJanuary
+init|=
+name|QDate
+operator|::
+name|shortDayName
+argument_list|(
+literal|3
+argument_list|)
+operator|+
+literal|' '
+operator|+
+name|QDate
+operator|::
+name|shortMonthName
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 name|QTest
 operator|::
 name|newRow
@@ -6338,9 +6357,11 @@ operator|::
 name|LocalTime
 argument_list|)
 operator|<<
+name|wednesdayJanuary
+operator|+
 name|QString
 argument_list|(
-literal|"Wed Jan 2 01:02:03 2013"
+literal|" 2 01:02:03 2013"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -6375,9 +6396,11 @@ operator|::
 name|UTC
 argument_list|)
 operator|<<
+name|wednesdayJanuary
+operator|+
 name|QString
 argument_list|(
-literal|"Wed Jan 2 01:02:03 2013 GMT"
+literal|" 2 01:02:03 2013 GMT"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -6418,9 +6441,11 @@ operator|*
 literal|60
 argument_list|)
 operator|<<
+name|wednesdayJanuary
+operator|+
 name|QString
 argument_list|(
-literal|"Wed Jan 2 01:02:03 2013 GMT+1000"
+literal|" 2 01:02:03 2013 GMT+1000"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -6462,9 +6487,11 @@ operator|*
 literal|60
 argument_list|)
 operator|<<
+name|wednesdayJanuary
+operator|+
 name|QString
 argument_list|(
-literal|"Wed Jan 2 01:02:03 2013 GMT-1000"
+literal|" 2 01:02:03 2013 GMT-1000"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -6504,19 +6531,6 @@ argument_list|(
 name|QString
 argument_list|,
 name|expected
-argument_list|)
-expr_stmt|;
-name|QLocale
-name|oldLocale
-decl_stmt|;
-name|QLocale
-operator|::
-name|setDefault
-argument_list|(
-name|QLocale
-argument_list|(
-literal|"en_US"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|QString
@@ -6609,13 +6623,6 @@ name|datetime
 operator|.
 name|utcOffset
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|QLocale
-operator|::
-name|setDefault
-argument_list|(
-name|oldLocale
 argument_list|)
 expr_stmt|;
 block|}

@@ -903,6 +903,10 @@ argument|swizzleRandB
 argument_list|)
 name|Q_UNUSED
 argument_list|(
+argument|premultipliedB
+argument_list|)
+name|Q_UNUSED
+argument_list|(
 argument|subRect
 argument_list|)
 return|return

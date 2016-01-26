@@ -92,7 +92,6 @@ operator|~
 name|QFbBackingStore
 argument_list|()
 block|;
-name|virtual
 name|QPaintDevice
 operator|*
 name|paintDevice
@@ -104,7 +103,6 @@ operator|&
 name|mImage
 return|;
 block|}
-name|virtual
 name|void
 name|flush
 argument_list|(
@@ -116,7 +114,6 @@ argument|const QPoint&offset
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|void
 name|resize
 argument_list|(

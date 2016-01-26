@@ -1096,6 +1096,8 @@ name|isEmpty
 argument_list|()
 operator|&&
 name|QFileInfo
+operator|::
+name|exists
 argument_list|(
 name|stylePath
 operator|+
@@ -1106,9 +1108,6 @@ argument_list|(
 literal|"style.json"
 argument_list|)
 argument_list|)
-operator|.
-name|exists
-argument_list|()
 condition|)
 name|stylePath
 operator|+=

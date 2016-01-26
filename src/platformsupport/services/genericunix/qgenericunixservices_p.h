@@ -72,7 +72,6 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|openUrl
 argument_list|(
@@ -80,7 +79,6 @@ argument|const QUrl&url
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|bool
 name|openDocument
 argument_list|(

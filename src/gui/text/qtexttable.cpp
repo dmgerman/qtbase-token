@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qtextcursor_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qtexttable_p.h"
 end_include
 begin_include
@@ -458,7 +463,9 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|table
 operator|->
@@ -486,7 +493,9 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|table
 operator|->
@@ -5092,7 +5101,9 @@ name|needsParagraph
 operator|=
 literal|false
 expr_stmt|;
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|p
 argument_list|,
@@ -5125,7 +5136,9 @@ condition|(
 name|rowHasText
 condition|)
 block|{
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|p
 argument_list|,
@@ -5983,7 +5996,9 @@ index|]
 argument_list|)
 decl_stmt|;
 return|return
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|p
 argument_list|,
@@ -6095,7 +6110,9 @@ name|fragment
 argument_list|)
 decl_stmt|;
 return|return
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|p
 argument_list|,

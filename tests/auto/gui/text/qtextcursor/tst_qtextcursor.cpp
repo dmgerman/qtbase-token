@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qtextcursor_p.h>
+end_include
 begin_macro
 name|QT_FORWARD_DECLARE_CLASS
 argument_list|(
@@ -8868,7 +8873,9 @@ argument_list|()
 expr_stmt|;
 name|cursor
 operator|=
-name|QTextCursor
+name|QTextCursorPrivate
+operator|::
+name|fromPosition
 argument_list|(
 name|cursor
 operator|.

@@ -214,6 +214,11 @@ argument_list|(
 argument|EGLSurface surface
 argument_list|)
 block|;
+name|virtual
+name|void
+name|runGLChecks
+argument_list|()
+block|;
 name|private
 operator|:
 name|void
