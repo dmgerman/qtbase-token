@@ -7391,13 +7391,13 @@ argument_list|)
 else|:
 literal|""
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|compiler
-decl|,
+range|:
 name|project
 operator|->
 name|values
@@ -7898,13 +7898,13 @@ name|t
 operator|<<
 literal|"###### Precompiled headers\n"
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|compiler
-decl|,
+range|:
 name|project
 operator|->
 name|values

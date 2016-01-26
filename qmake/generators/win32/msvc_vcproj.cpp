@@ -2315,13 +2315,13 @@ name|extraCompilerName
 parameter_list|)
 specifier|const
 block|{
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|var
-decl|,
+range|:
 name|project
 operator|->
 name|values
@@ -4290,13 +4290,13 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|depend
-decl|,
+range|:
 name|extraIt
 operator|.
 name|value
@@ -5620,13 +5620,13 @@ block|}
 block|}
 comment|// Add all input files for a custom compiler into a map for uniqueness,
 comment|// unless the compiler is configure as a combined stage, then use the first one
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|quc
-decl|,
+range|:
 name|project
 operator|->
 name|values
@@ -7689,13 +7689,13 @@ name|compiler
 operator|.
 name|PreprocessorDefinitions
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|path
-decl|,
+range|:
 name|project
 operator|->
 name|values
@@ -8723,13 +8723,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|item
-decl|,
+range|:
 name|project
 operator|->
 name|values
@@ -8839,13 +8839,13 @@ expr_stmt|;
 block|}
 block|}
 comment|// foreach d in item.files
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|src
-decl|,
+range|:
 name|project
 operator|->
 name|values

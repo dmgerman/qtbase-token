@@ -13746,13 +13746,13 @@ literal|"attributes = {\n"
 operator|<<
 literal|"\t\t\t\tTargetAttributes = {\n"
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|target
-decl|,
+range|:
 name|project
 operator|->
 name|values

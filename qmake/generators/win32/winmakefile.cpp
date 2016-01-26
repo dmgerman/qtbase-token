@@ -1866,13 +1866,13 @@ decl_stmt|;
 name|QStringList
 name|rcIcons
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|icon
-decl|,
+range|:
 name|project
 operator|->
 name|values

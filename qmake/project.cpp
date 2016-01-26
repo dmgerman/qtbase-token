@@ -778,13 +778,13 @@ argument_list|()
 operator|+
 literal|" ="
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|v
-decl|,
+range|:
 name|it
 operator|.
 name|value
