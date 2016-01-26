@@ -5877,7 +5877,7 @@ if|#
 directive|if
 literal|0
 comment|// Debugging
-block|Q_FOREACH(QString aKey, extraCompilerSources.keys()) {         qDebug("Extracompilers for %s are (%s)", aKey.toLatin1().constData(), extraCompilerSources.value(aKey).join(", ").toLatin1().constData());     }     Q_FOREACH(QString aKey, extraCompilerOutputs.keys()) {         qDebug("Object mapping for %s is (%s)", aKey.toLatin1().constData(), extraCompilerOutputs.value(aKey).join(", ").toLatin1().constData());     }     qDebug("");
+block|for (auto it = extraCompilerSources.cbegin(), end = extraCompilerSources.cend(); it != end; ++it)         qDebug("Extracompilers for %s are (%s)", it.key().toLatin1().constData(), it.value().join(", ").toLatin1().constData());     for (auto it = extraCompilerOutputs.cbegin(), end = extraCompilerOutputs.cend(); it != end; ++it)         qDebug("Object mapping for %s is (%s)", it.key().toLatin1().constData(), it.value().join(", ").toLatin1().constData());     qDebug("");
 endif|#
 directive|endif
 block|}
