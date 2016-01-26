@@ -1193,12 +1193,12 @@ modifier|&
 name|p
 parameter_list|)
 block|{
-foreach|foreach
+for|for
 control|(
 name|QObject
 modifier|*
 name|obj
-decl|,
+range|:
 name|win
 operator|->
 name|children
