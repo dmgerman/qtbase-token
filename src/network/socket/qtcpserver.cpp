@@ -211,14 +211,17 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// return the first that we can use
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QNetworkProxy
 modifier|&
 name|p
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|proxies
+argument_list|)
 control|)
 block|{
 if|if

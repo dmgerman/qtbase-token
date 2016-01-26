@@ -2909,14 +2909,17 @@ argument_list|)
 emit|;
 block|}
 comment|// Peer chain validation
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QSslCertificate
 modifier|&
 name|certificate
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|peerCertificateChain
+argument_list|)
 control|)
 block|{
 if|if
@@ -2989,14 +2992,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Disconnect if there are any non-ignorable errors
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QSslError
 modifier|&
 name|error
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|sslErrors
+argument_list|)
 control|)
 block|{
 if|if

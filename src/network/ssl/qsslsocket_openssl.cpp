@@ -5067,16 +5067,19 @@ argument_list|>
 name|errors
 decl_stmt|;
 comment|// check the whole chain for blacklisting (including root, as we check for subjectInfo and issuer)
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QSslCertificate
 modifier|&
 name|cert
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|configuration
 operator|.
 name|peerCertificateChain
+argument_list|)
 control|)
 block|{
 if|if
