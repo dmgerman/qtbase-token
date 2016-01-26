@@ -11234,12 +11234,17 @@ name|precompHFilename
 operator|+
 literal|"\""
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
+specifier|const
 name|QString
+modifier|&
 name|line
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|lines
+argument_list|)
 control|)
 name|CustomBuildTool
 operator|.
@@ -12482,16 +12487,20 @@ expr_stmt|;
 block|}
 comment|// Ensure that none of the output files are also dependencies. Or else, the custom buildstep
 comment|// will be rebuild every time, even if nothing has changed.
-foreach|foreach
+for|for
 control|(
+specifier|const
 name|QString
+modifier|&
 name|output
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|CustomBuildTool
 operator|.
 name|Outputs
+argument_list|)
 control|)
-block|{
 name|CustomBuildTool
 operator|.
 name|AdditionalDependencies
@@ -12501,7 +12510,6 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
-block|}
 name|useCustomBuildTool
 operator|=
 operator|!

@@ -6072,14 +6072,17 @@ literal|"\n\t"
 operator|<<
 literal|"@sed "
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|arg
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|commonSedArgs
+argument_list|)
 control|)
 name|t
 operator|<<
@@ -6281,14 +6284,17 @@ literal|"\n\t"
 operator|<<
 literal|"@sed "
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|arg
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|commonSedArgs
+argument_list|)
 control|)
 name|t
 operator|<<
