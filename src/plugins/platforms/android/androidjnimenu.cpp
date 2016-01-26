@@ -1179,12 +1179,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-foreach|foreach
+for|for
 control|(
 name|QAndroidPlatformMenu
 modifier|*
 name|item
-decl|,
+range|:
 name|menus
 control|)
 block|{

@@ -2122,13 +2122,13 @@ argument_list|,
 name|nativeString
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QByteArray
 modifier|&
 name|envVar
-decl|,
+range|:
 name|envVars
 control|)
 block|{

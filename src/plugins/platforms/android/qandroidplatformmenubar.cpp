@@ -243,12 +243,12 @@ name|tag
 parameter_list|)
 specifier|const
 block|{
-foreach|foreach
+for|for
 control|(
 name|QPlatformMenu
 modifier|*
 name|menu
-decl|,
+range|:
 name|m_menus
 control|)
 block|{
