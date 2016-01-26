@@ -359,15 +359,21 @@ name|QT_NO_NETWORKPROXY
 name|QNetworkProxy
 name|proxy
 decl_stmt|;
-foreach|foreach
+specifier|const
+specifier|auto
+name|proxies
+init|=
+name|proxyList
+argument_list|()
+decl_stmt|;
+for|for
 control|(
 specifier|const
 name|QNetworkProxy
 modifier|&
 name|p
-decl|,
-name|proxyList
-argument_list|()
+range|:
+name|proxies
 control|)
 block|{
 comment|// use the first FTP proxy

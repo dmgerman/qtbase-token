@@ -1238,11 +1238,10 @@ argument_list|)
 operator|<<
 literal|"dumping chain"
 expr_stmt|;
-foreach|foreach
-control|(
-name|QSslCertificate
-name|cert
-decl|,
+specifier|const
+specifier|auto
+name|certs
+init|=
 name|QSslSocketBackendPrivate
 operator|::
 name|STACKOFX509_to_QSslCertificates
@@ -1252,6 +1251,15 @@ argument_list|(
 name|ctx
 argument_list|)
 argument_list|)
+decl_stmt|;
+for|for
+control|(
+specifier|const
+name|QSslCertificate
+modifier|&
+name|cert
+range|:
+name|certs
 control|)
 block|{
 name|qCDebug
@@ -7818,14 +7826,11 @@ name|currentDateTimeUtc
 argument_list|()
 decl_stmt|;
 end_decl_stmt
-begin_foreach
-foreach|foreach
-control|(
+begin_decl_stmt
 specifier|const
-name|QSslCertificate
-modifier|&
-name|caCertificate
-decl|,
+specifier|auto
+name|caCertificates
+init|=
 name|QSslConfiguration
 operator|::
 name|defaultConfiguration
@@ -7833,6 +7838,17 @@ argument_list|()
 operator|.
 name|caCertificates
 argument_list|()
+decl_stmt|;
+end_decl_stmt
+begin_for
+for|for
+control|(
+specifier|const
+name|QSslCertificate
+modifier|&
+name|caCertificate
+range|:
+name|caCertificates
 control|)
 block|{
 comment|// From https://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html:
@@ -7875,7 +7891,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_foreach
+end_for
 begin_decl_stmt
 name|QMutexLocker
 name|sslErrorListMutexLocker

@@ -5,15 +5,12 @@ end_comment
 begin_comment
 comment|//! [0]
 end_comment
-begin_foreach
-DECL|function|foreach
-foreach|foreach
-control|(
+begin_decl_stmt
+DECL|variable|certs
 specifier|const
-name|QSslCertificate
-modifier|&
-name|cert
-decl|,
+specifier|auto
+name|certs
+init|=
 name|QSslCertificate
 operator|::
 name|fromPath
@@ -28,6 +25,17 @@ name|QRegExp
 operator|::
 name|Wildcard
 argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_for
+for|for
+control|(
+specifier|const
+name|QSslCertificate
+modifier|&
+name|cert
+range|:
+name|certs
 control|)
 block|{
 name|qDebug
@@ -43,7 +51,7 @@ name|Organization
 argument_list|)
 expr_stmt|;
 block|}
-end_foreach
+end_for
 begin_comment
 comment|//! [0]
 end_comment

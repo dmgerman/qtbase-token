@@ -2743,13 +2743,10 @@ decl_stmt|,
 name|cacheProxy
 decl_stmt|;
 comment|// FIXME the proxy stuff should be done in the HTTP thread
-foreach|foreach
-control|(
 specifier|const
-name|QNetworkProxy
-modifier|&
-name|p
-decl|,
+specifier|auto
+name|proxies
+init|=
 name|managerPrivate
 operator|->
 name|queryProxy
@@ -2762,6 +2759,15 @@ name|url
 argument_list|()
 argument_list|)
 argument_list|)
+decl_stmt|;
+for|for
+control|(
+specifier|const
+name|QNetworkProxy
+modifier|&
+name|p
+range|:
+name|proxies
 control|)
 block|{
 comment|// use the first proxy that works

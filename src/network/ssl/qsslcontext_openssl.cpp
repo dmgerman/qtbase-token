@@ -840,19 +840,25 @@ name|currentDateTimeUtc
 argument_list|()
 decl_stmt|;
 comment|// Add all our CAs to this store.
-foreach|foreach
-control|(
 specifier|const
-name|QSslCertificate
-modifier|&
-name|caCertificate
-decl|,
+specifier|auto
+name|caCertificates
+init|=
 name|sslContext
 operator|->
 name|sslConfiguration
 operator|.
 name|caCertificates
 argument_list|()
+decl_stmt|;
+for|for
+control|(
+specifier|const
+name|QSslCertificate
+modifier|&
+name|caCertificate
+range|:
+name|caCertificates
 control|)
 block|{
 comment|// From https://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html:
