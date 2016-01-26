@@ -13806,13 +13806,13 @@ name|target
 operator|<<
 literal|" = {\n"
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|attribute
-decl|,
+range|:
 name|attributes
 control|)
 name|t

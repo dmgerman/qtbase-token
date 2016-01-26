@@ -6837,13 +6837,13 @@ block|{
 name|QString
 name|ret
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|v
-decl|,
+range|:
 name|val
 control|)
 name|ret

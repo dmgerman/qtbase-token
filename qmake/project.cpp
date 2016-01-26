@@ -257,13 +257,13 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProStringList
 modifier|&
 name|arg
-decl|,
+range|:
 name|args
 control|)
 name|ret

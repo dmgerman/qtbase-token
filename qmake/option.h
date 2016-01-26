@@ -623,12 +623,15 @@ modifier|&
 name|extensions
 parameter_list|)
 block|{
-name|foreach
-argument_list|(
-argument|const QString&ext
-argument_list|,
-argument|extensions
-argument_list|)
+for|for
+control|(
+specifier|const
+name|QString
+modifier|&
+name|ext
+range|:
+name|extensions
+control|)
 if|if
 condition|(
 name|str

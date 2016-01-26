@@ -1344,6 +1344,7 @@ block|{
 name|QDir
 name|bdir
 decl_stmt|;
+specifier|const
 name|QStringList
 name|vals
 init|=
@@ -1364,13 +1365,13 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|it
-decl|,
+range|:
 name|vals
 control|)
 name|ret
