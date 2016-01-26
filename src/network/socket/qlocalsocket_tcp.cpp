@@ -1317,12 +1317,12 @@ condition|(
 name|localServer
 condition|)
 block|{
-foreach|foreach
+for|for
 control|(
 name|QObject
 modifier|*
 name|child
-decl|,
+range|:
 name|localServer
 operator|->
 name|children
