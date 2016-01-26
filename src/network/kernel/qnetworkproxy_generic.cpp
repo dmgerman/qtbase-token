@@ -74,13 +74,13 @@ argument_list|(
 literal|','
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QByteArray
 modifier|&
 name|rawToken
-decl|,
+range|:
 name|noProxyTokens
 control|)
 block|{

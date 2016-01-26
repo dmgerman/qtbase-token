@@ -7972,13 +7972,13 @@ name|first
 init|=
 literal|true
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QSslCertificate
 modifier|&
 name|cert
-decl|,
+range|:
 name|certificateChain
 control|)
 block|{

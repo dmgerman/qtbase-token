@@ -2581,6 +2581,7 @@ return|;
 name|QUrl
 name|rUrl
 decl_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QPair
@@ -2597,7 +2598,7 @@ operator|->
 name|header
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QNetworkReply
@@ -2605,7 +2606,7 @@ operator|::
 name|RawHeaderPair
 modifier|&
 name|header
-decl|,
+range|:
 name|fields
 control|)
 block|{

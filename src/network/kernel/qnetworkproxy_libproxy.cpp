@@ -357,6 +357,7 @@ return|return
 name|proxyList
 return|;
 block|}
+specifier|const
 name|QList
 argument_list|<
 name|QUrl
@@ -376,13 +377,13 @@ name|haveDirectConnection
 init|=
 literal|false
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QUrl
 modifier|&
 name|url
-decl|,
+range|:
 name|rawProxies
 control|)
 block|{

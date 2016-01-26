@@ -907,6 +907,7 @@ name|allowRootCertOnDemandLoading
 condition|)
 block|{
 comment|// tell OpenSSL the directories where to look up the root certs on demand
+specifier|const
 name|QList
 argument_list|<
 name|QByteArray
@@ -920,20 +921,12 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|int
-name|a
-init|=
-literal|0
-init|;
-name|a
-operator|<
+specifier|const
+name|QByteArray
+modifier|&
+name|unixDir
+range|:
 name|unixDirs
-operator|.
-name|count
-argument_list|()
-condition|;
-operator|++
-name|a
 control|)
 name|q_SSL_CTX_load_verify_locations
 argument_list|(
@@ -943,12 +936,7 @@ name|ctx
 argument_list|,
 literal|0
 argument_list|,
-name|unixDirs
-operator|.
-name|at
-argument_list|(
-name|a
-argument_list|)
+name|unixDir
 operator|.
 name|constData
 argument_list|()

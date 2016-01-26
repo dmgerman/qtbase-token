@@ -1686,6 +1686,7 @@ name|QNetworkCookie
 argument_list|>
 name|result
 decl_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QByteArray
@@ -1699,13 +1700,13 @@ argument_list|(
 literal|';'
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QByteArray
 modifier|&
 name|cookie
-decl|,
+range|:
 name|cookieList
 control|)
 block|{

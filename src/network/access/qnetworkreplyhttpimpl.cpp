@@ -7128,6 +7128,7 @@ operator|::
 name|ConstIterator
 name|it
 decl_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QByteArray
@@ -7139,11 +7140,11 @@ operator|->
 name|rawHeaderList
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QByteArray
 name|header
-decl|,
+range|:
 name|newHeaders
 control|)
 block|{

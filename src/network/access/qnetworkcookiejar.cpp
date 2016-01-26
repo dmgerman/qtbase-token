@@ -297,11 +297,11 @@ name|added
 init|=
 literal|false
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QNetworkCookie
 name|cookie
-decl|,
+range|:
 name|cookieList
 control|)
 block|{

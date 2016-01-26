@@ -888,13 +888,13 @@ return|return
 literal|true
 return|;
 comment|// does it match the list of exclusions?
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|entry
-decl|,
+range|:
 name|bypassList
 control|)
 block|{
@@ -1115,13 +1115,13 @@ name|QNetworkProxy
 argument_list|>
 name|result
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QNetworkProxy
 modifier|&
 name|proxy
-decl|,
+range|:
 name|proxyList
 control|)
 block|{
@@ -1171,11 +1171,13 @@ name|QNetworkProxy
 argument_list|>
 name|result
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
+specifier|const
 name|QNetworkProxy
+modifier|&
 name|proxy
-decl|,
+range|:
 name|proxyList
 control|)
 block|{
@@ -1347,13 +1349,13 @@ operator|::
 name|TcpServer
 decl_stmt|;
 comment|//windows tags are only for clients
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|entry
-decl|,
+range|:
 name|proxyList
 control|)
 block|{
