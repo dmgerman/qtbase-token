@@ -162,6 +162,16 @@ name|size
 argument_list|()
 return|;
 block|}
+DECL|function|hasAlpha
+name|bool
+name|hasAlpha
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|m_hasAlpha
+return|;
+block|}
 name|void
 name|put
 parameter_list|(
@@ -222,6 +232,10 @@ decl_stmt|;
 DECL|member|m_dirty
 name|QRegion
 name|m_dirty
+decl_stmt|;
+DECL|member|m_hasAlpha
+name|bool
+name|m_hasAlpha
 decl_stmt|;
 block|}
 class|;
@@ -797,8 +811,8 @@ operator|<<
 literal|"QXcbBackingStore: Error while marking the shared memory segment to be destroyed"
 expr_stmt|;
 block|}
-if|if
-condition|(
+name|m_hasAlpha
+operator|=
 name|QImage
 operator|::
 name|toPixelFormat
@@ -811,7 +825,12 @@ argument_list|()
 operator|==
 name|QPixelFormat
 operator|::
-name|IgnoresAlpha
+name|UsesAlpha
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|m_hasAlpha
 condition|)
 name|format
 operator|=
@@ -1522,10 +1541,7 @@ if|if
 condition|(
 name|m_image
 operator|->
-name|image
-argument_list|()
-operator|->
-name|hasAlphaChannel
+name|hasAlpha
 argument_list|()
 condition|)
 block|{

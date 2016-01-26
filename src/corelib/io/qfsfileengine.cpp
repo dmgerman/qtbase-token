@@ -2814,6 +2814,12 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+name|len
+condition|)
+block|{
+comment|// avoid passing nullptr to fwrite() or QT_WRITE() (UB)
+if|if
+condition|(
 name|fh
 condition|)
 block|{
@@ -2947,6 +2953,7 @@ operator|<
 name|len
 condition|)
 do|;
+block|}
 block|}
 if|if
 condition|(

@@ -60,7 +60,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a QSslCipher object for the cipher determined by \a     name. The constructor accepts only supported ciphers (i.e., the     \a name must identify a cipher in the list of ciphers returned by     QSslSocket::supportedCiphers()).      You can call isNull() after construction to check if \a name     correctly identified a supported cipher. */
+comment|/*!     \since 5.3      Constructs a QSslCipher object for the cipher determined by \a     name. The constructor accepts only supported ciphers (i.e., the     \a name must identify a cipher in the list of ciphers returned by     QSslSocket::supportedCiphers()).      You can call isNull() after construction to check if \a name     correctly identified a supported cipher. */
 end_comment
 begin_constructor
 DECL|function|QSslCipher

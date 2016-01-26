@@ -691,10 +691,9 @@ block|;
 name|void
 name|windowEvent
 argument_list|(
-name|QEvent
-operator|*
-name|event
+argument|QEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|propagateSizeHints
@@ -804,11 +803,13 @@ name|setFrameStrutEventsEnabled
 argument_list|(
 argument|bool enabled
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|frameStrutEventsEnabled
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|testFlag
@@ -1100,11 +1101,9 @@ block|;
 name|void
 name|setWindowIcon
 argument_list|(
-specifier|const
-name|QIcon
-operator|&
-name|icon
+argument|const QIcon&icon
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 operator|*
@@ -1136,11 +1135,13 @@ name|setAlertState
 argument_list|(
 argument|bool enabled
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|bool
 name|isAlertState
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|testFlag

@@ -995,6 +995,22 @@ argument_list|(
 literal|"/winrt"
 argument_list|)
 expr_stmt|;
+name|incDirs
+operator|<<
+name|kitDir
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"Extension SDKs/WindowsMobile/"
+argument_list|)
+operator|+
+name|crtVersion
+operator|+
+name|QStringLiteral
+argument_list|(
+literal|"/Include/WinRT"
+argument_list|)
+expr_stmt|;
 name|libDirs
 operator|<<
 name|vcInstallDir

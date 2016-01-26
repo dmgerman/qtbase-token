@@ -174,9 +174,7 @@ expr_stmt|;
 comment|/* In stable builds only warn if an application error can be completely           * handled.           */
 if|#
 directive|if
-name|PNG_LIBPNG_BUILD_BASE_TYPE
-operator|>=
-name|PNG_LIBPNG_BUILD_RC
+name|PNG_RELEASE_BUILD
 name|png_ptr
 operator|->
 name|flags
@@ -4100,7 +4098,7 @@ operator|)
 operator|!=
 literal|0
 condition|)
-comment|/* Added at libpng-1.5.4. "strip_16" produces the same result that it       * did in earlier versions, while "scale_16" is now more accurate.       */
+comment|/* Added at libpng-1.5.4. "strip_16" produces the same result that it        * did in earlier versions, while "scale_16" is now more accurate.        */
 ifdef|#
 directive|ifdef
 name|PNG_READ_SCALE_16_TO_8_SUPPORTED
@@ -6329,6 +6327,9 @@ operator|*=
 literal|257
 expr_stmt|;
 break|break;
+ifdef|#
+directive|ifdef
+name|__GNUC__
 default|default:
 name|png_error
 argument_list|(
@@ -6343,7 +6344,8 @@ argument_list|,
 literal|"unexpected encoding (internal error)"
 argument_list|)
 expr_stmt|;
-break|break;
+endif|#
+directive|endif
 block|}
 return|return
 name|value
@@ -10245,15 +10247,6 @@ condition|(
 name|data_encoding
 condition|)
 block|{
-default|default:
-name|png_error
-argument_list|(
-name|png_ptr
-argument_list|,
-literal|"bad data option (internal error)"
-argument_list|)
-expr_stmt|;
-break|break;
 case|case
 name|P_sRGB
 case|:
@@ -10285,6 +10278,19 @@ name|png_ptr
 argument_list|)
 expr_stmt|;
 break|break;
+ifdef|#
+directive|ifdef
+name|__GNUC__
+default|default:
+name|png_error
+argument_list|(
+name|png_ptr
+argument_list|,
+literal|"bad data option (internal error)"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 if|if
 condition|(
@@ -12127,15 +12133,6 @@ operator|->
 name|bit_depth
 condition|)
 block|{
-default|default:
-name|png_error
-argument_list|(
-name|png_ptr
-argument_list|,
-literal|"unexpected bit depth"
-argument_list|)
-expr_stmt|;
-break|break;
 case|case
 literal|8
 case|:
@@ -12950,6 +12947,19 @@ block|}
 block|}
 block|}
 break|break;
+ifdef|#
+directive|ifdef
+name|__GNUC__
+default|default:
+name|png_error
+argument_list|(
+name|png_ptr
+argument_list|,
+literal|"unexpected bit depth"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 return|return
 literal|1

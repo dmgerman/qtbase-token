@@ -23608,6 +23608,21 @@ argument_list|)
 decl_stmt|;
 name|view
 operator|.
+name|setTransform
+argument_list|(
+name|QTransform
+operator|::
+name|fromScale
+argument_list|(
+literal|2
+argument_list|,
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// QTBUG-50136, use transform.
+name|view
+operator|.
 name|setWindowTitle
 argument_list|(
 name|QTest
@@ -23825,7 +23840,11 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Same test with child centered on embeddedWidget
+comment|// Same test with child centered on embeddedWidget. The correct
+comment|// mapping is not implemented yet, but at least make sure
+comment|// the roundtrip maptoGlobal()/mapFromGlobal() returns the same
+comment|// point since that is important for mouse event handling (QTBUG-50030,
+comment|// QTBUG-50136).
 specifier|const
 name|QPoint
 name|childCenter
@@ -23859,6 +23878,15 @@ name|childCenterGlobal
 argument_list|)
 argument_list|,
 name|childCenter
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"Not implemented for child widgets of embedded widgets"
+argument_list|,
+name|Continue
 argument_list|)
 expr_stmt|;
 name|QVERIFY2

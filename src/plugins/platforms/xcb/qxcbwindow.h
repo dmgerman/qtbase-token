@@ -907,6 +907,14 @@ name|void
 name|doFocusOut
 parameter_list|()
 function_decl|;
+name|bool
+name|compressExposeEvent
+parameter_list|(
+name|QRegion
+modifier|&
+name|exposeRegion
+parameter_list|)
+function_decl|;
 name|void
 name|handleButtonPressEvent
 argument_list|(

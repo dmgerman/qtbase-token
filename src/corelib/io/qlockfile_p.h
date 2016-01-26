@@ -173,7 +173,12 @@ name|Q_OS_UNIX
 specifier|static
 name|int
 name|checkFcntlWorksAfterFlock
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|fn
+parameter_list|)
 function_decl|;
 endif|#
 directive|endif

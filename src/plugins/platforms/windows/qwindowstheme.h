@@ -76,7 +76,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 specifier|const
 name|QPalette
 operator|*
@@ -85,6 +84,7 @@ argument_list|(
 argument|Palette type = SystemPalette
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_palettes
@@ -93,7 +93,6 @@ name|type
 index|]
 return|;
 block|}
-name|virtual
 specifier|const
 name|QFont
 operator|*
@@ -102,6 +101,7 @@ argument_list|(
 argument|Font type = SystemFont
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_fonts

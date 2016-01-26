@@ -4746,6 +4746,7 @@ name|QWindowsMimeHtml
 parameter_list|()
 constructor_decl|;
 comment|// for converting from Qt
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|canConvertFromMime
 parameter_list|(
@@ -4760,7 +4761,9 @@ modifier|*
 name|mimeData
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|convertFromMime
 parameter_list|(
@@ -4779,7 +4782,9 @@ modifier|*
 name|pmedium
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVector
 argument_list|<
 name|FORMATETC
@@ -4797,8 +4802,10 @@ modifier|*
 name|mimeData
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// for converting to Qt
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|canConvertToMime
 parameter_list|(
@@ -4812,7 +4819,9 @@ modifier|*
 name|pDataObj
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVariant
 name|convertToMime
 parameter_list|(
@@ -4831,7 +4840,9 @@ name|Type
 name|preferredType
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QString
 name|mimeForFormat
 parameter_list|(
@@ -4841,6 +4852,7 @@ modifier|&
 name|formatetc
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|CF_HTML
@@ -5578,6 +5590,7 @@ name|QWindowsMimeImage
 parameter_list|()
 constructor_decl|;
 comment|// for converting from Qt
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|canConvertFromMime
 parameter_list|(
@@ -5592,7 +5605,9 @@ modifier|*
 name|mimeData
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|convertFromMime
 parameter_list|(
@@ -5611,7 +5626,9 @@ modifier|*
 name|pmedium
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVector
 argument_list|<
 name|FORMATETC
@@ -5629,8 +5646,10 @@ modifier|*
 name|mimeData
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// for converting to Qt
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|canConvertToMime
 parameter_list|(
@@ -5644,7 +5663,9 @@ modifier|*
 name|pDataObj
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVariant
 name|convertToMime
 parameter_list|(
@@ -5663,7 +5684,9 @@ name|Type
 name|preferredType
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QString
 name|mimeForFormat
 parameter_list|(
@@ -5673,6 +5696,7 @@ modifier|&
 name|formatetc
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 name|bool
@@ -6577,6 +6601,7 @@ name|QBuiltInMimes
 parameter_list|()
 constructor_decl|;
 comment|// for converting from Qt
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|canConvertFromMime
 parameter_list|(
@@ -6591,7 +6616,9 @@ modifier|*
 name|mimeData
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|convertFromMime
 parameter_list|(
@@ -6610,7 +6637,9 @@ modifier|*
 name|pmedium
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVector
 argument_list|<
 name|FORMATETC
@@ -6628,8 +6657,10 @@ modifier|*
 name|mimeData
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// for converting to Qt
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|canConvertToMime
 parameter_list|(
@@ -6643,7 +6674,9 @@ modifier|*
 name|pDataObj
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVariant
 name|convertToMime
 parameter_list|(
@@ -6662,7 +6695,9 @@ name|Type
 name|preferredType
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QString
 name|mimeForFormat
 parameter_list|(
@@ -6672,6 +6707,7 @@ modifier|&
 name|formatetc
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|outFormats
@@ -7392,6 +7428,7 @@ name|QLastResortMimes
 parameter_list|()
 constructor_decl|;
 comment|// for converting from Qt
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|canConvertFromMime
 parameter_list|(
@@ -7406,7 +7443,9 @@ modifier|*
 name|mimeData
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|convertFromMime
 parameter_list|(
@@ -7425,7 +7464,9 @@ modifier|*
 name|pmedium
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVector
 argument_list|<
 name|FORMATETC
@@ -7443,8 +7484,10 @@ modifier|*
 name|mimeData
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 comment|// for converting to Qt
+DECL|member|Q_DECL_OVERRIDE
 name|bool
 name|canConvertToMime
 parameter_list|(
@@ -7458,7 +7501,9 @@ modifier|*
 name|pDataObj
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QVariant
 name|convertToMime
 parameter_list|(
@@ -7477,7 +7522,9 @@ name|Type
 name|preferredType
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
+DECL|member|Q_DECL_OVERRIDE
 name|QString
 name|mimeForFormat
 parameter_list|(
@@ -7487,6 +7534,7 @@ modifier|&
 name|formatetc
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 function_decl|;
 private|private:
 DECL|member|formats

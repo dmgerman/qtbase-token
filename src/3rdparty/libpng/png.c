@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* png.c - location for general purpose libpng functions  *  * Last changed in libpng 1.6.17 [March 26, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* png.c - location for general purpose libpng functions  *  * Last changed in libpng 1.6.19 [November 12, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_include
 include|#
@@ -11,10 +11,10 @@ begin_comment
 comment|/* Generate a compiler error if there is an old png.h in the search path. */
 end_comment
 begin_typedef
-DECL|typedef|Your_png_h_is_not_version_1_6_17
+DECL|typedef|Your_png_h_is_not_version_1_6_19
 typedef|typedef
-name|png_libpng_version_1_6_17
-name|Your_png_h_is_not_version_1_6_17
+name|png_libpng_version_1_6_19
+name|Your_png_h_is_not_version_1_6_19
 typedef|;
 end_typedef
 begin_comment
@@ -38,6 +38,16 @@ name|int
 name|num_bytes
 parameter_list|)
 block|{
+name|unsigned
+name|int
+name|nb
+init|=
+operator|(
+name|unsigned
+name|int
+operator|)
+name|num_bytes
+decl_stmt|;
 name|png_debug
 argument_list|(
 literal|1
@@ -55,6 +65,16 @@ return|return;
 if|if
 condition|(
 name|num_bytes
+operator|<
+literal|0
+condition|)
+name|nb
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
+name|nb
 operator|>
 literal|8
 condition|)
@@ -69,22 +89,10 @@ name|png_ptr
 operator|->
 name|sig_bytes
 operator|=
-call|(
-name|png_byte
-call|)
-argument_list|(
 operator|(
-name|num_bytes
-operator|<
-literal|0
-condition|?
-literal|0
-else|:
-name|num_bytes
+name|png_byte
 operator|)
-operator|&
-literal|0xff
-argument_list|)
+name|nb
 expr_stmt|;
 block|}
 end_function
@@ -353,7 +361,7 @@ name|png_structrp
 name|png_ptr
 parameter_list|)
 block|{
-comment|/* The cast is safe because the crc is a 32 bit value. */
+comment|/* The cast is safe because the crc is a 32-bit value. */
 name|png_ptr
 operator|->
 name|crc
@@ -449,7 +457,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/* 'uLong' is defined in zlib.h as unsigned long; this means that on some     * systems it is a 64 bit value.  crc32, however, returns 32 bits so the     * following cast is safe.  'uInt' may be no more than 16 bits, so it is     * necessary to perform a loop here.     */
+comment|/* 'uLong' is defined in zlib.h as unsigned long; this means that on some     * systems it is a 64-bit value.  crc32, however, returns 32 bits so the     * following cast is safe.  'uInt' may be no more than 16 bits, so it is     * necessary to perform a loop here.     */
 if|if
 condition|(
 name|need_crc
@@ -839,7 +847,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|PNG_USER_CHUNK_MALLOC_MAX
-comment|/* Added at libpng-1.2.43 and 1.4.1, required only for read but exists           * in png_struct regardless.           */
+comment|/* Added at libpng-1.2.43 and 1.4.1, required only for read but exists        * in png_struct regardless.        */
 name|create_struct
 operator|.
 name|user_chunk_malloc_max
@@ -906,7 +914,12 @@ argument_list|(
 name|create_jmp_buf
 argument_list|)
 condition|)
+endif|#
+directive|endif
 block|{
+ifdef|#
+directive|ifdef
+name|PNG_SETJMP_SUPPORTED
 comment|/* Temporarily fake out the longjmp information until we have           * successfully completed this function.  This only works if we have           * setjmp() support compiled in, but it is safe - this stuff should           * never happen.           */
 name|create_struct
 operator|.
@@ -928,9 +941,6 @@ name|longjmp_fn
 operator|=
 name|longjmp
 expr_stmt|;
-else|#
-directive|else
-block|{
 endif|#
 directive|endif
 comment|/* Call the general version checker (shared with read and write code):           */
@@ -1040,7 +1050,11 @@ return|return
 name|NULL
 return|;
 block|}
+end_block
+begin_comment
 comment|/* Allocate the memory for an info_struct for the application. */
+end_comment
+begin_macro
 DECL|function|PNG_FUNCTION
 name|PNG_FUNCTION
 argument_list|(
@@ -1052,6 +1066,8 @@ argument|(png_const_structrp png_ptr)
 argument_list|,
 argument|PNG_ALLOCATED
 argument_list|)
+end_macro
+begin_block
 block|{
 name|png_inforp
 name|info_ptr
@@ -1114,7 +1130,11 @@ return|return
 name|info_ptr
 return|;
 block|}
+end_block
+begin_comment
 comment|/* This function frees the memory associated with a single info struct.  * Normally, one would use either png_destroy_read_struct() or  * png_destroy_write_struct() to free an info struct, but this may be  * useful for some applications.  From libpng 1.6.0 this function is also used  * internally to implement the png_info release part of the 'struct' destroy  * APIs.  This ensures that all possible approaches free the same data (all of  * it).  */
+end_comment
+begin_function
 name|void
 name|PNGAPI
 DECL|function|png_destroy_info_struct
@@ -1204,7 +1224,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_comment
 comment|/* Initialize the info structure.  This is now an internal function (0.89)  * and applications using it are urged to use png_create_info_struct()  * instead.  Use deprecated in 1.6.0, internal use removed (used internally it  * is just a memset).  *  * NOTE: it is almost inconceivable that this API is used because it bypasses  * the user-memory mechanism and the user error handling/warning mechanisms in  * those cases where it does anything other than a memset.  */
+end_comment
+begin_macro
 DECL|function|PNG_FUNCTION
 name|PNG_FUNCTION
 argument_list|(
@@ -1216,6 +1240,8 @@ argument|(png_infopp ptr_ptr, png_size_t png_info_struct_size)
 argument_list|,
 argument|PNG_DEPRECATED
 argument_list|)
+end_macro
+begin_block
 block|{
 name|png_inforp
 name|info_ptr
@@ -1278,6 +1304,13 @@ operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|info_ptr
+operator|==
+name|NULL
+condition|)
+return|return;
 operator|*
 name|ptr_ptr
 operator|=
@@ -1299,7 +1332,11 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+end_block
+begin_comment
 comment|/* The following API is not called internally */
+end_comment
+begin_function
 name|void
 name|PNGAPI
 DECL|function|png_data_freer
@@ -1371,6 +1408,8 @@ literal|"Unknown freer parameter in png_data_freer"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 name|void
 name|PNGAPI
 DECL|function|png_free_data
@@ -2303,10 +2342,18 @@ operator|~
 name|mask
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* READ || WRITE */
+end_comment
+begin_comment
 comment|/* This function returns a pointer to the io_ptr associated with the user  * functions.  The application should free any memory associated with this  * pointer before png_write_destroy() or png_read_destroy() are called.  */
+end_comment
+begin_function
 name|png_voidp
 name|PNGAPI
 DECL|function|png_get_io_ptr
@@ -2335,6 +2382,8 @@ name|io_ptr
 operator|)
 return|;
 block|}
+end_function
+begin_if
 if|#
 directive|if
 name|defined
@@ -2346,10 +2395,16 @@ name|defined
 argument_list|(
 name|PNG_WRITE_SUPPORTED
 argument_list|)
+end_if
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_STDIO_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* Initialize the default input/output functions for the PNG file.  If you  * use your own read or write routines, you can call either png_set_read_fn()  * or png_set_write_fn() instead of png_init_io().  If you have defined  * PNG_NO_STDIO or otherwise disabled PNG_STDIO_SUPPORTED, you must use a  * function of your own because "FILE *" isn't necessarily available.  */
+end_comment
+begin_function
 name|void
 name|PNGAPI
 DECL|function|png_init_io
@@ -2386,12 +2441,20 @@ operator|)
 name|fp
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_SAVE_INT_32_SUPPORTED
-comment|/* The png_save_int_32 function assumes integers are stored in two's  * complement format.  If this isn't the case, then this routine needs to  * be modified to write data in two's complement format.  Note that,  * the following works correctly even if png_int_32 has more than 32 bits  * (compare the more complex code required on read for sign extension.)  */
+end_ifdef
+begin_comment
+comment|/* PNG signed integers are saved in 32-bit 2's complement format.  ANSI C-90  * defines a cast of a signed integer to an unsigned integer either to preserve  * the value, if it is positive, or to calculate:  *  *     (UNSIGNED_MAX+1) + integer  *  * Where UNSIGNED_MAX is the appropriate maximum unsigned value, so when the  * negative integral value is added the result will be an unsigned value  * correspnding to the 2's complement representation.  */
+end_comment
+begin_function
 name|void
 name|PNGAPI
 DECL|function|png_save_int_32
@@ -2404,81 +2467,28 @@ name|png_int_32
 name|i
 parameter_list|)
 block|{
-name|buf
-index|[
-literal|0
-index|]
-operator|=
-call|(
-name|png_byte
-call|)
+name|png_save_uint_32
 argument_list|(
-operator|(
-name|i
-operator|>>
-literal|24
-operator|)
-operator|&
-literal|0xff
-argument_list|)
-expr_stmt|;
 name|buf
-index|[
-literal|1
-index|]
-operator|=
-call|(
-name|png_byte
-call|)
-argument_list|(
-operator|(
+argument_list|,
 name|i
-operator|>>
-literal|16
-operator|)
-operator|&
-literal|0xff
-argument_list|)
-expr_stmt|;
-name|buf
-index|[
-literal|2
-index|]
-operator|=
-call|(
-name|png_byte
-call|)
-argument_list|(
-operator|(
-name|i
-operator|>>
-literal|8
-operator|)
-operator|&
-literal|0xff
-argument_list|)
-expr_stmt|;
-name|buf
-index|[
-literal|3
-index|]
-operator|=
-call|(
-name|png_byte
-call|)
-argument_list|(
-name|i
-operator|&
-literal|0xff
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_TIME_RFC1123_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* Convert the supplied time into an RFC 1123 string suitable for use in  * a "Creation Time" or other text-based time string.  */
+end_comment
+begin_function
 name|int
 name|PNGAPI
 DECL|function|png_convert_to_rfc1123_buffer
@@ -2736,6 +2746,10 @@ literal|" +0000"
 argument_list|)
 expr_stmt|;
 comment|/* This reliably terminates the buffer */
+name|PNG_UNUSED
+argument_list|(
+argument|pos
+argument_list|)
 DECL|macro|APPEND
 undef|#
 directive|undef
@@ -2753,13 +2767,21 @@ return|return
 literal|1
 return|;
 block|}
+end_function
+begin_if
 if|#
 directive|if
 name|PNG_LIBPNG_VER
 operator|<
 literal|10700
+end_if
+begin_comment
 comment|/* To do: remove the following from libpng-1.7 */
+end_comment
+begin_comment
 comment|/* Original API that uses a private buffer in png_struct.  * Deprecated because it causes png_struct to carry a spurious temporary  * buffer (png_struct::time_buffer), better to have the caller pass this in.  */
+end_comment
+begin_function
 name|png_const_charp
 name|PNGAPI
 DECL|function|png_convert_to_rfc1123
@@ -2811,15 +2833,29 @@ return|return
 name|NULL
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* LIBPNG_VER< 10700 */
+end_comment
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* TIME_RFC1123 */
+end_comment
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* READ || WRITE */
+end_comment
+begin_function
 name|png_const_charp
 name|PNGAPI
 DECL|function|png_get_copyright
@@ -2847,7 +2883,7 @@ name|__STDC__
 return|return
 name|PNG_STRING_NEWLINE
 expr|\
-literal|"libpng version 1.6.17 - March 26, 2015"
+literal|"libpng version 1.6.19 - November 12, 2015"
 name|PNG_STRING_NEWLINE
 expr|\
 literal|"Copyright (c) 1998-2015 Glenn Randers-Pehrson"
@@ -2863,14 +2899,18 @@ return|;
 else|#
 directive|else
 return|return
-literal|"libpng version 1.6.17 - March 26, 2015\       Copyright (c) 1998-2015 Glenn Randers-Pehrson\       Copyright (c) 1996-1997 Andreas Dilger\       Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc."
+literal|"libpng version 1.6.19 - November 12, 2015\       Copyright (c) 1998-2015 Glenn Randers-Pehrson\       Copyright (c) 1996-1997 Andreas Dilger\       Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc."
 return|;
 endif|#
 directive|endif
 endif|#
 directive|endif
 block|}
+end_function
+begin_comment
 comment|/* The following return the library version as a short string in the  * format 1.0.0 through 99.99.99zz.  To get the version of *.h files  * used with your application, print out PNG_LIBPNG_VER_STRING, which  * is defined in png.h.  * Note: now there is no difference between png_get_libpng_ver() and  * png_get_header_ver().  Due to the version_nn_nn_nn typedef guard,  * it is guaranteed that png.c uses the correct version of png.h.  */
+end_comment
+begin_function
 name|png_const_charp
 name|PNGAPI
 DECL|function|png_get_libpng_ver
@@ -2888,6 +2928,8 @@ name|png_ptr
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 name|png_const_charp
 name|PNGAPI
 DECL|function|png_get_header_ver
@@ -2907,6 +2949,8 @@ return|return
 name|PNG_LIBPNG_VER_STRING
 return|;
 block|}
+end_function
+begin_function
 name|png_const_charp
 name|PNGAPI
 DECL|function|png_get_header_version
@@ -2930,7 +2974,7 @@ name|PNG_HEADER_VERSION_STRING
 ifndef|#
 directive|ifndef
 name|PNG_READ_SUPPORTED
-literal|"     (NO READ SUPPORT)"
+literal|" (NO READ SUPPORT)"
 endif|#
 directive|endif
 name|PNG_STRING_NEWLINE
@@ -2943,11 +2987,19 @@ return|;
 endif|#
 directive|endif
 block|}
+end_function
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_BUILD_GRAYSCALE_PALETTE_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* NOTE: this routine is not used internally! */
+end_comment
+begin_comment
 comment|/* Build a grayscale palette.  Palette is assumed to be 1<< bit_depth  * large of png_color.  This lets grayscale images be treated as  * paletted.  Most useful for gamma correction and simplification  * of code.  This API is not used internally.  */
+end_comment
+begin_function
 name|void
 name|PNGAPI
 DECL|function|png_build_grayscale_palette
@@ -3122,11 +3174,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_SET_UNKNOWN_CHUNKS_SUPPORTED
+end_ifdef
+begin_function
 name|int
 name|PNGAPI
 DECL|function|png_handle_as_unknown
@@ -3221,6 +3279,8 @@ return|return
 name|PNG_HANDLE_CHUNK_AS_DEFAULT
 return|;
 block|}
+end_function
+begin_if
 if|#
 directive|if
 name|defined
@@ -3233,6 +3293,8 @@ name|defined
 argument_list|(
 name|PNG_HANDLE_AS_UNKNOWN_SUPPORTED
 argument_list|)
+end_if
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_chunk_unknown_handling
@@ -3267,16 +3329,30 @@ name|chunk_string
 argument_list|)
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* READ_UNKNOWN_CHUNKS || HANDLE_AS_UNKNOWN */
+end_comment
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* SET_UNKNOWN_CHUNKS */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_READ_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* This function, added to libpng-1.0.6g, is untested. */
+end_comment
+begin_function
 name|int
 name|PNGAPI
 DECL|function|png_reset_zstream
@@ -3308,10 +3384,18 @@ argument_list|)
 operator|)
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* READ */
+end_comment
+begin_comment
 comment|/* This function was added to libpng-1.0.7 */
+end_comment
+begin_function
 name|png_uint_32
 name|PNGAPI
 DECL|function|png_access_version_number
@@ -3330,6 +3414,8 @@ name|PNG_LIBPNG_VER
 operator|)
 return|;
 block|}
+end_function
+begin_if
 if|#
 directive|if
 name|defined
@@ -3341,7 +3427,11 @@ name|defined
 argument_list|(
 name|PNG_WRITE_SUPPORTED
 argument_list|)
+end_if
+begin_comment
 comment|/* Ensure that png_ptr->zstream.msg holds some appropriate error message string.  * If it doesn't 'ret' is used to set it to something appropriate, even in cases  * like Z_OK or Z_STREAM_END where the error code is apparently a success code.  */
+end_comment
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_zstream_error
@@ -3529,12 +3619,22 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+end_function
+begin_comment
 comment|/* png_convert_size: a PNGAPI but no longer in png.h, so deleted  * at libpng 1.5.5!  */
+end_comment
+begin_comment
 comment|/* Added at libpng version 1.2.34 and 1.4.0 (moved from pngset.c) */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_GAMMA_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* always set if COLORSPACE */
+end_comment
+begin_function
 specifier|static
 name|int
 DECL|function|png_colorspace_check_gamma
@@ -3652,6 +3752,8 @@ return|return
 literal|1
 return|;
 block|}
+end_function
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_colorspace_set_gamma
@@ -3790,6 +3892,8 @@ name|PNG_CHUNK_WRITE_ERROR
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_colorspace_sync_info
@@ -3864,7 +3968,7 @@ block|{
 ifdef|#
 directive|ifdef
 name|PNG_COLORSPACE_SUPPORTED
-comment|/* Leave the INFO_iCCP flag set if the pngset.c code has already set           * it; this allows a PNG to contain a profile which matches sRGB and           * yet still have that profile retrievable by the application.           */
+comment|/* Leave the INFO_iCCP flag set if the pngset.c code has already set        * it; this allows a PNG to contain a profile which matches sRGB and        * yet still have that profile retrievable by the application.        */
 if|if
 condition|(
 operator|(
@@ -3953,9 +4057,13 @@ name|PNG_INFO_gAMA
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_READ_SUPPORTED
+end_ifdef
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_colorspace_sync
@@ -3992,15 +4100,27 @@ name|info_ptr
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* GAMMA */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_COLORSPACE_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* Added at libpng-1.5.5 to support read and write of true CIEXYZ values for  * cHRM, as opposed to using chromaticities.  These internal APIs return  * non-zero on a parameter error.  The X, Y and Z values are required to be  * positive and less than 1.0.  */
+end_comment
+begin_function
 specifier|static
 name|int
 DECL|function|png_xy_from_XYZ
@@ -4300,6 +4420,8 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|int
 DECL|function|png_XYZ_from_xy
@@ -4329,7 +4451,7 @@ name|right
 decl_stmt|,
 name|denominator
 decl_stmt|;
-comment|/* Check xy and, implicitly, z.  Note that wide gamut color spaces typically     * have end points with 0 tristimulus values (these are impossible end     * points, but they are used to cover the possible colors.)     */
+comment|/* Check xy and, implicitly, z.  Note that wide gamut color spaces typically     * have end points with 0 tristimulus values (these are impossible end     * points, but they are used to cover the possible colors).  We check     * xy->whitey against 5, not 0, to avoid a possible integer overflow.     */
 if|if
 condition|(
 name|xy
@@ -4467,7 +4589,7 @@ name|xy
 operator|->
 name|whitey
 operator|<
-literal|0
+literal|5
 operator|||
 name|xy
 operator|->
@@ -4998,6 +5120,8 @@ literal|0
 return|;
 comment|/*success*/
 block|}
+end_function
+begin_function
 specifier|static
 name|int
 DECL|function|png_XYZ_normalize
@@ -5334,6 +5458,8 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|int
 DECL|function|png_colorspace_endpoints_match
@@ -5467,7 +5593,11 @@ return|return
 literal|1
 return|;
 block|}
+end_function
+begin_comment
 comment|/* Added in libpng-1.6.0, a different check for the validity of a set of cHRM  * chunk chromaticities.  Earlier checks used to simply look for the overflow  * condition (where the determinant of the matrix to solve for XYZ ends up zero  * because the chromaticity values are not all distinct.)  Despite this it is  * theoretically possible to produce chromaticities that are apparently valid  * but that rapidly degrade to invalid, potentially crashing, sets because of  * arithmetic inaccuracies when calculations are performed on them.  The new  * check is to round-trip xy -> XYZ -> xy and then check that the result is  * within a small percentage of the original.  */
+end_comment
+begin_function
 specifier|static
 name|int
 DECL|function|png_colorspace_check_xy
@@ -5550,7 +5680,11 @@ return|return
 literal|1
 return|;
 block|}
+end_function
+begin_comment
 comment|/* This is the check going the other way.  The XYZ is modified to normalize it  * (another side-effect) and the xy chromaticities are returned.  */
+end_comment
+begin_function
 specifier|static
 name|int
 DECL|function|png_colorspace_check_XYZ
@@ -5620,7 +5754,11 @@ name|xy
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/* Used to check for an endpoint match against sRGB */
+end_comment
+begin_decl_stmt
 DECL|variable|sRGB_xy
 specifier|static
 specifier|const
@@ -5651,6 +5789,8 @@ block|,
 literal|32900
 block|}
 decl_stmt|;
+end_decl_stmt
+begin_function
 specifier|static
 name|int
 DECL|function|png_colorspace_set_xy_and_XYZ
@@ -5813,6 +5953,8 @@ literal|2
 return|;
 comment|/* ok and changed */
 block|}
+end_function
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_colorspace_set_chromaticities
@@ -5900,13 +6042,14 @@ argument_list|,
 literal|"internal error checking chromaticities"
 argument_list|)
 expr_stmt|;
-break|break;
 block|}
 return|return
 literal|0
 return|;
 comment|/* failed */
 block|}
+end_function
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_colorspace_set_endpoints
@@ -5999,13 +6142,14 @@ argument_list|,
 literal|"internal error checking chromaticities"
 argument_list|)
 expr_stmt|;
-break|break;
 block|}
 return|return
 literal|0
 return|;
 comment|/* failed */
 block|}
+end_function
+begin_if
 if|#
 directive|if
 name|defined
@@ -6017,7 +6161,11 @@ name|defined
 argument_list|(
 name|PNG_iCCP_SUPPORTED
 argument_list|)
+end_if
+begin_comment
 comment|/* Error message generation */
+end_comment
+begin_function
 specifier|static
 name|char
 DECL|function|png_icc_tag_char
@@ -6052,6 +6200,8 @@ return|return
 literal|'?'
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|void
 DECL|function|png_icc_tag_name
@@ -6126,6 +6276,8 @@ operator|=
 literal|'\''
 expr_stmt|;
 block|}
+end_function
+begin_function
 specifier|static
 name|int
 DECL|function|is_ICC_signature_char
@@ -6171,6 +6323,8 @@ literal|122
 operator|)
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|int
 DECL|function|is_ICC_signature
@@ -6219,6 +6373,8 @@ literal|0xff
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|int
 DECL|function|png_icc_profile_error
@@ -6462,12 +6618,20 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* sRGB || iCCP */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_sRGB_SUPPORTED
+end_ifdef
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_colorspace_set_sRGB
@@ -6738,13 +6902,23 @@ literal|1
 return|;
 comment|/* set */
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* sRGB */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_iCCP_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* Encoded value of D50 as an ICC XYZNumber.  From the ICC 2010 spec the value  * is XYZ(0.9642,1.0,0.8249), which scales to:  *  *    (63189.8112, 65536, 54060.6464)  */
+end_comment
+begin_decl_stmt
 DECL|variable|D50_nCIEXYZ
 specifier|static
 specifier|const
@@ -6780,6 +6954,8 @@ block|,
 literal|0x2d
 block|}
 decl_stmt|;
+end_decl_stmt
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_icc_check_length
@@ -6822,6 +6998,8 @@ return|return
 literal|1
 return|;
 block|}
+end_function
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_icc_check_header
@@ -7184,11 +7362,11 @@ name|temp
 condition|)
 block|{
 case|case
-literal|0x73636E72
+literal|0x73636e72
 case|:
 comment|/* 'scnr' */
 case|case
-literal|0x6D6E7472
+literal|0x6d6e7472
 case|:
 comment|/* 'mntr' */
 case|case
@@ -7221,7 +7399,7 @@ literal|"invalid embedded Abstract ICC profile"
 argument_list|)
 return|;
 case|case
-literal|0x6C696E6B
+literal|0x6c696e6b
 case|:
 comment|/* 'link' */
 comment|/* DeviceLink profiles cannot be interpreted in a non-device specific           * fashion, if an app uses the AToB0Tag in the profile the results are           * undefined unless the result is sent to the intended device,           * therefore a DeviceLink profile should not be found embedded in a           * PNG.           */
@@ -7240,7 +7418,7 @@ literal|"unexpected DeviceLink ICC profile class"
 argument_list|)
 return|;
 case|case
-literal|0x6E6D636C
+literal|0x6e6d636c
 case|:
 comment|/* 'nmcl' */
 comment|/* A NamedColor profile is also device specific, however it doesn't           * contain an AToB0 tag that is open to misinterpretation.  Almost           * certainly it will fail the tests below.           */
@@ -7297,11 +7475,11 @@ name|temp
 condition|)
 block|{
 case|case
-literal|0x58595A20
+literal|0x58595a20
 case|:
 comment|/* 'XYZ ' */
 case|case
-literal|0x4C616220
+literal|0x4c616220
 case|:
 comment|/* 'Lab ' */
 break|break;
@@ -7325,6 +7503,8 @@ return|return
 literal|1
 return|;
 block|}
+end_function
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_icc_check_tag_table
@@ -7482,15 +7662,23 @@ literal|1
 return|;
 comment|/* success, maybe with warnings */
 block|}
+end_function
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_sRGB_SUPPORTED
+end_ifdef
+begin_if
 if|#
 directive|if
 name|PNG_sRGB_PROFILE_CHECKS
 operator|>=
 literal|0
+end_if
+begin_comment
 comment|/* Information about the known ICC sRGB profiles */
+end_comment
+begin_struct
 specifier|static
 specifier|const
 struct|struct
@@ -7759,6 +7947,8 @@ literal|"HP-Microsoft sRGB v2 media-relative"
 argument_list|)
 block|}
 struct|;
+end_struct
+begin_function
 specifier|static
 name|int
 DECL|function|png_compare_ICC_profile_with_sRGB
@@ -7983,6 +8173,9 @@ if|if
 condition|(
 name|length
 operator|==
+operator|(
+name|png_uint_32
+operator|)
 name|png_sRGB_checks
 index|[
 name|i
@@ -7992,6 +8185,9 @@ name|length
 operator|&&
 name|intent
 operator|==
+operator|(
+name|png_uint_32
+operator|)
 name|png_sRGB_checks
 index|[
 name|i
@@ -8179,9 +8375,15 @@ literal|0
 return|;
 comment|/* no match */
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* PNG_sRGB_PROFILE_CHECKS>= 0 */
+end_comment
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_icc_set_sRGB
@@ -8243,9 +8445,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* sRGB */
+end_comment
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_colorspace_set_ICC
@@ -8359,12 +8567,20 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* iCCP */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_READ_RGB_TO_GRAY_SUPPORTED
+end_ifdef
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_colorspace_set_rgb_coefficients
@@ -8655,16 +8871,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* READ_RGB_TO_GRAY */
+end_comment
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* COLORSPACE */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|__GNUC__
+end_ifdef
+begin_comment
 comment|/* This exists solely to work round a warning from GNU C. */
+end_comment
+begin_function
 specifier|static
 name|int
 comment|/* PRIVATE */
@@ -8684,8 +8914,12 @@ operator|>
 name|b
 return|;
 block|}
+end_function
+begin_else
 else|#
 directive|else
+end_else
+begin_define
 DECL|macro|png_gt
 define|#
 directive|define
@@ -8696,8 +8930,12 @@ parameter_list|,
 name|b
 parameter_list|)
 value|((a)> (b))
+end_define
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_check_IHDR
@@ -9235,6 +9473,8 @@ literal|"Invalid IHDR data"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_if
 if|#
 directive|if
 name|defined
@@ -9246,9 +9486,17 @@ name|defined
 argument_list|(
 name|PNG_pCAL_SUPPORTED
 argument_list|)
+end_if
+begin_comment
 comment|/* ASCII to fp functions */
+end_comment
+begin_comment
 comment|/* Check an ASCII formated floating point value, see the more detailed  * comments in pngpriv.h  */
+end_comment
+begin_comment
 comment|/* The following is used internally to preserve the sticky flags */
+end_comment
+begin_define
 DECL|macro|png_fp_add
 define|#
 directive|define
@@ -9259,6 +9507,8 @@ parameter_list|,
 name|flags
 parameter_list|)
 value|((state) |= (flags))
+end_define
+begin_define
 DECL|macro|png_fp_set
 define|#
 directive|define
@@ -9269,6 +9519,8 @@ parameter_list|,
 name|value
 parameter_list|)
 value|((state) = (value) | ((state)& PNG_FP_STICKY))
+end_define
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_check_fp_number
@@ -9679,7 +9931,11 @@ operator|!=
 literal|0
 return|;
 block|}
+end_function
+begin_comment
 comment|/* The same but for a complete string. */
+end_comment
+begin_function
 name|int
 DECL|function|png_check_fp_string
 name|png_check_fp_string
@@ -9740,16 +9996,28 @@ literal|0
 return|;
 comment|/* i.e. fail */
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* pCAL || sCAL */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_sCAL_SUPPORTED
+end_ifdef
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_FLOATING_POINT_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* Utility used below - a simple accurate power of ten from an integral  * exponent.  */
+end_comment
+begin_function
 specifier|static
 name|double
 DECL|function|png_pow10
@@ -9855,7 +10123,11 @@ return|return
 name|d
 return|;
 block|}
+end_function
+begin_comment
 comment|/* Function to format a floating point value in ASCII with a given  * precision.  */
+end_comment
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_ascii_from_fp
@@ -10048,6 +10320,7 @@ name|exp_b10
 expr_stmt|;
 comment|/* Because of the code above fp may, at this point, be           * less than .1, this is ok because the code below can           * handle the leading zeros this generates, so no attempt           * is made to correct that here.           */
 block|{
+name|unsigned
 name|int
 name|czero
 decl_stmt|,
@@ -10119,15 +10392,12 @@ condition|(
 name|cdigits
 operator|+
 name|czero
-operator|-
-name|clead
 operator|+
 literal|1
 operator|<
-operator|(
-name|int
-operator|)
 name|precision
+operator|+
+name|clead
 condition|)
 name|fp
 operator|=
@@ -10445,13 +10715,10 @@ condition|(
 name|cdigits
 operator|+
 name|czero
-operator|-
-name|clead
 operator|<
-operator|(
-name|int
-operator|)
 name|precision
+operator|+
+name|clead
 operator|&&
 name|fp
 operator|>
@@ -10582,9 +10849,6 @@ block|}
 comment|/* Need another size check here for the exponent digits, so              * this need not be considered above.              */
 if|if
 condition|(
-operator|(
-name|int
-operator|)
 name|size
 operator|>
 name|cdigits
@@ -10680,13 +10944,23 @@ literal|"ASCII conversion buffer too small"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* FLOATING_POINT */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_FIXED_POINT_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* Function to format a fixed point value in ASCII.  */
+end_comment
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_ascii_from_fixed
@@ -10728,9 +11002,6 @@ name|ascii
 operator|++
 operator|=
 literal|45
-operator|,
-operator|--
-name|size
 operator|,
 name|num
 operator|=
@@ -10928,12 +11199,22 @@ literal|"ASCII conversion buffer too small"
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* FIXED_POINT */
+end_comment
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* SCAL */
+end_comment
+begin_if
 if|#
 directive|if
 name|defined
@@ -10991,6 +11272,8 @@ argument_list|(
 name|PNG_FLOATING_ARITHMETIC_SUPPORTED
 argument_list|)
 operator|)
+end_if
+begin_function
 name|png_fixed_point
 DECL|function|png_fixed
 name|png_fixed
@@ -11051,8 +11334,12 @@ operator|)
 name|r
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_if
 if|#
 directive|if
 name|defined
@@ -11075,8 +11362,14 @@ name|defined
 argument_list|(
 name|PNG_READ_pHYs_SUPPORTED
 argument_list|)
+end_if
+begin_comment
 comment|/* muldiv functions */
+end_comment
+begin_comment
 comment|/* This API takes signed arguments and rounds the result to the nearest  * integer (or, for a fixed point number - the standard argument - to  * the nearest .00001).  Overflow and divide by zero are signalled in  * the result, a boolean - true on success, false on overflow.  */
+end_comment
+begin_function
 name|int
 DECL|function|png_muldiv
 name|png_muldiv
@@ -11532,9 +11825,15 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* READ_GAMMA || INCH_CONVERSIONS */
+end_comment
+begin_if
 if|#
 directive|if
 name|defined
@@ -11546,7 +11845,11 @@ name|defined
 argument_list|(
 name|PNG_INCH_CONVERSIONS_SUPPORTED
 argument_list|)
+end_if
+begin_comment
 comment|/* The following is for when the caller doesn't much care about the  * result.  */
+end_comment
+begin_function
 name|png_fixed_point
 DECL|function|png_muldiv_warn
 name|png_muldiv_warn
@@ -11597,13 +11900,23 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_GAMMA_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* more fixed point functions for gamma */
+end_comment
+begin_comment
 comment|/* Calculate a reciprocal, return 0 on div-by-zero or overflow. */
+end_comment
+begin_function
 name|png_fixed_point
 DECL|function|png_reciprocal
 name|png_reciprocal
@@ -11675,7 +11988,11 @@ literal|0
 return|;
 comment|/* error/overflow */
 block|}
+end_function
+begin_comment
 comment|/* This is the shared test on whether a gamma value is 'significant' - whether  * it is worth doing gamma correction.  */
+end_comment
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_gamma_significant
@@ -11699,15 +12016,25 @@ operator|+
 name|PNG_GAMMA_THRESHOLD_FIXED
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_READ_GAMMA_SUPPORTED
+end_ifdef
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_16BIT_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* A local convenience routine. */
+end_comment
+begin_function
 specifier|static
 name|png_fixed_point
 DECL|function|png_product2
@@ -11794,10 +12121,18 @@ literal|0
 return|;
 comment|/* overflow */
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* 16BIT */
+end_comment
+begin_comment
 comment|/* The inverse of the above. */
+end_comment
+begin_function
 name|png_fixed_point
 DECL|function|png_reciprocal2
 name|png_reciprocal2
@@ -11894,17 +12229,31 @@ literal|0
 return|;
 comment|/* overflow */
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* READ_GAMMA */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_READ_GAMMA_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* gamma table code */
+end_comment
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|PNG_FLOATING_ARITHMETIC_SUPPORTED
+end_ifndef
+begin_comment
 comment|/* Fixed point gamma.  *  * The code to calculate the tables used below can be found in the shell script  * contrib/tools/intgamma.sh  *  * To calculate gamma this code implements fast log() and exp() calls using only  * fixed point arithmetic.  This code has sufficient precision for either 8-bit  * or 16-bit sample values.  *  * The tables used here were calculated using simple 'bc' programs, but C double  * precision floating point arithmetic would work fine.  *  * 8-bit log table  *   This is a table of -log(value/255)/log(2) for 'value' in the range 128 to  *   255, so it's the base 2 logarithm of a normalized 8-bit floating point  *   mantissa.  The numbers are 32-bit fractions.  */
+end_comment
+begin_decl_stmt
 specifier|static
 specifier|const
 name|png_uint_32
@@ -12179,6 +12528,8 @@ endif|#
 directive|endif
 block|}
 decl_stmt|;
+end_decl_stmt
+begin_function
 specifier|static
 name|png_int_32
 DECL|function|png_log8bit
@@ -12293,10 +12644,16 @@ operator|)
 argument_list|)
 return|;
 block|}
+end_function
+begin_comment
 comment|/* The above gives exact (to 16 binary places) log2 values for 8-bit images,  * for 16-bit images we use the most significant 8 bits of the 16-bit value to  * get an approximation then multiply the approximation by a correction factor  * determined by the remaining up to 8 bits.  This requires an additional step  * in the 16-bit case.  *  * We want log2(value/65535), we have log2(v'/255), where:  *  *    value = v' * 256 + v''  *          = v' * f  *  * So f is value/v', which is equal to (256+v''/v') since v' is in the range 128  * to 255 and v'' is in the range 0 to 255 f will be in the range 256 to less  * than 258.  The final factor also needs to correct for the fact that our 8-bit  * value is scaled by 255, whereas the 16-bit values must be scaled by 65535.  *  * This gives a final formula using a calculated value 'x' which is value/v' and  * scaling by 65536 to match the above table:  *  *   log2(x/257) * 65536  *  * Since these numbers are so close to '1' we can use simple linear  * interpolation between the two end values 256/257 (result -368.61) and 258/257  * (result 367.179).  The values used below are scaled by a further 64 to give  * 16-bit precision in the interpolation:  *  * Start (256): -23591  * Zero  (257):      0  * End   (258):  23499  */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_16BIT_SUPPORTED
+end_ifdef
+begin_function
 specifier|static
 name|png_int_32
 DECL|function|png_log16bit
@@ -12549,10 +12906,18 @@ literal|12
 argument_list|)
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* 16BIT */
+end_comment
+begin_comment
 comment|/* The 'exp()' case must invert the above, taking a 20-bit fixed point  * logarithmic value and returning a 16 or 8-bit number as appropriate.  In  * each case only the low 16 bits are relevant - the fraction - since the  * integer bits (the top 4) simply determine a shift.  *  * The worst case is the 16-bit distinction between 65535 and 65534. This  * requires perhaps spurious accuracy in the decoding of the logarithm to  * distinguish log2(65535/65534.5) - 10^-5 or 17 bits.  There is little chance  * of getting this accuracy in practice.  *  * To deal with this the following exp() function works out the exponent of the  * frational part of the logarithm by using an accurate 32-bit value from the  * top four fractional bits then multiplying in the remaining bits.  */
+end_comment
+begin_decl_stmt
 specifier|static
 specifier|const
 name|png_uint_32
@@ -12597,13 +12962,21 @@ block|,
 literal|2242560872U
 block|}
 decl_stmt|;
+end_decl_stmt
+begin_comment
 comment|/* Adjustment table; provided to explain the numbers in the code below. */
+end_comment
+begin_if
 if|#
 directive|if
 literal|0
-block|for (i=11;i>=0;--i){ print i, " ", (1 - e(-(2^i)/65536*l(2))) * 2^(32-i), "\n"}    11 44937.64284865548751208448    10 45180.98734845585101160448     9 45303.31936980687359311872     8 45364.65110595323018870784     7 45395.35850361789624614912     6 45410.72259715102037508096     5 45418.40724413220722311168     4 45422.25021786898173001728     3 45424.17186732298419044352     2 45425.13273269940811464704     1 45425.61317555035558641664     0 45425.85339951654943850496
+end_if
+begin_endif
+unit|for (i=11;i>=0;--i){ print i, " ", (1 - e(-(2^i)/65536*l(2))) * 2^(32-i), "\n"}    11 44937.64284865548751208448    10 45180.98734845585101160448     9 45303.31936980687359311872     8 45364.65110595323018870784     7 45395.35850361789624614912     6 45410.72259715102037508096     5 45418.40724413220722311168     4 45422.25021786898173001728     3 45424.17186732298419044352     2 45425.13273269940811464704     1 45425.61317555035558641664     0 45425.85339951654943850496
 endif|#
 directive|endif
+end_endif
+begin_function
 specifier|static
 name|png_uint_32
 DECL|function|png_exp
@@ -12637,7 +13010,7 @@ operator|>>
 literal|12
 operator|)
 operator|&
-literal|0xf
+literal|0x0f
 index|]
 decl_stmt|;
 comment|/* Incorporate the low 12 bits - these decrease the returned value by        * multiplying by a number less than 1 if the bit is set.  The multiplier        * is determined by the above table and the shift. Notice that the values        * converge on 45426 and this is used to allow linear interpolation of the        * low bits.        */
@@ -12839,6 +13212,8 @@ return|return
 literal|0
 return|;
 block|}
+end_function
+begin_function
 specifier|static
 name|png_byte
 DECL|function|png_exp8bit
@@ -12883,9 +13258,13 @@ literal|0xff
 argument_list|)
 return|;
 block|}
+end_function
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_16BIT_SUPPORTED
+end_ifdef
+begin_function
 specifier|static
 name|png_uint_16
 DECL|function|png_exp16bit
@@ -12926,12 +13305,22 @@ literal|16
 argument_list|)
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* 16BIT */
+end_comment
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* FLOATING_ARITHMETIC */
+end_comment
+begin_function
 name|png_byte
 DECL|function|png_gamma_8bit_correct
 name|png_gamma_8bit_correct
@@ -13044,9 +13433,13 @@ literal|0xff
 argument_list|)
 return|;
 block|}
+end_function
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_16BIT_SUPPORTED
+end_ifdef
+begin_function
 name|png_uint_16
 DECL|function|png_gamma_16bit_correct
 name|png_gamma_16bit_correct
@@ -13154,10 +13547,18 @@ operator|)
 name|value
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* 16BIT */
+end_comment
+begin_comment
 comment|/* This does the right thing based on the bit_depth field of the  * png_struct, interpreting values as 8-bit or 16-bit.  While the result  * is nominally a 16-bit value if bit depth is 8 then the result is  * 8-bit (as are the arguments.)  */
+end_comment
+begin_function
 name|png_uint_16
 comment|/* PRIVATE */
 DECL|function|png_gamma_correct
@@ -13212,10 +13613,16 @@ endif|#
 directive|endif
 comment|/* 16BIT */
 block|}
+end_function
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_16BIT_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* Internal function to build a single 16-bit table - the table consists of  * 'num' 256 entry subtables, where 'num' is determined by 'shift' - the amount  * to shift the input values right (or 16-number_of_signifiant_bits).  *  * The caller is responsible for ensuring that the table gets cleaned up on  * png_error (i.e. if one of the mallocs below fails) - i.e. the *table argument  * should be somewhere that will be cleaned.  */
+end_comment
+begin_function
 specifier|static
 name|void
 DECL|function|png_build_16bit_table
@@ -13562,7 +13969,11 @@ block|}
 block|}
 block|}
 block|}
+end_function
+begin_comment
 comment|/* NOTE: this function expects the *inverse* of the overall gamma transformation  * required.  */
+end_comment
+begin_function
 specifier|static
 name|void
 DECL|function|png_build_16to8_table
@@ -13816,10 +14227,18 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* 16BIT */
+end_comment
+begin_comment
 comment|/* Build a single 8-bit table: same as the 16-bit case but much simpler (and  * typically much faster).  Note that libpng currently does no sBIT processing  * (apparently contrary to the spec) so a 256-entry table is always generated.  */
+end_comment
+begin_function
 specifier|static
 name|void
 DECL|function|png_build_8bit_table
@@ -13919,7 +14338,11 @@ literal|0xff
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_comment
 comment|/* Used from png_read_destroy and below to release the memory used by the gamma  * tables.  */
+end_comment
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_destroy_gamma_table
@@ -14218,7 +14641,11 @@ endif|#
 directive|endif
 comment|/* READ_BACKGROUND || READ_ALPHA_MODE || RGB_TO_GRAY */
 block|}
+end_function
+begin_comment
 comment|/* We build the 8- or 16-bit gamma tables here.  Note that for 16-bit  * tables, we don't make a full table if we are reducing to 8-bit in  * the future.  Note also how the gamma_16 tables are segmented so that  * we don't need to allocate> 64K chunks for a full 16-bit table.  */
+end_comment
+begin_function
 name|void
 comment|/* PRIVATE */
 DECL|function|png_build_gamma_table
@@ -14740,13 +15167,23 @@ endif|#
 directive|endif
 comment|/* 16BIT */
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* READ_GAMMA */
+end_comment
+begin_comment
 comment|/* HARDWARE OR SOFTWARE OPTION SUPPORT */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_SET_OPTION_SUPPORTED
+end_ifdef
+begin_function
 name|int
 name|PNGAPI
 DECL|function|png_set_option
@@ -14850,9 +15287,15 @@ return|return
 name|PNG_OPTION_INVALID
 return|;
 block|}
+end_function
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* sRGB support */
+end_comment
+begin_if
 if|#
 directive|if
 name|defined
@@ -14865,11 +15308,19 @@ name|defined
 argument_list|(
 name|PNG_SIMPLIFIED_WRITE_SUPPORTED
 argument_list|)
-comment|/* sRGB conversion tables; these are machine generated with the code in  * contrib/tools/makesRGB.c.  The actual sRGB transfer curve defined in the  * specification (see the article at http://en.wikipedia.org/wiki/SRGB)  * is used, not the gamma=1/2.2 approximation use elsewhere in libpng.  * The sRGB to linear table is exact (to the nearest 16 bit linear fraction).  * The inverse (linear to sRGB) table has accuracies as follows:  *  * For all possible (255*65535+1) input values:  *  *    error: -0.515566 - 0.625971, 79441 (0.475369%) of readings inexact  *  * For the input values corresponding to the 65536 16-bit values:  *  *    error: -0.513727 - 0.607759, 308 (0.469978%) of readings inexact  *  * In all cases the inexact readings are only off by one.  */
+end_if
+begin_comment
+comment|/* sRGB conversion tables; these are machine generated with the code in  * contrib/tools/makesRGB.c.  The actual sRGB transfer curve defined in the  * specification (see the article at http://en.wikipedia.org/wiki/SRGB)  * is used, not the gamma=1/2.2 approximation use elsewhere in libpng.  * The sRGB to linear table is exact (to the nearest 16-bit linear fraction).  * The inverse (linear to sRGB) table has accuracies as follows:  *  * For all possible (255*65535+1) input values:  *  *    error: -0.515566 - 0.625971, 79441 (0.475369%) of readings inexact  *  * For the input values corresponding to the 65536 16-bit values:  *  *    error: -0.513727 - 0.607759, 308 (0.469978%) of readings inexact  *  * In all cases the inexact readings are only off by one.  */
+end_comment
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_SIMPLIFIED_READ_SUPPORTED
+end_ifdef
+begin_comment
 comment|/* The convert-to-sRGB table is only currently required for read. */
+end_comment
+begin_decl_stmt
 DECL|variable|png_sRGB_table
 specifier|const
 name|png_uint_16
@@ -15392,10 +15843,18 @@ block|,
 literal|65535
 block|}
 decl_stmt|;
+end_decl_stmt
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* SIMPLIFIED_READ */
+end_comment
+begin_comment
 comment|/* The base/delta tables are required for both read and write (but currently  * only the simplified versions.)  */
+end_comment
+begin_decl_stmt
 DECL|variable|png_sRGB_base
 specifier|const
 name|png_uint_16
@@ -16430,6 +16889,8 @@ block|,
 literal|65465
 block|}
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|png_sRGB_delta
 specifier|const
 name|png_byte
@@ -17464,10 +17925,18 @@ block|,
 literal|7
 block|}
 decl_stmt|;
+end_decl_stmt
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|/* SIMPLIFIED READ/WRITE sRGB support */
+end_comment
+begin_comment
 comment|/* SIMPLIFIED READ/WRITE SUPPORT */
+end_comment
+begin_if
 if|#
 directive|if
 name|defined
@@ -17480,6 +17949,8 @@ name|defined
 argument_list|(
 name|PNG_SIMPLIFIED_WRITE_SUPPORTED
 argument_list|)
+end_if
+begin_function
 specifier|static
 name|int
 DECL|function|png_image_free_function
@@ -17685,6 +18156,8 @@ return|return
 literal|1
 return|;
 block|}
+end_function
+begin_function
 name|void
 name|PNGAPI
 DECL|function|png_image_free
@@ -17737,6 +18210,8 @@ name|NULL
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_function
 name|int
 comment|/* PRIVATE */
 DECL|function|png_image_error
@@ -17783,7 +18258,7 @@ return|return
 literal|0
 return|;
 block|}
-end_block
+end_function
 begin_endif
 endif|#
 directive|endif

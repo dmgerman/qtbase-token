@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngstruct.h - header file for PNG reference library  *  * Last changed in libpng 1.6.1 [March 28, 2013]  * Copyright (c) 1998-2013 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pngstruct.h - header file for PNG reference library  *  * Last changed in libpng 1.6.18 [July 23, 2015]  * Copyright (c) 1998-2015 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_comment
 comment|/* The structure that holds the information to read and write PNG files.  * The only people who need to care about what is inside of this are the  * people who will be modifying the library for their own special needs.  * It should NOT be accessed directly by an application.  */
@@ -744,35 +744,25 @@ DECL|member|prev_row
 name|png_bytep
 name|prev_row
 decl_stmt|;
-comment|/* buffer to save previous (unfiltered) row.                                * This is a pointer into big_prev_row                                */
+comment|/* buffer to save previous (unfiltered) row.                                * While reading this is a pointer into                                * big_prev_row; while writing it is separately                                * allocated if needed.                                */
 DECL|member|row_buf
 name|png_bytep
 name|row_buf
 decl_stmt|;
-comment|/* buffer to save current (unfiltered) row.                                * This is a pointer into big_row_buf                                */
+comment|/* buffer to save current (unfiltered) row.                                * While reading, this is a pointer into                                * big_row_buf; while writing it is separately                                * allocated.                                */
 ifdef|#
 directive|ifdef
-name|PNG_WRITE_SUPPORTED
-DECL|member|sub_row
+name|PNG_WRITE_FILTER_SUPPORTED
+DECL|member|try_row
 name|png_bytep
-name|sub_row
+name|try_row
 decl_stmt|;
-comment|/* buffer to save "sub" row when filtering */
-DECL|member|up_row
+comment|/* buffer to save trial row when filtering */
+DECL|member|tst_row
 name|png_bytep
-name|up_row
+name|tst_row
 decl_stmt|;
-comment|/* buffer to save "up" row when filtering */
-DECL|member|avg_row
-name|png_bytep
-name|avg_row
-decl_stmt|;
-comment|/* buffer to save "avg" row when filtering */
-DECL|member|paeth_row
-name|png_bytep
-name|paeth_row
-decl_stmt|;
-comment|/* buffer to save "Paeth" row when filtering */
+comment|/* buffer to save best trial row when filtering */
 endif|#
 directive|endif
 DECL|member|info_rowbytes
@@ -1253,46 +1243,6 @@ name|png_bytep
 name|quantize_index
 decl_stmt|;
 comment|/* index translation for palette files */
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|PNG_WRITE_WEIGHTED_FILTER_SUPPORTED
-DECL|member|heuristic_method
-name|png_byte
-name|heuristic_method
-decl_stmt|;
-comment|/* heuristic for row filter selection */
-DECL|member|num_prev_filters
-name|png_byte
-name|num_prev_filters
-decl_stmt|;
-comment|/* number of weights for previous rows */
-DECL|member|prev_filters
-name|png_bytep
-name|prev_filters
-decl_stmt|;
-comment|/* filter type(s) of previous row(s) */
-DECL|member|filter_weights
-name|png_uint_16p
-name|filter_weights
-decl_stmt|;
-comment|/* weight(s) for previous line(s) */
-DECL|member|inv_filter_weights
-name|png_uint_16p
-name|inv_filter_weights
-decl_stmt|;
-comment|/* 1/weight(s) for previous line(s) */
-DECL|member|filter_costs
-name|png_uint_16p
-name|filter_costs
-decl_stmt|;
-comment|/* relative filter calculation cost */
-DECL|member|inv_filter_costs
-name|png_uint_16p
-name|inv_filter_costs
-decl_stmt|;
-comment|/* 1/relative filter calculation cost */
 endif|#
 directive|endif
 comment|/* Options */

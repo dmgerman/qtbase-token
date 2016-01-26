@@ -1448,6 +1448,20 @@ name|QKeySequence
 operator|::
 name|ExactMatch
 case|:
+block|{
+comment|// Save number of identical matches before dispatching
+comment|// to keep QShortcutMap and tryShortcut reentrant.
+specifier|const
+name|int
+name|identicalMatches
+init|=
+name|d
+operator|->
+name|identicals
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
 name|resetState
 argument_list|()
 expr_stmt|;
@@ -1459,15 +1473,11 @@ expr_stmt|;
 comment|// If there are no identicals we've only found disabled shortcuts, and
 comment|// shouldn't say that we handled the event.
 return|return
-name|d
-operator|->
-name|identicals
-operator|.
-name|count
-argument_list|()
+name|identicalMatches
 operator|>
 literal|0
 return|;
+block|}
 default|default:
 name|Q_UNREACHABLE
 argument_list|()

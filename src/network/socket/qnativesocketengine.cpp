@@ -657,6 +657,32 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|NetworkDroppedConnectionErrorString
+case|:
+name|socketErrorString
+operator|=
+name|QNativeSocketEngine
+operator|::
+name|tr
+argument_list|(
+literal|"Network dropped connection on reset"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|ConnectionResetErrorString
+case|:
+name|socketErrorString
+operator|=
+name|QNativeSocketEngine
+operator|::
+name|tr
+argument_list|(
+literal|"Connection reset by peer"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 name|UnknownSocketErrorString
 case|:
 name|socketErrorString

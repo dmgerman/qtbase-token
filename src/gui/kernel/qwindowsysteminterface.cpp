@@ -1511,11 +1511,11 @@ name|key
 argument_list|,
 name|modifiers
 argument_list|,
-literal|0
+name|nativeScanCode
 argument_list|,
-literal|0
+name|nativeVirtualKey
 argument_list|,
-literal|0
+name|nativeModifiers
 argument_list|,
 name|text
 argument_list|,
@@ -1524,9 +1524,11 @@ argument_list|,
 name|count
 argument_list|)
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 name|QWindowSystemInterfacePrivate
 operator|::
 name|KeyEvent

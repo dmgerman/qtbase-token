@@ -3509,17 +3509,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|d
-operator|->
-name|valid
-operator|=
-name|d
-operator|->
-name|checkFramebufferStatus
-argument_list|(
-name|current
-argument_list|)
-expr_stmt|;
 return|return
 name|d
 operator|->

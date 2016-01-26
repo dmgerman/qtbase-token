@@ -903,6 +903,8 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|logicalDpi
 argument_list|()
 operator|.
@@ -911,6 +913,7 @@ operator|/
 name|qreal
 argument_list|(
 literal|100
+argument_list|)
 argument_list|)
 return|;
 block|}
