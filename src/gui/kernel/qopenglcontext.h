@@ -91,7 +91,7 @@ name|QT_DEPRECATED_SINCE
 argument_list|(
 literal|5
 operator|,
-literal|5
+literal|6
 argument_list|)
 end_if
 begin_include
