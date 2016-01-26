@@ -10427,15 +10427,17 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QStandardItem
 modifier|*
 name|item
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|itemsSet
+argument_list|)
 control|)
-block|{
 name|stack
 operator|.
 name|push
@@ -10443,7 +10445,6 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
-block|}
 comment|//stream everything recursively
 while|while
 condition|(

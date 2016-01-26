@@ -3978,12 +3978,15 @@ name|effectiveRow
 init|=
 literal|0
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|int
 name|row
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|rowNodes
+argument_list|)
 control|)
 block|{
 name|int
