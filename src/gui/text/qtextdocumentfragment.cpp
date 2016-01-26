@@ -3875,11 +3875,11 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|int
 name|row
-decl|,
+range|:
 name|at
 argument_list|(
 name|tableNodeIdx
@@ -3887,6 +3887,7 @@ argument_list|)
 operator|.
 name|children
 control|)
+block|{
 switch|switch
 condition|(
 name|at
@@ -3914,11 +3915,11 @@ case|:
 case|case
 name|Html_tfoot
 case|:
-foreach|foreach
+for|for
 control|(
 name|int
 name|potentialRow
-decl|,
+range|:
 name|at
 argument_list|(
 name|row
@@ -3926,6 +3927,7 @@ argument_list|)
 operator|.
 name|children
 control|)
+block|{
 if|if
 condition|(
 name|at
@@ -3957,9 +3959,11 @@ operator|++
 name|tableHeaderRowCount
 expr_stmt|;
 block|}
+block|}
 break|break;
 default|default:
 break|break;
+block|}
 block|}
 name|QVector
 argument_list|<
@@ -3994,11 +3998,11 @@ name|colsInRow
 init|=
 literal|0
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|int
 name|cell
-decl|,
+range|:
 name|at
 argument_list|(
 name|row
@@ -4006,6 +4010,7 @@ argument_list|)
 operator|.
 name|children
 control|)
+block|{
 if|if
 condition|(
 name|at
@@ -4265,6 +4270,7 @@ index|]
 operator|=
 name|spanInfo
 expr_stmt|;
+block|}
 block|}
 block|}
 name|table

@@ -707,12 +707,12 @@ argument_list|(
 name|newScreen
 argument_list|)
 emit|;
-foreach|foreach
+for|for
 control|(
 name|QObject
 modifier|*
 name|child
-decl|,
+range|:
 name|q
 operator|->
 name|children
