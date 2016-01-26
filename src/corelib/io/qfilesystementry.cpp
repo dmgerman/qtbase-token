@@ -668,6 +668,23 @@ literal|'.'
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// WinRT/MSVC2015 allows a maximum of 256 characters for a filepath
+comment|// unless //?/ is prepended which extends the rule to have a maximum
+comment|// of 256 characters in the filename plus the preprending path
+if|#
+directive|if
+name|_MSC_VER
+operator|>=
+literal|1900
+name|m_nativeFilePath
+operator|.
+name|prepend
+argument_list|(
+literal|"\\\\?\\"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 block|}
@@ -1425,6 +1442,9 @@ block|{
 name|resolveFilePath
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 return|return
 operator|(
 name|m_filePath
@@ -1469,6 +1489,20 @@ literal|'/'
 argument_list|)
 operator|)
 return|;
+else|#
+directive|else
+comment|// !Q_OS_WINRT
+return|return
+name|m_filePath
+operator|==
+name|QDir
+operator|::
+name|rootPath
+argument_list|()
+return|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 end_function
 begin_endif

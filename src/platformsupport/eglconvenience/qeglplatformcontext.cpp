@@ -1101,6 +1101,18 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|runGLChecks
+name|void
+name|QEGLPlatformContext
+operator|::
+name|runGLChecks
+parameter_list|()
+block|{
+comment|// Nothing to do here, subclasses may override in order to perform OpenGL
+comment|// queries needing a context.
+block|}
+end_function
+begin_function
 DECL|function|updateFormatFromGL
 name|void
 name|QEGLPlatformContext
@@ -1546,6 +1558,9 @@ block|}
 block|}
 block|}
 block|}
+name|runGLChecks
+argument_list|()
+expr_stmt|;
 name|eglMakeCurrent
 argument_list|(
 name|prevDisplay

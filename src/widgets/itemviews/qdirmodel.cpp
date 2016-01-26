@@ -3429,12 +3429,11 @@ argument_list|()
 operator|||
 operator|!
 name|QFileInfo
+operator|::
+name|exists
 argument_list|(
 name|path
 argument_list|)
-operator|.
-name|exists
-argument_list|()
 operator|)
 if|#
 directive|if

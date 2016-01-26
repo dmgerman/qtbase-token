@@ -36387,6 +36387,17 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+name|d
+operator|->
+name|renderToTextureReallyDirty
+operator|=
+literal|1
+expr_stmt|;
+endif|#
+directive|endif
 break|break;
 ifndef|#
 directive|ifndef

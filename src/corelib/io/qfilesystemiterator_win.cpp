@@ -214,9 +214,17 @@ literal|'*'
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+comment|// In MSVC2015+ case we prepend //?/ for longer file-name support
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WINRT
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|<
+literal|1900
 if|if
 condition|(
 name|nativePath

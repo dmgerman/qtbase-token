@@ -473,6 +473,24 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|installRoot
+name|QString
+name|MingwMakefileGenerator
+operator|::
+name|installRoot
+parameter_list|()
+specifier|const
+block|{
+comment|/*       We include a magic prefix on the path to bypass mingw-make's "helpful"       intervention in the environment, recognising variables that look like       paths and adding the msys system root as prefix, which we don't want.       Once this hack has smuggled INSTALL_ROOT into make's variable space, we       can trivially strip the magic prefix back off to get the path we meant.      */
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"$(INSTALL_ROOT:@msyshack@%=%)"
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 DECL|function|createLdObjectScriptFile
 name|void
 name|createLdObjectScriptFile

@@ -1659,6 +1659,17 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
+name|spyHooksFinished
+parameter_list|(
+specifier|const
+name|QDBusMessage
+modifier|&
+name|msg
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|messageNeedsSending
 parameter_list|(
 name|QDBusPendingCallPrivate

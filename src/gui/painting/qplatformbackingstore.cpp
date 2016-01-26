@@ -1854,12 +1854,7 @@ name|QOpenGLTextureBlitter
 operator|::
 name|sourceTransform
 argument_list|(
-name|deviceRect
-argument_list|(
 name|srcRect
-argument_list|,
-name|window
-argument_list|)
 argument_list|,
 name|d_ptr
 operator|->

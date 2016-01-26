@@ -5151,6 +5151,8 @@ operator|+
 name|offsetLo
 argument_list|,
 name|size
+operator|+
+name|extra
 argument_list|)
 decl_stmt|;
 endif|#

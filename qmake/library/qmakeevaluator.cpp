@@ -5078,7 +5078,7 @@ if|if
 condition|(
 name|subdir
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"amd64"
 argument_list|)

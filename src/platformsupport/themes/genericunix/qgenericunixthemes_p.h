@@ -145,7 +145,6 @@ name|QStringList
 name|themeNames
 argument_list|()
 block|;
-name|virtual
 specifier|const
 name|QFont
 operator|*
@@ -156,7 +155,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 name|QVariant
 name|themeHint
 argument_list|(
@@ -237,7 +235,6 @@ operator|*
 name|createKdeTheme
 argument_list|()
 block|;
-name|virtual
 name|QVariant
 name|themeHint
 argument_list|(
@@ -246,7 +243,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 specifier|const
 name|QPalette
 operator|*
@@ -257,7 +253,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 specifier|const
 name|QFont
 operator|*
@@ -327,7 +322,6 @@ operator|:
 name|QGnomeTheme
 argument_list|()
 block|;
-name|virtual
 name|QVariant
 name|themeHint
 argument_list|(
@@ -336,7 +330,6 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
-name|virtual
 specifier|const
 name|QFont
 operator|*
