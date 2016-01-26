@@ -254,7 +254,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   Until C++11, rounding direction is implementation-defined.    For negative operands, implementations may chose to round down instead of   towards zero (truncation).  We only actually care about the case a< 0, as all   uses of floordiv have b> 0.  In this case, if rounding is down we have a % b>= 0 and simple division works fine; but a % b = a - (a / b) * b always, so   rounding towards zero gives a % b<= 0; when< 0, we need to adjust.    Once we assume C++11, we can safely test a< 0 instead of a % b< 0.  */
+comment|/*   Division, rounding down (rather than towards zero).    From C++11 onwards, integer division is defined to round towards zero, so we   can rely on that when implementing this.  This is only used with denominator b> 0, so we only have to treat negative numerator, a, specially.  */
 end_comment
 begin_function
 DECL|function|floordiv
@@ -276,8 +276,6 @@ name|a
 operator|-
 operator|(
 name|a
-operator|%
-name|b
 operator|<
 literal|0
 condition|?
@@ -313,8 +311,6 @@ name|a
 operator|-
 operator|(
 name|a
-operator|%
-name|b
 operator|<
 literal|0
 condition|?
