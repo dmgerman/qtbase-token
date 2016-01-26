@@ -8204,13 +8204,8 @@ decl_stmt|;
 name|QStringList
 name|feature_roots
 decl_stmt|;
-foreach|foreach
-control|(
-specifier|const
-name|QString
-modifier|&
-name|f
-decl|,
+name|feature_roots
+operator|+=
 name|m_option
 operator|->
 name|getPathListEnv
@@ -8220,10 +8215,6 @@ argument_list|(
 literal|"QMAKEFEATURES"
 argument_list|)
 argument_list|)
-control|)
-name|feature_roots
-operator|+=
-name|f
 expr_stmt|;
 name|feature_roots
 operator|+=
