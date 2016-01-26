@@ -3658,6 +3658,7 @@ operator|)
 name|XKB_CONTEXT_NO_DEFAULT_INCLUDES
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QByteArray
@@ -3677,13 +3678,13 @@ argument_list|(
 literal|':'
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QByteArray
 modifier|&
 name|xkbRoot
-decl|,
+range|:
 name|xkbRootList
 control|)
 name|xkb_context_include_path_append
