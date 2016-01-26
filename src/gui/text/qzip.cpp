@@ -5207,13 +5207,13 @@ init|=
 name|fileInfoList
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|FileInfo
 modifier|&
 name|fi
-decl|,
+range|:
 name|allFiles
 control|)
 block|{
@@ -5274,13 +5274,13 @@ return|;
 block|}
 block|}
 comment|// set up symlinks
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|FileInfo
 modifier|&
 name|fi
-decl|,
+range|:
 name|allFiles
 control|)
 block|{
@@ -5381,13 +5381,13 @@ return|;
 comment|/* cannot change permission of links             if (!QFile::setPermissions(absPath, fi.permissions))                 return false;             */
 block|}
 block|}
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|FileInfo
 modifier|&
 name|fi
-decl|,
+range|:
 name|allFiles
 control|)
 block|{

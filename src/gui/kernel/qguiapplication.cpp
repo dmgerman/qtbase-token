@@ -3237,12 +3237,12 @@ init|=
 name|Q_NULLPTR
 decl_stmt|;
 comment|// Find the window on the primary virtual desktop first
-foreach|foreach
+for|for
 control|(
 name|QScreen
 modifier|*
 name|screen
-decl|,
+range|:
 name|primaryScreens
 control|)
 block|{

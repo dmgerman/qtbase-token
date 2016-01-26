@@ -2465,12 +2465,12 @@ name|type
 parameter_list|)
 specifier|const
 block|{
-foreach|foreach
+for|for
 control|(
 name|QOpenGLShader
 modifier|*
 name|shader
-decl|,
+range|:
 name|shaders
 control|)
 block|{

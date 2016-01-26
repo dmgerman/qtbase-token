@@ -20087,13 +20087,13 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ItemDecoration
 modifier|&
 name|decoration
-decl|,
+range|:
 name|decorationList
 control|)
 block|{

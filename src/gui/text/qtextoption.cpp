@@ -437,11 +437,11 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|qreal
 name|pos
-decl|,
+range|:
 name|tabStops
 control|)
 block|{

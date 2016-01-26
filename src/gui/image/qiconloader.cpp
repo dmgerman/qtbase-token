@@ -1941,7 +1941,8 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|auto
+specifier|const
+specifier|auto
 name|result
 init|=
 name|cache
@@ -1983,13 +1984,13 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|char
 modifier|*
 name|s
-decl|,
+range|:
 name|result
 control|)
 block|{

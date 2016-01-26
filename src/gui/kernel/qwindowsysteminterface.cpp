@@ -2892,7 +2892,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QTouchEvent
@@ -2900,7 +2900,7 @@ operator|::
 name|TouchPoint
 modifier|&
 name|pt
-decl|,
+range|:
 name|pointList
 control|)
 block|{
@@ -5663,12 +5663,17 @@ name|TouchPoint
 argument_list|>
 name|newList
 decl_stmt|;
-name|Q_FOREACH
-argument_list|(
-argument|QTouchEvent::TouchPoint p
-argument_list|,
-argument|pointList
-argument_list|)
+for|for
+control|(
+specifier|const
+name|QTouchEvent
+operator|::
+name|TouchPoint
+modifier|&
+name|p
+range|:
+name|pointList
+control|)
 name|newList
 operator|.
 name|append

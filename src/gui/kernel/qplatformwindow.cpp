@@ -1437,15 +1437,16 @@ operator|::
 name|pos
 argument_list|()
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QScreen
 modifier|*
 name|sibling
-decl|,
+range|:
 name|siblings
 control|)
+block|{
 if|if
 condition|(
 name|sibling
@@ -1461,6 +1462,7 @@ condition|)
 return|return
 name|sibling
 return|;
+block|}
 block|}
 endif|#
 directive|endif

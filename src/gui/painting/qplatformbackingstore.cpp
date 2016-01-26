@@ -886,13 +886,13 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QRect
 modifier|&
 name|rect
-decl|,
+range|:
 name|regionRects
 control|)
 name|rects

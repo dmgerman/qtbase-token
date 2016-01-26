@@ -3073,13 +3073,13 @@ argument_list|<
 name|QByteArray
 argument_list|>
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|feature
-decl|,
+range|:
 name|features
 control|)
 name|result

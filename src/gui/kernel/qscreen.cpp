@@ -871,6 +871,7 @@ specifier|const
 name|QScreen
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QPlatformScreen
@@ -902,12 +903,12 @@ name|count
 argument_list|()
 argument_list|)
 expr_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QPlatformScreen
 modifier|*
 name|platformScreen
-decl|,
+range|:
 name|platformScreens
 control|)
 name|screens

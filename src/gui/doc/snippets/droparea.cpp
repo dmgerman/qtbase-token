@@ -451,6 +451,7 @@ modifier|&
 name|format
 parameter_list|)
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|QByteArray
@@ -465,13 +466,13 @@ decl_stmt|;
 name|QPixmap
 name|pixmap
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QByteArray
 modifier|&
 name|imageFormat
-decl|,
+range|:
 name|imageFormats
 control|)
 block|{

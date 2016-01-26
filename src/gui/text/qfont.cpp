@@ -4854,13 +4854,13 @@ name|toLower
 argument_list|()
 index|]
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|QString
 modifier|&
 name|substituteName
-decl|,
+range|:
 name|substituteNames
 control|)
 block|{
