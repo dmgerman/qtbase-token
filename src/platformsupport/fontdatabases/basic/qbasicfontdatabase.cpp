@@ -105,7 +105,8 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QFontDatabase: Cannot find font directory %s - is Qt installed correctly?"
+literal|"QFontDatabase: Cannot find font directory %s.\n"
+literal|"Note that Qt no longer ships fonts. Deploy some (from http://dejavu-fonts.org for example) or switch to fontconfig."
 argument_list|,
 name|qPrintable
 argument_list|(
