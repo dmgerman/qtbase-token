@@ -4100,12 +4100,15 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
-foreach|foreach
+for|for
 control|(
 name|xcb_cursor_t
 name|cursor
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|m_cursorHash
+argument_list|)
 control|)
 name|xcb_free_cursor
 argument_list|(

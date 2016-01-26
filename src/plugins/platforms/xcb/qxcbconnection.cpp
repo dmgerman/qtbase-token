@@ -2642,13 +2642,16 @@ name|xcbScreenNumber
 expr_stmt|;
 block|}
 comment|// for each xcb screen
-foreach|foreach
+for|for
 control|(
 name|QXcbVirtualDesktop
 modifier|*
 name|virtualDesktop
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|m_virtualDesktops
+argument_list|)
 control|)
 name|virtualDesktop
 operator|->
@@ -2707,13 +2710,16 @@ expr_stmt|;
 block|}
 block|}
 comment|// Push the screens to QGuiApplication
-foreach|foreach
+for|for
 control|(
 name|QXcbScreen
 modifier|*
 name|screen
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|m_screens
+argument_list|)
 control|)
 block|{
 name|qCDebug
@@ -5943,13 +5949,16 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-foreach|foreach
+for|for
 control|(
 name|QXcbVirtualDesktop
 modifier|*
 name|virtualDesktop
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|m_virtualDesktops
+argument_list|)
 control|)
 name|virtualDesktop
 operator|->
@@ -6011,13 +6020,16 @@ operator|*
 operator|)
 name|event
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|QXcbScreen
 modifier|*
 name|s
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|m_screens
+argument_list|)
 control|)
 block|{
 if|if
@@ -8481,12 +8493,16 @@ argument_list|()
 expr_stmt|;
 comment|// Indicate with a null event that the event the callbacks are waiting for
 comment|// is not in the queue currently.
-name|Q_FOREACH
+for|for
+control|(
+name|PeekFunc
+name|f
+range|:
+name|qAsConst
 argument_list|(
-argument|PeekFunc f
-argument_list|,
-argument|m_peekFuncs
+name|m_peekFuncs
 argument_list|)
+control|)
 name|f
 argument_list|(
 name|this

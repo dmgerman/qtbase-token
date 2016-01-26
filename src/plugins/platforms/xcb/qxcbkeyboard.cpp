@@ -5675,12 +5675,15 @@ name|ambiguous
 init|=
 literal|false
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|int
 name|shortcut
-decl|,
+range|:
+name|qAsConst
+argument_list|(
 name|result
+argument_list|)
 control|)
 block|{
 if|if
