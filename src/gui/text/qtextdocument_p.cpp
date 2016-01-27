@@ -9632,7 +9632,6 @@ decl_stmt|;
 name|QTextCursor
 name|cursor
 argument_list|(
-operator|*
 name|this
 argument_list|,
 literal|0
