@@ -705,10 +705,7 @@ modifier|&
 name|offset
 parameter_list|)
 block|{
-comment|// Called for ordinary raster windows. This is rare since RasterGLSurface
-comment|// support is claimed which leads to having all QWidget windows marked as
-comment|// RasterGLSurface instead of just Raster. These go through
-comment|// compositeAndFlush() instead of this function.
+comment|// Called for ordinary raster windows.
 name|Q_UNUSED
 argument_list|(
 name|region
@@ -826,7 +823,7 @@ name|bool
 name|translucentBackground
 parameter_list|)
 block|{
-comment|// QOpenGLWidget/QQuickWidget content provided as textures. The raster content should go on top.
+comment|// QOpenGLWidget/QQuickWidget content provided as textures. The raster content goes on top.
 name|Q_UNUSED
 argument_list|(
 name|region
