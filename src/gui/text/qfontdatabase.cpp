@@ -13693,6 +13693,16 @@ name|stretch
 operator|=
 literal|100
 expr_stmt|;
+comment|// respect the fallback families that might be passed through the request
+specifier|const
+name|QStringList
+name|fallBackFamilies
+init|=
+name|familyList
+argument_list|(
+name|req
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -13711,6 +13721,22 @@ name|instance
 argument_list|()
 decl_stmt|;
 comment|// look for the requested font in the engine data cache
+comment|// note: fallBackFamilies are not respected in the EngineData cache key;
+comment|//       join them with the primary selection family to avoid cache misses
+name|req
+operator|.
+name|family
+operator|=
+name|fallBackFamilies
+operator|.
+name|join
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|','
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|engineData
@@ -13773,53 +13799,39 @@ name|script
 index|]
 condition|)
 return|return;
-comment|// Until we specifically asked not to, try looking for Multi font engine
-comment|// first, the last '1' indicates that we want Multi font engine instead
-comment|// of single ones
-name|bool
-name|multi
-init|=
-operator|!
-operator|(
-name|req
-operator|.
-name|styleStrategy
-operator|&
-name|QFont
-operator|::
-name|NoFontMerging
-operator|)
-decl_stmt|;
-name|QFontCache
-operator|::
-name|Key
-name|key
-argument_list|(
-name|req
-argument_list|,
-name|script
-argument_list|,
-name|multi
-condition|?
-literal|1
-else|:
-literal|0
-argument_list|)
-decl_stmt|;
 name|QFontEngine
 modifier|*
 name|fe
 init|=
-name|QFontCache
-operator|::
-name|instance
-argument_list|()
-operator|->
-name|findEngine
-argument_list|(
-name|key
-argument_list|)
+name|Q_NULLPTR
 decl_stmt|;
+name|req
+operator|.
+name|fallBackFamilies
+operator|=
+name|fallBackFamilies
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|req
+operator|.
+name|fallBackFamilies
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|req
+operator|.
+name|family
+operator|=
+name|req
+operator|.
+name|fallBackFamilies
+operator|.
+name|takeFirst
+argument_list|()
+expr_stmt|;
 comment|// list of families to try
 name|QStringList
 name|family_list
@@ -13835,28 +13847,12 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QStringList
-name|familiesForRequest
-init|=
-name|familyList
-argument_list|(
-name|req
-argument_list|)
-decl_stmt|;
 comment|// Add primary selection
 name|family_list
 operator|<<
-name|familiesForRequest
-operator|.
-name|takeFirst
-argument_list|()
-expr_stmt|;
-comment|// Fallbacks requested in font request
 name|req
 operator|.
-name|fallBackFamilies
-operator|=
-name|familiesForRequest
+name|family
 expr_stmt|;
 comment|// add the default family
 name|QString
