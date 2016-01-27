@@ -737,6 +737,11 @@ operator|->
 name|context
 argument_list|()
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|dstCtx
+argument_list|)
+expr_stmt|;
 name|QWindow
 modifier|*
 name|dstWin
@@ -860,6 +865,27 @@ operator|->
 name|context
 argument_list|()
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|dstCtx
+argument_list|)
+expr_stmt|;
+comment|// setTarget() must have been called before, e.g. from QEGLFSWindow
+comment|// The compositor's context and the context to which QOpenGLWidget/QQuickWidget
+comment|// textures belong are not the same. They share resources, though.
+name|Q_ASSERT
+argument_list|(
+name|context
+operator|->
+name|shareGroup
+argument_list|()
+operator|==
+name|dstCtx
+operator|->
+name|shareGroup
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QWindow
 modifier|*
 name|dstWin
