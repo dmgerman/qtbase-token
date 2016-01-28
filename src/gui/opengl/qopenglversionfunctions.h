@@ -585,9 +585,17 @@ name|QOpenGLFunctions_1_0_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -619,9 +627,17 @@ name|QOpenGLFunctions_1_1_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -653,9 +669,17 @@ name|QOpenGLFunctions_1_2_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -687,9 +711,17 @@ name|QOpenGLFunctions_1_3_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -721,9 +753,17 @@ name|QOpenGLFunctions_1_4_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -755,9 +795,17 @@ name|QOpenGLFunctions_1_5_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -789,9 +837,17 @@ name|QOpenGLFunctions_2_0_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -823,9 +879,17 @@ name|QOpenGLFunctions_2_1_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -857,9 +921,17 @@ name|QOpenGLFunctions_3_0_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -891,9 +963,17 @@ name|QOpenGLFunctions_3_1_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -925,9 +1005,17 @@ name|QOpenGLFunctions_3_2_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -963,9 +1051,17 @@ name|QOpenGLFunctions_3_3_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -997,9 +1093,17 @@ name|QOpenGLFunctions_4_0_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1031,9 +1135,17 @@ name|QOpenGLFunctions_4_1_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1065,9 +1177,17 @@ name|QOpenGLFunctions_4_2_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1099,9 +1219,17 @@ name|QOpenGLFunctions_4_3_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1133,9 +1261,17 @@ name|QOpenGLFunctions_4_4_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1167,9 +1303,17 @@ name|QOpenGLFunctions_4_5_CoreBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1201,9 +1345,17 @@ name|QOpenGLFunctions_1_0_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1235,9 +1387,17 @@ name|QOpenGLFunctions_1_1_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1269,9 +1429,17 @@ name|QOpenGLFunctions_1_2_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1303,9 +1471,17 @@ name|QOpenGLFunctions_1_3_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1337,9 +1513,17 @@ name|QOpenGLFunctions_1_4_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1371,9 +1555,17 @@ name|QOpenGLFunctions_2_0_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1405,9 +1597,17 @@ name|QOpenGLFunctions_3_0_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1439,9 +1639,17 @@ name|QOpenGLFunctions_3_3_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
@@ -1473,9 +1681,17 @@ name|QOpenGLFunctions_4_5_DeprecatedBackend
 argument_list|(
 name|QOpenGLContext
 operator|*
-name|context
+name|c
 argument_list|)
-block|;
+operator|:
+name|QOpenGLVersionFunctionsBackend
+argument_list|(
+argument|c
+argument_list|)
+block|{
+name|init
+argument_list|()
+block|;     }
 specifier|static
 name|QOpenGLVersionStatus
 name|versionStatus
