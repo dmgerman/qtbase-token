@@ -2215,9 +2215,9 @@ name|m_touchDragWindow
 operator|->
 name|setFramePosition
 argument_list|(
-name|QWindowsCursor
+name|QCursor
 operator|::
-name|mousePosition
+name|pos
 argument_list|()
 operator|-
 name|e
