@@ -8128,6 +8128,8 @@ operator|&&
 name|window
 condition|)
 block|{
+if|if
+condition|(
 name|QWindowSystemInterface
 operator|::
 name|handleShortcutEvent
@@ -8170,7 +8172,8 @@ name|e
 operator|->
 name|repeatCount
 argument_list|)
-expr_stmt|;
+condition|)
+return|return;
 block|}
 endif|#
 directive|endif
