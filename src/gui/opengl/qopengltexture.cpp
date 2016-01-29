@@ -234,6 +234,11 @@ name|texFuncs
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|functions
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|dimensions
 index|[
@@ -572,6 +577,13 @@ name|context
 operator|=
 name|ctx
 expr_stmt|;
+name|functions
+operator|=
+name|ctx
+operator|->
+name|functions
+argument_list|()
+expr_stmt|;
 comment|// Resolve any functions we will need based upon context version and create the texture
 name|initializeOpenGLFunctions
 argument_list|()
@@ -623,7 +635,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|texFuncs
+name|functions
 operator|->
 name|glGenTextures
 argument_list|(
@@ -690,7 +702,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|texFuncs
+name|functions
 operator|->
 name|glDeleteTextures
 argument_list|(
@@ -701,6 +713,10 @@ name|textureId
 argument_list|)
 expr_stmt|;
 name|context
+operator|=
+literal|0
+expr_stmt|;
+name|functions
 operator|=
 literal|0
 expr_stmt|;
@@ -879,7 +895,7 @@ operator|::
 name|bind
 parameter_list|()
 block|{
-name|texFuncs
+name|functions
 operator|->
 name|glBindTexture
 argument_list|(
@@ -919,7 +935,7 @@ name|QOpenGLTexture
 operator|::
 name|ResetTextureUnit
 condition|)
-name|texFuncs
+name|functions
 operator|->
 name|glGetIntegerv
 argument_list|(
@@ -938,7 +954,7 @@ operator|+
 name|unit
 argument_list|)
 expr_stmt|;
-name|texFuncs
+name|functions
 operator|->
 name|glBindTexture
 argument_list|(
@@ -974,7 +990,7 @@ operator|::
 name|release
 parameter_list|()
 block|{
-name|texFuncs
+name|functions
 operator|->
 name|glBindTexture
 argument_list|(
@@ -1014,7 +1030,7 @@ name|QOpenGLTexture
 operator|::
 name|ResetTextureUnit
 condition|)
-name|texFuncs
+name|functions
 operator|->
 name|glGetIntegerv
 argument_list|(
@@ -1033,7 +1049,7 @@ operator|+
 name|unit
 argument_list|)
 expr_stmt|;
-name|texFuncs
+name|functions
 operator|->
 name|glBindTexture
 argument_list|(
@@ -1075,7 +1091,7 @@ name|boundTextureId
 init|=
 literal|0
 decl_stmt|;
-name|texFuncs
+name|functions
 operator|->
 name|glGetIntegerv
 argument_list|(
@@ -1117,7 +1133,7 @@ name|oldTextureUnit
 init|=
 literal|0
 decl_stmt|;
-name|texFuncs
+name|functions
 operator|->
 name|glGetIntegerv
 argument_list|(
@@ -1141,7 +1157,7 @@ operator|+
 name|unit
 argument_list|)
 expr_stmt|;
-name|texFuncs
+name|functions
 operator|->
 name|glGetIntegerv
 argument_list|(

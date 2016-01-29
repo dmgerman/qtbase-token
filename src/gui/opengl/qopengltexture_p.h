@@ -114,6 +114,12 @@ name|QOpenGLTextureHelper
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QOpenGLFunctions
+name|class
+name|QOpenGLFunctions
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QOpenGLTexturePrivate
 block|{
@@ -573,6 +579,10 @@ decl_stmt|;
 name|QOpenGLTextureHelper
 modifier|*
 name|texFuncs
+decl_stmt|;
+name|QOpenGLFunctions
+modifier|*
+name|functions
 decl_stmt|;
 name|QOpenGLTexture
 operator|::
