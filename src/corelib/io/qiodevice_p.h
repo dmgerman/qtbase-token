@@ -618,6 +618,29 @@ specifier|inline
 name|void
 name|append
 argument_list|(
+argument|const char *data
+argument_list|,
+argument|qint64 size
+argument_list|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|m_buf
+argument_list|)
+block|;
+name|m_buf
+operator|->
+name|append
+argument_list|(
+name|data
+argument_list|,
+name|size
+argument_list|)
+block|; }
+specifier|inline
+name|void
+name|append
+argument_list|(
 argument|const QByteArray&qba
 argument_list|)
 block|{

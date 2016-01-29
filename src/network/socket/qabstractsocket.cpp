@@ -7763,25 +7763,12 @@ name|size
 condition|)
 block|{
 comment|// Buffer what was not written yet
-name|char
-modifier|*
-name|ptr
-init|=
 name|d
 operator|->
 name|writeBuffer
 operator|.
-name|reserve
+name|append
 argument_list|(
-name|size
-operator|-
-name|written
-argument_list|)
-decl_stmt|;
-name|memcpy
-argument_list|(
-name|ptr
-argument_list|,
 name|data
 operator|+
 name|written
@@ -7964,36 +7951,12 @@ comment|// unbuffered QTcpSocket when there was already something in the
 comment|// write buffer and therefore we could not do a direct engine write.
 comment|// We just write to our write buffer and enable the write notifier
 comment|// The write notifier then flush()es the buffer.
-name|char
-modifier|*
-name|ptr
-init|=
 name|d
 operator|->
 name|writeBuffer
 operator|.
-name|reserve
+name|append
 argument_list|(
-name|size
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|size
-operator|==
-literal|1
-condition|)
-operator|*
-name|ptr
-operator|=
-operator|*
-name|data
-expr_stmt|;
-else|else
-name|memcpy
-argument_list|(
-name|ptr
-argument_list|,
 name|data
 argument_list|,
 name|size
