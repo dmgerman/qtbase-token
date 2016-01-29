@@ -165,8 +165,8 @@ name|QFunctionPointer
 name|getProcAddress
 parameter_list|(
 specifier|const
-name|QByteArray
-modifier|&
+name|char
+modifier|*
 name|procName
 parameter_list|)
 init|=

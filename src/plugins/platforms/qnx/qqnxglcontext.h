@@ -114,8 +114,8 @@ name|QFunctionPointer
 name|getProcAddress
 argument_list|(
 specifier|const
-name|QByteArray
-operator|&
+name|char
+operator|*
 name|procName
 argument_list|)
 block|;

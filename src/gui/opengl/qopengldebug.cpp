@@ -3723,7 +3723,7 @@ parameter_list|(
 name|procName
 parameter_list|)
 define|\
-value|d->procName = reinterpret_cast< qt_ ## procName ## _t>( \         d->context->getProcAddress(QByteArrayLiteral( #procName )) \     );
+value|d->procName = reinterpret_cast< qt_ ## procName ## _t>( \         d->context->getProcAddress(#procName) \     );
 name|GET_DEBUG_PROC_ADDRESS
 argument_list|(
 name|glDebugMessageControl

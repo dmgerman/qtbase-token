@@ -22,7 +22,7 @@ begin_comment
 comment|/*! \fn void QPlatformOpenGLContext::swapBuffers(QPlatformSurface *surface)     Reimplement in subclass to native swap buffers calls      The implementation must support being called in a thread different than the gui-thread. */
 end_comment
 begin_comment
-comment|/*! \fn QFunctionPointer QPlatformOpenGLContext::getProcAddress(const QByteArray&procName)     Reimplement in subclass to native getProcAddr calls.      Note: its convenient to use qPrintable(const QString&str) to get the const char * pointer */
+comment|/*! \fn QFunctionPointer QPlatformOpenGLContext::getProcAddress(const char *procName)      Reimplement in subclass to native getProcAddr calls. */
 end_comment
 begin_class
 DECL|class|QPlatformOpenGLContextPrivate

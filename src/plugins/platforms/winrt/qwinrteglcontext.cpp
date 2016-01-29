@@ -808,8 +808,8 @@ operator|::
 name|getProcAddress
 parameter_list|(
 specifier|const
-name|QByteArray
-modifier|&
+name|char
+modifier|*
 name|procName
 parameter_list|)
 block|{
@@ -3140,9 +3140,6 @@ return|return
 name|eglGetProcAddress
 argument_list|(
 name|procName
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 return|;
 block|}

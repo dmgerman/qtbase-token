@@ -599,6 +599,13 @@ argument|const QByteArray&procName
 argument_list|)
 specifier|const
 block|;
+name|QFunctionPointer
+name|getProcAddress
+argument_list|(
+argument|const char *procName
+argument_list|)
+specifier|const
+block|;
 name|QSurface
 operator|*
 name|surface

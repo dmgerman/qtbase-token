@@ -207,8 +207,8 @@ operator|::
 name|getProcAddress
 parameter_list|(
 specifier|const
-name|QString
-modifier|&
+name|char
+modifier|*
 name|procName
 parameter_list|)
 block|{
@@ -225,10 +225,7 @@ name|GetProcAddress
 argument_list|(
 name|m_dfbGlContext
 argument_list|,
-name|qPrintable
-argument_list|(
 name|procName
-argument_list|)
 argument_list|,
 operator|&
 name|proc

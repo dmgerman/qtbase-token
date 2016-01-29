@@ -93,12 +93,11 @@ operator|!=
 name|EGL_NO_CONTEXT
 return|;
 block|}
-name|void
+name|QFunctionPointer
+name|getProcAddress
 argument_list|(
-argument|*getProcAddress(const QByteArray& procName)
+argument|const char *procName
 argument_list|)
-operator|(
-operator|)
 name|override
 block|;
 name|EGLContext

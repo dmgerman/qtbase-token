@@ -84,7 +84,7 @@ block|;
 name|QFunctionPointer
 name|getProcAddress
 argument_list|(
-argument|const QByteArray&procName
+argument|const char *procName
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
