@@ -469,6 +469,8 @@ name|m_refCountT
 decl_stmt|;
 block|}
 empty_stmt|;
+comment|// T: accessed from executing thread
+comment|// Q: accessed from the waiting/querying thread
 name|RefCount
 name|refCount
 decl_stmt|;
@@ -489,12 +491,15 @@ expr_stmt|;
 name|int
 name|m_progressValue
 decl_stmt|;
+comment|// TQ
 name|int
 name|m_progressMinimum
 decl_stmt|;
+comment|// TQ
 name|int
 name|m_progressMaximum
 decl_stmt|;
+comment|// TQ
 name|QFutureInterfaceBase
 operator|::
 name|State
@@ -514,6 +519,7 @@ expr_stmt|;
 name|bool
 name|manualProgress
 decl_stmt|;
+comment|// only accessed from executing thread
 name|int
 name|m_expectedResultCount
 decl_stmt|;
