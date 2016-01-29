@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QLoggingCategory>
+end_include
+begin_include
+include|#
+directive|include
 file|<wrl.h>
 end_include
 begin_decl_stmt
@@ -61,7 +66,10 @@ block|}
 end_decl_stmt
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QWinRTScreen
+name|Q_DECLARE_LOGGING_CATEGORY
+argument_list|(
+name|lcQpaInputMethods
+argument_list|)
 name|class
 name|QWinRTScreen
 decl_stmt|;
