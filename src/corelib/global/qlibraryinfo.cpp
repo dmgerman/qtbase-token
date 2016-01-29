@@ -1466,7 +1466,7 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|/*!   Returns the location specified by \a loc.  */
+comment|/*!   Returns the location specified by \a loc. */
 end_comment
 begin_function
 name|QString
@@ -1482,6 +1482,7 @@ block|{
 ifdef|#
 directive|ifdef
 name|QT_BUILD_QMAKE
+comment|// ends inside rawLocation !
 name|QString
 name|ret
 init|=
@@ -1613,6 +1614,7 @@ parameter_list|)
 block|{
 endif|#
 directive|endif
+comment|// QT_BUILD_QMAKE, started inside location !
 name|QString
 name|ret
 decl_stmt|;
@@ -2266,6 +2268,7 @@ argument_list|,
 name|group
 argument_list|)
 expr_stmt|;
+block|}
 else|#
 directive|else
 if|if
@@ -2382,10 +2385,12 @@ return|;
 comment|// iOS
 endif|#
 directive|endif
+comment|// Q_OS_OSX
 block|}
 block|}
 endif|#
 directive|endif
+comment|// Q_OS_DARWIN
 comment|// We make the prefix path absolute to the executable's directory.
 name|baseDir
 operator|=
@@ -2416,9 +2421,10 @@ argument_list|(
 name|PrefixPath
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
-block|}
+comment|// QT_BUILD_QMAKE
 name|ret
 operator|=
 name|QDir
@@ -2440,7 +2446,11 @@ return|return
 name|ret
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!   Returns additional arguments to the platform plugin matching   \a platformName which can be specified as a string list using   the key \c Arguments in a group called \c Platforms of the   \c qt.conf  file.    sa {Using qt.conf}    \internal    \since 5.3 */
+end_comment
+begin_function
 DECL|function|platformPluginArguments
 name|QStringList
 name|QLibraryInfo
@@ -2534,7 +2544,11 @@ name|QStringList
 argument_list|()
 return|;
 block|}
+end_function
+begin_comment
 comment|/*!     \enum QLibraryInfo::LibraryLocation      \keyword library location      This enum type is used to specify a specific location     specifier:      \value PrefixPath The default prefix for all paths.     \value DocumentationPath The location for documentation upon install.     \value HeadersPath The location for all headers.     \value LibrariesPath The location of installed libraries.     \value LibraryExecutablesPath The location of installed executables required by libraries at runtime.     \value BinariesPath The location of installed Qt binaries (tools and applications).     \value PluginsPath The location of installed Qt plugins.     \value ImportsPath The location of installed QML extensions to import (QML 1.x).     \value Qml2ImportsPath The location of installed QML extensions to import (QML 2.x).     \value ArchDataPath The location of general architecture-dependent Qt data.     \value DataPath The location of general architecture-independent Qt data.     \value TranslationsPath The location of translation information for Qt strings.     \value ExamplesPath The location for examples upon install.     \value TestsPath The location of installed Qt testcases.     \value SettingsPath The location for Qt settings. Not applicable on Windows.      \sa location() */
+end_comment
+begin_decl_stmt
 name|QT_END_NAMESPACE
 if|#
 directive|if
@@ -2574,12 +2588,16 @@ argument_list|)
 init|=
 name|ELF_INTERPRETER
 decl_stmt|;
+end_decl_stmt
+begin_extern
 extern|extern
 literal|"C"
 name|void
 name|qt_core_boilerplate
-argument_list|()
-decl_stmt|;
+parameter_list|()
+function_decl|;
+end_extern
+begin_function
 DECL|function|qt_core_boilerplate
 name|void
 name|qt_core_boilerplate
