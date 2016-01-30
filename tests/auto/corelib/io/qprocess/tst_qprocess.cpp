@@ -6016,7 +6016,7 @@ block|{
 name|writePendingData
 argument_list|()
 expr_stmt|;
-comment|// In cases 3 and 4 we haven't written the data yet.
+comment|// In cases 3 and 5 we haven't written the data yet.
 if|if
 condition|(
 name|killing
@@ -6024,7 +6024,7 @@ operator|||
 operator|(
 name|n
 operator|==
-literal|4
+literal|5
 operator|&&
 name|state
 argument_list|()
