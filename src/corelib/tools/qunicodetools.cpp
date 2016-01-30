@@ -6171,8 +6171,7 @@ decl_stmt|;
 name|int
 name|eor
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 name|uchar
 name|script
@@ -6194,12 +6193,12 @@ name|length
 condition|;
 operator|++
 name|i
-control|)
-block|{
+operator|,
 name|eor
 operator|=
 name|i
-expr_stmt|;
+control|)
+block|{
 name|uint
 name|ucs4
 init|=
@@ -6274,26 +6273,50 @@ argument_list|(
 name|ucs4
 argument_list|)
 decl_stmt|;
+name|uchar
+name|nscript
+init|=
+name|prop
+operator|->
+name|script
+decl_stmt|;
 if|if
 condition|(
 name|Q_LIKELY
 argument_list|(
-name|prop
-operator|->
-name|script
+name|nscript
 operator|==
 name|script
 operator|||
-name|prop
-operator|->
+name|nscript
+operator|<=
+name|QChar
+operator|::
+name|Script_Common
+argument_list|)
+condition|)
+continue|continue;
+comment|// inherit preceding Common-s
+if|if
+condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|script
 operator|<=
 name|QChar
 operator|::
-name|Script_Inherited
+name|Script_Common
 argument_list|)
 condition|)
+block|{
+comment|// also covers a case where the base character of Common script followed
+comment|// by one or more combining marks of non-Inherited, non-Common script
+name|script
+operator|=
+name|nscript
+expr_stmt|;
 continue|continue;
+block|}
 comment|// Never break between a combining mark (gc= Mc, Mn or Me) and its base character.
 comment|// Thus, a combining mark â whatever its script property value is â should inherit
 comment|// the script property value of its base character.
@@ -6339,106 +6362,89 @@ operator|&
 name|test
 argument_list|)
 condition|)
-block|{
-comment|// In cases where the base character itself has the Common script property value,
-comment|// and it is followed by one or more combining marks with a specific script property value,
-comment|// it may be even better for processing to let the base acquire the script property value
-comment|// from the first mark. This approach can be generalized by treating all the characters
-comment|// of a combining character sequence as having the script property value
-comment|// of the first non-Inherited, non-Common character in the sequence if there is one,
-comment|// and otherwise treating all the characters as having the Common script property value.
-if|if
-condition|(
-name|Q_LIKELY
+continue|continue;
+name|Q_ASSERT
 argument_list|(
 name|script
 operator|>
 name|QChar
 operator|::
 name|Script_Common
-operator|||
-name|prop
-operator|->
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|sor
+operator|<
+name|eor
+argument_list|)
+expr_stmt|;
+operator|::
+name|memset
+argument_list|(
+name|scripts
+operator|+
+name|sor
+argument_list|,
 name|script
-operator|<=
+argument_list|,
+operator|(
+name|eor
+operator|-
+name|sor
+operator|)
+operator|*
+sizeof|sizeof
+argument_list|(
+name|uchar
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|sor
+operator|=
+name|eor
+expr_stmt|;
+name|script
+operator|=
+name|nscript
+expr_stmt|;
+block|}
+name|Q_ASSERT
+argument_list|(
+name|script
+operator|>=
 name|QChar
 operator|::
 name|Script_Common
 argument_list|)
-condition|)
-continue|continue;
-name|script
-operator|=
-name|QChar
-operator|::
-name|Script
+expr_stmt|;
+name|Q_ASSERT
 argument_list|(
-name|prop
-operator|->
-name|script
+name|eor
+operator|==
+name|length
 argument_list|)
 expr_stmt|;
-block|}
-if|#
-directive|if
-literal|0
-comment|// ### Disabled due to regressions. The font selection algorithm is not prepared for this change.
-block|if (Q_LIKELY(script != QChar::Script_Common)) {
-comment|// override preceding Common-s
-block|while (sor> 0&& scripts[sor - 1] == QChar::Script_Common)                 --sor;         } else {
-comment|// see if we are inheriting preceding run
-block|if (sor> 0)                 script = scripts[sor - 1];         }
-endif|#
-directive|endif
-while|while
-condition|(
-name|sor
-operator|<
-name|eor
-condition|)
+operator|::
+name|memset
+argument_list|(
 name|scripts
-index|[
+operator|+
 name|sor
-operator|++
-index|]
-operator|=
+argument_list|,
 name|script
-expr_stmt|;
-name|script
-operator|=
-name|prop
-operator|->
-name|script
-expr_stmt|;
-block|}
+argument_list|,
+operator|(
 name|eor
-operator|=
-name|length
-expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// ### Disabled due to regressions. The font selection algorithm is not prepared for this change.
-block|if (Q_LIKELY(script != QChar::Script_Common)) {
-comment|// override preceding Common-s
-block|while (sor> 0&& scripts[sor - 1] == QChar::Script_Common)             --sor;     } else {
-comment|// see if we are inheriting preceding run
-block|if (sor> 0)             script = scripts[sor - 1];     }
-endif|#
-directive|endif
-while|while
-condition|(
+operator|-
 name|sor
-operator|<
-name|eor
-condition|)
-name|scripts
-index|[
-name|sor
-operator|++
-index|]
-operator|=
-name|script
+operator|)
+operator|*
+sizeof|sizeof
+argument_list|(
+name|uchar
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}
