@@ -56,7 +56,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_DARWIN
 include|#
 directive|include
 file|"private/qcore_mac_p.h"
@@ -560,7 +560,7 @@ else|#
 directive|else
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_DARWIN
 name|CFBundleRef
 name|bundleRef
 init|=
@@ -2285,7 +2285,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_DARWIN
 name|CFBundleRef
 name|bundleRef
 init|=
@@ -2325,7 +2325,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MACX
+name|Q_OS_OSX
 name|QString
 name|bundleContentsDir
 init|=
