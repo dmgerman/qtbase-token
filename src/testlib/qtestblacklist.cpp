@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtTest/qtest.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qbytearray.h>
 end_include
 begin_include
