@@ -10807,7 +10807,7 @@ name|execute
 argument_list|(
 name|binDir
 operator|+
-literal|"/lrelease "
+literal|"/lrelease -silent "
 operator|+
 name|tsFile
 operator|+
