@@ -101,10 +101,7 @@ operator|::
 name|~
 name|QPlatformWindow
 parameter_list|()
-block|{
-comment|// We don't flush window system events here, as the event will be
-comment|// delivered with a platform window that is half-way destroyed.
-block|}
+block|{ }
 end_destructor
 begin_comment
 comment|/*!     Returns the window which belongs to the QPlatformWindow */

@@ -57,11 +57,6 @@ include|#
 directive|include
 file|<qaccessible.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qwidget_p.h>
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -104,11 +99,6 @@ condition|)
 return|return
 name|iface
 return|;
-comment|// QWidget emits destroyed() from its destructor instead of letting the QObject
-comment|// destructor do it, which means the QWidget is unregistered from the accessibillity
-comment|// cache. But QWidget destruction also emits enter and leave events, which may end
-comment|// up here, so we have to ensure that we don't fill the cache with an entry of
-comment|// a widget that is going away.
 name|QWidget
 modifier|*
 name|widget
@@ -122,22 +112,6 @@ argument_list|(
 name|object
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|QWidgetPrivate
-operator|::
-name|get
-argument_list|(
-name|widget
-argument_list|)
-operator|->
-name|data
-operator|.
-name|in_destructor
-condition|)
-return|return
-name|iface
-return|;
 if|if
 condition|(
 literal|false
