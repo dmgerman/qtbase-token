@@ -5363,10 +5363,10 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|qt_handleShortcutEvent
+DECL|function|qt_sendShortcutOverrideEvent
 name|Q_GUI_EXPORT
 name|bool
-name|qt_handleShortcutEvent
+name|qt_sendShortcutOverrideEvent
 parameter_list|(
 name|QObject
 modifier|*
