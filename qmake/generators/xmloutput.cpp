@@ -201,6 +201,13 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|currentIndent
+operator|.
+name|reserve
+argument_list|(
+name|currentLevel
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
