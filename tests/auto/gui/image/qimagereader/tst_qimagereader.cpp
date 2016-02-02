@@ -11263,6 +11263,30 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"corrupt bmp (clut)"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"corrupt_clut.bmp"
+argument_list|)
+operator|<<
+literal|true
+operator|<<
+name|QString
+argument_list|(
+literal|""
+argument_list|)
+operator|<<
+name|QByteArray
+argument_list|(
+literal|"bmp"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"corrupt xpm (colors)"
 argument_list|)
 operator|<<
