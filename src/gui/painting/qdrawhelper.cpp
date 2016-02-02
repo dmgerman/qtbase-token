@@ -15771,6 +15771,7 @@ comment|// The idea is first to do the interpolation between the row s1 and the 
 comment|// into an intermediate buffer, then we interpolate between two pixel of this buffer.
 comment|// intermediate_buffer[0] is a buffer of red-blue component of the pixel, in the form 0x00RR00BB
 comment|// intermediate_buffer[1] is the alpha-green component of the pixel, in the form 0x00AA00GG
+comment|// +1 for the last pixel to interpolate with, and +1 for rounding errors.
 name|quint32
 name|intermediate_buffer
 index|[
@@ -15786,18 +15787,23 @@ comment|// count is the size used in the intermediate_buffer.
 name|int
 name|count
 init|=
-name|qCeil
+operator|(
+name|qint64
 argument_list|(
 name|length
-operator|*
-name|data
-operator|->
-name|m11
 argument_list|)
+operator|*
+name|fdx
+operator|+
+name|fixed_scale
+operator|-
+literal|1
+operator|)
+operator|/
+name|fixed_scale
 operator|+
 literal|2
 decl_stmt|;
-comment|//+1 for the last pixel to interpolate with, and +1 for rounding errors.
 name|Q_ASSERT
 argument_list|(
 name|count
@@ -19816,6 +19822,7 @@ operator|->
 name|bpp
 index|]
 decl_stmt|;
+comment|// +1 for the last pixel to interpolate with, and +1 for rounding errors.
 name|uint
 name|buf1
 index|[
@@ -19845,18 +19852,23 @@ decl_stmt|;
 name|int
 name|count
 init|=
-name|qCeil
+operator|(
+name|qint64
 argument_list|(
 name|length
-operator|*
-name|data
-operator|->
-name|m11
 argument_list|)
+operator|*
+name|fdx
+operator|+
+name|fixed_scale
+operator|-
+literal|1
+operator|)
+operator|/
+name|fixed_scale
 operator|+
 literal|2
 decl_stmt|;
-comment|//+1 for the last pixel to interpolate with, and +1 for rounding errors.
 name|Q_ASSERT
 argument_list|(
 name|count
