@@ -261,7 +261,7 @@ name|last
 operator|.
 name|type
 operator|=
-name|FirstSection
+name|LastSection
 block|;
 name|last
 operator|.

@@ -529,6 +529,9 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 comment|// chdir to our testdata directory, and use relative paths in some tests.
 name|QString
 name|testdatadir
@@ -561,6 +564,8 @@ name|testdatadir
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2386,6 +2391,11 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 name|QTest
 operator|::
 name|newRow
@@ -2726,9 +2736,18 @@ literal|"mylib"
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE

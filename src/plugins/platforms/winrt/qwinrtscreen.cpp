@@ -6609,7 +6609,7 @@ argument_list|)
 decl_stmt|;
 name|RETURN_OK_IF_FAILED
 argument_list|(
-literal|"Failed to get visbile."
+literal|"Failed to get visibility."
 argument_list|)
 expr_stmt|;
 name|QWindowSystemInterface

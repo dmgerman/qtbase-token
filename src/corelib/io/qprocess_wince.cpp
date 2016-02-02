@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowspipewriter_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qdir.h>
 end_include
 begin_include
@@ -709,9 +704,7 @@ block|}
 comment|// give the process a chance to start ...
 name|Sleep
 argument_list|(
-name|SLEEPMIN
-operator|*
-literal|2
+literal|20
 argument_list|)
 expr_stmt|;
 name|_q_startupNotification

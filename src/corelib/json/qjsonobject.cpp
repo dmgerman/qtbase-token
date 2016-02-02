@@ -1930,7 +1930,7 @@ begin_comment
 comment|/*! \typedef QJsonObject::iterator::difference_type      \internal */
 end_comment
 begin_comment
-comment|/*! \typedef QJsonObject::iterator::iterator_category      A synonym for \e {std::bidirectional_iterator_tag} indicating     this iterator is a bidirectional iterator. */
+comment|/*! \typedef QJsonObject::iterator::iterator_category      A synonym for \e {std::random_access_iterator_tag} indicating     this iterator is a random-access iterator.      \note In Qt versions before 5.6, this was set by mistake to     \e {std::bidirectional_iterator_tag}. */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonObject::iterator::reference      \internal */
@@ -1996,7 +1996,7 @@ begin_comment
 comment|/*! \typedef QJsonObject::const_iterator::difference_type      \internal */
 end_comment
 begin_comment
-comment|/*! \typedef QJsonObject::const_iterator::iterator_category      A synonym for \e {std::bidirectional_iterator_tag} indicating     this iterator is a bidirectional iterator. */
+comment|/*! \typedef QJsonObject::const_iterator::iterator_category      A synonym for \e {std::random_access_iterator_tag} indicating     this iterator is a random-access iterator.      \note In Qt versions before 5.6, this was set by mistake to     \e {std::bidirectional_iterator_tag}. */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonObject::const_iterator::reference      \internal */

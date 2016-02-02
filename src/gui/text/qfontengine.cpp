@@ -13644,10 +13644,7 @@ name|script
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QFontCache
-operator|::
-name|instance
-argument_list|()
+name|fc
 operator|->
 name|insertEngine
 argument_list|(

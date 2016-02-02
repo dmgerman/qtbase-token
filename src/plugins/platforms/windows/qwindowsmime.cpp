@@ -6426,7 +6426,7 @@ if|if
 condition|(
 name|mimeType
 operator|!=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"application/x-qt-image"
 argument_list|)

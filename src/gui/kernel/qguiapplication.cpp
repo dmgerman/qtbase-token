@@ -3051,7 +3051,7 @@ begin_comment
 comment|/*!     \fn void QGuiApplication::screenRemoved(QScreen *screen)      This signal is emitted whenever a \a screen is removed from the system. It     provides an opportunity to manage the windows on the screen before Qt falls back     to moving them to the primary screen.      \sa screens(), screenAdded(), QObject::destroyed(), QWindow::setScreen()      \since 5.4 */
 end_comment
 begin_comment
-comment|/*!     \property QGuiApplication::primaryScreen      \brief the primary (or default) screen of the application, or null if there is none.      This will be the screen where QWindows are initially shown, unless otherwise specified.      On some platforms, it may be null when there are actually no screens connected.     It is not possible to start a new QGuiApplication while there are no screens.     Applications which were running at the time the primary screen was removed     will stop rendering graphics until one or more screens are restored.      The primaryScreenChanged signal was introduced in Qt 5.6.      \sa screens() */
+comment|/*!     \property QGuiApplication::primaryScreen      \brief the primary (or default) screen of the application.      This will be the screen where QWindows are initially shown, unless otherwise specified.      The primaryScreenChanged signal was introduced in Qt 5.6.      \sa screens() */
 end_comment
 begin_comment
 comment|/*!     Returns the highest screen device pixel ratio found on     the system. This is the ratio between physical pixels and     device-independent pixels.      Use this function only when you don't know which window you are targeting.     If you do know the target window, use QWindow::devicePixelRatio() instead.      \sa QWindow::devicePixelRatio() */
@@ -3483,12 +3483,19 @@ name|fatalMessage
 init|=
 name|QStringLiteral
 argument_list|(
-literal|"This application failed to start because it could not find or load the Qt platform plugin \"%1\".\n\n"
+literal|"This application failed to start because it could not find or load the Qt platform plugin \"%1\"\nin \"%2\".\n\n"
 argument_list|)
 operator|.
 name|arg
 argument_list|(
 name|name
+argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|platformPluginPath
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -8099,6 +8106,77 @@ name|focusWindow
 argument_list|()
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_OSX
+argument_list|)
+comment|// FIXME: Include OS X in this code path by passing the key event through
+comment|// QPlatformInputContext::filterEvent().
+if|if
+condition|(
+name|e
+operator|->
+name|keyType
+operator|==
+name|QEvent
+operator|::
+name|KeyPress
+operator|&&
+name|window
+condition|)
+block|{
+if|if
+condition|(
+name|QWindowSystemInterface
+operator|::
+name|handleShortcutEvent
+argument_list|(
+name|window
+argument_list|,
+name|e
+operator|->
+name|timestamp
+argument_list|,
+name|e
+operator|->
+name|key
+argument_list|,
+name|e
+operator|->
+name|modifiers
+argument_list|,
+name|e
+operator|->
+name|nativeScanCode
+argument_list|,
+name|e
+operator|->
+name|nativeVirtualKey
+argument_list|,
+name|e
+operator|->
+name|nativeModifiers
+argument_list|,
+name|e
+operator|->
+name|unicode
+argument_list|,
+name|e
+operator|->
+name|repeat
+argument_list|,
+name|e
+operator|->
+name|repeatCount
+argument_list|)
+condition|)
+return|return;
+block|}
+endif|#
+directive|endif
 name|QKeyEvent
 name|ev
 argument_list|(

@@ -1797,12 +1797,11 @@ block|}
 if|if
 condition|(
 name|QFile
+operator|::
+name|exists
 argument_list|(
 name|newName
 argument_list|)
-operator|.
-name|exists
-argument_list|()
 condition|)
 block|{
 comment|// ### Race condition. If a file is moved in after this, it /will/ be

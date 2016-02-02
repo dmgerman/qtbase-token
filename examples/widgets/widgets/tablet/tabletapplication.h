@@ -68,7 +68,7 @@ argument_list|(
 argument|TabletCanvas *canvas
 argument_list|)
 block|{
-name|myCanvas
+name|m_canvas
 operator|=
 name|canvas
 block|; }
@@ -76,7 +76,7 @@ name|private
 operator|:
 name|TabletCanvas
 operator|*
-name|myCanvas
+name|m_canvas
 block|; }
 decl_stmt|;
 end_decl_stmt

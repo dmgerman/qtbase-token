@@ -8392,14 +8392,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|(
 name|fam
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"MS Sans Serif"
 argument_list|)
-operator|)
 operator|&&
 operator|(
 name|request

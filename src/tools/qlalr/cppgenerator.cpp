@@ -51,7 +51,7 @@ name|QLatin1String
 argument_list|(
 literal|"/****************************************************************************\n"
 literal|"**\n"
-literal|"** Copyright (C) 2015 The Qt Company Ltd.\n"
+literal|"** Copyright (C) 2016 The Qt Company Ltd.\n"
 literal|"** Contact: http://www.qt.io/licensing/\n"
 literal|"**\n"
 literal|"** This file is part of the Qt Toolkit.\n"
