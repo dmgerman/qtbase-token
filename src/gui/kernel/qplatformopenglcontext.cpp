@@ -22,7 +22,7 @@ begin_comment
 comment|/*! \fn void QPlatformOpenGLContext::swapBuffers(QPlatformSurface *surface)     Reimplement in subclass to native swap buffers calls      The implementation must support being called in a thread different than the gui-thread. */
 end_comment
 begin_comment
-comment|/*! \fn QFunctionPointer QPlatformOpenGLContext::getProcAddress(const char *procName)      Reimplement in subclass to native getProcAddr calls. */
+comment|/*! \fn QFunctionPointer QPlatformOpenGLContext::getProcAddress(const char *procName)      Reimplement in subclass to allow dynamic querying of OpenGL symbols. As opposed to e.g. the wglGetProcAddress     function on Windows, Qt expects this methods to be able to return valid function pointers even for standard     OpenGL symbols. */
 end_comment
 begin_class
 DECL|class|QPlatformOpenGLContextPrivate
