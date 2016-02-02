@@ -379,7 +379,7 @@ label|:
 typedef|typedef
 name|std
 operator|::
-name|bidirectional_iterator_tag
+name|random_access_iterator_tag
 name|iterator_category
 expr_stmt|;
 typedef|typedef
@@ -808,7 +808,7 @@ label|:
 typedef|typedef
 name|std
 operator|::
-name|bidirectional_iterator_tag
+name|random_access_iterator_tag
 name|iterator_category
 expr_stmt|;
 typedef|typedef

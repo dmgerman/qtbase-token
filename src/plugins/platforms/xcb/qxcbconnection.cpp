@@ -3228,7 +3228,7 @@ if|if
 condition|(
 name|glIntegrationName
 operator|!=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"none"
 argument_list|)

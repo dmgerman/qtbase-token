@@ -46,6 +46,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qstate.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qabstractstate_p.h"
 end_include
 begin_include
@@ -68,6 +73,11 @@ include|#
 directive|include
 file|<QtCore/qvariant.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_STATEMACHINE
+end_ifndef
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -239,7 +249,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_CORE_EXPORT
 name|QStatePrivate
 range|:
 name|public
@@ -386,6 +396,13 @@ end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_STATEMACHINE
+end_comment
 begin_endif
 endif|#
 directive|endif

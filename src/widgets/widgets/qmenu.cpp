@@ -3637,6 +3637,22 @@ name|activeMenu
 operator|==
 name|q
 condition|)
+comment|// Reselect parent menu action only if mouse is over a menu and parent menu action is not already selected (QTBUG-47987)
+if|if
+condition|(
+name|hasReceievedEnter
+operator|&&
+name|menu
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|currentAction
+operator|!=
+name|causedPopup
+operator|.
+name|action
+condition|)
 name|menu
 operator|->
 name|d_func

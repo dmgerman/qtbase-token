@@ -7569,7 +7569,7 @@ name|mod
 operator|.
 name|startsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"qt"
 argument_list|)
@@ -25042,7 +25042,7 @@ literal|"EDITION"
 argument_list|)
 index|]
 operator|!=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"OpenSource"
 argument_list|)

@@ -2590,7 +2590,7 @@ argument_list|(
 literal|"This is the QtCore library version "
 name|QT_BUILD_STR
 literal|"\n"
-literal|"Copyright (C) 2015 The Qt Company Ltd.\n"
+literal|"Copyright (C) 2016 The Qt Company Ltd.\n"
 literal|"Contact: http://www.qt.io/licensing/\n"
 literal|"\n"
 literal|"Installation prefix: %s\n"

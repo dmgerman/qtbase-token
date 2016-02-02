@@ -55,7 +55,7 @@ name|boilerplate_supported_but_time_limited
 index|[]
 init|=
 literal|"\nQt %1 Evaluation License\n"
-literal|"Copyright (C) 2015 The Qt Company Ltd.\n"
+literal|"Copyright (C) 2016 The Qt Company Ltd.\n"
 literal|"This trial version may only be used for evaluation purposes\n"
 literal|"and will shut down after 120 minutes.\n"
 literal|"Registered to:\n"
@@ -73,7 +73,7 @@ name|boilerplate_supported
 index|[]
 init|=
 literal|"\nQt %1 Evaluation License\n"
-literal|"Copyright (C) 2015 The Qt Company Ltd.\n"
+literal|"Copyright (C) 2016 The Qt Company Ltd.\n"
 literal|"This trial version may only be used for evaluation purposes\n"
 literal|"Registered to:\n"
 literal|"   Licensee: %2\n\n"

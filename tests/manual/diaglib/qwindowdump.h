@@ -53,6 +53,10 @@ block|{
 name|DontPrintWindowFlags
 init|=
 literal|0x001
+block|,
+name|PrintSizeConstraints
+init|=
+literal|0x002
 block|}
 enum|;
 name|Q_DECLARE_FLAGS

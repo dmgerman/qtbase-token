@@ -603,6 +603,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*!     \fn void qt_set_sequence_auto_mnemonic(bool b)     \relates QKeySequence      Specifies whether mnemonics for menu items, labels, etc., should     be honored or not. On Windows and X11, this feature is     on by default; on OS X, it is off. When this feature is off     (that is, when \a b is false), QKeySequence::mnemonic() always     returns an empty string.      \note This function is not declared in any of Qt's header files.     To use it in your application, declare the function prototype     before calling it.      \sa QShortcut */
+end_comment
 begin_function
 DECL|function|qt_set_sequence_auto_mnemonic
 name|void

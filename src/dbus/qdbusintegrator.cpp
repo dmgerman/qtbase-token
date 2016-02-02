@@ -4226,9 +4226,6 @@ condition|)
 return|return
 literal|false
 return|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PROPERTIES
 name|Q_ASSERT_X
 argument_list|(
 name|QThread
@@ -4627,9 +4624,6 @@ return|return
 literal|true
 return|;
 block|}
-endif|#
-directive|endif
-comment|// QT_NO_PROPERTIES
 return|return
 literal|false
 return|;

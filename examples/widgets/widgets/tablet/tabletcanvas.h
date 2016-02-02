@@ -79,37 +79,25 @@ name|Q_OBJECT
 name|public
 operator|:
 expr|enum
-name|AlphaChannelType
+name|Valuator
 block|{
-name|AlphaPressure
+name|PressureValuator
 block|,
-name|AlphaTangentialPressure
+name|TangentialPressureValuator
 block|,
-name|AlphaTilt
+name|TiltValuator
 block|,
-name|NoAlpha
-block|}
-block|;     enum
-name|ColorSaturationType
-block|{
-name|SaturationVTilt
+name|VTiltValuator
 block|,
-name|SaturationHTilt
+name|HTiltValuator
 block|,
-name|SaturationPressure
-block|,
-name|NoSaturation
-block|}
-block|;     enum
-name|LineWidthType
-block|{
-name|LineWidthPressure
-block|,
-name|LineWidthTilt
-block|,
-name|NoLineWidth
+name|NoValuator
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|Valuator
+argument_list|)
 name|TabletCanvas
 argument_list|()
 block|;
@@ -132,52 +120,60 @@ name|file
 argument_list|)
 block|;
 name|void
-name|setAlphaChannelType
+name|setAlphaChannelValuator
 argument_list|(
-argument|AlphaChannelType type
+argument|Valuator type
 argument_list|)
 block|{
-name|alphaChannelType
+name|m_alphaChannelValuator
 operator|=
 name|type
 block|; }
 name|void
-name|setColorSaturationType
+name|setColorSaturationValuator
 argument_list|(
-argument|ColorSaturationType type
+argument|Valuator type
 argument_list|)
 block|{
-name|colorSaturationType
+name|m_colorSaturationValuator
 operator|=
 name|type
 block|; }
 name|void
 name|setLineWidthType
 argument_list|(
-argument|LineWidthType type
+argument|Valuator type
 argument_list|)
 block|{
-name|lineWidthType
+name|m_lineWidthValuator
 operator|=
 name|type
 block|; }
 name|void
 name|setColor
 argument_list|(
-argument|const QColor&color
+argument|const QColor&c
 argument_list|)
 block|{
-name|myColor
+if|if
+condition|(
+name|c
+operator|.
+name|isValid
+argument_list|()
+condition|)
+name|m_color
 operator|=
-name|color
-block|; }
+name|c
+expr_stmt|;
+block|}
 name|QColor
 name|color
 argument_list|()
 specifier|const
 block|{
 return|return
-name|myColor
+name|m_color
 return|;
 block|}
 name|void
@@ -186,13 +182,6 @@ argument_list|(
 argument|QTabletEvent *event
 argument_list|)
 block|{
-name|myTabletDevice
-operator|=
-name|event
-operator|->
-name|device
-argument_list|()
-block|;
 name|updateCursor
 argument_list|(
 name|event
@@ -283,39 +272,29 @@ operator|*
 name|event
 argument_list|)
 block|;
-name|AlphaChannelType
-name|alphaChannelType
+name|Valuator
+name|m_alphaChannelValuator
 block|;
-name|ColorSaturationType
-name|colorSaturationType
+name|Valuator
+name|m_colorSaturationValuator
 block|;
-name|LineWidthType
-name|lineWidthType
-block|;
-name|QTabletEvent
-operator|::
-name|PointerType
-name|pointerType
-block|;
-name|QTabletEvent
-operator|::
-name|TabletDevice
-name|myTabletDevice
+name|Valuator
+name|m_lineWidthValuator
 block|;
 name|QColor
-name|myColor
+name|m_color
 block|;
 name|QPixmap
-name|pixmap
+name|m_pixmap
 block|;
 name|QBrush
-name|myBrush
+name|m_brush
 block|;
 name|QPen
-name|myPen
+name|m_pen
 block|;
 name|bool
-name|deviceDown
+name|m_deviceDown
 block|;      struct
 name|Point
 block|{

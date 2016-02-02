@@ -48,7 +48,7 @@ operator|::
 name|TabletLeaveProximity
 condition|)
 block|{
-name|myCanvas
+name|m_canvas
 operator|->
 name|setTabletDevice
 argument_list|(

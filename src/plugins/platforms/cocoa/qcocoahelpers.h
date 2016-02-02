@@ -324,27 +324,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_decl_stmt
-name|QChar
-name|qt_mac_qtKey2CocoaKey
-argument_list|(
-name|Qt
-operator|::
-name|Key
-name|key
-argument_list|)
-decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
-name|Qt
-operator|::
-name|Key
-name|qt_mac_cocoaKey2QtKey
-argument_list|(
-argument|QChar keyCode
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
 name|NSDragOperation
 name|qt_mac_mapDropAction
 argument_list|(

@@ -139,6 +139,16 @@ name|geometry
 parameter_list|)
 function_decl|;
 name|void
+name|setViewVisibility
+parameter_list|(
+name|jobject
+name|view
+parameter_list|,
+name|bool
+name|visible
+parameter_list|)
+function_decl|;
+name|void
 name|setSurfaceGeometry
 parameter_list|(
 name|int

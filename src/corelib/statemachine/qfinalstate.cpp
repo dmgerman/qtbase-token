@@ -5,44 +5,19 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qfinalstate.h"
+file|"qfinalstate_p.h"
 end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_STATEMACHINE
 end_ifndef
-begin_include
-include|#
-directive|include
-file|"qabstractstate_p.h"
-end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
 comment|/*!   \class QFinalState   \inmodule QtCore    \brief The QFinalState class provides a final state.    \since 4.6   \ingroup statemachine    A final state is used to communicate that (part of) a QStateMachine has   finished its work. When a final top-level state is entered, the state   machine's \l{QStateMachine::finished()}{finished}() signal is emitted. In   general, when a final substate (a child of a QState) is entered, the parent   state's \l{QState::finished()}{finished}() signal is emitted.  QFinalState   is part of \l{The State Machine Framework}.    To use a final state, you create a QFinalState object and add a transition   to it from another state. Example:    \code   QPushButton button;    QStateMachine machine;   QState *s1 = new QState();   QFinalState *s2 = new QFinalState();   s1->addTransition(&button, SIGNAL(clicked()), s2);   machine.addState(s1);   machine.addState(s2);    QObject::connect(&machine, SIGNAL(finished()), QApplication::instance(), SLOT(quit()));   machine.setInitialState(s1);   machine.start();   \endcode    \sa QState::finished() */
 end_comment
-begin_class
-DECL|class|QFinalStatePrivate
-class|class
-name|QFinalStatePrivate
-super|:
-specifier|public
-name|QAbstractStatePrivate
-block|{
-name|Q_DECLARE_PUBLIC
-parameter_list|(
-name|QFinalState
-parameter_list|)
-specifier|public
-private|:
-name|QFinalStatePrivate
-parameter_list|()
-constructor_decl|;
-block|}
-class|;
-end_class
 begin_constructor
 DECL|function|QFinalStatePrivate
 name|QFinalStatePrivate
@@ -56,6 +31,17 @@ name|FinalState
 argument_list|)
 block|{ }
 end_constructor
+begin_destructor
+DECL|function|~QFinalStatePrivate
+name|QFinalStatePrivate
+operator|::
+name|~
+name|QFinalStatePrivate
+parameter_list|()
+block|{
+comment|// to prevent vtables being generated in every file that includes the private header
+block|}
+end_destructor
 begin_comment
 comment|/*!   Constructs a new QFinalState object with the given \a parent state. */
 end_comment
@@ -75,6 +61,32 @@ argument_list|(
 operator|*
 operator|new
 name|QFinalStatePrivate
+argument_list|,
+name|parent
+argument_list|)
+block|{ }
+end_constructor
+begin_comment
+comment|/*!   \internal  */
+end_comment
+begin_constructor
+DECL|function|QFinalState
+name|QFinalState
+operator|::
+name|QFinalState
+parameter_list|(
+name|QFinalStatePrivate
+modifier|&
+name|dd
+parameter_list|,
+name|QState
+modifier|*
+name|parent
+parameter_list|)
+member_init_list|:
+name|QAbstractState
+argument_list|(
+name|dd
 argument_list|,
 name|parent
 argument_list|)

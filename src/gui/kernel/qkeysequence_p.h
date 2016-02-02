@@ -64,7 +64,6 @@ end_ifndef
 begin_struct
 DECL|struct|QKeyBinding
 struct|struct
-name|Q_AUTOTEST_EXPORT
 name|QKeyBinding
 block|{
 DECL|member|standardKey
@@ -90,7 +89,6 @@ struct|;
 end_struct
 begin_decl_stmt
 name|class
-name|Q_AUTOTEST_EXPORT
 name|QKeySequencePrivate
 block|{
 name|public

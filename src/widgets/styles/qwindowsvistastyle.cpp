@@ -1750,6 +1750,9 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|decoration_size
+operator|&&
 name|d
 operator|->
 name|initTreeViewTheming
@@ -1759,9 +1762,6 @@ name|theme
 operator|.
 name|isValid
 argument_list|()
-operator|&&
-operator|!
-name|decoration_size
 condition|)
 block|{
 name|XPThemeData

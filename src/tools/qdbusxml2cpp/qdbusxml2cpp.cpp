@@ -81,7 +81,7 @@ DECL|macro|PROGRAMCOPYRIGHT
 define|#
 directive|define
 name|PROGRAMCOPYRIGHT
-value|"Copyright (C) 2015 The Qt Company Ltd."
+value|"Copyright (C) 2016 The Qt Company Ltd."
 end_define
 begin_define
 DECL|macro|ANNOTATION_NO_WAIT

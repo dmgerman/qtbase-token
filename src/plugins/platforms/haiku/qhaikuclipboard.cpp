@@ -273,7 +273,7 @@ if|if
 condition|(
 name|format
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/plain"
 argument_list|)
@@ -307,7 +307,7 @@ if|if
 condition|(
 name|format
 operator|==
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"text/html"
 argument_list|)

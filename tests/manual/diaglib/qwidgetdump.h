@@ -18,6 +18,13 @@ include|#
 directive|include
 file|"qwindowdump.h"
 end_include
+begin_macro
+DECL|function|QT_FORWARD_DECLARE_CLASS
+name|QT_FORWARD_DECLARE_CLASS
+argument_list|(
+argument|QWidget
+argument_list|)
+end_macro
 begin_decl_stmt
 name|namespace
 name|QtDiag
@@ -27,6 +34,13 @@ name|dumpAllWidgets
 parameter_list|(
 name|FormatWindowOptions
 name|options
+init|=
+literal|0
+parameter_list|,
+specifier|const
+name|QWidget
+modifier|*
+name|root
 init|=
 literal|0
 parameter_list|)

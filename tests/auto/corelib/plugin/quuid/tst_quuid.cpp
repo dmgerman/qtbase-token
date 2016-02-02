@@ -248,6 +248,9 @@ argument_list|,
 literal|0x7b
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 comment|// chdir to the directory containing our testdata, then refer to it with relative paths
 name|QString
 name|testdata_dir
@@ -280,6 +283,8 @@ name|testdata_dir
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|//"{3d813cbb-47fb-32ba-91df-831e1593ac29}"; http://www.rfc-editor.org/errata_search.php?rfc=4122&eid=1352
 name|uuidC
 operator|=
