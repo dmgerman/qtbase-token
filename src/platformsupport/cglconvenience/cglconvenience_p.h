@@ -59,17 +59,6 @@ directive|include
 file|<OpenGL/OpenGL.h>
 end_include
 begin_function_decl
-name|QFunctionPointer
-name|qcgl_getProcAddress
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|procName
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
 name|QSurfaceFormat
 name|qcgl_surfaceFormat
 parameter_list|()
