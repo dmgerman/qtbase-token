@@ -946,11 +946,6 @@ argument_list|(
 literal|true
 argument_list|)
 member_init_list|,
-name|defaultFileTypes
-argument_list|(
-literal|true
-argument_list|)
-member_init_list|,
 name|qFileDialogUi
 argument_list|(
 literal|0
@@ -1797,18 +1792,19 @@ expr_stmt|;
 comment|/* WIDGETS */
 if|if
 condition|(
-name|defaultFileTypes
+name|options
+operator|->
+name|useDefaultNameFilters
+argument_list|()
 condition|)
 name|q
 operator|->
 name|setNameFilter
 argument_list|(
-name|QFileDialog
+name|QFileDialogOptions
 operator|::
-name|tr
-argument_list|(
-literal|"All Files (*)"
-argument_list|)
+name|defaultNameFilterString
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -5293,24 +5289,6 @@ name|Q_D
 argument_list|(
 name|QFileDialog
 argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|defaultFileTypes
-operator|=
-operator|(
-name|filters
-operator|==
-name|QStringList
-argument_list|(
-name|QFileDialog
-operator|::
-name|tr
-argument_list|(
-literal|"All Files (*)"
-argument_list|)
-argument_list|)
-operator|)
 expr_stmt|;
 name|QStringList
 name|cleanedFilters

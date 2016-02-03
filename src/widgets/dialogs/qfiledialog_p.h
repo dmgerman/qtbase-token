@@ -1160,11 +1160,6 @@ name|bool
 name|useDefaultCaption
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-name|bool
-name|defaultFileTypes
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|// setVisible_sys returns true if it ends up showing a native
 end_comment
