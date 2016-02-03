@@ -141,6 +141,15 @@ argument_list|)
 argument_list|)
 block|{ }
 end_constructor
+begin_destructor
+DECL|function|~QWindowsDirect2DPaintDevice
+name|QWindowsDirect2DPaintDevice
+operator|::
+name|~
+name|QWindowsDirect2DPaintDevice
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|paintEngine
 name|QPaintEngine
