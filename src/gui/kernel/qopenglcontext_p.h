@@ -697,7 +697,9 @@ block|;
 name|mutable
 name|QHash
 operator|<
-name|QOpenGLVersionStatus
+name|QOpenGLVersionFunctionsBackend
+operator|::
+name|Version
 block|,
 name|QOpenGLVersionFunctionsBackend
 operator|*

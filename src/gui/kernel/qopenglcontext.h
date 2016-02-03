@@ -845,30 +845,22 @@ name|QOpenGLVersionFunctionsBackend
 operator|*
 name|functionsBackend
 argument_list|(
-argument|const QOpenGLVersionStatus&v
+argument|QOpenGLVersionFunctionsBackend::Version v
 argument_list|)
 specifier|const
 block|;
 name|void
 name|insertFunctionsBackend
 argument_list|(
-specifier|const
-name|QOpenGLVersionStatus
-operator|&
-name|v
+argument|const QOpenGLVersionFunctionsBackend::Version v
 argument_list|,
-name|QOpenGLVersionFunctionsBackend
-operator|*
-name|backend
+argument|QOpenGLVersionFunctionsBackend *backend
 argument_list|)
 block|;
 name|void
 name|removeFunctionsBackend
 argument_list|(
-specifier|const
-name|QOpenGLVersionStatus
-operator|&
-name|v
+argument|const QOpenGLVersionFunctionsBackend::Version v
 argument_list|)
 block|;
 name|void

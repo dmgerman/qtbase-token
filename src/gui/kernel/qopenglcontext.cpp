@@ -3205,8 +3205,9 @@ operator|::
 name|functionsBackend
 parameter_list|(
 specifier|const
-name|QOpenGLVersionStatus
-modifier|&
+name|QOpenGLVersionFunctionsBackend
+operator|::
+name|Version
 name|v
 parameter_list|)
 specifier|const
@@ -3242,8 +3243,9 @@ operator|::
 name|insertFunctionsBackend
 parameter_list|(
 specifier|const
-name|QOpenGLVersionStatus
-modifier|&
+name|QOpenGLVersionFunctionsBackend
+operator|::
+name|Version
 name|v
 parameter_list|,
 name|QOpenGLVersionFunctionsBackend
@@ -3280,8 +3282,9 @@ operator|::
 name|removeFunctionsBackend
 parameter_list|(
 specifier|const
-name|QOpenGLVersionStatus
-modifier|&
+name|QOpenGLVersionFunctionsBackend
+operator|::
+name|Version
 name|v
 parameter_list|)
 block|{

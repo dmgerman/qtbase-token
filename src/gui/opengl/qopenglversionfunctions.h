@@ -97,46 +97,6 @@ name|QOPENGL_DEPRECATEDFUNCTION
 define|\
 value|qFatal("This function was erroneously included in previous versions of Qt and is here only for binary compatibility. " \            "If you need to use this function, please use a legacy OpenGL version or a Compatibility profile.")
 end_define
-begin_define
-DECL|macro|QT_OPENGL_DECLARE_FUNCTIONS
-define|#
-directive|define
-name|QT_OPENGL_DECLARE_FUNCTIONS
-parameter_list|(
-name|ret
-parameter_list|,
-name|name
-parameter_list|,
-name|args
-parameter_list|)
-define|\
-value|ret (QOPENGLF_APIENTRYP name)args;
-end_define
-begin_define
-DECL|macro|QT_OPENGL_COUNT_FUNCTIONS
-define|#
-directive|define
-name|QT_OPENGL_COUNT_FUNCTIONS
-parameter_list|(
-name|ret
-parameter_list|,
-name|name
-parameter_list|,
-name|args
-parameter_list|)
-value|+1
-end_define
-begin_define
-DECL|macro|QT_OPENGL_DECLARE
-define|#
-directive|define
-name|QT_OPENGL_DECLARE
-parameter_list|(
-name|FUNCTIONS
-parameter_list|)
-define|\
-value|public: \     struct Functions { \         FUNCTIONS(QT_OPENGL_DECLARE_FUNCTIONS) \     }; \     union { \         QFunctionPointer functions[FUNCTIONS(QT_OPENGL_COUNT_FUNCTIONS)]; \         Functions f; \     }; \ private: \     void init()
-end_define
 begin_struct
 DECL|struct|QOpenGLVersionStatus
 struct|struct
@@ -334,12 +294,112 @@ operator|)
 return|;
 block|}
 end_expr_stmt
+begin_define
+DECL|macro|QT_OPENGL_DECLARE_FUNCTIONS
+define|#
+directive|define
+name|QT_OPENGL_DECLARE_FUNCTIONS
+parameter_list|(
+name|ret
+parameter_list|,
+name|name
+parameter_list|,
+name|args
+parameter_list|)
+define|\
+value|ret (QOPENGLF_APIENTRYP name)args;
+end_define
+begin_define
+DECL|macro|QT_OPENGL_COUNT_FUNCTIONS
+define|#
+directive|define
+name|QT_OPENGL_COUNT_FUNCTIONS
+parameter_list|(
+name|ret
+parameter_list|,
+name|name
+parameter_list|,
+name|args
+parameter_list|)
+value|+1
+end_define
+begin_define
+DECL|macro|QT_OPENGL_DECLARE
+define|#
+directive|define
+name|QT_OPENGL_DECLARE
+parameter_list|(
+name|FUNCTIONS
+parameter_list|)
+define|\
+value|public: \     struct Functions { \         FUNCTIONS(QT_OPENGL_DECLARE_FUNCTIONS) \     }; \     union { \         QFunctionPointer functions[FUNCTIONS(QT_OPENGL_COUNT_FUNCTIONS)]; \         Functions f; \     }; \ private: \     void init()
+end_define
 begin_decl_stmt
 name|class
 name|QOpenGLVersionFunctionsBackend
 block|{
 name|public
 label|:
+enum|enum
+name|Version
+block|{
+name|OpenGL_1_0
+block|,
+name|OpenGL_1_1
+block|,
+name|OpenGL_1_2
+block|,
+name|OpenGL_1_3
+block|,
+name|OpenGL_1_4
+block|,
+name|OpenGL_1_5
+block|,
+name|OpenGL_2_0
+block|,
+name|OpenGL_2_1
+block|,
+name|OpenGL_3_0
+block|,
+name|OpenGL_3_1
+block|,
+name|OpenGL_3_2_Core
+block|,
+name|OpenGL_3_3_Core
+block|,
+name|OpenGL_4_0_Core
+block|,
+name|OpenGL_4_1_Core
+block|,
+name|OpenGL_4_2_Core
+block|,
+name|OpenGL_4_3_Core
+block|,
+name|OpenGL_4_4_Core
+block|,
+name|OpenGL_4_5_Core
+block|,
+name|OpenGL_1_0_Deprecated
+block|,
+name|OpenGL_1_1_Deprecated
+block|,
+name|OpenGL_1_2_Deprecated
+block|,
+name|OpenGL_1_3_Deprecated
+block|,
+name|OpenGL_1_4_Deprecated
+block|,
+name|OpenGL_2_0_Deprecated
+block|,
+name|OpenGL_3_0_Deprecated
+block|,
+name|OpenGL_3_3_Deprecated
+block|,
+name|OpenGL_4_5_Deprecated
+block|,
+name|OpenGLVersionBackendCount
+block|}
+enum|;
 name|QOpenGLVersionFunctionsBackend
 argument_list|(
 name|QOpenGLContext
@@ -394,48 +454,43 @@ name|QOpenGLVersionFunctionsBackend
 operator|*
 name|functionsBackend
 argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
+argument|QOpenGLContext *context
 argument_list|,
-specifier|const
-name|QOpenGLVersionStatus
-operator|&
-name|v
+argument|QOpenGLVersionFunctionsBackend::Version v
 argument_list|)
 expr_stmt|;
 specifier|static
 name|void
 name|insertFunctionsBackend
-parameter_list|(
+argument_list|(
 name|QOpenGLContext
-modifier|*
+operator|*
 name|context
-parameter_list|,
-specifier|const
-name|QOpenGLVersionStatus
-modifier|&
-name|v
-parameter_list|,
+argument_list|,
 name|QOpenGLVersionFunctionsBackend
-modifier|*
+operator|::
+name|Version
+name|v
+argument_list|,
+name|QOpenGLVersionFunctionsBackend
+operator|*
 name|backend
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 specifier|static
 name|void
 name|removeFunctionsBackend
-parameter_list|(
+argument_list|(
 name|QOpenGLContext
-modifier|*
+operator|*
 name|context
-parameter_list|,
-specifier|const
-name|QOpenGLVersionStatus
-modifier|&
+argument_list|,
+name|QOpenGLVersionFunctionsBackend
+operator|::
+name|Version
 name|v
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 specifier|static
 name|void
 name|insertExternalFunctions
@@ -598,21 +653,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|0
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_1_0
 return|;
 block|}
 comment|// OpenGL 1.0 core functions
@@ -652,21 +698,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|1
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_1_1
 return|;
 block|}
 comment|// OpenGL 1.1 core functions
@@ -706,21 +743,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|2
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_1_2
 return|;
 block|}
 comment|// OpenGL 1.2 core functions
@@ -760,21 +788,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|3
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_1_3
 return|;
 block|}
 comment|// OpenGL 1.3 core functions
@@ -814,21 +833,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|4
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_1_4
 return|;
 block|}
 comment|// OpenGL 1.4 core functions
@@ -868,21 +878,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_1_5
 return|;
 block|}
 comment|// OpenGL 1.5 core functions
@@ -922,21 +923,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|2
-argument_list|,
-literal|0
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_2_0
 return|;
 block|}
 comment|// OpenGL 2.0 core functions
@@ -976,21 +968,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|2
-argument_list|,
-literal|1
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_2_1
 return|;
 block|}
 comment|// OpenGL 2.1 core functions
@@ -1030,21 +1013,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|3
-argument_list|,
-literal|0
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_3_0
 return|;
 block|}
 comment|// OpenGL 3.0 core functions
@@ -1084,21 +1058,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|3
-argument_list|,
-literal|1
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_3_1
 return|;
 block|}
 comment|// OpenGL 3.1 core functions
@@ -1138,21 +1103,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|3
-argument_list|,
-literal|2
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_3_2_Core
 return|;
 block|}
 comment|// OpenGL 3.2 core functions
@@ -1196,21 +1152,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|3
-argument_list|,
-literal|3
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_3_3_Core
 return|;
 block|}
 comment|// OpenGL 3.3 core functions
@@ -1250,21 +1197,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|4
-argument_list|,
-literal|0
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_4_0_Core
 return|;
 block|}
 comment|// OpenGL 4.0 core functions
@@ -1304,21 +1242,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|4
-argument_list|,
-literal|1
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_4_1_Core
 return|;
 block|}
 comment|// OpenGL 4.1 core functions
@@ -1358,21 +1287,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|4
-argument_list|,
-literal|2
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_4_2_Core
 return|;
 block|}
 comment|// OpenGL 4.2 core functions
@@ -1412,21 +1332,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|4
-argument_list|,
-literal|3
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_4_3_Core
 return|;
 block|}
 comment|// OpenGL 4.3 core functions
@@ -1466,21 +1377,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|4
-argument_list|,
-literal|4
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_4_4_Core
 return|;
 block|}
 comment|// OpenGL 4.4 core functions
@@ -1520,21 +1422,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|4
-argument_list|,
-literal|5
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|CoreStatus
-argument_list|)
+name|OpenGL_4_5_Core
 return|;
 block|}
 comment|// OpenGL 4.5 core functions
@@ -1574,21 +1467,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|0
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_1_0_Deprecated
 return|;
 block|}
 comment|// OpenGL 1.0 deprecated functions
@@ -1628,21 +1512,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|1
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_1_1_Deprecated
 return|;
 block|}
 comment|// OpenGL 1.1 deprecated functions
@@ -1682,21 +1557,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|2
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_1_2_Deprecated
 return|;
 block|}
 comment|// OpenGL 1.2 deprecated functions
@@ -1736,21 +1602,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|3
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_1_3_Deprecated
 return|;
 block|}
 comment|// OpenGL 1.3 deprecated functions
@@ -1790,21 +1647,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|1
-argument_list|,
-literal|4
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_1_4_Deprecated
 return|;
 block|}
 comment|// OpenGL 1.4 deprecated functions
@@ -1844,21 +1692,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|2
-argument_list|,
-literal|0
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_2_0_Deprecated
 return|;
 block|}
 comment|// OpenGL 2.0 deprecated functions
@@ -1898,21 +1737,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|3
-argument_list|,
-literal|0
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_3_0_Deprecated
 return|;
 block|}
 comment|// OpenGL 3.0 deprecated functions
@@ -1952,21 +1782,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|3
-argument_list|,
-literal|3
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_3_3_Deprecated
 return|;
 block|}
 comment|// OpenGL 3.3 deprecated functions
@@ -2006,21 +1827,12 @@ argument_list|()
 block|;     }
 name|Q_DECL_CONSTEXPR
 specifier|static
-name|QOpenGLVersionStatus
+name|Version
 name|versionStatus
 argument_list|()
 block|{
 return|return
-name|QOpenGLVersionStatus
-argument_list|(
-literal|4
-argument_list|,
-literal|5
-argument_list|,
-name|QOpenGLVersionStatus
-operator|::
-name|DeprecatedStatus
-argument_list|)
+name|OpenGL_4_5_Deprecated
 return|;
 block|}
 comment|// OpenGL 4.5 deprecated functions
