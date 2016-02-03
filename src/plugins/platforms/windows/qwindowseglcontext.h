@@ -3183,23 +3183,16 @@ name|libGLESv2
 block|;
 name|private
 operator|:
+name|explicit
 name|QWindowsEGLStaticContext
 argument_list|(
 argument|EGLDisplay display
-argument_list|,
-argument|int version
 argument_list|)
 block|;
 specifier|const
 name|EGLDisplay
 name|m_display
-block|;
-specifier|const
-name|int
-name|m_version
-block|;
-comment|//! majorVersion<<8 + minorVersion
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

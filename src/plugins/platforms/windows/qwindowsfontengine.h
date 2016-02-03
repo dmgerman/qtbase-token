@@ -541,9 +541,6 @@ block|;
 name|TEXTMETRIC
 name|tm
 block|;
-name|int
-name|lw
-block|;
 specifier|const
 name|unsigned
 name|char
