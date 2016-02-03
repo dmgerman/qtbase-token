@@ -3112,16 +3112,16 @@ name|QWindowsOpenGLContext
 operator|*
 name|createContext
 argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
+argument|QOpenGLContext *context
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|void
 operator|*
 name|moduleHandle
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|libGLESv2
@@ -3136,6 +3136,7 @@ name|OpenGLModuleType
 name|moduleType
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|QOpenGLContext

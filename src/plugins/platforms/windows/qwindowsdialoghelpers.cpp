@@ -8740,7 +8740,6 @@ DECL|function|QWindowsFileDialogHelper
 name|QWindowsFileDialogHelper
 parameter_list|()
 block|{}
-DECL|function|supportsNonModalDialog
 specifier|virtual
 name|bool
 name|supportsNonModalDialog
@@ -8753,17 +8752,18 @@ init|=
 literal|0
 parameter_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|false
 return|;
 block|}
-DECL|function|defaultNameFilterDisables
 specifier|virtual
 name|bool
 name|defaultNameFilterDisables
 parameter_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 literal|false
