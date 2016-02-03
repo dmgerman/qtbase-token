@@ -340,66 +340,29 @@ name|QOpenGLVersionFunctionsBackend
 block|{
 name|public
 label|:
+DECL|macro|QT_OPENGL_VERSIONS
+define|#
+directive|define
+name|QT_OPENGL_VERSIONS
+parameter_list|(
+name|F
+parameter_list|)
+define|\
+value|F(1_0_Core) \         F(1_1_Core) \         F(1_2_Core) \         F(1_3_Core) \         F(1_4_Core) \         F(1_5_Core) \         F(2_0_Core) \         F(2_1_Core) \         F(3_0_Core) \         F(3_1_Core) \         F(3_2_Core) \         F(3_3_Core) \         F(4_0_Core) \         F(4_1_Core) \         F(4_2_Core) \         F(4_3_Core) \         F(4_4_Core) \         F(4_5_Core) \         F(1_0_Deprecated) \         F(1_1_Deprecated) \         F(1_2_Deprecated) \         F(1_3_Deprecated) \         F(1_4_Deprecated) \         F(2_0_Deprecated) \         F(3_0_Deprecated) \         F(3_3_Deprecated) \         F(4_5_Deprecated) \  #define VERSION_ENUM(X) OpenGL_##X,
 enum|enum
 name|Version
 block|{
-name|OpenGL_1_0
-block|,
-name|OpenGL_1_1
-block|,
-name|OpenGL_1_2
-block|,
-name|OpenGL_1_3
-block|,
-name|OpenGL_1_4
-block|,
-name|OpenGL_1_5
-block|,
-name|OpenGL_2_0
-block|,
-name|OpenGL_2_1
-block|,
-name|OpenGL_3_0
-block|,
-name|OpenGL_3_1
-block|,
-name|OpenGL_3_2_Core
-block|,
-name|OpenGL_3_3_Core
-block|,
-name|OpenGL_4_0_Core
-block|,
-name|OpenGL_4_1_Core
-block|,
-name|OpenGL_4_2_Core
-block|,
-name|OpenGL_4_3_Core
-block|,
-name|OpenGL_4_4_Core
-block|,
-name|OpenGL_4_5_Core
-block|,
-name|OpenGL_1_0_Deprecated
-block|,
-name|OpenGL_1_1_Deprecated
-block|,
-name|OpenGL_1_2_Deprecated
-block|,
-name|OpenGL_1_3_Deprecated
-block|,
-name|OpenGL_1_4_Deprecated
-block|,
-name|OpenGL_2_0_Deprecated
-block|,
-name|OpenGL_3_0_Deprecated
-block|,
-name|OpenGL_3_3_Deprecated
-block|,
-name|OpenGL_4_5_Deprecated
-block|,
+name|QT_OPENGL_VERSIONS
+argument_list|(
+argument|VERSION_ENUM
+argument_list|)
 name|OpenGLVersionBackendCount
 block|}
 enum|;
+DECL|macro|VERSION_ENUM
+undef|#
+directive|undef
+name|VERSION_ENUM
 name|QOpenGLVersionFunctionsBackend
 argument_list|(
 name|QOpenGLContext
@@ -418,6 +381,43 @@ name|context
 expr_stmt|;
 name|QAtomicInt
 name|refs
+decl_stmt|;
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_decl_stmt
+name|class
+name|QOpenGLVersionFunctionsStorage
+block|{
+name|public
+label|:
+name|QOpenGLVersionFunctionsStorage
+argument_list|()
+expr_stmt|;
+operator|~
+name|QOpenGLVersionFunctionsStorage
+argument_list|()
+expr_stmt|;
+name|QOpenGLVersionFunctionsBackend
+modifier|*
+name|backend
+argument_list|(
+name|QOpenGLContext
+operator|*
+name|context
+argument_list|,
+name|QOpenGLVersionFunctionsBackend
+operator|::
+name|Version
+name|v
+argument_list|)
+decl_stmt|;
+name|QOpenGLVersionFunctionsBackend
+modifier|*
+modifier|*
+name|backends
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -459,38 +459,6 @@ argument_list|,
 argument|QOpenGLVersionFunctionsBackend::Version v
 argument_list|)
 expr_stmt|;
-specifier|static
-name|void
-name|insertFunctionsBackend
-argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
-argument_list|,
-name|QOpenGLVersionFunctionsBackend
-operator|::
-name|Version
-name|v
-argument_list|,
-name|QOpenGLVersionFunctionsBackend
-operator|*
-name|backend
-argument_list|)
-decl_stmt|;
-specifier|static
-name|void
-name|removeFunctionsBackend
-argument_list|(
-name|QOpenGLContext
-operator|*
-name|context
-argument_list|,
-name|QOpenGLVersionFunctionsBackend
-operator|::
-name|Version
-name|v
-argument_list|)
-decl_stmt|;
 specifier|static
 name|void
 name|insertExternalFunctions
@@ -658,7 +626,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_1_0
+name|OpenGL_1_0_Core
 return|;
 block|}
 comment|// OpenGL 1.0 core functions
@@ -703,7 +671,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_1_1
+name|OpenGL_1_1_Core
 return|;
 block|}
 comment|// OpenGL 1.1 core functions
@@ -748,7 +716,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_1_2
+name|OpenGL_1_2_Core
 return|;
 block|}
 comment|// OpenGL 1.2 core functions
@@ -793,7 +761,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_1_3
+name|OpenGL_1_3_Core
 return|;
 block|}
 comment|// OpenGL 1.3 core functions
@@ -838,7 +806,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_1_4
+name|OpenGL_1_4_Core
 return|;
 block|}
 comment|// OpenGL 1.4 core functions
@@ -883,7 +851,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_1_5
+name|OpenGL_1_5_Core
 return|;
 block|}
 comment|// OpenGL 1.5 core functions
@@ -928,7 +896,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_2_0
+name|OpenGL_2_0_Core
 return|;
 block|}
 comment|// OpenGL 2.0 core functions
@@ -973,7 +941,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_2_1
+name|OpenGL_2_1_Core
 return|;
 block|}
 comment|// OpenGL 2.1 core functions
@@ -1018,7 +986,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_3_0
+name|OpenGL_3_0_Core
 return|;
 block|}
 comment|// OpenGL 3.0 core functions
@@ -1063,7 +1031,7 @@ name|versionStatus
 argument_list|()
 block|{
 return|return
-name|OpenGL_3_1
+name|OpenGL_3_1_Core
 return|;
 block|}
 comment|// OpenGL 3.1 core functions

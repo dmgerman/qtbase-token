@@ -841,27 +841,11 @@ name|void
 name|deleteQGLContext
 argument_list|()
 block|;
-name|QOpenGLVersionFunctionsBackend
+name|QOpenGLVersionFunctionsStorage
 operator|*
-name|functionsBackend
-argument_list|(
-argument|QOpenGLVersionFunctionsBackend::Version v
-argument_list|)
+name|functionsBackendStorage
+argument_list|()
 specifier|const
-block|;
-name|void
-name|insertFunctionsBackend
-argument_list|(
-argument|const QOpenGLVersionFunctionsBackend::Version v
-argument_list|,
-argument|QOpenGLVersionFunctionsBackend *backend
-argument_list|)
-block|;
-name|void
-name|removeFunctionsBackend
-argument_list|(
-argument|const QOpenGLVersionFunctionsBackend::Version v
-argument_list|)
 block|;
 name|void
 name|insertExternalFunctions
