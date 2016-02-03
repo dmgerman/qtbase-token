@@ -11444,9 +11444,16 @@ name|QImage
 operator|::
 name|Format
 name|format
+init|=
+name|QImage
+operator|::
+name|Format_Invalid
 decl_stmt|;
 name|int
 name|bytesPerLine
+init|=
+operator|-
+literal|1
 decl_stmt|;
 switch|switch
 condition|(
