@@ -130,6 +130,8 @@ name|GenVertexArrays
 operator|=
 name|extra
 operator|->
+name|f
+operator|.
 name|GenVertexArrays
 expr_stmt|;
 name|helper
@@ -138,6 +140,8 @@ name|DeleteVertexArrays
 operator|=
 name|extra
 operator|->
+name|f
+operator|.
 name|DeleteVertexArrays
 expr_stmt|;
 name|helper
@@ -146,6 +150,8 @@ name|BindVertexArray
 operator|=
 name|extra
 operator|->
+name|f
+operator|.
 name|BindVertexArray
 expr_stmt|;
 name|helper
@@ -154,6 +160,8 @@ name|IsVertexArray
 operator|=
 name|extra
 operator|->
+name|f
+operator|.
 name|IsVertexArray
 expr_stmt|;
 name|tryARB
