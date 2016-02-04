@@ -12112,11 +12112,6 @@ if|if
 condition|(
 operator|!
 name|argumentTypes
-operator|&&
-name|argumentTypes
-operator|!=
-operator|&
-name|DIRECT_CONNECTION_ONLY
 condition|)
 block|{
 name|QMetaMethod
