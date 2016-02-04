@@ -834,7 +834,7 @@ name|m_hasAlpha
 condition|)
 name|format
 operator|=
-name|qt_alphaVersionForPainting
+name|qt_maybeAlphaVersionWithSameDepth
 argument_list|(
 name|format
 argument_list|)

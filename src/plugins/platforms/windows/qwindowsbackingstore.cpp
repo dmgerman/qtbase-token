@@ -924,7 +924,7 @@ else|else
 comment|// upgrade but here we know app painting does not rely on alpha hence no need to fill
 name|format
 operator|=
-name|qt_alphaVersionForPainting
+name|qt_maybeAlphaVersionWithSameDepth
 argument_list|(
 name|format
 argument_list|)
