@@ -24904,8 +24904,6 @@ return|return
 name|isWindowsShell
 argument_list|()
 condition|?
-name|QMakeInternal
-operator|::
 name|IoUtils
 operator|::
 name|shellQuoteWin
@@ -24913,8 +24911,6 @@ argument_list|(
 name|str
 argument_list|)
 else|:
-name|QMakeInternal
-operator|::
 name|IoUtils
 operator|::
 name|shellQuoteUnix
