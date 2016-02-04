@@ -1208,13 +1208,6 @@ name|isEmpty
 argument_list|()
 operator|||
 operator|(
-operator|!
-name|m_filePath
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-operator|(
 name|m_filePath
 operator|.
 name|at
@@ -1226,9 +1219,7 @@ name|unicode
 argument_list|()
 operator|!=
 literal|'/'
-operator|)
 operator|&&
-operator|(
 operator|!
 operator|(
 name|m_filePath
@@ -1252,7 +1243,6 @@ literal|':'
 operator|)
 operator|)
 operator|)
-operator|)
 return|;
 block|}
 end_function
@@ -1270,13 +1260,6 @@ argument_list|()
 expr_stmt|;
 return|return
 operator|(
-operator|!
-name|m_filePath
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
-operator|(
 operator|(
 name|m_filePath
 operator|.
@@ -1285,7 +1268,6 @@ argument_list|()
 operator|>=
 literal|3
 operator|&&
-operator|(
 name|m_filePath
 operator|.
 name|at
@@ -1320,7 +1302,6 @@ argument_list|()
 operator|==
 literal|'/'
 operator|)
-operator|)
 operator|||
 operator|(
 name|m_filePath
@@ -1330,7 +1311,6 @@ argument_list|()
 operator|>=
 literal|2
 operator|&&
-operator|(
 name|m_filePath
 operator|.
 name|at
@@ -1354,8 +1334,6 @@ name|QLatin1Char
 argument_list|(
 literal|'/'
 argument_list|)
-operator|)
-operator|)
 operator|)
 operator|)
 return|;
