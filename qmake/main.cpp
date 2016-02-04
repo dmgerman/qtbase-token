@@ -601,9 +601,15 @@ name|to
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"\\\\"
+argument_list|)
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"\\"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// QString::replace(rx, sub) groks \1, but not \\.

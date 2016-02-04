@@ -507,7 +507,10 @@ name|replace
 argument_list|(
 literal|'\"'
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"&quot;"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|output
@@ -516,7 +519,10 @@ name|replace
 argument_list|(
 literal|'\''
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"&apos;"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -534,7 +540,10 @@ name|replace
 argument_list|(
 literal|'\"'
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"\\\""
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|output
@@ -543,7 +552,10 @@ name|replace
 argument_list|(
 literal|'\''
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"\\\'"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -4393,7 +4393,7 @@ name|slnConf
 operator|.
 name|replace
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"|Win32"
 argument_list|)
@@ -4464,7 +4464,7 @@ name|slnConf
 operator|.
 name|replace
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"|Win32"
 argument_list|)
@@ -4483,12 +4483,15 @@ name|slnConf
 operator|.
 name|replace
 argument_list|(
-name|QString
+name|QLatin1String
 argument_list|(
 literal|"|Win32"
 argument_list|)
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"|x64"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -11030,7 +11033,10 @@ name|ret
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"$(DEFINES)"
+argument_list|)
 argument_list|,
 name|defines
 operator|.
@@ -11086,7 +11092,10 @@ name|ret
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"$(INCPATH)"
+argument_list|)
 argument_list|,
 name|incpath
 operator|.

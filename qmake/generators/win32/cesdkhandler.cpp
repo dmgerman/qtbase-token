@@ -677,10 +677,8 @@ literal|1
 argument_list|)
 decl_stmt|;
 specifier|const
-name|QString
+name|QLatin1String
 name|rootString
-init|=
-name|QStringLiteral
 argument_list|(
 literal|"$(SdkRootPath)"
 argument_list|)

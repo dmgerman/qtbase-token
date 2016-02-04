@@ -1327,7 +1327,10 @@ name|pchFlags
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"${QMAKE_PCH_INPUT}"
+argument_list|)
 argument_list|,
 name|escapeFilePath
 argument_list|(
@@ -1347,7 +1350,10 @@ name|pchFlags
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"${QMAKE_PCH_OUTPUT_BASE}"
+argument_list|)
 argument_list|,
 name|escapeFilePath
 argument_list|(
@@ -1370,7 +1376,10 @@ name|pchFlags
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"${QMAKE_PCH_OUTPUT}"
+argument_list|)
 argument_list|,
 name|escapeFilePath
 argument_list|(
@@ -1460,7 +1469,10 @@ name|pchFlags
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"${QMAKE_PCH_OUTPUT}"
+argument_list|)
 argument_list|,
 name|escapeFilePath
 argument_list|(

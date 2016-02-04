@@ -86,7 +86,10 @@ name|replace
 argument_list|(
 literal|' '
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"\\ "
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
