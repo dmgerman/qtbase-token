@@ -6644,6 +6644,12 @@ condition|(
 name|d
 operator|->
 name|state
+operator|&&
+name|d
+operator|->
+name|state
+operator|->
+name|dragging
 condition|)
 name|d
 operator|->
