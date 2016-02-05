@@ -1669,15 +1669,6 @@ init|=
 literal|30000
 parameter_list|)
 function_decl|;
-name|bool
-name|waitForWrite
-parameter_list|(
-name|int
-name|msecs
-init|=
-literal|30000
-parameter_list|)
-function_decl|;
 name|qint64
 name|bytesAvailableInChannel
 argument_list|(
