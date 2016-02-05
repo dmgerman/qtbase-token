@@ -9697,15 +9697,13 @@ name|AnchorData
 modifier|*
 name|ad
 init|=
+operator|*
 name|path
 operator|.
 name|positives
 operator|.
-name|toList
+name|cbegin
 argument_list|()
-index|[
-literal|0
-index|]
 decl_stmt|;
 name|ad
 operator|->
