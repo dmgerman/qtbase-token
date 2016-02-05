@@ -3491,6 +3491,9 @@ name|itemBoundaries
 argument_list|,
 name|bool
 name|kerningEnabled
+argument_list|,
+name|bool
+name|hasLetterSpacing
 argument_list|)
 decl|const
 decl_stmt|;
