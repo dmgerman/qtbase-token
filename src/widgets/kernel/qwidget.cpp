@@ -24284,6 +24284,9 @@ name|extra
 operator|->
 name|focus_proxy
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_GRAPHICSVIEW
 if|if
 condition|(
 name|QWidget
@@ -24296,9 +24299,6 @@ name|window
 argument_list|()
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_GRAPHICSVIEW
 name|QWExtra
 modifier|*
 name|e
@@ -24335,9 +24335,10 @@ condition|)
 return|return
 literal|true
 return|;
+block|}
 endif|#
 directive|endif
-block|}
+comment|// !QT_NO_GRAPHICSVIEW
 return|return
 operator|(
 name|QApplication
@@ -30713,11 +30714,15 @@ expr_stmt|;
 comment|// add our window the modal window list (native dialogs)
 if|if
 condition|(
-operator|(
+name|window
+operator|&&
 name|q
 operator|->
 name|isWindow
 argument_list|()
+ifndef|#
+directive|ifndef
+name|QT_NO_GRAPHICSVIEW
 operator|&&
 operator|(
 operator|!
@@ -30728,7 +30733,8 @@ name|extra
 operator|->
 name|proxyWidget
 operator|)
-operator|)
+endif|#
+directive|endif
 operator|&&
 name|q
 operator|->
@@ -30738,8 +30744,6 @@ operator|!=
 name|Qt
 operator|::
 name|NonModal
-operator|&&
-name|window
 condition|)
 block|{
 name|QGuiApplicationPrivate
@@ -31412,11 +31416,15 @@ expr_stmt|;
 comment|// remove our window from the modal window list (native dialogs)
 if|if
 condition|(
-operator|(
+name|window
+operator|&&
 name|q
 operator|->
 name|isWindow
 argument_list|()
+ifndef|#
+directive|ifndef
+name|QT_NO_GRAPHICSVIEW
 operator|&&
 operator|(
 operator|!
@@ -31427,7 +31435,8 @@ name|extra
 operator|->
 name|proxyWidget
 operator|)
-operator|)
+endif|#
+directive|endif
 operator|&&
 name|q
 operator|->
@@ -31437,8 +31446,6 @@ operator|!=
 name|Qt
 operator|::
 name|NonModal
-operator|&&
-name|window
 condition|)
 block|{
 name|QGuiApplicationPrivate
