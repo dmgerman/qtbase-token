@@ -3027,7 +3027,7 @@ begin_comment
 comment|/*!   \enum QOpenGLContext::OpenGLModuleType   This enum defines the type of the underlying OpenGL implementation.    \value LibGL   OpenGL   \value LibGLES OpenGL ES 2.0 or higher    \since 5.3 */
 end_comment
 begin_comment
-comment|/*!   Returns the underlying OpenGL implementation type.    On platforms where the OpenGL implementation is not dynamically   loaded, the return value is determined during compile time and never   changes.    \note A desktop OpenGL implementation may be capable of creating   ES-compatible contexts too. Therefore in most cases it is more   appropriate to check QSurfaceFormat::renderableType() or using the   the convenience function isOpenGLES().    \note This function requires that the QGuiApplication instance is already created.    \since 5.3  */
+comment|/*!   Returns the underlying OpenGL implementation type.    On platforms where the OpenGL implementation is not dynamically   loaded, the return value is determined during compile time and never   changes.    \note A desktop OpenGL implementation may be capable of creating   ES-compatible contexts too. Therefore in most cases it is more   appropriate to check QSurfaceFormat::renderableType() or use   the convenience function isOpenGLES().    \note This function requires that the QGuiApplication instance is already created.    \since 5.3  */
 end_comment
 begin_function
 DECL|function|openGLModuleType
