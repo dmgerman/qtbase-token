@@ -242,6 +242,8 @@ condition|)
 return|return;
 name|GLint
 name|numExtensions
+init|=
+literal|0
 decl_stmt|;
 name|funcs
 operator|->
