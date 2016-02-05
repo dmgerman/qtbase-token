@@ -823,9 +823,6 @@ directive|endif
 comment|// defined(Q_OS_WINCE)
 block|}
 end_function
-begin_comment
-comment|/* void QWindowsAccessibility::setRootObject(QObject *o) {  }  void QWindowsAccessibility::initialize() {  }  void QWindowsAccessibility::cleanup() {  }  */
-end_comment
 begin_function
 DECL|function|handleAccessibleObjectFromWindowRequest
 name|bool
@@ -903,9 +900,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
 comment|// Ignoring all requests while starting up
 comment|// ### Maybe QPA takes care of this???
 if|if
@@ -923,8 +917,6 @@ condition|)
 return|return
 literal|false
 return|;
-endif|#
-directive|endif
 typedef|typedef
 name|LRESULT
 function_decl|(

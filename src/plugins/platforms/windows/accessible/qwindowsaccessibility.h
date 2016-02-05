@@ -68,7 +68,6 @@ operator|*
 name|event
 argument_list|)
 block|;
-comment|/*     virtual void setRootObject(QObject *o);     virtual void initialize();     virtual void cleanup();     */
 specifier|static
 name|IAccessible
 operator|*
