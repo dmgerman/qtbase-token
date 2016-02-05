@@ -4576,6 +4576,26 @@ name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Passing a full path to fromTheme is not very useful, but should work anyway
+name|QIcon
+name|fullPathIcon
+init|=
+name|QIcon
+operator|::
+name|fromTheme
+argument_list|(
+name|m_pngImageFileName
+argument_list|)
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|fullPathIcon
+operator|.
+name|isNull
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
