@@ -137,11 +137,11 @@ argument|Qt::TextElideMode textElideMode READ textElideMode WRITE setTextElideMo
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|ScrollMode verticalScrollMode READ verticalScrollMode WRITE setVerticalScrollMode
+argument|ScrollMode verticalScrollMode READ verticalScrollMode WRITE setVerticalScrollMode RESET resetVerticalScrollMode
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|ScrollMode horizontalScrollMode READ horizontalScrollMode WRITE setHorizontalScrollMode
+argument|ScrollMode horizontalScrollMode READ horizontalScrollMode WRITE setHorizontalScrollMode RESET resetHorizontalScrollMode
 argument_list|)
 name|public
 operator|:
@@ -360,6 +360,10 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|resetVerticalScrollMode
+argument_list|()
+block|;
+name|void
 name|setHorizontalScrollMode
 argument_list|(
 argument|ScrollMode mode
@@ -369,6 +373,10 @@ name|ScrollMode
 name|horizontalScrollMode
 argument_list|()
 specifier|const
+block|;
+name|void
+name|resetHorizontalScrollMode
+argument_list|()
 block|;
 name|void
 name|setAutoScroll

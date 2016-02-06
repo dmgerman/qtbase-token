@@ -1461,6 +1461,50 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_class
+DECL|class|ScrollPerItemListView
+class|class
+name|ScrollPerItemListView
+super|:
+specifier|public
+name|QListView
+block|{
+public|public:
+DECL|function|ScrollPerItemListView
+specifier|explicit
+name|ScrollPerItemListView
+parameter_list|(
+name|QWidget
+modifier|*
+name|parent
+init|=
+name|Q_NULLPTR
+parameter_list|)
+member_init_list|:
+name|QListView
+argument_list|(
+name|parent
+argument_list|)
+block|{
+comment|// Force per item scroll mode since it comes from the style by default
+name|setVerticalScrollMode
+argument_list|(
+name|QAbstractItemView
+operator|::
+name|ScrollPerItem
+argument_list|)
+expr_stmt|;
+name|setHorizontalScrollMode
+argument_list|(
+name|QAbstractItemView
+operator|::
+name|ScrollPerItem
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+class|;
+end_class
 begin_function
 DECL|function|initTestCase
 name|void
@@ -5113,7 +5157,7 @@ literal|20
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|QListView
+name|ScrollPerItemListView
 name|view
 decl_stmt|;
 name|view
@@ -6969,7 +7013,7 @@ operator|&
 name|topLevel
 argument_list|)
 expr_stmt|;
-name|QListView
+name|ScrollPerItemListView
 name|lv
 argument_list|(
 operator|&
@@ -7626,7 +7670,7 @@ decl_stmt|;
 name|QWidget
 name|topLevel
 decl_stmt|;
-name|QListView
+name|ScrollPerItemListView
 name|lv
 argument_list|(
 operator|&
@@ -11079,7 +11123,7 @@ operator|&
 name|topLevel
 argument_list|)
 expr_stmt|;
-name|QListView
+name|ScrollPerItemListView
 name|view
 argument_list|(
 operator|&
@@ -12836,7 +12880,7 @@ argument_list|,
 name|flow
 argument_list|)
 expr_stmt|;
-name|QListView
+name|ScrollPerItemListView
 name|lv
 decl_stmt|;
 name|lv
@@ -13449,7 +13493,7 @@ name|list
 argument_list|)
 expr_stmt|;
 comment|// create listview
-name|QListView
+name|ScrollPerItemListView
 name|lv
 decl_stmt|;
 name|lv
@@ -13989,7 +14033,7 @@ name|list
 argument_list|)
 expr_stmt|;
 comment|// create listview
-name|QListView
+name|ScrollPerItemListView
 name|lv
 decl_stmt|;
 name|lv

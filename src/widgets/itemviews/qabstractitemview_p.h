@@ -2280,6 +2280,19 @@ name|bool
 name|moveCursorUpdatedView
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// Whether scroll mode has been explicitly set or its value come from SH_ItemView_ScrollMode
+end_comment
+begin_decl_stmt
+name|bool
+name|verticalScrollModeSet
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|horizontalScrollModeSet
+decl_stmt|;
+end_decl_stmt
 begin_label
 name|private
 label|:

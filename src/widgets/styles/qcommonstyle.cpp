@@ -39299,6 +39299,16 @@ operator|=
 literal|true
 expr_stmt|;
 break|break;
+case|case
+name|SH_ItemView_ScrollMode
+case|:
+name|ret
+operator|=
+name|QAbstractItemView
+operator|::
+name|ScrollPerItem
+expr_stmt|;
+break|break;
 default|default:
 name|ret
 operator|=

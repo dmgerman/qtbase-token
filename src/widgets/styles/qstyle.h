@@ -1602,6 +1602,8 @@ name|SH_Menu_SubMenuResetWhenReenteringParent
 block|,
 name|SH_Menu_SubMenuDontStartSloppyOnLeave
 block|,
+name|SH_ItemView_ScrollMode
+block|,
 comment|// Add new style hint values here
 name|SH_CustomBase
 operator|=
