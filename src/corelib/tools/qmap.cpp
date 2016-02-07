@@ -2289,7 +2289,7 @@ begin_comment
 comment|/*!     \fn bool QMap::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty(), returning true if the map is empty; otherwise     returning false. */
 end_comment
 begin_comment
-comment|/*!   \fn QPair<iterator, iterator> QMap::equal_range(const Key&key)    Returns a pair of iterators delimiting the range of values that   are stored under \a key. */
+comment|/*!   \fn QPair<iterator, iterator> QMap::equal_range(const Key&key)    Returns a pair of iterators delimiting the range of values \c{[first, second)}, that   are stored under \a key. */
 end_comment
 begin_comment
 comment|/*!     \fn QPair<const_iterator, const_iterator> QMap::equal_range(const Key&key) const     \overload     \since 5.6 */
