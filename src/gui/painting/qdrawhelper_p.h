@@ -1355,10 +1355,18 @@ define|#
 directive|define
 name|GRADIENT_STOPTABLE_SIZE_SHIFT
 value|10
-DECL|member|colorTable
+DECL|member|colorTable64
+specifier|const
 name|QRgba64
 modifier|*
-name|colorTable
+name|colorTable64
+decl_stmt|;
+comment|//[GRADIENT_STOPTABLE_SIZE];
+DECL|member|colorTable32
+specifier|const
+name|QRgb
+modifier|*
+name|colorTable32
 decl_stmt|;
 comment|//[GRADIENT_STOPTABLE_SIZE];
 DECL|member|alphaColor
@@ -1941,7 +1949,7 @@ decl_stmt|;
 return|return
 name|data
 operator|->
-name|colorTable
+name|colorTable32
 index|[
 name|qt_gradient_clamp
 argument_list|(
@@ -1950,9 +1958,6 @@ argument_list|,
 name|ipos
 argument_list|)
 index|]
-operator|.
-name|toArgb32
-argument_list|()
 return|;
 block|}
 end_function
@@ -1996,7 +2001,7 @@ decl_stmt|;
 return|return
 name|data
 operator|->
-name|colorTable
+name|colorTable64
 index|[
 name|qt_gradient_clamp
 argument_list|(
@@ -3252,7 +3257,7 @@ define|#
 directive|define
 name|FETCH_RADIAL_LOOP_EPILOGUE
 define|\
-value|det_vec.v = Simd::v_add(Simd::v_add(det_vec.v, delta_det4_vec.v), v_delta_delta_det6); \             delta_det4_vec.v = Simd::v_add(delta_det4_vec.v, v_delta_delta_det16); \             b_vec.v = Simd::v_add(b_vec.v, v_delta_b4); \             for (int i = 0; i< 4; ++i) \                 *buffer++ = (extended_mask | v_buffer_mask.i[i])& data->gradient.colorTable[index_vec.i[i]].toArgb32(); \         }
+value|det_vec.v = Simd::v_add(Simd::v_add(det_vec.v, delta_det4_vec.v), v_delta_delta_det6); \             delta_det4_vec.v = Simd::v_add(delta_det4_vec.v, v_delta_delta_det16); \             b_vec.v = Simd::v_add(b_vec.v, v_delta_b4); \             for (int i = 0; i< 4; ++i) \                 *buffer++ = (extended_mask | v_buffer_mask.i[i])& data->gradient.colorTable32[index_vec.i[i]]; \         }
 DECL|macro|FETCH_RADIAL_LOOP
 define|#
 directive|define
