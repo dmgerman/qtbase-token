@@ -771,7 +771,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-name|this
+name|q
 operator|<<
 literal|'('
 operator|<<
