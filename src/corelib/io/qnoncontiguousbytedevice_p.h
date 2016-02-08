@@ -111,6 +111,7 @@ name|virtual
 name|bool
 name|atEnd
 argument_list|()
+specifier|const
 operator|=
 literal|0
 block|;
@@ -118,6 +119,7 @@ name|virtual
 name|qint64
 name|pos
 argument_list|()
+specifier|const
 block|{
 return|return
 operator|-
@@ -135,6 +137,7 @@ name|virtual
 name|qint64
 name|size
 argument_list|()
+specifier|const
 operator|=
 literal|0
 block|;
@@ -303,6 +306,7 @@ block|;
 name|bool
 name|atEnd
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|bool
@@ -313,11 +317,13 @@ block|;
 name|qint64
 name|size
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|pos
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|protected
@@ -374,6 +380,7 @@ block|;
 name|bool
 name|atEnd
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|bool
@@ -384,11 +391,13 @@ block|;
 name|qint64
 name|size
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|pos
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|protected
@@ -446,6 +455,7 @@ block|;
 name|bool
 name|atEnd
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|bool
@@ -456,11 +466,13 @@ block|;
 name|qint64
 name|size
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|qint64
 name|pos
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|protected
@@ -535,6 +547,7 @@ block|;
 name|bool
 name|atEnd
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|bool
@@ -545,6 +558,7 @@ block|;
 name|qint64
 name|size
 argument_list|()
+specifier|const
 name|Q_DECL_OVERRIDE
 block|;
 name|protected

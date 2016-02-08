@@ -252,6 +252,7 @@ name|QNonContiguousByteDeviceBufferImpl
 operator|::
 name|atEnd
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|arrayImpl
@@ -284,6 +285,7 @@ name|QNonContiguousByteDeviceBufferImpl
 operator|::
 name|size
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|arrayImpl
@@ -432,6 +434,7 @@ name|QNonContiguousByteDeviceByteArrayImpl
 operator|::
 name|atEnd
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|currentPosition
@@ -465,6 +468,7 @@ name|QNonContiguousByteDeviceByteArrayImpl
 operator|::
 name|size
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|byteArray
@@ -481,6 +485,7 @@ name|QNonContiguousByteDeviceByteArrayImpl
 operator|::
 name|pos
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|currentPosition
@@ -626,6 +631,7 @@ name|QNonContiguousByteDeviceRingBufferImpl
 operator|::
 name|atEnd
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|currentPosition
@@ -642,6 +648,7 @@ name|QNonContiguousByteDeviceRingBufferImpl
 operator|::
 name|pos
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|currentPosition
@@ -672,6 +679,7 @@ name|QNonContiguousByteDeviceRingBufferImpl
 operator|::
 name|size
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|ringBuffer
@@ -1102,6 +1110,7 @@ name|QNonContiguousByteDeviceIoDeviceImpl
 operator|::
 name|atEnd
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|eof
@@ -1191,6 +1200,7 @@ name|QNonContiguousByteDeviceIoDeviceImpl
 operator|::
 name|size
 parameter_list|()
+specifier|const
 block|{
 comment|// note that this is different from the size() implementation of QIODevice!
 if|if
@@ -1221,6 +1231,7 @@ name|QNonContiguousByteDeviceIoDeviceImpl
 operator|::
 name|pos
 parameter_list|()
+specifier|const
 block|{
 if|if
 condition|(
