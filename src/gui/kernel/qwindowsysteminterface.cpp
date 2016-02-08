@@ -3493,7 +3493,7 @@ name|tlw
 argument_list|,
 name|QHighDpi
 operator|::
-name|fromNativeLocalRegion
+name|fromNativeLocalExposedRegion
 argument_list|(
 name|region
 argument_list|,
