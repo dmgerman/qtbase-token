@@ -554,6 +554,7 @@ name|bool
 name|isEnabled
 argument_list|()
 specifier|const
+name|Q_DECL_OVERRIDE
 block|{
 return|return
 name|m_isEnabled
