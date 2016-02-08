@@ -9235,7 +9235,7 @@ name|cfg
 operator|=
 name|configs
 operator|.
-name|first
+name|constFirst
 argument_list|()
 expr_stmt|;
 name|EGLint
