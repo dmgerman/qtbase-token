@@ -819,7 +819,7 @@ name|bits
 init|=
 name|correctFormatPic
 operator|.
-name|bits
+name|constBits
 argument_list|()
 decl_stmt|;
 name|int

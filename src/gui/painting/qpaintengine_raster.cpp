@@ -21838,6 +21838,7 @@ operator|==
 literal|1
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QImage
 name|sourceImage
 init|=
@@ -21912,13 +21913,14 @@ operator|++
 name|y
 control|)
 block|{
+specifier|const
 name|uchar
 modifier|*
 name|source
 init|=
 name|sourceImage
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)

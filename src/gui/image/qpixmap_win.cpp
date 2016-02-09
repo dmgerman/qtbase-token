@@ -1127,7 +1127,7 @@ name|bpl
 argument_list|,
 name|bm
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)
