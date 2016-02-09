@@ -646,7 +646,7 @@ name|hr
 argument_list|)
 condition|)
 return|return
-name|hr
+name|S_OK
 return|;
 name|boolean
 name|success
@@ -679,7 +679,7 @@ literal|"Failed to show input panel."
 argument_list|)
 expr_stmt|;
 return|return
-name|hr
+name|S_OK
 return|;
 block|}
 argument_list|)
@@ -725,7 +725,7 @@ name|hr
 argument_list|)
 condition|)
 return|return
-name|hr
+name|S_OK
 return|;
 name|boolean
 name|success
@@ -758,7 +758,7 @@ literal|"Failed to hide input panel."
 argument_list|)
 expr_stmt|;
 return|return
-name|hr
+name|S_OK
 return|;
 block|}
 argument_list|)
