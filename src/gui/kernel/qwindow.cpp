@@ -2468,7 +2468,14 @@ name|platformWindow
 operator|->
 name|setMask
 argument_list|(
+name|QHighDpi
+operator|::
+name|toNativeLocalRegion
+argument_list|(
 name|region
+argument_list|,
+name|this
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|d
