@@ -18295,11 +18295,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-foreach|foreach
+for|for
 control|(
 name|int
 name|cur
-decl|,
+range|:
 name|currentFormats
 control|)
 block|{
