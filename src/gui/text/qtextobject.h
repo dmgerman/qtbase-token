@@ -431,6 +431,7 @@ operator|:
 name|iterator
 argument_list|()
 block|;
+comment|// ### Qt 6: inline
 if|#
 directive|if
 name|QT_VERSION
@@ -445,12 +446,11 @@ literal|0
 argument_list|)
 name|iterator
 argument_list|(
-specifier|const
-name|iterator
-operator|&
-name|o
+argument|const iterator&o
 argument_list|)
+name|Q_DECL_NOTHROW
 block|;
+comment|// = default
 name|iterator
 operator|&
 name|operator
@@ -461,7 +461,59 @@ name|iterator
 operator|&
 name|o
 operator|)
+name|Q_DECL_NOTHROW
 block|;
+comment|// = default
+name|iterator
+argument_list|(
+argument|iterator&&other
+argument_list|)
+name|Q_DECL_NOTHROW
+comment|// = default
+block|{
+name|memcpy
+argument_list|(
+name|this
+argument_list|,
+operator|&
+name|other
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|iterator
+argument_list|)
+argument_list|)
+block|; }
+name|iterator
+operator|&
+name|operator
+operator|=
+operator|(
+name|iterator
+operator|&&
+name|other
+operator|)
+name|Q_DECL_NOTHROW
+comment|// = default
+block|{
+name|memcpy
+argument_list|(
+name|this
+argument_list|,
+operator|&
+name|other
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|iterator
+argument_list|)
+argument_list|)
+block|;
+return|return
+operator|*
+name|this
+return|;
+block|}
 endif|#
 directive|endif
 name|QTextFrame
