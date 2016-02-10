@@ -579,7 +579,7 @@ name|phase
 operator|=
 name|Qt
 operator|::
-name|ScrollUpdate
+name|NoScrollPhase
 argument_list|,
 name|Qt
 operator|::
@@ -634,7 +634,7 @@ name|phase
 operator|=
 name|Qt
 operator|::
-name|ScrollUpdate
+name|NoScrollPhase
 argument_list|,
 name|Qt
 operator|::

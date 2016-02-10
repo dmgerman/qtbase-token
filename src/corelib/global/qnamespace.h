@@ -4961,9 +4961,12 @@ enum|;
 enum|enum
 name|ScrollPhase
 block|{
-name|ScrollBegin
+name|NoScrollPhase
 init|=
-literal|1
+literal|0
+block|,
+comment|// Make public in 5.7 or asap
+name|ScrollBegin
 block|,
 name|ScrollUpdate
 block|,

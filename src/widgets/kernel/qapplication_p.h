@@ -729,6 +729,11 @@ specifier|static
 name|int
 name|wheel_scroll_lines
 block|;
+specifier|static
+name|QWidget
+operator|*
+name|wheel_widget
+block|;
 endif|#
 directive|endif
 specifier|static

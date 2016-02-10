@@ -803,7 +803,7 @@ name|ph
 argument_list|(
 name|Qt
 operator|::
-name|ScrollUpdate
+name|NoScrollPhase
 argument_list|)
 member_init_list|,
 name|src
@@ -935,7 +935,7 @@ name|ph
 argument_list|(
 name|Qt
 operator|::
-name|ScrollUpdate
+name|NoScrollPhase
 argument_list|)
 member_init_list|,
 name|src
@@ -1064,7 +1064,7 @@ name|ph
 argument_list|(
 name|Qt
 operator|::
-name|ScrollUpdate
+name|NoScrollPhase
 argument_list|)
 member_init_list|,
 name|src
