@@ -4303,11 +4303,24 @@ end_comment
 begin_comment
 comment|/*!     \fn QTransform& QTransform::operator-=(qreal scalar)     \overload      Returns the matrix obtained by subtracting the given \a scalar from each     element of this matrix. */
 end_comment
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
 begin_comment
 comment|/*!     Assigns the given \a matrix's values to this matrix. */
 end_comment
 begin_function
-DECL|function|operator =
 name|QTransform
 modifier|&
 name|QTransform
@@ -4320,6 +4333,7 @@ name|QTransform
 modifier|&
 name|matrix
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|affine
 operator|.
@@ -4417,6 +4431,10 @@ name|this
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Resets the matrix to an identity matrix, i.e. all elements are set     to zero, except \c m11 and \c m22 (specifying the scale) and \c m33     which are set to 1.      \sa QTransform(), isIdentity(), {QTransform#Basic Matrix     Operations}{Basic Matrix Operations} */
 end_comment
