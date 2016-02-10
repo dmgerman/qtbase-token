@@ -2390,12 +2390,9 @@ block|}
 comment|/* Using Z_SYNC_FLUSH here means that an unterminated        * LZ stream (a stream with a missing end code) can still        * be handled, otherwise (Z_NO_FLUSH) a future zlib        * implementation might defer output and therefore        * change the current behavior (see comments in inflate.c        * for why this doesn't happen at present with zlib 1.2.5).        */
 name|ret
 operator|=
-name|inflate
+name|PNG_INFLATE
 argument_list|(
-operator|&
 name|png_ptr
-operator|->
-name|zstream
 argument_list|,
 name|Z_SYNC_FLUSH
 argument_list|)
