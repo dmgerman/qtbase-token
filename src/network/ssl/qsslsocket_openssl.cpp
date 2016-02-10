@@ -2989,6 +2989,7 @@ literal|"aecdh"
 argument_list|)
 argument_list|)
 condition|)
+block|{
 name|ciphers
 operator|<<
 name|ciph
@@ -3006,6 +3007,7 @@ name|defaultCiphers
 operator|<<
 name|ciph
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
