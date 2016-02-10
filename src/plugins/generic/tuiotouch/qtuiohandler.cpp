@@ -1759,6 +1759,48 @@ operator|::
 name|focusWindow
 argument_list|()
 decl_stmt|;
+comment|// With TUIO the first application takes exclusive ownership of the "device"
+comment|// we cannot attach more than one application to the same port anyway.
+comment|// Forcing delivery makes it easy to use simulators in the same machine
+comment|// and forget about headaches about unfocused TUIO windows.
+specifier|static
+name|bool
+name|forceDelivery
+init|=
+name|qEnvironmentVariableIsSet
+argument_list|(
+literal|"QT_TUIOTOUCH_DELIVER_WITHOUT_FOCUS"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|win
+operator|&&
+name|QGuiApplication
+operator|::
+name|topLevelWindows
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+operator|&&
+name|forceDelivery
+condition|)
+name|win
+operator|=
+name|QGuiApplication
+operator|::
+name|topLevelWindows
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
