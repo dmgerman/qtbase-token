@@ -300,6 +300,20 @@ name|this
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
 begin_comment
 comment|/*!   Destroys the bitmap. */
 end_comment
@@ -312,6 +326,10 @@ name|QBitmap
 parameter_list|()
 block|{ }
 end_destructor
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \fn void QBitmap::swap(QBitmap&other)     \since 4.8      Swaps bitmap \a other with this bitmap. This operation is very     fast and never fails. */
 end_comment
