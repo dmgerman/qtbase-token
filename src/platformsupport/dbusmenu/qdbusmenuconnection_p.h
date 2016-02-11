@@ -124,6 +124,14 @@ ifndef|#
 directive|ifndef
 name|QT_NO_SYSTEMTRAYICON
 name|bool
+name|registerTrayIconMenu
+argument_list|(
+name|QDBusTrayIcon
+operator|*
+name|item
+argument_list|)
+block|;
+name|bool
 name|registerTrayIcon
 argument_list|(
 name|QDBusTrayIcon

@@ -1569,7 +1569,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \relates QHash     \since 5.6      Sets the global QHash seed.      Manually setting the global QHash seed value should be done only for testing     and debugging purposes, when deterministic and reproducible behavior on a QHash     is needed. We discourage to do it in production code as it can make your     application susceptible to \l{algorithmic complexity attacks}.      The seed is set in any newly created QHash. See \l{qHash} about how this seed     is being used by QHash.      If the environment variable \c QT_HASH_SEED is set, calling this function will     result in a no-op.      Passing the value -1 will reinitialize the global QHash seed to a random value.      \sa qGlobalQHashSeed  */
+comment|/*! \relates QHash     \since 5.6      Sets the global QHash seed to \a newSeed.      Manually setting the global QHash seed value should be done only for testing     and debugging purposes, when deterministic and reproducible behavior on a QHash     is needed. We discourage to do it in production code as it can make your     application susceptible to \l{algorithmic complexity attacks}.      The seed is set in any newly created QHash. See \l{qHash} about how this seed     is being used by QHash.      If the environment variable \c QT_HASH_SEED is set, calling this function will     result in a no-op.      Passing the value -1 will reinitialize the global QHash seed to a random value.      \sa qGlobalQHashSeed  */
 end_comment
 begin_function
 DECL|function|qSetGlobalQHashSeed

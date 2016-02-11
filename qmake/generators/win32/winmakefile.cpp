@@ -2792,7 +2792,10 @@ name|resFile
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|".rc"
+argument_list|)
 argument_list|,
 name|Option
 operator|::
@@ -5754,7 +5757,7 @@ argument_list|(
 literal|'\\'
 argument_list|)
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\\\"
 argument_list|)
@@ -5769,7 +5772,7 @@ argument_list|(
 literal|'"'
 argument_list|)
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\\""
 argument_list|)

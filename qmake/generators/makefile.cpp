@@ -8157,13 +8157,13 @@ operator|.
 name|begin
 argument_list|()
 decl_stmt|;
-name|QString
+name|QLatin1String
 name|stringSrc
 argument_list|(
 literal|"$src"
 argument_list|)
 decl_stmt|;
-name|QString
+name|QLatin1String
 name|stringObj
 argument_list|(
 literal|"$obj"
@@ -17031,7 +17031,10 @@ argument_list|()
 operator|.
 name|replace
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"$(QMAKE)"
+argument_list|)
 argument_list|,
 name|var
 argument_list|(
@@ -23686,7 +23689,10 @@ name|replace
 argument_list|(
 name|prefix
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"${prefix}"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -24727,7 +24733,10 @@ name|replace
 argument_list|(
 literal|'/'
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"\\\\\\\\"
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -24992,8 +25001,6 @@ return|return
 name|isWindowsShell
 argument_list|()
 condition|?
-name|QMakeInternal
-operator|::
 name|IoUtils
 operator|::
 name|shellQuoteWin
@@ -25001,8 +25008,6 @@ argument_list|(
 name|str
 argument_list|)
 else|:
-name|QMakeInternal
-operator|::
 name|IoUtils
 operator|::
 name|shellQuoteUnix

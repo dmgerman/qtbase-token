@@ -2542,6 +2542,14 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QFile
+operator|::
+name|remove
+argument_list|(
+literal|"qundogroup.qm"
+argument_list|)
+expr_stmt|;
+comment|// Avoid confusion by strays.
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2551,41 +2559,32 @@ name|execute
 argument_list|(
 name|binDir
 operator|+
-literal|"/lrelease "
+literal|"/lrelease -silent "
 operator|+
 name|tsFile
+operator|+
+literal|" -qm qundogroup.qm"
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|QTranslator
 name|translator
 decl_stmt|;
-specifier|const
-name|QString
-name|qmFile
-init|=
-name|QFINDTESTDATA
-argument_list|(
-literal|"testdata/qundogroup.qm"
-argument_list|)
-decl_stmt|;
-name|QVERIFY
-argument_list|(
-operator|!
-name|qmFile
-operator|.
-name|isEmpty
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|translator
 operator|.
 name|load
 argument_list|(
-name|qmFile
+literal|"qundogroup.qm"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|QFile
+operator|::
+name|remove
+argument_list|(
+literal|"qundogroup.qm"
 argument_list|)
 expr_stmt|;
 name|qApp

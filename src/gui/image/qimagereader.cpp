@@ -5150,6 +5150,13 @@ name|QByteArray
 argument_list|>
 name|formats
 decl_stmt|;
+name|formats
+operator|.
+name|reserve
+argument_list|(
+name|_qt_NumFormats
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -5257,6 +5264,13 @@ name|QByteArray
 argument_list|>
 name|mimeTypes
 decl_stmt|;
+name|mimeTypes
+operator|.
+name|reserve
+argument_list|(
+name|_qt_NumFormats
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

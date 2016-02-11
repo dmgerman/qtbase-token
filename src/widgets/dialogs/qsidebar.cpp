@@ -2618,6 +2618,13 @@ operator|.
 name|count
 argument_list|()
 decl_stmt|;
+name|indexes
+operator|.
+name|reserve
+argument_list|(
+name|numIndexes
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

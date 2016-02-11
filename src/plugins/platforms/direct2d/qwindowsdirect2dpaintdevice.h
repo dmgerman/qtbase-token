@@ -63,6 +63,10 @@ argument_list|,
 argument|QWindowsDirect2DPaintEngine::Flags paintFlags = QWindowsDirect2DPaintEngine::NoFlag
 argument_list|)
 block|;
+operator|~
+name|QWindowsDirect2DPaintDevice
+argument_list|()
+block|;
 name|QPaintEngine
 operator|*
 name|paintEngine
