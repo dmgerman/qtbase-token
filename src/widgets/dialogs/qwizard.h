@@ -589,19 +589,13 @@ name|Q_OS_WIN
 name|bool
 name|nativeEvent
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|eventType
+argument|const QByteArray&eventType
 argument_list|,
-name|void
-operator|*
-name|message
+argument|void *message
 argument_list|,
-name|long
-operator|*
-name|result
+argument|long *result
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif

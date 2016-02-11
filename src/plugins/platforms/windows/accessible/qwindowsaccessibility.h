@@ -59,16 +59,13 @@ argument_list|,
 argument|LRESULT *lResult
 argument_list|)
 block|;
-name|virtual
 name|void
 name|notifyAccessibilityUpdate
 argument_list|(
-name|QAccessibleEvent
-operator|*
-name|event
+argument|QAccessibleEvent *event
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
-comment|/*     virtual void setRootObject(QObject *o);     virtual void initialize();     virtual void cleanup();     */
 specifier|static
 name|IAccessible
 operator|*

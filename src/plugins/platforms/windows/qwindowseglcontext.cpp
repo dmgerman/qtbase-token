@@ -4314,19 +4314,11 @@ name|QWindowsEGLStaticContext
 parameter_list|(
 name|EGLDisplay
 name|display
-parameter_list|,
-name|int
-name|version
 parameter_list|)
 member_init_list|:
 name|m_display
 argument_list|(
 name|display
-argument_list|)
-member_init_list|,
-name|m_version
-argument_list|(
-name|version
 argument_list|)
 block|{ }
 end_constructor
@@ -4708,14 +4700,6 @@ operator|new
 name|QWindowsEGLStaticContext
 argument_list|(
 name|display
-argument_list|,
-operator|(
-name|major
-operator|<<
-literal|8
-operator|)
-operator||
-name|minor
 argument_list|)
 return|;
 block|}

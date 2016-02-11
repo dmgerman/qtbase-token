@@ -1389,6 +1389,23 @@ condition|(
 name|alreadySet
 condition|)
 block|{
+comment|// Maybe detecting the DPMS mode could help here, but there are no properties
+comment|// exposed on the connector apparently. So rely on an env var for now.
+specifier|static
+name|bool
+name|alwaysDoSet
+init|=
+name|qEnvironmentVariableIntValue
+argument_list|(
+literal|"QT_QPA_EGLFS_ALWAYS_SET_MODE"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|alwaysDoSet
+condition|)
+block|{
 name|qCDebug
 argument_list|(
 name|qLcEglfsKmsDebug
@@ -1397,6 +1414,7 @@ literal|"Mode already set"
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
 block|}
 name|qCDebug
 argument_list|(

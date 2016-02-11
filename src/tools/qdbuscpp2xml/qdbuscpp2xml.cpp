@@ -1955,6 +1955,15 @@ block|{
 name|QStringList
 name|args
 decl_stmt|;
+name|args
+operator|.
+name|reserve
+argument_list|(
+name|argc
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
