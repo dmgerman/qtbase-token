@@ -62,38 +62,6 @@ parameter_list|)
 define|\
 value|void CLASS::init() \ { \     const char *names = FUNCTIONS(QT_OPENGL_FUNCTION_NAMES); \     const char *name = names; \     for (int i = 0; i< FUNCTIONS(QT_OPENGL_COUNT_FUNCTIONS); ++i) { \         functions[i] = context->getProcAddress(name); \         name += strlen(name) + 1; \     } \ }
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-end_ifdef
-begin_define
-DECL|macro|QT_OPENGL_IMPLEMENT_WIN
-define|#
-directive|define
-name|QT_OPENGL_IMPLEMENT_WIN
-parameter_list|(
-name|CLASS
-parameter_list|,
-name|FUNCTIONS
-parameter_list|)
-define|\
-value|void CLASS::init() \ { \     HMODULE handle = static_cast<HMODULE>(QOpenGLContext::openGLModuleHandle()); \     if (!handle) \         handle = GetModuleHandleA("opengl32.dll"); \     const char *names = FUNCTIONS(QT_OPENGL_FUNCTION_NAMES); \     const char *name = names; \     for (int i = 0; i< FUNCTIONS(QT_OPENGL_COUNT_FUNCTIONS); ++i) { \         functions[i] = (QFunctionPointer)GetProcAddress(handle, name); \         name += strlen(name) + 1; \     } \ }
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-define|#
-directive|define
-name|QT_OPENGL_IMPLEMENT_WIN
-value|QT_OPENGL_IMPLEMENT
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_constructor
 DECL|function|QOpenGLVersionFunctionsStorage
 name|QOpenGLVersionFunctionsStorage
@@ -632,7 +600,7 @@ name|QT_OPENGL_ES_2
 argument_list|)
 end_if
 begin_macro
-name|QT_OPENGL_IMPLEMENT_WIN
+name|QT_OPENGL_IMPLEMENT
 argument_list|(
 argument|QOpenGLFunctions_1_0_CoreBackend
 argument_list|,
@@ -640,7 +608,7 @@ argument|QT_OPENGL_1_0_FUNCTIONS
 argument_list|)
 end_macro
 begin_macro
-name|QT_OPENGL_IMPLEMENT_WIN
+name|QT_OPENGL_IMPLEMENT
 argument_list|(
 argument|QOpenGLFunctions_1_1_CoreBackend
 argument_list|,
@@ -776,7 +744,7 @@ argument|QT_OPENGL_4_5_FUNCTIONS
 argument_list|)
 end_macro
 begin_macro
-name|QT_OPENGL_IMPLEMENT_WIN
+name|QT_OPENGL_IMPLEMENT
 argument_list|(
 argument|QOpenGLFunctions_1_0_DeprecatedBackend
 argument_list|,
@@ -784,7 +752,7 @@ argument|QT_OPENGL_1_0_DEPRECATED_FUNCTIONS
 argument_list|)
 end_macro
 begin_macro
-name|QT_OPENGL_IMPLEMENT_WIN
+name|QT_OPENGL_IMPLEMENT
 argument_list|(
 argument|QOpenGLFunctions_1_1_DeprecatedBackend
 argument_list|,
