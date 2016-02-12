@@ -214,11 +214,7 @@ operator|*
 name|screen
 argument_list|()
 specifier|const
-block|{
-return|return
-name|mScreen
-return|;
-block|}
+block|;
 name|private
 operator|:
 name|void
@@ -240,10 +236,6 @@ block|;
 name|QMirClientPlatformServices
 operator|*
 name|mServices
-block|;
-name|QMirClientScreen
-operator|*
-name|mScreen
 block|;
 name|QMirClientInput
 operator|*
