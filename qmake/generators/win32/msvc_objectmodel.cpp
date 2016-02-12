@@ -9126,15 +9126,6 @@ name|unset
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~VCManifestTool
-name|VCManifestTool
-operator|::
-name|~
-name|VCManifestTool
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|parseOption
 name|bool

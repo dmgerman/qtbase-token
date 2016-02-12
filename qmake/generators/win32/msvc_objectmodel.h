@@ -1739,11 +1739,6 @@ comment|// Functions
 name|VCCLCompilerTool
 argument_list|()
 block|;
-name|virtual
-operator|~
-name|VCCLCompilerTool
-argument_list|()
-block|{}
 name|bool
 name|parseOption
 argument_list|(
@@ -2021,11 +2016,6 @@ comment|// Functions
 name|VCLinkerTool
 argument_list|()
 block|;
-name|virtual
-operator|~
-name|VCLinkerTool
-argument_list|()
-block|{}
 name|bool
 name|parseOption
 argument_list|(
@@ -2293,10 +2283,6 @@ operator|:
 name|VCManifestTool
 argument_list|()
 block|;
-operator|~
-name|VCManifestTool
-argument_list|()
-block|;
 name|bool
 name|parseOption
 argument_list|(
@@ -2324,11 +2310,6 @@ comment|// Functions
 name|VCMIDLTool
 argument_list|()
 block|;
-name|virtual
-operator|~
-name|VCMIDLTool
-argument_list|()
-block|{}
 name|bool
 name|parseOption
 argument_list|(
@@ -2477,11 +2458,6 @@ comment|// Functions
 name|VCLibrarianTool
 argument_list|()
 block|;
-name|virtual
-operator|~
-name|VCLibrarianTool
-argument_list|()
-block|{}
 name|bool
 name|parseOption
 argument_list|(
@@ -2538,11 +2514,6 @@ comment|// Functions
 name|VCCustomBuildTool
 argument_list|()
 block|;
-name|virtual
-operator|~
-name|VCCustomBuildTool
-argument_list|()
-block|{}
 name|bool
 name|parseOption
 argument_list|(
@@ -2591,11 +2562,6 @@ comment|// Functions
 name|VCResourceCompilerTool
 argument_list|()
 block|;
-name|virtual
-operator|~
-name|VCResourceCompilerTool
-argument_list|()
-block|{}
 name|bool
 name|parseOption
 argument_list|(
@@ -2649,15 +2615,10 @@ comment|// Functions
 name|VCDeploymentTool
 argument_list|()
 expr_stmt|;
-name|virtual
-operator|~
-name|VCDeploymentTool
-argument_list|()
-block|{}
 comment|// Variables
 name|QString
 name|DeploymentTag
-expr_stmt|;
+decl_stmt|;
 name|QString
 name|RemoteDirectory
 decl_stmt|;
@@ -2690,11 +2651,6 @@ operator|&
 name|eventName
 argument_list|)
 block|;
-name|virtual
-operator|~
-name|VCEventTool
-argument_list|()
-block|{}
 name|bool
 name|parseOption
 argument_list|(
@@ -2739,12 +2695,7 @@ name|public
 operator|:
 name|VCPostBuildEventTool
 argument_list|()
-block|;
-operator|~
-name|VCPostBuildEventTool
-argument_list|()
-block|{}
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2758,12 +2709,7 @@ name|public
 operator|:
 name|VCPreBuildEventTool
 argument_list|()
-block|;
-operator|~
-name|VCPreBuildEventTool
-argument_list|()
-block|{}
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2777,12 +2723,7 @@ name|public
 operator|:
 name|VCPreLinkEventTool
 argument_list|()
-block|;
-operator|~
-name|VCPreLinkEventTool
-argument_list|()
-block|{}
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2794,10 +2735,6 @@ name|VCToolBase
 block|{
 name|public
 operator|:
-name|VCWinDeployQtTool
-argument_list|()
-block|{}
-operator|~
 name|VCWinDeployQtTool
 argument_list|()
 block|{}
