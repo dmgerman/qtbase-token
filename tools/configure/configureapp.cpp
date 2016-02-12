@@ -29718,7 +29718,7 @@ literal|true
 return|;
 block|}
 name|bool
-name|showLgpl2
+name|showGpl2
 init|=
 literal|true
 decl_stmt|;
@@ -29769,8 +29769,8 @@ condition|)
 block|{
 name|theLicense
 operator|=
-literal|"GNU Lesser General Public License (LGPL) version 2.1"
-literal|"\nor the GNU Lesser General Public License (LGPL) version 3"
+literal|"GNU Lesser General Public License (LGPL) version 3\n"
+literal|"or the GNU General Public License (GPL) version 2"
 expr_stmt|;
 block|}
 else|else
@@ -29779,7 +29779,7 @@ name|theLicense
 operator|=
 literal|"GNU Lesser General Public License (LGPL) version 3"
 expr_stmt|;
-name|showLgpl2
+name|showGpl2
 operator|=
 literal|false
 expr_stmt|;
@@ -29863,17 +29863,17 @@ condition|)
 block|{
 name|cout
 operator|<<
-literal|"Type '3' to view the Lesser GNU General Public License version 3 (LGPLv3)."
+literal|"Type 'L' to view the GNU Lesser General Public License version 3 (LGPLv3)."
 operator|<<
 name|endl
 expr_stmt|;
 if|if
 condition|(
-name|showLgpl2
+name|showGpl2
 condition|)
 name|cout
 operator|<<
-literal|"Type 'L' to view the Lesser GNU General Public License version 2.1 (LGPLv2.1)."
+literal|"Type 'G' to view the GNU General Public License version 2 (GPLv2)."
 operator|<<
 name|endl
 expr_stmt|;
@@ -29957,20 +29957,20 @@ if|if
 condition|(
 name|accept
 operator|==
-literal|'3'
+literal|'L'
 condition|)
 name|licenseFile
 operator|=
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.LGPLv3"
+literal|"/LICENSE.LGPL3"
 expr_stmt|;
 else|else
 name|licenseFile
 operator|=
 name|orgLicenseFile
 operator|+
-literal|"/LICENSE.LGPLv21"
+literal|"/LICENSE.GPL2"
 expr_stmt|;
 block|}
 comment|// Get console line height, to fill the screen properly
@@ -30155,7 +30155,7 @@ index|[
 literal|"LICENSE FILE"
 index|]
 operator|+
-literal|"/LICENSE.LGPLv3"
+literal|"/LICENSE.LGPL3"
 argument_list|)
 operator|||
 name|QFile
@@ -30167,7 +30167,7 @@ index|[
 literal|"LICENSE FILE"
 index|]
 operator|+
-literal|"/LICENSE.LGPLv21"
+literal|"/LICENSE.GPL2"
 argument_list|)
 decl_stmt|;
 if|if
