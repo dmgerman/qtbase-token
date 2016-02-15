@@ -6661,6 +6661,16 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|m_activity
+operator|.
+name|getActionBar
+argument_list|()
+operator|==
+literal|null
+condition|)
+return|return;
+if|if
+condition|(
 name|ViewConfiguration
 operator|.
 name|get
