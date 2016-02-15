@@ -736,53 +736,6 @@ name|getLastNonConfigurationInstance
 argument_list|()
 condition|)
 block|{
-comment|// if splash screen is defined, then show it
-comment|// Note: QtActivityDelegate handles updating the splash screen
-comment|// in onConfigurationChanged, change that too if you are changing
-comment|// how the splash screen should be displayed
-if|if
-condition|(
-name|m_contextInfo
-operator|.
-name|metaData
-operator|.
-name|containsKey
-argument_list|(
-literal|"android.app.splash_screen_drawable"
-argument_list|)
-condition|)
-name|m_activity
-operator|.
-name|getWindow
-argument_list|()
-operator|.
-name|setBackgroundDrawableResource
-argument_list|(
-name|m_contextInfo
-operator|.
-name|metaData
-operator|.
-name|getInt
-argument_list|(
-literal|"android.app.splash_screen_drawable"
-argument_list|)
-argument_list|)
-expr_stmt|;
-else|else
-name|m_activity
-operator|.
-name|getWindow
-argument_list|()
-operator|.
-name|setBackgroundDrawable
-argument_list|(
-operator|new
-name|ColorDrawable
-argument_list|(
-literal|0xff000000
-argument_list|)
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|m_contextInfo

@@ -408,6 +408,15 @@ modifier|*
 name|listener
 parameter_list|)
 function_decl|;
+name|Q_CORE_EXPORT
+name|void
+name|hideSplashScreen
+parameter_list|(
+name|JNIEnv
+modifier|*
+name|env
+parameter_list|)
+function_decl|;
 block|}
 end_decl_stmt
 begin_macro
