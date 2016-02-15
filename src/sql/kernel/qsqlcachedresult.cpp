@@ -1024,13 +1024,6 @@ name|d
 operator|->
 name|cache
 operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|d
-operator|->
-name|cache
-operator|.
 name|resize
 argument_list|(
 name|d
