@@ -131,6 +131,21 @@ modifier|*
 name|document
 parameter_list|)
 function_decl|;
+name|QTextCursor
+argument_list|(
+argument|QTextDocumentPrivate *p
+argument_list|,
+argument|int pos
+argument_list|)
+empty_stmt|;
+name|explicit
+name|QTextCursor
+parameter_list|(
+name|QTextCursorPrivate
+modifier|*
+name|d
+parameter_list|)
+function_decl|;
 name|explicit
 name|QTextCursor
 parameter_list|(
@@ -866,21 +881,6 @@ specifier|const
 expr_stmt|;
 name|private
 label|:
-name|QTextCursor
-argument_list|(
-argument|QTextDocumentPrivate&p
-argument_list|,
-argument|int pos
-argument_list|)
-empty_stmt|;
-name|explicit
-name|QTextCursor
-parameter_list|(
-name|QTextCursorPrivate
-modifier|*
-name|d
-parameter_list|)
-function_decl|;
 name|QSharedDataPointer
 operator|<
 name|QTextCursorPrivate

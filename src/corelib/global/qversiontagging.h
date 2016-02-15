@@ -82,12 +82,6 @@ argument_list|(
 name|Q_PROCESSOR_X86_64
 argument_list|)
 comment|// x86-64 or x32
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__code_model_large__
-argument_list|)
 define|#
 directive|define
 name|QT_VERSION_TAG_RELOC
@@ -95,17 +89,6 @@ parameter_list|(
 name|sym
 parameter_list|)
 value|".quad " QT_STRINGIFY(QT_MANGLE_NAMESPACE(sym)) "@GOT\n"
-else|#
-directive|else
-define|#
-directive|define
-name|QT_VERSION_TAG_RELOC
-parameter_list|(
-name|sym
-parameter_list|)
-value|".long " QT_STRINGIFY(QT_MANGLE_NAMESPACE(sym)) "@GOTPCREL\n"
-endif|#
-directive|endif
 else|#
 directive|else
 comment|// x86

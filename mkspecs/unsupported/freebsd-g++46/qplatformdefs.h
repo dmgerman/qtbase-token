@@ -5,6 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"../freebsd-g++/qplatformdefs.h"
+file|"../../freebsd-clang/qplatformdefs.h"
 end_include
 end_unit

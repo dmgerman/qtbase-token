@@ -345,7 +345,6 @@ block|{
 return|return
 name|QTextCursor
 argument_list|(
-operator|*
 name|d
 argument_list|,
 name|pos

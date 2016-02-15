@@ -284,6 +284,14 @@ name|void
 name|sendPostedEvents
 argument_list|()
 block|;
+name|void
+name|doUnregisterSocketNotifier
+argument_list|(
+name|QSocketNotifier
+operator|*
+name|notifier
+argument_list|)
+block|;
 name|private
 operator|:
 name|friend

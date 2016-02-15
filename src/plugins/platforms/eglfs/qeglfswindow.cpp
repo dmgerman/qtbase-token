@@ -495,6 +495,32 @@ name|window
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// If there is a "root" window into which raster and QOpenGLWidget content is
+comment|// composited, all other contexts must share with its context.
+if|if
+condition|(
+operator|!
+name|qt_gl_global_share_context
+argument_list|()
+condition|)
+block|{
+name|qt_gl_set_global_share_context
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+comment|// What we set up here is in effect equivalent to the application setting
+comment|// AA_ShareOpenGLContexts. Set the attribute to be fully consistent.
+name|QCoreApplication
+operator|::
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|AA_ShareOpenGLContexts
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_function

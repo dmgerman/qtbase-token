@@ -644,6 +644,10 @@ modifier|*
 name|widget
 parameter_list|)
 function_decl|;
+name|bool
+name|syncAllowed
+parameter_list|()
+function_decl|;
 specifier|inline
 name|void
 name|addDirtyWidget
