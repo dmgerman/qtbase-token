@@ -106,7 +106,7 @@ argument|bool useRtlExtensions READ useRtlExtensions STORED false CONSTANT FINAL
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|Qt::TabFocusBehavior tabFocusBehavior READ tabFocusBehavior STORED false CONSTANT FINAL
+argument|Qt::TabFocusBehavior tabFocusBehavior READ tabFocusBehavior NOTIFY tabFocusBehaviorChanged FINAL
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -232,6 +232,12 @@ name|tabFocusBehavior
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setTabFocusBehavior
+argument_list|(
+argument|Qt::TabFocusBehavior tabFocusBehavior
+argument_list|)
+block|;
 name|bool
 name|singleClickActivation
 argument_list|()
@@ -273,6 +279,12 @@ name|void
 name|startDragTimeChanged
 argument_list|(
 argument|int startDragTime
+argument_list|)
+block|;
+name|void
+name|tabFocusBehaviorChanged
+argument_list|(
+argument|Qt::TabFocusBehavior tabFocusBehavior
 argument_list|)
 block|;
 name|private
