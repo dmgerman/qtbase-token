@@ -2137,6 +2137,7 @@ name|NamedBinding
 expr_stmt|;
 comment|// if the index has already been set when doing emulated named
 comment|// bindings - don't reset it
+specifier|const
 name|QList
 argument_list|<
 name|int
@@ -2152,11 +2153,11 @@ argument_list|(
 name|placeholder
 argument_list|)
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 name|int
 name|idx
-decl|,
+range|:
 name|indexes
 control|)
 block|{
