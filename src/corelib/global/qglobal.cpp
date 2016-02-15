@@ -564,13 +564,13 @@ begin_comment
 comment|/*! \fn const T&qBound(const T&min, const T&value, const T&max)     \relates<QtGlobal>      Returns \a value bounded by \a min and \a max. This is equivalent     to qMax(\a min, qMin(\a value, \a max)).      Example:      \snippet code/src_corelib_global_qglobal.cpp 15      \sa qMin(), qMax() */
 end_comment
 begin_comment
-comment|/*! \fn auto qOverload(T functionPointer)     \relates<QtGlobal>     \since 5.7      qOverload() returns a pointer to an overloaded function. The template     parameter is the list of the argument types of the function.     \a functionPointer is the pointer to the (member) function:      \snippet code/src_corelib_global_qglobal.cpp 52      If a member function is also const-overladed \l qConstOverload and     \l qNonConstOverload needs to be used.      qOverload() needs C++14 enabled. In C++11 only code the helper     classes QOverload, QConstOverload, and QNonConstOverload could be used directly:      \snippet code/src_corelib_global_qglobal.cpp 53      \sa qConstOverload(), qNonConstOverload() */
+comment|/*! \fn auto qOverload(T functionPointer)     \relates<QtGlobal>     \since 5.7      Returns a pointer to an overloaded function. The template     parameter is the list of the argument types of the function.     \a functionPointer is the pointer to the (member) function:      \snippet code/src_corelib_global_qglobal.cpp 52      If a member function is also const-overloaded \l qConstOverload and     \l qNonConstOverload need to be used.      qOverload() requires C++14 enabled. In C++11-only code, the helper     classes QOverload, QConstOverload, and QNonConstOverload can be used directly:      \snippet code/src_corelib_global_qglobal.cpp 53      \sa qConstOverload(), qNonConstOverload() */
 end_comment
 begin_comment
-comment|/*! \fn auto qConstOverload(T memberFunctionPointer)     \relates<QtGlobal>     \since 5.7      qConstOverload() returns a pointer to an constant member function:      \snippet code/src_corelib_global_qglobal.cpp 54      \sa qOverload, qNonConstOverload */
+comment|/*! \fn auto qConstOverload(T memberFunctionPointer)     \relates<QtGlobal>     \since 5.7      Returns a pointer to a constant member function:      \snippet code/src_corelib_global_qglobal.cpp 54      \sa qOverload, qNonConstOverload */
 end_comment
 begin_comment
-comment|/*! \fn auto qNonConstOverload(T memberFunctionPointer)     \relates<QtGlobal>     \since 5.7      qNonConstOverload() eturns a pointer to an non constant member function:      \snippet code/src_corelib_global_qglobal.cpp 54      \sa qOverload, qNonConstOverload */
+comment|/*! \fn auto qNonConstOverload(T memberFunctionPointer)     \relates<QtGlobal>     \since 5.7      Returns a pointer to a non-constant member function:      \snippet code/src_corelib_global_qglobal.cpp 54      \sa qOverload, qNonConstOverload */
 end_comment
 begin_comment
 comment|/*!     \macro QT_VERSION_CHECK     \relates<QtGlobal>      Turns the major, minor and patch numbers of a version into an     integer, 0xMMNNPP (MM = major, NN = minor, PP = patch). This can     be compared with another similarly processed version id.      Example:      \snippet code/src_corelib_global_qglobal.cpp qt-version-check      \sa QT_VERSION */
