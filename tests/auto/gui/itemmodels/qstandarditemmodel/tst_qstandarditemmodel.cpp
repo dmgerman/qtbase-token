@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<private/qtreeview_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"modeltest.h"
+end_include
 begin_class
 DECL|class|tst_QStandardItemModel
 class|class
@@ -5071,6 +5076,13 @@ argument_list|,
 name|int
 argument_list|)
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|ModelTest
+name|mt
+argument_list|(
+operator|&
+name|model
 argument_list|)
 decl_stmt|;
 name|model

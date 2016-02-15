@@ -6994,6 +6994,17 @@ name|d
 operator|->
 name|root
 operator|->
+name|setFlags
+argument_list|(
+name|Qt
+operator|::
+name|ItemIsDropEnabled
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|root
+operator|->
 name|d_func
 argument_list|()
 operator|->
