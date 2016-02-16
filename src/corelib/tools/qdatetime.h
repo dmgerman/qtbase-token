@@ -350,6 +350,18 @@ name|int
 name|day
 parameter_list|)
 function_decl|;
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
 name|void
 name|getDate
 parameter_list|(
@@ -366,6 +378,27 @@ modifier|*
 name|day
 parameter_list|)
 function_decl|;
+comment|// ### Qt 6: remove
+endif|#
+directive|endif
+comment|//< Qt 6
+name|void
+name|getDate
+argument_list|(
+name|int
+operator|*
+name|year
+argument_list|,
+name|int
+operator|*
+name|month
+argument_list|,
+name|int
+operator|*
+name|day
+argument_list|)
+decl|const
+decl_stmt|;
 name|QDate
 name|addDays
 argument_list|(

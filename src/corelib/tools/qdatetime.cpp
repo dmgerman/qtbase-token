@@ -2851,7 +2851,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Extracts the date's year, month, and day, and assigns them to     *\a year, *\a month, and *\a day. The pointers may be null.      Returns 0 if the date is invalid.      \sa year(), month(), day(), isValid() */
+comment|/*!     \since 4.5      Extracts the date's year, month, and day, and assigns them to     *\a year, *\a month, and *\a day. The pointers may be null.      Returns 0 if the date is invalid.      \note In Qt versions prior to 5.7, this function is marked as non-\c{const}.      \sa year(), month(), day(), isValid() */
 end_comment
 begin_function
 DECL|function|getDate
@@ -2872,6 +2872,7 @@ name|int
 modifier|*
 name|day
 parameter_list|)
+specifier|const
 block|{
 name|ParsedDate
 name|pd
@@ -2931,6 +2932,67 @@ name|day
 expr_stmt|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+name|QT_VERSION_CHECK
+argument_list|(
+literal|6
+operator|,
+literal|0
+operator|,
+literal|0
+argument_list|)
+end_if
+begin_comment
+comment|/*!     \overload     \internal */
+end_comment
+begin_function
+DECL|function|getDate
+name|void
+name|QDate
+operator|::
+name|getDate
+parameter_list|(
+name|int
+modifier|*
+name|year
+parameter_list|,
+name|int
+modifier|*
+name|month
+parameter_list|,
+name|int
+modifier|*
+name|day
+parameter_list|)
+block|{
+name|qAsConst
+argument_list|(
+operator|*
+name|this
+argument_list|)
+operator|.
+name|getDate
+argument_list|(
+name|year
+argument_list|,
+name|month
+argument_list|,
+name|day
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//< Qt 6
+end_comment
 begin_comment
 comment|/*!     Returns a QDate object containing a date \a ndays later than the     date of this object (or earlier if \a ndays is negative).      Returns a null date if the current date is invalid or the new date is     out of range.      \sa addMonths(), addYears(), daysTo() */
 end_comment
