@@ -389,7 +389,7 @@ literal|"create table "
 operator|+
 name|reltest2
 operator|+
-literal|" (tid int not null primary key, title varchar(20))"
+literal|" (id int not null primary key, title varchar(20))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1110,7 +1110,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -1504,7 +1504,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -1851,7 +1851,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -1963,7 +1963,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -2162,7 +2162,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -2229,7 +2229,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -2255,7 +2255,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -2579,7 +2579,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -2603,7 +2603,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -3083,7 +3083,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -3261,7 +3261,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -3487,7 +3487,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -3876,7 +3876,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -4438,7 +4438,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -4473,7 +4473,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -5772,7 +5772,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -6007,7 +6007,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -6277,7 +6277,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -6506,7 +6506,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -6530,7 +6530,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -8067,7 +8067,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -8301,7 +8301,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -8325,7 +8325,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -9363,7 +9363,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -9588,7 +9588,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -10438,7 +10438,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -10636,7 +10636,7 @@ operator|::
 name|TableName
 argument_list|)
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -10667,7 +10667,7 @@ operator|::
 name|TableName
 argument_list|)
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -10891,7 +10891,7 @@ argument_list|()
 operator|->
 name|escapeIdentifier
 argument_list|(
-literal|"tid"
+literal|"id"
 argument_list|,
 name|QSqlDriver
 operator|::
@@ -10925,7 +10925,7 @@ argument_list|()
 operator|->
 name|escapeIdentifier
 argument_list|(
-literal|"tid"
+literal|"id"
 argument_list|,
 name|QSqlDriver
 operator|::
@@ -11147,7 +11147,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 name|db
 operator|.
@@ -11181,7 +11181,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 name|db
 operator|.
@@ -11410,7 +11410,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 name|db
 operator|.
@@ -11444,7 +11444,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 name|db
 operator|.
@@ -11774,7 +11774,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -12121,7 +12121,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -12283,7 +12283,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -12648,7 +12648,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
@@ -13872,7 +13872,7 @@ name|QSqlRelation
 argument_list|(
 name|reltest2
 argument_list|,
-literal|"tid"
+literal|"id"
 argument_list|,
 literal|"title"
 argument_list|)
