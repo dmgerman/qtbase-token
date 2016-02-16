@@ -1006,6 +1006,9 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 specifier|const
 name|QString
 name|testDataDir
@@ -1038,6 +1041,8 @@ name|testDataDir
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

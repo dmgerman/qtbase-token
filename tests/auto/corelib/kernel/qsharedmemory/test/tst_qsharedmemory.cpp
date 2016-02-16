@@ -349,6 +349,9 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|QVERIFY2
 argument_list|(
 operator|!
@@ -360,6 +363,8 @@ argument_list|,
 literal|"Could not find helper binary"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
