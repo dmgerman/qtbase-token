@@ -15421,10 +15421,8 @@ literal|false
 expr_stmt|;
 name|symbols
 operator|.
-name|resize
-argument_list|(
-literal|0
-argument_list|)
+name|clear
+argument_list|()
 expr_stmt|;
 name|symbols
 operator|.

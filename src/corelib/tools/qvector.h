@@ -3405,15 +3405,10 @@ operator|::
 name|clear
 argument_list|()
 block|{
-operator|*
-name|this
-operator|=
-name|QVector
-operator|<
-name|T
-operator|>
-operator|(
-operator|)
+name|resize
+argument_list|(
+literal|0
+argument_list|)
 block|; }
 name|template
 operator|<

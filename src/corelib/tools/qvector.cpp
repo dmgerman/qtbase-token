@@ -99,7 +99,7 @@ begin_comment
 comment|/*! \fn const T *QVector::constData() const      Returns a const pointer to the data stored in the vector. The     pointer can be used to access the items in the vector.     The pointer remains valid as long as the vector isn't     reallocated.      This function is mostly useful to pass a vector to a function     that accepts a plain C++ array.      \sa data(), operator[]() */
 end_comment
 begin_comment
-comment|/*! \fn void QVector::clear()      Removes all the elements from the vector and releases the memory used by     the vector. */
+comment|/*! \fn void QVector::clear()      Removes all the elements from the vector.      \note Until Qt 5.6, this also released the memory used by     the vector. From Qt 5.7, the capacity is preserved. To shed     all capacity, swap with a default-constructed vector:     \code     QVector<T> v ...;     QVector<T>().swap(v);     Q_ASSERT(v.capacity() == 0);     \endcode     or call squeeze().      \sa squeeze() */
 end_comment
 begin_comment
 comment|/*! \fn const T&QVector::at(int i) const      Returns the item at index position \a i in the vector.      \a i must be a valid index position in the vector (i.e., 0<= \a     i< size()).      \sa value(), operator[]() */

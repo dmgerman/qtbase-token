@@ -8813,10 +8813,8 @@ literal|0
 expr_stmt|;
 name|r
 operator|.
-name|resize
-argument_list|(
-literal|0
-argument_list|)
+name|clear
+argument_list|()
 expr_stmt|;
 name|n
 operator|=

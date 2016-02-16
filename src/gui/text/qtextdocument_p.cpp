@@ -6532,10 +6532,8 @@ literal|0
 expr_stmt|;
 name|undoStack
 operator|.
-name|resize
-argument_list|(
-literal|0
-argument_list|)
+name|clear
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
