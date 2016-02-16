@@ -91,6 +91,13 @@ DECL|member|languageChangeEventCounter
 name|int
 name|languageChangeEventCounter
 decl_stmt|;
+DECL|member|dataDir
+name|QSharedPointer
+argument_list|<
+name|QTemporaryDir
+argument_list|>
+name|dataDir
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -274,6 +281,60 @@ endif|#
 directive|endif
 comment|// chdir into the directory containing our testdata,
 comment|// to make the code simpler (load testdata via relative paths)
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+comment|// ### TODO: Use this for all platforms in 5.7
+name|dataDir
+operator|=
+name|QEXTRACTTESTDATA
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY2
+argument_list|(
+operator|!
+name|dataDir
+operator|.
+name|isNull
+argument_list|()
+argument_list|,
+name|qPrintable
+argument_list|(
+literal|"Could not extract test data"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY2
+argument_list|(
+name|QDir
+operator|::
+name|setCurrent
+argument_list|(
+name|dataDir
+operator|->
+name|path
+argument_list|()
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+literal|"Could not chdir to "
+operator|+
+name|dataDir
+operator|->
+name|path
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
+comment|// !Q_OS_WINRT
 name|QString
 name|testdata_dir
 init|=
@@ -305,6 +366,9 @@ name|testdata_dir
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 end_function
 begin_function
