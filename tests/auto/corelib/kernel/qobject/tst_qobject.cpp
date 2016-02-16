@@ -13460,6 +13460,10 @@ name|wait
 argument_list|()
 expr_stmt|;
 block|}
+comment|// WinRT does not allow connection to localhost
+ifndef|#
+directive|ifndef
+name|Q_OS_WINRT
 block|{
 comment|// make sure socket notifiers are moved with the object
 name|MoveToThreadThread
@@ -13705,6 +13709,8 @@ name|wait
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
