@@ -654,8 +654,8 @@ condition|)
 block|{
 comment|// Raise the loopLevel so that deleteLater() calls in or triggered
 comment|// by event_filter() will be processed from the main event loop.
-name|QScopedLoopLevelCounter
-name|loopLevelCounter
+name|QScopedScopeLevelCounter
+name|scopeLevelCounter
 argument_list|(
 name|d
 operator|->

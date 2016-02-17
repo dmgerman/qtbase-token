@@ -1642,7 +1642,6 @@ begin_comment
 comment|/*!     Copy constructor. Constructs a copy of the \a other iterator. */
 end_comment
 begin_constructor
-DECL|function|iterator
 name|QTextFrame
 operator|::
 name|iterator
@@ -1654,6 +1653,7 @@ name|iterator
 modifier|&
 name|other
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|f
 operator|=
@@ -1691,7 +1691,6 @@ begin_comment
 comment|/*!     Assigns \a other to this iterator and returns a reference to     this iterator. */
 end_comment
 begin_function
-DECL|function|operator =
 name|QTextFrame
 operator|::
 name|iterator
@@ -1708,6 +1707,7 @@ name|iterator
 modifier|&
 name|other
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|f
 operator|=

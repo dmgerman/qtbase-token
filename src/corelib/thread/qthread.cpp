@@ -68,6 +68,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|scopeLevel
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|thread
 argument_list|(
 literal|0

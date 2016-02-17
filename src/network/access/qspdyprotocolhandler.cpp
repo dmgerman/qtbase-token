@@ -4361,7 +4361,7 @@ comment|// rough estimate
 comment|// calculate additional headers first, because we need to know the size
 comment|// ### do not partially copy the list, but restrict the set header fields
 comment|// in QHttpNetworkConnection
-name|QList
+name|QVector
 argument_list|<
 name|QPair
 argument_list|<

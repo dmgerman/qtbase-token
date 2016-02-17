@@ -241,6 +241,9 @@ begin_comment
 comment|/*!     \fn QRect QRect::translated(const QPoint&offset) const      \overload      Returns a copy of the rectangle that is translated     \a{offset}.\l{QPoint::x()}{x()} along the x axis and     \a{offset}.\l{QPoint::y()}{y()} along the y axis, relative to the     current position. */
 end_comment
 begin_comment
+comment|/*!     \fn QRect QRect::transposed() const     \since 5.7      Returns a copy of the rectangle that has its width and height     exchanged:      \code     QRect r = {15, 51, 42, 24};     r = r.transposed(); // r == {15, 51, 24, 42}     \endcode      \sa QSize::transposed() */
+end_comment
+begin_comment
 comment|/*!     \fn void QRect::setRect(int x, int y, int width, int height)      Sets the coordinates of the rectangle's top-left corner to (\a{x},     \a{y}), and its size to the given \a width and \a height.      \sa getRect(), setCoords() */
 end_comment
 begin_comment
@@ -1922,6 +1925,9 @@ comment|/*!     \fn QRectF QRectF::translated(qreal dx, qreal dy) const      Ret
 end_comment
 begin_comment
 comment|/*!     \fn QRectF QRectF::translated(const QPointF&offset) const     \overload      Returns a copy of the rectangle that is translated     \a{offset}.\l{QPointF::x()}{x()} along the x axis and     \a{offset}.\l{QPointF::y()}{y()} along the y axis, relative to the     current position. */
+end_comment
+begin_comment
+comment|/*!     \fn QRectF QRectF::transposed() const     \since 5.7      Returns a copy of the rectangle that has its width and height     exchanged:      \code     QRectF r = {1.5, 5.1, 4.2, 2.4};     r = r.transposed(); // r == {1.5, 5.1, 2.4, 4.2}     \endcode      \sa QSizeF::transposed() */
 end_comment
 begin_comment
 comment|/*!     \fn void QRectF::setRect(qreal x, qreal y, qreal width, qreal height)      Sets the coordinates of the rectangle's top-left corner to (\a x,     \a y), and its size to the given \a width and \a height.      \sa getRect(), setCoords() */

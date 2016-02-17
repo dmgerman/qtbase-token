@@ -960,6 +960,13 @@ name|preloadedStatics
 operator|<<
 name|statics
 expr_stmt|;
+name|sharedData
+operator|->
+name|staticSelectors
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_macro

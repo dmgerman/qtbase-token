@@ -3707,8 +3707,8 @@ name|d
 operator|->
 name|threadData
 decl_stmt|;
-name|QScopedLoopLevelCounter
-name|loopLevelCounter
+name|QScopedScopeLevelCounter
+name|scopeLevelCounter
 argument_list|(
 name|threadData
 argument_list|)
@@ -4267,6 +4267,9 @@ name|int
 name|maxtime
 parameter_list|)
 block|{
+comment|// ### Qt 6: consider splitting this method into a public and a private
+comment|//           one, so that a user-invoked processEvents can be detected
+comment|//           and handled properly.
 name|QThreadData
 modifier|*
 name|data
@@ -4864,7 +4867,45 @@ argument_list|()
 condition|)
 block|{
 comment|// remember the current running eventloop for DeferredDelete
-comment|// events posted in the receiver's thread
+comment|// events posted in the receiver's thread.
+comment|// Events sent by non-Qt event handlers (such as glib) may not
+comment|// have the scopeLevel set correctly. The scope level makes sure that
+comment|// code like this:
+comment|//     foo->deleteLater();
+comment|//     qApp->processEvents(); // without passing QEvent::DeferredDelete
+comment|// will not cause "foo" to be deleted before returning to the event loop.
+comment|// If the scope level is 0 while loopLevel != 0, we are called from a
+comment|// non-conformant code path, and our best guess is that the scope level
+comment|// should be 1. (Loop level 0 is special: it means that no event loops
+comment|// are running.)
+name|int
+name|loopLevel
+init|=
+name|data
+operator|->
+name|loopLevel
+decl_stmt|;
+name|int
+name|scopeLevel
+init|=
+name|data
+operator|->
+name|scopeLevel
+decl_stmt|;
+if|if
+condition|(
+name|scopeLevel
+operator|==
+literal|0
+operator|&&
+name|loopLevel
+operator|!=
+literal|0
+condition|)
+name|scopeLevel
+operator|=
+literal|1
+expr_stmt|;
 cast|static_cast
 argument_list|<
 name|QDeferredDeleteEvent
@@ -4876,9 +4917,9 @@ argument_list|)
 operator|->
 name|level
 operator|=
-name|data
-operator|->
 name|loopLevel
+operator|+
+name|scopeLevel
 expr_stmt|;
 block|}
 comment|// delete the event on exceptions to protect against memory leaks till the event is
@@ -5239,6 +5280,9 @@ name|int
 name|event_type
 parameter_list|)
 block|{
+comment|// ### Qt 6: consider splitting this method into a public and a private
+comment|//           one, so that a user-invoked sendPostedEvents can be detected
+comment|//           and handled properly.
 name|QThreadData
 modifier|*
 name|data
@@ -5733,11 +5777,13 @@ operator|::
 name|DeferredDelete
 condition|)
 block|{
-comment|// DeferredDelete events are only sent when we are explicitly asked to
-comment|// (s.a. QEvent::DeferredDelete), and then only if the event loop that
-comment|// posted the event has returned.
+comment|// DeferredDelete events are sent either
+comment|// 1) when the event loop that posted the event has returned; or
+comment|// 2) if explicitly requested (with QEvent::DeferredDelete) for
+comment|//    events posted by the current event loop; or
+comment|// 3) if the event was posted before the outermost event loop.
 name|int
-name|loopLevel
+name|eventLevel
 init|=
 cast|static_cast
 argument_list|<
@@ -5753,23 +5799,30 @@ operator|->
 name|loopLevel
 argument_list|()
 decl_stmt|;
+name|int
+name|loopLevel
+init|=
+name|data
+operator|->
+name|loopLevel
+operator|+
+name|data
+operator|->
+name|scopeLevel
+decl_stmt|;
 specifier|const
 name|bool
 name|allowDeferredDelete
 init|=
 operator|(
-name|loopLevel
+name|eventLevel
 operator|>
-name|data
-operator|->
 name|loopLevel
 operator|||
 operator|(
 operator|!
-name|loopLevel
+name|eventLevel
 operator|&&
-name|data
-operator|->
 name|loopLevel
 operator|>
 literal|0
@@ -5782,10 +5835,8 @@ name|QEvent
 operator|::
 name|DeferredDelete
 operator|&&
-name|loopLevel
+name|eventLevel
 operator|==
-name|data
-operator|->
 name|loopLevel
 operator|)
 operator|)
