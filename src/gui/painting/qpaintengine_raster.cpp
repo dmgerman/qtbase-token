@@ -3131,6 +3131,11 @@ init|=
 name|state
 argument_list|()
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
 name|s
 operator|->
 name|strokeFlags
@@ -12509,6 +12514,11 @@ init|=
 name|state
 argument_list|()
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
 name|int
 name|sr_l
 init|=
@@ -14659,6 +14669,11 @@ init|=
 name|state
 argument_list|()
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
 name|QImage
 name|image
 decl_stmt|;
