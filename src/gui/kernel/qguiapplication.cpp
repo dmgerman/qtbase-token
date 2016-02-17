@@ -493,6 +493,11 @@ operator|::
 name|generic_plugin_list
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
+end_ifndef
 begin_decl_stmt
 DECL|member|is_fallback_session_management_enabled
 name|bool
@@ -503,6 +508,10 @@ init|=
 literal|true
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_enum
 DECL|enum|ApplicationResourceFlags
 enum|enum
@@ -14294,6 +14303,11 @@ argument_list|)
 emit|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
+end_ifndef
 begin_comment
 comment|// ### Qt6: consider removing the feature or making it less intrusive
 end_comment
@@ -14337,6 +14351,13 @@ name|enabled
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_SESSIONMANAGER
+end_comment
 begin_comment
 comment|/*!     \since 4.2     \fn void QGuiApplication::commitDataRequest(QSessionManager&manager)      This signal deals with \l{Session Management}{session management}. It is     emitted when the QSessionManager wants the application to commit all its     data.      Usually this means saving all open files, after getting permission from     the user. Furthermore you may want to provide a means by which the user     can cancel the shutdown.      You should not exit the application within this signal. Instead,     the session manager may or may not do this afterwards, depending on the     context.      \warning Within this signal, no user interaction is possible, \e     unless you ask the \a manager for explicit permission. See     QSessionManager::allowsInteraction() and     QSessionManager::allowsErrorInteraction() for details and example     usage.      \note You should use Qt::DirectConnection when connecting to this signal.      \sa setFallbackSessionManagementEnabled(), isSessionRestored(),     sessionId(), saveStateRequest(), {Session Management} */
 end_comment
