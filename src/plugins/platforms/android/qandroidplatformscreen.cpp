@@ -1314,6 +1314,15 @@ name|PROFILE_SCOPE
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|QtAndroid
+operator|::
+name|activity
+argument_list|()
+condition|)
+return|return;
+if|if
+condition|(
 name|m_dirtyRect
 operator|.
 name|isEmpty

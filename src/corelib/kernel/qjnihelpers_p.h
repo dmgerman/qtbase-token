@@ -204,6 +204,11 @@ name|activity
 parameter_list|()
 function_decl|;
 name|Q_CORE_EXPORT
+name|jobject
+name|service
+parameter_list|()
+function_decl|;
+name|Q_CORE_EXPORT
 name|JavaVM
 modifier|*
 name|javaVM

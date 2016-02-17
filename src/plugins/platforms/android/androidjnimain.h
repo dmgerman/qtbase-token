@@ -225,6 +225,10 @@ name|jobject
 name|activity
 parameter_list|()
 function_decl|;
+name|jobject
+name|service
+parameter_list|()
+function_decl|;
 name|void
 name|setApplicationActive
 parameter_list|()

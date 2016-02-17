@@ -5486,6 +5486,15 @@ operator|.
 name|terminateQt
 argument_list|()
 expr_stmt|;
+name|QtNative
+operator|.
+name|setActivity
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|m_debuggerProcess
