@@ -18852,8 +18852,15 @@ argument_list|)
 expr_stmt|;
 comment|// Set the invert flag for the texture.  The "vertical flip"
 comment|// flag in PVR is the opposite sense to our sense of inversion.
-if|if
-condition|(
+name|options
+operator|.
+name|setFlag
+argument_list|(
+name|QGLContext
+operator|::
+name|InvertedYBindOption
+argument_list|,
+operator|!
 operator|(
 name|pvrHeader
 operator|->
@@ -18861,22 +18868,7 @@ name|flags
 operator|&
 name|PVR_VERTICAL_FLIP
 operator|)
-operator|!=
-literal|0
-condition|)
-name|options
-operator|&=
-operator|~
-name|QGLContext
-operator|::
-name|InvertedYBindOption
-expr_stmt|;
-else|else
-name|options
-operator||=
-name|QGLContext
-operator|::
-name|InvertedYBindOption
+argument_list|)
 expr_stmt|;
 return|return
 name|QSize

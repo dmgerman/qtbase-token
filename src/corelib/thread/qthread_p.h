@@ -922,6 +922,9 @@ label|:
 name|int
 name|loopLevel
 decl_stmt|;
+name|int
+name|scopeLevel
+decl_stmt|;
 name|QStack
 operator|<
 name|QEventLoop
@@ -978,7 +981,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|QScopedLoopLevelCounter
+name|QScopedScopeLevelCounter
 block|{
 name|QThreadData
 modifier|*
@@ -987,7 +990,7 @@ decl_stmt|;
 name|public
 label|:
 specifier|inline
-name|QScopedLoopLevelCounter
+name|QScopedScopeLevelCounter
 argument_list|(
 name|QThreadData
 operator|*
@@ -1002,17 +1005,17 @@ block|{
 operator|++
 name|threadData
 operator|->
-name|loopLevel
+name|scopeLevel
 block|; }
 specifier|inline
 operator|~
-name|QScopedLoopLevelCounter
+name|QScopedScopeLevelCounter
 argument_list|()
 block|{
 operator|--
 name|threadData
 operator|->
-name|loopLevel
+name|scopeLevel
 block|; }
 block|}
 end_decl_stmt
