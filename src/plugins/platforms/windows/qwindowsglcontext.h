@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|"array.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qtwindows_additional.h"
 end_include
 begin_include
@@ -32,6 +27,11 @@ begin_include
 include|#
 directive|include
 file|<QtGui/QOpenGLContext>
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -1756,7 +1756,9 @@ name|m_renderingContext
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|Array
+name|std
+operator|::
+name|vector
 operator|<
 name|QOpenGLContextData
 operator|>
