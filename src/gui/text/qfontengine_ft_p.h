@@ -349,13 +349,11 @@ decl_stmt|;
 name|QByteArray
 name|fontData
 decl_stmt|;
-name|void
-modifier|*
+name|QFontEngine
+operator|::
+name|Holder
 name|hbFace
-decl_stmt|;
-name|qt_destroy_func_t
-name|hbFace_destroy_func
-decl_stmt|;
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
