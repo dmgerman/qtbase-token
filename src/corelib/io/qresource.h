@@ -33,6 +33,11 @@ include|#
 directive|include
 file|<QtCore/qlist.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qscopedpointer.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QResourcePrivate

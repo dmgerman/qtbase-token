@@ -5771,6 +5771,15 @@ literal|false
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_BOOTSTRAPPED
+argument_list|)
+end_if
 begin_comment
 comment|//resource engine
 end_comment
@@ -7318,6 +7327,13 @@ literal|true
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !defined(QT_BOOTSTRAPPED)
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
