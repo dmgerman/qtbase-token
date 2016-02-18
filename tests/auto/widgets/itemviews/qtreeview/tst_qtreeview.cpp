@@ -819,7 +819,11 @@ name|rowSizeHint
 parameter_list|()
 function_decl|;
 name|void
-name|setSortingEnabled
+name|setSortingEnabledTopLevel
+parameter_list|()
+function_decl|;
+name|void
+name|setSortingEnabledChild
 parameter_list|()
 function_decl|;
 name|void
@@ -18285,14 +18289,12 @@ begin_comment
 comment|//is turned on before items are added)
 end_comment
 begin_function
-DECL|function|setSortingEnabled
+DECL|function|setSortingEnabledTopLevel
 name|void
 name|tst_QTreeView
 operator|::
-name|setSortingEnabled
+name|setSortingEnabledTopLevel
 parameter_list|()
-block|{
-comment|//1st the treeview is a top-level
 block|{
 name|QTreeView
 name|view
@@ -18358,7 +18360,14 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-comment|//then it is no more a top-level
+end_function
+begin_function
+DECL|function|setSortingEnabledChild
+name|void
+name|tst_QTreeView
+operator|::
+name|setSortingEnabledChild
+parameter_list|()
 block|{
 name|QMainWindow
 name|win
@@ -18434,7 +18443,6 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
