@@ -627,7 +627,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a SQL statement of type \a type for the table \a tableName     with the values from \a rec. If \a preparedStatement is true, the     string will contain placeholders instead of values.      This method can be used to manipulate tables without having to worry     about database-dependent SQL dialects. For non-prepared statements,     the values will be properly escaped. */
+comment|/*!     Returns a SQL statement of type \a type for the table \a tableName     with the values from \a rec. If \a preparedStatement is true, the     string will contain placeholders instead of values.      The generated flag in each field of \a rec determines whether the     field is included in the generated statement.      This method can be used to manipulate tables without having to worry     about database-dependent SQL dialects. For non-prepared statements,     the values will be properly escaped. */
 end_comment
 begin_function
 DECL|function|sqlStatement
@@ -822,17 +822,34 @@ operator|++
 name|i
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|rec
+operator|.
+name|isGenerated
+argument_list|(
+name|i
+argument_list|)
+condition|)
+continue|continue;
 name|s
 operator|.
 name|append
 argument_list|(
+name|s
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
 name|QLatin1String
 argument_list|(
-name|i
-condition|?
-literal|" AND "
-else|:
 literal|"WHERE "
+argument_list|)
+else|:
+name|QLatin1String
+argument_list|(
+literal|" AND "
 argument_list|)
 argument_list|)
 expr_stmt|;
