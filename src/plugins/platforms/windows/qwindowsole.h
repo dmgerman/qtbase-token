@@ -396,7 +396,7 @@ name|copyFormatEtc
 argument_list|(
 argument|LPFORMATETC dest
 argument_list|,
-argument|LPFORMATETC src
+argument|const FORMATETC *src
 argument_list|)
 specifier|const
 block|;

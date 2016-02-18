@@ -1639,11 +1639,9 @@ name|QWindowsTabletSupport
 operator|::
 name|tabletInit
 parameter_list|(
-specifier|const
-name|quint64
+name|qint64
 name|uniqueId
 parameter_list|,
-specifier|const
 name|UINT
 name|cursorType
 parameter_list|)
