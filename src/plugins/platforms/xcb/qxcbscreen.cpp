@@ -1053,6 +1053,17 @@ operator|->
 name|workArea
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|m_sizeMillimeters
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|m_sizeMillimeters
+operator|=
+name|m_virtualSizeMillimeters
+expr_stmt|;
 name|readXResources
 argument_list|()
 expr_stmt|;
