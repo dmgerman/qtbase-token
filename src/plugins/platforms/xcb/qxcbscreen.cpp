@@ -1047,6 +1047,11 @@ condition|)
 name|m_availableGeometry
 operator|=
 name|m_geometry
+operator|&
+name|m_virtualDesktop
+operator|->
+name|workArea
+argument_list|()
 expr_stmt|;
 name|readXResources
 argument_list|()
