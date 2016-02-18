@@ -37,6 +37,11 @@ include|#
 directive|include
 file|<QDebug>
 end_include
+begin_include
+include|#
+directive|include
+file|<cmath>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
