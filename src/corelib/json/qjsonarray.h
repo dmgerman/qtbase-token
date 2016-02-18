@@ -1512,7 +1512,7 @@ name|iterator
 name|begin
 parameter_list|()
 block|{
-name|detach
+name|detach2
 argument_list|()
 expr_stmt|;
 return|return
@@ -1565,7 +1565,7 @@ name|iterator
 name|end
 parameter_list|()
 block|{
-name|detach
+name|detach2
 argument_list|()
 expr_stmt|;
 return|return
@@ -1943,9 +1943,23 @@ name|compact
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_comment
+comment|// ### Qt 6: remove me and merge with detach2
+end_comment
 begin_function_decl
 name|void
 name|detach
+parameter_list|(
+name|uint
+name|reserve
+init|=
+literal|0
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|bool
+name|detach2
 parameter_list|(
 name|uint
 name|reserve

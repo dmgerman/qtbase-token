@@ -4348,6 +4348,18 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|<<
+literal|" device: "
+operator|<<
+name|t
+operator|.
+name|device
+argument_list|()
+operator|->
+name|name
+argument_list|()
+expr_stmt|;
+name|d
+operator|<<
 literal|" states: "
 expr_stmt|;
 name|QtDebugUtils

@@ -220,6 +220,13 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QPlatformClipboard
+operator|*
+name|clipboard
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|Qt
 operator|::
 name|KeyboardModifiers

@@ -5250,7 +5250,7 @@ operator|::
 name|QTextCursor
 parameter_list|(
 name|QTextDocumentPrivate
-modifier|&
+modifier|*
 name|p
 parameter_list|,
 name|int
@@ -5262,7 +5262,6 @@ argument_list|(
 operator|new
 name|QTextCursorPrivate
 argument_list|(
-operator|&
 name|p
 argument_list|)
 argument_list|)

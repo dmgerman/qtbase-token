@@ -1195,13 +1195,14 @@ operator|++
 name|y
 control|)
 block|{
+specifier|const
 name|uchar
 modifier|*
 name|b
 init|=
 name|image
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)

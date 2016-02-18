@@ -270,7 +270,13 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MACX
+name|Q_OS_OSX
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_STYLE_MAC
 argument_list|)
 switch|switch
 condition|(
