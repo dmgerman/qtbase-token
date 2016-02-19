@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/QLoggingCategory>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformwindow.h>
 end_include
 begin_include
@@ -30,7 +35,10 @@ file|<EGL/egl.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QWinRTWindowPrivate
+name|Q_DECLARE_LOGGING_CATEGORY
+argument_list|(
+name|lcQpaWindows
+argument_list|)
 name|class
 name|QWinRTWindowPrivate
 decl_stmt|;

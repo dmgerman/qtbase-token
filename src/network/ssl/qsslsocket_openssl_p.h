@@ -400,10 +400,11 @@ block|;
 name|void
 name|_q_caRootLoaded
 argument_list|(
-name|QSslCertificate
+argument|QSslCertificate
 argument_list|,
-name|QSslCertificate
+argument|QSslCertificate
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 endif|#
 directive|endif

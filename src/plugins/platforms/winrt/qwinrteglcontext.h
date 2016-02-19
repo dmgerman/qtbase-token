@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<qpa/qplatformopenglcontext.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<EGL/egl.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QWinRTEGLContextPrivate
@@ -82,6 +87,11 @@ argument_list|(
 argument|const QByteArray&procName
 argument_list|)
 name|Q_DECL_OVERRIDE
+block|;
+specifier|static
+name|EGLDisplay
+name|display
+argument_list|()
 block|;
 name|private
 operator|:

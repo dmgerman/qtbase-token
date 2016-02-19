@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QOffscreenSurface>
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformbackingstore.h>
 end_include
 begin_include
@@ -124,6 +129,65 @@ operator|::
 name|currentContext
 argument_list|()
 decl_stmt|;
+comment|// With render-to-texture-widgets QWidget makes sure the TLW's shareContext() is
+comment|// made current before destroying backingstores. That is however not the case for
+comment|// windows with regular widgets only.
+name|QScopedPointer
+argument_list|<
+name|QOffscreenSurface
+argument_list|>
+name|tempSurface
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|ctx
+condition|)
+block|{
+name|ctx
+operator|=
+name|QOpenGLCompositor
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|context
+argument_list|()
+expr_stmt|;
+name|tempSurface
+operator|.
+name|reset
+argument_list|(
+operator|new
+name|QOffscreenSurface
+argument_list|)
+expr_stmt|;
+name|tempSurface
+operator|->
+name|setFormat
+argument_list|(
+name|ctx
+operator|->
+name|format
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|tempSurface
+operator|->
+name|create
+argument_list|()
+expr_stmt|;
+name|ctx
+operator|->
+name|makeCurrent
+argument_list|(
+name|tempSurface
+operator|.
+name|data
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|ctx
@@ -154,10 +218,20 @@ argument_list|(
 literal|"QOpenGLCompositorBackingStore: Texture is not valid in the current context"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|tempSurface
+condition|)
+name|ctx
+operator|->
+name|doneCurrent
+argument_list|()
+expr_stmt|;
 block|}
 operator|delete
 name|m_textures
 expr_stmt|;
+comment|// this does not actually own any GL resources
 block|}
 end_destructor
 begin_function
@@ -631,10 +705,7 @@ modifier|&
 name|offset
 parameter_list|)
 block|{
-comment|// Called for ordinary raster windows. This is rare since RasterGLSurface
-comment|// support is claimed which leads to having all QWidget windows marked as
-comment|// RasterGLSurface instead of just Raster. These go through
-comment|// compositeAndFlush() instead of this function.
+comment|// Called for ordinary raster windows.
 name|Q_UNUSED
 argument_list|(
 name|region
@@ -663,6 +734,11 @@ operator|->
 name|context
 argument_list|()
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|dstCtx
+argument_list|)
+expr_stmt|;
 name|QWindow
 modifier|*
 name|dstWin
@@ -747,7 +823,7 @@ name|bool
 name|translucentBackground
 parameter_list|)
 block|{
-comment|// QOpenGLWidget/QQuickWidget content provided as textures. The raster content should go on top.
+comment|// QOpenGLWidget/QQuickWidget content provided as textures. The raster content goes on top.
 name|Q_UNUSED
 argument_list|(
 name|region
@@ -786,6 +862,27 @@ operator|->
 name|context
 argument_list|()
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|dstCtx
+argument_list|)
+expr_stmt|;
+comment|// setTarget() must have been called before, e.g. from QEGLFSWindow
+comment|// The compositor's context and the context to which QOpenGLWidget/QQuickWidget
+comment|// textures belong are not the same. They share resources, though.
+name|Q_ASSERT
+argument_list|(
+name|context
+operator|->
+name|shareGroup
+argument_list|()
+operator|==
+name|dstCtx
+operator|->
+name|shareGroup
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QWindow
 modifier|*
 name|dstWin
@@ -1113,6 +1210,10 @@ expr_stmt|;
 name|m_bsTexture
 operator|=
 literal|0
+expr_stmt|;
+name|m_bsTextureContext
+operator|=
+name|Q_NULLPTR
 expr_stmt|;
 block|}
 block|}

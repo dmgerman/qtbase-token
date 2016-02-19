@@ -27606,7 +27606,7 @@ decl_stmt|;
 return|return
 name|data
 operator|->
-name|colorTable
+name|colorTable32
 index|[
 name|qt_gradient_clamp
 argument_list|(
@@ -27615,9 +27615,6 @@ argument_list|,
 name|ipos
 argument_list|)
 index|]
-operator|.
-name|toArgb32
-argument_list|()
 return|;
 block|}
 end_function
@@ -27656,7 +27653,7 @@ decl_stmt|;
 return|return
 name|data
 operator|->
-name|colorTable
+name|colorTable64
 index|[
 name|qt_gradient_clamp
 argument_list|(

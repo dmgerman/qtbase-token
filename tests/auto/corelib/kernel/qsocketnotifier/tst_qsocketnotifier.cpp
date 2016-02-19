@@ -502,6 +502,19 @@ operator|::
 name|unexpectedDisconnection
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+comment|// WinRT does not allow a connection to the localhost
+name|QSKIP
+argument_list|(
+literal|"Local connection not allowed"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 comment|/*       Given two sockets and two QSocketNotifiers registered on each       their socket. If both sockets receive data, and the first slot       invoked by one of the socket notifiers empties both sockets, the       other notifier will also emit activated(). This results in       unexpected disconnection in QAbstractSocket.        The use case is that somebody calls one of the       waitFor... functions in a QSocketNotifier activated slot, and       the waitFor... functions do local selects that can empty both       stdin and stderr while waiting for fex bytes to be written.     */
 name|QTcpServer
 name|server
@@ -817,6 +830,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 end_function
 begin_class
@@ -957,6 +973,18 @@ operator|::
 name|mixingWithTimers
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINRT
+name|QSKIP
+argument_list|(
+literal|"WinRT does not allow connection to localhost"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QTimer
 name|timer
 decl_stmt|;
@@ -1075,6 +1103,9 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 end_function
 begin_ifdef

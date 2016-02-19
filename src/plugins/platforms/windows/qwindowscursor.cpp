@@ -580,7 +580,7 @@ name|bits
 init|=
 name|bbits
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|i
 argument_list|)
@@ -592,7 +592,7 @@ name|mask
 init|=
 name|mbits
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|i
 argument_list|)
@@ -837,7 +837,7 @@ name|bits
 init|=
 name|bbits
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|i
 argument_list|)
@@ -849,7 +849,7 @@ name|mask
 init|=
 name|mbits
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|i
 argument_list|)

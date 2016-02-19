@@ -717,20 +717,6 @@ name|context
 parameter_list|)
 specifier|const
 block|{
-comment|// If there is a "root" window into which raster and QOpenGLWidget content is
-comment|// composited, all other contexts must share with its context.
-name|QOpenGLContext
-modifier|*
-name|compositingContext
-init|=
-name|QOpenGLCompositor
-operator|::
-name|instance
-argument_list|()
-operator|->
-name|context
-argument_list|()
-decl_stmt|;
 name|EGLDisplay
 name|dpy
 init|=
@@ -764,13 +750,6 @@ name|QPlatformOpenGLContext
 modifier|*
 name|share
 init|=
-name|compositingContext
-condition|?
-name|compositingContext
-operator|->
-name|handle
-argument_list|()
-else|:
 name|context
 operator|->
 name|shareHandle

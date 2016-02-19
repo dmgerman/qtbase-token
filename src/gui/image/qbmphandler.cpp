@@ -1716,7 +1716,11 @@ expr_stmt|;
 if|if
 condition|(
 name|ncols
-operator|>
+argument_list|<
+literal|1
+operator|||
+name|ncols
+argument_list|>
 literal|256
 condition|)
 comment|// sanity check - don't run out of mem if color table is broken

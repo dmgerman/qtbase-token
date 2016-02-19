@@ -13570,6 +13570,7 @@ modifier|&
 name|bitmap
 parameter_list|)
 block|{
+specifier|const
 name|QImage
 name|image
 init|=
@@ -13634,13 +13635,14 @@ operator|++
 name|y
 control|)
 block|{
+specifier|const
 name|uchar
 modifier|*
 name|line
 init|=
 name|image
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|y
 argument_list|)

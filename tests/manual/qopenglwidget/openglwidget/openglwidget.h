@@ -76,6 +76,15 @@ name|void
 name|paintGL
 argument_list|()
 block|;
+name|void
+name|setClearColor
+argument_list|(
+specifier|const
+name|float
+operator|*
+name|c
+argument_list|)
+block|;
 name|private
 operator|:
 name|QScopedPointer

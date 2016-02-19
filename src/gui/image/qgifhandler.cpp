@@ -722,18 +722,23 @@ block|}
 else|else
 block|{
 comment|// Impossible:  We don't know of a bgcol - use pixel 0
+specifier|const
 name|QRgb
 modifier|*
 name|bits
 init|=
-operator|(
+cast|reinterpret_cast
+argument_list|<
+specifier|const
 name|QRgb
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|image
 operator|->
-name|bits
+name|constBits
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|fillRect
 argument_list|(
@@ -803,7 +808,7 @@ name|l
 argument_list|,
 name|backingstore
 operator|.
-name|scanLine
+name|constScanLine
 argument_list|(
 name|ln
 operator|-

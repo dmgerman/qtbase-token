@@ -6826,8 +6826,6 @@ operator|.
 name|count
 argument_list|()
 condition|;
-operator|++
-name|i
 control|)
 block|{
 specifier|const
