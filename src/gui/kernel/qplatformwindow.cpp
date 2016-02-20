@@ -1390,6 +1390,9 @@ operator|::
 name|primaryScreen
 argument_list|()
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CURSOR
 specifier|const
 name|QList
 argument_list|<
@@ -1403,9 +1406,6 @@ operator|->
 name|virtualSiblings
 argument_list|()
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_CURSOR
 if|if
 condition|(
 name|siblings
