@@ -1033,6 +1033,13 @@ operator|~
 name|QListWidget
 argument_list|()
 block|;
+name|void
+name|setSelectionModel
+argument_list|(
+argument|QItemSelectionModel *selectionModel
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|QListWidgetItem
 operator|*
 name|item
