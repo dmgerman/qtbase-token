@@ -10698,11 +10698,9 @@ name|m_data
 operator|.
 name|frame
 operator|=
-name|window
-argument_list|()
-operator|->
+name|m_data
+operator|.
 name|flags
-argument_list|()
 operator|&
 name|Qt
 operator|::
