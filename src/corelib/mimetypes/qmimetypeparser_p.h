@@ -105,7 +105,7 @@ name|bool
 name|parseNumber
 parameter_list|(
 specifier|const
-name|QString
+name|QStringRef
 modifier|&
 name|n
 parameter_list|,
