@@ -11434,9 +11434,20 @@ name|QXcbAtom
 operator|::
 name|_COMPIZ_TOOLKIT_ACTION
 argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_GTK_LOAD_ICONTHEMES
+argument_list|)
 condition|)
 block|{
-comment|//silence the _COMPIZ messages for now
+comment|//silence the _COMPIZ and _GTK messages for now
 block|}
 else|else
 block|{

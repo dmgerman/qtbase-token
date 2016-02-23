@@ -552,6 +552,8 @@ name|_COMPIZ_DECOR_DELETE_PIXMAP
 operator|,
 name|_COMPIZ_TOOLKIT_ACTION
 operator|,
+name|_GTK_LOAD_ICONTHEMES
+operator|,
 name|NPredefinedAtoms
 operator|,
 name|_QT_SETTINGS_TIMESTAMP
