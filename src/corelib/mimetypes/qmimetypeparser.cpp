@@ -844,9 +844,6 @@ name|ps
 init|=
 name|ParseBeginning
 decl_stmt|;
-name|QXmlStreamAttributes
-name|atts
-decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -869,6 +866,7 @@ name|QXmlStreamReader
 operator|::
 name|StartElement
 case|:
+block|{
 name|ps
 operator|=
 name|nextState
@@ -881,13 +879,15 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QXmlStreamAttributes
 name|atts
-operator|=
+init|=
 name|reader
 operator|.
 name|attributes
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 switch|switch
 condition|(
 name|ps
@@ -1435,6 +1435,7 @@ expr_stmt|;
 break|break;
 default|default:
 break|break;
+block|}
 block|}
 break|break;
 comment|// continue switch QXmlStreamReader::Token...
