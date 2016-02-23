@@ -1155,12 +1155,9 @@ name|currentScreen
 decl_stmt|;
 comment|// QRect::center can return a value outside the rectangle if it's empty.
 comment|// Apply mapToGlobal() in case it is a foreign/embedded window.
-specifier|const
 name|QPoint
 name|center
 init|=
-name|mapToGlobal
-argument_list|(
 name|newGeometry
 operator|.
 name|isEmpty
@@ -1175,8 +1172,31 @@ name|newGeometry
 operator|.
 name|center
 argument_list|()
-argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|window
+argument_list|()
+operator|->
+name|type
+argument_list|()
+operator|==
+name|Qt
+operator|::
+name|ForeignWindow
+condition|)
+name|center
+operator|=
+name|mapToGlobal
+argument_list|(
+name|center
+operator|-
+name|newGeometry
+operator|.
+name|topLeft
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
