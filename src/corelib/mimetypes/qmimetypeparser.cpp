@@ -877,21 +877,9 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
+name|QStringLiteral
 argument_list|(
-literal|"Missing '%1'-attribute"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|mimeTypeAttributeC
-argument_list|)
+literal|"Missing 'type'-attribute"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1375,22 +1363,19 @@ name|reader
 operator|.
 name|raiseError
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"Unexpected element<%1>"
+literal|"Unexpected element<"
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|reader
 operator|.
 name|name
 argument_list|()
-operator|.
-name|toString
-argument_list|()
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'>'
 argument_list|)
 argument_list|)
 expr_stmt|;

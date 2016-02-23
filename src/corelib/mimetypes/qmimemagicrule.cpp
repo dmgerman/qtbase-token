@@ -1174,14 +1174,16 @@ condition|)
 operator|*
 name|errorString
 operator|=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
-literal|"Type %s is not supported"
+literal|"Type "
 argument_list|)
-operator|.
-name|arg
-argument_list|(
+operator|+
 name|type
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" is not supported"
 argument_list|)
 expr_stmt|;
 comment|// Parse for offset as "1" or "1:10"
@@ -1287,7 +1289,7 @@ condition|)
 operator|*
 name|errorString
 operator|=
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"Invalid empty magic rule value"
 argument_list|)
@@ -1338,21 +1340,19 @@ condition|)
 operator|*
 name|errorString
 operator|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"Invalid magic rule value \"%1\""
+literal|"Invalid magic rule value \""
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
+operator|+
+name|QLatin1String
 argument_list|(
 name|m_value
 argument_list|)
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'"'
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1437,21 +1437,19 @@ condition|)
 operator|*
 name|errorString
 operator|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"Invalid magic rule mask \"%1\""
+literal|"Invalid magic rule mask \""
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
+operator|+
+name|QLatin1String
 argument_list|(
 name|m_mask
 argument_list|)
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'"'
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1509,21 +1507,19 @@ condition|)
 operator|*
 name|errorString
 operator|=
-name|QString
-operator|::
-name|fromLatin1
+name|QLatin1String
 argument_list|(
-literal|"Invalid magic rule mask size \"%1\""
+literal|"Invalid magic rule mask size \""
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
+operator|+
+name|QLatin1String
 argument_list|(
 name|m_mask
 argument_list|)
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'"'
 argument_list|)
 expr_stmt|;
 return|return;
