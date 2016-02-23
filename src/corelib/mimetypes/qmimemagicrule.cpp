@@ -1167,9 +1167,12 @@ argument_list|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|m_type
 operator|==
 name|Invalid
+argument_list|)
 condition|)
 operator|*
 name|errorString
@@ -1272,10 +1275,13 @@ return|return;
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|m_value
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|m_type
@@ -1325,8 +1331,11 @@ expr_stmt|;
 comment|// autodetect base
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|ok
+argument_list|)
 condition|)
 block|{
 name|m_type
@@ -1410,6 +1419,8 @@ condition|)
 block|{
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|m_mask
 operator|.
 name|size
@@ -1423,6 +1434,7 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"0x"
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -1485,6 +1497,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|tempMask
 operator|.
 name|size
@@ -1494,6 +1508,7 @@ name|m_pattern
 operator|.
 name|size
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|m_type

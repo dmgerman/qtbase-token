@@ -578,8 +578,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 operator|!
 name|ok
+argument_list|)
 condition|)
 block|{
 operator|*
@@ -1555,10 +1558,13 @@ block|}
 block|}
 if|if
 condition|(
+name|Q_UNLIKELY
+argument_list|(
 name|reader
 operator|.
 name|hasError
 argument_list|()
+argument_list|)
 condition|)
 block|{
 if|if
