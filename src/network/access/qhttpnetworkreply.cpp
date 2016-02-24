@@ -12,11 +12,6 @@ include|#
 directive|include
 file|"qhttpnetworkconnection_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<qbytearraymatcher.h>
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -2708,20 +2703,6 @@ parameter_list|)
 block|{
 comment|// see rfc2616, sec 4 for information about HTTP/1.1 headers.
 comment|// allows relaxed parsing here, accepts both CRLF& LF line endings
-specifier|const
-name|QByteArrayMatcher
-name|lf
-argument_list|(
-literal|"\n"
-argument_list|)
-decl_stmt|;
-specifier|const
-name|QByteArrayMatcher
-name|colon
-argument_list|(
-literal|":"
-argument_list|)
-decl_stmt|;
 name|int
 name|i
 init|=
@@ -2740,11 +2721,11 @@ block|{
 name|int
 name|j
 init|=
-name|colon
-operator|.
-name|indexIn
-argument_list|(
 name|header
+operator|.
+name|indexOf
+argument_list|(
+literal|':'
 argument_list|,
 name|i
 argument_list|)
@@ -2787,11 +2768,11 @@ do|do
 block|{
 name|i
 operator|=
-name|lf
-operator|.
-name|indexIn
-argument_list|(
 name|header
+operator|.
+name|indexOf
+argument_list|(
+literal|'\n'
 argument_list|,
 name|j
 argument_list|)
