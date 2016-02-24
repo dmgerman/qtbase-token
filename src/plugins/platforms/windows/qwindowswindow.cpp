@@ -8514,6 +8514,20 @@ operator|&&
 name|isExposed
 argument_list|()
 operator|&&
+name|m_data
+operator|.
+name|geometry
+operator|.
+name|size
+argument_list|()
+operator|!=
+name|previousGeometry
+operator|.
+name|size
+argument_list|()
+comment|// Exclude plain move
+comment|// One dimension grew -> Windows will send expose, no need to synthesize.
+operator|&&
 operator|!
 operator|(
 name|m_data
@@ -8522,7 +8536,7 @@ name|geometry
 operator|.
 name|width
 argument_list|()
-operator|>=
+operator|>
 name|previousGeometry
 operator|.
 name|width
@@ -8534,7 +8548,7 @@ name|geometry
 operator|.
 name|height
 argument_list|()
-operator|>=
+operator|>
 name|previousGeometry
 operator|.
 name|height
@@ -10856,11 +10870,9 @@ name|m_data
 operator|.
 name|frame
 operator|=
-name|window
-argument_list|()
-operator|->
+name|m_data
+operator|.
 name|flags
-argument_list|()
 operator|&
 name|Qt
 operator|::

@@ -527,7 +527,7 @@ argument_list|()
 block|,
 name|d
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{
 name|qSwap

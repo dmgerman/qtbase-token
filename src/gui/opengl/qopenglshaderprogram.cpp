@@ -10813,7 +10813,7 @@ name|tessellationFuncs
 operator|->
 name|glGetFloatv
 argument_list|(
-name|GL_PATCH_DEFAULT_OUTER_LEVEL
+name|GL_PATCH_DEFAULT_INNER_LEVEL
 argument_list|,
 name|tessLevels
 operator|.

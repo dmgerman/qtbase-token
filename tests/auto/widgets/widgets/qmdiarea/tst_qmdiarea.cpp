@@ -2603,7 +2603,7 @@ name|QVERIFY
 argument_list|(
 name|QTest
 operator|::
-name|qWaitForWindowExposed
+name|qWaitForWindowActive
 argument_list|(
 operator|&
 name|mdiArea
@@ -2620,7 +2620,15 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QVERIFY
+argument_list|(
+name|mdiArea
+operator|.
+name|currentSubWindow
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QTRY_COMPARE
 argument_list|(
 name|mdiArea
 operator|.

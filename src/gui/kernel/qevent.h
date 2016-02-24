@@ -3832,7 +3832,7 @@ name|Q_DECL_NOEXCEPT
 operator|:
 name|d
 argument_list|(
-literal|0
+argument|Q_NULLPTR
 argument_list|)
 block|{
 name|qSwap
