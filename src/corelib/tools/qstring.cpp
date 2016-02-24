@@ -30543,7 +30543,6 @@ begin_comment
 comment|/*!     \internal  */
 end_comment
 begin_function
-DECL|function|appendLatin1To
 name|void
 name|QAbstractConcatenable
 operator|::
@@ -30561,6 +30560,7 @@ name|QChar
 modifier|*
 name|out
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 name|qt_from_latin1
 argument_list|(

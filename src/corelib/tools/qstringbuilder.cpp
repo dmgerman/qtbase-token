@@ -12,6 +12,11 @@ include|#
 directive|include
 file|<QtCore/qtextcodec.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qutfcodec_p.h>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QStringBuilder     \inmodule QtCore     \internal     \reentrant     \since 4.6      \brief The QStringBuilder class is a template class that provides a facility to build up QStrings from smaller chunks.      \ingroup tools     \ingroup shared     \ingroup string-processing       To build a QString by multiple concatenations, QString::operator+()     is typically used. This causes \e{n - 1} reallocations when building     a string from \e{n} chunks.      QStringBuilder uses expression templates to collect the individual     chunks, compute the total size, allocate the required amount of     memory for the final QString object, and copy the chunks into the     allocated memory.      The QStringBuilder class is not to be used explicitly in user     code.  Instances of the class are created as return values of the     operator%() function, acting on objects of type QString,     QLatin1String, QStringRef, QChar, QCharRef,     QLatin1Char, and \c char.      Concatenating strings with operator%() generally yields better     performance then using \c QString::operator+() on the same chunks     if there are three or more of them, and performs equally well in other     cases.      \sa QLatin1String, QString */
@@ -20,7 +25,6 @@ comment|/* \fn QStringBuilder::operator%(const A&a, const B&b)      Returns a \c
 comment|/* \fn QByteArray QStringBuilder::toLatin1() const   Returns a Latin-1 representation of the string as a QByteArray.  The   returned byte array is undefined if the string contains non-Latin1   characters.  */
 comment|/* \fn QByteArray QStringBuilder::toUtf8() const   Returns a UTF-8 representation of the string as a QByteArray.  */
 comment|/*!     \internal  */
-DECL|function|convertFromAscii
 name|void
 name|QAbstractConcatenable
 operator|::
@@ -39,6 +43,7 @@ modifier|*
 modifier|&
 name|out
 parameter_list|)
+name|Q_DECL_NOTHROW
 block|{
 if|if
 condition|(
@@ -85,6 +90,16 @@ operator|*
 name|a
 condition|)
 return|return;
+name|len
+operator|=
+name|int
+argument_list|(
+name|strlen
+argument_list|(
+name|a
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -143,52 +158,18 @@ name|i
 expr_stmt|;
 block|}
 comment|// we need to complement with UTF-8 appending
-name|QString
-name|tmp
-init|=
-name|QString
+name|out
+operator|=
+name|QUtf8
 operator|::
-name|fromUtf8
+name|convertToUnicode
 argument_list|(
+name|out
+argument_list|,
 name|a
 argument_list|,
 name|len
 argument_list|)
-decl_stmt|;
-name|memcpy
-argument_list|(
-name|out
-argument_list|,
-cast|reinterpret_cast
-argument_list|<
-specifier|const
-name|char
-operator|*
-argument_list|>
-argument_list|(
-name|tmp
-operator|.
-name|constData
-argument_list|()
-argument_list|)
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|QChar
-argument_list|)
-operator|*
-name|tmp
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|out
-operator|+=
-name|tmp
-operator|.
-name|size
-argument_list|()
 expr_stmt|;
 block|}
 end_function
