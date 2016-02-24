@@ -3213,6 +3213,13 @@ name|QTtfNameRecord
 argument_list|>
 name|list
 decl_stmt|;
+name|list
+operator|.
+name|reserve
+argument_list|(
+literal|5
+argument_list|)
+expr_stmt|;
 name|QTtfNameRecord
 name|rec
 decl_stmt|;
@@ -6487,6 +6494,13 @@ name|QTtfTable
 argument_list|>
 name|list
 decl_stmt|;
+name|list
+operator|.
+name|reserve
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
 name|list
 operator|.
 name|append

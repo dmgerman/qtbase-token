@@ -5663,6 +5663,16 @@ name|TouchPoint
 argument_list|>
 name|newList
 decl_stmt|;
+name|newList
+operator|.
+name|reserve
+argument_list|(
+name|pointList
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 specifier|const
