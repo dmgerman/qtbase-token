@@ -575,11 +575,9 @@ expr_stmt|;
 name|QWindowsTabletDeviceData
 name|tabletInit
 argument_list|(
-specifier|const
-name|quint64
+name|qint64
 name|uniqueId
 argument_list|,
-specifier|const
 name|UINT
 name|cursorType
 argument_list|)

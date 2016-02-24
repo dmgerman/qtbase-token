@@ -26,42 +26,9 @@ end_include
 begin_comment
 comment|//#define QT_COCOA_ENABLE_MENU_DEBUG
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__OBJC__
-end_ifdef
-begin_define
-DECL|macro|QT_FORWARD_DECLARE_OBJC_CLASS
-define|#
-directive|define
-name|QT_FORWARD_DECLARE_OBJC_CLASS
-parameter_list|(
-name|__KLASS__
-parameter_list|)
-value|@class __KLASS__
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|QT_FORWARD_DECLARE_OBJC_CLASS
-define|#
-directive|define
-name|QT_FORWARD_DECLARE_OBJC_CLASS
-parameter_list|(
-name|__KLASS__
-parameter_list|)
-value|typedef struct objc_object __KLASS__
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 DECL|variable|NSMenuItem
-name|QT_FORWARD_DECLARE_OBJC_CLASS
+name|Q_FORWARD_DECLARE_OBJC_CLASS
 argument_list|(
 name|NSMenuItem
 argument_list|)
@@ -69,7 +36,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 DECL|variable|NSMenu
-name|QT_FORWARD_DECLARE_OBJC_CLASS
+name|Q_FORWARD_DECLARE_OBJC_CLASS
 argument_list|(
 name|NSMenu
 argument_list|)
@@ -77,7 +44,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 DECL|variable|NSObject
-name|QT_FORWARD_DECLARE_OBJC_CLASS
+name|Q_FORWARD_DECLARE_OBJC_CLASS
 argument_list|(
 name|NSObject
 argument_list|)
@@ -85,7 +52,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 DECL|variable|NSView
-name|QT_FORWARD_DECLARE_OBJC_CLASS
+name|Q_FORWARD_DECLARE_OBJC_CLASS
 argument_list|(
 name|NSView
 argument_list|)

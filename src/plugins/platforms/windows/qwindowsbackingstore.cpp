@@ -379,9 +379,9 @@ name|AC_SRC_OVER
 block|,
 literal|0
 block|,
-call|(
 name|BYTE
-call|)
+argument_list|(
+name|qRound
 argument_list|(
 literal|255.0
 operator|*
@@ -389,6 +389,7 @@ name|rw
 operator|->
 name|opacity
 argument_list|()
+argument_list|)
 argument_list|)
 block|,
 name|AC_SRC_ALPHA
@@ -688,7 +689,10 @@ name|ERROR_INVALID_HANDLE
 condition|)
 name|qErrnoWarning
 argument_list|(
+name|int
+argument_list|(
 name|lastError
+argument_list|)
 argument_list|,
 literal|"%s: BitBlt failed"
 argument_list|,

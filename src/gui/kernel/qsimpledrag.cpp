@@ -245,6 +245,11 @@ name|m_useCompositing
 argument_list|(
 literal|true
 argument_list|)
+member_init_list|,
+name|m_screen
+argument_list|(
+name|Q_NULLPTR
+argument_list|)
 block|{ }
 end_constructor
 begin_destructor
@@ -785,7 +790,7 @@ endif|#
 directive|endif
 name|recreateShapedPixmapWindow
 argument_list|(
-name|Q_NULLPTR
+name|m_screen
 argument_list|,
 name|pos
 argument_list|)

@@ -2577,7 +2577,7 @@ case|:
 if|if
 condition|(
 specifier|const
-name|int
+name|UINT
 name|ms
 init|=
 name|GetDoubleClickTime
@@ -2586,7 +2586,10 @@ condition|)
 return|return
 name|QVariant
 argument_list|(
+name|int
+argument_list|(
 name|ms
+argument_list|)
 argument_list|)
 return|;
 break|break;

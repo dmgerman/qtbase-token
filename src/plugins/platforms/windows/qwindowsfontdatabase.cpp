@@ -1234,9 +1234,12 @@ operator|.
 name|size
 argument_list|()
 operator|*
+name|int
+argument_list|(
 sizeof|sizeof
 argument_list|(
 name|quint16
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -1258,9 +1261,12 @@ operator|.
 name|size
 argument_list|()
 operator|*
+name|int
+argument_list|(
 sizeof|sizeof
 argument_list|(
 name|quint16
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Align table size of table to 32 bits (pad with 0)
@@ -2943,54 +2949,140 @@ name|nospace
 argument_list|()
 expr_stmt|;
 name|d
+operator|.
+name|noquote
+argument_list|()
+expr_stmt|;
+name|d
 operator|<<
-literal|"Family="
+literal|"QFontDef(Family=\""
 operator|<<
 name|def
 operator|.
 name|family
 operator|<<
-literal|" Stylename="
+literal|'"'
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|def
+operator|.
+name|styleName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|d
+operator|<<
+literal|", stylename="
 operator|<<
 name|def
 operator|.
 name|styleName
+expr_stmt|;
+name|d
 operator|<<
-literal|" pointsize="
+literal|", pointsize="
 operator|<<
 name|def
 operator|.
 name|pointSize
 operator|<<
-literal|" pixelsize="
+literal|", pixelsize="
 operator|<<
 name|def
 operator|.
 name|pixelSize
 operator|<<
-literal|" styleHint="
+literal|", styleHint="
 operator|<<
 name|def
 operator|.
 name|styleHint
 operator|<<
-literal|" weight="
+literal|", weight="
 operator|<<
 name|def
 operator|.
 name|weight
 operator|<<
-literal|" stretch="
+literal|", stretch="
 operator|<<
 name|def
 operator|.
 name|stretch
 operator|<<
-literal|" hintingPreference="
+literal|", hintingPreference="
 operator|<<
 name|def
 operator|.
 name|hintingPreference
+operator|<<
+literal|')'
+expr_stmt|;
+return|return
+name|d
+return|;
+block|}
+end_function
+begin_function
+DECL|function|operator <<
+name|QDebug
+name|operator
+name|<<
+parameter_list|(
+name|QDebug
+name|d
+parameter_list|,
+specifier|const
+name|LOGFONT
+modifier|&
+name|lf
+parameter_list|)
+block|{
+name|QDebugStateSaver
+name|saver
+argument_list|(
+name|d
+argument_list|)
+decl_stmt|;
+name|d
+operator|.
+name|nospace
+argument_list|()
+expr_stmt|;
+name|d
+operator|.
+name|noquote
+argument_list|()
+expr_stmt|;
+name|d
+operator|<<
+literal|"LOGFONT(\""
+operator|<<
+name|QString
+operator|::
+name|fromWCharArray
+argument_list|(
+name|lf
+operator|.
+name|lfFaceName
+argument_list|)
+operator|<<
+literal|"\", lfWidth="
+operator|<<
+name|lf
+operator|.
+name|lfWidth
+operator|<<
+literal|", lfHeight="
+operator|<<
+name|lf
+operator|.
+name|lfHeight
+operator|<<
+literal|')'
 expr_stmt|;
 return|return
 name|d
@@ -3718,14 +3810,17 @@ name|QChar
 modifier|*
 name|uc
 init|=
-operator|(
+cast|const_cast
+argument_list|<
 name|QChar
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|i18n_name
 operator|.
 name|unicode
 argument_list|()
+argument_list|)
 decl_stmt|;
 specifier|const
 name|unsigned
@@ -3782,14 +3877,17 @@ name|QChar
 modifier|*
 name|uc
 init|=
-operator|(
+cast|const_cast
+argument_list|<
 name|QChar
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|i18n_name
 operator|.
 name|unicode
 argument_list|()
+argument_list|)
 decl_stmt|;
 specifier|const
 name|unsigned
@@ -3824,10 +3922,13 @@ index|]
 operator|=
 name|QLatin1Char
 argument_list|(
+name|char
+argument_list|(
 name|string
 index|[
 name|i
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5916,19 +6017,25 @@ name|fontHandle
 init|=
 name|AddFontMemResourceEx
 argument_list|(
-operator|(
-name|void
+cast|const_cast
+argument_list|<
+name|char
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|newFontData
 operator|.
 name|constData
 argument_list|()
+argument_list|)
 argument_list|,
+name|DWORD
+argument_list|(
 name|newFontData
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|,
 literal|0
 argument_list|,
@@ -7272,19 +7379,25 @@ name|handle
 operator|=
 name|AddFontMemResourceEx
 argument_list|(
-operator|(
-name|void
+cast|const_cast
+argument_list|<
+name|char
 operator|*
-operator|)
+argument_list|>
+argument_list|(
 name|fontData
 operator|.
 name|constData
 argument_list|()
+argument_list|)
 argument_list|,
+name|DWORD
+argument_list|(
 name|fontData
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|,
 literal|0
 argument_list|,
@@ -9253,12 +9366,43 @@ name|hr
 argument_list|)
 condition|)
 block|{
-name|qErrnoWarning
+specifier|const
+name|QString
+name|errorString
+init|=
+name|qt_error_string
 argument_list|(
-literal|"%s: CreateFontFromLOGFONT failed"
-argument_list|,
-name|__FUNCTION__
+name|int
+argument_list|(
+name|GetLastError
+argument_list|()
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|qWarning
+argument_list|()
+operator|.
+name|noquote
+argument_list|()
+operator|.
+name|nospace
+argument_list|()
+operator|<<
+literal|"DirectWrite: CreateFontFromLOGFONT() failed ("
+operator|<<
+name|errorString
+operator|<<
+literal|") for "
+operator|<<
+name|request
+operator|<<
+literal|' '
+operator|<<
+name|lf
+operator|<<
+literal|" dpi="
+operator|<<
+name|dpi
 expr_stmt|;
 block|}
 else|else
@@ -9287,12 +9431,40 @@ name|hr
 argument_list|)
 condition|)
 block|{
-name|qErrnoWarning
+specifier|const
+name|QString
+name|errorString
+init|=
+name|qt_error_string
 argument_list|(
-literal|"%s: CreateFontFace failed"
-argument_list|,
-name|__FUNCTION__
+name|int
+argument_list|(
+name|GetLastError
+argument_list|()
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|qWarning
+argument_list|()
+operator|.
+name|noquote
+argument_list|()
+operator|<<
+literal|"DirectWrite: CreateFontFace() failed ("
+operator|<<
+name|errorString
+operator|<<
+literal|") for "
+operator|<<
+name|request
+operator|<<
+literal|' '
+operator|<<
+name|lf
+operator|<<
+literal|" dpi="
+operator|<<
+name|dpi
 expr_stmt|;
 block|}
 else|else
