@@ -412,7 +412,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_PROCESSOR_ARM_V8
+name|__ARM_FEATURE_CRC32
 argument_list|)
 end_elif
 begin_function
