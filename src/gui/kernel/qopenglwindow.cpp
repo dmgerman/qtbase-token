@@ -564,8 +564,10 @@ operator|::
 name|CombinedDepthStencil
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+specifier|const
+name|int
+name|samples
+init|=
 name|q
 operator|->
 name|requestedFormat
@@ -573,6 +575,10 @@ argument_list|()
 operator|.
 name|samples
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|samples
 operator|>
 literal|0
 condition|)
@@ -589,13 +595,7 @@ name|fboFormat
 operator|.
 name|setSamples
 argument_list|(
-name|q
-operator|->
-name|requestedFormat
-argument_list|()
-operator|.
 name|samples
-argument_list|()
 argument_list|)
 expr_stmt|;
 else|else
