@@ -774,6 +774,22 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|void
+name|drawFocusRing
+argument_list|(
+argument|QPainter *p
+argument_list|,
+argument|const QRect&targetRect
+argument_list|,
+argument|int hMargin
+argument_list|,
+argument|int vMargin
+argument_list|,
+argument|qreal radius =
+literal|0
+argument_list|)
+specifier|const
+block|;
 name|public
 operator|:
 name|mutable
