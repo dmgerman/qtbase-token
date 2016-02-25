@@ -2012,7 +2012,7 @@ name|WM_MOUSEHWHEEL
 condition|)
 name|delta
 operator|=
-name|HIWORD
+name|GET_WHEEL_DELTA_WPARAM
 argument_list|(
 name|msg
 operator|.
