@@ -142,15 +142,8 @@ name|Module
 block|{
 name|IsCore
 operator|=
-operator|!
-name|QTypeInfo
-operator|<
-name|T
-operator|>
-operator|::
-name|isComplex
+name|false
 block|,
-comment|// Primitive types are in Core
 name|IsWidget
 operator|=
 name|false
@@ -161,8 +154,7 @@ name|false
 block|,
 name|IsUnknown
 operator|=
-operator|!
-name|IsCore
+name|true
 block|}
 block|; }
 expr_stmt|;
@@ -216,7 +208,19 @@ name|Name
 parameter_list|)
 define|\
 value|QT_ASSIGN_TYPE_TO_MODULE(Name, QModulesPrivate::Widgets);
+name|QT_FOR_EACH_STATIC_PRIMITIVE_TYPE
+argument_list|(
+argument|QT_DECLARE_CORE_MODULE_TYPES_ITER
+argument_list|)
+name|QT_FOR_EACH_STATIC_PRIMITIVE_POINTER
+argument_list|(
+argument|QT_DECLARE_CORE_MODULE_TYPES_ITER
+argument_list|)
 name|QT_FOR_EACH_STATIC_CORE_CLASS
+argument_list|(
+argument|QT_DECLARE_CORE_MODULE_TYPES_ITER
+argument_list|)
+name|QT_FOR_EACH_STATIC_CORE_POINTER
 argument_list|(
 argument|QT_DECLARE_CORE_MODULE_TYPES_ITER
 argument_list|)
