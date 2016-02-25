@@ -661,7 +661,7 @@ name|screenOrigin
 parameter_list|)
 block|{
 return|return
-name|toNative
+name|fromNative
 argument_list|(
 name|rect
 argument_list|,
