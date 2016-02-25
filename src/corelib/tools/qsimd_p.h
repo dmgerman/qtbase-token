@@ -926,6 +926,43 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|// Clang compiler fix, see http://lists.llvm.org/pipermail/cfe-commits/Week-of-Mon-20160222/151168.html
+end_comment
+begin_comment
+comment|// This should be tweaked with an "upper version" of clang once we know which release fixes the
+end_comment
+begin_comment
+comment|// issue. At that point we can rely on __ARM_FEATURE_CRC32 again.
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_OS_DARWIN
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|__ARM_FEATURE_CRC32
+argument_list|)
+end_if
+begin_undef
+DECL|macro|__ARM_FEATURE_CRC32
+undef|#
+directive|undef
+name|__ARM_FEATURE_CRC32
+end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|// NEON intrinsics
 end_comment
 begin_comment
