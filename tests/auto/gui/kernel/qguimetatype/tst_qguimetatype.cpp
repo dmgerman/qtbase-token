@@ -1923,7 +1923,7 @@ argument_list|<
 name|bool
 argument_list|>
 argument_list|(
-literal|"isMovable"
+literal|"isRelocatable"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1948,7 +1948,7 @@ parameter_list|,
 name|RealType
 parameter_list|)
 define|\
-value|QTest::newRow(#RealType)<< MetaTypeId<< bool(!QTypeInfo<RealType>::isStatic)<< bool(QTypeInfo<RealType>::isComplex);
+value|QTest::newRow(#RealType)<< MetaTypeId<< bool(QTypeInfoQuery<RealType>::isRelocatable)<< bool(QTypeInfoQuery<RealType>::isComplex);
 name|QT_FOR_EACH_STATIC_GUI_CLASS
 argument_list|(
 argument|ADD_METATYPE_TEST_ROW
@@ -1978,7 +1978,7 @@ name|QFETCH
 argument_list|(
 name|bool
 argument_list|,
-name|isMovable
+name|isRelocatable
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -2042,7 +2042,7 @@ operator|::
 name|MovableType
 argument_list|)
 argument_list|,
-name|isMovable
+name|isRelocatable
 argument_list|)
 expr_stmt|;
 block|}
