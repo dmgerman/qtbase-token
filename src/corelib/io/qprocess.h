@@ -904,7 +904,6 @@ literal|5
 operator|,
 literal|6
 argument_list|)
-name|QT_MOC_COMPAT
 name|void
 name|error
 argument_list|(
