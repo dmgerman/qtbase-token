@@ -4872,7 +4872,7 @@ name|types
 decl_stmt|;
 name|types
 operator|<<
-name|QLatin1String
+name|QStringLiteral
 argument_list|(
 literal|"application/x-qabstractitemmodeldatalist"
 argument_list|)
