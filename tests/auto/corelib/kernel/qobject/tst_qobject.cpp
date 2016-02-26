@@ -44391,9 +44391,10 @@ modifier|*
 name|statusAboutToBlock
 parameter_list|)
 member_init_list|:
-name|m_statusAboutToBlock
+name|m_eventLoop
 argument_list|(
-name|statusAboutToBlock
+operator|&
+name|e
 argument_list|)
 member_init_list|,
 name|m_statusAwake
@@ -44401,10 +44402,9 @@ argument_list|(
 name|statusAwake
 argument_list|)
 member_init_list|,
-name|m_eventLoop
+name|m_statusAboutToBlock
 argument_list|(
-operator|&
-name|e
+name|statusAboutToBlock
 argument_list|)
 member_init_list|,
 name|m_aboutToBlocks
