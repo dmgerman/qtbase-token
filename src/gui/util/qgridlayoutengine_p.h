@@ -1376,6 +1376,9 @@ name|Qt
 operator|::
 name|Alignment
 name|align
+argument_list|,
+name|bool
+name|snapToPixelGrid
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1386,6 +1389,9 @@ name|Qt
 operator|::
 name|Orientation
 name|orientation
+argument_list|,
+name|bool
+name|snapToPixelGrid
 argument_list|,
 name|qreal
 name|constraint
