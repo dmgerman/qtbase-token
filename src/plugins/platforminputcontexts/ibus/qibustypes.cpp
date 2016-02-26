@@ -37,13 +37,6 @@ operator|::
 name|QIBusSerializable
 argument_list|()
 argument_list|{ }
-DECL|function|~QIBusSerializable
-name|QIBusSerializable
-operator|::
-name|~
-name|QIBusSerializable
-argument_list|()
-argument_list|{ }
 DECL|function|deserializeFrom
 name|void
 name|QIBusSerializable
@@ -242,13 +235,6 @@ name|name
 operator|=
 literal|"IBusAttribute"
 argument_list|; }
-DECL|function|~QIBusAttribute
-name|QIBusAttribute
-operator|::
-name|~
-name|QIBusAttribute
-argument_list|()
-argument_list|{ }
 DECL|function|serializeTo
 name|void
 name|QIBusAttribute
@@ -512,14 +498,6 @@ name|name
 operator|=
 literal|"IBusAttrList"
 block|; }
-DECL|function|~QIBusAttributeList
-name|QIBusAttributeList
-operator|::
-name|~
-name|QIBusAttributeList
-operator|(
-operator|)
-block|{ }
 DECL|function|serializeTo
 name|void
 name|QIBusAttributeList
@@ -690,7 +668,12 @@ name|attributes
 operator|.
 name|append
 argument_list|(
+name|std
+operator|::
+name|move
+argument_list|(
 name|attr
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -949,14 +932,6 @@ name|name
 operator|=
 literal|"IBusText"
 block|; }
-DECL|function|~QIBusText
-name|QIBusText
-operator|::
-name|~
-name|QIBusText
-operator|(
-operator|)
-block|{ }
 DECL|function|serializeTo
 name|void
 name|QIBusText
@@ -1152,14 +1127,6 @@ name|name
 operator|=
 literal|"IBusEngineDesc"
 block|; }
-DECL|function|~QIBusEngineDesc
-name|QIBusEngineDesc
-operator|::
-name|~
-name|QIBusEngineDesc
-operator|(
-operator|)
-block|{ }
 DECL|function|serializeTo
 name|void
 name|QIBusEngineDesc

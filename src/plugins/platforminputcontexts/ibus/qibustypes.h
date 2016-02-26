@@ -57,12 +57,6 @@ begin_empty_stmt
 unit|)
 empty_stmt|;
 end_empty_stmt
-begin_expr_stmt
-operator|~
-name|QIBusSerializable
-argument_list|()
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 name|void
 name|serializeTo
@@ -156,10 +150,6 @@ block|;
 name|QIBusAttribute
 argument_list|()
 block|;
-operator|~
-name|QIBusAttribute
-argument_list|()
-block|;
 name|QTextCharFormat
 name|format
 argument_list|()
@@ -195,6 +185,15 @@ name|end
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QIBusAttribute
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|QIBusAttributeList
@@ -204,10 +203,6 @@ name|QIBusSerializable
 block|{
 name|public
 operator|:
-name|QIBusAttributeList
-argument_list|()
-block|;
-operator|~
 name|QIBusAttributeList
 argument_list|()
 block|;
@@ -245,6 +240,15 @@ name|attributes
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QIBusAttributeList
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|QIBusText
@@ -254,10 +258,6 @@ name|QIBusSerializable
 block|{
 name|public
 operator|:
-name|QIBusText
-argument_list|()
-block|;
-operator|~
 name|QIBusText
 argument_list|()
 block|;
@@ -285,6 +285,15 @@ name|attributes
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QIBusText
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|QIBusEngineDesc
@@ -294,10 +303,6 @@ name|QIBusSerializable
 block|{
 name|public
 operator|:
-name|QIBusEngineDesc
-argument_list|()
-block|;
-operator|~
 name|QIBusEngineDesc
 argument_list|()
 block|;
@@ -371,6 +376,15 @@ name|iconpropkey
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QIBusEngineDesc
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 DECL|function|operator
 specifier|inline
