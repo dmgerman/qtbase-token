@@ -109,12 +109,6 @@ condition|)
 block|{
 name|qDBusRegisterMetaType
 argument_list|<
-name|QIBusSerializable
-argument_list|>
-argument_list|()
-expr_stmt|;
-name|qDBusRegisterMetaType
-argument_list|<
 name|QIBusAttribute
 argument_list|>
 argument_list|()
