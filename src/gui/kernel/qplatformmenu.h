@@ -622,12 +622,22 @@ argument_list|)
 specifier|const
 operator|=
 literal|0
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_macro
+block|;
+name|virtual
+name|QPlatformMenu
+operator|*
+name|createMenu
+argument_list|()
+specifier|const
+block|{
+return|return
+name|nullptr
+return|;
+block|}
+expr|}
+block|;
 name|QT_END_NAMESPACE
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

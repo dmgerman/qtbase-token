@@ -126,6 +126,13 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|QPlatformMenu
+operator|*
+name|createMenu
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|private
 operator|:
 name|QDBusPlatformMenu

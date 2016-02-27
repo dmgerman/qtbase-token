@@ -426,6 +426,15 @@ name|QPlatformMenuBar
 operator|*
 name|platformMenuBar
 block|;
+name|QPlatformMenu
+operator|*
+name|getPlatformMenu
+argument_list|(
+name|QAction
+operator|*
+name|action
+argument_list|)
+block|;
 specifier|inline
 name|int
 name|indexOf
