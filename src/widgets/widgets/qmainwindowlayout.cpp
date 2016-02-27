@@ -12358,12 +12358,12 @@ block|}
 block|}
 block|}
 block|}
-foreach|foreach
+for|for
 control|(
 name|QWidget
 modifier|*
 name|w
-decl|,
+range|:
 name|candidates
 control|)
 block|{
