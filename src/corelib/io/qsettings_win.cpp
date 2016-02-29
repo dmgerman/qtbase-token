@@ -2402,6 +2402,32 @@ return|return
 literal|false
 return|;
 block|}
+comment|// workaround for rare cases where trailing '\0' are missing in registry
+if|if
+condition|(
+name|dataType
+operator|==
+name|REG_SZ
+operator|||
+name|dataType
+operator|==
+name|REG_EXPAND_SZ
+condition|)
+name|dataSize
+operator|+=
+literal|2
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|dataType
+operator|==
+name|REG_MULTI_SZ
+condition|)
+name|dataSize
+operator|+=
+literal|4
+expr_stmt|;
 comment|// get the value
 name|QByteArray
 name|data
