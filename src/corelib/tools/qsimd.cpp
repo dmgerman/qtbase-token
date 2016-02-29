@@ -647,7 +647,7 @@ argument_list|(
 name|__ARM_NEON__
 argument_list|)
 name|features
-operator|=
+operator||=
 name|Q_UINT64_C
 argument_list|(
 literal|1
@@ -664,7 +664,7 @@ argument_list|(
 name|__ARM_FEATURE_CRC32
 argument_list|)
 name|features
-operator|=
+operator||=
 name|Q_UINT64_C
 argument_list|(
 literal|1
