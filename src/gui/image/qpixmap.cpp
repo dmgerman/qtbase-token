@@ -1270,6 +1270,8 @@ specifier|const
 block|{
 return|return
 name|data
+operator|&&
+name|data
 operator|->
 name|type
 operator|==

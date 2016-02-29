@@ -1109,6 +1109,10 @@ name|int
 name|reserved
 operator|:
 literal|28
+block|;
+name|friend
+name|class
+name|QApplication
 block|; }
 decl_stmt|;
 end_decl_stmt

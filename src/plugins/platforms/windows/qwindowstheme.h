@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|"qwindowsthreadpoolrunner.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qpa/qplatformtheme.h>
 end_include
 begin_decl_stmt
@@ -193,6 +198,10 @@ name|m_fonts
 index|[
 name|NFonts
 index|]
+block|;
+name|mutable
+name|QWindowsThreadPoolRunner
+name|m_threadPoolRunner
 block|; }
 decl_stmt|;
 end_decl_stmt

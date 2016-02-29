@@ -847,6 +847,10 @@ name|s
 operator|+=
 name|skip
 expr_stmt|;
+name|len
+operator|-=
+name|skip
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -871,8 +875,8 @@ expr_stmt|;
 block|}
 while|while
 condition|(
-operator|*
-name|s
+name|len
+operator|--
 condition|)
 operator|*
 name|d

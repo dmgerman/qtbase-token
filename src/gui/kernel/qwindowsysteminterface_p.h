@@ -971,7 +971,7 @@ argument|Qt::Orientation qt4O
 argument_list|,
 argument|Qt::KeyboardModifiers mods
 argument_list|,
-argument|Qt::ScrollPhase phase = Qt::ScrollUpdate
+argument|Qt::ScrollPhase phase = Qt::NoScrollPhase
 argument_list|,
 argument|Qt::MouseEventSource src = Qt::MouseEventNotSynthesized
 argument_list|)

@@ -5713,14 +5713,6 @@ name|cet
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|QSKIP
-argument_list|(
-literal|"You must test using Central European (CET/CEST) time zone, e.g. TZ=Europe/Oslo"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// LocalTime will overflow for max
 if|if
 condition|(
