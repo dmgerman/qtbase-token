@@ -8666,6 +8666,16 @@ parameter_list|,
 name|LPARAM
 parameter_list|)
 block|{
+if|if
+condition|(
+name|message
+operator|==
+name|WM_ERASEBKGND
+condition|)
+comment|// Backing store - ignored.
+return|return
+literal|true
+return|;
 comment|// Ignore invalid update bounding rectangles
 if|if
 condition|(
@@ -8683,16 +8693,6 @@ argument_list|)
 condition|)
 return|return
 literal|false
-return|;
-if|if
-condition|(
-name|message
-operator|==
-name|WM_ERASEBKGND
-condition|)
-comment|// Backing store - ignored.
-return|return
-literal|true
 return|;
 name|PAINTSTRUCT
 name|ps
