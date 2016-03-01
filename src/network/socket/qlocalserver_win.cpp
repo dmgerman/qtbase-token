@@ -1203,10 +1203,9 @@ argument_list|(
 name|QLocalServer
 argument_list|)
 expr_stmt|;
-name|QString
-name|pipePath
-init|=
+specifier|const
 name|QLatin1String
+name|pipePath
 argument_list|(
 literal|"\\\\.\\pipe\\"
 argument_list|)

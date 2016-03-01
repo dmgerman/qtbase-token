@@ -598,10 +598,9 @@ argument_list|)
 emit|;
 return|return;
 block|}
-name|QString
-name|pipePath
-init|=
+specifier|const
 name|QLatin1String
+name|pipePath
 argument_list|(
 literal|"\\\\.\\pipe\\"
 argument_list|)
