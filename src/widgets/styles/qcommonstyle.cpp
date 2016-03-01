@@ -12917,7 +12917,8 @@ else|else
 block|{
 name|drawArrow
 argument_list|(
-name|this
+name|proxy
+argument_list|()
 argument_list|,
 name|toolbutton
 argument_list|,
@@ -13013,7 +13014,8 @@ else|else
 block|{
 name|drawArrow
 argument_list|(
-name|this
+name|proxy
+argument_list|()
 argument_list|,
 name|toolbutton
 argument_list|,
@@ -13105,7 +13107,8 @@ condition|)
 block|{
 name|drawArrow
 argument_list|(
-name|this
+name|proxy
+argument_list|()
 argument_list|,
 name|toolbutton
 argument_list|,
