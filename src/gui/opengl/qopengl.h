@@ -603,6 +603,23 @@ name|char
 name|GLcharARB
 typedef|;
 end_typedef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_DARWIN
+end_ifdef
+begin_typedef
+DECL|typedef|GLhandleARB
+typedef|typedef
+name|void
+modifier|*
+name|GLhandleARB
+typedef|;
+end_typedef
+begin_else
+else|#
+directive|else
+end_else
 begin_typedef
 DECL|typedef|GLhandleARB
 typedef|typedef
@@ -611,6 +628,13 @@ name|int
 name|GLhandleARB
 typedef|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_DARWIN
+end_comment
 begin_endif
 endif|#
 directive|endif
