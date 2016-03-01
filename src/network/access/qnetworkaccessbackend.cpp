@@ -1504,6 +1504,18 @@ else|else
 block|{
 comment|// Session not ready, but can skip for loopback connections
 comment|// This is not ideal.
+comment|// Don't need an open session for localhost access.
+if|if
+condition|(
+operator|!
+name|reply
+operator|->
+name|url
+operator|.
+name|isLocalFile
+argument_list|()
+condition|)
+block|{
 specifier|const
 name|QString
 name|host
@@ -1518,12 +1530,13 @@ decl_stmt|;
 if|if
 condition|(
 name|host
-operator|==
+operator|!=
 name|QLatin1String
 argument_list|(
 literal|"localhost"
 argument_list|)
-operator|||
+operator|&&
+operator|!
 name|QHostAddress
 argument_list|(
 name|host
@@ -1531,23 +1544,11 @@ argument_list|)
 operator|.
 name|isLoopback
 argument_list|()
-operator|||
-name|reply
-operator|->
-name|url
-operator|.
-name|isLocalFile
-argument_list|()
 condition|)
-block|{
-comment|// Don't need an open session for localhost access.
-block|}
-else|else
-block|{
-comment|// need to wait for session to be opened
 return|return
 literal|false
 return|;
+comment|// need to wait for session to be opened
 block|}
 block|}
 block|}
