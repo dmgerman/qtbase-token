@@ -815,11 +815,11 @@ name|bool
 name|isValid
 parameter_list|()
 function_decl|;
-name|QSize
+name|QSizeF
 name|size
 parameter_list|()
 function_decl|;
-name|QMargins
+name|QMarginsF
 name|margins
 parameter_list|(
 specifier|const
@@ -833,7 +833,7 @@ init|=
 name|TMT_CONTENTMARGINS
 parameter_list|)
 function_decl|;
-name|QMargins
+name|QMarginsF
 name|margins
 parameter_list|(
 name|int
@@ -843,7 +843,7 @@ name|TMT_CONTENTMARGINS
 parameter_list|)
 function_decl|;
 specifier|static
-name|QSize
+name|QSizeF
 name|themeSize
 parameter_list|(
 specifier|const
@@ -877,7 +877,7 @@ literal|0
 parameter_list|)
 function_decl|;
 specifier|static
-name|QMargins
+name|QMarginsF
 name|themeMargins
 parameter_list|(
 specifier|const
@@ -921,7 +921,7 @@ name|TMT_CONTENTMARGINS
 parameter_list|)
 function_decl|;
 specifier|static
-name|QMargins
+name|QMarginsF
 name|themeMargins
 parameter_list|(
 specifier|const
@@ -2594,13 +2594,13 @@ end_empty_stmt
 begin_expr_stmt
 DECL|function|size
 specifier|inline
-name|QSize
+name|QSizeF
 name|XPThemeData
 operator|::
 name|size
 argument_list|()
 block|{
-name|QSize
+name|QSizeF
 name|result
 argument_list|(
 literal|0
@@ -2666,7 +2666,7 @@ end_return
 begin_expr_stmt
 unit|}  inline
 DECL|function|margins
-name|QMargins
+name|QMarginsF
 name|XPThemeData
 operator|::
 name|margins
@@ -2676,7 +2676,7 @@ argument_list|,
 argument|int propId
 argument_list|)
 block|{
-name|QMargins
+name|QMarginsF
 name|result
 argument_list|(
 literal|0
@@ -2765,7 +2765,7 @@ end_return
 begin_expr_stmt
 unit|}  inline
 DECL|function|margins
-name|QMargins
+name|QMarginsF
 name|XPThemeData
 operator|::
 name|margins
@@ -2773,7 +2773,7 @@ argument_list|(
 argument|int propId
 argument_list|)
 block|{
-name|QMargins
+name|QMarginsF
 name|result
 argument_list|(
 literal|0
@@ -2851,7 +2851,7 @@ end_return
 begin_expr_stmt
 unit|}  inline
 DECL|function|themeSize
-name|QSize
+name|QSizeF
 name|XPThemeData
 operator|::
 name|themeSize
@@ -2892,7 +2892,7 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|themeMargins
 specifier|inline
-name|QMargins
+name|QMarginsF
 name|XPThemeData
 operator|::
 name|themeMargins
@@ -2941,7 +2941,7 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|themeMargins
 specifier|inline
-name|QMargins
+name|QMarginsF
 name|XPThemeData
 operator|::
 name|themeMargins
