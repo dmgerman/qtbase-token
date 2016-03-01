@@ -14410,6 +14410,10 @@ operator|!=
 name|Qt
 operator|::
 name|NoScrollPhase
+operator|&&
+name|QGuiApplicationPrivate
+operator|::
+name|scrollNoPhaseAllowed
 condition|)
 name|QApplicationPrivate
 operator|::
