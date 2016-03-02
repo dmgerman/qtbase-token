@@ -107,6 +107,8 @@ block|,
 name|NoFontHinting
 block|,
 name|AtspiBus
+block|,
+name|CompositingEnabled
 block|}
 block|;
 name|QXcbNativeInterface
