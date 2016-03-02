@@ -917,6 +917,11 @@ operator|!=
 name|Qt
 operator|::
 name|Desktop
+operator|&&
+name|window
+operator|->
+name|supportsOpenGL
+argument_list|()
 condition|)
 block|{
 if|if
