@@ -795,10 +795,15 @@ name|QGLXContext
 argument_list|(
 name|screen
 argument_list|,
+name|screen
+operator|->
+name|surfaceFormatFor
+argument_list|(
 name|context
 operator|->
 name|format
 argument_list|()
+argument_list|)
 argument_list|,
 name|context
 operator|->

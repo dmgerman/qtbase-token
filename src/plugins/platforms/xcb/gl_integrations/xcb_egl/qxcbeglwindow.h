@@ -82,15 +82,23 @@ name|Q_DECL_OVERRIDE
 block|;
 name|void
 name|resolveFormat
-argument_list|()
+argument_list|(
+argument|const QSurfaceFormat&format
+argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|void
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
+specifier|const
+name|xcb_visualtype_t
 operator|*
 name|createVisual
 argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|QXcbEglIntegration

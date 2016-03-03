@@ -46,12 +46,8 @@ argument_list|()
 block|;
 name|protected
 operator|:
-name|void
-name|resolveFormat
-argument_list|()
-name|Q_DECL_OVERRIDE
-block|;
-name|void
+specifier|const
+name|xcb_visualtype_t
 operator|*
 name|createVisual
 argument_list|()

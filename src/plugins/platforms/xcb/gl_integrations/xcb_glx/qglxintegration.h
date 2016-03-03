@@ -280,12 +280,12 @@ return|;
 block|}
 name|private
 operator|:
-name|QSurfaceFormat
-name|m_format
-block|;
 name|QXcbScreen
 operator|*
 name|m_screen
+block|;
+name|QSurfaceFormat
+name|m_format
 block|;
 name|GLXPbuffer
 name|m_pbuffer

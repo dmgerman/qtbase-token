@@ -63,6 +63,19 @@ include|#
 directive|include
 file|<GL/glx.h>
 end_include
+begin_expr_stmt
+name|QVector
+operator|<
+name|int
+operator|>
+name|qglx_buildSpec
+argument_list|(
+argument|const QSurfaceFormat&format
+argument_list|,
+argument|int drawableBit = GLX_WINDOW_BIT
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|XVisualInfo
 modifier|*
@@ -78,6 +91,11 @@ parameter_list|,
 name|QSurfaceFormat
 modifier|*
 name|format
+parameter_list|,
+name|int
+name|drawableBit
+init|=
+name|GLX_WINDOW_BIT
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -92,10 +110,13 @@ parameter_list|,
 name|int
 name|screen
 parameter_list|,
-specifier|const
 name|QSurfaceFormat
-modifier|&
 name|format
+parameter_list|,
+name|bool
+name|highestPixelFormat
+init|=
+name|false
 parameter_list|,
 name|int
 name|drawableBit
@@ -139,31 +160,13 @@ name|visualInfo
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_expr_stmt
-name|QVector
-operator|<
-name|int
-operator|>
-name|qglx_buildSpec
-argument_list|(
-argument|const QSurfaceFormat&format
-argument_list|,
-argument|int drawableBit = GLX_WINDOW_BIT
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_function_decl
-name|QSurfaceFormat
-name|qglx_reduceSurfaceFormat
-parameter_list|(
-specifier|const
-name|QSurfaceFormat
-modifier|&
-name|format
-parameter_list|,
 name|bool
+name|qglx_reduceFormat
+parameter_list|(
+name|QSurfaceFormat
 modifier|*
-name|reduced
+name|format
 parameter_list|)
 function_decl|;
 end_function_decl
