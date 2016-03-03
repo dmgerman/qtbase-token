@@ -9368,8 +9368,7 @@ name|qt_error_string
 argument_list|(
 name|int
 argument_list|(
-name|GetLastError
-argument_list|()
+name|hr
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -9433,8 +9432,7 @@ name|qt_error_string
 argument_list|(
 name|int
 argument_list|(
-name|GetLastError
-argument_list|()
+name|hr
 argument_list|)
 argument_list|)
 decl_stmt|;
