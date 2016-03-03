@@ -1002,13 +1002,13 @@ comment|// number of lines to scroll
 end_comment
 begin_decl_stmt
 DECL|member|wheel_widget
+name|QPointer
+argument_list|<
 name|QWidget
-modifier|*
+argument_list|>
 name|QApplicationPrivate
 operator|::
 name|wheel_widget
-init|=
-name|Q_NULLPTR
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -14226,6 +14226,27 @@ operator|->
 name|phase
 argument_list|()
 decl_stmt|;
+comment|// Ideally, we should lock on a widget when it starts receiving wheel
+comment|// events. This avoids other widgets to start receiving those events
+comment|// as the mouse cursor hovers them. However, given the way common
+comment|// wheeled mice work, there's no certain way of connecting different
+comment|// wheel events as a stream. This results in the NoScrollPhase case,
+comment|// where we just send the event from the original receiver and up its
+comment|// hierarchy until the event gets accepted.
+comment|//
+comment|// In the case of more evolved input devices, like Apple's trackpad or
+comment|// Magic Mouse, we receive the scroll phase information. This helps us
+comment|// connect wheel events as a stream and therefore makes it easier to
+comment|// lock on the widget onto which the scrolling was initiated.
+comment|//
+comment|// We assume that, when supported, the phase cycle follows the pattern:
+comment|//
+comment|//         ScrollBegin (ScrollUpdate* ScrollEnd)+
+comment|//
+comment|// This means that we can have scrolling sequences (starting with ScrollBegin)
+comment|// or partial sequences (after a ScrollEnd and starting with ScrollUpdate).
+comment|// If wheel_widget is null because it was deleted, we also take the same
+comment|// code path as an initial sequence.
 if|if
 condition|(
 name|phase
@@ -14240,20 +14261,15 @@ name|Qt
 operator|::
 name|ScrollBegin
 operator|||
-operator|(
-name|phase
-operator|==
-name|Qt
-operator|::
-name|ScrollUpdate
-operator|&&
 operator|!
 name|QApplicationPrivate
 operator|::
 name|wheel_widget
-operator|)
 condition|)
 block|{
+comment|// A system-generated ScrollBegin event starts a new user scrolling
+comment|// sequence, so we reset wheel_widget in case no one accepts the event
+comment|// or if we didn't get (or missed) a ScrollEnd previously.
 if|if
 condition|(
 name|spontaneous
@@ -14406,15 +14422,26 @@ operator|&&
 name|eventAccepted
 condition|)
 block|{
+comment|// A new scrolling sequence or partial sequence starts and w has accepted
+comment|// the event. Therefore, we can set wheel_widget, but only if it's not
+comment|// the end of a sequence.
 if|if
 condition|(
 name|spontaneous
 operator|&&
+operator|(
 name|phase
-operator|!=
+operator|==
 name|Qt
 operator|::
-name|NoScrollPhase
+name|ScrollBegin
+operator|||
+name|phase
+operator|==
+name|Qt
+operator|::
+name|ScrollUpdate
+operator|)
 operator|&&
 name|QGuiApplicationPrivate
 operator|::
@@ -14473,13 +14500,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|QApplicationPrivate
-operator|::
-name|wheel_widget
-condition|)
-block|{
-if|if
-condition|(
 operator|!
 name|spontaneous
 condition|)
@@ -14488,7 +14508,7 @@ comment|// wheel_widget may forward the wheel event to a delegate widget,
 comment|// either directly or indirectly (e.g. QAbstractScrollArea will
 comment|// forward to its QScrollBars through viewportEvent()). In that
 comment|// case, the event will not be spontaneous but synthesized, so
-comment|// we can send it straigth to the receiver.
+comment|// we can send it straight to the receiver.
 name|d
 operator|->
 name|notify_helper
@@ -14501,6 +14521,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// The phase is either ScrollUpdate or ScrollEnd, and wheel_widget
+comment|// is set. Since it accepted the wheel event previously, we continue
+comment|// sending those events until we get a ScrollEnd, which signifies
+comment|// the end of the natural scrolling sequence.
 specifier|const
 name|QPoint
 modifier|&
@@ -14616,7 +14640,6 @@ name|wheel_widget
 operator|=
 name|Q_NULLPTR
 expr_stmt|;
-block|}
 block|}
 block|}
 break|break;

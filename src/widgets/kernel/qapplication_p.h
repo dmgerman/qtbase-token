@@ -730,8 +730,10 @@ name|int
 name|wheel_scroll_lines
 block|;
 specifier|static
+name|QPointer
+operator|<
 name|QWidget
-operator|*
+operator|>
 name|wheel_widget
 block|;
 endif|#
