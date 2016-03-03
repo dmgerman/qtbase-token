@@ -2414,6 +2414,9 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+name|QString
+name|s
+decl_stmt|;
 if|if
 condition|(
 name|d
@@ -2439,9 +2442,6 @@ init|=
 name|toIPv4Address
 argument_list|()
 decl_stmt|;
-name|QString
-name|s
-decl_stmt|;
 name|QIPAddressUtils
 operator|::
 name|toString
@@ -2451,10 +2451,8 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
-return|return
-name|s
-return|;
 block|}
+elseif|else
 if|if
 condition|(
 name|d
@@ -2466,9 +2464,6 @@ operator|::
 name|IPv6Protocol
 condition|)
 block|{
-name|QString
-name|s
-decl_stmt|;
 name|QIPAddressUtils
 operator|::
 name|toString
@@ -2506,13 +2501,9 @@ operator|->
 name|scopeId
 argument_list|)
 expr_stmt|;
-return|return
-name|s
-return|;
 block|}
 return|return
-name|QString
-argument_list|()
+name|s
 return|;
 block|}
 end_function
