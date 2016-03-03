@@ -677,7 +677,17 @@ break|break;
 default|default:
 name|qDebug
 argument_list|(
-literal|"Not recognised event type"
+literal|"Unrecognized event type: %lu"
+argument_list|,
+cast|static_cast
+argument_list|<
+name|long
+name|unsigned
+name|int
+argument_list|>
+argument_list|(
+name|type
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
