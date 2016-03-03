@@ -193,7 +193,7 @@ argument_list|)
 block|,
 name|QByteArrayLiteral
 argument_list|(
-literal|"antialiasingEnabled"
+literal|"antialiasingenabled"
 argument_list|)
 block|,
 name|QByteArrayLiteral
