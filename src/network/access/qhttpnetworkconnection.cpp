@@ -6203,7 +6203,7 @@ block|{
 comment|// Should not happen
 name|qWarning
 argument_list|(
-literal|"QHttpNetworkConnectionPrivate::_q_hostLookupFinished could not dequeu request"
+literal|"QHttpNetworkConnectionPrivate::_q_hostLookupFinished could not de-queue request"
 argument_list|)
 expr_stmt|;
 name|networkLayerState
