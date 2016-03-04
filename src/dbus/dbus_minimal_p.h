@@ -138,6 +138,11 @@ define|#
 directive|define
 name|DBUS_PATH_DBUS
 value|"/org/freedesktop/DBus"
+DECL|macro|DBUS_PATH_LOCAL
+define|#
+directive|define
+name|DBUS_PATH_LOCAL
+value|"/org/freedesktop/DBus/Local"
 DECL|macro|DBUS_INTERFACE_DBUS
 define|#
 directive|define
@@ -153,6 +158,11 @@ define|#
 directive|define
 name|DBUS_INTERFACE_PROPERTIES
 value|"org.freedesktop.DBus.Properties"
+DECL|macro|DBUS_INTERFACE_LOCAL
+define|#
+directive|define
+name|DBUS_INTERFACE_LOCAL
+value|"org.freedesktop.DBus.Local"
 DECL|macro|DBUS_NAME_FLAG_ALLOW_REPLACEMENT
 define|#
 directive|define
