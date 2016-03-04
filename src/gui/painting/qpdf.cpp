@@ -12136,12 +12136,17 @@ name|QGradient
 operator|::
 name|ConicalGradient
 case|:
-default|default:
-name|qWarning
-argument_list|(
-literal|"Implement me!"
-argument_list|)
+name|Q_UNIMPLEMENTED
+argument_list|()
 expr_stmt|;
+comment|// ### Implement me!
+break|break;
+case|case
+name|QGradient
+operator|::
+name|NoGradient
+case|:
+break|break;
 block|}
 return|return
 literal|0
