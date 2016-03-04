@@ -93,11 +93,6 @@ name|QImage
 operator|::
 name|Format
 name|format
-argument_list|,
-name|int
-name|numColors
-operator|=
-literal|0
 argument_list|)
 decl_stmt|;
 specifier|static
