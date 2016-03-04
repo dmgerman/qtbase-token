@@ -2382,6 +2382,9 @@ parameter_list|(
 name|XPThemeData
 modifier|&
 name|themeData
+parameter_list|,
+name|int
+name|aditionalDevicePixelRatio
 parameter_list|)
 function_decl|;
 name|bool
@@ -2390,6 +2393,9 @@ parameter_list|(
 name|XPThemeData
 modifier|&
 name|themeData
+parameter_list|,
+name|int
+name|aditionalDevicePixelRatio
 parameter_list|)
 function_decl|;
 name|bool
