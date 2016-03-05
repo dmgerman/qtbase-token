@@ -357,6 +357,8 @@ name|GroupBoxTitleFont
 block|,
 name|TabButtonFont
 block|,
+name|EditorFont
+block|,
 name|NFonts
 block|}
 enum|;
