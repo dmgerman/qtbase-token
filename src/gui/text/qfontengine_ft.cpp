@@ -6876,7 +6876,6 @@ name|glyph_buffer_size
 index|]
 argument_list|)
 expr_stmt|;
-block|}
 name|memset
 argument_list|(
 name|glyph_buffer
@@ -6889,6 +6888,7 @@ argument_list|,
 name|glyph_buffer_size
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|slot
