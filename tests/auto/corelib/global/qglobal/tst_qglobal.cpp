@@ -3453,9 +3453,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-argument|(qOverload<QByteArray, const QString&>(&freeOverloaded))
-argument_list|,
-argument|static_cast<void (*)(QByteArray, const QString&)>(&freeOverloaded)
+argument|(qOverload<QByteArray, const QString&>(&freeOverloaded) ==              static_cast<void (*)(QByteArray, const QString&)>(&freeOverloaded))
 argument_list|)
 empty_stmt|;
 comment|// value returning free overloaded functions
