@@ -1470,6 +1470,16 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_function_decl
+name|void
+name|disconnectObjectTree
+parameter_list|(
+name|ObjectTreeNode
+modifier|&
+name|node
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
 name|bool
 name|isServiceRegisteredByThread
 parameter_list|(
