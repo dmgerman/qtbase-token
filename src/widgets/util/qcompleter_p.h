@@ -558,8 +558,13 @@ argument_list|()
 operator|:
 name|exactMatchIndex
 argument_list|(
-argument|-
+operator|-
 literal|1
+argument_list|)
+operator|,
+name|partial
+argument_list|(
+argument|false
 argument_list|)
 block|{ }
 DECL|function|QMatchData
