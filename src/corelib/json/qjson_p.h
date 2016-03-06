@@ -1980,20 +1980,16 @@ name|chunk
 argument_list|)
 expr_stmt|;
 comment|// unaligned 64-bit store
-operator|*
-operator|(
-name|quint64
-operator|*
-operator|)
-operator|&
+name|qUnalignedStore
+argument_list|(
 name|l
-index|[
+operator|+
 name|i
-index|]
-operator|=
+argument_list|,
 name|_mm_cvtsi128_si64
 argument_list|(
 name|chunk
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|i

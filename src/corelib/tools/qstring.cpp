@@ -3067,18 +3067,7 @@ name|chunk
 init|=
 name|_mm_cvtsi64_si128
 argument_list|(
-operator|*
-operator|(
-specifier|const
-name|long
-name|long
-operator|*
-operator|)
-operator|(
-name|c
-operator|+
-name|offset
-operator|)
+argument|qUnalignedLoad<long long>(c + offset)
 argument_list|)
 decl_stmt|;
 name|__m128i
