@@ -761,6 +761,12 @@ emit|;
 if|if
 condition|(
 name|suspendedDelivery
+operator|&&
+name|data
+operator|.
+name|result
+operator|->
+name|connection
 condition|)
 block|{
 name|data
@@ -1197,6 +1203,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|c
+operator|&&
 name|data
 operator|->
 name|suspendedDelivery

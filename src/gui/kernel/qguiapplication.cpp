@@ -486,6 +486,25 @@ operator|::
 name|generic_plugin_list
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
+end_ifndef
+begin_decl_stmt
+DECL|member|is_fallback_session_management_enabled
+name|bool
+name|QGuiApplicationPrivate
+operator|::
+name|is_fallback_session_management_enabled
+init|=
+literal|true
+decl_stmt|;
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_enum
 DECL|enum|ApplicationResourceFlags
 enum|enum
@@ -14470,8 +14489,63 @@ argument_list|)
 emit|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
+end_ifndef
 begin_comment
-comment|/*!     \since 4.2     \fn void QGuiApplication::commitDataRequest(QSessionManager&manager)      This signal deals with \l{Session Management}{session management}. It is     emitted when the QSessionManager wants the application to commit all its     data.      Usually this means saving all open files, after getting permission from     the user. Furthermore you may want to provide a means by which the user     can cancel the shutdown.      You should not exit the application within this signal. Instead,     the session manager may or may not do this afterwards, depending on the     context.      \warning Within this signal, no user interaction is possible, \e     unless you ask the \a manager for explicit permission. See     QSessionManager::allowsInteraction() and     QSessionManager::allowsErrorInteraction() for details and example     usage.      \note You should use Qt::DirectConnection when connecting to this signal.      \sa isSessionRestored(), sessionId(), saveStateRequest(), {Session Management} */
+comment|// ### Qt6: consider removing the feature or making it less intrusive
+end_comment
+begin_comment
+comment|/*!     \since 5.6      Returns whether QGuiApplication will use fallback session management.      The default is \c true.      If this is \c true and the session manager allows user interaction,     QGuiApplication will try to close toplevel windows after     commitDataRequest() has been emitted. If a window cannot be closed, session     shutdown will be canceled and the application will keep running.      Fallback session management only benefits applications that have an     "are you sure you want to close this window?" feature or other logic that     prevents closing a toplevel window depending on certain conditions, and     that do nothing to explicitly implement session management. In applications     that \e do implement session management using the proper session management     API, fallback session management interferes and may break session     management logic.      \warning If all windows \e are closed due to fallback session management     and quitOnLastWindowClosed() is \c true, the application will quit before     it is explicitly instructed to quit through the platform's session     management protocol. That violation of protocol may prevent the platform     session manager from saving application state.      \sa setFallbackSessionManagementEnabled(),     QSessionManager::allowsInteraction(), saveStateRequest(),     commitDataRequest(), {Session Management} */
+end_comment
+begin_function
+DECL|function|isFallbackSessionManagementEnabled
+name|bool
+name|QGuiApplication
+operator|::
+name|isFallbackSessionManagementEnabled
+parameter_list|()
+block|{
+return|return
+name|QGuiApplicationPrivate
+operator|::
+name|is_fallback_session_management_enabled
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!    \since 5.6      Sets whether QGuiApplication will use fallback session management to     \a enabled.      \sa isFallbackSessionManagementEnabled() */
+end_comment
+begin_function
+DECL|function|setFallbackSessionManagementEnabled
+name|void
+name|QGuiApplication
+operator|::
+name|setFallbackSessionManagementEnabled
+parameter_list|(
+name|bool
+name|enabled
+parameter_list|)
+block|{
+name|QGuiApplicationPrivate
+operator|::
+name|is_fallback_session_management_enabled
+operator|=
+name|enabled
+expr_stmt|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_SESSIONMANAGER
+end_comment
+begin_comment
+comment|/*!     \since 4.2     \fn void QGuiApplication::commitDataRequest(QSessionManager&manager)      This signal deals with \l{Session Management}{session management}. It is     emitted when the QSessionManager wants the application to commit all its     data.      Usually this means saving all open files, after getting permission from     the user. Furthermore you may want to provide a means by which the user     can cancel the shutdown.      You should not exit the application within this signal. Instead,     the session manager may or may not do this afterwards, depending on the     context.      \warning Within this signal, no user interaction is possible, \e     unless you ask the \a manager for explicit permission. See     QSessionManager::allowsInteraction() and     QSessionManager::allowsErrorInteraction() for details and example     usage.      \note You should use Qt::DirectConnection when connecting to this signal.      \sa setFallbackSessionManagementEnabled(), isSessionRestored(),     sessionId(), saveStateRequest(), {Session Management} */
 end_comment
 begin_comment
 comment|/*!     \since 4.2     \fn void QGuiApplication::saveStateRequest(QSessionManager&manager)      This signal deals with \l{Session Management}{session management}. It is     invoked when the \l{QSessionManager}{session manager} wants the application     to preserve its state for a future session.      For example, a text editor would create a temporary file that includes the     current contents of its edit buffers, the location of the cursor and other     aspects of the current editing session.      You should never exit the application within this signal. Instead, the     session manager may or may not do this afterwards, depending on the     context. Futhermore, most session managers will very likely request a saved     state immediately after the application has been started. This permits the     session manager to learn about the application's restart policy.      \warning Within this signal, no user interaction is possible, \e     unless you ask the \a manager for explicit permission. See     QSessionManager::allowsInteraction() and     QSessionManager::allowsErrorInteraction() for details.      \note You should use Qt::DirectConnection when connecting to this signal.      \sa isSessionRestored(), sessionId(), commitDataRequest(), {Session Management} */
@@ -14669,6 +14743,8 @@ argument_list|)
 emit|;
 if|if
 condition|(
+name|is_fallback_session_management_enabled
+operator|&&
 name|session_manager
 operator|->
 name|allowsInteraction
@@ -14678,11 +14754,13 @@ operator|!
 name|tryCloseAllWindows
 argument_list|()
 condition|)
+block|{
 name|session_manager
 operator|->
 name|cancel
 argument_list|()
 expr_stmt|;
+block|}
 name|is_saving_session
 operator|=
 literal|false
