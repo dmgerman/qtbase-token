@@ -769,10 +769,6 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-name|void
-name|init
-argument_list|()
-block|;
 specifier|static
 name|QCoreApplication
 operator|*

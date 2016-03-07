@@ -1799,13 +1799,7 @@ name|QCoreApplication
 argument_list|(
 argument|p
 argument_list|)
-block|{
-name|d_func
-argument_list|()
-operator|->
-name|init
-argument_list|()
-block|; }
+block|{ }
 comment|/*!     Destructs the application. */
 DECL|function|~QGuiApplication
 name|QGuiApplication
@@ -4600,6 +4594,11 @@ operator|::
 name|init
 parameter_list|()
 block|{
+name|QCoreApplicationPrivate
+operator|::
+name|init
+argument_list|()
+expr_stmt|;
 name|QCoreApplicationPrivate
 operator|::
 name|is_app_running

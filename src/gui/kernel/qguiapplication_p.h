@@ -159,6 +159,10 @@ name|QGuiApplicationPrivate
 argument_list|()
 block|;
 name|void
+name|init
+argument_list|()
+block|;
+name|void
 name|createPlatformIntegration
 argument_list|()
 block|;
@@ -1483,12 +1487,6 @@ name|class
 name|QDragManager
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
-name|void
-name|init
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_decl_stmt
 specifier|static
 name|QGuiApplicationPrivate

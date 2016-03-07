@@ -132,6 +132,10 @@ operator|~
 name|QCoreApplicationPrivate
 argument_list|()
 block|;
+name|void
+name|init
+argument_list|()
+block|;
 name|QString
 name|appName
 argument_list|()

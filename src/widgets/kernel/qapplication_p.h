@@ -525,7 +525,7 @@ name|e
 argument_list|)
 block|;
 name|void
-name|construct
+name|init
 argument_list|(
 ifdef|#
 directive|ifdef

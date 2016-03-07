@@ -1582,18 +1582,23 @@ argument_list|)
 block|;
 name|d
 operator|->
-name|construct
+name|init
 argument_list|()
 block|; }
 comment|/*!     \internal */
-DECL|function|construct
+DECL|function|init
 name|void
 name|QApplicationPrivate
 operator|::
-name|construct
+name|init
 operator|(
 operator|)
 block|{
+name|QGuiApplicationPrivate
+operator|::
+name|init
+argument_list|()
+block|;
 name|initResources
 argument_list|()
 block|;
