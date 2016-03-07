@@ -1372,6 +1372,11 @@ name|ushort
 operator|)
 name|len
 expr_stmt|;
+if|if
+condition|(
+name|len
+condition|)
+comment|// buf may be nullptr; don't pass that to memcpy (-> undefined behavior)
 name|memcpy
 argument_list|(
 name|tokPtr
