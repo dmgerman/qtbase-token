@@ -191,7 +191,7 @@ operator|:
 name|mutable
 name|QPlatformFontDatabase
 operator|*
-name|m_dummyFontDatabase
+name|m_fontDatabase
 block|;
 name|unsigned
 name|m_options
