@@ -3519,9 +3519,6 @@ argument_list|)
 decl_stmt|;
 forever|forever
 block|{
-comment|// Check if we have any data pending: the pipe writer has
-comment|// bytes waiting to written, or it has written data since the
-comment|// last time we called stdinChannel.writer->waitForWrite().
 name|bool
 name|pendingDataInPipe
 init|=
@@ -3529,21 +3526,12 @@ name|stdinChannel
 operator|.
 name|writer
 operator|&&
-operator|(
 name|stdinChannel
 operator|.
 name|writer
 operator|->
 name|bytesToWrite
 argument_list|()
-operator|||
-name|stdinChannel
-operator|.
-name|writer
-operator|->
-name|hadWritten
-argument_list|()
-operator|)
 decl_stmt|;
 comment|// If we don't have pending data, and our write buffer is
 comment|// empty, we fail.
@@ -4086,13 +4074,6 @@ name|QProcessPrivate
 operator|::
 name|_q_canWrite
 argument_list|)
-expr_stmt|;
-name|stdinChannel
-operator|.
-name|writer
-operator|->
-name|start
-argument_list|()
 expr_stmt|;
 block|}
 return|return

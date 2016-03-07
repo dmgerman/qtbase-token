@@ -152,7 +152,6 @@ block|}
 end_constructor
 begin_function
 DECL|function|qt_cancelIo
-specifier|static
 name|bool
 name|qt_cancelIo
 parameter_list|(
