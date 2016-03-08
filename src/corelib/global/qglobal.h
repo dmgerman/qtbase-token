@@ -5509,15 +5509,6 @@ end_endif
 begin_comment
 comment|// QT_NO_TRANSLATION
 end_comment
-begin_define
-DECL|macro|QDOC_PROPERTY
-define|#
-directive|define
-name|QDOC_PROPERTY
-parameter_list|(
-name|text
-parameter_list|)
-end_define
 begin_comment
 comment|/*    When RTTI is not available, define this macro to force any uses of    dynamic_cast to cause a compile failure. */
 end_comment
