@@ -3298,8 +3298,6 @@ argument_list|)
 operator|.
 name|toBool
 argument_list|()
-operator|==
-literal|true
 condition|)
 name|httpRequest
 operator|.
@@ -3321,8 +3319,6 @@ argument_list|)
 operator|.
 name|toBool
 argument_list|()
-operator|==
-literal|true
 condition|)
 name|httpRequest
 operator|.
@@ -3381,8 +3377,6 @@ argument_list|)
 operator|.
 name|toBool
 argument_list|()
-operator|==
-literal|true
 condition|)
 name|emitAllUploadProgressSignals
 operator|=
