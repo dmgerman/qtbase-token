@@ -7346,6 +7346,10 @@ argument_list|>
 argument_list|(
 name|event
 argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|MouseEventSynthesizedByQt
 argument_list|)
 expr_stmt|;
 else|#
