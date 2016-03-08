@@ -6823,9 +6823,12 @@ literal|"  New orientation:"
 operator|<<
 name|newOrientation
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINPHONE
+if|#
+directive|if
+name|WINAPI_FAMILY_PARTITION
+argument_list|(
+name|WINAPI_PARTITION_PHONE_APP
+argument_list|)
 name|onSizeChanged
 argument_list|(
 literal|nullptr
