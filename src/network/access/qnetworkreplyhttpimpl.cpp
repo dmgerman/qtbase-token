@@ -2949,11 +2949,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|bool
-name|loadedFromCache
-init|=
-literal|false
-decl_stmt|;
 name|httpRequest
 operator|.
 name|setPriority
@@ -2986,13 +2981,15 @@ operator|::
 name|Get
 argument_list|)
 expr_stmt|;
-name|loadedFromCache
-operator|=
+if|if
+condition|(
 name|loadFromCacheIfAllowed
 argument_list|(
 name|httpRequest
 argument_list|)
-expr_stmt|;
+condition|)
+return|return;
+comment|// no need to send the request! :)
 break|break;
 case|case
 name|QNetworkAccessManager
@@ -3008,13 +3005,15 @@ operator|::
 name|Head
 argument_list|)
 expr_stmt|;
-name|loadedFromCache
-operator|=
+if|if
+condition|(
 name|loadFromCacheIfAllowed
 argument_list|(
 name|httpRequest
 argument_list|)
-expr_stmt|;
+condition|)
+return|return;
+comment|// no need to send the request! :)
 break|break;
 case|case
 name|QNetworkAccessManager
@@ -3118,14 +3117,6 @@ break|break;
 default|default:
 break|break;
 comment|// can't happen
-block|}
-if|if
-condition|(
-name|loadedFromCache
-condition|)
-block|{
-return|return;
-comment|// no need to send the request! :)
 block|}
 name|QList
 argument_list|<
