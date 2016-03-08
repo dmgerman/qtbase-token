@@ -14324,10 +14324,6 @@ name|Qt
 operator|::
 name|ScrollUpdate
 operator|)
-operator|&&
-name|QGuiApplicationPrivate
-operator|::
-name|scrollNoPhaseAllowed
 condition|)
 name|QApplicationPrivate
 operator|::

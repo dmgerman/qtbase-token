@@ -1869,25 +1869,6 @@ name|bool
 name|invertedScrolling
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-name|QGuiApplicationPrivate
-operator|::
-name|scrollNoPhaseAllowed
-operator|&&
-name|phase
-operator|==
-name|Qt
-operator|::
-name|NoScrollPhase
-condition|)
-name|phase
-operator|=
-name|Qt
-operator|::
-name|ScrollUpdate
-expr_stmt|;
 comment|// Qt 4 sends two separate wheel events for horizontal and vertical
 comment|// deltas. For Qt 5 we want to send the deltas in one event, but at the
 comment|// same time preserve source and behavior compatibility with Qt 4.
@@ -5799,21 +5780,6 @@ argument_list|)
 member_init_list|,
 name|phase
 argument_list|(
-operator|!
-name|QGuiApplicationPrivate
-operator|::
-name|scrollNoPhaseAllowed
-operator|&&
-name|phase
-operator|==
-name|Qt
-operator|::
-name|NoScrollPhase
-condition|?
-name|Qt
-operator|::
-name|ScrollUpdate
-else|:
 name|phase
 argument_list|)
 member_init_list|,

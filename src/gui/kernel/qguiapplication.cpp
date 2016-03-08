@@ -825,19 +825,6 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|// enable the fix for QTBUG-50199; TODO remove this check in 5.7
-end_comment
-begin_decl_stmt
-DECL|member|scrollNoPhaseAllowed
-name|bool
-name|QGuiApplicationPrivate
-operator|::
-name|scrollNoPhaseAllowed
-init|=
-literal|false
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 DECL|variable|fontSmoothingGamma
 specifier|static
@@ -5576,13 +5563,6 @@ else|:
 name|Qt
 operator|::
 name|LeftToRight
-argument_list|)
-expr_stmt|;
-name|scrollNoPhaseAllowed
-operator|=
-name|qEnvironmentVariableIsSet
-argument_list|(
-literal|"QT_ENABLE_MOUSE_WHEEL_TRACKING"
 argument_list|)
 expr_stmt|;
 block|}
