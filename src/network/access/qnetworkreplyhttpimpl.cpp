@@ -8552,16 +8552,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-if|if
-condition|(
-name|state
-operator|!=
-name|Finished
-condition|)
-block|{          }
-block|}
 block|}
 end_function
 begin_function
