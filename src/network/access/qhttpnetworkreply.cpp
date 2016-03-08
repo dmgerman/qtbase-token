@@ -2455,21 +2455,14 @@ condition|)
 block|{
 comment|// check for possible header endings. As per HTTP rfc,
 comment|// the header endings will be marked by CRLFCRLF. But
-comment|// we will allow CRLFCRLF, CRLFLF, LFLF
+comment|// we will allow CRLFCRLF, CRLFLF, LFCRLF, LFLF
 if|if
 condition|(
 name|fragment
 operator|.
 name|endsWith
 argument_list|(
-literal|"\r\n\r\n"
-argument_list|)
-operator|||
-name|fragment
-operator|.
-name|endsWith
-argument_list|(
-literal|"\r\n\n"
+literal|"\n\r\n"
 argument_list|)
 operator|||
 name|fragment
