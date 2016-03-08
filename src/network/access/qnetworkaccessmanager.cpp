@@ -2319,9 +2319,6 @@ argument_list|()
 operator|.
 name|scheme
 argument_list|()
-operator|.
-name|toLower
-argument_list|()
 decl_stmt|;
 comment|// fast path for GET on file:// URLs
 comment|// The QNetworkAccessFileBackend will right now only be used for PUT
