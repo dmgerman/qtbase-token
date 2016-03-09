@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<private/qnetworksession_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<algorithm>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -66,32 +71,132 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function_decl
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|//#define QHOSTINFO_DEBUG
 name|Q_GLOBAL_STATIC
-parameter_list|(
+argument_list|(
 name|QHostInfoLookupManager
-parameter_list|,
+argument_list|,
 name|theHostInfoLookupManager
+argument_list|)
+namespace|namespace
+block|{
+DECL|struct|ToBeLookedUpEquals
+struct|struct
+name|ToBeLookedUpEquals
+block|{
+DECL|typedef|result_type
+typedef|typedef
+name|bool
+name|result_type
+typedef|;
+DECL|member|Q_DECL_NOTHROW
+specifier|explicit
+name|ToBeLookedUpEquals
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|toBeLookedUp
 parameter_list|)
-comment|/*!     \class QHostInfo     \brief The QHostInfo class provides static functions for host name lookups.      \reentrant     \inmodule QtNetwork     \ingroup network      QHostInfo uses the lookup mechanisms provided by the operating     system to find the IP address(es) associated with a host name,     or the host name associated with an IP address.     The class provides two static convenience functions: one that     works asynchronously and emits a signal once the host is found,     and one that blocks and returns a QHostInfo object.      To look up a host's IP addresses asynchronously, call lookupHost(),     which takes the host name or IP address, a receiver object, and a slot     signature as arguments and returns an ID. You can abort the     lookup by calling abortHostLookup() with the lookup ID.      Example:      \snippet code/src_network_kernel_qhostinfo.cpp 0       The slot is invoked when the results are ready. The results are     stored in a QHostInfo object. Call     addresses() to get the list of IP addresses for the host, and     hostName() to get the host name that was looked up.      If the lookup failed, error() returns the type of error that     occurred. errorString() gives a human-readable description of the     lookup error.      If you want a blocking lookup, use the QHostInfo::fromName() function:      \snippet code/src_network_kernel_qhostinfo.cpp 1      QHostInfo supports Internationalized Domain Names (IDNs) through the     IDNA and Punycode standards.      To retrieve the name of the local host, use the static     QHostInfo::localHostName() function.      \note Since Qt 4.6.1 QHostInfo is using multiple threads for DNS lookup     instead of one dedicated DNS thread. This improves performance,     but also changes the order of signal emissions when using lookupHost()     compared to previous versions of Qt.     \note Since Qt 4.6.3 QHostInfo is using a small internal 60 second DNS cache     for performance improvements.      \sa QAbstractSocket, {http://www.rfc-editor.org/rfc/rfc3492.txt}{RFC 3492} */
-DECL|variable|theIdCounter
-specifier|static
-name|QBasicAtomicInt
-name|theIdCounter
-decl_stmt|= Q_BASIC_ATOMIC_INITIALIZER(1
-end_function_decl
+name|Q_DECL_NOTHROW
+public|:
+name|m_toBeLookedUp
+parameter_list|(
+name|toBeLookedUp
+parameter_list|)
+constructor|{
+block|}
+name|result_type
+name|operator
+name|()
+argument_list|(
+name|QHostInfoRunnable
+operator|*
+name|lookup
+argument_list|)
+decl|const
+name|Q_DECL_NOTHROW
+argument_list|{         return
+name|m_toBeLookedUp
+operator|==
+name|lookup
+operator|->
+name|toBeLookedUp
+argument_list|;     }
+decl|private
+range|:
+DECL|member|m_toBeLookedUp
+name|QString
+name|m_toBeLookedUp
+struct|;
+block|}
+end_decl_stmt
 begin_empty_stmt
-DECL|variable|theIdCounter
-unit|)
 empty_stmt|;
 end_empty_stmt
+begin_comment
+comment|// ### C++11: remove once we can use std::any_of()
+end_comment
+begin_function
+template|template
+parameter_list|<
+name|class
+name|InputIt
+parameter_list|,
+name|class
+name|UnaryPredicate
+parameter_list|>
+DECL|function|any_of
+name|bool
+name|any_of
+parameter_list|(
+name|InputIt
+name|first
+parameter_list|,
+name|InputIt
+name|last
+parameter_list|,
+name|UnaryPredicate
+name|p
+parameter_list|)
+block|{
+return|return
+name|std
+operator|::
+name|find_if
+argument_list|(
+name|first
+argument_list|,
+name|last
+argument_list|,
+name|p
+argument_list|)
+operator|!=
+name|last
+return|;
+block|}
+end_function
+begin_comment
+unit|}
+comment|/*!     \class QHostInfo     \brief The QHostInfo class provides static functions for host name lookups.      \reentrant     \inmodule QtNetwork     \ingroup network      QHostInfo uses the lookup mechanisms provided by the operating     system to find the IP address(es) associated with a host name,     or the host name associated with an IP address.     The class provides two static convenience functions: one that     works asynchronously and emits a signal once the host is found,     and one that blocks and returns a QHostInfo object.      To look up a host's IP addresses asynchronously, call lookupHost(),     which takes the host name or IP address, a receiver object, and a slot     signature as arguments and returns an ID. You can abort the     lookup by calling abortHostLookup() with the lookup ID.      Example:      \snippet code/src_network_kernel_qhostinfo.cpp 0       The slot is invoked when the results are ready. The results are     stored in a QHostInfo object. Call     addresses() to get the list of IP addresses for the host, and     hostName() to get the host name that was looked up.      If the lookup failed, error() returns the type of error that     occurred. errorString() gives a human-readable description of the     lookup error.      If you want a blocking lookup, use the QHostInfo::fromName() function:      \snippet code/src_network_kernel_qhostinfo.cpp 1      QHostInfo supports Internationalized Domain Names (IDNs) through the     IDNA and Punycode standards.      To retrieve the name of the local host, use the static     QHostInfo::localHostName() function.      \note Since Qt 4.6.1 QHostInfo is using multiple threads for DNS lookup     instead of one dedicated DNS thread. This improves performance,     but also changes the order of signal emissions when using lookupHost()     compared to previous versions of Qt.     \note Since Qt 4.6.3 QHostInfo is using a small internal 60 second DNS cache     for performance improvements.      \sa QAbstractSocket, {http://www.rfc-editor.org/rfc/rfc3492.txt}{RFC 3492} */
+end_comment
+begin_decl_stmt
+unit|static
+name|QBasicAtomicInt
+name|theIdCounter
+init|=
+name|Q_BASIC_ATOMIC_INITIALIZER
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*!     Looks up the IP address(es) associated with host name \a name, and     returns an ID for the lookup. When the result of the lookup is     ready, the slot or signal \a member in \a receiver is called with     a QHostInfo argument. The QHostInfo object can then be inspected     to get the results of the lookup.      The lookup is performed by a single function call, for example:      \snippet code/src_network_kernel_qhostinfo.cpp 2      The implementation of the slot prints basic information about the     addresses returned by the lookup, or reports an error if it failed:      \snippet code/src_network_kernel_qhostinfo.cpp 3      If you pass a literal IP address to \a name instead of a host name,     QHostInfo will search for the domain name for the IP (i.e., QHostInfo will     perform a \e reverse lookup). On success, the resulting QHostInfo will     contain both the resolved domain name and IP addresses for the host     name. Example:      \snippet code/src_network_kernel_qhostinfo.cpp 4      \note There is no guarantee on the order the signals will be emitted     if you start multiple requests with lookupHost().      \sa abortHostLookup(), addresses(), error(), fromName() */
 end_comment
 begin_function
-DECL|function|lookupHost
 name|int
 name|QHostInfo
 operator|::
@@ -442,7 +547,6 @@ begin_comment
 comment|/*!     Aborts the host lookup with the ID \a id, as returned by lookupHost().      \sa lookupHost(), lookupId() */
 end_comment
 begin_function
-DECL|function|abortHostLookup
 name|void
 name|QHostInfo
 operator|::
@@ -466,7 +570,6 @@ begin_comment
 comment|/*!     Looks up the IP address(es) for the given host \a name. The     function blocks during the lookup which means that execution of     the program is suspended until the results of the lookup are     ready. Returns the result of the lookup in a QHostInfo object.      If you pass a literal IP address to \a name instead of a host name,     QHostInfo will search for the domain name for the IP (i.e., QHostInfo will     perform a \e reverse lookup). On success, the returned QHostInfo will     contain both the resolved domain name and IP addresses for the host name.      \sa lookupHost() */
 end_comment
 begin_function
-DECL|function|fromName
 name|QHostInfo
 name|QHostInfo
 operator|::
@@ -536,7 +639,6 @@ directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
 end_ifndef
 begin_function
-DECL|function|fromName
 name|QHostInfo
 name|QHostInfoPrivate
 operator|::
@@ -623,7 +725,6 @@ directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
 end_ifndef
 begin_function
-DECL|function|fromName
 name|QHostInfo
 name|QHostInfoAgent
 operator|::
@@ -661,7 +762,6 @@ begin_comment
 comment|/*!     Constructs an empty host info object with lookup ID \a id.      \sa lookupId() */
 end_comment
 begin_constructor
-DECL|function|QHostInfo
 name|QHostInfo
 operator|::
 name|QHostInfo
@@ -688,7 +788,6 @@ begin_comment
 comment|/*!     Constructs a copy of \a other. */
 end_comment
 begin_constructor
-DECL|function|QHostInfo
 name|QHostInfo
 operator|::
 name|QHostInfo
@@ -719,7 +818,6 @@ begin_comment
 comment|/*!     Assigns the data of the \a other object to this host info object,     and returns a reference to it. */
 end_comment
 begin_function
-DECL|function|operator =
 name|QHostInfo
 modifier|&
 name|QHostInfo
@@ -757,7 +855,6 @@ begin_comment
 comment|/*!     Destroys the host info object. */
 end_comment
 begin_destructor
-DECL|function|~QHostInfo
 name|QHostInfo
 operator|::
 name|~
@@ -769,7 +866,6 @@ begin_comment
 comment|/*!     Returns the list of IP addresses associated with hostName(). This     list may be empty.      Example:      \snippet code/src_network_kernel_qhostinfo.cpp 5      \sa hostName(), error() */
 end_comment
 begin_function
-DECL|function|addresses
 name|QList
 argument_list|<
 name|QHostAddress
@@ -791,7 +887,6 @@ begin_comment
 comment|/*!     Sets the list of addresses in this QHostInfo to \a addresses.      \sa addresses() */
 end_comment
 begin_function
-DECL|function|setAddresses
 name|void
 name|QHostInfo
 operator|::
@@ -818,7 +913,6 @@ begin_comment
 comment|/*!     Returns the name of the host whose IP addresses were looked up.      \sa localHostName() */
 end_comment
 begin_function
-DECL|function|hostName
 name|QString
 name|QHostInfo
 operator|::
@@ -837,7 +931,6 @@ begin_comment
 comment|/*!     Sets the host name of this QHostInfo to \a hostName.      \sa hostName() */
 end_comment
 begin_function
-DECL|function|setHostName
 name|void
 name|QHostInfo
 operator|::
@@ -861,7 +954,6 @@ begin_comment
 comment|/*!     Returns the type of error that occurred if the host name lookup     failed; otherwise returns NoError.      \sa setError(), errorString() */
 end_comment
 begin_function
-DECL|function|error
 name|QHostInfo
 operator|::
 name|HostInfoError
@@ -882,7 +974,6 @@ begin_comment
 comment|/*!     Sets the error type of this QHostInfo to \a error.      \sa error(), errorString() */
 end_comment
 begin_function
-DECL|function|setError
 name|void
 name|QHostInfo
 operator|::
@@ -904,7 +995,6 @@ begin_comment
 comment|/*!     Returns the ID of this lookup.      \sa setLookupId(), abortHostLookup(), hostName() */
 end_comment
 begin_function
-DECL|function|lookupId
 name|int
 name|QHostInfo
 operator|::
@@ -923,7 +1013,6 @@ begin_comment
 comment|/*!     Sets the ID of this lookup to \a id.      \sa lookupId(), lookupHost() */
 end_comment
 begin_function
-DECL|function|setLookupId
 name|void
 name|QHostInfo
 operator|::
@@ -945,7 +1034,6 @@ begin_comment
 comment|/*!     If the lookup failed, this function returns a human readable     description of the error; otherwise "Unknown error" is returned.      \sa setErrorString(), error() */
 end_comment
 begin_function
-DECL|function|errorString
 name|QString
 name|QHostInfo
 operator|::
@@ -964,7 +1052,6 @@ begin_comment
 comment|/*!     Sets the human readable description of the error that occurred to \a str     if the lookup failed.      \sa errorString(), setError() */
 end_comment
 begin_function
-DECL|function|setErrorString
 name|void
 name|QHostInfo
 operator|::
@@ -988,7 +1075,6 @@ begin_comment
 comment|/*!     \fn QString QHostInfo::localHostName()      Returns this machine's host name, if one is configured. Note that hostnames     are not guaranteed to be globally unique, especially if they were     configured automatically.      This function does not guarantee the returned host name is a Fully     Qualified Domain Name (FQDN). For that, use fromName() to resolve the     returned name to an FQDN.      This function returns the same as QSysInfo::machineHostName().      \sa hostName(), localDomainName() */
 end_comment
 begin_function
-DECL|function|localHostName
 name|QString
 name|QHostInfo
 operator|::
@@ -1007,7 +1093,6 @@ begin_comment
 comment|/*!     \fn QString QHostInfo::localDomainName()      Returns the DNS domain of this machine.      \note DNS domains are not related to domain names found in     Windows networks.      \sa hostName() */
 end_comment
 begin_constructor
-DECL|function|QHostInfoRunnable
 name|QHostInfoRunnable
 operator|::
 name|QHostInfoRunnable
@@ -1042,7 +1127,6 @@ begin_comment
 comment|// the QHostInfoLookupManager will at some point call this via a QThreadPool
 end_comment
 begin_function
-DECL|function|run
 name|void
 name|QHostInfoRunnable
 operator|::
@@ -1200,50 +1284,71 @@ operator|->
 name|mutex
 argument_list|)
 decl_stmt|;
-name|QMutableListIterator
-argument_list|<
-name|QHostInfoRunnable
-modifier|*
-argument_list|>
-name|iterator
+specifier|const
+specifier|auto
+name|partitionBegin
+init|=
+name|std
+operator|::
+name|stable_partition
 argument_list|(
 name|manager
 operator|->
 name|postponedLookups
-argument_list|)
-decl_stmt|;
-while|while
-condition|(
-name|iterator
 operator|.
-name|hasNext
+name|rbegin
 argument_list|()
-condition|)
+argument_list|,
+name|manager
+operator|->
+name|postponedLookups
+operator|.
+name|rend
+argument_list|()
+argument_list|,
+name|ToBeLookedUpEquals
+argument_list|(
+name|toBeLookedUp
+argument_list|)
+argument_list|)
+operator|.
+name|base
+argument_list|()
+decl_stmt|;
+specifier|const
+specifier|auto
+name|partitionEnd
+init|=
+name|manager
+operator|->
+name|postponedLookups
+operator|.
+name|end
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|auto
+name|it
+init|=
+name|partitionBegin
+init|;
+name|it
+operator|!=
+name|partitionEnd
+condition|;
+operator|++
+name|it
+control|)
 block|{
 name|QHostInfoRunnable
 modifier|*
 name|postponed
 init|=
-name|iterator
-operator|.
-name|next
-argument_list|()
+operator|*
+name|it
 decl_stmt|;
-if|if
-condition|(
-name|toBeLookedUp
-operator|==
-name|postponed
-operator|->
-name|toBeLookedUp
-condition|)
-block|{
 comment|// we can now emit
-name|iterator
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
 name|hostInfo
 operator|.
 name|setLookupId
@@ -1266,7 +1371,17 @@ operator|delete
 name|postponed
 expr_stmt|;
 block|}
-block|}
+name|manager
+operator|->
+name|postponedLookups
+operator|.
+name|erase
+argument_list|(
+name|partitionBegin
+argument_list|,
+name|partitionEnd
+argument_list|)
+expr_stmt|;
 block|}
 name|manager
 operator|->
@@ -1279,7 +1394,6 @@ comment|// thread goes back to QThreadPool
 block|}
 end_function
 begin_constructor
-DECL|function|QHostInfoLookupManager
 name|QHostInfoLookupManager
 operator|::
 name|QHostInfoLookupManager
@@ -1340,7 +1454,6 @@ comment|// do up to 20 DNS lookups in parallel
 block|}
 end_constructor
 begin_destructor
-DECL|function|~QHostInfoLookupManager
 name|QHostInfoLookupManager
 operator|::
 name|~
@@ -1358,7 +1471,6 @@ expr_stmt|;
 block|}
 end_destructor
 begin_function
-DECL|function|clear
 name|void
 name|QHostInfoLookupManager
 operator|::
@@ -1417,7 +1529,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|work
 name|void
 name|QHostInfoLookupManager
 operator|::
@@ -1526,52 +1637,30 @@ name|next
 argument_list|()
 decl_stmt|;
 comment|// check if none of the postponed hostnames is currently running
+specifier|const
 name|bool
 name|alreadyRunning
 init|=
-literal|false
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|currentLookups
-operator|.
-name|length
-argument_list|()
-condition|;
-name|i
-operator|++
-control|)
-block|{
-if|if
-condition|(
-name|currentLookups
-operator|.
-name|at
+name|any_of
 argument_list|(
-name|i
-argument_list|)
-operator|->
-name|toBeLookedUp
-operator|==
+name|currentLookups
+operator|.
+name|cbegin
+argument_list|()
+argument_list|,
+name|currentLookups
+operator|.
+name|cend
+argument_list|()
+argument_list|,
+name|ToBeLookedUpEquals
+argument_list|(
 name|postponed
 operator|->
 name|toBeLookedUp
-condition|)
-block|{
-name|alreadyRunning
-operator|=
-literal|true
-expr_stmt|;
-break|break;
-block|}
-block|}
+argument_list|)
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1632,38 +1721,33 @@ name|next
 argument_list|()
 decl_stmt|;
 comment|// check if a lookup for this host is already running, then postpone
-for|for
-control|(
-name|int
-name|i
+specifier|const
+name|bool
+name|alreadyRunning
 init|=
-literal|0
-init|;
-name|i
-operator|<
-name|currentLookups
-operator|.
-name|size
-argument_list|()
-condition|;
-name|i
-operator|++
-control|)
-block|{
-if|if
-condition|(
-name|currentLookups
-operator|.
-name|at
+name|any_of
 argument_list|(
-name|i
-argument_list|)
-operator|->
-name|toBeLookedUp
-operator|==
+name|currentLookups
+operator|.
+name|cbegin
+argument_list|()
+argument_list|,
+name|currentLookups
+operator|.
+name|cend
+argument_list|()
+argument_list|,
+name|ToBeLookedUpEquals
+argument_list|(
 name|scheduled
 operator|->
 name|toBeLookedUp
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|alreadyRunning
 condition|)
 block|{
 name|iterator
@@ -1682,8 +1766,6 @@ name|scheduled
 operator|=
 literal|0
 expr_stmt|;
-break|break;
-block|}
 block|}
 if|if
 condition|(
@@ -1735,7 +1817,6 @@ begin_comment
 comment|// called by QHostInfo
 end_comment
 begin_function
-DECL|function|scheduleLookup
 name|void
 name|QHostInfoLookupManager
 operator|::
@@ -1776,7 +1857,6 @@ begin_comment
 comment|// called by QHostInfo
 end_comment
 begin_function
-DECL|function|abortLookup
 name|void
 name|QHostInfoLookupManager
 operator|::
@@ -1911,7 +1991,6 @@ begin_comment
 comment|// called from QHostInfoRunnable
 end_comment
 begin_function
-DECL|function|wasAborted
 name|bool
 name|QHostInfoLookupManager
 operator|::
@@ -1951,7 +2030,6 @@ begin_comment
 comment|// called from QHostInfoRunnable
 end_comment
 begin_function
-DECL|function|lookupFinished
 name|void
 name|QHostInfoLookupManager
 operator|::
@@ -1999,7 +2077,6 @@ begin_comment
 comment|// This function returns immediately when we had a result in the cache, else it will later emit a signal
 end_comment
 begin_function
-DECL|function|qt_qhostinfo_lookup
 name|QHostInfo
 name|qt_qhostinfo_lookup
 parameter_list|(
@@ -2105,7 +2182,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qt_qhostinfo_clear_cache
 name|void
 name|qt_qhostinfo_clear_cache
 parameter_list|()
@@ -2136,7 +2212,6 @@ directive|ifdef
 name|QT_BUILD_INTERNAL
 end_ifdef
 begin_function
-DECL|function|qt_qhostinfo_enable_cache
 name|void
 name|Q_AUTOTEST_EXPORT
 name|qt_qhostinfo_enable_cache
@@ -2170,7 +2245,6 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|qt_qhostinfo_cache_inject
 name|void
 name|qt_qhostinfo_cache_inject
 parameter_list|(
@@ -2230,7 +2304,6 @@ begin_comment
 comment|// cache 128 items
 end_comment
 begin_constructor
-DECL|function|QHostInfoCache
 name|QHostInfoCache
 operator|::
 name|QHostInfoCache
@@ -2263,7 +2336,6 @@ directive|endif
 block|}
 end_constructor
 begin_function
-DECL|function|isEnabled
 name|bool
 name|QHostInfoCache
 operator|::
@@ -2282,7 +2354,6 @@ begin_comment
 comment|// and not usable by public API
 end_comment
 begin_function
-DECL|function|setEnabled
 name|void
 name|QHostInfoCache
 operator|::
@@ -2299,7 +2370,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|get
 name|QHostInfo
 name|QHostInfoCache
 operator|::
@@ -2377,7 +2447,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|put
 name|void
 name|QHostInfoCache
 operator|::
@@ -2457,7 +2526,6 @@ comment|// cache will take ownership
 block|}
 end_function
 begin_function
-DECL|function|clear
 name|void
 name|QHostInfoCache
 operator|::
@@ -2481,7 +2549,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|globalInstance
 name|QAbstractHostInfoLookupManager
 modifier|*
 name|QAbstractHostInfoLookupManager
