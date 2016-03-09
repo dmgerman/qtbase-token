@@ -135,6 +135,7 @@ name|polish
 argument_list|(
 name|QWidget
 operator|*
+name|widget
 argument_list|)
 block|;
 name|virtual
@@ -143,6 +144,7 @@ name|unpolish
 argument_list|(
 name|QWidget
 operator|*
+name|widget
 argument_list|)
 block|;
 name|virtual
@@ -151,6 +153,7 @@ name|polish
 argument_list|(
 name|QApplication
 operator|*
+name|application
 argument_list|)
 block|;
 name|virtual
@@ -159,6 +162,7 @@ name|unpolish
 argument_list|(
 name|QApplication
 operator|*
+name|application
 argument_list|)
 block|;
 name|virtual
@@ -167,6 +171,7 @@ name|polish
 argument_list|(
 name|QPalette
 operator|&
+name|palette
 argument_list|)
 block|;
 name|virtual
