@@ -27859,11 +27859,6 @@ if|if
 condition|(
 name|q
 operator|->
-name|isVisible
-argument_list|()
-operator|&&
-name|q
-operator|->
 name|testAttribute
 argument_list|(
 name|Qt
