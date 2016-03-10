@@ -4230,6 +4230,9 @@ decl_stmt|;
 if|if
 condition|(
 name|useXftConf
+operator|&&
+operator|!
+name|forcedAntialiasSetting
 condition|)
 block|{
 name|void
