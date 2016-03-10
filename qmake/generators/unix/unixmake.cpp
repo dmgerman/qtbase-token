@@ -4289,7 +4289,14 @@ literal|"-$(INSTALL_FILE) "
 operator|+
 name|escapeFilePath
 argument_list|(
+name|Option
+operator|::
+name|fixPathToTargetOS
+argument_list|(
 name|src
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 operator|+
 literal|' '
