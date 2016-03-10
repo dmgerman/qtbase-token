@@ -1009,6 +1009,8 @@ name|hEvent
 operator|=
 name|eventHandle
 expr_stmt|;
+comment|// Beware! ConnectNamedPipe will reset the eventHandle to non-signaled.
+comment|// Callers of addListener must check all listeners for connections.
 if|if
 condition|(
 operator|!
@@ -1049,11 +1051,6 @@ operator|.
 name|connected
 operator|=
 literal|true
-expr_stmt|;
-name|SetEvent
-argument_list|(
-name|eventHandle
-argument_list|)
 expr_stmt|;
 break|break;
 default|default:
@@ -1303,6 +1300,9 @@ condition|)
 return|return
 literal|false
 return|;
+name|_q_onNewConnection
+argument_list|()
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -1344,6 +1344,15 @@ expr_stmt|;
 name|DWORD
 name|dummy
 decl_stmt|;
+name|bool
+name|tryAgain
+decl_stmt|;
+do|do
+block|{
+name|tryAgain
+operator|=
+literal|false
+expr_stmt|;
 comment|// Reset first, otherwise we could reset an event which was asserted
 comment|// immediately after we checked the conn status.
 name|ResetEvent
@@ -1433,6 +1442,11 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+else|else
+name|tryAgain
+operator|=
+literal|true
+expr_stmt|;
 comment|// Make this the last thing so connected slots can wreak the least havoc
 name|q
 operator|->
@@ -1475,6 +1489,12 @@ name|i
 expr_stmt|;
 block|}
 block|}
+block|}
+do|while
+condition|(
+name|tryAgain
+condition|)
+do|;
 block|}
 end_function
 begin_function
