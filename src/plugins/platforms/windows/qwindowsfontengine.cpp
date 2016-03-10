@@ -198,29 +198,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|MAKE_TAG
-end_ifdef
-begin_undef
-DECL|macro|MAKE_TAG
-undef|#
-directive|undef
-name|MAKE_TAG
-end_undef
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// GetFontData expects the tags in little endian ;(
 end_comment
 begin_define
-DECL|macro|MAKE_TAG
+DECL|macro|MAKE_LITTLE_ENDIAN_TAG
 define|#
 directive|define
-name|MAKE_TAG
+name|MAKE_LITTLE_ENDIAN_TAG
 parameter_list|(
 name|ch1
 parameter_list|,
@@ -453,7 +438,7 @@ name|GetFontData
 argument_list|(
 name|hdc
 argument_list|,
-name|MAKE_TAG
+name|MAKE_LITTLE_ENDIAN_TAG
 argument_list|(
 literal|'C'
 argument_list|,
@@ -503,7 +488,7 @@ name|GetFontData
 argument_list|(
 name|hdc
 argument_list|,
-name|MAKE_TAG
+name|MAKE_LITTLE_ENDIAN_TAG
 argument_list|(
 literal|'c'
 argument_list|,
@@ -553,7 +538,7 @@ name|GetFontData
 argument_list|(
 name|hdc
 argument_list|,
-name|MAKE_TAG
+name|MAKE_LITTLE_ENDIAN_TAG
 argument_list|(
 literal|'g'
 argument_list|,
@@ -603,7 +588,7 @@ name|GetFontData
 argument_list|(
 name|hdc
 argument_list|,
-name|MAKE_TAG
+name|MAKE_LITTLE_ENDIAN_TAG
 argument_list|(
 literal|'E'
 argument_list|,
@@ -736,11 +721,6 @@ name|cmapTable
 operator|=
 name|getSfntTable
 argument_list|(
-name|qbswap
-argument_list|<
-name|quint32
-argument_list|>
-argument_list|(
 name|MAKE_TAG
 argument_list|(
 literal|'c'
@@ -750,7 +730,6 @@ argument_list|,
 literal|'a'
 argument_list|,
 literal|'p'
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5360,7 +5339,7 @@ specifier|const
 name|DWORD
 name|HEAD
 init|=
-name|MAKE_TAG
+name|MAKE_LITTLE_ENDIAN_TAG
 argument_list|(
 literal|'h'
 argument_list|,
