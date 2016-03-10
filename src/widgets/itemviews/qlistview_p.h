@@ -1079,14 +1079,7 @@ name|QListViewPrivate
 operator|*
 name|d
 argument_list|)
-operator|:
-name|QCommonListViewBase
-argument_list|(
-argument|q
-argument_list|,
-argument|d
-argument_list|)
-block|{}
+block|;
 name|QVector
 operator|<
 name|int

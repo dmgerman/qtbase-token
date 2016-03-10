@@ -1110,7 +1110,6 @@ literal|6
 argument_list|)
 end_if
 begin_decl_stmt
-name|QT_MOC_COMPAT
 name|void
 name|error
 argument_list|(

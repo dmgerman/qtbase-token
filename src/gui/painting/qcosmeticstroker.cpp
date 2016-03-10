@@ -545,6 +545,16 @@ name|bottom
 argument_list|()
 condition|)
 return|return;
+if|if
+condition|(
+name|stroker
+operator|->
+name|current_span
+operator|>
+literal|0
+condition|)
+block|{
+specifier|const
 name|int
 name|lastx
 init|=
@@ -574,6 +584,7 @@ index|]
 operator|.
 name|len
 decl_stmt|;
+specifier|const
 name|int
 name|lasty
 init|=
@@ -641,6 +652,7 @@ name|current_span
 operator|=
 literal|0
 expr_stmt|;
+block|}
 block|}
 name|stroker
 operator|->

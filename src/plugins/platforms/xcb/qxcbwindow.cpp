@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QMetaEnum>
+end_include
+begin_include
+include|#
+directive|include
 file|<QScreen>
 end_include
 begin_include
@@ -11547,9 +11552,20 @@ name|QXcbAtom
 operator|::
 name|_COMPIZ_TOOLKIT_ACTION
 argument_list|)
+operator|||
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_GTK_LOAD_ICONTHEMES
+argument_list|)
 condition|)
 block|{
-comment|//silence the _COMPIZ messages for now
+comment|//silence the _COMPIZ and _GTK messages for now
 block|}
 else|else
 block|{
@@ -12146,6 +12162,11 @@ name|modifiers
 parameter_list|,
 name|xcb_timestamp_t
 name|timestamp
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 specifier|const
@@ -12401,6 +12422,8 @@ argument_list|,
 name|global
 argument_list|,
 name|modifiers
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 block|}
@@ -12432,6 +12455,11 @@ name|modifiers
 parameter_list|,
 name|xcb_timestamp_t
 name|timestamp
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 name|QPoint
@@ -12473,6 +12501,8 @@ argument_list|,
 name|global
 argument_list|,
 name|modifiers
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 block|}
@@ -12923,6 +12953,11 @@ name|modifiers
 parameter_list|,
 name|xcb_timestamp_t
 name|timestamp
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 name|QPoint
@@ -12950,6 +12985,8 @@ argument_list|,
 name|global
 argument_list|,
 name|modifiers
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 block|}
@@ -13178,6 +13215,11 @@ parameter_list|(
 name|xcb_ge_event_t
 modifier|*
 name|event
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 name|QXcbConnection
@@ -13356,6 +13398,61 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+specifier|const
+name|char
+modifier|*
+name|sourceName
+init|=
+literal|nullptr
+decl_stmt|;
+if|if
+condition|(
+name|lcQpaXInput
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+specifier|const
+name|QMetaObject
+modifier|*
+name|metaObject
+init|=
+name|qt_getEnumMetaObject
+argument_list|(
+name|source
+argument_list|)
+decl_stmt|;
+specifier|const
+name|QMetaEnum
+name|me
+init|=
+name|metaObject
+operator|->
+name|enumerator
+argument_list|(
+name|metaObject
+operator|->
+name|indexOfEnumerator
+argument_list|(
+name|qt_getEnumName
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|sourceName
+operator|=
+name|me
+operator|.
+name|valueToKey
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+block|}
 switch|switch
 condition|(
 name|ev
@@ -13370,13 +13467,15 @@ name|qCDebug
 argument_list|(
 name|lcQpaXInput
 argument_list|,
-literal|"XI2 mouse press, button %d, time %d"
+literal|"XI2 mouse press, button %d, time %d, source %s"
 argument_list|,
 name|button
 argument_list|,
 name|ev
 operator|->
 name|time
+argument_list|,
+name|sourceName
 argument_list|)
 expr_stmt|;
 name|conn
@@ -13407,6 +13506,8 @@ argument_list|,
 name|ev
 operator|->
 name|time
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 break|break;
@@ -13417,13 +13518,15 @@ name|qCDebug
 argument_list|(
 name|lcQpaXInput
 argument_list|,
-literal|"XI2 mouse release, button %d, time %d"
+literal|"XI2 mouse release, button %d, time %d, source %s"
 argument_list|,
 name|button
 argument_list|,
 name|ev
 operator|->
 name|time
+argument_list|,
+name|sourceName
 argument_list|)
 expr_stmt|;
 name|conn
@@ -13454,6 +13557,8 @@ argument_list|,
 name|ev
 operator|->
 name|time
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 break|break;
@@ -13464,7 +13569,7 @@ name|qCDebug
 argument_list|(
 name|lcQpaXInput
 argument_list|,
-literal|"XI2 mouse motion %d,%d, time %d"
+literal|"XI2 mouse motion %d,%d, time %d, source %s"
 argument_list|,
 name|event_x
 argument_list|,
@@ -13473,6 +13578,8 @@ argument_list|,
 name|ev
 operator|->
 name|time
+argument_list|,
+name|sourceName
 argument_list|)
 expr_stmt|;
 name|handleMotionNotifyEvent
@@ -13490,6 +13597,8 @@ argument_list|,
 name|ev
 operator|->
 name|time
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 break|break;
@@ -13772,6 +13881,11 @@ name|Qt
 operator|::
 name|KeyboardModifiers
 name|modifiers
+parameter_list|,
+name|Qt
+operator|::
+name|MouseEventSource
+name|source
 parameter_list|)
 block|{
 name|connection
@@ -13802,6 +13916,8 @@ name|buttons
 argument_list|()
 argument_list|,
 name|modifiers
+argument_list|,
+name|source
 argument_list|)
 expr_stmt|;
 block|}

@@ -506,13 +506,42 @@ directive|define
 name|Q_OBJECT_NO_OVERRIDE_WARNING
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
+operator|&&
+name|Q_CC_GNU
+operator|>=
+literal|600
+DECL|macro|Q_OBJECT_NO_ATTRIBUTES_WARNING
+define|#
+directive|define
+name|Q_OBJECT_NO_ATTRIBUTES_WARNING
+value|QT_WARNING_DISABLE_GCC("-Wattributes")
+else|#
+directive|else
+DECL|macro|Q_OBJECT_NO_ATTRIBUTES_WARNING
+define|#
+directive|define
+name|Q_OBJECT_NO_ATTRIBUTES_WARNING
+endif|#
+directive|endif
 comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT
 define|#
 directive|define
 name|Q_OBJECT
 define|\
-value|public: \     Q_OBJECT_CHECK \     QT_WARNING_PUSH \     Q_OBJECT_NO_OVERRIDE_WARNING \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     virtual int qt_metacall(QMetaObject::Call, int, void **); \     QT_WARNING_POP \     QT_TR_FUNCTIONS \ private: \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     struct QPrivateSignal {};
+value|public: \     Q_OBJECT_CHECK \     QT_WARNING_PUSH \     Q_OBJECT_NO_OVERRIDE_WARNING \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     virtual int qt_metacall(QMetaObject::Call, int, void **); \     QT_TR_FUNCTIONS \ private: \     Q_OBJECT_NO_ATTRIBUTES_WARNING \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     QT_WARNING_POP \     struct QPrivateSignal {};
 comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT_FAKE
 define|#
@@ -528,7 +557,9 @@ define|#
 directive|define
 name|Q_GADGET
 define|\
-value|public: \     static const QMetaObject staticMetaObject; \     void qt_check_for_QGADGET_macro(); \     typedef void QtGadgetHelper; \ private: \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
+value|public: \     static const QMetaObject staticMetaObject; \     void qt_check_for_QGADGET_macro(); \     typedef void QtGadgetHelper; \ private: \     QT_WARNING_PUSH \     Q_OBJECT_NO_ATTRIBUTES_WARNING \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     QT_WARNING_POP
+expr|\
+comment|/*end*/
 endif|#
 directive|endif
 comment|// QT_NO_META_MACROS

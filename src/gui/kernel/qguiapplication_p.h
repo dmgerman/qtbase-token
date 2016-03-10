@@ -159,6 +159,10 @@ name|QGuiApplicationPrivate
 argument_list|()
 block|;
 name|void
+name|init
+argument_list|()
+block|;
+name|void
 name|createPlatformIntegration
 argument_list|()
 block|;
@@ -1481,6 +1485,15 @@ name|false
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// enable the fix for QTBUG-50199; TODO remove this check in 5.7
+end_comment
+begin_decl_stmt
+specifier|static
+name|bool
+name|scrollNoPhaseAllowed
+decl_stmt|;
+end_decl_stmt
 begin_label
 name|protected
 label|:
@@ -1534,12 +1547,6 @@ name|class
 name|QDragManager
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
-name|void
-name|init
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_decl_stmt
 specifier|static
 name|QGuiApplicationPrivate

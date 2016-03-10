@@ -8931,7 +8931,32 @@ name|setFunction
 operator|+=
 name|QLatin1String
 argument_list|(
-literal|"\", QVariant("
+literal|"\", QVariant"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|->
+name|kind
+argument_list|()
+operator|==
+name|DomProperty
+operator|::
+name|Enum
+condition|)
+name|setFunction
+operator|+=
+name|QLatin1String
+argument_list|(
+literal|"::fromValue"
+argument_list|)
+expr_stmt|;
+name|setFunction
+operator|+=
+name|QLatin1Char
+argument_list|(
+literal|'('
 argument_list|)
 expr_stmt|;
 block|}

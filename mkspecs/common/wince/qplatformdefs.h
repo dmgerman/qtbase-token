@@ -82,11 +82,6 @@ include|#
 directive|include
 file|<stdlib.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<windows.h>
-end_include
 begin_ifdef
 ifdef|#
 directive|ifdef

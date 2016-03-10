@@ -900,6 +900,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// reset the Text flag.
+if|if
+condition|(
+name|textModeEnabled
+condition|)
+name|device
+operator|->
+name|setTextModeEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|bytesRead
@@ -1098,18 +1110,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// reset the Text flag.
-if|if
-condition|(
-name|textModeEnabled
-condition|)
-name|device
-operator|->
-name|setTextModeEnabled
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 comment|// remove all '\r\n' in the string.
 if|if
 condition|(
@@ -1588,6 +1588,26 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+comment|// reset the text flag
+if|if
+condition|(
+name|textModeEnabled
+condition|)
+name|device
+operator|->
+name|setTextModeEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|bytesWritten
@@ -1603,26 +1623,6 @@ name|WriteFailed
 expr_stmt|;
 return|return;
 block|}
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-comment|// replace the text flag
-if|if
-condition|(
-name|textModeEnabled
-condition|)
-name|device
-operator|->
-name|setTextModeEnabled
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// flush the file
 ifndef|#
 directive|ifndef

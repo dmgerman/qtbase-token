@@ -624,7 +624,10 @@ condition|(
 name|bitmask
 operator|&
 operator|(
+name|quint64
+argument_list|(
 literal|1
+argument_list|)
 operator|<<
 name|modifier
 operator|)

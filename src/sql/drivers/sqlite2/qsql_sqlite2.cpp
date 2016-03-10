@@ -502,16 +502,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_decl_stmt
-DECL|variable|initial_cache_size
-specifier|static
-specifier|const
-name|uint
-name|initial_cache_size
-init|=
-literal|128
-decl_stmt|;
-end_decl_stmt
 begin_constructor
 DECL|function|QSQLite2ResultPrivate
 name|QSQLite2ResultPrivate

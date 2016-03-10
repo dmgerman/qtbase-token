@@ -343,6 +343,11 @@ name|m_temporaryDir
 operator|.
 name|path
 argument_list|()
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
 expr_stmt|;
 block|}
 end_function

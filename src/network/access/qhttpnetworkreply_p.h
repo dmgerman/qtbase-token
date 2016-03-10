@@ -680,6 +680,7 @@ end_empty_stmt
 begin_decl_stmt
 DECL|variable|QObjectPrivate
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QHttpNetworkReplyPrivate
 range|:
 name|public

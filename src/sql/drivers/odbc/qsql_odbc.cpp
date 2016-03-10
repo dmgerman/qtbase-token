@@ -10562,6 +10562,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|cleanup
+argument_list|()
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -10576,9 +10579,14 @@ argument_list|(
 name|connOpts
 argument_list|)
 condition|)
+block|{
+name|cleanup
+argument_list|()
+expr_stmt|;
 return|return
 literal|false
 return|;
+block|}
 comment|// Create the connection string
 name|QString
 name|connQStr
@@ -10793,6 +10801,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|cleanup
+argument_list|()
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -10828,6 +10839,9 @@ name|setOpenError
 argument_list|(
 literal|true
 argument_list|)
+expr_stmt|;
+name|cleanup
+argument_list|()
 expr_stmt|;
 return|return
 literal|false

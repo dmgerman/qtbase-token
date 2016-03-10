@@ -9743,7 +9743,7 @@ literal|' '
 expr_stmt|;
 name|tn
 operator|+=
-literal|">"
+literal|'>'
 expr_stmt|;
 return|return
 name|tn
