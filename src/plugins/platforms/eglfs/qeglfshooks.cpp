@@ -81,6 +81,11 @@ name|DeviceIntegration
 operator|::
 name|DeviceIntegration
 parameter_list|()
+member_init_list|:
+name|m_integration
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|QStringList
 name|pluginKeys

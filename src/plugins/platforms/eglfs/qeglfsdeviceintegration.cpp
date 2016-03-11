@@ -465,6 +465,9 @@ name|fbDeviceName
 parameter_list|()
 specifier|const
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_LINUX
 name|QByteArray
 name|fbDev
 init|=
@@ -490,6 +493,14 @@ expr_stmt|;
 return|return
 name|fbDev
 return|;
+else|#
+directive|else
+return|return
+name|QByteArray
+argument_list|()
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -568,6 +579,9 @@ operator|::
 name|platformInit
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_LINUX
 name|QByteArray
 name|fbDev
 init|=
@@ -624,6 +638,8 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -634,6 +650,9 @@ operator|::
 name|platformDestroy
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_LINUX
 if|if
 condition|(
 name|framebuffer
@@ -646,6 +665,8 @@ argument_list|(
 name|framebuffer
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -1265,6 +1286,11 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
+name|defined
+argument_list|(
+name|Q_OS_LINUX
+argument_list|)
+operator|&&
 name|defined
 argument_list|(
 name|FBIO_WAITFORVSYNC
