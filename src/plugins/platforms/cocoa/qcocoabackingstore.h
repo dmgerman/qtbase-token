@@ -71,12 +71,25 @@ argument|const QPoint&offset
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|QImage
 name|toImage
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+else|#
+directive|else
+name|QImage
+name|toImage
+argument_list|()
+specifier|const
+block|;
+comment|// No QPlatformBackingStore::toImage() for NO_OPENGL builds.
+endif|#
+directive|endif
 name|void
 name|resize
 argument_list|(
