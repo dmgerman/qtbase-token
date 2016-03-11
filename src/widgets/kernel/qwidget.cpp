@@ -6599,11 +6599,6 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
-name|setWinId
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 operator|delete
 name|extra
 operator|->
