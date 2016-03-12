@@ -28,6 +28,15 @@ include|#
 directive|include
 file|<QtSql/qsql.h>
 end_include
+begin_comment
+comment|// for testing:
+end_comment
+begin_decl_stmt
+DECL|variable|tst_QSqlQuery
+name|class
+name|tst_QSqlQuery
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QString
@@ -93,6 +102,12 @@ name|friend
 name|class
 name|QSqlTableModelPrivate
 decl_stmt|;
+comment|// for testing:
+name|friend
+name|class
+operator|::
+name|tst_QSqlQuery
+expr_stmt|;
 name|public
 label|:
 name|virtual
