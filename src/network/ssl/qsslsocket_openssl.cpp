@@ -1905,6 +1905,24 @@ name|SslOptionDisableServerNameIndication
 operator|)
 condition|)
 block|{
+comment|// We don't send the trailing dot from the host header if present see
+comment|// https://tools.ietf.org/html/rfc6066#section-3
+if|if
+condition|(
+name|ace
+operator|.
+name|endsWith
+argument_list|(
+literal|'.'
+argument_list|)
+condition|)
+name|ace
+operator|.
+name|chop
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
