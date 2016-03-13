@@ -5077,7 +5077,7 @@ name|buffer_config
 operator|.
 name|verbosity_level
 operator|=
-name|SLOG2_INFO
+name|SLOG2_DEBUG1
 expr_stmt|;
 name|buffer_config
 operator|.

@@ -3521,6 +3521,10 @@ init|=
 name|drainOutputPipes
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|pid
+condition|)
 name|_q_processDied
 argument_list|()
 expr_stmt|;
@@ -3924,6 +3928,10 @@ block|{
 name|drainOutputPipes
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|pid
+condition|)
 name|_q_processDied
 argument_list|()
 expr_stmt|;

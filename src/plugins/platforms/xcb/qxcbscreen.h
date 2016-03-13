@@ -562,6 +562,16 @@ name|number
 argument_list|()
 return|;
 block|}
+specifier|static
+name|int
+name|virtualDesktopNumberStatic
+parameter_list|(
+specifier|const
+name|QScreen
+modifier|*
+name|screen
+parameter_list|)
+function_decl|;
 name|xcb_screen_t
 operator|*
 name|screen

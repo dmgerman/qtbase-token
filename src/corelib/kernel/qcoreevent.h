@@ -1061,6 +1061,22 @@ name|friend
 name|class
 name|QGraphicsScenePrivate
 decl_stmt|;
+comment|// from QtTest:
+name|friend
+name|class
+name|QSpontaneKeyEvent
+decl_stmt|;
+comment|// needs this:
+name|Q_ALWAYS_INLINE
+name|void
+name|setSpontaneous
+parameter_list|()
+block|{
+name|spont
+operator|=
+name|true
+expr_stmt|;
+block|}
 block|}
 end_decl_stmt
 begin_empty_stmt

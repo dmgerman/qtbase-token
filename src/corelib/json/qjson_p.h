@@ -329,7 +329,42 @@ name|this
 return|;
 block|}
 expr|}
-block|;
+block|; }
+comment|// namespace QJsonPrivate
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|class
+name|QTypeInfo
+operator|<
+name|QJsonPrivate
+operator|::
+name|q_littleendian
+operator|<
+name|T
+operator|>
+expr|>
+DECL|variable|T
+operator|:
+name|public
+name|QTypeInfoMerger
+operator|<
+name|QJsonPrivate
+operator|::
+name|q_littleendian
+operator|<
+name|T
+operator|>
+operator|,
+name|T
+operator|>
+block|{}
+expr_stmt|;
+name|namespace
+name|QJsonPrivate
+block|{
 typedef|typedef
 name|q_littleendian
 operator|<
@@ -1446,8 +1481,6 @@ literal|1
 operator|)
 return|;
 block|}
-end_decl_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -1469,8 +1502,6 @@ name|str
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -1491,8 +1522,6 @@ operator|>=
 name|str
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -1505,8 +1534,6 @@ name|str
 operator|)
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -1528,8 +1555,6 @@ name|str
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -1542,8 +1567,6 @@ name|str
 operator|)
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -1571,8 +1594,6 @@ condition|)
 return|return
 name|false
 return|;
-end_expr_stmt
-begin_return
 return|return
 operator|!
 name|memcmp
@@ -1597,9 +1618,10 @@ name|ushort
 argument_list|)
 argument_list|)
 return|;
-end_return
+block|}
+end_decl_stmt
 begin_expr_stmt
-unit|}     inline
+specifier|inline
 name|bool
 name|operator
 operator|<
@@ -1958,20 +1980,16 @@ name|chunk
 argument_list|)
 expr_stmt|;
 comment|// unaligned 64-bit store
-operator|*
-operator|(
-name|quint64
-operator|*
-operator|)
-operator|&
+name|qUnalignedStore
+argument_list|(
 name|l
-index|[
+operator|+
 name|i
-index|]
-operator|=
+argument_list|,
 name|_mm_cvtsi128_si64
 argument_list|(
 name|chunk
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|i

@@ -38,6 +38,14 @@ include|#
 directive|include
 file|<qendian.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qsimd_p.h>
+end_include
+begin_comment
+comment|// for qUnalignedLoad
+end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|// in the same order as Type!
@@ -654,12 +662,9 @@ block|{
 if|if
 condition|(
 operator|(
-operator|*
-cast|reinterpret_cast
+name|qUnalignedLoad
 argument_list|<
-specifier|const
 name|T
-operator|*
 argument_list|>
 argument_list|(
 name|p

@@ -8087,6 +8087,9 @@ end_class
 begin_comment
 comment|// Return the first suffix from the name filter "Foo files (*.foo;*.bar)" -> "foo".
 end_comment
+begin_comment
+comment|// Also handles the simple name filter case "*.txt" -> "txt"
+end_comment
 begin_function
 DECL|function|suffixFromFilter
 specifier|static
@@ -8109,7 +8112,7 @@ name|indexOf
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"(*."
+literal|"*."
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -8125,7 +8128,7 @@ argument_list|()
 return|;
 name|suffixPos
 operator|+=
-literal|3
+literal|2
 expr_stmt|;
 name|int
 name|endPos
@@ -8188,11 +8191,20 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-return|return
+if|if
+condition|(
 name|endPos
-operator|>=
+operator|<
 literal|0
-condition|?
+condition|)
+name|endPos
+operator|=
+name|filter
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+return|return
 name|filter
 operator|.
 name|mid
@@ -8203,9 +8215,6 @@ name|endPos
 operator|-
 name|suffixPos
 argument_list|)
-else|:
-name|QString
-argument_list|()
 return|;
 block|}
 end_function

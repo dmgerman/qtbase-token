@@ -146,6 +146,7 @@ name|dummy
 block|;     }
 endif|#
 directive|endif
+comment|// ### Qt 6: remove everything except this function:
 specifier|static
 specifier|inline
 name|void
@@ -154,28 +155,7 @@ argument_list|(
 argument|QEvent *ev
 argument_list|)
 block|{
-comment|// use a union instead of a reinterpret_cast to prevent alignment warnings
-expr|union
-block|{
-name|QSpontaneKeyEvent
-operator|*
-name|skePtr
-block|;
-name|QEvent
-operator|*
-name|evPtr
-block|;         }
-name|helper
-block|;
-name|helper
-operator|.
-name|evPtr
-operator|=
 name|ev
-block|;
-name|helper
-operator|.
-name|skePtr
 operator|->
 name|setSpontaneous
 argument_list|()

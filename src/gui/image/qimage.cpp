@@ -16385,6 +16385,14 @@ argument_list|,
 name|h
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|src
+operator|.
+name|isNull
+argument_list|()
+condition|)
 name|copyMetadata
 argument_list|(
 name|src

@@ -86,6 +86,16 @@ name|m_haveColorModes
 argument_list|(
 literal|false
 argument_list|)
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPES
+member_init_list|,
+name|m_haveMimeTypes
+argument_list|(
+literal|false
+argument_list|)
+endif|#
+directive|endif
 block|{ }
 end_constructor
 begin_constructor
@@ -154,6 +164,16 @@ name|m_haveColorModes
 argument_list|(
 literal|false
 argument_list|)
+ifndef|#
+directive|ifndef
+name|QT_NO_MIMETYPES
+member_init_list|,
+name|m_haveMimeTypes
+argument_list|(
+literal|false
+argument_list|)
+endif|#
+directive|endif
 block|{ }
 end_constructor
 begin_destructor
