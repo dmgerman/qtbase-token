@@ -28363,9 +28363,9 @@ argument_list|)
 operator|<<
 name|QPoint
 argument_list|(
-literal|0
+name|INT_MIN
 argument_list|,
-literal|0
+name|INT_MIN
 argument_list|)
 expr_stmt|;
 name|QTest
