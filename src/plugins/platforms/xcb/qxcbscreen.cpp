@@ -1851,6 +1851,12 @@ argument_list|)
 expr_stmt|;
 name|ev
 operator|.
+name|sequence
+operator|=
+literal|0
+expr_stmt|;
+name|ev
+operator|.
 name|window
 operator|=
 name|rootWindow
