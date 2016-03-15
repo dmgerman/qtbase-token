@@ -46,11 +46,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qbytearray.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qobject.h>
 end_include
 begin_include
@@ -65,12 +60,6 @@ file|<qt_windows.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QWinOverlappedIoNotifier
-name|class
-name|QWinOverlappedIoNotifier
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QWindowsPipeReader
@@ -100,6 +89,10 @@ name|setHandle
 argument_list|(
 argument|HANDLE hPipeReadEnd
 argument_list|)
+block|;
+name|void
+name|startAsyncRead
+argument_list|()
 block|;
 name|void
 name|stop
@@ -163,10 +156,6 @@ argument_list|(
 argument|int msecs
 argument_list|)
 block|;
-name|void
-name|startAsyncRead
-argument_list|()
-block|;
 name|bool
 name|isReadOperationActive
 argument_list|()
@@ -196,36 +185,82 @@ name|void
 name|pipeClosed
 argument_list|()
 block|;
-name|private
-name|Q_SLOTS
-operator|:
 name|void
-name|notified
+name|_q_queueReadyRead
 argument_list|(
-argument|quint32 numberOfBytesRead
-argument_list|,
-argument|quint32 errorCode
-argument_list|,
-argument|OVERLAPPED *notifiedOverlapped
+name|QPrivateSignal
 argument_list|)
 block|;
 name|private
 operator|:
+specifier|static
+name|void
+name|CALLBACK
+name|readFileCompleted
+argument_list|(
+argument|DWORD errorCode
+argument_list|,
+argument|DWORD numberOfBytesTransfered
+argument_list|,
+argument|OVERLAPPED *overlappedBase
+argument_list|)
+block|;
+name|void
+name|notified
+argument_list|(
+argument|DWORD errorCode
+argument_list|,
+argument|DWORD numberOfBytesRead
+argument_list|)
+block|;
 name|DWORD
 name|checkPipeState
 argument_list|()
 block|;
-name|private
+name|bool
+name|waitForNotification
+argument_list|(
+argument|int timeout
+argument_list|)
+block|;
+name|void
+name|emitPendingReadyRead
+argument_list|()
+block|;
+name|class
+name|Overlapped
 operator|:
+name|public
+name|OVERLAPPED
+block|{
+name|Q_DISABLE_COPY
+argument_list|(
+argument|Overlapped
+argument_list|)
+name|public
+operator|:
+name|explicit
+name|Overlapped
+argument_list|(
+name|QWindowsPipeReader
+operator|*
+name|reader
+argument_list|)
+block|;
+name|void
+name|clear
+argument_list|()
+block|;
+name|QWindowsPipeReader
+operator|*
+name|pipeReader
+block|;     }
+block|;
 name|HANDLE
 name|handle
 block|;
-name|OVERLAPPED
+name|Overlapped
 name|overlapped
-block|;
-name|QWinOverlappedIoNotifier
-operator|*
-name|dataReadNotifier
 block|;
 name|qint64
 name|readBufferMaxSize
@@ -243,10 +278,16 @@ name|bool
 name|readSequenceStarted
 block|;
 name|bool
+name|notifiedCalled
+block|;
+name|bool
 name|pipeBroken
 block|;
 name|bool
-name|readyReadEmitted
+name|readyReadPending
+block|;
+name|bool
+name|inReadyRead
 block|; }
 decl_stmt|;
 end_decl_stmt
