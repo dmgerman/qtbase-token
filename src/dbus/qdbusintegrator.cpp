@@ -2539,6 +2539,39 @@ name|QObject
 modifier|*
 parameter_list|)
 block|{
+name|invokeSpyHooks
+argument_list|(
+name|msg
+argument_list|,
+name|hooks
+argument_list|,
+name|hookCount
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|invokeSpyHooks
+specifier|inline
+name|void
+name|QDBusSpyCallEvent
+operator|::
+name|invokeSpyHooks
+parameter_list|(
+specifier|const
+name|QDBusMessage
+modifier|&
+name|msg
+parameter_list|,
+specifier|const
+name|Hook
+modifier|*
+name|hooks
+parameter_list|,
+name|int
+name|hookCount
+parameter_list|)
+block|{
 comment|// call the spy hook list
 for|for
 control|(
@@ -2684,18 +2717,25 @@ condition|)
 return|return
 literal|false
 return|;
-if|if
-condition|(
-operator|!
-name|dispatchEnabled
-operator|&&
-operator|!
+comment|// local message are always delivered, regardless of filtering
+comment|// or whether the dispatcher is enabled
+name|bool
+name|isLocal
+init|=
 name|QDBusMessagePrivate
 operator|::
 name|isLocal
 argument_list|(
 name|amsg
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|dispatchEnabled
+operator|&&
+operator|!
+name|isLocal
 condition|)
 block|{
 comment|// queue messages only, we'll handle them later
@@ -2749,7 +2789,9 @@ name|QDBusMessage
 operator|::
 name|MethodCallMessage
 case|:
-comment|// run it through the spy filters (if any) before the regular processing
+comment|// run it through the spy filters (if any) before the regular processing:
+comment|// a) if it's a local message, we're in the caller's thread, so invoke the filter directly
+comment|// b) if it's an external message, post to the main thread
 if|if
 condition|(
 name|Q_UNLIKELY
@@ -2771,12 +2813,55 @@ init|=
 operator|*
 name|qDBusSpyHookList
 decl_stmt|;
+if|if
+condition|(
+name|isLocal
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+operator|!=
+name|thread
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|qDBusDebug
 argument_list|()
 operator|<<
 name|this
 operator|<<
-literal|"invoking message spies"
+literal|"invoking message spies directly"
+expr_stmt|;
+name|QDBusSpyCallEvent
+operator|::
+name|invokeSpyHooks
+argument_list|(
+name|amsg
+argument_list|,
+name|list
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|list
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|qDBusDebug
+argument_list|()
+operator|<<
+name|this
+operator|<<
+literal|"invoking message spies via event"
 expr_stmt|;
 name|QCoreApplication
 operator|::
@@ -2808,9 +2893,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we'll be called back, so return
 return|return
 literal|true
 return|;
+block|}
 block|}
 name|handleObjectCall
 argument_list|(
@@ -8114,9 +8201,9 @@ comment|// if the msg is external, we were called from inside doDispatch
 comment|// that means the dispatchLock mutex is locked
 comment|// must not call out to user code in that case
 comment|//
-comment|// however, if the message is internal, handleMessage was called
-comment|// directly and no lock is in place. We can therefore call out to
-comment|// user code, if necessary
+comment|// however, if the message is internal, handleMessage was called directly
+comment|// (user's thread) and no lock is in place. We can therefore call out to
+comment|// user code, if necessary.
 name|ObjectTreeNode
 name|result
 decl_stmt|;
@@ -8300,7 +8387,8 @@ name|currentThread
 argument_list|()
 condition|)
 block|{
-comment|// synchronize with other thread
+comment|// looped-back message, targeting another thread:
+comment|// synchronize with it
 name|postEventToThread
 argument_list|(
 name|HandleObjectCallPostEventAction
@@ -8337,6 +8425,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// looped-back message, targeting current thread
 name|semWait
 operator|=
 literal|false
