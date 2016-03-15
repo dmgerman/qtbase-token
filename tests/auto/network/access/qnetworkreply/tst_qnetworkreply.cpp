@@ -42499,22 +42499,18 @@ name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Work round known quirk in the old test server:
 if|if
 condition|(
 name|reply
 operator|->
 name|error
 argument_list|()
-operator|==
+operator|!=
 name|QNetworkReply
 operator|::
 name|HostNotFoundError
 condition|)
-name|QSKIP
-argument_list|(
-literal|"skip because of quirk in the old test server"
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|reply
