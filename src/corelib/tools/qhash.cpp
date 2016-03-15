@@ -81,6 +81,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qendian.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qsimd_p.h>
 end_include
 begin_ifndef
@@ -242,7 +247,7 @@ name|_mm_crc32_u64
 argument_list|(
 name|h2
 argument_list|,
-name|qUnalignedLoad
+name|qFromUnaligned
 argument_list|<
 name|qlonglong
 argument_list|>
@@ -280,7 +285,7 @@ name|_mm_crc32_u32
 argument_list|(
 name|h
 argument_list|,
-name|qUnalignedLoad
+name|qFromUnaligned
 argument_list|<
 name|uint
 argument_list|>
@@ -317,7 +322,7 @@ name|_mm_crc32_u32
 argument_list|(
 name|h
 argument_list|,
-name|qUnalignedLoad
+name|qFromUnaligned
 argument_list|<
 name|uint
 argument_list|>
@@ -353,7 +358,7 @@ name|_mm_crc32_u16
 argument_list|(
 name|h
 argument_list|,
-name|qUnalignedLoad
+name|qFromUnaligned
 argument_list|<
 name|ushort
 argument_list|>
