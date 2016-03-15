@@ -492,6 +492,16 @@ condition|)
 return|return
 literal|true
 return|;
+if|if
+condition|(
+operator|*
+name|endptr
+operator|!=
+literal|'.'
+condition|)
+return|return
+literal|false
+return|;
 operator|++
 name|dotCount
 expr_stmt|;
