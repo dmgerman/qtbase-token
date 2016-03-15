@@ -409,7 +409,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|qApp
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|testAttribute
 argument_list|(
@@ -465,7 +468,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|qApp
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|testAttribute
 argument_list|(
