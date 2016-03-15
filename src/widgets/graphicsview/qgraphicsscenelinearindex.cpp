@@ -28,4 +28,9 @@ end_comment
 begin_comment
 comment|/*!     \fn virtual void QGraphicsSceneLinearIndex::removeItem(QGraphicsItem *item)      Add the \a item from the index. */
 end_comment
+begin_include
+include|#
+directive|include
+file|"moc_qgraphicsscenelinearindex_p.cpp"
+end_include
 end_unit

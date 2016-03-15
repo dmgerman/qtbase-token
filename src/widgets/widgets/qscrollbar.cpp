@@ -3294,6 +3294,11 @@ end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
+begin_include
+include|#
+directive|include
+file|"moc_qscrollbar.cpp"
+end_include
 begin_endif
 endif|#
 directive|endif

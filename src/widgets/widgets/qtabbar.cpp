@@ -12987,4 +12987,9 @@ end_endif
 begin_comment
 comment|// QT_NO_TABBAR
 end_comment
+begin_include
+include|#
+directive|include
+file|"moc_qtabbar_p.cpp"
+end_include
 end_unit

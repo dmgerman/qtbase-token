@@ -11718,6 +11718,11 @@ include|#
 directive|include
 file|"moc_qdatetimeedit.cpp"
 end_include
+begin_include
+include|#
+directive|include
+file|"moc_qdatetimeedit_p.cpp"
+end_include
 begin_endif
 endif|#
 directive|endif

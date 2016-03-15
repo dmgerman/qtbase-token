@@ -3197,4 +3197,9 @@ include|#
 directive|include
 file|"moc_qsystemtrayicon.cpp"
 end_include
+begin_include
+include|#
+directive|include
+file|"moc_qsystemtrayicon_p.cpp"
+end_include
 end_unit

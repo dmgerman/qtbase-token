@@ -1631,6 +1631,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|"moc_qitemeditorfactory_p.cpp"
+end_include
 begin_endif
 endif|#
 directive|endif

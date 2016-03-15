@@ -1375,4 +1375,9 @@ include|#
 directive|include
 file|"moc_qdesktopwidget.cpp"
 end_include
+begin_include
+include|#
+directive|include
+file|"moc_qdesktopwidget_p.cpp"
+end_include
 end_unit

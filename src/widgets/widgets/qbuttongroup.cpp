@@ -62,4 +62,9 @@ end_comment
 begin_comment
 comment|/*!     \fn int QButtonGroup::checkedId() const;     \since 4.1      Returns the id of the checkedButton(), or -1 if no button is checked.      \sa setId() */
 end_comment
+begin_include
+include|#
+directive|include
+file|"moc_qbuttongroup.cpp"
+end_include
 end_unit
