@@ -46,6 +46,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qabstractbutton.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtCore/qbasictimer.h"
 end_include
 begin_include
