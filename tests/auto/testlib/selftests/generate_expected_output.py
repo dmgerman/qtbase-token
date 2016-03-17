@@ -83,6 +83,8 @@ op|','
 string|"'xunitxml'"
 op|','
 string|"'lightxml'"
+op|','
+string|"'teamcity'"
 op|']'
 newline|'\n'
 nl|'\n'
