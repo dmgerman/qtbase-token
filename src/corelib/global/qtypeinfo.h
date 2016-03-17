@@ -225,6 +225,7 @@ operator|>
 expr|struct
 name|QTypeInfoQuery
 operator|:
+name|public
 name|QTypeInfo
 operator|<
 name|T
@@ -278,6 +279,7 @@ operator|::
 name|Type
 operator|>
 operator|:
+name|public
 name|QTypeInfo
 operator|<
 name|T
