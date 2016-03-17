@@ -112,14 +112,6 @@ name|void
 name|detectCheckedButton
 argument_list|()
 block|;
-name|void
-name|notifyChecked
-argument_list|(
-name|QAbstractButton
-operator|*
-name|button
-argument_list|)
-block|;
 name|bool
 name|exclusive
 block|;
