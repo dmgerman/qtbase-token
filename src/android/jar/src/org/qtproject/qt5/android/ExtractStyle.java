@@ -2554,6 +2554,11 @@ specifier|final
 name|int
 name|defaultTextColor
 decl_stmt|;
+DECL|field|m_minimal
+specifier|final
+name|boolean
+name|m_minimal
+decl_stmt|;
 DECL|class|SimpleJsonWriter
 class|class
 name|SimpleJsonWriter
@@ -8206,6 +8211,8 @@ condition|(
 name|drawable
 operator|==
 literal|null
+operator|||
+name|m_minimal
 condition|)
 return|return
 literal|null
@@ -16832,9 +16839,16 @@ name|context
 parameter_list|,
 name|String
 name|extractPath
+parameter_list|,
+name|boolean
+name|minimal
 parameter_list|)
 block|{
 comment|//        Log.i(MinistroService.TAG, "Extract " + extractPath);
+name|m_minimal
+operator|=
+name|minimal
+expr_stmt|;
 name|m_extractPath
 operator|=
 name|extractPath
