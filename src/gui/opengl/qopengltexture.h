@@ -56,651 +56,671 @@ name|class
 name|Q_GUI_EXPORT
 name|QOpenGLTexture
 block|{
+name|Q_GADGET
 name|public
-label|:
-enum|enum
+range|:     enum
 name|Target
 block|{
 name|Target1D
-init|=
+operator|=
 literal|0x0DE0
 block|,
 comment|// GL_TEXTURE_1D
 name|Target1DArray
-init|=
+operator|=
 literal|0x8C18
 block|,
 comment|// GL_TEXTURE_1D_ARRAY
 name|Target2D
-init|=
+operator|=
 literal|0x0DE1
 block|,
 comment|// GL_TEXTURE_2D
 name|Target2DArray
-init|=
+operator|=
 literal|0x8C1A
 block|,
 comment|// GL_TEXTURE_2D_ARRAY
 name|Target3D
-init|=
+operator|=
 literal|0x806F
 block|,
 comment|// GL_TEXTURE_3D
 name|TargetCubeMap
-init|=
+operator|=
 literal|0x8513
 block|,
 comment|// GL_TEXTURE_CUBE_MAP
 name|TargetCubeMapArray
-init|=
+operator|=
 literal|0x9009
 block|,
 comment|// GL_TEXTURE_CUBE_MAP_ARRAY
 name|Target2DMultisample
-init|=
+operator|=
 literal|0x9100
 block|,
 comment|// GL_TEXTURE_2D_MULTISAMPLE
 name|Target2DMultisampleArray
-init|=
+operator|=
 literal|0x9102
 block|,
 comment|// GL_TEXTURE_2D_MULTISAMPLE_ARRAY
 name|TargetRectangle
-init|=
+operator|=
 literal|0x84F5
 block|,
 comment|// GL_TEXTURE_RECTANGLE
 name|TargetBuffer
-init|=
+operator|=
 literal|0x8C2A
 comment|// GL_TEXTURE_BUFFER
 block|}
-enum|;
-enum|enum
+decl_stmt|;
+name|Q_ENUM
+argument_list|(
+name|Target
+argument_list|)
+expr|enum
 name|BindingTarget
 block|{
 name|BindingTarget1D
-init|=
+operator|=
 literal|0x8068
 block|,
 comment|// GL_TEXTURE_BINDING_1D
 name|BindingTarget1DArray
-init|=
+operator|=
 literal|0x8C1C
 block|,
 comment|// GL_TEXTURE_BINDING_1D_ARRAY
 name|BindingTarget2D
-init|=
+operator|=
 literal|0x8069
 block|,
 comment|// GL_TEXTURE_BINDING_2D
 name|BindingTarget2DArray
-init|=
+operator|=
 literal|0x8C1D
 block|,
 comment|// GL_TEXTURE_BINDING_2D_ARRAY
 name|BindingTarget3D
-init|=
+operator|=
 literal|0x806A
 block|,
 comment|// GL_TEXTURE_BINDING_3D
 name|BindingTargetCubeMap
-init|=
+operator|=
 literal|0x8514
 block|,
 comment|// GL_TEXTURE_BINDING_CUBE_MAP
 name|BindingTargetCubeMapArray
-init|=
+operator|=
 literal|0x900A
 block|,
 comment|// GL_TEXTURE_BINDING_CUBE_MAP_ARRAY
 name|BindingTarget2DMultisample
-init|=
+operator|=
 literal|0x9104
 block|,
 comment|// GL_TEXTURE_BINDING_2D_MULTISAMPLE
 name|BindingTarget2DMultisampleArray
-init|=
+operator|=
 literal|0x9105
 block|,
 comment|// GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY
 name|BindingTargetRectangle
-init|=
+operator|=
 literal|0x84F6
 block|,
 comment|// GL_TEXTURE_BINDING_RECTANGLE
 name|BindingTargetBuffer
-init|=
+operator|=
 literal|0x8C2C
 comment|// GL_TEXTURE_BINDING_BUFFER
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|BindingTarget
+argument_list|)
+expr|enum
 name|MipMapGeneration
 block|{
 name|GenerateMipMaps
 block|,
 name|DontGenerateMipMaps
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|MipMapGeneration
+argument_list|)
+expr|enum
 name|TextureUnitReset
 block|{
 name|ResetTextureUnit
 block|,
 name|DontResetTextureUnit
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|TextureUnitReset
+argument_list|)
+expr|enum
 name|TextureFormat
 block|{
 name|NoFormat
-init|=
+operator|=
 literal|0
 block|,
 comment|// GL_NONE
 comment|// Unsigned normalized formats
 name|R8_UNorm
-init|=
+operator|=
 literal|0x8229
 block|,
 comment|// GL_R8
 name|RG8_UNorm
-init|=
+operator|=
 literal|0x822B
 block|,
 comment|// GL_RG8
 name|RGB8_UNorm
-init|=
+operator|=
 literal|0x8051
 block|,
 comment|// GL_RGB8
 name|RGBA8_UNorm
-init|=
+operator|=
 literal|0x8058
 block|,
 comment|// GL_RGBA8
 name|R16_UNorm
-init|=
+operator|=
 literal|0x822A
 block|,
 comment|// GL_R16
 name|RG16_UNorm
-init|=
+operator|=
 literal|0x822C
 block|,
 comment|// GL_RG16
 name|RGB16_UNorm
-init|=
+operator|=
 literal|0x8054
 block|,
 comment|// GL_RGB16
 name|RGBA16_UNorm
-init|=
+operator|=
 literal|0x805B
 block|,
 comment|// GL_RGBA16
 comment|// Signed normalized formats
 name|R8_SNorm
-init|=
+operator|=
 literal|0x8F94
 block|,
 comment|// GL_R8_SNORM
 name|RG8_SNorm
-init|=
+operator|=
 literal|0x8F95
 block|,
 comment|// GL_RG8_SNORM
 name|RGB8_SNorm
-init|=
+operator|=
 literal|0x8F96
 block|,
 comment|// GL_RGB8_SNORM
 name|RGBA8_SNorm
-init|=
+operator|=
 literal|0x8F97
 block|,
 comment|// GL_RGBA8_SNORM
 name|R16_SNorm
-init|=
+operator|=
 literal|0x8F98
 block|,
 comment|// GL_R16_SNORM
 name|RG16_SNorm
-init|=
+operator|=
 literal|0x8F99
 block|,
 comment|// GL_RG16_SNORM
 name|RGB16_SNorm
-init|=
+operator|=
 literal|0x8F9A
 block|,
 comment|// GL_RGB16_SNORM
 name|RGBA16_SNorm
-init|=
+operator|=
 literal|0x8F9B
 block|,
 comment|// GL_RGBA16_SNORM
 comment|// Unsigned integer formats
 name|R8U
-init|=
+operator|=
 literal|0x8232
 block|,
 comment|// GL_R8UI
 name|RG8U
-init|=
+operator|=
 literal|0x8238
 block|,
 comment|// GL_RG8UI
 name|RGB8U
-init|=
+operator|=
 literal|0x8D7D
 block|,
 comment|// GL_RGB8UI
 name|RGBA8U
-init|=
+operator|=
 literal|0x8D7C
 block|,
 comment|// GL_RGBA8UI
 name|R16U
-init|=
+operator|=
 literal|0x8234
 block|,
 comment|// GL_R16UI
 name|RG16U
-init|=
+operator|=
 literal|0x823A
 block|,
 comment|// GL_RG16UI
 name|RGB16U
-init|=
+operator|=
 literal|0x8D77
 block|,
 comment|// GL_RGB16UI
 name|RGBA16U
-init|=
+operator|=
 literal|0x8D76
 block|,
 comment|// GL_RGBA16UI
 name|R32U
-init|=
+operator|=
 literal|0x8236
 block|,
 comment|// GL_R32UI
 name|RG32U
-init|=
+operator|=
 literal|0x823C
 block|,
 comment|// GL_RG32UI
 name|RGB32U
-init|=
+operator|=
 literal|0x8D71
 block|,
 comment|// GL_RGB32UI
 name|RGBA32U
-init|=
+operator|=
 literal|0x8D70
 block|,
 comment|// GL_RGBA32UI
 comment|// Signed integer formats
 name|R8I
-init|=
+operator|=
 literal|0x8231
 block|,
 comment|// GL_R8I
 name|RG8I
-init|=
+operator|=
 literal|0x8237
 block|,
 comment|// GL_RG8I
 name|RGB8I
-init|=
+operator|=
 literal|0x8D8F
 block|,
 comment|// GL_RGB8I
 name|RGBA8I
-init|=
+operator|=
 literal|0x8D8E
 block|,
 comment|// GL_RGBA8I
 name|R16I
-init|=
+operator|=
 literal|0x8233
 block|,
 comment|// GL_R16I
 name|RG16I
-init|=
+operator|=
 literal|0x8239
 block|,
 comment|// GL_RG16I
 name|RGB16I
-init|=
+operator|=
 literal|0x8D89
 block|,
 comment|// GL_RGB16I
 name|RGBA16I
-init|=
+operator|=
 literal|0x8D88
 block|,
 comment|// GL_RGBA16I
 name|R32I
-init|=
+operator|=
 literal|0x8235
 block|,
 comment|// GL_R32I
 name|RG32I
-init|=
+operator|=
 literal|0x823B
 block|,
 comment|// GL_RG32I
 name|RGB32I
-init|=
+operator|=
 literal|0x8D83
 block|,
 comment|// GL_RGB32I
 name|RGBA32I
-init|=
+operator|=
 literal|0x8D82
 block|,
 comment|// GL_RGBA32I
 comment|// Floating point formats
 name|R16F
-init|=
+operator|=
 literal|0x822D
 block|,
 comment|// GL_R16F
 name|RG16F
-init|=
+operator|=
 literal|0x822F
 block|,
 comment|// GL_RG16F
 name|RGB16F
-init|=
+operator|=
 literal|0x881B
 block|,
 comment|// GL_RGB16F
 name|RGBA16F
-init|=
+operator|=
 literal|0x881A
 block|,
 comment|// GL_RGBA16F
 name|R32F
-init|=
+operator|=
 literal|0x822E
 block|,
 comment|// GL_R32F
 name|RG32F
-init|=
+operator|=
 literal|0x8230
 block|,
 comment|// GL_RG32F
 name|RGB32F
-init|=
+operator|=
 literal|0x8815
 block|,
 comment|// GL_RGB32F
 name|RGBA32F
-init|=
+operator|=
 literal|0x8814
 block|,
 comment|// GL_RGBA32F
 comment|// Packed formats
 name|RGB9E5
-init|=
+operator|=
 literal|0x8C3D
 block|,
 comment|// GL_RGB9_E5
 name|RG11B10F
-init|=
+operator|=
 literal|0x8C3A
 block|,
 comment|// GL_R11F_G11F_B10F
 name|RG3B2
-init|=
+operator|=
 literal|0x2A10
 block|,
 comment|// GL_R3_G3_B2
 name|R5G6B5
-init|=
+operator|=
 literal|0x8D62
 block|,
 comment|// GL_RGB565
 name|RGB5A1
-init|=
+operator|=
 literal|0x8057
 block|,
 comment|// GL_RGB5_A1
 name|RGBA4
-init|=
+operator|=
 literal|0x8056
 block|,
 comment|// GL_RGBA4
 name|RGB10A2
-init|=
+operator|=
 literal|0x906F
 block|,
 comment|// GL_RGB10_A2UI
 comment|// Depth formats
 name|D16
-init|=
+operator|=
 literal|0x81A5
 block|,
 comment|// GL_DEPTH_COMPONENT16
 name|D24
-init|=
+operator|=
 literal|0x81A6
 block|,
 comment|// GL_DEPTH_COMPONENT24
 name|D24S8
-init|=
+operator|=
 literal|0x88F0
 block|,
 comment|// GL_DEPTH24_STENCIL8
 name|D32
-init|=
+operator|=
 literal|0x81A7
 block|,
 comment|// GL_DEPTH_COMPONENT32
 name|D32F
-init|=
+operator|=
 literal|0x8CAC
 block|,
 comment|// GL_DEPTH_COMPONENT32F
 name|D32FS8X24
-init|=
+operator|=
 literal|0x8CAD
 block|,
 comment|// GL_DEPTH32F_STENCIL8
 name|S8
-init|=
+operator|=
 literal|0x8D48
 block|,
 comment|// GL_STENCIL_INDEX8
 comment|// Compressed formats
 name|RGB_DXT1
-init|=
+operator|=
 literal|0x83F0
 block|,
 comment|// GL_COMPRESSED_RGB_S3TC_DXT1_EXT
 name|RGBA_DXT1
-init|=
+operator|=
 literal|0x83F1
 block|,
 comment|// GL_COMPRESSED_RGBA_S3TC_DXT1_EXT
 name|RGBA_DXT3
-init|=
+operator|=
 literal|0x83F2
 block|,
 comment|// GL_COMPRESSED_RGBA_S3TC_DXT3_EXT
 name|RGBA_DXT5
-init|=
+operator|=
 literal|0x83F3
 block|,
 comment|// GL_COMPRESSED_RGBA_S3TC_DXT5_EXT
 name|R_ATI1N_UNorm
-init|=
+operator|=
 literal|0x8DBB
 block|,
 comment|// GL_COMPRESSED_RED_RGTC1
 name|R_ATI1N_SNorm
-init|=
+operator|=
 literal|0x8DBC
 block|,
 comment|// GL_COMPRESSED_SIGNED_RED_RGTC1
 name|RG_ATI2N_UNorm
-init|=
+operator|=
 literal|0x8DBD
 block|,
 comment|// GL_COMPRESSED_RG_RGTC2
 name|RG_ATI2N_SNorm
-init|=
+operator|=
 literal|0x8DBE
 block|,
 comment|// GL_COMPRESSED_SIGNED_RG_RGTC2
 name|RGB_BP_UNSIGNED_FLOAT
-init|=
+operator|=
 literal|0x8E8F
 block|,
 comment|// GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB
 name|RGB_BP_SIGNED_FLOAT
-init|=
+operator|=
 literal|0x8E8E
 block|,
 comment|// GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB
 name|RGB_BP_UNorm
-init|=
+operator|=
 literal|0x8E8C
 block|,
 comment|// GL_COMPRESSED_RGBA_BPTC_UNORM_ARB
 name|R11_EAC_UNorm
-init|=
+operator|=
 literal|0x9270
 block|,
 comment|// GL_COMPRESSED_R11_EAC
 name|R11_EAC_SNorm
-init|=
+operator|=
 literal|0x9271
 block|,
 comment|// GL_COMPRESSED_SIGNED_R11_EAC
 name|RG11_EAC_UNorm
-init|=
+operator|=
 literal|0x9272
 block|,
 comment|// GL_COMPRESSED_RG11_EAC
 name|RG11_EAC_SNorm
-init|=
+operator|=
 literal|0x9273
 block|,
 comment|// GL_COMPRESSED_SIGNED_RG11_EAC
 name|RGB8_ETC2
-init|=
+operator|=
 literal|0x9274
 block|,
 comment|// GL_COMPRESSED_RGB8_ETC2
 name|SRGB8_ETC2
-init|=
+operator|=
 literal|0x9275
 block|,
 comment|// GL_COMPRESSED_SRGB8_ETC2
 name|RGB8_PunchThrough_Alpha1_ETC2
-init|=
+operator|=
 literal|0x9276
 block|,
 comment|// GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2
 name|SRGB8_PunchThrough_Alpha1_ETC2
-init|=
+operator|=
 literal|0x9277
 block|,
 comment|// GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2
 name|RGBA8_ETC2_EAC
-init|=
+operator|=
 literal|0x9278
 block|,
 comment|// GL_COMPRESSED_RGBA8_ETC2_EAC
 name|SRGB8_Alpha8_ETC2_EAC
-init|=
+operator|=
 literal|0x9279
 block|,
 comment|// GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC
 name|RGB8_ETC1
-init|=
+operator|=
 literal|0x8D64
 block|,
 comment|// GL_ETC1_RGB8_OES
 comment|// sRGB formats
 name|SRGB8
-init|=
+operator|=
 literal|0x8C41
 block|,
 comment|// GL_SRGB8
 name|SRGB8_Alpha8
-init|=
+operator|=
 literal|0x8C43
 block|,
 comment|// GL_SRGB8_ALPHA8
 name|SRGB_DXT1
-init|=
+operator|=
 literal|0x8C4C
 block|,
 comment|// GL_COMPRESSED_SRGB_S3TC_DXT1_EXT
 name|SRGB_Alpha_DXT1
-init|=
+operator|=
 literal|0x8C4D
 block|,
 comment|// GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT
 name|SRGB_Alpha_DXT3
-init|=
+operator|=
 literal|0x8C4E
 block|,
 comment|// GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT
 name|SRGB_Alpha_DXT5
-init|=
+operator|=
 literal|0x8C4F
 block|,
 comment|// GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT
 name|SRGB_BP_UNorm
-init|=
+operator|=
 literal|0x8E8D
 block|,
 comment|// GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB
 comment|// ES 2 formats
 name|DepthFormat
-init|=
+operator|=
 literal|0x1902
 block|,
 comment|// GL_DEPTH_COMPONENT
 name|AlphaFormat
-init|=
+operator|=
 literal|0x1906
 block|,
 comment|// GL_ALPHA
 name|RGBFormat
-init|=
+operator|=
 literal|0x1907
 block|,
 comment|// GL_RGB
 name|RGBAFormat
-init|=
+operator|=
 literal|0x1908
 block|,
 comment|// GL_RGBA
 name|LuminanceFormat
-init|=
+operator|=
 literal|0x1909
 block|,
 comment|// GL_LUMINANCE
 name|LuminanceAlphaFormat
-init|=
+operator|=
 literal|0x190A
 block|}
-enum|;
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|TextureFormat
+argument_list|)
 comment|// This is not used externally yet but is reserved to allow checking of
 comment|// compatibility between texture formats
 ifndef|#
 directive|ifndef
 name|Q_QDOC
-enum|enum
+expr|enum
 name|TextureFormatClass
 block|{
 name|NoFormatClass
@@ -739,7 +759,7 @@ name|FormatClass_S3TC_DXT5_RGBA
 block|,
 name|FormatClass_Unique
 block|}
-enum|;
+expr_stmt|;
 endif|#
 directive|endif
 enum|enum
@@ -776,422 +796,454 @@ literal|0x851A
 comment|// GL_TEXTURE_CUBE_MAP_NEGATIVE_Z
 block|}
 enum|;
-enum|enum
+name|Q_ENUM
+argument_list|(
+name|CubeMapFace
+argument_list|)
+expr|enum
 name|PixelFormat
 block|{
 name|NoSourceFormat
-init|=
+operator|=
 literal|0
 block|,
 comment|// GL_NONE
 name|Red
-init|=
+operator|=
 literal|0x1903
 block|,
 comment|// GL_RED
 name|RG
-init|=
+operator|=
 literal|0x8227
 block|,
 comment|// GL_RG
 name|RGB
-init|=
+operator|=
 literal|0x1907
 block|,
 comment|// GL_RGB
 name|BGR
-init|=
+operator|=
 literal|0x80E0
 block|,
 comment|// GL_BGR
 name|RGBA
-init|=
+operator|=
 literal|0x1908
 block|,
 comment|// GL_RGBA
 name|BGRA
-init|=
+operator|=
 literal|0x80E1
 block|,
 comment|// GL_BGRA
 name|Red_Integer
-init|=
+operator|=
 literal|0x8D94
 block|,
 comment|// GL_RED_INTEGER
 name|RG_Integer
-init|=
+operator|=
 literal|0x8228
 block|,
 comment|// GL_RG_INTEGER
 name|RGB_Integer
-init|=
+operator|=
 literal|0x8D98
 block|,
 comment|// GL_RGB_INTEGER
 name|BGR_Integer
-init|=
+operator|=
 literal|0x8D9A
 block|,
 comment|// GL_BGR_INTEGER
 name|RGBA_Integer
-init|=
+operator|=
 literal|0x8D99
 block|,
 comment|// GL_RGBA_INTEGER
 name|BGRA_Integer
-init|=
+operator|=
 literal|0x8D9B
 block|,
 comment|// GL_BGRA_INTEGER
 name|Stencil
-init|=
+operator|=
 literal|0x1901
 block|,
 comment|// GL_STENCIL_INDEX
 name|Depth
-init|=
+operator|=
 literal|0x1902
 block|,
 comment|// GL_DEPTH_COMPONENT
 name|DepthStencil
-init|=
+operator|=
 literal|0x84F9
 block|,
 comment|// GL_DEPTH_STENCIL
 name|Alpha
-init|=
+operator|=
 literal|0x1906
 block|,
 comment|// GL_ALPHA
 name|Luminance
-init|=
+operator|=
 literal|0x1909
 block|,
 comment|// GL_LUMINANCE
 name|LuminanceAlpha
-init|=
+operator|=
 literal|0x190A
 comment|// GL_LUMINANCE_ALPHA
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|PixelFormat
+argument_list|)
+expr|enum
 name|PixelType
 block|{
 name|NoPixelType
-init|=
+operator|=
 literal|0
 block|,
 comment|// GL_NONE
 name|Int8
-init|=
+operator|=
 literal|0x1400
 block|,
 comment|// GL_BYTE
 name|UInt8
-init|=
+operator|=
 literal|0x1401
 block|,
 comment|// GL_UNSIGNED_BYTE
 name|Int16
-init|=
+operator|=
 literal|0x1402
 block|,
 comment|// GL_SHORT
 name|UInt16
-init|=
+operator|=
 literal|0x1403
 block|,
 comment|// GL_UNSIGNED_SHORT
 name|Int32
-init|=
+operator|=
 literal|0x1404
 block|,
 comment|// GL_INT
 name|UInt32
-init|=
+operator|=
 literal|0x1405
 block|,
 comment|// GL_UNSIGNED_INT
 name|Float16
-init|=
+operator|=
 literal|0x140B
 block|,
 comment|// GL_HALF_FLOAT
 name|Float16OES
-init|=
+operator|=
 literal|0x8D61
 block|,
 comment|// GL_HALF_FLOAT_OES
 name|Float32
-init|=
+operator|=
 literal|0x1406
 block|,
 comment|// GL_FLOAT
 name|UInt32_RGB9_E5
-init|=
+operator|=
 literal|0x8C3E
 block|,
 comment|// GL_UNSIGNED_INT_5_9_9_9_REV
 name|UInt32_RG11B10F
-init|=
+operator|=
 literal|0x8C3B
 block|,
 comment|// GL_UNSIGNED_INT_10F_11F_11F_REV
 name|UInt8_RG3B2
-init|=
+operator|=
 literal|0x8032
 block|,
 comment|// GL_UNSIGNED_BYTE_3_3_2
 name|UInt8_RG3B2_Rev
-init|=
+operator|=
 literal|0x8362
 block|,
 comment|// GL_UNSIGNED_BYTE_2_3_3_REV
 name|UInt16_RGB5A1
-init|=
+operator|=
 literal|0x8034
 block|,
 comment|// GL_UNSIGNED_SHORT_5_5_5_1
 name|UInt16_RGB5A1_Rev
-init|=
+operator|=
 literal|0x8366
 block|,
 comment|// GL_UNSIGNED_SHORT_1_5_5_5_REV
 name|UInt16_R5G6B5
-init|=
+operator|=
 literal|0x8363
 block|,
 comment|// GL_UNSIGNED_SHORT_5_6_5
 name|UInt16_R5G6B5_Rev
-init|=
+operator|=
 literal|0x8364
 block|,
 comment|// GL_UNSIGNED_SHORT_5_6_5_REV
 name|UInt16_RGBA4
-init|=
+operator|=
 literal|0x8033
 block|,
 comment|// GL_UNSIGNED_SHORT_4_4_4_4
 name|UInt16_RGBA4_Rev
-init|=
+operator|=
 literal|0x8365
 block|,
 comment|// GL_UNSIGNED_SHORT_4_4_4_4_REV
 name|UInt32_RGBA8
-init|=
+operator|=
 literal|0x8035
 block|,
 comment|// GL_UNSIGNED_INT_8_8_8_8
 name|UInt32_RGBA8_Rev
-init|=
+operator|=
 literal|0x8367
 block|,
 comment|// GL_UNSIGNED_INT_8_8_8_8_REV
 name|UInt32_RGB10A2
-init|=
+operator|=
 literal|0x8036
 block|,
 comment|// GL_UNSIGNED_INT_10_10_10_2
 name|UInt32_RGB10A2_Rev
-init|=
+operator|=
 literal|0x8368
 block|,
 comment|// GL_UNSIGNED_INT_2_10_10_10_REV
 name|UInt32_D24S8
-init|=
+operator|=
 literal|0x84FA
 block|,
 comment|// GL_UNSIGNED_INT_24_8
 name|Float32_D32_UInt32_S8_X24
-init|=
+operator|=
 literal|0x8DAD
 comment|// GL_FLOAT_32_UNSIGNED_INT_24_8_REV
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|PixelType
+argument_list|)
+expr|enum
 name|SwizzleComponent
 block|{
 name|SwizzleRed
-init|=
+operator|=
 literal|0x8E42
 block|,
 comment|// GL_TEXTURE_SWIZZLE_R
 name|SwizzleGreen
-init|=
+operator|=
 literal|0x8E43
 block|,
 comment|// GL_TEXTURE_SWIZZLE_G
 name|SwizzleBlue
-init|=
+operator|=
 literal|0x8E44
 block|,
 comment|// GL_TEXTURE_SWIZZLE_B
 name|SwizzleAlpha
-init|=
+operator|=
 literal|0x8E45
 comment|// GL_TEXTURE_SWIZZLE_A
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|SwizzleComponent
+argument_list|)
+expr|enum
 name|SwizzleValue
 block|{
 name|RedValue
-init|=
+operator|=
 literal|0x1903
 block|,
 comment|// GL_RED
 name|GreenValue
-init|=
+operator|=
 literal|0x1904
 block|,
 comment|// GL_GREEN
 name|BlueValue
-init|=
+operator|=
 literal|0x1905
 block|,
 comment|// GL_BLUE
 name|AlphaValue
-init|=
+operator|=
 literal|0x1906
 block|,
 comment|// GL_ALPHA
 name|ZeroValue
-init|=
+operator|=
 literal|0
 block|,
 comment|// GL_ZERO
 name|OneValue
-init|=
+operator|=
 literal|1
 comment|// GL_ONE
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|SwizzleValue
+argument_list|)
+expr|enum
 name|WrapMode
 block|{
 name|Repeat
-init|=
+operator|=
 literal|0x2901
 block|,
 comment|// GL_REPEAT
 name|MirroredRepeat
-init|=
+operator|=
 literal|0x8370
 block|,
 comment|// GL_MIRRORED_REPEAT
 name|ClampToEdge
-init|=
+operator|=
 literal|0x812F
 block|,
 comment|// GL_CLAMP_TO_EDGE
 name|ClampToBorder
-init|=
+operator|=
 literal|0x812D
 comment|// GL_CLAMP_TO_BORDER
 block|}
-enum|;
-enum|enum
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|WrapMode
+argument_list|)
+expr|enum
 name|CoordinateDirection
 block|{
 name|DirectionS
-init|=
+operator|=
 literal|0x2802
 block|,
 comment|// GL_TEXTURE_WRAP_S
 name|DirectionT
-init|=
+operator|=
 literal|0x2803
 block|,
 comment|// GL_TEXTURE_WRAP_T
 name|DirectionR
-init|=
+operator|=
 literal|0x8072
 comment|// GL_TEXTURE_WRAP_R
 block|}
-enum|;
+expr_stmt|;
+name|Q_ENUM
+argument_list|(
+name|CoordinateDirection
+argument_list|)
 comment|// Features
-enum|enum
+expr|enum
 name|Feature
 block|{
 name|ImmutableStorage
-init|=
+operator|=
 literal|0x00000001
 block|,
 name|ImmutableMultisampleStorage
-init|=
+operator|=
 literal|0x00000002
 block|,
 name|TextureRectangle
-init|=
+operator|=
 literal|0x00000004
 block|,
 name|TextureArrays
-init|=
+operator|=
 literal|0x00000008
 block|,
 name|Texture3D
-init|=
+operator|=
 literal|0x00000010
 block|,
 name|TextureMultisample
-init|=
+operator|=
 literal|0x00000020
 block|,
 name|TextureBuffer
-init|=
+operator|=
 literal|0x00000040
 block|,
 name|TextureCubeMapArrays
-init|=
+operator|=
 literal|0x00000080
 block|,
 name|Swizzle
-init|=
+operator|=
 literal|0x00000100
 block|,
 name|StencilTexturing
-init|=
+operator|=
 literal|0x00000200
 block|,
 name|AnisotropicFiltering
-init|=
+operator|=
 literal|0x00000400
 block|,
 name|NPOTTextures
-init|=
+operator|=
 literal|0x00000800
 block|,
 name|NPOTTextureRepeat
-init|=
+operator|=
 literal|0x00001000
 block|,
 name|Texture1D
-init|=
+operator|=
 literal|0x00002000
 block|,
 name|TextureComparisonOperators
-init|=
+operator|=
 literal|0x00004000
 block|,
 name|TextureMipMapLevel
-init|=
+operator|=
 literal|0x00008000
 block|,
 ifndef|#
 directive|ifndef
 name|Q_QDOC
 name|MaxFeatureFlag
-init|=
+operator|=
 literal|0x00010000
 endif|#
 directive|endif
 block|}
-enum|;
+expr_stmt|;
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|Features
 argument_list|,
+argument|Feature
+argument_list|)
+name|Q_ENUM
+argument_list|(
 argument|Feature
 argument_list|)
 name|explicit
@@ -2044,6 +2096,10 @@ literal|0x1901
 comment|// GL_STENCIL_INDEX
 block|}
 enum|;
+name|Q_ENUM
+argument_list|(
+argument|DepthStencilMode
+argument_list|)
 name|void
 name|setDepthStencilMode
 parameter_list|(
@@ -2100,6 +2156,10 @@ literal|0x0200
 comment|// GL_NEVER
 block|}
 enum|;
+name|Q_ENUM
+argument_list|(
+argument|ComparisonFunction
+argument_list|)
 name|void
 name|setComparisonFunction
 parameter_list|(
@@ -2173,6 +2233,10 @@ literal|0x2703
 comment|// GL_LINEAR_MIPMAP_LINEAR
 block|}
 enum|;
+name|Q_ENUM
+argument_list|(
+argument|Filter
+argument_list|)
 name|void
 name|setMinificationFilter
 parameter_list|(
