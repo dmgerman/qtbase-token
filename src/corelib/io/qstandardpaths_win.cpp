@@ -409,6 +409,9 @@ name|StandardLocation
 name|type
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 specifier|static
 specifier|const
 name|int
@@ -479,6 +482,82 @@ block|,
 comment|// AppConfigLocation ("Local" path)
 block|}
 decl_stmt|;
+else|#
+directive|else
+comment|// !Q_OS_WINCE
+specifier|static
+specifier|const
+name|int
+name|clsids
+index|[]
+init|=
+block|{
+name|CSIDL_DESKTOPDIRECTORY
+block|,
+comment|// DesktopLocation
+name|CSIDL_PERSONAL
+block|,
+comment|// DocumentsLocation
+name|CSIDL_FONTS
+block|,
+comment|// FontsLocation
+name|CSIDL_PROGRAMS
+block|,
+comment|// ApplicationsLocation
+name|CSIDL_MYMUSIC
+block|,
+comment|// MusicLocation
+name|CSIDL_MYVIDEO
+block|,
+comment|// MoviesLocation
+name|CSIDL_MYPICTURES
+block|,
+comment|// PicturesLocation
+operator|-
+literal|1
+block|,
+operator|-
+literal|1
+block|,
+comment|// TempLocation/HomeLocation
+name|CSIDL_APPDATA
+block|,
+comment|// AppLocalDataLocation, AppLocalDataLocation = DataLocation
+operator|-
+literal|1
+block|,
+comment|// CacheLocation
+name|CSIDL_APPDATA
+block|,
+comment|// GenericDataLocation
+operator|-
+literal|1
+block|,
+comment|// RuntimeLocation
+name|CSIDL_APPDATA
+block|,
+comment|// ConfigLocation
+operator|-
+literal|1
+block|,
+operator|-
+literal|1
+block|,
+comment|// DownloadLocation/GenericCacheLocation
+name|CSIDL_APPDATA
+block|,
+comment|// GenericConfigLocation
+name|CSIDL_APPDATA
+block|,
+comment|// AppDataLocation
+name|CSIDL_APPDATA
+block|,
+comment|// AppConfigLocation
+block|}
+decl_stmt|;
+endif|#
+directive|endif
+comment|// Q_OS_WINCE
 name|Q_STATIC_ASSERT
 argument_list|(
 sizeof|sizeof
