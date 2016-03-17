@@ -65,6 +65,13 @@ argument_list|(
 name|parent
 argument_list|)
 block|{
+name|QGuiApplication
+operator|::
+name|setFallbackSessionManagementEnabled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|connect
 argument_list|(
 name|qApp
