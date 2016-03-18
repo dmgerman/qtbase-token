@@ -1055,6 +1055,21 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
+name|Q_CC_GHS
+argument_list|)
+end_elif
+begin_define
+DECL|macro|COMPILER_STRING
+define|#
+directive|define
+name|COMPILER_STRING
+value|"GHS " QT_STRINGIFY(__GHS_VERSION_NUMBER)
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|Q_CC_GNU
 argument_list|)
 end_elif
