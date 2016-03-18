@@ -275,10 +275,6 @@ argument_list|)
 name|friend
 name|class
 name|QStyleFactory
-block|;
-name|void
-operator|*
-name|reserved
 block|; }
 decl_stmt|;
 end_decl_stmt
