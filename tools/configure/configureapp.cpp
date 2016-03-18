@@ -1142,7 +1142,7 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"OPTIMIZED_TOOLS"
+literal|"RELEASE_TOOLS"
 index|]
 operator|=
 literal|"no"
