@@ -2621,46 +2621,6 @@ name|Crashed
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-ifdef|#
-directive|ifdef
-name|QPROCESS_USE_SPAWN
-comment|// if we're using posix_spawn, waitForStarted always succeeds.
-comment|// POSIX documents that the sub-process launched by posix_spawn will exit with code
-comment|// 127 if anything prevents the target program from starting.
-comment|// http://pubs.opengroup.org/onlinepubs/009695399/functions/posix_spawn.html
-if|if
-condition|(
-name|exitStatus
-operator|==
-name|QProcess
-operator|::
-name|NormalExit
-operator|&&
-name|exitCode
-operator|==
-literal|127
-condition|)
-block|{
-name|setError
-argument_list|(
-name|QProcess
-operator|::
-name|FailedToStart
-argument_list|,
-name|QProcess
-operator|::
-name|tr
-argument_list|(
-literal|"Process failed to start (spawned process exited with code 127)"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-endif|#
-directive|endif
-block|}
 name|bool
 name|wasRunning
 init|=
