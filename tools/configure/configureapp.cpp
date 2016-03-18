@@ -11425,6 +11425,13 @@ condition|)
 block|{
 name|dictionary
 index|[
+literal|"REDUCE_EXPORTS"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+name|dictionary
+index|[
 literal|"STACK_PROTECTOR_STRONG"
 index|]
 operator|=
@@ -11482,6 +11489,13 @@ expr_stmt|;
 name|dictionary
 index|[
 literal|"FONT_CONFIG"
+index|]
+operator|=
+literal|"auto"
+expr_stmt|;
+name|dictionary
+index|[
+literal|"ICU"
 index|]
 operator|=
 literal|"auto"
