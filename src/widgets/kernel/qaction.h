@@ -205,8 +205,11 @@ argument_list|(
 name|QObject
 operator|*
 name|parent
+operator|=
+name|nullptr
 argument_list|)
 block|;
+name|explicit
 name|QAction
 argument_list|(
 specifier|const
@@ -217,8 +220,11 @@ argument_list|,
 name|QObject
 operator|*
 name|parent
+operator|=
+name|nullptr
 argument_list|)
 block|;
+name|explicit
 name|QAction
 argument_list|(
 specifier|const
@@ -234,6 +240,8 @@ argument_list|,
 name|QObject
 operator|*
 name|parent
+operator|=
+name|nullptr
 argument_list|)
 block|;
 operator|~
