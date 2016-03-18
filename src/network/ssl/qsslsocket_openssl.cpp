@@ -3297,9 +3297,6 @@ name|QSsl
 operator|::
 name|Der
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_ANDROID_NO_SDK
 if|if
 condition|(
 name|ministroPath
@@ -3359,9 +3356,6 @@ expr_stmt|;
 block|}
 block|}
 else|else
-endif|#
-directive|endif
-comment|//Q_OS_ANDROID_NO_SDK
 endif|#
 directive|endif
 comment|//Q_OS_ANDROID

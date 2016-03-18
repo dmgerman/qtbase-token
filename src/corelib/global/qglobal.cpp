@@ -186,12 +186,6 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
-argument_list|)
 end_if
 begin_include
 include|#
@@ -4366,12 +4360,6 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
-argument_list|)
 return|return
 name|QJNIObjectPrivate
 operator|::
@@ -4387,14 +4375,6 @@ operator|.
 name|toString
 argument_list|()
 return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_ANDROID
-argument_list|)
-comment|// Q_OS_ANDROID_NO_SDK
-comment|// TBD
 elif|#
 directive|elif
 name|defined
@@ -6563,12 +6543,6 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
-argument_list|)
 end_elif
 begin_typedef
 typedef|typedef
@@ -6687,12 +6661,6 @@ directive|elif
 name|defined
 argument_list|(
 name|Q_OS_ANDROID
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
 argument_list|)
 if|if
 condition|(
@@ -6874,12 +6842,6 @@ directive|elif
 name|defined
 argument_list|(
 name|Q_OS_ANDROID
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
 argument_list|)
 name|AndroidRandomStorage
 modifier|*

@@ -24318,12 +24318,6 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
-argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Test only works on platforms with resizable windows"
@@ -24809,12 +24803,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_ANDROID
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
 argument_list|)
 name|QSKIP
 argument_list|(
@@ -33516,12 +33504,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_ANDROID
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
 argument_list|)
 name|QSKIP
 argument_list|(

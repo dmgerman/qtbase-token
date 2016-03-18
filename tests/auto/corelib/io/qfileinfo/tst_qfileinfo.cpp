@@ -7279,12 +7279,6 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
-argument_list|)
 if|if
 condition|(
 name|fileInfo
@@ -10353,12 +10347,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_ANDROID
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
 argument_list|)
 name|appPath
 operator|+=

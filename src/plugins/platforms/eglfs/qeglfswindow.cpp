@@ -330,11 +330,6 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
-argument_list|)
 comment|// We can have either a single OpenGL window or multiple raster windows.
 comment|// Other combinations cannot work.
 name|qFatal

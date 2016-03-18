@@ -3803,12 +3803,6 @@ name|defined
 argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
-argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Deploying executable applications to file system on Android not supported."
@@ -4076,12 +4070,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_ANDROID
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
 argument_list|)
 name|QSKIP
 argument_list|(
@@ -4352,12 +4340,6 @@ directive|elif
 name|defined
 argument_list|(
 name|Q_OS_ANDROID
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_ANDROID_NO_SDK
 argument_list|)
 name|QSKIP
 argument_list|(
