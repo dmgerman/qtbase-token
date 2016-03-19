@@ -18275,7 +18275,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\320\222\320\276\321\201\320\272\321\200\320\265\321\201\320\265\320\275\321\214\320\265"
+literal|"\320\262\320\276\321\201\320\272\321\200\320\265\321\201\320\265\320\275\321\214\320\265"
 argument_list|)
 operator|<<
 literal|7
@@ -18300,7 +18300,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\320\222\321\201"
+literal|"\320\262\321\201"
 argument_list|)
 operator|<<
 literal|7
@@ -20652,7 +20652,7 @@ name|fromUtf8
 argument_list|(
 literal|"1"
 literal|"\xc2\xa0"
-literal|"234\xc2\xa0\xd1\x80\xd1\x83\xd0\xb1."
+literal|"234\xc2\xa0\xe2\x82\xbd"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -20675,7 +20675,7 @@ name|fromUtf8
 argument_list|(
 literal|"-1"
 literal|"\xc2\xa0"
-literal|"234\xc2\xa0\xd1\x80\xd1\x83\xd0\xb1."
+literal|"234\xc2\xa0\xe2\x82\xbd"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -20697,7 +20697,7 @@ name|fromUtf8
 argument_list|(
 literal|"1"
 literal|"\xc2\xa0"
-literal|"234,56\xc2\xa0\xd1\x80\xd1\x83\xd0\xb1."
+literal|"234,56\xc2\xa0\xe2\x82\xbd"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -20720,7 +20720,7 @@ name|fromUtf8
 argument_list|(
 literal|"-1"
 literal|"\xc2\xa0"
-literal|"234,56\xc2\xa0\xd1\x80\xd1\x83\xd0\xb1."
+literal|"234,56\xc2\xa0\xe2\x82\xbd"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -22209,16 +22209,20 @@ name|QLocale
 operator|::
 name|Divehi
 case|:
+comment|//        case QLocale::Fulah:
+comment|//        case QLocale::Hausa:
 case|case
 name|QLocale
 operator|::
 name|Hebrew
 case|:
+comment|//        case QLocale::Hungarian:
 case|case
 name|QLocale
 operator|::
 name|Kashmiri
 case|:
+comment|//        case QLocale::Kurdish:
 case|case
 name|QLocale
 operator|::
@@ -22237,6 +22241,11 @@ case|:
 case|case
 name|QLocale
 operator|::
+name|Mazanderani
+case|:
+case|case
+name|QLocale
+operator|::
 name|Mende
 case|:
 case|case
@@ -22248,6 +22257,11 @@ case|case
 name|QLocale
 operator|::
 name|Nko
+case|:
+case|case
+name|QLocale
+operator|::
+name|NorthernLuri
 case|:
 case|case
 name|QLocale
@@ -22313,6 +22327,11 @@ case|case
 name|QLocale
 operator|::
 name|Urdu
+case|:
+case|case
+name|QLocale
+operator|::
+name|Yiddish
 case|:
 name|rightToLeft
 operator|=

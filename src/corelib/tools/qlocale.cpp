@@ -9601,6 +9601,11 @@ block|{
 case|case
 name|QLocale
 operator|::
+name|AdlamScript
+case|:
+case|case
+name|QLocale
+operator|::
 name|ArabicScript
 case|:
 case|case
@@ -9612,6 +9617,11 @@ case|case
 name|QLocale
 operator|::
 name|CypriotScript
+case|:
+case|case
+name|QLocale
+operator|::
+name|HatranScript
 case|:
 case|case
 name|QLocale
@@ -9677,6 +9687,11 @@ case|case
 name|QLocale
 operator|::
 name|NkoScript
+case|:
+case|case
+name|QLocale
+operator|::
+name|OldHungarianScript
 case|:
 case|case
 name|QLocale
