@@ -3375,7 +3375,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/*!     Creates a new widget window if \a window is 0, otherwise sets the     widget's window to \a window.      Initializes the window (sets the geometry etc.) if \a     initializeWindow is true. If \a initializeWindow is false, no     initialization is performed. This parameter only makes sense if \a     window is a valid window.      Destroys the old window if \a destroyOldWindow is true. If \a     destroyOldWindow is false, you are responsible for destroying the     window yourself (using platform native code).      The QWidget constructor calls create(0,true,true) to create a     window for this widget. */
+comment|// ### fixme: Qt 6: Remove parameter window from QWidget::create()
+comment|/*!     Creates a new widget window.      The parameter \a window is ignored in Qt 5. Please use     QWindow::fromWinId() to create a QWindow wrapping a foreign     window and pass it to QWidget::createWindowContainer() instead.      Initializes the window (sets the geometry etc.) if \a     initializeWindow is true. If \a initializeWindow is false, no     initialization is performed. This parameter only makes sense if \a     window is a valid window.      Destroys the old window if \a destroyOldWindow is true. If \a     destroyOldWindow is false, you are responsible for destroying the     window yourself (using platform native code).      The QWidget constructor calls create(0,true,true) to create a     window for this widget.      \sa createWindowContainer(), QWindow::fromWinId() */
 DECL|function|create
 name|void
 name|QWidget
@@ -3395,6 +3396,18 @@ block|{
 name|Q_D
 argument_list|(
 name|QWidget
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|Q_UNLIKELY
+argument_list|(
+name|window
+argument_list|)
+condition|)
+name|qWarning
+argument_list|(
+literal|"QWidget::create(): Parameter 'window' does not have any effect."
 argument_list|)
 expr_stmt|;
 if|if
@@ -3543,9 +3556,7 @@ comment|// attribute is set.
 name|d
 operator|->
 name|createWinId
-argument_list|(
-name|window
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// Nothing more to do.
 name|Q_ASSERT
@@ -9952,10 +9963,7 @@ name|void
 name|QWidgetPrivate
 operator|::
 name|createWinId
-parameter_list|(
-name|WId
-name|winid
-parameter_list|)
+parameter_list|()
 block|{
 name|Q_Q
 argument_list|(
@@ -9971,8 +9979,6 @@ operator|<<
 literal|"QWidgetPrivate::createWinId for"
 operator|<<
 name|q
-operator|<<
-name|winid
 expr_stmt|;
 endif|#
 directive|endif
@@ -10157,40 +10163,11 @@ operator|)
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|w
-operator|!=
-name|q
-condition|)
-block|{
 name|w
 operator|->
 name|create
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-name|w
-operator|->
-name|create
-argument_list|(
-name|winid
-argument_list|)
-expr_stmt|;
-comment|// if the window has already been created, we
-comment|// need to raise it to its proper stacking position
-if|if
-condition|(
-name|winid
-condition|)
-name|w
-operator|->
-name|raise
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
