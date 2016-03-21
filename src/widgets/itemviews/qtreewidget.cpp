@@ -13203,6 +13203,11 @@ include|#
 directive|include
 file|"moc_qtreewidget.cpp"
 end_include
+begin_include
+include|#
+directive|include
+file|"moc_qtreewidget_p.cpp"
+end_include
 begin_endif
 endif|#
 directive|endif

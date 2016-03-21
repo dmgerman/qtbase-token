@@ -351,7 +351,7 @@ DECL|member|unknown_chunks
 name|png_unknown_chunkp
 name|unknown_chunks
 decl_stmt|;
-comment|/* The type of this field is limited by the type of      * png_struct::user_chunk_cache_max, else overflow can occur.     */
+comment|/* The type of this field is limited by the type of     * png_struct::user_chunk_cache_max, else overflow can occur.     */
 DECL|member|unknown_chunks_num
 name|int
 name|unknown_chunks_num

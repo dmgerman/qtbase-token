@@ -883,6 +883,19 @@ decl_stmt|;
 comment|/* pixel depth after read/write transforms */
 if|#
 directive|if
+name|PNG_ZLIB_VERNUM
+operator|>=
+literal|0x1240
+DECL|member|zstream_start
+name|png_byte
+name|zstream_start
+decl_stmt|;
+comment|/* at start of an input zlib stream */
+endif|#
+directive|endif
+comment|/* Zlib>= 1.2.4 */
+if|#
+directive|if
 name|defined
 argument_list|(
 name|PNG_READ_FILLER_SUPPORTED

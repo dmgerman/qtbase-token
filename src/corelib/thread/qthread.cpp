@@ -534,7 +534,7 @@ begin_comment
 comment|/*!     \fn void QThread::yieldCurrentThread()      Yields execution of the current thread to another runnable thread,     if any. Note that the operating system decides to which thread to     switch. */
 end_comment
 begin_comment
-comment|/*!     \fn void QThread::start(Priority priority)      Begins execution of the thread by calling run(). The     operating system will schedule the thread according to the \a     priority parameter. If the thread is already running, this     function does nothing.      The effect of the \a priority parameter is dependent on the     operating system's scheduling policy. In particular, the \a priority     will be ignored on systems that do not support thread priorities     (such as on Linux, see http://linux.die.net/man/2/sched_setscheduler     for more details).      \sa run(), terminate() */
+comment|/*!     \fn void QThread::start(Priority priority)      Begins execution of the thread by calling run(). The     operating system will schedule the thread according to the \a     priority parameter. If the thread is already running, this     function does nothing.      The effect of the \a priority parameter is dependent on the     operating system's scheduling policy. In particular, the \a priority     will be ignored on systems that do not support thread priorities     (such as on Linux, see the     \l {http://linux.die.net/man/2/sched_setscheduler}{sched_setscheduler}     documentation for more details).      \sa run(), terminate() */
 end_comment
 begin_comment
 comment|/*!     \fn void QThread::started()      This signal is emitted from the associated thread when it starts executing,     before the run() function is called.      \sa finished() */

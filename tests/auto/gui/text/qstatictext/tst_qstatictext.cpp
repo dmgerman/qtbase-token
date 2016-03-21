@@ -32,11 +32,20 @@ include|#
 directive|include
 file|<qpaintengine.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_include
 include|#
 directive|include
 file|<private/qstatictext_p.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// #define DEBUG_SAVE_IMAGE
 end_comment
@@ -200,6 +209,9 @@ name|void
 name|unprintableCharacter_qtbug12614
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|underlinedColor_qtbug20159
 parameter_list|()
@@ -208,6 +220,8 @@ name|void
 name|textDocumentColor
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 private|private:
 name|bool
 name|supportsTransformations
@@ -3953,6 +3967,11 @@ expr_stmt|;
 comment|// Force layout. Should not crash.
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|underlinedColor_qtbug20159
 name|void
@@ -4163,6 +4182,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(

@@ -3,7 +3,7 @@ begin_comment
 comment|/* pnglibconf.h - library build configuration */
 end_comment
 begin_comment
-comment|/* libpng version 1.6.19, July 23, 2015 */
+comment|/* libpng version 1.6.20 - December 3, 2015 */
 end_comment
 begin_comment
 comment|/* Copyright (c) 1998-2014 Glenn Randers-Pehrson */

@@ -46,17 +46,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/QWindow>
+file|<QtGui/QRasterWindow>
 end_include
 begin_include
 include|#
 directive|include
 file|<QtGui/QPixmap>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtGui/QBackingStore>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -64,7 +59,7 @@ name|class
 name|QShapedPixmapWindow
 range|:
 name|public
-name|QWindow
+name|QRasterWindow
 block|{
 name|Q_OBJECT
 name|public
@@ -81,10 +76,6 @@ argument_list|)
 block|;
 operator|~
 name|QShapedPixmapWindow
-argument_list|()
-block|;
-name|void
-name|render
 argument_list|()
 block|;
 name|void
@@ -127,18 +118,14 @@ block|;
 name|protected
 operator|:
 name|void
-name|exposeEvent
+name|paintEvent
 argument_list|(
-argument|QExposeEvent *
+argument|QPaintEvent *
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|private
 operator|:
-name|QBackingStore
-operator|*
-name|m_backingStore
-block|;
 name|QPixmap
 name|m_pixmap
 block|;

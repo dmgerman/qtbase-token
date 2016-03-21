@@ -1509,69 +1509,6 @@ literal|10
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"tab 01"
-argument_list|)
-expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"tab 02"
-argument_list|)
-expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"tab 03"
-argument_list|)
-expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"tab 04"
-argument_list|)
-expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"tab 05"
-argument_list|)
-expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"tab 06"
-argument_list|)
-expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"This is tab7"
-argument_list|)
-expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"This is tab8"
-argument_list|)
-expr_stmt|;
-name|tabBar
-operator|.
-name|addTab
-argument_list|(
-literal|"This is tab9 with a very long title"
-argument_list|)
-expr_stmt|;
 comment|// No eliding and no scrolling -> tabbar becomes very wide
 name|tabBar
 operator|.
@@ -1589,21 +1526,60 @@ operator|::
 name|ElideNone
 argument_list|)
 expr_stmt|;
-comment|//    qDebug()<< tabBar.minimumSizeHint()<< tabBar.sizeHint();
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
+name|tabBar
+operator|.
+name|addTab
 argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-27230"
-argument_list|,
-name|Abort
+literal|"tab 01"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+comment|// Fetch the minimum size hint width and make sure that we create enough
+comment|// tabs.
+name|int
+name|minimumSizeHintWidth
+init|=
+name|tabBar
+operator|.
+name|minimumSizeHint
+argument_list|()
+operator|.
+name|width
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<=
+literal|700
+operator|/
+name|minimumSizeHintWidth
+condition|;
+operator|++
+name|i
+control|)
+name|tabBar
+operator|.
+name|addTab
+argument_list|(
+name|QString
+argument_list|(
+literal|"tab 0%1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|i
+operator|+
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//qDebug()<< tabBar.minimumSizeHint()<< tabBar.sizeHint();
 name|QVERIFY
 argument_list|(
 name|tabBar
@@ -1638,7 +1614,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//   qDebug()<< tabBar.minimumSizeHint()<< tabBar.sizeHint();
 name|QVERIFY
 argument_list|(
 name|tabBar
@@ -1683,7 +1658,6 @@ operator|::
 name|ElideRight
 argument_list|)
 expr_stmt|;
-comment|//    qDebug()<< tabBar.minimumSizeHint()<< tabBar.sizeHint();
 comment|// The sizeHint is very much dependent on the screen DPI value
 comment|// so we can not really predict it.
 name|int
@@ -1727,7 +1701,7 @@ name|tabBar
 operator|.
 name|addTab
 argument_list|(
-literal|"This is tab10 with a very long title"
+literal|"This is tab with a very long title"
 argument_list|)
 expr_stmt|;
 name|QVERIFY

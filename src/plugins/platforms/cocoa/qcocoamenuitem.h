@@ -273,14 +273,6 @@ return|return
 name|m_menu
 return|;
 block|}
-name|void
-name|clearMenu
-argument_list|(
-name|QCocoaMenu
-operator|*
-name|menu
-argument_list|)
-block|;
 name|MenuRole
 name|effectiveRole
 argument_list|()
@@ -313,8 +305,10 @@ block|;
 name|QIcon
 name|m_icon
 block|;
+name|QPointer
+operator|<
 name|QCocoaMenu
-operator|*
+operator|>
 name|m_menu
 block|;
 name|bool

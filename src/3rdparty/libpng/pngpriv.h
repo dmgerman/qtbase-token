@@ -4483,6 +4483,54 @@ argument_list|,
 name|PNG_EMPTY
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|PNG_ZLIB_VERNUM
+operator|>=
+literal|0x1240
+name|PNG_INTERNAL_FUNCTION
+argument_list|(
+name|int
+argument_list|,
+name|png_zlib_inflate
+argument_list|,
+operator|(
+name|png_structrp
+name|png_ptr
+operator|,
+name|int
+name|flush
+operator|)
+argument_list|,
+name|PNG_EMPTY
+argument_list|)
+expr_stmt|;
+DECL|macro|PNG_INFLATE
+define|#
+directive|define
+name|PNG_INFLATE
+parameter_list|(
+name|pp
+parameter_list|,
+name|flush
+parameter_list|)
+value|png_zlib_inflate(pp, flush)
+else|#
+directive|else
+comment|/* Zlib< 1.2.4 */
+DECL|macro|PNG_INFLATE
+define|#
+directive|define
+name|PNG_INFLATE
+parameter_list|(
+name|pp
+parameter_list|,
+name|flush
+parameter_list|)
+value|inflate(&(pp)->zstream, flush)
+endif|#
+directive|endif
+comment|/* Zlib< 1.2.4 */
 ifdef|#
 directive|ifdef
 name|PNG_READ_TRANSFORMS_SUPPORTED

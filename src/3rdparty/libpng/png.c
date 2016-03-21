@@ -11,10 +11,10 @@ begin_comment
 comment|/* Generate a compiler error if there is an old png.h in the search path. */
 end_comment
 begin_typedef
-DECL|typedef|Your_png_h_is_not_version_1_6_19
+DECL|typedef|Your_png_h_is_not_version_1_6_20
 typedef|typedef
-name|png_libpng_version_1_6_19
-name|Your_png_h_is_not_version_1_6_19
+name|png_libpng_version_1_6_20
+name|Your_png_h_is_not_version_1_6_20
 typedef|;
 end_typedef
 begin_comment
@@ -2883,7 +2883,7 @@ name|__STDC__
 return|return
 name|PNG_STRING_NEWLINE
 expr|\
-literal|"libpng version 1.6.19 - November 12, 2015"
+literal|"libpng version 1.6.20 - December 3, 2015"
 name|PNG_STRING_NEWLINE
 expr|\
 literal|"Copyright (c) 1998-2015 Glenn Randers-Pehrson"
@@ -2899,7 +2899,7 @@ return|;
 else|#
 directive|else
 return|return
-literal|"libpng version 1.6.19 - November 12, 2015\       Copyright (c) 1998-2015 Glenn Randers-Pehrson\       Copyright (c) 1996-1997 Andreas Dilger\       Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc."
+literal|"libpng version 1.6.20 - December 3, 2015\       Copyright (c) 1998-2015 Glenn Randers-Pehrson\       Copyright (c) 1996-1997 Andreas Dilger\       Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc."
 return|;
 endif|#
 directive|endif

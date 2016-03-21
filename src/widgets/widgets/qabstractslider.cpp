@@ -2694,4 +2694,9 @@ expr_stmt|;
 block|}
 name|QT_END_NAMESPACE
 end_constructor
+begin_include
+include|#
+directive|include
+file|"moc_qabstractslider.cpp"
+end_include
 end_unit

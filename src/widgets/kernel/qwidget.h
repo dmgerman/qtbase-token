@@ -3196,6 +3196,7 @@ name|event
 argument_list|(
 name|QEvent
 operator|*
+name|event
 argument_list|)
 name|Q_DECL_OVERRIDE
 decl_stmt|;
@@ -3205,6 +3206,7 @@ name|mousePressEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3213,6 +3215,7 @@ name|mouseReleaseEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3221,6 +3224,7 @@ name|mouseDoubleClickEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3229,6 +3233,7 @@ name|mouseMoveEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 ifndef|#
@@ -3240,6 +3245,7 @@ name|wheelEvent
 parameter_list|(
 name|QWheelEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 endif|#
@@ -3250,6 +3256,7 @@ name|keyPressEvent
 parameter_list|(
 name|QKeyEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3258,6 +3265,7 @@ name|keyReleaseEvent
 parameter_list|(
 name|QKeyEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3266,6 +3274,7 @@ name|focusInEvent
 parameter_list|(
 name|QFocusEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3274,6 +3283,7 @@ name|focusOutEvent
 parameter_list|(
 name|QFocusEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3282,6 +3292,7 @@ name|enterEvent
 parameter_list|(
 name|QEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3290,6 +3301,7 @@ name|leaveEvent
 parameter_list|(
 name|QEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3298,6 +3310,7 @@ name|paintEvent
 parameter_list|(
 name|QPaintEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3306,6 +3319,7 @@ name|moveEvent
 parameter_list|(
 name|QMoveEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3314,6 +3328,7 @@ name|resizeEvent
 parameter_list|(
 name|QResizeEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3322,6 +3337,7 @@ name|closeEvent
 parameter_list|(
 name|QCloseEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 ifndef|#
@@ -3333,6 +3349,7 @@ name|contextMenuEvent
 parameter_list|(
 name|QContextMenuEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 endif|#
@@ -3346,6 +3363,7 @@ name|tabletEvent
 parameter_list|(
 name|QTabletEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 endif|#
@@ -3359,6 +3377,7 @@ name|actionEvent
 parameter_list|(
 name|QActionEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 endif|#
@@ -3372,6 +3391,7 @@ name|dragEnterEvent
 parameter_list|(
 name|QDragEnterEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3380,6 +3400,7 @@ name|dragMoveEvent
 parameter_list|(
 name|QDragMoveEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3388,6 +3409,7 @@ name|dragLeaveEvent
 parameter_list|(
 name|QDragLeaveEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3396,6 +3418,7 @@ name|dropEvent
 parameter_list|(
 name|QDropEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 endif|#
@@ -3406,6 +3429,7 @@ name|showEvent
 parameter_list|(
 name|QShowEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -3414,6 +3438,7 @@ name|hideEvent
 parameter_list|(
 name|QHideEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual

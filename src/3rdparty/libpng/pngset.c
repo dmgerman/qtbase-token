@@ -2477,7 +2477,7 @@ return|return;
 name|max_palette_length
 operator|=
 operator|(
-name|png_ptr
+name|info_ptr
 operator|->
 name|color_type
 operator|==
@@ -2487,7 +2487,7 @@ condition|?
 operator|(
 literal|1
 operator|<<
-name|png_ptr
+name|info_ptr
 operator|->
 name|bit_depth
 operator|)
@@ -6522,7 +6522,7 @@ name|png_uint_32
 name|user_height_max
 parameter_list|)
 block|{
-comment|/* Images with dimensions larger than these limits will be     * rejected by png_set_IHDR().  To accept any PNG datastream     * regardless of dimensions, set both limits to 0x7ffffff.     */
+comment|/* Images with dimensions larger than these limits will be     * rejected by png_set_IHDR().  To accept any PNG datastream     * regardless of dimensions, set both limits to 0x7fffffff.     */
 if|if
 condition|(
 name|png_ptr

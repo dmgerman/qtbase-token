@@ -61,11 +61,6 @@ name|public
 name|QToolButton
 block|{
 name|Q_OBJECT
-name|Qt
-operator|::
-name|Orientation
-name|orientation
-block|;
 name|public
 operator|:
 name|explicit
