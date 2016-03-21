@@ -7413,6 +7413,11 @@ include|#
 directive|include
 file|"moc_qdockwidget.cpp"
 end_include
+begin_include
+include|#
+directive|include
+file|"moc_qdockwidget_p.cpp"
+end_include
 begin_endif
 endif|#
 directive|endif

@@ -2841,7 +2841,7 @@ argument|val
 argument_list|)
 endif|#
 directive|endif
-comment|/* If control reaches this point, png_longjmp() must not return. The only     * choice is to terminate the whole process (or maybe the thread); to do     * this the ANSI-C abort() function is used unless a different method is      * implemented by overriding the default configuration setting for     * PNG_ABORT().     */
+comment|/* If control reaches this point, png_longjmp() must not return. The only     * choice is to terminate the whole process (or maybe the thread); to do     * this the ANSI-C abort() function is used unless a different method is     * implemented by overriding the default configuration setting for     * PNG_ABORT().     */
 name|PNG_ABORT
 argument_list|()
 expr_stmt|;

@@ -2967,6 +2967,11 @@ name|timedOut
 init|=
 literal|true
 decl_stmt|;
+name|int
+name|expectedReadyReadSignals
+init|=
+literal|0
+decl_stmt|;
 name|QCOMPARE
 argument_list|(
 name|server
@@ -3133,6 +3138,11 @@ operator|.
 name|canReadLine
 argument_list|()
 condition|)
+block|{
+name|expectedReadyReadSignals
+operator|=
+literal|1
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|socket
@@ -3141,6 +3151,7 @@ name|waitForReadyRead
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|QVERIFY
 argument_list|(
 name|socket
@@ -3204,7 +3215,7 @@ operator|.
 name|count
 argument_list|()
 argument_list|,
-literal|1
+name|expectedReadyReadSignals
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -3329,7 +3340,7 @@ argument_list|()
 argument_list|,
 name|canListen
 condition|?
-literal|1
+name|expectedReadyReadSignals
 else|:
 literal|0
 argument_list|)

@@ -302,9 +302,6 @@ name|copy
 operator|.
 name|scheme
 argument_list|()
-operator|.
-name|toLower
-argument_list|()
 decl_stmt|;
 name|bool
 name|isEncrypted

@@ -388,9 +388,6 @@ name|url
 operator|.
 name|scheme
 argument_list|()
-operator|.
-name|toLower
-argument_list|()
 operator|==
 name|QLatin1String
 argument_list|(

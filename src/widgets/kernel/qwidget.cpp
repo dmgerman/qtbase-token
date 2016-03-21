@@ -6657,11 +6657,6 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
-name|setWinId
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 operator|delete
 name|extra
 operator|->
@@ -28067,11 +28062,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|q
-operator|->
-name|isVisible
-argument_list|()
-operator|&&
 name|q
 operator|->
 name|testAttribute

@@ -273,10 +273,7 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QWindowsStyle
 argument_list|)
-name|void
-operator|*
-name|reserved
-block|; }
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_endif

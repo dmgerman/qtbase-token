@@ -97,10 +97,6 @@ elif|#
 directive|elif
 name|defined
 name|Q_OS_WIN
-operator|&&
-operator|!
-name|defined
-name|Q_OS_WINRT
 return|return
 operator|new
 name|QWinTimeZonePrivate
@@ -211,10 +207,6 @@ elif|#
 directive|elif
 name|defined
 name|Q_OS_WIN
-operator|&&
-operator|!
-name|defined
-name|Q_OS_WINRT
 return|return
 operator|new
 name|QWinTimeZonePrivate

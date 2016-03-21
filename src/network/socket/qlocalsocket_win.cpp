@@ -968,13 +968,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|d
-operator|->
-name|pipeWriter
-operator|->
-name|start
-argument_list|()
-expr_stmt|;
 block|}
 return|return
 name|d

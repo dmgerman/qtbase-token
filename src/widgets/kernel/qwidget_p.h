@@ -133,12 +133,6 @@ name|QT_BEGIN_NAMESPACE
 comment|// Extra QWidget data
 comment|//  - to minimize memory usage for members that are seldom used.
 comment|//  - top-level widgets have extra extra data to reduce cost further
-DECL|variable|QWidgetWindow
-name|class
-name|QWidgetWindow
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QPaintEngine
 name|class
 name|QPaintEngine
@@ -422,7 +416,7 @@ modifier|*
 name|sharedPainter
 decl_stmt|;
 DECL|member|window
-name|QWidgetWindow
+name|QWindow
 modifier|*
 name|window
 decl_stmt|;

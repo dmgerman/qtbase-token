@@ -444,6 +444,7 @@ name|event
 parameter_list|(
 name|QEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 name|virtual
@@ -452,9 +453,11 @@ name|eventFilter
 parameter_list|(
 name|QObject
 modifier|*
+name|watched
 parameter_list|,
 name|QEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 ifdef|#
@@ -1034,6 +1037,7 @@ name|setParent
 parameter_list|(
 name|QObject
 modifier|*
+name|parent
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1043,6 +1047,7 @@ name|installEventFilter
 parameter_list|(
 name|QObject
 modifier|*
+name|filterObj
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1052,6 +1057,7 @@ name|removeEventFilter
 parameter_list|(
 name|QObject
 modifier|*
+name|obj
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2744,6 +2750,7 @@ name|timerEvent
 parameter_list|(
 name|QTimerEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2754,6 +2761,7 @@ name|childEvent
 parameter_list|(
 name|QChildEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2764,6 +2772,7 @@ name|customEvent
 parameter_list|(
 name|QEvent
 modifier|*
+name|event
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -10212,7 +10212,6 @@ literal|"invalid PNG color type"
 argument_list|)
 expr_stmt|;
 comment|/*NOT REACHED*/
-break|break;
 block|}
 comment|/* Now deal with the output processing */
 if|if

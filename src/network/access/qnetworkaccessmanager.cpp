@@ -2319,15 +2319,11 @@ argument_list|()
 operator|.
 name|scheme
 argument_list|()
-operator|.
-name|toLower
-argument_list|()
 decl_stmt|;
 comment|// fast path for GET on file:// URLs
 comment|// The QNetworkAccessFileBackend will right now only be used for PUT
 if|if
 condition|(
-operator|(
 name|op
 operator|==
 name|QNetworkAccessManager
@@ -2339,23 +2335,14 @@ operator|==
 name|QNetworkAccessManager
 operator|::
 name|HeadOperation
-operator|)
-operator|&&
-operator|(
+condition|)
+block|{
+if|if
+condition|(
 name|isLocalFile
-operator|||
-name|scheme
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"qrc"
-argument_list|)
-if|#
-directive|if
-name|defined
-argument_list|(
+ifdef|#
+directive|ifdef
 name|Q_OS_ANDROID
-argument_list|)
 operator|||
 name|scheme
 operator|==
@@ -2365,7 +2352,13 @@ literal|"assets"
 argument_list|)
 endif|#
 directive|endif
-operator|)
+operator|||
+name|scheme
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"qrc"
+argument_list|)
 condition|)
 block|{
 return|return
@@ -2382,20 +2375,6 @@ return|;
 block|}
 if|if
 condition|(
-operator|(
-name|op
-operator|==
-name|QNetworkAccessManager
-operator|::
-name|GetOperation
-operator|||
-name|op
-operator|==
-name|QNetworkAccessManager
-operator|::
-name|HeadOperation
-operator|)
-operator|&&
 name|scheme
 operator|==
 name|QLatin1String
@@ -2403,7 +2382,6 @@ argument_list|(
 literal|"data"
 argument_list|)
 condition|)
-block|{
 return|return
 operator|new
 name|QNetworkReplyDataImpl
@@ -2415,7 +2393,6 @@ argument_list|,
 name|op
 argument_list|)
 return|;
-block|}
 comment|// A request with QNetworkRequest::AlwaysCache does not need any bearer management
 name|QNetworkRequest
 operator|::
@@ -2453,20 +2430,6 @@ operator|==
 name|QNetworkRequest
 operator|::
 name|AlwaysCache
-operator|&&
-operator|(
-name|op
-operator|==
-name|QNetworkAccessManager
-operator|::
-name|GetOperation
-operator|||
-name|op
-operator|==
-name|QNetworkAccessManager
-operator|::
-name|HeadOperation
-operator|)
 condition|)
 block|{
 comment|// FIXME Implement a QNetworkReplyCacheImpl instead, see QTBUG-15106
@@ -2545,6 +2508,7 @@ expr_stmt|;
 return|return
 name|reply
 return|;
+block|}
 block|}
 ifndef|#
 directive|ifndef
