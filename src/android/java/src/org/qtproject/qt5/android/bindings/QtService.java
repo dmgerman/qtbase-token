@@ -274,7 +274,7 @@ name|invoked
 condition|)
 return|return
 operator|(
-name|int
+name|Integer
 operator|)
 name|res
 operator|.
@@ -452,7 +452,7 @@ name|invoked
 condition|)
 return|return
 operator|(
-name|boolean
+name|Boolean
 operator|)
 name|res
 operator|.
