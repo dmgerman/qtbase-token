@@ -20587,24 +20587,6 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
-name|moduleStream
-operator|<<
-literal|"#Qt for Windows CE c-runtime deployment"
-operator|<<
-name|endl
-operator|<<
-literal|"QT_CE_C_RUNTIME = "
-operator|<<
-name|formatPath
-argument_list|(
-name|dictionary
-index|[
-literal|"CE_CRT"
-index|]
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
 if|if
 condition|(
 name|dictionary
@@ -23168,6 +23150,40 @@ name|dictionary
 index|[
 literal|"QT_GCC_PATCH_VERSION"
 index|]
+operator|<<
+name|endl
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|dictionary
+operator|.
+name|value
+argument_list|(
+literal|"XQMAKESPEC"
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"wince"
+argument_list|)
+condition|)
+block|{
+name|configStream
+operator|<<
+literal|"#Qt for Windows CE c-runtime deployment"
+operator|<<
+name|endl
+operator|<<
+literal|"QT_CE_C_RUNTIME = "
+operator|<<
+name|formatPath
+argument_list|(
+name|dictionary
+index|[
+literal|"CE_CRT"
+index|]
+argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
