@@ -80,6 +80,9 @@ operator|<
 name|QObject
 operator|>
 name|focusObject
+block|;
+name|qreal
+name|factor
 block|;     }
 block|;
 name|public
@@ -218,6 +221,8 @@ name|void
 name|initContext
 argument_list|(
 argument|HWND hwnd
+argument_list|,
+argument|qreal factor
 argument_list|,
 argument|QObject *focusObject
 argument_list|)
