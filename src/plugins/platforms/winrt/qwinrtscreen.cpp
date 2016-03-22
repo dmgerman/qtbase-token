@@ -4975,9 +4975,7 @@ argument_list|()
 argument_list|,
 name|status
 operator|.
-name|RepeatCount
-operator|>
-literal|1
+name|WasKeyDown
 argument_list|,
 operator|!
 name|status
@@ -5132,9 +5130,7 @@ name|text
 argument_list|,
 name|status
 operator|.
-name|RepeatCount
-operator|>
-literal|1
+name|WasKeyDown
 argument_list|,
 operator|!
 name|status
@@ -5304,9 +5300,7 @@ name|text
 argument_list|,
 name|status
 operator|.
-name|RepeatCount
-operator|>
-literal|1
+name|WasKeyDown
 argument_list|,
 operator|!
 name|status
