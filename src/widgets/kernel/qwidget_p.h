@@ -1106,10 +1106,7 @@ argument_list|()
 block|;
 name|void
 name|createWinId
-argument_list|(
-argument|WId id =
-literal|0
-argument_list|)
+argument_list|()
 block|;
 name|void
 name|createTLExtra
