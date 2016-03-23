@@ -6397,7 +6397,7 @@ name|argument
 argument_list|)
 expr_stmt|;
 specifier|const
-name|QPoint
+name|QPointF
 name|offset
 argument_list|(
 operator|-
@@ -6431,9 +6431,6 @@ operator|.
 name|toRectF
 argument_list|()
 operator|.
-name|toRect
-argument_list|()
-operator|.
 name|translated
 argument_list|(
 name|offset
@@ -6456,9 +6453,6 @@ operator|=
 name|v
 operator|.
 name|toPointF
-argument_list|()
-operator|.
-name|toPoint
 argument_list|()
 operator|+
 name|offset
@@ -6485,6 +6479,9 @@ operator|.
 name|translated
 argument_list|(
 name|offset
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -6507,6 +6504,9 @@ name|toPoint
 argument_list|()
 operator|+
 name|offset
+operator|.
+name|toPoint
+argument_list|()
 expr_stmt|;
 block|}
 return|return
