@@ -142,7 +142,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Stop listening for incoming connections.  Existing connections are not     effected, but any new connections will be refused.      \sa isListening(), listen()  */
+comment|/*!     Stop listening for incoming connections.  Existing connections are not     affected, but any new connections will be refused.      \sa isListening(), listen()  */
 end_comment
 begin_function
 DECL|function|close
