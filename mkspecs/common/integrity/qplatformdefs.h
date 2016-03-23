@@ -166,7 +166,6 @@ name|getpagesize
 parameter_list|()
 block|{
 return|return
-operator|::
 name|sysconf
 argument_list|(
 name|_SC_PAGESIZE
@@ -244,6 +243,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_QNX_PLATFORMDEFS_H
+comment|// Q_INTEGRITY_PLATFORMDEFS_H
 end_comment
 end_unit
