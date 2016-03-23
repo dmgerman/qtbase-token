@@ -394,7 +394,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_canWrite()
+argument|void _q_bytesWritten(qint64)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(

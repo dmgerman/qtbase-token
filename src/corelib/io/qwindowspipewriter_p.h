@@ -285,6 +285,15 @@ argument_list|(
 argument|int msecs
 argument_list|)
 block|;
+name|bool
+name|isWriteOperationActive
+argument_list|()
+specifier|const
+block|{
+return|return
+name|writeSequenceStarted
+return|;
+block|}
 name|qint64
 name|bytesToWrite
 argument_list|()
