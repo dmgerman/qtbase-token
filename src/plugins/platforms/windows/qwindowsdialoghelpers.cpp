@@ -7429,7 +7429,7 @@ name|pattern
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{8}"
+literal|"\\A[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}\\z"
 argument_list|)
 argument_list|)
 decl_stmt|;
