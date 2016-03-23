@@ -5593,7 +5593,7 @@ literal|null
 operator|&&
 name|QtApplication
 operator|.
-name|onKeyDown
+name|onKeyUp
 operator|!=
 literal|null
 condition|)
