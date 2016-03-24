@@ -470,6 +470,10 @@ name|EGL_CONTEXT_FLAGS_KHR
 block|,
 name|flags
 block|,
+name|EGL_CONTEXT_OPENGL_NO_ERROR_KHR
+block|,
+literal|true
+block|,
 name|EGL_NONE
 block|}
 decl_stmt|;
