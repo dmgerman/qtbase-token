@@ -87,6 +87,11 @@ end_elif
 begin_include
 include|#
 directive|include
+file|<private/qringbuffer_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qwindowspipereader_p.h"
 end_include
 begin_include
@@ -341,8 +346,14 @@ name|function
 argument_list|)
 block|;
 name|void
-name|_q_canWrite
+name|startNextWrite
 argument_list|()
+block|;
+name|void
+name|_q_bytesWritten
+argument_list|(
+argument|qint64 bytes
+argument_list|)
 block|;
 name|void
 name|_q_pipeClosed
@@ -358,6 +369,9 @@ argument_list|)
 block|;
 name|HANDLE
 name|handle
+block|;
+name|QRingBuffer
+name|writeBuffer
 block|;
 name|QWindowsPipeWriter
 operator|*
