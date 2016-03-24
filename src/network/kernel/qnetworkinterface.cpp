@@ -1301,7 +1301,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.7      Returns the index of the interface whose name is \a name or 0 if there is     no interface with that name. This function should produce the same result     as the following code, but will probably execute faster.      \code         QNetworkInterface::interfaceFromName(name).index()     \endcode      \sa interfaceFromName(), interfaceNameFromIndex(), QUdpDatagram::interfaceIndex() */
+comment|/*!     \since 5.7      Returns the index of the interface whose name is \a name or 0 if there is     no interface with that name. This function should produce the same result     as the following code, but will probably execute faster.      \code         QNetworkInterface::interfaceFromName(name).index()     \endcode      \sa interfaceFromName(), interfaceNameFromIndex() */
 end_comment
 begin_function
 DECL|function|interfaceIndexFromName
@@ -1433,7 +1433,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.7      Returns the name of the interface whose index is \a index or an empty     string if there is no interface with that index. This function should     produce the same result as the following code, but will probably execute     faster.      \code         QNetworkInterface::interfaceFromIndex(index).name()     \endcode      \sa interfaceFromIndex(), interfaceIndexFromName(), QUdpDatagram::interfaceIndex() */
+comment|/*!     \since 5.7      Returns the name of the interface whose index is \a index or an empty     string if there is no interface with that index. This function should     produce the same result as the following code, but will probably execute     faster.      \code         QNetworkInterface::interfaceFromIndex(index).name()     \endcode      \sa interfaceFromIndex(), interfaceIndexFromName() */
 end_comment
 begin_function
 DECL|function|interfaceNameFromIndex
