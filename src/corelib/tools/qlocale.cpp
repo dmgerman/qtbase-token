@@ -15204,7 +15204,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \since 5.7     \overload  */
+comment|/*!     \since 5.7     \overload toCurrencyString()      Returns a localized string representation of \a value as a currency.     If the \a symbol is provided it is used instead of the default currency symbol.     If the \a precision is provided it is used to set the precision of the currency value.      \sa currencySymbol()  */
 end_comment
 begin_function
 DECL|function|toCurrencyString
