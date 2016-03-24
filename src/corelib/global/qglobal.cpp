@@ -570,7 +570,7 @@ begin_comment
 comment|/*! \fn auto qConstOverload(T memberFunctionPointer)     \relates<QtGlobal>     \since 5.7      Returns the \a memberFunctionPointer pointer to a constant member function:      \snippet code/src_corelib_global_qglobal.cpp 54      \sa qOverload, qNonConstOverload */
 end_comment
 begin_comment
-comment|/*! \fn auto qNonConstOverload(T memberFunctionPointer)     \relates<QtGlobal>     \since 5.7      Returns the \a memberFunctionPointer pointer to a constant member function:      \snippet code/src_corelib_global_qglobal.cpp 54      \sa qOverload, qNonConstOverload */
+comment|/*! \fn auto qNonConstOverload(T memberFunctionPointer)     \relates<QtGlobal>     \since 5.7      Returns the \a memberFunctionPointer pointer to a non-constant member function:      \snippet code/src_corelib_global_qglobal.cpp 54      \sa qOverload, qNonConstOverload */
 end_comment
 begin_comment
 comment|/*!     \macro QT_VERSION_CHECK     \relates<QtGlobal>      Turns the major, minor and patch numbers of a version into an     integer, 0xMMNNPP (MM = major, NN = minor, PP = patch). This can     be compared with another similarly processed version id.      Example:      \snippet code/src_corelib_global_qglobal.cpp qt-version-check      \sa QT_VERSION */
