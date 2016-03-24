@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEGLFSKMSCURSOR_H
+name|QEGLFSKMSGBMCURSOR_H
 end_ifndef
 begin_define
-DECL|macro|QEGLFSKMSCURSOR_H
+DECL|macro|QEGLFSKMSGBMCURSOR_H
 define|#
 directive|define
-name|QEGLFSKMSCURSOR_H
+name|QEGLFSKMSGBMCURSOR_H
 end_define
 begin_include
 include|#
@@ -35,14 +35,14 @@ file|<gbm.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QEglFSKmsScreen
+DECL|variable|QEglFSKmsGbmScreen
 name|class
-name|QEglFSKmsScreen
+name|QEglFSKmsGbmScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 range|:
 name|public
 name|QPlatformCursor
@@ -50,15 +50,15 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 argument_list|(
-name|QEglFSKmsScreen
+name|QEglFSKmsGbmScreen
 operator|*
 name|screen
 argument_list|)
 block|;
 operator|~
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 argument_list|()
 block|;
 comment|// input methods
@@ -102,7 +102,7 @@ name|void
 name|initCursorAtlas
 argument_list|()
 block|;
-name|QEglFSKmsScreen
+name|QEglFSKmsGbmScreen
 operator|*
 name|m_screen
 block|;
@@ -179,4 +179,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QEGLFSKMSGBMCURSOR_H
+end_comment
 end_unit

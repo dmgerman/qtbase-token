@@ -1,21 +1,21 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2015 Pier Luigi Fiorini<pierluigi.fiorini@gmail.com> ** Copyright (C) 2016 The Qt Company Ltd. ** Contact: https://www.qt.io/licensing/ ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and The Qt Company. For licensing terms ** and conditions see https://www.qt.io/terms-conditions. For further ** information use the contact form at https://www.qt.io/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 3 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL3 included in the ** packaging of this file. Please review the following information to ** ensure the GNU Lesser General Public License version 3 requirements ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 2.0 or (at your option) the GNU General ** Public license version 3 or any later version approved by the KDE Free ** Qt Foundation. The licenses are as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3 ** included in the packaging of this file. Please review the following ** information to ensure the GNU General Public License requirements will ** be met: https://www.gnu.org/licenses/gpl-2.0.html and ** https://www.gnu.org/licenses/gpl-3.0.html. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2015 Pier Luigi Fiorini<pierluigi.fiorini@gmail.com> ** Copyright (C) 2016 The Qt Company Ltd. ** Copyright (C) 2016 Pelagicore AG ** Contact: https://www.qt.io/licensing/ ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** Commercial License Usage ** Licensees holding valid commercial Qt licenses may use this file in ** accordance with the commercial license agreement provided with the ** Software or, alternatively, in accordance with the terms contained in ** a written agreement between you and The Qt Company. For licensing terms ** and conditions see https://www.qt.io/terms-conditions. For further ** information use the contact form at https://www.qt.io/contact-us. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 3 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL3 included in the ** packaging of this file. Please review the following information to ** ensure the GNU Lesser General Public License version 3 requirements ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU ** General Public License version 2.0 or (at your option) the GNU General ** Public license version 3 or any later version approved by the KDE Free ** Qt Foundation. The licenses are as published by the Free Software ** Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3 ** included in the packaging of this file. Please review the following ** information to ensure the GNU General Public License requirements will ** be met: https://www.gnu.org/licenses/gpl-2.0.html and ** https://www.gnu.org/licenses/gpl-3.0.html. ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
 directive|include
-file|"qeglfskmscursor.h"
+file|"qeglfskmsgbmcursor.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qeglfskmsscreen.h"
+file|"qeglfskmsgbmscreen.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qeglfskmsdevice.h"
+file|"qeglfskmsgbmdevice.h"
 end_include
 begin_include
 include|#
@@ -90,12 +90,12 @@ name|Q_DECLARE_LOGGING_CATEGORY
 argument_list|(
 name|qLcEglfsKmsDebug
 argument_list|)
-DECL|function|QEglFSKmsCursor
-name|QEglFSKmsCursor
+DECL|function|QEglFSKmsGbmCursor
+name|QEglFSKmsGbmCursor
 operator|::
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 argument_list|(
-name|QEglFSKmsScreen
+name|QEglFSKmsGbmScreen
 operator|*
 name|screen
 argument_list|)
@@ -240,12 +240,19 @@ name|m_bo
 operator|=
 name|gbm_bo_create
 argument_list|(
+cast|static_cast
+argument_list|<
+name|QEglFSKmsGbmDevice
+operator|*
+argument_list|>
+argument_list|(
 name|m_screen
 operator|->
 name|device
 argument_list|()
+argument_list|)
 operator|->
-name|device
+name|gbmDevice
 argument_list|()
 argument_list|,
 name|m_cursorSize
@@ -328,11 +335,11 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_destructor
-unit|}  QEglFSKmsCursor
-DECL|function|~QEglFSKmsCursor
+unit|}  QEglFSKmsGbmCursor
+DECL|function|~QEglFSKmsGbmCursor
 operator|::
 name|~
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 parameter_list|()
 block|{
 name|Q_FOREACH
@@ -416,7 +423,7 @@ end_destructor
 begin_function
 DECL|function|pointerEvent
 name|void
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 operator|::
 name|pointerEvent
 parameter_list|(
@@ -447,7 +454,7 @@ end_ifndef
 begin_function
 DECL|function|changeCursor
 name|void
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 operator|::
 name|changeCursor
 parameter_list|(
@@ -855,7 +862,7 @@ end_comment
 begin_function
 DECL|function|pos
 name|QPoint
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 operator|::
 name|pos
 parameter_list|()
@@ -869,7 +876,7 @@ end_function
 begin_function
 DECL|function|setPos
 name|void
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 operator|::
 name|setPos
 parameter_list|(
@@ -993,7 +1000,7 @@ end_function
 begin_function
 DECL|function|initCursorAtlas
 name|void
-name|QEglFSKmsCursor
+name|QEglFSKmsGbmCursor
 operator|::
 name|initCursorAtlas
 parameter_list|()
