@@ -191,7 +191,7 @@ DECL|macro|ANGLE_SH_VERSION
 define|#
 directive|define
 name|ANGLE_SH_VERSION
-value|134
+value|143
 end_define
 begin_typedef
 typedef|typedef
@@ -250,28 +250,71 @@ begin_typedef
 typedef|typedef
 enum|enum
 block|{
+comment|// ESSL output only supported in some configurations.
 DECL|enumerator|SH_ESSL_OUTPUT
 name|SH_ESSL_OUTPUT
 init|=
 literal|0x8B45
 block|,
-comment|// SH_GLSL_OUTPUT is deprecated. This is to not break the build.
-DECL|enumerator|SH_GLSL_OUTPUT
-name|SH_GLSL_OUTPUT
-init|=
-literal|0x8B46
-block|,
+comment|// GLSL output only supported in some configurations.
 DECL|enumerator|SH_GLSL_COMPATIBILITY_OUTPUT
 name|SH_GLSL_COMPATIBILITY_OUTPUT
 init|=
 literal|0x8B46
 block|,
-DECL|enumerator|SH_GLSL_CORE_OUTPUT
-name|SH_GLSL_CORE_OUTPUT
+comment|// Note: GL introduced core profiles in 1.5.
+DECL|enumerator|SH_GLSL_130_OUTPUT
+name|SH_GLSL_130_OUTPUT
 init|=
 literal|0x8B47
 block|,
+DECL|enumerator|SH_GLSL_140_OUTPUT
+name|SH_GLSL_140_OUTPUT
+init|=
+literal|0x8B80
+block|,
+DECL|enumerator|SH_GLSL_150_CORE_OUTPUT
+name|SH_GLSL_150_CORE_OUTPUT
+init|=
+literal|0x8B81
+block|,
+DECL|enumerator|SH_GLSL_330_CORE_OUTPUT
+name|SH_GLSL_330_CORE_OUTPUT
+init|=
+literal|0x8B82
+block|,
+DECL|enumerator|SH_GLSL_400_CORE_OUTPUT
+name|SH_GLSL_400_CORE_OUTPUT
+init|=
+literal|0x8B83
+block|,
+DECL|enumerator|SH_GLSL_410_CORE_OUTPUT
+name|SH_GLSL_410_CORE_OUTPUT
+init|=
+literal|0x8B84
+block|,
+DECL|enumerator|SH_GLSL_420_CORE_OUTPUT
+name|SH_GLSL_420_CORE_OUTPUT
+init|=
+literal|0x8B85
+block|,
+DECL|enumerator|SH_GLSL_430_CORE_OUTPUT
+name|SH_GLSL_430_CORE_OUTPUT
+init|=
+literal|0x8B86
+block|,
+DECL|enumerator|SH_GLSL_440_CORE_OUTPUT
+name|SH_GLSL_440_CORE_OUTPUT
+init|=
+literal|0x8B87
+block|,
+DECL|enumerator|SH_GLSL_450_CORE_OUTPUT
+name|SH_GLSL_450_CORE_OUTPUT
+init|=
+literal|0x8B88
+block|,
 comment|// HLSL output only supported in some configurations.
+comment|// Deprecated:
 DECL|enumerator|SH_HLSL_OUTPUT
 name|SH_HLSL_OUTPUT
 init|=
@@ -286,6 +329,25 @@ DECL|enumerator|SH_HLSL11_OUTPUT
 name|SH_HLSL11_OUTPUT
 init|=
 literal|0x8B49
+block|,
+comment|// Prefer using these to specify HLSL output type:
+DECL|enumerator|SH_HLSL_3_0_OUTPUT
+name|SH_HLSL_3_0_OUTPUT
+init|=
+literal|0x8B48
+block|,
+comment|// D3D 9
+DECL|enumerator|SH_HLSL_4_1_OUTPUT
+name|SH_HLSL_4_1_OUTPUT
+init|=
+literal|0x8B49
+block|,
+comment|// D3D 11
+DECL|enumerator|SH_HLSL_4_0_FL9_3_OUTPUT
+name|SH_HLSL_4_0_FL9_3_OUTPUT
+init|=
+literal|0x8B4A
+comment|// D3D 11 feature level 9_3
 block|}
 DECL|typedef|ShShaderOutput
 name|ShShaderOutput
@@ -451,6 +513,28 @@ DECL|enumerator|SH_REGENERATE_STRUCT_NAMES
 name|SH_REGENERATE_STRUCT_NAMES
 init|=
 literal|0x80000
+block|,
+comment|// This flag makes the compiler not prune unused function early in the
+comment|// compilation process. Pruning coupled with SH_LIMIT_CALL_STACK_DEPTH
+comment|// helps avoid bad shaders causing stack overflows.
+DECL|enumerator|SH_DONT_PRUNE_UNUSED_FUNCTIONS
+name|SH_DONT_PRUNE_UNUSED_FUNCTIONS
+init|=
+literal|0x100000
+block|,
+comment|// This flag works around a bug in NVIDIA 331 series drivers related
+comment|// to pow(x, y) where y is a constant vector.
+DECL|enumerator|SH_REMOVE_POW_WITH_CONSTANT_EXPONENT
+name|SH_REMOVE_POW_WITH_CONSTANT_EXPONENT
+init|=
+literal|0x200000
+block|,
+comment|// This flag works around bugs in Mac drivers related to do-while by
+comment|// transforming them into an other construct.
+DECL|enumerator|SH_REWRITE_DO_WHILE_LOOPS
+name|SH_REWRITE_DO_WHILE_LOOPS
+init|=
+literal|0x400000
 block|, }
 DECL|typedef|ShCompileOptions
 name|ShCompileOptions
@@ -604,6 +688,10 @@ DECL|member|ARB_texture_rectangle
 name|int
 name|ARB_texture_rectangle
 decl_stmt|;
+DECL|member|EXT_blend_func_extended
+name|int
+name|EXT_blend_func_extended
+decl_stmt|;
 DECL|member|EXT_draw_buffers
 name|int
 name|EXT_draw_buffers
@@ -640,7 +728,9 @@ DECL|member|NV_draw_buffers
 name|int
 name|NV_draw_buffers
 decl_stmt|;
-comment|// Set to 1 if highp precision is supported in the fragment language.
+comment|// Set to 1 if highp precision is supported in the ESSL 1.00 version of the
+comment|// fragment language. Does not affect versions of the language where highp
+comment|// support is mandatory.
 comment|// Default is 0.
 DECL|member|FragmentPrecisionHigh
 name|int
@@ -662,6 +752,14 @@ decl_stmt|;
 DECL|member|MaxProgramTexelOffset
 name|int
 name|MaxProgramTexelOffset
+decl_stmt|;
+comment|// Extension constants.
+comment|// Value of GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT for OpenGL ES output context.
+comment|// Value of GL_MAX_DUAL_SOURCE_DRAW_BUFFERS for OpenGL output context.
+comment|// GLES SL version 100 gl_MaxDualSourceDrawBuffersEXT value for EXT_blend_func_extended.
+DECL|member|MaxDualSourceDrawBuffers
+name|int
+name|MaxDualSourceDrawBuffers
 decl_stmt|;
 comment|// Name Hashing.
 comment|// Set a 64 bit hash function to enable user-defined name hashing.
@@ -805,13 +903,13 @@ begin_comment
 comment|//       SH_GLES2_SPEC or SH_WEBGL_SPEC.
 end_comment
 begin_comment
-comment|// output: Specifies the output code type - SH_ESSL_OUTPUT, SH_GLSL_OUTPUT,
+comment|// output: Specifies the output code type - for example SH_ESSL_OUTPUT, SH_GLSL_OUTPUT,
 end_comment
 begin_comment
-comment|//         SH_HLSL9_OUTPUT or SH_HLSL11_OUTPUT. Note: HLSL output is only
+comment|//         SH_HLSL_3_0_OUTPUT or SH_HLSL_4_1_OUTPUT. Note: Each output type may only
 end_comment
 begin_comment
-comment|//         supported in some configurations.
+comment|//         be supported in some configurations.
 end_comment
 begin_comment
 comment|// resources: Specifies the built-in resources.
@@ -942,6 +1040,20 @@ name|numStrings
 parameter_list|,
 name|int
 name|compileOptions
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|// Clears the results from the previous compilation.
+end_comment
+begin_function_decl
+name|COMPILER_EXPORT
+name|void
+name|ShClearResults
+parameter_list|(
+specifier|const
+name|ShHandle
+name|handle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1136,7 +1248,7 @@ name|vector
 operator|<
 name|sh
 operator|::
-name|Attribute
+name|OutputVariable
 operator|>
 operator|*
 name|ShGetOutputVariables

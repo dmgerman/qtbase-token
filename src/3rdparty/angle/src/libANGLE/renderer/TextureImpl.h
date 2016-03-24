@@ -31,17 +31,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"libANGLE/Error.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"libANGLE/ImageIndex.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"common/angleutils.h"
+file|<stdint.h>
 end_include
 begin_include
 include|#
@@ -51,7 +41,22 @@ end_include
 begin_include
 include|#
 directive|include
-file|<stdint.h>
+file|"common/angleutils.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libANGLE/Error.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libANGLE/FramebufferAttachment.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libANGLE/ImageIndex.h"
 end_include
 begin_decl_stmt
 name|namespace
@@ -59,6 +64,9 @@ name|egl
 block|{
 name|class
 name|Surface
+decl_stmt|;
+name|class
+name|Image
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -85,7 +93,7 @@ struct_decl|struct
 name|PixelUnpackState
 struct_decl|;
 struct_decl|struct
-name|SamplerState
+name|TextureState
 struct_decl|;
 block|}
 end_decl_stmt
@@ -96,18 +104,19 @@ block|{
 name|class
 name|TextureImpl
 range|:
-name|angle
-operator|::
-name|NonCopyable
+name|public
+name|FramebufferAttachmentObjectImpl
 block|{
 name|public
 operator|:
+name|TextureImpl
+argument_list|()
+block|{}
 name|virtual
 operator|~
 name|TextureImpl
 argument_list|()
 block|{}
-block|;
 name|virtual
 name|void
 name|setUsage
@@ -181,6 +190,8 @@ argument|const gl::Extents&size
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
 argument_list|,
+argument|size_t imageSize
+argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
 operator|=
@@ -201,6 +212,8 @@ argument_list|,
 argument|GLenum format
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|size_t imageSize
 argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
@@ -266,8 +279,28 @@ name|virtual
 name|gl
 operator|::
 name|Error
+name|setEGLImageTarget
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|egl::Image *image
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
 name|generateMipmaps
-argument_list|()
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|TextureState
+operator|&
+name|textureState
+argument_list|)
 operator|=
 literal|0
 block|;

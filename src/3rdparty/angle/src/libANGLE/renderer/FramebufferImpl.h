@@ -103,74 +103,14 @@ name|FramebufferImpl
 argument_list|()
 block|{ }
 name|virtual
-name|void
-name|setColorAttachment
-argument_list|(
-argument|size_t index
-argument_list|,
-argument|const gl::FramebufferAttachment *attachment
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|setDepthAttachment
-argument_list|(
-specifier|const
 name|gl
 operator|::
-name|FramebufferAttachment
-operator|*
-name|attachment
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|setStencilAttachment
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|FramebufferAttachment
-operator|*
-name|attachment
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|setDepthStencilAttachment
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|FramebufferAttachment
-operator|*
-name|attachment
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|setDrawBuffers
+name|Error
+name|discard
 argument_list|(
 argument|size_t count
 argument_list|,
-argument|const GLenum *buffers
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|setReadBuffer
-argument_list|(
-argument|GLenum buffer
+argument|const GLenum *attachments
 argument_list|)
 operator|=
 literal|0
@@ -222,7 +162,7 @@ operator|::
 name|Error
 name|clearBufferfv
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum buffer
 argument_list|,
@@ -239,7 +179,7 @@ operator|::
 name|Error
 name|clearBufferuiv
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum buffer
 argument_list|,
@@ -256,7 +196,7 @@ operator|::
 name|Error
 name|clearBufferiv
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum buffer
 argument_list|,
@@ -273,7 +213,7 @@ operator|::
 name|Error
 name|clearBufferfi
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum buffer
 argument_list|,
@@ -344,10 +284,26 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|GLenum
+name|bool
 name|checkStatus
 argument_list|()
 specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|syncState
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|Framebuffer
+operator|::
+name|DirtyBits
+operator|&
+name|dirtyBits
+argument_list|)
 operator|=
 literal|0
 block|;

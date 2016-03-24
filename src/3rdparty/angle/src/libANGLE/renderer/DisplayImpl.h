@@ -79,6 +79,9 @@ struct_decl|;
 name|class
 name|Surface
 decl_stmt|;
+name|class
+name|ImageSibling
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_decl_stmt
@@ -97,9 +100,15 @@ block|{
 name|class
 name|SurfaceImpl
 decl_stmt|;
+name|class
+name|ImageImpl
+decl_stmt|;
 struct_decl|struct
 name|ConfigDesc
 struct_decl|;
+name|class
+name|DeviceImpl
+decl_stmt|;
 name|class
 name|DisplayImpl
 range|:
@@ -140,9 +149,8 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|egl
-operator|::
-name|Error
+name|SurfaceImpl
+operator|*
 name|createWindowSurface
 argument_list|(
 argument|const egl::Config *configuration
@@ -150,16 +158,13 @@ argument_list|,
 argument|EGLNativeWindowType window
 argument_list|,
 argument|const egl::AttributeMap&attribs
-argument_list|,
-argument|SurfaceImpl **outSurface
 argument_list|)
 operator|=
 literal|0
 block|;
 name|virtual
-name|egl
-operator|::
-name|Error
+name|SurfaceImpl
+operator|*
 name|createPbufferSurface
 argument_list|(
 specifier|const
@@ -175,19 +180,13 @@ operator|::
 name|AttributeMap
 operator|&
 name|attribs
-argument_list|,
-name|SurfaceImpl
-operator|*
-operator|*
-name|outSurface
 argument_list|)
 operator|=
 literal|0
 block|;
 name|virtual
-name|egl
-operator|::
-name|Error
+name|SurfaceImpl
+operator|*
 name|createPbufferFromClientBuffer
 argument_list|(
 argument|const egl::Config *configuration
@@ -195,16 +194,13 @@ argument_list|,
 argument|EGLClientBuffer shareHandle
 argument_list|,
 argument|const egl::AttributeMap&attribs
-argument_list|,
-argument|SurfaceImpl **outSurface
 argument_list|)
 operator|=
 literal|0
 block|;
 name|virtual
-name|egl
-operator|::
-name|Error
+name|SurfaceImpl
+operator|*
 name|createPixmapSurface
 argument_list|(
 argument|const egl::Config *configuration
@@ -212,16 +208,29 @@ argument_list|,
 argument|NativePixmapType nativePixmap
 argument_list|,
 argument|const egl::AttributeMap&attribs
-argument_list|,
-argument|SurfaceImpl **outSurface
 argument_list|)
 operator|=
 literal|0
 block|;
 name|virtual
-name|egl
+name|ImageImpl
+operator|*
+name|createImage
+argument_list|(
+argument|EGLenum target
+argument_list|,
+argument|egl::ImageSibling *buffer
+argument_list|,
+argument|const egl::AttributeMap&attribs
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|gl
 operator|::
-name|Error
+name|Context
+operator|*
 name|createContext
 argument_list|(
 specifier|const
@@ -244,13 +253,6 @@ operator|::
 name|AttributeMap
 operator|&
 name|attribs
-argument_list|,
-name|gl
-operator|::
-name|Context
-operator|*
-operator|*
-name|outContext
 argument_list|)
 operator|=
 literal|0
@@ -332,6 +334,46 @@ operator|::
 name|string
 name|getVendorString
 argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|egl
+operator|::
+name|Error
+name|getDevice
+argument_list|(
+name|DeviceImpl
+operator|*
+operator|*
+name|device
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|egl
+operator|::
+name|Error
+name|waitClient
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|egl
+operator|::
+name|Error
+name|waitNative
+argument_list|(
+argument|EGLint engine
+argument_list|,
+argument|egl::Surface *drawSurface
+argument_list|,
+argument|egl::Surface *readSurface
+argument_list|)
 specifier|const
 operator|=
 literal|0

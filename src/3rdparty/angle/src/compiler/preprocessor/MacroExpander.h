@@ -62,6 +62,9 @@ block|{
 name|class
 name|Diagnostics
 decl_stmt|;
+struct_decl|struct
+name|SourceLocation
+struct_decl|;
 name|class
 name|MacroExpander
 range|:
@@ -72,32 +75,26 @@ name|public
 operator|:
 name|MacroExpander
 argument_list|(
-name|Lexer
-operator|*
-name|lexer
+argument|Lexer *lexer
 argument_list|,
-name|MacroSet
-operator|*
-name|macroSet
+argument|MacroSet *macroSet
 argument_list|,
-name|Diagnostics
-operator|*
-name|diagnostics
+argument|Diagnostics *diagnostics
+argument_list|,
+argument|bool parseDefined
 argument_list|)
 block|;
-name|virtual
 operator|~
 name|MacroExpander
 argument_list|()
+name|override
 block|;
-name|virtual
 name|void
 name|lex
 argument_list|(
-name|Token
-operator|*
-name|token
+argument|Token *token
 argument_list|)
+name|override
 block|;
 name|private
 operator|:
@@ -198,6 +195,10 @@ name|MacroArg
 operator|>
 operator|*
 name|args
+argument_list|,
+name|SourceLocation
+operator|*
+name|closingParenthesisLocation
 argument_list|)
 decl_stmt|;
 name|void
@@ -318,6 +319,9 @@ decl_stmt|;
 name|Diagnostics
 modifier|*
 name|mDiagnostics
+decl_stmt|;
+name|bool
+name|mParseDefined
 decl_stmt|;
 name|std
 operator|::

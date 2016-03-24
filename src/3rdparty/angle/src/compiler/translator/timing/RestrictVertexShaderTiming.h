@@ -97,13 +97,12 @@ return|return
 name|mNumErrors
 return|;
 block|}
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
+argument|TIntermSymbol *
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

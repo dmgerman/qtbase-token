@@ -52,7 +52,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"GLES3/gl3ext.h"
+file|"GLES3/gl31.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"GLES3/gl32.h"
 end_include
 begin_comment
 comment|// The following enum is used in ANGLE, but is from desktop GL

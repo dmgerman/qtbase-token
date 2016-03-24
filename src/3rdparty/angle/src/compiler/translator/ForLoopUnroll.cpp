@@ -19,6 +19,16 @@ include|#
 directive|include
 file|"compiler/translator/ForLoopUnroll.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"compiler/translator/ValidateLimitations.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
+end_include
 begin_function
 DECL|function|visitBinary
 name|bool
@@ -162,16 +172,39 @@ modifier|*
 name|node
 parameter_list|)
 block|{
+name|bool
+name|canBeUnrolled
+init|=
+name|mHasRunLoopValidation
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|mHasRunLoopValidation
+condition|)
+block|{
+name|canBeUnrolled
+operator|=
+name|ValidateLimitations
+operator|::
+name|IsLimitedForLoop
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|mUnrollCondition
 operator|==
 name|kIntegerIndex
+operator|&&
+name|canBeUnrolled
 condition|)
 block|{
 comment|// Check if loop index type is integer.
-comment|// This is called after ValidateLimitations pass, so all the calls
-comment|// should be valid. See ValidateLimitations::validateForLoopInit().
+comment|// This is called after ValidateLimitations pass, so the loop has the limited form specified
+comment|// in ESSL 1.00 appendix A.
 name|TIntermSequence
 modifier|*
 name|declSeq
@@ -238,7 +271,12 @@ if|if
 condition|(
 name|body
 operator|!=
-name|NULL
+literal|nullptr
+condition|)
+block|{
+if|if
+condition|(
+name|canBeUnrolled
 condition|)
 block|{
 name|mLoopStack
@@ -260,6 +298,17 @@ operator|.
 name|pop
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|body
+operator|->
+name|traverse
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// The loop is fully processed - no need to visit children.
 return|return

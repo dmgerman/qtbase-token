@@ -64,6 +64,11 @@ include|#
 directive|include
 file|"libANGLE/AttributeMap.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libANGLE/renderer/Renderer.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|gl
@@ -86,6 +91,12 @@ begin_decl_stmt
 name|namespace
 name|egl
 block|{
+name|class
+name|Device
+decl_stmt|;
+name|class
+name|Image
+decl_stmt|;
 name|class
 name|Surface
 decl_stmt|;
@@ -116,11 +127,28 @@ name|egl
 operator|::
 name|Display
 operator|*
-name|getDisplay
+name|GetDisplayFromDevice
 argument_list|(
-argument|EGLNativeDisplayType displayId
+name|void
+operator|*
+name|native_display
+argument_list|)
+block|;
+specifier|static
+name|egl
+operator|::
+name|Display
+operator|*
+name|GetDisplayFromAttribs
+argument_list|(
+name|void
+operator|*
+name|native_display
 argument_list|,
-argument|const AttributeMap&attribMap
+specifier|const
+name|AttributeMap
+operator|&
+name|attribMap
 argument_list|)
 block|;
 specifier|static
@@ -219,6 +247,20 @@ argument|Surface **outSurface
 argument_list|)
 block|;
 name|Error
+name|createImage
+argument_list|(
+argument|gl::Context *context
+argument_list|,
+argument|EGLenum target
+argument_list|,
+argument|EGLClientBuffer buffer
+argument_list|,
+argument|const AttributeMap&attribs
+argument_list|,
+argument|Image **outImage
+argument_list|)
+block|;
+name|Error
 name|createContext
 argument_list|(
 specifier|const
@@ -278,6 +320,16 @@ name|surface
 argument_list|)
 block|;
 name|void
+name|destroyImage
+argument_list|(
+name|egl
+operator|::
+name|Image
+operator|*
+name|image
+argument_list|)
+block|;
+name|void
 name|destroyContext
 argument_list|(
 name|gl
@@ -314,11 +366,30 @@ argument_list|)
 specifier|const
 block|;
 name|bool
+name|isValidImage
+argument_list|(
+argument|const Image *image
+argument_list|)
+specifier|const
+block|;
+name|bool
 name|isValidNativeWindow
 argument_list|(
 argument|EGLNativeWindowType window
 argument_list|)
 specifier|const
+block|;
+specifier|static
+name|bool
+name|isValidDisplay
+argument_list|(
+specifier|const
+name|egl
+operator|::
+name|Display
+operator|*
+name|display
+argument_list|)
 block|;
 specifier|static
 name|bool
@@ -346,6 +417,22 @@ block|;
 name|void
 name|notifyDeviceLost
 argument_list|()
+block|;
+name|Error
+name|waitClient
+argument_list|()
+specifier|const
+block|;
+name|Error
+name|waitNative
+argument_list|(
+argument|EGLint engine
+argument_list|,
+argument|egl::Surface *drawSurface
+argument_list|,
+argument|egl::Surface *readSurface
+argument_list|)
+specifier|const
 block|;
 specifier|const
 name|Caps
@@ -410,11 +497,30 @@ return|return
 name|mImplementation
 return|;
 block|}
+name|Device
+operator|*
+name|getDevice
+argument_list|()
+specifier|const
+block|;
+name|EGLenum
+name|getPlatform
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mPlatform
+return|;
+block|}
 name|private
 operator|:
 name|Display
 argument_list|(
+argument|EGLenum platform
+argument_list|,
 argument|EGLNativeDisplayType displayId
+argument_list|,
+argument|Device *eglDevice
 argument_list|)
 block|;
 name|void
@@ -474,6 +580,19 @@ expr_stmt|;
 name|ContextSet
 name|mContextSet
 decl_stmt|;
+typedef|typedef
+name|std
+operator|::
+name|set
+operator|<
+name|Image
+operator|*
+operator|>
+name|ImageSet
+expr_stmt|;
+name|ImageSet
+name|mImageSet
+decl_stmt|;
 name|bool
 name|mInitialized
 decl_stmt|;
@@ -493,6 +612,13 @@ operator|::
 name|string
 name|mVendorString
 expr_stmt|;
+name|Device
+modifier|*
+name|mDevice
+decl_stmt|;
+name|EGLenum
+name|mPlatform
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

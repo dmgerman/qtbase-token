@@ -69,6 +69,41 @@ operator|~
 name|Framebuffer9
 argument_list|()
 block|;
+name|gl
+operator|::
+name|Error
+name|discard
+argument_list|(
+argument|size_t count
+argument_list|,
+argument|const GLenum *attachments
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|invalidate
+argument_list|(
+argument|size_t count
+argument_list|,
+argument|const GLenum *attachments
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|invalidateSub
+argument_list|(
+argument|size_t count
+argument_list|,
+argument|const GLenum *attachments
+argument_list|,
+argument|const gl::Rectangle&area
+argument_list|)
+name|override
+block|;
 name|private
 operator|:
 name|gl
@@ -76,7 +111,7 @@ operator|::
 name|Error
 name|clear
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|const ClearParameters&clearParams
 argument_list|)
@@ -85,7 +120,7 @@ block|;
 name|gl
 operator|::
 name|Error
-name|readPixels
+name|readPixelsImpl
 argument_list|(
 argument|const gl::Rectangle&area
 argument_list|,

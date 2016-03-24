@@ -41,6 +41,11 @@ include|#
 directive|include
 file|"libANGLE/angletypes.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libANGLE/FramebufferAttachment.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -48,9 +53,8 @@ block|{
 name|class
 name|RenderTargetD3D
 range|:
-name|angle
-operator|::
-name|NonCopyable
+name|public
+name|FramebufferAttachmentRenderTarget
 block|{
 name|public
 operator|:

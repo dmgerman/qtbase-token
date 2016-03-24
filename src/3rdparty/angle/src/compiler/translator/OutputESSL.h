@@ -58,12 +58,12 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|virtual
 name|bool
 name|writeVariablePrecision
 argument_list|(
 argument|TPrecision precision
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

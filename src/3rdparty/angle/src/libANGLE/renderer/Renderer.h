@@ -49,6 +49,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libANGLE/State.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libANGLE/Uniform.h"
 end_include
 begin_include
@@ -60,11 +65,6 @@ begin_include
 include|#
 directive|include
 file|"libANGLE/renderer/ImplFactory.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"libANGLE/renderer/Workarounds.h"
 end_include
 begin_include
 include|#
@@ -98,25 +98,16 @@ block|}
 end_decl_stmt
 begin_decl_stmt
 name|namespace
-name|gl
-block|{
-name|class
-name|Buffer
-decl_stmt|;
-struct_decl|struct
-name|Data
-struct_decl|;
-block|}
-end_decl_stmt
-begin_decl_stmt
-name|namespace
 name|rx
 block|{
 struct_decl|struct
 name|TranslatedIndexData
 struct_decl|;
 struct_decl|struct
-name|Workarounds
+name|SourceIndexData
+struct_decl|;
+struct_decl|struct
+name|WorkaroundsD3D
 struct_decl|;
 name|class
 name|DisplayImpl
@@ -168,8 +159,25 @@ argument_list|,
 argument|GLint first
 argument_list|,
 argument|GLsizei count
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|drawArraysInstanced
+argument_list|(
+argument|const gl::Data&data
 argument_list|,
-argument|GLsizei instances
+argument|GLenum mode
+argument_list|,
+argument|GLint first
+argument_list|,
+argument|GLsizei count
+argument_list|,
+argument|GLsizei instanceCount
 argument_list|)
 operator|=
 literal|0
@@ -190,9 +198,55 @@ argument|GLenum type
 argument_list|,
 argument|const GLvoid *indices
 argument_list|,
+argument|const gl::IndexRange&indexRange
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|drawElementsInstanced
+argument_list|(
+argument|const gl::Data&data
+argument_list|,
+argument|GLenum mode
+argument_list|,
+argument|GLsizei count
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const GLvoid *indices
+argument_list|,
 argument|GLsizei instances
 argument_list|,
-argument|const RangeUI&indexRange
+argument|const gl::IndexRange&indexRange
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|drawRangeElements
+argument_list|(
+argument|const gl::Data&data
+argument_list|,
+argument|GLenum mode
+argument_list|,
+argument|GLuint start
+argument_list|,
+argument|GLuint end
+argument_list|,
+argument|GLsizei count
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const GLvoid *indices
+argument_list|,
+argument|const gl::IndexRange&indexRange
 argument_list|)
 operator|=
 literal|0
@@ -229,14 +283,6 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|VendorID
-name|getVendorId
-argument_list|()
-specifier|const
-operator|=
-literal|0
-block|;
-name|virtual
 name|std
 operator|::
 name|string
@@ -253,6 +299,88 @@ name|string
 name|getRendererDescription
 argument_list|()
 specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|insertEventMarker
+argument_list|(
+argument|GLsizei length
+argument_list|,
+argument|const char *marker
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|pushGroupMarker
+argument_list|(
+argument|GLsizei length
+argument_list|,
+argument|const char *marker
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|popGroupMarker
+argument_list|()
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|syncState
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|State
+operator|&
+name|state
+argument_list|,
+specifier|const
+name|gl
+operator|::
+name|State
+operator|::
+name|DirtyBits
+operator|&
+name|dirtyBits
+argument_list|)
+operator|=
+literal|0
+block|;
+comment|// Disjoint timer queries
+name|virtual
+name|GLint
+name|getGPUDisjoint
+argument_list|()
+operator|=
+literal|0
+block|;
+name|virtual
+name|GLint64
+name|getTimestamp
+argument_list|()
+operator|=
+literal|0
+block|;
+comment|// Context switching
+name|virtual
+name|void
+name|onMakeCurrent
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|Data
+operator|&
+name|data
+argument_list|)
 operator|=
 literal|0
 block|;
@@ -285,14 +413,21 @@ argument_list|()
 specifier|const
 block|;
 specifier|const
-name|Workarounds
+name|gl
+operator|::
+name|Limitations
 operator|&
-name|getWorkarounds
+name|getRendererLimitations
 argument_list|()
 specifier|const
 block|;
 name|private
 operator|:
+name|void
+name|ensureCapsInitialized
+argument_list|()
+specifier|const
+block|;
 name|virtual
 name|void
 name|generateCaps
@@ -302,15 +437,9 @@ argument_list|,
 argument|gl::TextureCapsMap* outTextureCaps
 argument_list|,
 argument|gl::Extensions *outExtensions
+argument_list|,
+argument|gl::Limitations *outLimitations
 argument_list|)
-specifier|const
-operator|=
-literal|0
-block|;
-name|virtual
-name|Workarounds
-name|generateWorkarounds
-argument_list|()
 specifier|const
 operator|=
 literal|0
@@ -338,12 +467,10 @@ name|Extensions
 name|mExtensions
 block|;
 name|mutable
-name|bool
-name|mWorkaroundsInitialized
-block|;
-name|mutable
-name|Workarounds
-name|mWorkarounds
+name|gl
+operator|::
+name|Limitations
+name|mLimitations
 block|; }
 decl_stmt|;
 block|}

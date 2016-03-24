@@ -45,6 +45,18 @@ name|TIntermTraverser
 block|{
 name|public
 operator|:
+name|FlagStd140Structs
+argument_list|()
+operator|:
+name|TIntermTraverser
+argument_list|(
+argument|true
+argument_list|,
+argument|false
+argument_list|,
+argument|false
+argument_list|)
+block|{     }
 specifier|const
 name|std
 operator|::
@@ -63,7 +75,6 @@ return|;
 block|}
 name|protected
 operator|:
-name|virtual
 name|bool
 name|visitBinary
 argument_list|(
@@ -71,15 +82,14 @@ argument|Visit visit
 argument_list|,
 argument|TIntermBinary *binaryNode
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
-name|symbol
+argument|TIntermSymbol *symbol
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

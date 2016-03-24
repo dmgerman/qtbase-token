@@ -71,6 +71,43 @@ operator|::
 name|resume
 parameter_list|()
 block|{ }
+DECL|function|bindGenericBuffer
+name|void
+name|TransformFeedbackD3D
+operator|::
+name|bindGenericBuffer
+parameter_list|(
+specifier|const
+name|BindingPointer
+argument_list|<
+name|gl
+operator|::
+name|Buffer
+argument_list|>
+modifier|&
+name|binding
+parameter_list|)
+block|{ }
+DECL|function|bindIndexedBuffer
+name|void
+name|TransformFeedbackD3D
+operator|::
+name|bindIndexedBuffer
+parameter_list|(
+name|size_t
+name|index
+parameter_list|,
+specifier|const
+name|OffsetBindingPointer
+argument_list|<
+name|gl
+operator|::
+name|Buffer
+argument_list|>
+modifier|&
+name|binding
+parameter_list|)
+block|{ }
 block|}
 end_namespace
 end_unit

@@ -56,6 +56,15 @@ argument_list|,
 argument|int shaderVersion
 argument_list|)
 operator|:
+name|TIntermTraverser
+argument_list|(
+name|true
+argument_list|,
+name|false
+argument_list|,
+name|false
+argument_list|)
+block|,
 name|mSymbolTable
 argument_list|(
 name|symbolTable
@@ -73,23 +82,21 @@ argument_list|)
 block|{}
 name|protected
 operator|:
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
+argument|TIntermSymbol *
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitAggregate
 argument_list|(
-name|Visit
+argument|Visit
 argument_list|,
-name|TIntermAggregate
-operator|*
+argument|TIntermAggregate *
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

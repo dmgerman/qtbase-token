@@ -201,6 +201,39 @@ argument_list|,
 argument|FloatType *value
 argument_list|)
 block|{
+comment|// On 64-bit Intel Android, istringstream is broken.  Until this is fixed in
+comment|// a newer NDK, don't use it.  Android doesn't have locale support, so this
+comment|// doesn't have to force the C locale.
+comment|// TODO(thakis): Remove this once this bug has been fixed in the NDK and
+comment|// that NDK has been rolled into chromium.
+if|#
+directive|if
+name|defined
+argument_list|(
+name|ANGLE_PLATFORM_ANDROID
+argument_list|)
+operator|&&
+name|__x86_64__
+operator|*
+name|value
+operator|=
+name|strtod
+argument_list|(
+name|str
+operator|.
+name|c_str
+argument_list|()
+argument_list|,
+name|nullptr
+argument_list|)
+block|;
+return|return
+name|errno
+operator|!=
+name|ERANGE
+return|;
+else|#
+directive|else
 name|std
 operator|::
 name|istringstream
@@ -208,7 +241,7 @@ name|stream
 argument_list|(
 name|str
 argument_list|)
-block|;
+expr_stmt|;
 comment|// Force "C" locale so that decimal character is always '.', and
 comment|// not dependent on the current locale.
 name|stream
@@ -222,14 +255,14 @@ operator|::
 name|classic
 argument_list|()
 argument_list|)
-block|;
+expr_stmt|;
 name|stream
 operator|>>
 operator|(
 operator|*
 name|value
 operator|)
-block|;
+expr_stmt|;
 return|return
 operator|!
 name|stream
@@ -237,10 +270,12 @@ operator|.
 name|fail
 argument_list|()
 return|;
-block|}
+endif|#
+directive|endif
 block|}
 end_decl_stmt
 begin_comment
+unit|}
 comment|// namespace pp.
 end_comment
 begin_endif

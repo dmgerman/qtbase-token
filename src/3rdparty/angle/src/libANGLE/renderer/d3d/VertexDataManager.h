@@ -128,10 +128,9 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
-expr_stmt|;
 name|bool
 name|active
-decl_stmt|;
+expr_stmt|;
 specifier|const
 name|gl
 operator|::
@@ -201,34 +200,46 @@ argument|GLint start
 argument_list|,
 argument|GLsizei count
 argument_list|,
-argument|TranslatedAttribute *outAttribs
+argument|std::vector<TranslatedAttribute> *translatedAttribs
 argument_list|,
 argument|GLsizei instances
 argument_list|)
 block|;
 name|private
 operator|:
+expr|struct
+name|CurrentValueState
+block|{
+name|CurrentValueState
+argument_list|()
+block|;
+operator|~
+name|CurrentValueState
+argument_list|()
+block|;
+name|StreamingVertexBufferInterface
+operator|*
+name|buffer
+block|;
+name|gl
+operator|::
+name|VertexAttribCurrentValueData
+name|data
+block|;
+name|size_t
+name|offset
+block|;     }
+block|;
 name|gl
 operator|::
 name|Error
 name|reserveSpaceForAttrib
 argument_list|(
-argument|const gl::VertexAttribute&attrib
-argument_list|,
-argument|const gl::VertexAttribCurrentValueData&currentValue
+argument|const TranslatedAttribute&translatedAttrib
 argument_list|,
 argument|GLsizei count
 argument_list|,
 argument|GLsizei instances
-argument_list|)
-specifier|const
-block|;
-name|void
-name|invalidateMatchingStaticData
-argument_list|(
-argument|const gl::VertexAttribute&attrib
-argument_list|,
-argument|const gl::VertexAttribCurrentValueData&currentValue
 argument_list|)
 specifier|const
 block|;
@@ -237,10 +248,6 @@ operator|::
 name|Error
 name|storeAttribute
 argument_list|(
-argument|const gl::VertexAttribute&attrib
-argument_list|,
-argument|const gl::VertexAttribCurrentValueData&currentValue
-argument_list|,
 argument|TranslatedAttribute *translated
 argument_list|,
 argument|GLint start
@@ -258,13 +265,6 @@ argument_list|(
 specifier|const
 name|gl
 operator|::
-name|VertexAttribute
-operator|&
-name|attrib
-argument_list|,
-specifier|const
-name|gl
-operator|::
 name|VertexAttribCurrentValueData
 operator|&
 name|currentValue
@@ -273,19 +273,9 @@ name|TranslatedAttribute
 operator|*
 name|translated
 argument_list|,
-name|gl
-operator|::
-name|VertexAttribCurrentValueData
+name|CurrentValueState
 operator|*
-name|cachedValue
-argument_list|,
-name|size_t
-operator|*
-name|cachedOffset
-argument_list|,
-name|StreamingVertexBufferInterface
-operator|*
-name|buffer
+name|cachedState
 argument_list|)
 block|;
 name|void
@@ -313,34 +303,31 @@ name|StreamingVertexBufferInterface
 operator|*
 name|mStreamingBuffer
 block|;
-name|gl
+name|std
 operator|::
-name|VertexAttribCurrentValueData
-name|mCurrentValue
-index|[
-name|gl
-operator|::
-name|MAX_VERTEX_ATTRIBS
-index|]
+name|vector
+operator|<
+name|CurrentValueState
+operator|>
+name|mCurrentValueCache
 block|;
-name|StreamingVertexBufferInterface
-operator|*
-name|mCurrentValueBuffer
-index|[
-name|gl
+comment|// Cache variables
+name|std
 operator|::
-name|MAX_VERTEX_ATTRIBS
-index|]
+name|vector
+operator|<
+name|TranslatedAttribute
+operator|*
+operator|>
+name|mActiveEnabledAttributes
 block|;
 name|std
 operator|::
+name|vector
+operator|<
 name|size_t
-name|mCurrentValueOffsets
-index|[
-name|gl
-operator|::
-name|MAX_VERTEX_ATTRIBS
-index|]
+operator|>
+name|mActiveDisabledAttributes
 block|; }
 decl_stmt|;
 block|}

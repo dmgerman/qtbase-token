@@ -75,16 +75,6 @@ argument_list|,
 argument|bool dynamic
 argument_list|)
 block|;
-specifier|static
-name|IndexBuffer11
-operator|*
-name|makeIndexBuffer11
-argument_list|(
-name|IndexBuffer
-operator|*
-name|indexBuffer
-argument_list|)
-block|;
 name|virtual
 name|gl
 operator|::

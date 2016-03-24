@@ -58,7 +58,7 @@ name|CollectVariables
 argument_list|(
 argument|std::vector<Attribute> *attribs
 argument_list|,
-argument|std::vector<Attribute> *outputVariables
+argument|std::vector<OutputVariable> *outputVariables
 argument_list|,
 argument|std::vector<Uniform> *uniforms
 argument_list|,
@@ -71,27 +71,22 @@ argument_list|,
 argument|const TSymbolTable&symbolTable
 argument_list|)
 block|;
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
-name|symbol
+argument|TIntermSymbol *symbol
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitAggregate
 argument_list|(
-name|Visit
+argument|Visit
 argument_list|,
-name|TIntermAggregate
-operator|*
-name|node
+argument|TIntermAggregate *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitBinary
 argument_list|(
@@ -99,6 +94,7 @@ argument|Visit visit
 argument_list|,
 argument|TIntermBinary *binaryNode
 argument_list|)
+name|override
 block|;
 name|private
 operator|:
@@ -143,7 +139,7 @@ name|std
 operator|::
 name|vector
 operator|<
-name|Attribute
+name|OutputVariable
 operator|>
 operator|*
 name|mOutputVariables
@@ -189,6 +185,9 @@ operator|>
 name|mInterfaceBlockFields
 block|;
 name|bool
+name|mDepthRangeAdded
+block|;
+name|bool
 name|mPointCoordAdded
 block|;
 name|bool
@@ -208,6 +207,24 @@ name|mPointSizeAdded
 block|;
 name|bool
 name|mLastFragDataAdded
+block|;
+name|bool
+name|mFragColorAdded
+block|;
+name|bool
+name|mFragDataAdded
+block|;
+name|bool
+name|mFragDepthEXTAdded
+block|;
+name|bool
+name|mFragDepthAdded
+block|;
+name|bool
+name|mSecondaryFragColorEXTAdded
+block|;
+name|bool
+name|mSecondaryFragDataEXTAdded
 block|;
 name|ShHashFunction64
 name|mHashFunction

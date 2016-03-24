@@ -33,11 +33,113 @@ include|#
 directive|include
 file|<stdint.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"../export.h"
-end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_WIN32
+argument_list|)
+end_if
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|LIBANGLE_IMPLEMENTATION
+argument_list|)
+end_if
+begin_define
+DECL|macro|ANGLE_PLATFORM_EXPORT
+define|#
+directive|define
+name|ANGLE_PLATFORM_EXPORT
+value|__declspec(dllimport)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|__GNUC__
+argument_list|)
+end_elif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|LIBANGLE_IMPLEMENTATION
+argument_list|)
+end_if
+begin_define
+DECL|macro|ANGLE_PLATFORM_EXPORT
+define|#
+directive|define
+name|ANGLE_PLATFORM_EXPORT
+value|__attribute__((visibility ("default")))
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_PLATFORM_EXPORT
+argument_list|)
+end_if
+begin_define
+DECL|macro|ANGLE_PLATFORM_EXPORT
+define|#
+directive|define
+name|ANGLE_PLATFORM_EXPORT
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|_WIN32
+argument_list|)
+end_if
+begin_define
+DECL|macro|ANGLE_APIENTRY
+define|#
+directive|define
+name|ANGLE_APIENTRY
+value|__stdcall
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|ANGLE_APIENTRY
+define|#
+directive|define
+name|ANGLE_APIENTRY
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|namespace
 name|angle
@@ -47,7 +149,89 @@ name|Platform
 block|{
 name|public
 label|:
+comment|// System --------------------------------------------------------------
+comment|// Wall clock time in seconds since the epoch.
+comment|// TODO(jmadill): investigate using an ANGLE internal time library
+name|virtual
+name|double
+name|currentTime
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+comment|// Monotonically increasing time in seconds from an arbitrary fixed point in the past.
+comment|// This function is expected to return at least millisecond-precision values. For this reason,
+comment|// it is recommended that the fixed point be no further in the past than the epoch.
+name|virtual
+name|double
+name|monotonicallyIncreasingTime
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+comment|// Logging ------------------------------------------------------------
+comment|// Log an error message within the platform implementation.
+name|virtual
+name|void
+name|logError
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|errorMessage
+parameter_list|)
+block|{}
+comment|// Log a warning message within the platform implementation.
+name|virtual
+name|void
+name|logWarning
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|warningMessage
+parameter_list|)
+block|{}
+comment|// Log an info message within the platform implementation.
+name|virtual
+name|void
+name|logInfo
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|infoMessage
+parameter_list|)
+block|{}
 comment|// Tracing --------
+comment|// Get a pointer to the enabled state of the given trace category. The
+comment|// embedder can dynamically change the enabled state as trace event
+comment|// recording is started and stopped by the application. Only long-lived
+comment|// literal strings should be given as the category name. The implementation
+comment|// expects the returned pointer to be held permanently in a local static. If
+comment|// the unsigned char is non-zero, tracing is enabled. If tracing is enabled,
+comment|// addTraceEvent is expected to be called by the trace event macros.
+name|virtual
+specifier|const
+name|unsigned
+name|char
+modifier|*
+name|getTraceCategoryEnabledFlag
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|categoryName
+parameter_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 typedef|typedef
 name|uint64_t
 name|TraceEventHandle
@@ -75,6 +259,7 @@ comment|//   START/FINISH pairs.
 comment|// - id optionally allows events of the same name to be distinguished from
 comment|//   each other. For example, to trace the consutruction and destruction of
 comment|//   objects, specify the pointer as the id parameter.
+comment|// - timestamp should be a time value returned from monotonicallyIncreasingTime.
 comment|// - numArgs specifies the number of elements in argNames, argTypes, and
 comment|//   argValues.
 comment|// - argNames is the array of argument names. Use long-lived literal strings
@@ -171,6 +356,7 @@ modifier|*
 name|name
 parameter_list|,
 name|TraceEventHandle
+name|eventHandle
 parameter_list|)
 block|{ }
 comment|// Callbacks for reporting histogram data.
@@ -228,6 +414,20 @@ name|int
 name|sample
 parameter_list|)
 block|{ }
+comment|// Boolean histograms track two-state variables.
+name|virtual
+name|void
+name|histogramBoolean
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|name
+parameter_list|,
+name|bool
+name|sample
+parameter_list|)
+block|{ }
 name|protected
 label|:
 name|virtual
@@ -239,11 +439,15 @@ block|}
 empty_stmt|;
 block|}
 end_decl_stmt
-begin_typedef
+begin_extern
+extern|extern
+literal|"C"
+block|{
 DECL|typedef|ANGLEPlatformInitializeFunc
 typedef|typedef
 name|void
 argument_list|(
+name|ANGLE_APIENTRY
 operator|*
 name|ANGLEPlatformInitializeFunc
 argument_list|)
@@ -254,10 +458,9 @@ name|Platform
 operator|*
 argument_list|)
 expr_stmt|;
-end_typedef
-begin_decl_stmt
-name|ANGLE_EXPORT
+name|ANGLE_PLATFORM_EXPORT
 name|void
+name|ANGLE_APIENTRY
 name|ANGLEPlatformInitialize
 argument_list|(
 name|angle
@@ -266,49 +469,47 @@ name|Platform
 operator|*
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_typedef
 DECL|typedef|ANGLEPlatformShutdownFunc
 typedef|typedef
 name|void
 function_decl|(
+name|ANGLE_APIENTRY
 modifier|*
 name|ANGLEPlatformShutdownFunc
 function_decl|)
 parameter_list|()
 function_decl|;
-end_typedef
-begin_function_decl
-name|ANGLE_EXPORT
+name|ANGLE_PLATFORM_EXPORT
 name|void
+name|ANGLE_APIENTRY
 name|ANGLEPlatformShutdown
 parameter_list|()
 function_decl|;
-end_function_decl
-begin_typedef
 DECL|typedef|ANGLEPlatformCurrentFunc
 typedef|typedef
 name|angle
 operator|::
 name|Platform
 operator|*
-call|(
-modifier|*
+operator|(
+name|ANGLE_APIENTRY
+operator|*
 name|ANGLEPlatformCurrentFunc
-call|)
-argument_list|()
+operator|)
+operator|(
+operator|)
 expr_stmt|;
-end_typedef
-begin_expr_stmt
-name|ANGLE_EXPORT
+name|ANGLE_PLATFORM_EXPORT
 name|angle
 operator|::
 name|Platform
 operator|*
+name|ANGLE_APIENTRY
 name|ANGLEPlatformCurrent
 argument_list|()
 expr_stmt|;
-end_expr_stmt
+block|}
+end_extern
 begin_endif
 endif|#
 directive|endif

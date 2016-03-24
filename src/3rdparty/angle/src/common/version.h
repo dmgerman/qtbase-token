@@ -44,6 +44,22 @@ directive|define
 name|ANGLE_MINOR_VERSION
 value|1
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ANGLE_REVISION
+end_ifndef
+begin_define
+DECL|macro|ANGLE_REVISION
+define|#
+directive|define
+name|ANGLE_REVISION
+value|0
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|ANGLE_STRINGIFY
 define|#
@@ -70,7 +86,7 @@ define|#
 directive|define
 name|ANGLE_VERSION_STRING
 define|\
-value|ANGLE_MACRO_STRINGIFY(ANGLE_MAJOR_VERSION) "." \     ANGLE_MACRO_STRINGIFY(ANGLE_MINOR_VERSION) "." \     ANGLE_COMMIT_HASH
+value|ANGLE_MACRO_STRINGIFY(ANGLE_MAJOR_VERSION) "." \     ANGLE_MACRO_STRINGIFY(ANGLE_MINOR_VERSION) "." \     ANGLE_MACRO_STRINGIFY(ANGLE_REVISION) "." \     ANGLE_COMMIT_HASH
 end_define
 begin_endif
 endif|#

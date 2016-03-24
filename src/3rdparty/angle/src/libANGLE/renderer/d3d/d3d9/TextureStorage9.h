@@ -49,6 +49,9 @@ name|namespace
 name|rx
 block|{
 name|class
+name|EGLImageD3D
+decl_stmt|;
+name|class
 name|Renderer9
 decl_stmt|;
 name|class
@@ -74,16 +77,6 @@ name|TextureStorage9
 argument_list|()
 block|;
 specifier|static
-name|TextureStorage9
-operator|*
-name|makeTextureStorage9
-argument_list|(
-name|TextureStorage
-operator|*
-name|storage
-argument_list|)
-block|;
-specifier|static
 name|DWORD
 name|GetTextureUsage
 argument_list|(
@@ -101,6 +94,23 @@ name|DWORD
 name|getUsage
 argument_list|()
 specifier|const
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|getSurfaceLevel
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|int level
+argument_list|,
+argument|bool dirty
+argument_list|,
+argument|IDirect3DSurface9 **outSurface
+argument_list|)
+operator|=
+literal|0
 block|;
 name|virtual
 name|gl
@@ -154,6 +164,12 @@ name|bool
 name|isManaged
 argument_list|()
 specifier|const
+block|;
+name|bool
+name|supportsNativeMipmapFunction
+argument_list|()
+specifier|const
+name|override
 block|;
 name|virtual
 name|int
@@ -261,27 +277,20 @@ operator|~
 name|TextureStorage9_2D
 argument_list|()
 block|;
-specifier|static
-name|TextureStorage9_2D
-operator|*
-name|makeTextureStorage9_2D
-argument_list|(
-name|TextureStorage
-operator|*
-name|storage
-argument_list|)
-block|;
 name|gl
 operator|::
 name|Error
 name|getSurfaceLevel
 argument_list|(
+argument|GLenum target
+argument_list|,
 argument|int level
 argument_list|,
 argument|bool dirty
 argument_list|,
 argument|IDirect3DSurface9 **outSurface
 argument_list|)
+name|override
 block|;
 name|virtual
 name|gl
@@ -352,9 +361,101 @@ name|IDirect3DTexture9
 operator|*
 name|mTexture
 block|;
+name|std
+operator|::
+name|vector
+operator|<
 name|RenderTarget9
 operator|*
-name|mRenderTarget
+operator|>
+name|mRenderTargets
+block|; }
+decl_stmt|;
+name|class
+name|TextureStorage9_EGLImage
+name|final
+range|:
+name|public
+name|TextureStorage9
+block|{
+name|public
+operator|:
+name|TextureStorage9_EGLImage
+argument_list|(
+name|Renderer9
+operator|*
+name|renderer
+argument_list|,
+name|EGLImageD3D
+operator|*
+name|image
+argument_list|)
+block|;
+operator|~
+name|TextureStorage9_EGLImage
+argument_list|()
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getSurfaceLevel
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|int level
+argument_list|,
+argument|bool dirty
+argument_list|,
+argument|IDirect3DSurface9 **outSurface
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getRenderTarget
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|,
+argument|RenderTargetD3D **outRT
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getBaseTexture
+argument_list|(
+argument|IDirect3DBaseTexture9 **outTexture
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|generateMipmap
+argument_list|(
+argument|const gl::ImageIndex&sourceIndex
+argument_list|,
+argument|const gl::ImageIndex&destIndex
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|copyToStorage
+argument_list|(
+argument|TextureStorage *destStorage
+argument_list|)
+name|override
+block|;
+name|private
+operator|:
+name|EGLImageD3D
+operator|*
+name|mImage
 block|; }
 decl_stmt|;
 name|class
@@ -385,22 +486,12 @@ operator|~
 name|TextureStorage9_Cube
 argument_list|()
 block|;
-specifier|static
-name|TextureStorage9_Cube
-operator|*
-name|makeTextureStorage9_Cube
-argument_list|(
-name|TextureStorage
-operator|*
-name|storage
-argument_list|)
-block|;
 name|gl
 operator|::
 name|Error
-name|getCubeMapSurface
+name|getSurfaceLevel
 argument_list|(
-argument|GLenum faceTarget
+argument|GLenum target
 argument_list|,
 argument|int level
 argument_list|,
@@ -408,6 +499,7 @@ argument|bool dirty
 argument_list|,
 argument|IDirect3DSurface9 **outSurface
 argument_list|)
+name|override
 block|;
 name|virtual
 name|gl

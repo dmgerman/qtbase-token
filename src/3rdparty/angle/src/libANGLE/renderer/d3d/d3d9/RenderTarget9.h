@@ -62,21 +62,31 @@ operator|~
 name|RenderTarget9
 argument_list|()
 block|{ }
-specifier|static
-name|RenderTarget9
+comment|// Retrieve the texture that backs this render target, may be null for swap chain render
+comment|// targets.
+name|virtual
+name|IDirect3DBaseTexture9
 operator|*
-name|makeRenderTarget9
-argument_list|(
-name|RenderTargetD3D
-operator|*
-name|renderTarget
-argument_list|)
+name|getTexture
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|size_t
+name|getTextureLevel
+argument_list|()
+specifier|const
+operator|=
+literal|0
 block|;
 name|virtual
 name|IDirect3DSurface9
 operator|*
 name|getSurface
 argument_list|()
+specifier|const
 operator|=
 literal|0
 block|;
@@ -99,6 +109,10 @@ name|public
 operator|:
 name|TextureRenderTarget9
 argument_list|(
+argument|IDirect3DBaseTexture9 *texture
+argument_list|,
+argument|size_t textureLevel
+argument_list|,
 argument|IDirect3DSurface9 *surface
 argument_list|,
 argument|GLenum internalFormat
@@ -147,10 +161,24 @@ argument_list|()
 specifier|const
 name|override
 block|;
+name|IDirect3DBaseTexture9
+operator|*
+name|getTexture
+argument_list|()
+specifier|const
+name|override
+block|;
+name|size_t
+name|getTextureLevel
+argument_list|()
+specifier|const
+name|override
+block|;
 name|IDirect3DSurface9
 operator|*
 name|getSurface
 argument_list|()
+specifier|const
 name|override
 block|;
 name|D3DFORMAT
@@ -178,6 +206,13 @@ name|mD3DFormat
 block|;
 name|GLsizei
 name|mSamples
+block|;
+name|IDirect3DBaseTexture9
+operator|*
+name|mTexture
+block|;
+name|size_t
+name|mTextureLevel
 block|;
 name|IDirect3DSurface9
 operator|*
@@ -234,10 +269,24 @@ argument_list|()
 specifier|const
 name|override
 block|;
+name|IDirect3DBaseTexture9
+operator|*
+name|getTexture
+argument_list|()
+specifier|const
+name|override
+block|;
+name|size_t
+name|getTextureLevel
+argument_list|()
+specifier|const
+name|override
+block|;
 name|IDirect3DSurface9
 operator|*
 name|getSurface
 argument_list|()
+specifier|const
 name|override
 block|;
 name|D3DFORMAT

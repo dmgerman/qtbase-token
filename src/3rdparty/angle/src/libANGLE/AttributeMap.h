@@ -41,6 +41,7 @@ name|egl
 block|{
 name|class
 name|AttributeMap
+name|final
 block|{
 name|public
 label|:
@@ -56,7 +57,6 @@ modifier|*
 name|attributes
 parameter_list|)
 function_decl|;
-name|virtual
 name|void
 name|insert
 parameter_list|(
@@ -67,7 +67,6 @@ name|EGLint
 name|value
 parameter_list|)
 function_decl|;
-name|virtual
 name|bool
 name|contains
 argument_list|(
@@ -76,7 +75,6 @@ name|key
 argument_list|)
 decl|const
 decl_stmt|;
-name|virtual
 name|EGLint
 name|get
 argument_list|(

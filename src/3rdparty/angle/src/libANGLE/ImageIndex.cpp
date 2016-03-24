@@ -157,9 +157,15 @@ name|target
 argument_list|,
 name|mipIndex
 argument_list|,
+cast|static_cast
+argument_list|<
+name|GLint
+argument_list|>
+argument_list|(
 name|CubeMapTextureTargetToLayerIndex
 argument_list|(
 name|target
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
@@ -233,9 +239,15 @@ argument_list|(
 name|target
 argument_list|)
 condition|?
+cast|static_cast
+argument_list|<
+name|GLint
+argument_list|>
+argument_list|(
 name|CubeMapTextureTargetToLayerIndex
 argument_list|(
 name|target
+argument_list|)
 argument_list|)
 else|:
 name|ENTIRE_LEVEL
@@ -379,8 +391,6 @@ name|ImageIndexIterator
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -391,8 +401,6 @@ argument_list|,
 name|maxMip
 argument_list|)
 argument_list|,
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -429,8 +437,6 @@ name|ImageIndexIterator
 argument_list|(
 name|GL_TEXTURE_CUBE_MAP
 argument_list|,
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -441,8 +447,6 @@ argument_list|,
 name|maxMip
 argument_list|)
 argument_list|,
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -481,8 +485,6 @@ name|ImageIndexIterator
 argument_list|(
 name|GL_TEXTURE_3D
 argument_list|,
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -493,8 +495,6 @@ argument_list|,
 name|maxMip
 argument_list|)
 argument_list|,
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -532,8 +532,6 @@ name|ImageIndexIterator
 argument_list|(
 name|GL_TEXTURE_2D_ARRAY
 argument_list|,
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -544,8 +542,6 @@ argument_list|,
 name|maxMip
 argument_list|)
 argument_list|,
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -569,8 +565,6 @@ name|GLenum
 name|type
 parameter_list|,
 specifier|const
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint
@@ -579,8 +573,6 @@ modifier|&
 name|mipRange
 parameter_list|,
 specifier|const
-name|rx
-operator|::
 name|Range
 argument_list|<
 name|GLint

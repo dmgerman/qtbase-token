@@ -61,36 +61,35 @@ operator|*
 name|renderer
 argument_list|)
 block|;
-name|virtual
 operator|~
 name|FenceNV11
 argument_list|()
+name|override
 block|;
 name|gl
 operator|::
 name|Error
 name|set
-argument_list|()
+argument_list|(
+argument|GLenum condition
+argument_list|)
+name|override
 block|;
 name|gl
 operator|::
 name|Error
 name|test
 argument_list|(
-argument|bool flushCommandBuffer
-argument_list|,
 argument|GLboolean *outFinished
 argument_list|)
+name|override
 block|;
 name|gl
 operator|::
 name|Error
-name|finishFence
-argument_list|(
-name|GLboolean
-operator|*
-name|outFinished
-argument_list|)
+name|finish
+argument_list|()
+name|override
 block|;
 name|private
 operator|:
@@ -153,16 +152,21 @@ operator|*
 name|renderer
 argument_list|)
 block|;
-name|virtual
 operator|~
 name|FenceSync11
 argument_list|()
+name|override
 block|;
 name|gl
 operator|::
 name|Error
 name|set
-argument_list|()
+argument_list|(
+argument|GLenum condition
+argument_list|,
+argument|GLbitfield flags
+argument_list|)
+name|override
 block|;
 name|gl
 operator|::
@@ -175,6 +179,7 @@ argument|GLuint64 timeout
 argument_list|,
 argument|GLenum *outResult
 argument_list|)
+name|override
 block|;
 name|gl
 operator|::
@@ -185,16 +190,16 @@ argument|GLbitfield flags
 argument_list|,
 argument|GLuint64 timeout
 argument_list|)
+name|override
 block|;
 name|gl
 operator|::
 name|Error
 name|getStatus
 argument_list|(
-name|GLint
-operator|*
-name|outResult
+argument|GLint *outResult
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

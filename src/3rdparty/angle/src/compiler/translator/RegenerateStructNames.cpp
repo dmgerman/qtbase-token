@@ -17,12 +17,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"compiler/translator/RegenerateStructNames.h"
+file|"common/debug.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/compilerdebug.h"
+file|"compiler/translator/RegenerateStructNames.h"
 end_include
 begin_function
 DECL|function|visitSymbol

@@ -86,6 +86,7 @@ comment|// Support for being used as a framebuffer attachment or renderbuffer fo
 name|bool
 name|renderable
 decl_stmt|;
+comment|// Set of supported sample counts, only guaranteed to be valid in ES3.
 name|SupportedSampleSet
 name|sampleCounts
 decl_stmt|;
@@ -208,14 +209,19 @@ specifier|const
 expr_stmt|;
 comment|// Set all texture related extension support based on the supported textures.
 comment|// Determines support for:
+comment|// GL_OES_packed_depth_stencil
 comment|// GL_OES_rgb8_rgba8
 comment|// GL_EXT_texture_format_BGRA8888
+comment|// GL_EXT_color_buffer_half_float,
 comment|// GL_OES_texture_half_float, GL_OES_texture_half_float_linear
 comment|// GL_OES_texture_float, GL_OES_texture_float_linear
 comment|// GL_EXT_texture_rg
-comment|// GL_EXT_texture_compression_dxt1, GL_ANGLE_texture_compression_dxt3, GL_ANGLE_texture_compression_dxt5
+comment|// GL_EXT_texture_compression_dxt1, GL_ANGLE_texture_compression_dxt3,
+comment|// GL_ANGLE_texture_compression_dxt5
+comment|// GL_KHR_texture_compression_astc_hdr, GL_KHR_texture_compression_astc_ldr
+comment|// GL_OES_compressed_ETC1_RGB8_texture
 comment|// GL_EXT_sRGB
-comment|// GL_ANGLE_depth_texture
+comment|// GL_ANGLE_depth_texture, GL_OES_depth32
 comment|// GL_EXT_color_buffer_float
 name|void
 name|setTextureExtensionSupport
@@ -264,6 +270,12 @@ decl_stmt|;
 name|bool
 name|mapBufferRange
 decl_stmt|;
+comment|// GL_EXT_color_buffer_half_float
+comment|// Together with GL_OES_texture_half_float in a GLES 2.0 context, implies that half-float
+comment|// textures are renderable.
+name|bool
+name|colorBufferHalfFloat
+decl_stmt|;
 comment|// GL_OES_texture_half_float and GL_OES_texture_half_float_linear
 comment|// Implies that TextureCaps for GL_RGB16F, GL_RGBA16F, GL_ALPHA32F_EXT, GL_LUMINANCE32F_EXT and
 comment|// GL_LUMINANCE_ALPHA32F_EXT exist
@@ -300,6 +312,19 @@ decl_stmt|;
 name|bool
 name|textureCompressionDXT5
 decl_stmt|;
+comment|// GL_KHR_texture_compression_astc_hdr
+name|bool
+name|textureCompressionASTCHDR
+decl_stmt|;
+comment|// GL_KHR_texture_compression_astc_ldr
+name|bool
+name|textureCompressionASTCLDR
+decl_stmt|;
+comment|// GL_OES_compressed_ETC1_RGB8_texture
+comment|// Implies that TextureCaps for GL_ETC1_RGB8_OES exist
+name|bool
+name|compressedETC1RGB8Texture
+decl_stmt|;
 comment|// GL_EXT_sRGB
 comment|// Implies that TextureCaps for GL_SRGB8_ALPHA8 and GL_SRGB8 exist
 comment|// TODO: Don't advertise this extension in ES3
@@ -309,6 +334,11 @@ decl_stmt|;
 comment|// GL_ANGLE_depth_texture
 name|bool
 name|depthTextures
+decl_stmt|;
+comment|// GL_OES_depth32
+comment|// Allows DEPTH_COMPONENT32_OES as a valid Renderbuffer format.
+name|bool
+name|depth32
 decl_stmt|;
 comment|// GL_EXT_texture_storage
 name|bool
@@ -341,6 +371,16 @@ comment|// GL_ANGLE_timer_query
 name|bool
 name|timerQuery
 decl_stmt|;
+comment|// GL_EXT_disjoint_timer_query
+name|bool
+name|disjointTimerQuery
+decl_stmt|;
+name|GLuint
+name|queryCounterBitsTimeElapsed
+decl_stmt|;
+name|GLuint
+name|queryCounterBitsTimestamp
+decl_stmt|;
 comment|// GL_EXT_robustness
 name|bool
 name|robustness
@@ -356,9 +396,6 @@ decl_stmt|;
 comment|// GL_ANGLE_framebuffer_multisample
 name|bool
 name|framebufferMultisample
-decl_stmt|;
-name|GLuint
-name|maxSamples
 decl_stmt|;
 comment|// GL_ANGLE_instanced_arrays
 name|bool
@@ -400,10 +437,103 @@ comment|// GL_ANGLE_translated_shader_source
 name|bool
 name|translatedShaderSource
 decl_stmt|;
+comment|// GL_OES_fbo_render_mipmap
+name|bool
+name|fboRenderMipmap
+decl_stmt|;
+comment|// GL_EXT_discard_framebuffer
+name|bool
+name|discardFramebuffer
+decl_stmt|;
+comment|// EXT_debug_marker
+name|bool
+name|debugMarker
+decl_stmt|;
+comment|// GL_OES_EGL_image
+name|bool
+name|eglImage
+decl_stmt|;
+comment|// GL_OES_EGL_image_external
+name|bool
+name|eglImageExternal
+decl_stmt|;
+comment|// GL_OES_EGL_image_external_essl3
+name|bool
+name|eglImageExternalEssl3
+decl_stmt|;
+comment|// EXT_unpack_subimage
+name|bool
+name|unpackSubimage
+decl_stmt|;
+comment|// NV_pack_subimage
+name|bool
+name|packSubimage
+decl_stmt|;
+comment|// GL_OES_vertex_array_object
+name|bool
+name|vertexArrayObject
+decl_stmt|;
+comment|// GL_KHR_debug
+name|bool
+name|debug
+decl_stmt|;
+name|GLuint
+name|maxDebugMessageLength
+decl_stmt|;
+name|GLuint
+name|maxDebugLoggedMessages
+decl_stmt|;
+name|GLuint
+name|maxDebugGroupStackDepth
+decl_stmt|;
+name|GLuint
+name|maxLabelLength
+decl_stmt|;
+comment|// KHR_no_error
+name|bool
+name|noError
+decl_stmt|;
+comment|// GL_ANGLE_lossy_etc_decode
+name|bool
+name|lossyETCDecode
+decl_stmt|;
 comment|// ES3 Extension support
 comment|// GL_EXT_color_buffer_float
 name|bool
 name|colorBufferFloat
+decl_stmt|;
+block|}
+struct|;
+struct|struct
+name|Limitations
+block|{
+name|Limitations
+argument_list|()
+expr_stmt|;
+comment|// Renderer doesn't support gl_FrontFacing in fragment shaders
+name|bool
+name|noFrontFacingSupport
+decl_stmt|;
+comment|// Renderer doesn't support GL_SAMPLE_ALPHA_TO_COVERAGE
+name|bool
+name|noSampleAlphaToCoverageSupport
+decl_stmt|;
+comment|// In glVertexAttribDivisorANGLE, attribute zero must have a zero divisor
+name|bool
+name|attributeZeroRequiresZeroDivisorInEXT
+decl_stmt|;
+comment|// Unable to support different values for front and back faces for stencil refs and masks
+name|bool
+name|noSeparateStencilRefsAndMasks
+decl_stmt|;
+comment|// Renderer doesn't support non-constant indexing loops in fragment shader
+name|bool
+name|shadersRequireIndexedLoopValidation
+decl_stmt|;
+comment|// Renderer doesn't support Simultaneous use of GL_CONSTANT_ALPHA/GL_ONE_MINUS_CONSTANT_ALPHA
+comment|// and GL_CONSTANT_COLOR/GL_ONE_MINUS_CONSTANT_COLOR blend functions.
+name|bool
+name|noSimultaneousConstantColorAndAlphaBlendFunc
 decl_stmt|;
 block|}
 struct|;
@@ -658,6 +788,10 @@ decl_stmt|;
 name|GLuint
 name|maxTransformFeedbackSeparateComponents
 decl_stmt|;
+comment|// Table 6.35, Framebuffer Dependent Values
+name|GLuint
+name|maxSamples
+decl_stmt|;
 block|}
 struct|;
 block|}
@@ -717,6 +851,14 @@ comment|// EGL_ANGLE_window_fixed_size
 name|bool
 name|windowFixedSize
 decl_stmt|;
+comment|// EGL_ANGLE_keyed_mutex
+name|bool
+name|keyedMutex
+decl_stmt|;
+comment|// EGL_ANGLE_surface_orientation
+name|bool
+name|surfaceOrientation
+decl_stmt|;
 comment|// EGL_NV_post_sub_buffer
 name|bool
 name|postSubBuffer
@@ -724,6 +866,79 @@ decl_stmt|;
 comment|// EGL_KHR_create_context
 name|bool
 name|createContext
+decl_stmt|;
+comment|// EGL_EXT_device_query
+name|bool
+name|deviceQuery
+decl_stmt|;
+comment|// EGL_KHR_image
+name|bool
+name|image
+decl_stmt|;
+comment|// EGL_KHR_image_base
+name|bool
+name|imageBase
+decl_stmt|;
+comment|// EGL_KHR_image_pixmap
+name|bool
+name|imagePixmap
+decl_stmt|;
+comment|// EGL_KHR_gl_texture_2D_image
+name|bool
+name|glTexture2DImage
+decl_stmt|;
+comment|// EGL_KHR_gl_texture_cubemap_image
+name|bool
+name|glTextureCubemapImage
+decl_stmt|;
+comment|// EGL_KHR_gl_texture_3D_image
+name|bool
+name|glTexture3DImage
+decl_stmt|;
+comment|// EGL_KHR_gl_renderbuffer_image
+name|bool
+name|glRenderbufferImage
+decl_stmt|;
+comment|// EGL_KHR_get_all_proc_addresses
+name|bool
+name|getAllProcAddresses
+decl_stmt|;
+comment|// EGL_ANGLE_flexible_surface_compatibility
+name|bool
+name|flexibleSurfaceCompatibility
+decl_stmt|;
+comment|// EGL_ANGLE_direct_composition
+name|bool
+name|directComposition
+decl_stmt|;
+comment|// KHR_create_context_no_error
+name|bool
+name|createContextNoError
+decl_stmt|;
+block|}
+struct|;
+struct|struct
+name|DeviceExtensions
+block|{
+name|DeviceExtensions
+argument_list|()
+expr_stmt|;
+comment|// Generate a vector of supported extension strings
+name|std
+operator|::
+name|vector
+operator|<
+name|std
+operator|::
+name|string
+operator|>
+name|getStrings
+argument_list|()
+specifier|const
+expr_stmt|;
+comment|// EGL_ANGLE_device_d3d
+name|bool
+name|deviceD3D
 decl_stmt|;
 block|}
 struct|;
@@ -754,6 +969,10 @@ comment|// EGL_EXT_platform_base
 name|bool
 name|platformBase
 decl_stmt|;
+comment|// EGL_EXT_platform_device
+name|bool
+name|platformDevice
+decl_stmt|;
 comment|// EGL_ANGLE_platform_angle
 name|bool
 name|platformANGLE
@@ -765,6 +984,26 @@ decl_stmt|;
 comment|// EGL_ANGLE_platform_angle_opengl
 name|bool
 name|platformANGLEOpenGL
+decl_stmt|;
+comment|// EGL_ANGLE_device_creation
+name|bool
+name|deviceCreation
+decl_stmt|;
+comment|// EGL_ANGLE_device_creation_d3d11
+name|bool
+name|deviceCreationD3D11
+decl_stmt|;
+comment|// EGL_ANGLE_x11_visual
+name|bool
+name|x11Visual
+decl_stmt|;
+comment|// EGL_ANGLE_experimental_present_path
+name|bool
+name|experimentalPresentPath
+decl_stmt|;
+comment|// EGL_KHR_client_get_all_proc_addresses
+name|bool
+name|clientGetAllProcAddresses
 decl_stmt|;
 block|}
 struct|;

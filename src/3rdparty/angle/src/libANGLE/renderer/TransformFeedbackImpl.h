@@ -85,6 +85,34 @@ name|resume
 argument_list|()
 operator|=
 literal|0
+block|;
+name|virtual
+name|void
+name|bindGenericBuffer
+argument_list|(
+specifier|const
+name|BindingPointer
+operator|<
+name|gl
+operator|::
+name|Buffer
+operator|>
+operator|&
+name|binding
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|bindIndexedBuffer
+argument_list|(
+argument|size_t index
+argument_list|,
+argument|const OffsetBindingPointer<gl::Buffer>&binding
+argument_list|)
+operator|=
+literal|0
 block|; }
 decl_stmt|;
 block|}

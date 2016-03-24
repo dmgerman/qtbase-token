@@ -59,7 +59,6 @@ argument|int compileOptions
 argument_list|)
 name|override
 block|;
-name|virtual
 name|void
 name|translate
 argument_list|(
@@ -67,6 +66,7 @@ argument|TIntermNode *root
 argument_list|,
 argument|int compileOptions
 argument_list|)
+name|override
 block|;
 name|private
 operator|:
@@ -80,7 +80,11 @@ argument_list|)
 block|;
 name|void
 name|writeExtensionBehavior
-argument_list|()
+argument_list|(
+name|TIntermNode
+operator|*
+name|root
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

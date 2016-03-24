@@ -69,6 +69,8 @@ argument_list|,
 argument|GLenum backBufferFormat
 argument_list|,
 argument|GLenum depthBufferFormat
+argument_list|,
+argument|EGLint orientation
 argument_list|)
 block|;
 name|virtual
@@ -189,21 +191,21 @@ return|return
 name|mHeight
 return|;
 block|}
+name|void
+operator|*
+name|getKeyedMutex
+argument_list|()
+name|override
+block|{
+return|return
+name|mKeyedMutex
+return|;
+block|}
 name|virtual
 name|void
 operator|*
 name|getDevice
 argument_list|()
-block|;
-specifier|static
-name|SwapChain11
-operator|*
-name|makeSwapChain11
-argument_list|(
-name|SwapChainD3D
-operator|*
-name|swapChain
-argument_list|)
 block|;
 name|private
 operator|:
@@ -216,15 +218,64 @@ name|initPassThroughResources
 argument_list|()
 block|;
 name|void
-name|releaseOffscreenTexture
+name|releaseOffscreenColorBuffer
+argument_list|()
+block|;
+name|void
+name|releaseOffscreenDepthBuffer
 argument_list|()
 block|;
 name|EGLint
-name|resetOffscreenTexture
+name|resetOffscreenBuffers
 argument_list|(
 argument|int backbufferWidth
 argument_list|,
 argument|int backbufferHeight
+argument_list|)
+block|;
+name|EGLint
+name|resetOffscreenColorBuffer
+argument_list|(
+argument|int backbufferWidth
+argument_list|,
+argument|int backbufferHeight
+argument_list|)
+block|;
+name|EGLint
+name|resetOffscreenDepthBuffer
+argument_list|(
+argument|int backbufferWidth
+argument_list|,
+argument|int backbufferHeight
+argument_list|)
+block|;
+name|DXGI_FORMAT
+name|getSwapChainNativeFormat
+argument_list|()
+specifier|const
+block|;
+name|EGLint
+name|copyOffscreenToBackbuffer
+argument_list|(
+argument|EGLint x
+argument_list|,
+argument|EGLint y
+argument_list|,
+argument|EGLint width
+argument_list|,
+argument|EGLint height
+argument_list|)
+block|;
+name|EGLint
+name|present
+argument_list|(
+argument|EGLint x
+argument_list|,
+argument|EGLint y
+argument_list|,
+argument|EGLint width
+argument_list|,
+argument|EGLint height
 argument_list|)
 block|;
 name|Renderer11
@@ -232,10 +283,14 @@ operator|*
 name|mRenderer
 block|;
 name|EGLint
-name|mHeight
+name|mWidth
 block|;
 name|EGLint
-name|mWidth
+name|mHeight
+block|;
+specifier|const
+name|EGLint
+name|mOrientation
 block|;
 name|bool
 name|mAppCreatedShareHandle
@@ -247,9 +302,28 @@ block|;
 name|bool
 name|mPassThroughResourcesInit
 block|;
+name|bool
+name|mFirstSwap
+block|;
 name|DXGISwapChain
 operator|*
 name|mSwapChain
+block|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|ANGLE_ENABLE_D3D11_1
+argument_list|)
+name|IDXGISwapChain1
+operator|*
+name|mSwapChain1
+block|;
+endif|#
+directive|endif
+name|IDXGIKeyedMutex
+operator|*
+name|mKeyedMutex
 block|;
 name|ID3D11Texture2D
 operator|*
@@ -258,6 +332,14 @@ block|;
 name|ID3D11RenderTargetView
 operator|*
 name|mBackBufferRTView
+block|;
+name|ID3D11ShaderResourceView
+operator|*
+name|mBackBufferSRView
+block|;
+specifier|const
+name|bool
+name|mNeedsOffscreenTexture
 block|;
 name|ID3D11Texture2D
 operator|*
@@ -302,6 +384,10 @@ block|;
 name|ID3D11PixelShader
 operator|*
 name|mPassThroughPS
+block|;
+name|ID3D11RasterizerState
+operator|*
+name|mPassThroughRS
 block|;
 name|SurfaceRenderTarget11
 name|mColorRenderTarget

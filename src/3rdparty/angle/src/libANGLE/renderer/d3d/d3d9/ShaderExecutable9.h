@@ -71,16 +71,6 @@ operator|~
 name|ShaderExecutable9
 argument_list|()
 block|;
-specifier|static
-name|ShaderExecutable9
-operator|*
-name|makeShaderExecutable9
-argument_list|(
-name|ShaderExecutableD3D
-operator|*
-name|executable
-argument_list|)
-block|;
 name|IDirect3DPixelShader9
 operator|*
 name|getPixelShader

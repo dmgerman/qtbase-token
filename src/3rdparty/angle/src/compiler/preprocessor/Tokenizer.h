@@ -119,14 +119,12 @@ argument_list|(
 argument|size_t maxTokenSize
 argument_list|)
 block|;
-name|virtual
 name|void
 name|lex
 argument_list|(
-name|Token
-operator|*
-name|token
+argument|Token *token
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

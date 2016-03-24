@@ -78,6 +78,32 @@ name|COMPILER_EXPORT
 name|BlockMemberInfo
 block|{
 name|BlockMemberInfo
+argument_list|()
+operator|:
+name|offset
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+operator|,
+name|arrayStride
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+operator|,
+name|matrixStride
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+operator|,
+name|isRowMajorMatrix
+argument_list|(
+argument|false
+argument_list|)
+block|{}
+name|BlockMemberInfo
 argument_list|(
 argument|int offset
 argument_list|,
@@ -87,7 +113,7 @@ argument|int matrixStride
 argument_list|,
 argument|bool isRowMajorMatrix
 argument_list|)
-block|:
+operator|:
 name|offset
 argument_list|(
 name|offset
@@ -152,20 +178,21 @@ label|:
 name|BlockLayoutEncoder
 argument_list|()
 expr_stmt|;
+name|virtual
+operator|~
+name|BlockLayoutEncoder
+argument_list|()
+block|{}
 name|BlockMemberInfo
 name|encodeType
-parameter_list|(
-name|GLenum
-name|type
-parameter_list|,
-name|unsigned
-name|int
-name|arraySize
-parameter_list|,
-name|bool
-name|isRowMajorMatrix
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|GLenum type
+argument_list|,
+argument|unsigned int arraySize
+argument_list|,
+argument|bool isRowMajorMatrix
+argument_list|)
+expr_stmt|;
 name|size_t
 name|getBlockSize
 argument_list|()
@@ -175,28 +202,6 @@ return|return
 name|mCurrentOffset
 operator|*
 name|BytesPerComponent
-return|;
-block|}
-name|size_t
-name|getCurrentRegister
-argument_list|()
-specifier|const
-block|{
-return|return
-name|mCurrentOffset
-operator|/
-name|ComponentsPerRegister
-return|;
-block|}
-name|size_t
-name|getCurrentElement
-argument_list|()
-specifier|const
-block|{
-return|return
-name|mCurrentOffset
-operator|%
-name|ComponentsPerRegister
 return|;
 block|}
 name|virtual
@@ -321,19 +326,18 @@ operator|:
 name|Std140BlockEncoder
 argument_list|()
 block|;
-name|virtual
 name|void
 name|enterAggregateType
 argument_list|()
+name|override
 block|;
-name|virtual
 name|void
 name|exitAggregateType
 argument_list|()
+name|override
 block|;
 name|protected
 operator|:
-name|virtual
 name|void
 name|getBlockLayoutInfo
 argument_list|(
@@ -347,8 +351,8 @@ argument|int *arrayStrideOut
 argument_list|,
 argument|int *matrixStrideOut
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|advanceOffset
 argument_list|(
@@ -362,6 +366,7 @@ argument|int arrayStride
 argument_list|,
 argument|int matrixStride
 argument_list|)
+name|override
 block|; }
 decl_stmt|;
 block|}

@@ -28,7 +28,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"compiler/translator/compilerdebug.h"
+file|"common/debug.h"
 end_include
 begin_comment
 comment|//
@@ -56,6 +56,10 @@ name|EbpMedium
 block|,
 DECL|enumerator|EbpHigh
 name|EbpHigh
+block|,
+comment|// end of list
+DECL|enumerator|EbpLast
+name|EbpLast
 block|}
 enum|;
 end_enum
@@ -258,6 +262,9 @@ DECL|enumerator|EbtAddress
 name|EbtAddress
 block|,
 comment|// should be deprecated??
+comment|// end of list
+DECL|enumerator|EbtLast
+name|EbtLast
 block|}
 enum|;
 end_enum
@@ -903,10 +910,6 @@ DECL|enumerator|EvqGlobal
 name|EvqGlobal
 block|,
 comment|// For globals read/write
-DECL|enumerator|EvqInternal
-name|EvqInternal
-block|,
-comment|// For internal use, not visible to the user
 DECL|enumerator|EvqConst
 name|EvqConst
 block|,
@@ -921,14 +924,6 @@ block|,
 comment|// readonly, fragment shaders only
 DECL|enumerator|EvqVaryingOut
 name|EvqVaryingOut
-block|,
-comment|// vertex shaders only  read/write
-DECL|enumerator|EvqInvariantVaryingIn
-name|EvqInvariantVaryingIn
-block|,
-comment|// readonly, fragment shaders only
-DECL|enumerator|EvqInvariantVaryingOut
-name|EvqInvariantVaryingOut
 block|,
 comment|// vertex shaders only  read/write
 DECL|enumerator|EvqUniform
@@ -995,6 +990,19 @@ block|,
 DECL|enumerator|EvqFragDepth
 name|EvqFragDepth
 block|,
+comment|// gl_FragDepth for ESSL300.
+DECL|enumerator|EvqFragDepthEXT
+name|EvqFragDepthEXT
+block|,
+comment|// gl_FragDepthEXT for ESSL100, EXT_frag_depth.
+DECL|enumerator|EvqSecondaryFragColorEXT
+name|EvqSecondaryFragColorEXT
+block|,
+comment|// EXT_blend_func_extended
+DECL|enumerator|EvqSecondaryFragDataEXT
+name|EvqSecondaryFragDataEXT
+block|,
+comment|// EXT_blend_func_extended
 comment|// built-ins written by the shader_framebuffer_fetch extension(s)
 DECL|enumerator|EvqLastFragColor
 name|EvqLastFragColor
@@ -1170,6 +1178,7 @@ name|TQualifier
 name|q
 parameter_list|)
 block|{
+comment|// clang-format off
 switch|switch
 condition|(
 name|q
@@ -1181,231 +1190,210 @@ case|:
 return|return
 literal|"Temporary"
 return|;
-break|break;
 case|case
 name|EvqGlobal
 case|:
 return|return
 literal|"Global"
 return|;
-break|break;
 case|case
 name|EvqConst
 case|:
 return|return
 literal|"const"
 return|;
-break|break;
-case|case
-name|EvqConstReadOnly
-case|:
-return|return
-literal|"const"
-return|;
-break|break;
 case|case
 name|EvqAttribute
 case|:
 return|return
 literal|"attribute"
 return|;
-break|break;
 case|case
 name|EvqVaryingIn
 case|:
 return|return
 literal|"varying"
 return|;
-break|break;
 case|case
 name|EvqVaryingOut
 case|:
 return|return
 literal|"varying"
 return|;
-break|break;
-case|case
-name|EvqInvariantVaryingIn
-case|:
-return|return
-literal|"invariant varying"
-return|;
-break|break;
-case|case
-name|EvqInvariantVaryingOut
-case|:
-return|return
-literal|"invariant varying"
-return|;
-break|break;
 case|case
 name|EvqUniform
 case|:
 return|return
 literal|"uniform"
 return|;
-break|break;
 case|case
 name|EvqVertexIn
 case|:
 return|return
 literal|"in"
 return|;
-break|break;
 case|case
 name|EvqFragmentOut
 case|:
 return|return
 literal|"out"
 return|;
-break|break;
 case|case
 name|EvqVertexOut
 case|:
 return|return
 literal|"out"
 return|;
-break|break;
 case|case
 name|EvqFragmentIn
 case|:
 return|return
 literal|"in"
 return|;
-break|break;
 case|case
 name|EvqIn
 case|:
 return|return
 literal|"in"
 return|;
-break|break;
 case|case
 name|EvqOut
 case|:
 return|return
 literal|"out"
 return|;
-break|break;
 case|case
 name|EvqInOut
 case|:
 return|return
 literal|"inout"
 return|;
-break|break;
+case|case
+name|EvqConstReadOnly
+case|:
+return|return
+literal|"const"
+return|;
 case|case
 name|EvqInstanceID
 case|:
 return|return
 literal|"InstanceID"
 return|;
-break|break;
 case|case
 name|EvqPosition
 case|:
 return|return
 literal|"Position"
 return|;
-break|break;
 case|case
 name|EvqPointSize
 case|:
 return|return
 literal|"PointSize"
 return|;
-break|break;
 case|case
 name|EvqFragCoord
 case|:
 return|return
 literal|"FragCoord"
 return|;
-break|break;
 case|case
 name|EvqFrontFacing
 case|:
 return|return
 literal|"FrontFacing"
 return|;
-break|break;
+case|case
+name|EvqPointCoord
+case|:
+return|return
+literal|"PointCoord"
+return|;
 case|case
 name|EvqFragColor
 case|:
 return|return
 literal|"FragColor"
 return|;
-break|break;
 case|case
 name|EvqFragData
 case|:
 return|return
 literal|"FragData"
 return|;
-break|break;
+case|case
+name|EvqFragDepthEXT
+case|:
+return|return
+literal|"FragDepth"
+return|;
 case|case
 name|EvqFragDepth
 case|:
 return|return
 literal|"FragDepth"
 return|;
-break|break;
 case|case
-name|EvqSmoothOut
+name|EvqSecondaryFragColorEXT
 case|:
 return|return
-literal|"smooth out"
+literal|"SecondaryFragColorEXT"
 return|;
-break|break;
 case|case
-name|EvqCentroidOut
+name|EvqSecondaryFragDataEXT
 case|:
 return|return
-literal|"centroid out"
+literal|"SecondaryFragDataEXT"
 return|;
-break|break;
-case|case
-name|EvqFlatOut
-case|:
-return|return
-literal|"flat out"
-return|;
-break|break;
-case|case
-name|EvqSmoothIn
-case|:
-return|return
-literal|"smooth in"
-return|;
-break|break;
-case|case
-name|EvqCentroidIn
-case|:
-return|return
-literal|"centroid in"
-return|;
-break|break;
-case|case
-name|EvqFlatIn
-case|:
-return|return
-literal|"flat in"
-return|;
-break|break;
 case|case
 name|EvqLastFragColor
 case|:
 return|return
 literal|"LastFragColor"
 return|;
-break|break;
 case|case
 name|EvqLastFragData
 case|:
 return|return
 literal|"LastFragData"
 return|;
-break|break;
+case|case
+name|EvqSmoothOut
+case|:
+return|return
+literal|"smooth out"
+return|;
+case|case
+name|EvqCentroidOut
+case|:
+return|return
+literal|"centroid out"
+return|;
+case|case
+name|EvqFlatOut
+case|:
+return|return
+literal|"flat out"
+return|;
+case|case
+name|EvqSmoothIn
+case|:
+return|return
+literal|"smooth in"
+return|;
+case|case
+name|EvqFlatIn
+case|:
+return|return
+literal|"flat in"
+return|;
+case|case
+name|EvqCentroidIn
+case|:
+return|return
+literal|"centroid in"
+return|;
 default|default:
 name|UNREACHABLE
 argument_list|()
@@ -1414,6 +1402,7 @@ return|return
 literal|"unknown qualifier"
 return|;
 block|}
+comment|// clang-format on
 block|}
 end_function
 begin_function

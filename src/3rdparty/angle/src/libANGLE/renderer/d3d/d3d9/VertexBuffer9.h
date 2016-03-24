@@ -72,17 +72,6 @@ argument_list|,
 argument|bool dynamicUsage
 argument_list|)
 block|;
-specifier|static
-name|VertexBuffer9
-operator|*
-name|makeVertexBuffer9
-argument_list|(
-name|VertexBuffer
-operator|*
-name|vertexBuffer
-argument_list|)
-block|;
-name|virtual
 name|gl
 operator|::
 name|Error
@@ -90,7 +79,7 @@ name|storeVertexAttributes
 argument_list|(
 argument|const gl::VertexAttribute&attrib
 argument_list|,
-argument|const gl::VertexAttribCurrentValueData&currentValue
+argument|GLenum currentValueType
 argument_list|,
 argument|GLint start
 argument_list|,
@@ -99,7 +88,10 @@ argument_list|,
 argument|GLsizei instances
 argument_list|,
 argument|unsigned int offset
+argument_list|,
+argument|const uint8_t *sourceData
 argument_list|)
+name|override
 block|;
 name|virtual
 name|gl

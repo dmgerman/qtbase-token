@@ -58,30 +58,26 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|virtual
 name|bool
 name|writeVariablePrecision
 argument_list|(
-name|TPrecision
+argument|TPrecision
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
-name|node
+argument|TIntermSymbol *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|TString
 name|translateTextureFunction
 argument_list|(
-name|TString
-operator|&
-name|name
+argument|TString&name
 argument_list|)
+name|override
 block|; }
 decl_stmt|;
 end_decl_stmt

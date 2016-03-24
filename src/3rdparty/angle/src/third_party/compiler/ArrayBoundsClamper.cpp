@@ -76,13 +76,20 @@ DECL|function|ArrayBoundsClamperMarker
 name|ArrayBoundsClamperMarker
 parameter_list|()
 member_init_list|:
+name|TIntermTraverser
+argument_list|(
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|)
+member_init_list|,
 name|mNeedsClamp
 argument_list|(
 literal|false
 argument_list|)
 block|{    }
-DECL|function|visitBinary
-specifier|virtual
 name|bool
 name|visitBinary
 parameter_list|(
@@ -93,6 +100,7 @@ name|TIntermBinary
 modifier|*
 name|node
 parameter_list|)
+specifier|override
 block|{
 if|if
 condition|(

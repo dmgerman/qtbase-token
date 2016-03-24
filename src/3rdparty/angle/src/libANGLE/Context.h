@@ -110,6 +110,9 @@ name|namespace
 name|egl
 block|{
 name|class
+name|AttributeMap
+decl_stmt|;
+name|class
 name|Surface
 decl_stmt|;
 struct_decl|struct
@@ -170,25 +173,37 @@ name|class
 name|Context
 name|final
 range|:
-name|angle
-operator|::
-name|NonCopyable
+name|public
+name|ValidationContext
 block|{
 name|public
 operator|:
 name|Context
 argument_list|(
-argument|const egl::Config *config
+specifier|const
+name|egl
+operator|::
+name|Config
+operator|*
+name|config
 argument_list|,
-argument|int clientVersion
+specifier|const
+name|Context
+operator|*
+name|shareContext
 argument_list|,
-argument|const Context *shareContext
+name|rx
+operator|::
+name|Renderer
+operator|*
+name|renderer
 argument_list|,
-argument|rx::Renderer *renderer
-argument_list|,
-argument|bool notifyResets
-argument_list|,
-argument|bool robustAccess
+specifier|const
+name|egl
+operator|::
+name|AttributeMap
+operator|&
+name|attribs
 argument_list|)
 block|;
 name|virtual
@@ -205,6 +220,10 @@ name|Surface
 operator|*
 name|surface
 argument_list|)
+block|;
+name|void
+name|releaseSurface
+argument_list|()
 block|;
 name|virtual
 name|void
@@ -366,13 +385,13 @@ block|;
 name|void
 name|bindReadFramebuffer
 argument_list|(
-argument|GLuint framebuffer
+argument|GLuint framebufferHandle
 argument_list|)
 block|;
 name|void
 name|bindDrawFramebuffer
 argument_list|(
-argument|GLuint framebuffer
+argument|GLuint framebufferHandle
 argument_list|)
 block|;
 name|void
@@ -481,12 +500,62 @@ argument_list|(
 argument|GLenum target
 argument_list|)
 block|;
-name|void
-name|setFramebufferZero
+name|Error
+name|queryCounter
 argument_list|(
-name|Framebuffer
-operator|*
-name|framebuffer
+argument|GLuint id
+argument_list|,
+argument|GLenum target
+argument_list|)
+block|;
+name|void
+name|getQueryiv
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLenum pname
+argument_list|,
+argument|GLint *params
+argument_list|)
+block|;
+name|Error
+name|getQueryObjectiv
+argument_list|(
+argument|GLuint id
+argument_list|,
+argument|GLenum pname
+argument_list|,
+argument|GLint *params
+argument_list|)
+block|;
+name|Error
+name|getQueryObjectuiv
+argument_list|(
+argument|GLuint id
+argument_list|,
+argument|GLenum pname
+argument_list|,
+argument|GLuint *params
+argument_list|)
+block|;
+name|Error
+name|getQueryObjecti64v
+argument_list|(
+argument|GLuint id
+argument_list|,
+argument|GLenum pname
+argument_list|,
+argument|GLint64 *params
+argument_list|)
+block|;
+name|Error
+name|getQueryObjectui64v
+argument_list|(
+argument|GLuint id
+argument_list|,
+argument|GLenum pname
+argument_list|,
+argument|GLuint64 *params
 argument_list|)
 block|;
 name|void
@@ -539,6 +608,7 @@ name|getBuffer
 argument_list|(
 argument|GLuint handle
 argument_list|)
+specifier|const
 block|;
 name|FenceNV
 operator|*
@@ -593,6 +663,7 @@ name|getRenderbuffer
 argument_list|(
 argument|GLuint handle
 argument_list|)
+specifier|const
 block|;
 name|VertexArray
 operator|*
@@ -621,11 +692,37 @@ argument_list|,
 argument|GLenum type
 argument_list|)
 block|;
+name|Query
+operator|*
+name|getQuery
+argument_list|(
+argument|GLuint handle
+argument_list|)
+specifier|const
+block|;
 name|TransformFeedback
 operator|*
 name|getTransformFeedback
 argument_list|(
 argument|GLuint handle
+argument_list|)
+specifier|const
+block|;
+name|LabeledObject
+operator|*
+name|getLabeledObject
+argument_list|(
+argument|GLenum identifier
+argument_list|,
+argument|GLuint name
+argument_list|)
+specifier|const
+block|;
+name|LabeledObject
+operator|*
+name|getLabeledObjectFromPtr
+argument_list|(
+argument|const void *ptr
 argument_list|)
 specifier|const
 block|;
@@ -660,6 +757,18 @@ argument|GLuint samplerName
 argument_list|)
 specifier|const
 block|;
+name|bool
+name|isVertexArrayGenerated
+argument_list|(
+argument|GLuint vertexArray
+argument_list|)
+block|;
+name|bool
+name|isTransformFeedbackGenerated
+argument_list|(
+argument|GLuint vertexArray
+argument_list|)
+block|;
 name|void
 name|getBooleanv
 argument_list|(
@@ -691,6 +800,15 @@ argument|GLenum pname
 argument_list|,
 argument|GLint64 *params
 argument_list|)
+block|;
+name|void
+name|getPointerv
+argument_list|(
+argument|GLenum pname
+argument_list|,
+argument|void **params
+argument_list|)
+specifier|const
 block|;
 name|bool
 name|getIndexedIntegerv
@@ -732,6 +850,54 @@ argument_list|,
 argument|unsigned int *numParams
 argument_list|)
 block|;
+name|void
+name|clear
+argument_list|(
+argument|GLbitfield mask
+argument_list|)
+block|;
+name|void
+name|clearBufferfv
+argument_list|(
+argument|GLenum buffer
+argument_list|,
+argument|GLint drawbuffer
+argument_list|,
+argument|const GLfloat *values
+argument_list|)
+block|;
+name|void
+name|clearBufferuiv
+argument_list|(
+argument|GLenum buffer
+argument_list|,
+argument|GLint drawbuffer
+argument_list|,
+argument|const GLuint *values
+argument_list|)
+block|;
+name|void
+name|clearBufferiv
+argument_list|(
+argument|GLenum buffer
+argument_list|,
+argument|GLint drawbuffer
+argument_list|,
+argument|const GLint *values
+argument_list|)
+block|;
+name|void
+name|clearBufferfi
+argument_list|(
+argument|GLenum buffer
+argument_list|,
+argument|GLint drawbuffer
+argument_list|,
+argument|GLfloat depth
+argument_list|,
+argument|GLint stencil
+argument_list|)
+block|;
 name|Error
 name|drawArrays
 argument_list|(
@@ -740,8 +906,18 @@ argument_list|,
 argument|GLint first
 argument_list|,
 argument|GLsizei count
+argument_list|)
+block|;
+name|Error
+name|drawArraysInstanced
+argument_list|(
+argument|GLenum mode
 argument_list|,
-argument|GLsizei instances
+argument|GLint first
+argument_list|,
+argument|GLsizei count
+argument_list|,
+argument|GLsizei instanceCount
 argument_list|)
 block|;
 name|Error
@@ -755,9 +931,237 @@ argument|GLenum type
 argument_list|,
 argument|const GLvoid *indices
 argument_list|,
+argument|const IndexRange&indexRange
+argument_list|)
+block|;
+name|Error
+name|drawElementsInstanced
+argument_list|(
+argument|GLenum mode
+argument_list|,
+argument|GLsizei count
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const GLvoid *indices
+argument_list|,
 argument|GLsizei instances
 argument_list|,
-argument|const rx::RangeUI&indexRange
+argument|const IndexRange&indexRange
+argument_list|)
+block|;
+name|Error
+name|drawRangeElements
+argument_list|(
+argument|GLenum mode
+argument_list|,
+argument|GLuint start
+argument_list|,
+argument|GLuint end
+argument_list|,
+argument|GLsizei count
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const GLvoid *indices
+argument_list|,
+argument|const IndexRange&indexRange
+argument_list|)
+block|;
+name|void
+name|blitFramebuffer
+argument_list|(
+argument|GLint srcX0
+argument_list|,
+argument|GLint srcY0
+argument_list|,
+argument|GLint srcX1
+argument_list|,
+argument|GLint srcY1
+argument_list|,
+argument|GLint dstX0
+argument_list|,
+argument|GLint dstY0
+argument_list|,
+argument|GLint dstX1
+argument_list|,
+argument|GLint dstY1
+argument_list|,
+argument|GLbitfield mask
+argument_list|,
+argument|GLenum filter
+argument_list|)
+block|;
+name|void
+name|readPixels
+argument_list|(
+argument|GLint x
+argument_list|,
+argument|GLint y
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLenum format
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|GLvoid *pixels
+argument_list|)
+block|;
+name|void
+name|copyTexImage2D
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLenum internalformat
+argument_list|,
+argument|GLint x
+argument_list|,
+argument|GLint y
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|,
+argument|GLint border
+argument_list|)
+block|;
+name|void
+name|copyTexSubImage2D
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint x
+argument_list|,
+argument|GLint y
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|)
+block|;
+name|void
+name|copyTexSubImage3D
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint xoffset
+argument_list|,
+argument|GLint yoffset
+argument_list|,
+argument|GLint zoffset
+argument_list|,
+argument|GLint x
+argument_list|,
+argument|GLint y
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
+argument_list|)
+block|;
+name|void
+name|framebufferTexture2D
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLenum attachment
+argument_list|,
+argument|GLenum textarget
+argument_list|,
+argument|GLuint texture
+argument_list|,
+argument|GLint level
+argument_list|)
+block|;
+name|void
+name|framebufferRenderbuffer
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLenum attachment
+argument_list|,
+argument|GLenum renderbuffertarget
+argument_list|,
+argument|GLuint renderbuffer
+argument_list|)
+block|;
+name|void
+name|framebufferTextureLayer
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLenum attachment
+argument_list|,
+argument|GLuint texture
+argument_list|,
+argument|GLint level
+argument_list|,
+argument|GLint layer
+argument_list|)
+block|;
+name|void
+name|drawBuffers
+argument_list|(
+argument|GLsizei n
+argument_list|,
+argument|const GLenum *bufs
+argument_list|)
+block|;
+name|void
+name|readBuffer
+argument_list|(
+argument|GLenum mode
+argument_list|)
+block|;
+name|void
+name|discardFramebuffer
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei numAttachments
+argument_list|,
+argument|const GLenum *attachments
+argument_list|)
+block|;
+name|void
+name|invalidateFramebuffer
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei numAttachments
+argument_list|,
+argument|const GLenum *attachments
+argument_list|)
+block|;
+name|void
+name|invalidateSubFramebuffer
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|GLsizei numAttachments
+argument_list|,
+argument|const GLenum *attachments
+argument_list|,
+argument|GLint x
+argument_list|,
+argument|GLint y
+argument_list|,
+argument|GLsizei width
+argument_list|,
+argument|GLsizei height
 argument_list|)
 block|;
 name|Error
@@ -769,13 +1173,31 @@ name|finish
 argument_list|()
 block|;
 name|void
+name|insertEventMarker
+argument_list|(
+argument|GLsizei length
+argument_list|,
+argument|const char *marker
+argument_list|)
+block|;
+name|void
+name|pushGroupMarker
+argument_list|(
+argument|GLsizei length
+argument_list|,
+argument|const char *marker
+argument_list|)
+block|;
+name|void
+name|popGroupMarker
+argument_list|()
+block|;
+name|void
 name|recordError
 argument_list|(
-specifier|const
-name|Error
-operator|&
-name|error
+argument|const Error&error
 argument_list|)
+name|override
 block|;
 name|GLenum
 name|getError
@@ -790,14 +1212,12 @@ name|bool
 name|isResetNotificationEnabled
 argument_list|()
 block|;
-name|virtual
-name|int
-name|getClientVersion
-argument_list|()
 specifier|const
-block|;
-name|EGLint
-name|getConfigID
+name|egl
+operator|::
+name|Config
+operator|*
+name|getConfig
 argument_list|()
 specifier|const
 block|;
@@ -808,27 +1228,6 @@ specifier|const
 block|;
 name|EGLenum
 name|getRenderBuffer
-argument_list|()
-specifier|const
-block|;
-specifier|const
-name|Caps
-operator|&
-name|getCaps
-argument_list|()
-specifier|const
-block|;
-specifier|const
-name|TextureCapsMap
-operator|&
-name|getTextureCaps
-argument_list|()
-specifier|const
-block|;
-specifier|const
-name|Extensions
-operator|&
-name|getExtensions
 argument_list|()
 specifier|const
 block|;
@@ -886,24 +1285,42 @@ return|return
 name|mState
 return|;
 block|}
+name|void
+name|syncRendererState
+argument_list|()
+block|;
+name|void
+name|syncRendererState
+argument_list|(
 specifier|const
 name|State
+operator|::
+name|DirtyBits
 operator|&
-name|getState
-argument_list|()
-specifier|const
-block|{
-return|return
-name|mState
-return|;
-block|}
-name|Data
-name|getData
-argument_list|()
-specifier|const
+name|bitMask
+argument_list|)
 block|;
 name|private
 operator|:
+name|void
+name|checkVertexArrayAllocation
+argument_list|(
+argument|GLuint vertexArray
+argument_list|)
+block|;
+name|void
+name|checkTransformFeedbackAllocation
+argument_list|(
+argument|GLuint transformFeedback
+argument_list|)
+block|;
+name|Framebuffer
+operator|*
+name|checkFramebufferAllocation
+argument_list|(
+argument|GLuint framebufferHandle
+argument_list|)
+block|;
 name|void
 name|detachBuffer
 argument_list|(
@@ -970,6 +1387,9 @@ block|;
 name|Extensions
 name|mExtensions
 block|;
+name|Limitations
+name|mLimitations
+block|;
 comment|// Shader compiler
 name|Compiler
 operator|*
@@ -988,14 +1408,15 @@ block|;
 name|int
 name|mClientVersion
 block|;
-name|EGLint
-name|mConfigID
+specifier|const
+name|egl
+operator|::
+name|Config
+operator|*
+name|mConfig
 block|;
 name|EGLenum
 name|mClientType
-block|;
-name|EGLenum
-name|mRenderBuffer
 block|;
 name|TextureMap
 name|mZeroTextures
@@ -1072,12 +1493,6 @@ decl_stmt|;
 name|HandleAllocator
 name|mVertexArrayHandleAllocator
 decl_stmt|;
-name|BindingPointer
-operator|<
-name|TransformFeedback
-operator|>
-name|mTransformFeedbackZero
-expr_stmt|;
 typedef|typedef
 name|std
 operator|::
@@ -1145,6 +1560,12 @@ decl_stmt|;
 name|bool
 name|mRobustAccess
 decl_stmt|;
+name|egl
+operator|::
+name|Surface
+operator|*
+name|mCurrentSurface
+expr_stmt|;
 name|ResourceManager
 modifier|*
 name|mResourceManager
@@ -1154,8 +1575,11 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_endif
+begin_comment
 unit|}
+comment|// namespace gl
+end_comment
+begin_endif
 endif|#
 directive|endif
 end_endif

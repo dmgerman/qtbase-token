@@ -110,7 +110,7 @@ name|op
 parameter_list|,
 specifier|const
 name|TType
-modifier|&
+modifier|*
 name|param
 parameter_list|,
 specifier|const
@@ -127,12 +127,12 @@ name|op
 parameter_list|,
 specifier|const
 name|TType
-modifier|&
+modifier|*
 name|param1
 parameter_list|,
 specifier|const
 name|TType
-modifier|&
+modifier|*
 name|param2
 parameter_list|,
 specifier|const
@@ -149,17 +149,17 @@ name|op
 parameter_list|,
 specifier|const
 name|TType
-modifier|&
+modifier|*
 name|param1
 parameter_list|,
 specifier|const
 name|TType
-modifier|&
+modifier|*
 name|param2
 parameter_list|,
 specifier|const
 name|TType
-modifier|&
+modifier|*
 name|param3
 parameter_list|,
 specifier|const
@@ -237,27 +237,27 @@ name|FunctionId
 argument_list|(
 argument|TOperator op
 argument_list|,
-argument|const TType& param
+argument|const TType *param
 argument_list|)
 empty_stmt|;
 name|FunctionId
 argument_list|(
 argument|TOperator op
 argument_list|,
-argument|const TType& param1
+argument|const TType *param1
 argument_list|,
-argument|const TType& param2
+argument|const TType *param2
 argument_list|)
 empty_stmt|;
 name|FunctionId
 argument_list|(
 argument|TOperator op
 argument_list|,
-argument|const TType& param1
+argument|const TType *param1
 argument_list|,
-argument|const TType& param2
+argument|const TType *param2
 argument_list|,
-argument|const TType& param3
+argument|const TType *param3
 argument_list|)
 empty_stmt|;
 name|bool
@@ -282,18 +282,32 @@ name|other
 operator|)
 specifier|const
 expr_stmt|;
+name|FunctionId
+name|getCopy
+argument_list|()
+specifier|const
+expr_stmt|;
 name|private
 label|:
 name|TOperator
 name|mOp
 decl_stmt|;
+comment|// The memory that these TType objects use is freed by PoolAllocator. The BuiltInFunctionEmulator's lifetime
+comment|// can extend until after the memory pool is freed, but that's not an issue since this class never destructs
+comment|// these objects.
+specifier|const
 name|TType
+modifier|*
 name|mParam1
 decl_stmt|;
+specifier|const
 name|TType
+modifier|*
 name|mParam2
 decl_stmt|;
+specifier|const
 name|TType
+modifier|*
 name|mParam3
 decl_stmt|;
 block|}

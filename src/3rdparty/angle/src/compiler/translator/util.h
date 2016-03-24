@@ -46,7 +46,7 @@ directive|include
 file|"compiler/translator/Types.h"
 end_include
 begin_comment
-comment|// atof_clamp is like atof but
+comment|// strtof_clamp is like strtof but
 end_comment
 begin_comment
 comment|//   1. it forces C locale, i.e. forcing '.' as decimal point.
@@ -57,30 +57,30 @@ end_comment
 begin_comment
 comment|// Return false if overflow happens.
 end_comment
-begin_function_decl
-specifier|extern
+begin_decl_stmt
 name|bool
-name|atof_clamp
-parameter_list|(
+name|strtof_clamp
+argument_list|(
 specifier|const
-name|char
-modifier|*
+name|std
+operator|::
+name|string
+operator|&
 name|str
-parameter_list|,
+argument_list|,
 name|float
-modifier|*
+operator|*
 name|value
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_comment
-comment|// If overflow happens, clamp the value to INT_MIN or INT_MAX.
+comment|// If overflow happens, clamp the value to UINT_MIN or UINT_MAX.
 end_comment
 begin_comment
 comment|// Return false if overflow happens.
 end_comment
 begin_function_decl
-specifier|extern
 name|bool
 name|atoi_clamp
 parameter_list|(
@@ -89,6 +89,7 @@ name|char
 modifier|*
 name|str
 parameter_list|,
+name|unsigned
 name|int
 modifier|*
 name|value
@@ -177,6 +178,11 @@ operator|&
 name|symbolTable
 argument_list|)
 block|;
+name|virtual
+operator|~
+name|GetVariableTraverser
+argument_list|()
+block|{}
 name|template
 operator|<
 name|typename

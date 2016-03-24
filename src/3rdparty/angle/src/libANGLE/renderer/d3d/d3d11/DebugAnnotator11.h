@@ -66,7 +66,7 @@ block|;
 name|void
 name|beginEvent
 argument_list|(
-argument|const std::wstring&eventName
+argument|const wchar_t *eventName
 argument_list|)
 name|override
 block|;
@@ -78,7 +78,7 @@ block|;
 name|void
 name|setMarker
 argument_list|(
-argument|const std::wstring&markerName
+argument|const wchar_t *markerName
 argument_list|)
 name|override
 block|;

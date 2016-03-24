@@ -62,7 +62,7 @@ DECL|macro|TRACE_OUTPUT_FILE
 define|#
 directive|define
 name|TRACE_OUTPUT_FILE
-value|"debug.txt"
+value|"angle_debug.txt"
 end_define
 begin_endif
 endif|#
@@ -152,10 +152,8 @@ name|void
 name|beginEvent
 argument_list|(
 specifier|const
-name|std
-operator|::
-name|wstring
-operator|&
+name|wchar_t
+operator|*
 name|eventName
 argument_list|)
 operator|=
@@ -173,10 +171,8 @@ name|void
 name|setMarker
 argument_list|(
 specifier|const
-name|std
-operator|::
-name|wstring
-operator|&
+name|wchar_t
+operator|*
 name|markerName
 argument_list|)
 operator|=
@@ -231,6 +227,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_define
+DECL|macro|ANGLE_EMPTY_STATEMENT
+define|#
+directive|define
+name|ANGLE_EMPTY_STATEMENT
+value|for (;;) break
+end_define
 begin_comment
 comment|// A macro to output a trace of a function call and its arguments to the debugging log
 end_comment
@@ -405,7 +408,7 @@ name|message
 parameter_list|,
 modifier|...
 parameter_list|)
-value|gl::ScopedPerfEventHelper scopedPerfEventHelper(message "\n", ##__VA_ARGS__);
+value|gl::ScopedPerfEventHelper scopedPerfEventHelper("%s" message "\n", __FUNCTION__, ##__VA_ARGS__);
 end_define
 begin_endif
 endif|#
@@ -472,7 +475,7 @@ name|ASSERT
 parameter_list|(
 name|expression
 parameter_list|)
-value|do { \     if(!(expression)) \         ERR("\t! Assert failed in %s(%d): "#expression"\n", __FUNCTION__, __LINE__); \         assert(expression); \     } while(0)
+value|{ \     if(!(expression)) \         ERR("\t! Assert failed in %s(%d): %s\n", __FUNCTION__, __LINE__, #expression); \         assert(expression); \     } ANGLE_EMPTY_STATEMENT
 end_define
 begin_define
 DECL|macro|UNUSED_ASSERTION_VARIABLE
@@ -511,38 +514,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|ANGLE_ENABLE_DEBUG_TRACE
-end_ifndef
 begin_define
-DECL|macro|UNUSED_TRACE_VARIABLE
+DECL|macro|UNUSED_VARIABLE
 define|#
 directive|define
-name|UNUSED_TRACE_VARIABLE
+name|UNUSED_VARIABLE
 parameter_list|(
 name|variable
 parameter_list|)
 value|((void)variable)
 end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|UNUSED_TRACE_VARIABLE
-define|#
-directive|define
-name|UNUSED_TRACE_VARIABLE
-parameter_list|(
-name|variable
-parameter_list|)
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// A macro to indicate unimplemented functionality
 end_comment
@@ -602,7 +583,7 @@ define|#
 directive|define
 name|UNIMPLEMENTED
 parameter_list|()
-value|do { \     FIXME("\t! Unimplemented: %s(%d)\n", __FUNCTION__, __LINE__); \     assert(NOASSERT_UNIMPLEMENTED); \     } while(0)
+value|{ \     FIXME("\t! Unimplemented: %s(%d)\n", __FUNCTION__, __LINE__); \     assert(NOASSERT_UNIMPLEMENTED); \     } ANGLE_EMPTY_STATEMENT
 end_define
 begin_else
 else|#
@@ -638,7 +619,7 @@ define|#
 directive|define
 name|UNREACHABLE
 parameter_list|()
-value|do { \     ERR("\t! Unreachable reached: %s(%d)\n", __FUNCTION__, __LINE__); \     assert(false); \     } while(0)
+value|{ \     ERR("\t! Unreachable reached: %s(%d)\n", __FUNCTION__, __LINE__); \     assert(false); \     } ANGLE_EMPTY_STATEMENT
 end_define
 begin_else
 else|#
@@ -651,90 +632,6 @@ directive|define
 name|UNREACHABLE
 parameter_list|()
 value|ERR("\t! Unreachable reached: %s(%d)\n", __FUNCTION__, __LINE__)
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// A macro that determines whether an object has a given runtime type.
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|NDEBUG
-argument_list|)
-operator|&&
-operator|(
-operator|!
-name|defined
-argument_list|(
-name|_MSC_VER
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|_CPPRTTI
-argument_list|)
-operator|)
-operator|&&
-operator|(
-operator|!
-name|defined
-argument_list|(
-name|__GNUC__
-argument_list|)
-operator|||
-name|__GNUC__
-operator|<
-literal|4
-operator|||
-operator|(
-name|__GNUC__
-operator|==
-literal|4
-operator|&&
-name|__GNUC_MINOR__
-operator|<
-literal|3
-operator|)
-operator|||
-name|defined
-argument_list|(
-name|__GXX_RTTI
-argument_list|)
-operator|)
-end_if
-begin_define
-DECL|macro|HAS_DYNAMIC_TYPE
-define|#
-directive|define
-name|HAS_DYNAMIC_TYPE
-parameter_list|(
-name|type
-parameter_list|,
-name|obj
-parameter_list|)
-value|(dynamic_cast<type>(obj) != NULL)
-end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|HAS_DYNAMIC_TYPE
-define|#
-directive|define
-name|HAS_DYNAMIC_TYPE
-parameter_list|(
-name|type
-parameter_list|,
-name|obj
-parameter_list|)
-value|true
 end_define
 begin_endif
 endif|#

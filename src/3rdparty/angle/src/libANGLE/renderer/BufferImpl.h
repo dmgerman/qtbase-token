@@ -36,7 +36,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libANGLE/Buffer.h"
+file|"common/mathutil.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"libANGLE/Error.h"
 end_include
 begin_include
 include|#
@@ -114,6 +119,19 @@ operator|::
 name|Error
 name|map
 argument_list|(
+argument|GLenum access
+argument_list|,
+argument|GLvoid **mapPtr
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|mapRange
+argument_list|(
 argument|size_t offset
 argument_list|,
 argument|size_t length
@@ -130,23 +148,29 @@ name|gl
 operator|::
 name|Error
 name|unmap
-argument_list|()
+argument_list|(
+name|GLboolean
+operator|*
+name|result
+argument_list|)
 operator|=
 literal|0
 block|;
-comment|// This method may not have a corresponding GL-backed function. It is necessary
-comment|// for validation, for certain indexed draw calls.
 name|virtual
 name|gl
 operator|::
 name|Error
-name|getData
+name|getIndexRange
 argument_list|(
-specifier|const
-name|uint8_t
-operator|*
-operator|*
-name|outData
+argument|GLenum type
+argument_list|,
+argument|size_t offset
+argument_list|,
+argument|size_t count
+argument_list|,
+argument|bool primitiveRestartEnabled
+argument_list|,
+argument|gl::IndexRange *outRange
 argument_list|)
 operator|=
 literal|0

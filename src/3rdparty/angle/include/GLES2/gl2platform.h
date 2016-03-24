@@ -11,7 +11,7 @@ directive|define
 name|__gl2platform_h_
 end_define
 begin_comment
-comment|/* $Revision: 10602 $ on $Date:: 2010-03-04 22:35:34 -0800 #$ */
+comment|/* $Revision: 23328 $ on $Date:: 2013-10-02 02:28:28 -0700 #$ */
 end_comment
 begin_comment
 comment|/*  * This document is licensed under the SGI Free Software B License Version  * 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .  */

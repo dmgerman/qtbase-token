@@ -210,6 +210,26 @@ name|originalFullName
 argument_list|)
 decl|const
 decl_stmt|;
+name|bool
+name|isBuiltIn
+argument_list|()
+specifier|const
+block|{
+return|return
+name|name
+operator|.
+name|compare
+argument_list|(
+literal|0
+argument_list|,
+literal|3
+argument_list|,
+literal|"gl_"
+argument_list|)
+operator|==
+literal|0
+return|;
+block|}
 name|GLenum
 name|type
 decl_stmt|;
@@ -369,12 +389,83 @@ argument_list|)
 specifier|const
 block|; }
 decl_stmt|;
+comment|// An interface variable is a variable which passes data between the GL data structures and the
+comment|// shader execution: either vertex shader inputs or fragment shader outputs. These variables can
+comment|// have integer locations to pass back to the GL API.
+name|struct
+name|COMPILER_EXPORT
+name|InterfaceVariable
+range|:
+name|public
+name|ShaderVariable
+block|{
+name|InterfaceVariable
+argument_list|()
+block|;
+operator|~
+name|InterfaceVariable
+argument_list|()
+block|;
+name|InterfaceVariable
+argument_list|(
+specifier|const
+name|InterfaceVariable
+operator|&
+name|other
+argument_list|)
+block|;
+name|InterfaceVariable
+operator|&
+name|operator
+operator|=
+operator|(
+specifier|const
+name|InterfaceVariable
+operator|&
+name|other
+operator|)
+block|;
+name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|InterfaceVariable
+operator|&
+name|other
+operator|)
+specifier|const
+block|;
+name|bool
+name|operator
+operator|!=
+operator|(
+specifier|const
+name|InterfaceVariable
+operator|&
+name|other
+operator|)
+specifier|const
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
+name|int
+name|location
+block|; }
+decl_stmt|;
 name|struct
 name|COMPILER_EXPORT
 name|Attribute
 range|:
 name|public
-name|ShaderVariable
+name|InterfaceVariable
 block|{
 name|Attribute
 argument_list|()
@@ -433,14 +524,76 @@ name|other
 operator|)
 return|;
 block|}
-name|int
-name|location
-block|; }
-decl_stmt|;
-name|struct
+expr|}
+block|;  struct
+name|COMPILER_EXPORT
+name|OutputVariable
+operator|:
+name|public
+name|InterfaceVariable
+block|{
+name|OutputVariable
+argument_list|()
+block|;
+operator|~
+name|OutputVariable
+argument_list|()
+block|;
+name|OutputVariable
+argument_list|(
+specifier|const
+name|OutputVariable
+operator|&
+name|other
+argument_list|)
+block|;
+name|OutputVariable
+operator|&
+name|operator
+operator|=
+operator|(
+specifier|const
+name|OutputVariable
+operator|&
+name|other
+operator|)
+block|;
+name|bool
+name|operator
+operator|==
+operator|(
+specifier|const
+name|OutputVariable
+operator|&
+name|other
+operator|)
+specifier|const
+block|;
+name|bool
+name|operator
+operator|!=
+operator|(
+specifier|const
+name|OutputVariable
+operator|&
+name|other
+operator|)
+specifier|const
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
+expr|}
+block|;  struct
 name|COMPILER_EXPORT
 name|InterfaceBlockField
-range|:
+operator|:
 name|public
 name|ShaderVariable
 block|{
@@ -515,11 +668,10 @@ block|;
 name|bool
 name|isRowMajorLayout
 block|; }
-decl_stmt|;
-name|struct
+block|;  struct
 name|COMPILER_EXPORT
 name|Varying
-range|:
+operator|:
 name|public
 name|ShaderVariable
 block|{
@@ -582,7 +734,19 @@ return|;
 block|}
 comment|// Decide whether two varyings are the same at shader link time,
 comment|// assuming one from vertex shader and the other from fragment shader.
-comment|// See GLSL ES Spec 3.00.3, sec 4.3.9.
+comment|// Invariance needs to match only in ESSL1. Relevant spec sections:
+comment|// GLSL ES 3.00.4, sections 4.6.1 and 4.3.9.
+comment|// GLSL ES 1.00.17, section 4.6.4.
+name|bool
+name|isSameVaryingAtLinkTime
+argument_list|(
+argument|const Varying&other
+argument_list|,
+argument|int shaderVersion
+argument_list|)
+specifier|const
+block|;
+comment|// Deprecated version of isSameVaryingAtLinkTime, which assumes ESSL1.
 name|bool
 name|isSameVaryingAtLinkTime
 argument_list|(
@@ -596,18 +760,17 @@ block|;
 name|bool
 name|isInvariant
 block|; }
-decl_stmt|;
-struct|struct
+block|;  struct
 name|COMPILER_EXPORT
 name|InterfaceBlock
 block|{
 name|InterfaceBlock
 argument_list|()
-expr_stmt|;
+block|;
 operator|~
 name|InterfaceBlock
 argument_list|()
-expr_stmt|;
+block|;
 name|InterfaceBlock
 argument_list|(
 specifier|const
@@ -615,46 +778,54 @@ name|InterfaceBlock
 operator|&
 name|other
 argument_list|)
-expr_stmt|;
+block|;
 name|InterfaceBlock
-modifier|&
+operator|&
 name|operator
-init|=
+operator|=
 operator|(
 specifier|const
 name|InterfaceBlock
 operator|&
 name|other
 operator|)
-decl_stmt|;
+block|;
+comment|// Fields from blocks with non-empty instance names are prefixed with the block name.
+name|std
+operator|::
+name|string
+name|fieldPrefix
+argument_list|()
+specifier|const
+block|;
 name|std
 operator|::
 name|string
 name|name
-expr_stmt|;
+block|;
 name|std
 operator|::
 name|string
 name|mappedName
-expr_stmt|;
+block|;
 name|std
 operator|::
 name|string
 name|instanceName
-expr_stmt|;
+block|;
 name|unsigned
 name|int
 name|arraySize
-decl_stmt|;
+block|;
 name|BlockLayoutType
 name|layout
-decl_stmt|;
+block|;
 name|bool
 name|isRowMajorLayout
-decl_stmt|;
+block|;
 name|bool
 name|staticUse
-decl_stmt|;
+block|;
 name|std
 operator|::
 name|vector
@@ -662,11 +833,12 @@ operator|<
 name|InterfaceBlockField
 operator|>
 name|fields
-expr_stmt|;
-block|}
-struct|;
-block|}
+block|; }
+block|;  }
 end_decl_stmt
+begin_comment
+comment|// namespace sh
+end_comment
 begin_endif
 endif|#
 directive|endif

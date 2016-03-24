@@ -41,7 +41,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"libANGLE/VertexAttribute.h"
+file|"libANGLE/VertexArray.h"
 end_include
 begin_decl_stmt
 name|namespace
@@ -56,6 +56,23 @@ name|NonCopyable
 block|{
 name|public
 operator|:
+name|VertexArrayImpl
+argument_list|(
+specifier|const
+name|gl
+operator|::
+name|VertexArray
+operator|::
+name|Data
+operator|&
+name|data
+argument_list|)
+operator|:
+name|mData
+argument_list|(
+argument|data
+argument_list|)
+block|{ }
 name|virtual
 operator|~
 name|VertexArrayImpl
@@ -63,50 +80,21 @@ argument_list|()
 block|{ }
 name|virtual
 name|void
-name|setElementArrayBuffer
+name|syncState
 argument_list|(
+argument|const gl::VertexArray::DirtyBits&dirtyBits
+argument_list|)
+block|{}
+name|protected
+operator|:
 specifier|const
 name|gl
 operator|::
-name|Buffer
-operator|*
-name|buffer
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|setAttribute
-argument_list|(
-argument|size_t idx
-argument_list|,
-argument|const gl::VertexAttribute&attr
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|setAttributeDivisor
-argument_list|(
-argument|size_t idx
-argument_list|,
-argument|GLuint divisor
-argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|enableAttribute
-argument_list|(
-argument|size_t idx
-argument_list|,
-argument|bool enabledState
-argument_list|)
-operator|=
-literal|0
+name|VertexArray
+operator|::
+name|Data
+operator|&
+name|mData
 block|; }
 decl_stmt|;
 block|}

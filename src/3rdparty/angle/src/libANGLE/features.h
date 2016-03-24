@@ -127,7 +127,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Shader debug info
+comment|// Append HLSL assembly to shader debug info. Defaults to enabled in Debug and off in Release.
 end_comment
 begin_if
 if|#
@@ -135,15 +135,80 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|ANGLE_SHADER_DEBUG_INFO
+name|ANGLE_APPEND_ASSEMBLY_TO_SHADER_DEBUG_INFO
+argument_list|)
+end_if
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|NDEBUG
 argument_list|)
 end_if
 begin_define
-DECL|macro|ANGLE_SHADER_DEBUG_INFO
+DECL|macro|ANGLE_APPEND_ASSEMBLY_TO_SHADER_DEBUG_INFO
 define|#
 directive|define
-name|ANGLE_SHADER_DEBUG_INFO
+name|ANGLE_APPEND_ASSEMBLY_TO_SHADER_DEBUG_INFO
+value|ANGLE_ENABLED
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|ANGLE_APPEND_ASSEMBLY_TO_SHADER_DEBUG_INFO
+define|#
+directive|define
+name|ANGLE_APPEND_ASSEMBLY_TO_SHADER_DEBUG_INFO
 value|ANGLE_DISABLED
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !defined(NDEBUG)
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// !defined(ANGLE_APPEND_ASSEMBLY_TO_SHADER_DEBUG_INFO)
+end_comment
+begin_comment
+comment|// Program link validation of precisions for uniforms. This feature was
+end_comment
+begin_comment
+comment|// requested by developers to allow non-conformant shaders to be used which
+end_comment
+begin_comment
+comment|// contain mismatched precisions.
+end_comment
+begin_comment
+comment|// ENABLED validate that precision for uniforms match between vertex and fragment shaders
+end_comment
+begin_comment
+comment|// DISABLED allow precision for uniforms to differ between vertex and fragment shaders
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_PROGRAM_LINK_VALIDATE_UNIFORM_PRECISION
+argument_list|)
+end_if
+begin_define
+DECL|macro|ANGLE_PROGRAM_LINK_VALIDATE_UNIFORM_PRECISION
+define|#
+directive|define
+name|ANGLE_PROGRAM_LINK_VALIDATE_UNIFORM_PRECISION
+value|ANGLE_ENABLED
 end_define
 begin_endif
 endif|#

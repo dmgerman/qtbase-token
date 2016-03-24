@@ -17,6 +17,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"compiler/translator/Cache.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"compiler/translator/InitializeDll.h"
 end_include
 begin_include
@@ -81,6 +86,11 @@ return|return
 literal|false
 return|;
 block|}
+name|TCache
+operator|::
+name|initialize
+argument_list|()
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -96,6 +106,11 @@ name|FreeParseContextIndex
 argument_list|()
 expr_stmt|;
 name|FreePoolIndex
+argument_list|()
+expr_stmt|;
+name|TCache
+operator|::
+name|destroy
 argument_list|()
 expr_stmt|;
 block|}

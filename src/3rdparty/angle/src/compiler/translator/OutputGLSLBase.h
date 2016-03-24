@@ -104,6 +104,15 @@ argument|const char *postStr
 argument_list|)
 block|;
 name|void
+name|writeLayoutQualifier
+argument_list|(
+specifier|const
+name|TType
+operator|&
+name|type
+argument_list|)
+block|;
+name|void
 name|writeVariableType
 argument_list|(
 specifier|const
@@ -131,7 +140,7 @@ name|args
 argument_list|)
 block|;
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|*
 name|writeConstantUnion
 argument_list|(
@@ -141,9 +150,19 @@ operator|&
 name|type
 argument_list|,
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|*
 name|pConstUnion
+argument_list|)
+block|;
+name|void
+name|writeConstructorTriplet
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|const TType&type
+argument_list|,
+argument|const char *constructorBaseType
 argument_list|)
 block|;
 name|TString
@@ -155,25 +174,20 @@ operator|&
 name|type
 argument_list|)
 block|;
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
-name|node
+argument|TIntermSymbol *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitConstantUnion
 argument_list|(
-name|TIntermConstantUnion
-operator|*
-name|node
+argument|TIntermConstantUnion *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitBinary
 argument_list|(
@@ -181,8 +195,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermBinary *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitUnary
 argument_list|(
@@ -190,8 +204,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermUnary *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitSelection
 argument_list|(
@@ -199,8 +213,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermSelection *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitSwitch
 argument_list|(
@@ -208,8 +222,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermSwitch *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitCase
 argument_list|(
@@ -217,8 +231,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermCase *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitAggregate
 argument_list|(
@@ -226,8 +240,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermAggregate *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitLoop
 argument_list|(
@@ -235,8 +249,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermLoop *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitBranch
 argument_list|(
@@ -244,6 +258,7 @@ argument|Visit visit
 argument_list|,
 argument|TIntermBranch *node
 argument_list|)
+name|override
 block|;
 name|void
 name|visitCodeBlock
@@ -274,14 +289,14 @@ operator|&
 name|name
 argument_list|)
 block|;
-comment|// Same as hashName(), but without hashing built-in functions.
+comment|// Same as hashName(), but without hashing built-in functions and with unmangling.
 name|TString
-name|hashFunctionName
+name|hashFunctionNameIfNeeded
 argument_list|(
 specifier|const
-name|TString
+name|TName
 operator|&
-name|mangled_name
+name|mangledName
 argument_list|)
 block|;
 comment|// Used to translate function names for differences between ESSL and GLSL
@@ -312,6 +327,24 @@ specifier|const
 name|TStructure
 operator|*
 name|structure
+argument_list|)
+block|;
+name|void
+name|declareInterfaceBlockLayout
+argument_list|(
+specifier|const
+name|TInterfaceBlock
+operator|*
+name|interfaceBlock
+argument_list|)
+block|;
+name|void
+name|declareInterfaceBlock
+argument_list|(
+specifier|const
+name|TInterfaceBlock
+operator|*
+name|interfaceBlock
 argument_list|)
 block|;
 name|void

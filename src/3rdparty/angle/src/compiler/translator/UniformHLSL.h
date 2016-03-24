@@ -39,6 +39,11 @@ include|#
 directive|include
 file|"compiler/translator/OutputHLSL.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"compiler/translator/UtilsHLSL.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|sh
@@ -76,9 +81,23 @@ argument_list|(
 argument|unsigned int registerCount
 argument_list|)
 block|;
-name|TString
+name|void
+name|outputHLSLSamplerUniformGroup
+argument_list|(
+argument|TInfoSinkBase&out
+argument_list|,
+argument|const HLSLTextureSamplerGroup textureGroup
+argument_list|,
+argument|const TVector<const TIntermSymbol *>&group
+argument_list|,
+argument|unsigned int *groupTextureRegisterIndex
+argument_list|)
+block|;
+name|void
 name|uniformsHeader
 argument_list|(
+argument|TInfoSinkBase&out
+argument_list|,
 argument|ShShaderOutput outputType
 argument_list|,
 argument|const ReferencedSymbols&referencedUniforms
@@ -184,6 +203,17 @@ argument_list|)
 specifier|const
 block|;
 comment|// Returns the uniform's register index
+name|unsigned
+name|int
+name|declareUniformAndAssignRegister
+argument_list|(
+argument|const TType&type
+argument_list|,
+argument|const TString&name
+argument_list|,
+argument|unsigned int *registerCount
+argument_list|)
+block|;
 name|unsigned
 name|int
 name|declareUniformAndAssignRegister

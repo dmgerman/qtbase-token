@@ -142,17 +142,13 @@ operator|::
 name|Error
 name|getDepthStencilState
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|DepthStencilState
-operator|&
-name|dsState
+argument|const gl::DepthStencilState&dsState
 argument_list|,
-name|ID3D11DepthStencilState
-operator|*
-operator|*
-name|outDSState
+argument|bool disableDepth
+argument_list|,
+argument|bool disableStencil
+argument_list|,
+argument|ID3D11DepthStencilState **outDSState
 argument_list|)
 block|;
 name|gl

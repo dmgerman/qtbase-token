@@ -1233,7 +1233,7 @@ name|GL_UNSIGNED_SHORT_4_4_4_4_REV_EXT
 argument_list|,
 name|WriteColor
 argument_list|<
-name|B4G4R4A4
+name|A4R4G4B4
 argument_list|,
 name|GLfloat
 argument_list|>
@@ -1250,7 +1250,7 @@ name|GL_UNSIGNED_SHORT_1_5_5_5_REV_EXT
 argument_list|,
 name|WriteColor
 argument_list|<
-name|B5G5R5A1
+name|A1R5G5B5
 argument_list|,
 name|GLfloat
 argument_list|>

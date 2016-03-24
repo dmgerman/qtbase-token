@@ -257,6 +257,12 @@ return|return
 literal|"Too many arguments for macro"
 return|;
 case|case
+name|PP_MACRO_DUPLICATE_PARAMETER_NAMES
+case|:
+return|return
+literal|"duplicate macro parameter name"
+return|;
+case|case
 name|PP_CONDITIONAL_ENDIF_WITHOUT_IF
 case|:
 return|return
@@ -330,6 +336,12 @@ literal|"#version directive must occur before anything else, "
 literal|"except for comments and white space"
 return|;
 case|case
+name|PP_VERSION_NOT_FIRST_LINE_ESSL3
+case|:
+return|return
+literal|"#version directive must occur on the first line of the shader"
+return|;
+case|case
 name|PP_INVALID_LINE_NUMBER
 case|:
 return|return
@@ -346,6 +358,12 @@ name|PP_INVALID_LINE_DIRECTIVE
 case|:
 return|return
 literal|"invalid line directive"
+return|;
+case|case
+name|PP_NON_PP_TOKEN_BEFORE_EXTENSION_ESSL3
+case|:
+return|return
+literal|"extension directive must occur before any non-preprocessor tokens in ESSL3"
 return|;
 comment|// Errors end.
 comment|// Warnings begin.
@@ -366,6 +384,18 @@ name|PP_UNRECOGNIZED_PRAGMA
 case|:
 return|return
 literal|"unrecognized pragma"
+return|;
+case|case
+name|PP_NON_PP_TOKEN_BEFORE_EXTENSION_ESSL1
+case|:
+return|return
+literal|"extension directive should occur before any non-preprocessor tokens"
+return|;
+case|case
+name|PP_WARNING_MACRO_NAME_RESERVED
+case|:
+return|return
+literal|"macro name with a double underscore is reserved - unintented behavior is possible"
 return|;
 comment|// Warnings end.
 default|default:

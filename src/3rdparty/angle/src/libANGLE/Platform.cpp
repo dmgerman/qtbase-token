@@ -46,11 +46,11 @@ comment|// static
 end_comment
 begin_function
 DECL|function|ANGLEPlatformCurrent
-name|ANGLE_EXPORT
 name|angle
 operator|::
 name|Platform
 modifier|*
+name|ANGLE_APIENTRY
 name|ANGLEPlatformCurrent
 parameter_list|()
 block|{
@@ -64,8 +64,8 @@ comment|// static
 end_comment
 begin_function
 DECL|function|ANGLEPlatformInitialize
-name|ANGLE_EXPORT
 name|void
+name|ANGLE_APIENTRY
 name|ANGLEPlatformInitialize
 parameter_list|(
 name|angle
@@ -93,8 +93,8 @@ comment|// static
 end_comment
 begin_function
 DECL|function|ANGLEPlatformShutdown
-name|ANGLE_EXPORT
 name|void
+name|ANGLE_APIENTRY
 name|ANGLEPlatformShutdown
 parameter_list|()
 block|{

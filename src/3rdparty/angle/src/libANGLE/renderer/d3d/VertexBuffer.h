@@ -54,6 +54,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<cstdint>
+end_include
+begin_include
+include|#
+directive|include
 file|<vector>
 end_include
 begin_decl_stmt
@@ -113,7 +118,7 @@ name|storeVertexAttributes
 argument_list|(
 argument|const gl::VertexAttribute&attrib
 argument_list|,
-argument|const gl::VertexAttribCurrentValueData&currentValue
+argument|GLenum currentValueType
 argument_list|,
 argument|GLint start
 argument_list|,
@@ -122,6 +127,8 @@ argument_list|,
 argument|GLsizei instances
 argument_list|,
 argument|unsigned int offset
+argument_list|,
+argument|const uint8_t *sourceData
 argument_list|)
 operator|=
 literal|0
@@ -257,7 +264,7 @@ name|storeVertexAttributes
 argument_list|(
 argument|const gl::VertexAttribute&attrib
 argument_list|,
-argument|const gl::VertexAttribCurrentValueData&currentValue
+argument|GLenum currentValueType
 argument_list|,
 argument|GLint start
 argument_list|,
@@ -266,6 +273,8 @@ argument_list|,
 argument|GLsizei instances
 argument_list|,
 argument|unsigned int *outStreamOffset
+argument_list|,
+argument|const uint8_t *sourceData
 argument_list|)
 block|;
 name|bool
@@ -273,7 +282,7 @@ name|directStoragePossible
 argument_list|(
 argument|const gl::VertexAttribute&attrib
 argument_list|,
-argument|const gl::VertexAttribCurrentValueData&currentValue
+argument|GLenum currentValueType
 argument_list|)
 specifier|const
 block|;
@@ -402,7 +411,7 @@ name|storeVertexAttributes
 argument_list|(
 argument|const gl::VertexAttribute&attrib
 argument_list|,
-argument|const gl::VertexAttribCurrentValueData&currentValue
+argument|GLenum currentValueType
 argument_list|,
 argument|GLint start
 argument_list|,
@@ -411,7 +420,10 @@ argument_list|,
 argument|GLsizei instances
 argument_list|,
 argument|unsigned int *outStreamOffset
+argument_list|,
+argument|const uint8_t *sourceData
 argument_list|)
+name|override
 block|;
 name|bool
 name|lookupAttribute
@@ -421,6 +433,20 @@ argument_list|,
 argument|unsigned int* outStreamFffset
 argument_list|)
 block|;
+comment|// If a static vertex buffer is committed then no more attribute data can be added to it
+comment|// A new static vertex buffer should be created instead
+name|void
+name|commit
+argument_list|()
+block|;
+name|bool
+name|isCommitted
+argument_list|()
+block|{
+return|return
+name|mIsCommitted
+return|;
+block|}
 name|protected
 operator|:
 name|gl
@@ -458,6 +484,9 @@ name|unsigned
 name|int
 name|streamOffset
 block|;     }
+block|;
+name|bool
+name|mIsCommitted
 block|;
 name|std
 operator|::

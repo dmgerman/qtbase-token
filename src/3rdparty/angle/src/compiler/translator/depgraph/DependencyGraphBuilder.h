@@ -64,15 +64,13 @@ operator|*
 name|graph
 argument_list|)
 block|;
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
+argument|TIntermSymbol *
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitBinary
 argument_list|(
@@ -80,8 +78,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermBinary *
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitSelection
 argument_list|(
@@ -89,8 +87,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermSelection *
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitAggregate
 argument_list|(
@@ -98,8 +96,8 @@ argument|Visit visit
 argument_list|,
 argument|TIntermAggregate *
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitLoop
 argument_list|(
@@ -107,6 +105,7 @@ argument|Visit visit
 argument_list|,
 argument|TIntermLoop *
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

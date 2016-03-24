@@ -30,16 +30,21 @@ include|#
 directive|include
 file|<assert.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"compiler/translator/BaseTypes.h"
+end_include
 begin_decl_stmt
 name|class
-name|ConstantUnion
+name|TConstantUnion
 block|{
 name|public
 label|:
 name|POOL_ALLOCATOR_NEW_DELETE
 argument_list|()
 expr_stmt|;
-name|ConstantUnion
+name|TConstantUnion
 argument_list|()
 block|{
 name|iConst
@@ -58,7 +63,7 @@ name|TBasicType
 name|newType
 parameter_list|,
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 modifier|&
 name|constant
 parameter_list|)
@@ -612,7 +617,7 @@ name|operator
 operator|==
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
@@ -772,7 +777,7 @@ name|operator
 operator|!=
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
@@ -794,7 +799,7 @@ name|operator
 operator|>
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
@@ -857,7 +862,7 @@ name|operator
 operator|<
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
@@ -915,18 +920,18 @@ comment|// Invalid operation, handled at semantic analysis
 block|}
 end_expr_stmt
 begin_expr_stmt
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 operator|+
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert
@@ -1004,18 +1009,18 @@ name|returnValue
 return|;
 end_return
 begin_expr_stmt
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 operator|-
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert
@@ -1093,20 +1098,20 @@ name|returnValue
 return|;
 end_return
 begin_macro
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 end_macro
 begin_expr_stmt
 operator|*
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert
@@ -1184,18 +1189,18 @@ name|returnValue
 return|;
 end_return
 begin_expr_stmt
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 operator|%
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert
@@ -1258,18 +1263,18 @@ name|returnValue
 return|;
 end_return
 begin_expr_stmt
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 operator|>>
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert
@@ -1332,18 +1337,18 @@ name|returnValue
 return|;
 end_return
 begin_expr_stmt
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 operator|<<
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 comment|// The signedness of the second parameter might be different, but we
@@ -1415,18 +1420,18 @@ name|returnValue
 return|;
 end_return
 begin_decl_stmt
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 modifier|&
 argument_list|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 argument_list|)
 decl|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 decl_stmt|;
 name|assert
@@ -1494,18 +1499,18 @@ return|;
 block|}
 end_decl_stmt
 begin_expr_stmt
-name|ConstantUnion
+name|TConstantUnion
 name|operator
 operator||
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert
@@ -1568,20 +1573,20 @@ name|returnValue
 return|;
 end_return
 begin_macro
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 end_macro
 begin_expr_stmt
 operator|^
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert
@@ -1644,18 +1649,18 @@ name|returnValue
 return|;
 end_return
 begin_expr_stmt
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 operator|&&
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert
@@ -1703,18 +1708,18 @@ name|returnValue
 return|;
 end_return
 begin_expr_stmt
-unit|}      ConstantUnion
+unit|}      TConstantUnion
 name|operator
 operator|||
 operator|(
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|&
 name|constant
 operator|)
 specifier|const
 block|{
-name|ConstantUnion
+name|TConstantUnion
 name|returnValue
 block|;
 name|assert

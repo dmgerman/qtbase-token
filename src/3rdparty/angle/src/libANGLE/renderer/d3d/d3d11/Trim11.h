@@ -107,9 +107,17 @@ name|Renderer11
 operator|*
 name|mRenderer
 block|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|ANGLE_ENABLE_WINDOWS_STORE
+argument_list|)
 name|EventRegistrationToken
 name|mApplicationSuspendedEventToken
 block|;
+endif|#
+directive|endif
 name|void
 name|trim
 argument_list|()

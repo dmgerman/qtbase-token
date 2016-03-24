@@ -34,6 +34,21 @@ end_define
 begin_include
 include|#
 directive|include
+file|<map>
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
+begin_include
+include|#
+directive|include
+file|"angle_gl.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"common/angleutils.h"
 end_include
 begin_include
@@ -44,17 +59,17 @@ end_include
 begin_include
 include|#
 directive|include
-file|"angle_gl.h"
+file|"libANGLE/Program.h"
 end_include
 begin_include
 include|#
 directive|include
-file|<vector>
+file|"libANGLE/formatutils.h"
 end_include
 begin_include
 include|#
 directive|include
-file|<map>
+file|"libANGLE/renderer/d3d/RendererD3D.h"
 end_include
 begin_decl_stmt
 name|namespace
@@ -79,16 +94,7 @@ struct_decl|struct
 name|VariableLocation
 struct_decl|;
 struct_decl|struct
-name|LinkedVarying
-struct_decl|;
-struct_decl|struct
 name|VertexAttribute
-struct_decl|;
-struct_decl|struct
-name|VertexFormat
-struct_decl|;
-struct_decl|struct
-name|PackedVarying
 struct_decl|;
 struct_decl|struct
 name|Data
@@ -99,28 +105,18 @@ begin_decl_stmt
 name|namespace
 name|rx
 block|{
+struct_decl|struct
+name|PackedVarying
+struct_decl|;
 name|class
-name|RendererD3D
+name|ProgramD3DMetadata
 decl_stmt|;
 name|class
 name|ShaderD3D
 decl_stmt|;
-typedef|typedef
-specifier|const
-name|gl
-operator|::
-name|PackedVarying
-operator|*
+name|class
 name|VaryingPacking
-index|[
-name|gl
-operator|::
-name|IMPLEMENTATION_MAX_VARYING_VECTORS
-index|]
-index|[
-literal|4
-index|]
-expr_stmt|;
+decl_stmt|;
 struct|struct
 name|PixelShaderOutputVariable
 block|{
@@ -160,20 +156,6 @@ specifier|const
 name|renderer
 argument_list|)
 block|;
-name|int
-name|packVaryings
-argument_list|(
-argument|gl::InfoLog&infoLog
-argument_list|,
-argument|VaryingPacking packing
-argument_list|,
-argument|ShaderD3D *fragmentShader
-argument_list|,
-argument|ShaderD3D *vertexShader
-argument_list|,
-argument|const std::vector<std::string>& transformFeedbackVaryings
-argument_list|)
-block|;
 name|std
 operator|::
 name|string
@@ -181,9 +163,9 @@ name|generateVertexShaderForInputLayout
 argument_list|(
 argument|const std::string&sourceShader
 argument_list|,
-argument|const gl::VertexFormat inputLayout[]
+argument|const gl::InputLayout&inputLayout
 argument_list|,
-argument|const sh::Attribute shaderAttributes[]
+argument|const std::vector<sh::Attribute>&shaderAttributes
 argument_list|)
 specifier|const
 block|;
@@ -207,31 +189,24 @@ name|generateShaderLinkHLSL
 argument_list|(
 argument|const gl::Data&data
 argument_list|,
-argument|gl::InfoLog&infoLog
+argument|const gl::Program::Data&programData
 argument_list|,
-argument|int registers
+argument|const ProgramD3DMetadata&programMetadata
 argument_list|,
-argument|const VaryingPacking packing
+argument|const VaryingPacking&varyingPacking
 argument_list|,
-argument|std::string&pixelHLSL
+argument|std::string *pixelHLSL
 argument_list|,
-argument|std::string&vertexHLSL
-argument_list|,
-argument|ShaderD3D *fragmentShader
-argument_list|,
-argument|ShaderD3D *vertexShader
-argument_list|,
-argument|const std::vector<std::string>&transformFeedbackVaryings
-argument_list|,
-argument|std::vector<gl::LinkedVarying> *linkedVaryings
-argument_list|,
-argument|std::map<int
-argument_list|,
-argument|gl::VariableLocation> *programOutputVars
-argument_list|,
-argument|std::vector<PixelShaderOutputVariable> *outPixelShaderKey
-argument_list|,
-argument|bool *outUsesFragDepth
+argument|std::string *vertexHLSL
+argument_list|)
+specifier|const
+block|;
+name|std
+operator|::
+name|string
+name|generateGeometryShaderPreamble
+argument_list|(
+argument|const VaryingPacking&varyingPacking
 argument_list|)
 specifier|const
 block|;
@@ -240,22 +215,51 @@ operator|::
 name|string
 name|generateGeometryShaderHLSL
 argument_list|(
-argument|int registers
+argument|gl::PrimitiveType primitiveType
 argument_list|,
-argument|ShaderD3D *fragmentShader
+argument|const gl::Data&data
 argument_list|,
-argument|ShaderD3D *vertexShader
+argument|const gl::Program::Data&programData
+argument_list|,
+argument|const bool useViewScale
+argument_list|,
+argument|const std::string&preambleString
 argument_list|)
 specifier|const
 block|;
 name|void
-name|getInputLayoutSignature
+name|getPixelShaderOutputKey
 argument_list|(
-argument|const gl::VertexFormat inputLayout[]
-argument_list|,
-argument|GLenum signature[]
-argument_list|)
 specifier|const
+name|gl
+operator|::
+name|Data
+operator|&
+name|data
+argument_list|,
+specifier|const
+name|gl
+operator|::
+name|Program
+operator|::
+name|Data
+operator|&
+name|programData
+argument_list|,
+specifier|const
+name|ProgramD3DMetadata
+operator|&
+name|metadata
+argument_list|,
+name|std
+operator|::
+name|vector
+operator|<
+name|PixelShaderOutputVariable
+operator|>
+operator|*
+name|outPixelShaderKey
+argument_list|)
 block|;
 name|private
 operator|:
@@ -263,94 +267,24 @@ name|RendererD3D
 operator|*
 specifier|const
 name|mRenderer
-block|;      struct
-name|SemanticInfo
 block|;
-name|std
-operator|::
-name|string
-name|getVaryingSemantic
-argument_list|(
-argument|bool pointSize
-argument_list|)
-specifier|const
-block|;
-name|SemanticInfo
-name|getSemanticInfo
-argument_list|(
-argument|int startRegisters
-argument_list|,
-argument|bool position
-argument_list|,
-argument|bool fragCoord
-argument_list|,
-argument|bool pointCoord
-argument_list|,
-argument|bool pointSize
-argument_list|,
-argument|bool pixelShader
-argument_list|)
-specifier|const
-block|;
-name|std
-operator|::
-name|string
+name|void
 name|generateVaryingLinkHLSL
 argument_list|(
-argument|const SemanticInfo&info
+argument|ShaderType shaderType
 argument_list|,
-argument|const std::string&varyingHLSL
+argument|const VaryingPacking&varyingPacking
+argument_list|,
+argument|std::stringstream&linkStream
 argument_list|)
 specifier|const
 block|;
-name|std
-operator|::
-name|string
+name|void
 name|generateVaryingHLSL
 argument_list|(
-argument|const ShaderD3D *shader
-argument_list|)
-specifier|const
-block|;
-name|void
-name|storeUserLinkedVaryings
-argument_list|(
-argument|const ShaderD3D *vertexShader
+argument|const VaryingPacking&varyingPacking
 argument_list|,
-argument|std::vector<gl::LinkedVarying> *linkedVaryings
-argument_list|)
-specifier|const
-block|;
-name|void
-name|storeBuiltinLinkedVaryings
-argument_list|(
-argument|const SemanticInfo&info
-argument_list|,
-argument|std::vector<gl::LinkedVarying> *linkedVaryings
-argument_list|)
-specifier|const
-block|;
-name|void
-name|defineOutputVariables
-argument_list|(
-argument|ShaderD3D *fragmentShader
-argument_list|,
-argument|std::map<int
-argument_list|,
-argument|gl::VariableLocation> *programOutputVars
-argument_list|)
-specifier|const
-block|;
-name|std
-operator|::
-name|string
-name|generatePointSpriteHLSL
-argument_list|(
-argument|int registers
-argument_list|,
-argument|ShaderD3D *fragmentShader
-argument_list|,
-argument|ShaderD3D *vertexShader
+argument|std::stringstream&hlslStream
 argument_list|)
 specifier|const
 block|;
@@ -374,13 +308,23 @@ operator|::
 name|string
 name|generateAttributeConversionHLSL
 argument_list|(
-argument|const gl::VertexFormat&vertexFormat
+argument|gl::VertexFormatType vertexFormatType
 argument_list|,
 argument|const sh::ShaderVariable&shaderAttrib
 argument_list|)
 specifier|const
 block|; }
 decl_stmt|;
+name|std
+operator|::
+name|string
+name|GetVaryingSemantic
+argument_list|(
+argument|int majorShaderModel
+argument_list|,
+argument|bool programUsesPointSize
+argument_list|)
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_endif

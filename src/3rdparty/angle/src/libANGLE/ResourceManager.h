@@ -72,14 +72,17 @@ block|{
 name|class
 name|Buffer
 decl_stmt|;
+struct_decl|struct
+name|Data
+struct_decl|;
 name|class
-name|Shader
+name|FenceSync
 decl_stmt|;
+struct_decl|struct
+name|Limitations
+struct_decl|;
 name|class
 name|Program
-decl_stmt|;
-name|class
-name|Texture
 decl_stmt|;
 name|class
 name|Renderbuffer
@@ -88,11 +91,11 @@ name|class
 name|Sampler
 decl_stmt|;
 name|class
-name|FenceSync
+name|Shader
 decl_stmt|;
-struct_decl|struct
-name|Data
-struct_decl|;
+name|class
+name|Texture
+decl_stmt|;
 name|class
 name|ResourceManager
 range|:
@@ -131,7 +134,7 @@ block|;
 name|GLuint
 name|createShader
 argument_list|(
-argument|const gl::Data&data
+argument|const gl::Limitations&rendererLimitations
 argument_list|,
 argument|GLenum type
 argument_list|)

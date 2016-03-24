@@ -80,14 +80,14 @@ argument_list|(
 argument|newFunctionName
 argument_list|)
 block|{}
-name|virtual
 name|bool
 name|visitAggregate
 argument_list|(
 argument|Visit visit
 argument_list|,
-argument|TIntermAggregate* node
+argument|TIntermAggregate *node
 argument_list|)
+name|override
 block|{
 name|TOperator
 name|op

@@ -16,6 +16,10 @@ begin_if
 if|#
 directive|if
 name|_WIN32_WINNT_WINBLUE
+operator|&&
+name|WINAPI_FAMILY
+operator|!=
+name|WINAPI_FAMILY_PHONE_APP
 end_if
 begin_include
 include|#

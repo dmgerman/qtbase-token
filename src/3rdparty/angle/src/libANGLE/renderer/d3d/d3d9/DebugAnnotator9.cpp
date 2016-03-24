@@ -42,10 +42,8 @@ operator|::
 name|beginEvent
 parameter_list|(
 specifier|const
-name|std
-operator|::
-name|wstring
-modifier|&
+name|wchar_t
+modifier|*
 name|eventName
 parameter_list|)
 block|{
@@ -54,9 +52,6 @@ argument_list|(
 literal|0
 argument_list|,
 name|eventName
-operator|.
-name|c_str
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -78,10 +73,8 @@ operator|::
 name|setMarker
 parameter_list|(
 specifier|const
-name|std
-operator|::
-name|wstring
-modifier|&
+name|wchar_t
+modifier|*
 name|markerName
 parameter_list|)
 block|{
@@ -90,9 +83,6 @@ argument_list|(
 literal|0
 argument_list|,
 name|markerName
-operator|.
-name|c_str
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

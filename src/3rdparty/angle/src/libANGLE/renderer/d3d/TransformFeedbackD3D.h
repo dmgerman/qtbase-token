@@ -58,27 +58,43 @@ operator|~
 name|TransformFeedbackD3D
 argument_list|()
 block|;
-name|virtual
 name|void
 name|begin
 argument_list|(
 argument|GLenum primitiveMode
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|end
 argument_list|()
+name|override
 block|;
-name|virtual
 name|void
 name|pause
 argument_list|()
+name|override
 block|;
-name|virtual
 name|void
 name|resume
 argument_list|()
+name|override
+block|;
+name|void
+name|bindGenericBuffer
+argument_list|(
+argument|const BindingPointer<gl::Buffer>&binding
+argument_list|)
+name|override
+block|;
+name|void
+name|bindIndexedBuffer
+argument_list|(
+argument|size_t index
+argument_list|,
+argument|const OffsetBindingPointer<gl::Buffer>&binding
+argument_list|)
+name|override
 block|; }
 decl_stmt|;
 block|}

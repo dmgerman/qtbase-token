@@ -65,6 +65,9 @@ name|namespace
 name|rx
 block|{
 name|class
+name|EGLImageD3D
+decl_stmt|;
+name|class
 name|RenderTargetD3D
 decl_stmt|;
 name|class
@@ -79,6 +82,9 @@ decl_stmt|;
 name|class
 name|Image11
 decl_stmt|;
+struct_decl|struct
+name|Renderer11DeviceCaps
+struct_decl|;
 name|class
 name|TextureStorage11
 range|:
@@ -93,28 +99,36 @@ name|TextureStorage11
 argument_list|()
 block|;
 specifier|static
-name|TextureStorage11
-operator|*
-name|makeTextureStorage11
-argument_list|(
-name|TextureStorage
-operator|*
-name|storage
-argument_list|)
-block|;
-specifier|static
 name|DWORD
 name|GetTextureBindFlags
 argument_list|(
 argument|GLenum internalFormat
 argument_list|,
-argument|D3D_FEATURE_LEVEL featureLevel
+argument|const Renderer11DeviceCaps&renderer11DeviceCaps
 argument_list|,
 argument|bool renderTarget
 argument_list|)
 block|;
+specifier|static
+name|DWORD
+name|GetTextureMiscFlags
+argument_list|(
+argument|GLenum internalFormat
+argument_list|,
+argument|const Renderer11DeviceCaps&renderer11DeviceCaps
+argument_list|,
+argument|bool renderTarget
+argument_list|,
+argument|int levels
+argument_list|)
+block|;
 name|UINT
 name|getBindFlags
+argument_list|()
+specifier|const
+block|;
+name|UINT
+name|getMiscFlags
 argument_list|()
 specifier|const
 block|;
@@ -141,9 +155,9 @@ argument_list|(
 specifier|const
 name|gl
 operator|::
-name|SamplerState
+name|TextureState
 operator|&
-name|samplerState
+name|textureState
 argument_list|,
 name|ID3D11ShaderResourceView
 operator|*
@@ -210,6 +224,12 @@ name|bool
 name|isManaged
 argument_list|()
 specifier|const
+block|;
+name|bool
+name|supportsNativeMipmapFunction
+argument_list|()
+specifier|const
+name|override
 block|;
 name|virtual
 name|int
@@ -381,6 +401,18 @@ argument_list|,
 argument|const uint8_t *pixelData
 argument_list|)
 block|;
+name|gl
+operator|::
+name|Error
+name|getSRVLevels
+argument_list|(
+argument|GLint baseLevel
+argument_list|,
+argument|GLint maxLevel
+argument_list|,
+argument|ID3D11ShaderResourceView **outSRV
+argument_list|)
+block|;
 name|protected
 operator|:
 name|TextureStorage11
@@ -388,6 +420,8 @@ argument_list|(
 argument|Renderer11 *renderer
 argument_list|,
 argument|UINT bindFlags
+argument_list|,
+argument|UINT miscFlags
 argument_list|)
 block|;
 name|int
@@ -496,6 +530,11 @@ argument|GLenum swizzleBlue
 argument_list|,
 argument|GLenum swizzleAlpha
 argument_list|)
+block|;
+comment|// Clear all cached non-swizzle SRVs and invalidate the swizzle cache.
+name|void
+name|clearSRVCache
+argument_list|()
 block|;
 name|Renderer11
 operator|*
@@ -608,6 +647,10 @@ operator|:
 specifier|const
 name|UINT
 name|mBindFlags
+block|;
+specifier|const
+name|UINT
+name|mMiscFlags
 block|;      struct
 name|SRVKey
 block|{
@@ -713,16 +756,6 @@ name|virtual
 operator|~
 name|TextureStorage11_2D
 argument_list|()
-block|;
-specifier|static
-name|TextureStorage11_2D
-operator|*
-name|makeTextureStorage11_2D
-argument_list|(
-name|TextureStorage
-operator|*
-name|storage
-argument_list|)
 block|;
 name|virtual
 name|gl
@@ -966,6 +999,210 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|TextureStorage11_EGLImage
+name|final
+range|:
+name|public
+name|TextureStorage11
+block|{
+name|public
+operator|:
+name|TextureStorage11_EGLImage
+argument_list|(
+name|Renderer11
+operator|*
+name|renderer
+argument_list|,
+name|EGLImageD3D
+operator|*
+name|eglImage
+argument_list|)
+block|;
+operator|~
+name|TextureStorage11_EGLImage
+argument_list|()
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getResource
+argument_list|(
+argument|ID3D11Resource **outResource
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getSRV
+argument_list|(
+argument|const gl::TextureState&textureState
+argument_list|,
+argument|ID3D11ShaderResourceView **outSRV
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getMippedResource
+argument_list|(
+argument|ID3D11Resource **outResource
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getRenderTarget
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|,
+argument|RenderTargetD3D **outRT
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|copyToStorage
+argument_list|(
+argument|TextureStorage *destStorage
+argument_list|)
+name|override
+block|;
+name|void
+name|associateImage
+argument_list|(
+argument|Image11 *image
+argument_list|,
+argument|const gl::ImageIndex&index
+argument_list|)
+name|override
+block|;
+name|void
+name|disassociateImage
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|,
+argument|Image11 *expectedImage
+argument_list|)
+name|override
+block|;
+name|bool
+name|isAssociatedImageValid
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|,
+argument|Image11 *expectedImage
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|releaseAssociatedImage
+argument_list|(
+argument|const gl::ImageIndex&index
+argument_list|,
+argument|Image11 *incomingImage
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|useLevelZeroWorkaroundTexture
+argument_list|(
+argument|bool useLevelZeroTexture
+argument_list|)
+name|override
+block|;
+name|protected
+operator|:
+name|gl
+operator|::
+name|Error
+name|getSwizzleTexture
+argument_list|(
+argument|ID3D11Resource **outTexture
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getSwizzleRenderTarget
+argument_list|(
+argument|int mipLevel
+argument_list|,
+argument|ID3D11RenderTargetView **outRTV
+argument_list|)
+name|override
+block|;
+name|private
+operator|:
+comment|// Check if the EGL image's render target has been updated due to orphaning and delete
+comment|// any SRVs and other resources based on the image's old render target.
+name|gl
+operator|::
+name|Error
+name|checkForUpdatedRenderTarget
+argument_list|()
+block|;
+name|gl
+operator|::
+name|Error
+name|createSRV
+argument_list|(
+argument|int baseLevel
+argument_list|,
+argument|int mipLevels
+argument_list|,
+argument|DXGI_FORMAT format
+argument_list|,
+argument|ID3D11Resource *texture
+argument_list|,
+argument|ID3D11ShaderResourceView **outSRV
+argument_list|)
+specifier|const
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getImageRenderTarget
+argument_list|(
+argument|RenderTarget11 **outRT
+argument_list|)
+specifier|const
+block|;
+name|EGLImageD3D
+operator|*
+name|mImage
+block|;
+name|uintptr_t
+name|mCurrentRenderTarget
+block|;
+comment|// Swizzle-related variables
+name|ID3D11Texture2D
+operator|*
+name|mSwizzleTexture
+block|;
+name|std
+operator|::
+name|vector
+operator|<
+name|ID3D11RenderTargetView
+operator|*
+operator|>
+name|mSwizzleRenderTargets
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
 name|TextureStorage11_Cube
 range|:
 name|public
@@ -992,16 +1229,6 @@ name|virtual
 operator|~
 name|TextureStorage11_Cube
 argument_list|()
-block|;
-specifier|static
-name|TextureStorage11_Cube
-operator|*
-name|makeTextureStorage11_Cube
-argument_list|(
-name|TextureStorage
-operator|*
-name|storage
-argument_list|)
 block|;
 name|virtual
 name|UINT
@@ -1289,16 +1516,6 @@ operator|~
 name|TextureStorage11_3D
 argument_list|()
 block|;
-specifier|static
-name|TextureStorage11_3D
-operator|*
-name|makeTextureStorage11_3D
-argument_list|(
-name|TextureStorage
-operator|*
-name|storage
-argument_list|)
-block|;
 name|virtual
 name|gl
 operator|::
@@ -1549,16 +1766,6 @@ name|virtual
 operator|~
 name|TextureStorage11_2DArray
 argument_list|()
-block|;
-specifier|static
-name|TextureStorage11_2DArray
-operator|*
-name|makeTextureStorage11_2DArray
-argument_list|(
-name|TextureStorage
-operator|*
-name|storage
-argument_list|)
 block|;
 name|virtual
 name|gl

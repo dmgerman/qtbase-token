@@ -1,0 +1,157 @@
+begin_unit
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Copyright (c) 2015 The ANGLE Project Authors. All rights reserved.
+end_comment
+begin_comment
+comment|// Use of this source code is governed by a BSD-style license that can be
+end_comment
+begin_comment
+comment|// found in the LICENSE file.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// ExtensionGLSL.h: Defines the TExtensionGLSL class that tracks GLSL extension requirements of
+end_comment
+begin_comment
+comment|// shaders.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|COMPILER_TRANSLATOR_EXTENSIONGLSL_H_
+end_ifndef
+begin_define
+DECL|macro|COMPILER_TRANSLATOR_EXTENSIONGLSL_H_
+define|#
+directive|define
+name|COMPILER_TRANSLATOR_EXTENSIONGLSL_H_
+end_define
+begin_include
+include|#
+directive|include
+file|<set>
+end_include
+begin_include
+include|#
+directive|include
+file|<string>
+end_include
+begin_include
+include|#
+directive|include
+file|"compiler/translator/IntermNode.h"
+end_include
+begin_comment
+comment|// Traverses the intermediate tree to determine which GLSL extensions are required
+end_comment
+begin_comment
+comment|// to support the shader.
+end_comment
+begin_decl_stmt
+name|class
+name|TExtensionGLSL
+range|:
+name|public
+name|TIntermTraverser
+block|{
+name|public
+operator|:
+name|TExtensionGLSL
+argument_list|(
+argument|ShShaderOutput output
+argument_list|)
+block|;
+specifier|const
+name|std
+operator|::
+name|set
+operator|<
+name|std
+operator|::
+name|string
+operator|>
+operator|&
+name|getEnabledExtensions
+argument_list|()
+specifier|const
+block|;
+specifier|const
+name|std
+operator|::
+name|set
+operator|<
+name|std
+operator|::
+name|string
+operator|>
+operator|&
+name|getRequiredExtensions
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|visitUnary
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|TIntermUnary *node
+argument_list|)
+name|override
+block|;
+name|bool
+name|visitAggregate
+argument_list|(
+argument|Visit visit
+argument_list|,
+argument|TIntermAggregate *node
+argument_list|)
+name|override
+block|;
+name|private
+operator|:
+name|void
+name|checkOperator
+argument_list|(
+name|TIntermOperator
+operator|*
+name|node
+argument_list|)
+block|;
+name|int
+name|mTargetVersion
+block|;
+name|std
+operator|::
+name|set
+operator|<
+name|std
+operator|::
+name|string
+operator|>
+name|mEnabledExtensions
+block|;
+name|std
+operator|::
+name|set
+operator|<
+name|std
+operator|::
+name|string
+operator|>
+name|mRequiredExtensions
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// COMPILER_TRANSLATOR_EXTENSIONGLSL_H_
+end_comment
+end_unit

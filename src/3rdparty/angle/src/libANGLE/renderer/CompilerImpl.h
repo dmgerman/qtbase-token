@@ -28,6 +28,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"GLSLANG/ShaderLang.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libANGLE/Error.h"
 end_include
 begin_ifndef
@@ -68,6 +73,15 @@ operator|::
 name|Error
 name|release
 argument_list|()
+operator|=
+literal|0
+block|;
+comment|// TODO(jmadill): Expose translator built-in resources init method.
+name|virtual
+name|ShShaderOutput
+name|getTranslatorOutputType
+argument_list|()
+specifier|const
 operator|=
 literal|0
 block|; }

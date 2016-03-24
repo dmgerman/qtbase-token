@@ -76,13 +76,18 @@ end_include
 begin_include
 include|#
 directive|include
+file|"libANGLE/renderer/d3d/d3d11/renderer11_utils.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libANGLE/renderer/d3d/d3d11/RenderStateCache.h"
 end_include
-begin_struct_decl
-struct_decl|struct
-name|ID3D11DeviceContext1
-struct_decl|;
-end_struct_decl
+begin_include
+include|#
+directive|include
+file|"libANGLE/renderer/d3d/d3d11/StateManager11.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|gl
@@ -95,6 +100,11 @@ name|ImageIndex
 struct_decl|;
 block|}
 end_decl_stmt
+begin_struct_decl
+struct_decl|struct
+name|ID3D11DeviceContext1
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 name|namespace
 name|rx
@@ -112,6 +122,9 @@ name|class
 name|Blit11
 decl_stmt|;
 name|class
+name|Buffer11
+decl_stmt|;
+name|class
 name|Clear11
 decl_stmt|;
 name|class
@@ -126,6 +139,38 @@ decl_stmt|;
 struct_decl|struct
 name|PackPixelsParams
 struct_decl|;
+struct|struct
+name|Renderer11DeviceCaps
+block|{
+name|D3D_FEATURE_LEVEL
+name|featureLevel
+decl_stmt|;
+name|bool
+name|supportsDXGI1_2
+decl_stmt|;
+comment|// Support for DXGI 1.2
+name|bool
+name|supportsClearView
+decl_stmt|;
+comment|// Support for ID3D11DeviceContext1::ClearView
+name|bool
+name|supportsConstantBufferOffsets
+decl_stmt|;
+comment|// Support for Constant buffer offset
+name|UINT
+name|B5G6R5support
+decl_stmt|;
+comment|// Bitfield of D3D11_FORMAT_SUPPORT values for DXGI_FORMAT_B5G6R5_UNORM
+name|UINT
+name|B4G4R4A4support
+decl_stmt|;
+comment|// Bitfield of D3D11_FORMAT_SUPPORT values for DXGI_FORMAT_B4G4R4A4_UNORM
+name|UINT
+name|B5G5R5A1support
+decl_stmt|;
+comment|// Bitfield of D3D11_FORMAT_SUPPORT values for DXGI_FORMAT_B5G5R5A1_UNORM
+block|}
+struct|;
 enum|enum
 block|{
 name|MAX_VERTEX_UNIFORM_VECTORS_D3D11
@@ -164,6 +209,33 @@ block|,
 comment|// Other initialization error
 name|D3D11_INIT_OTHER_ERROR
 block|,
+comment|// CreateDevice returned E_FAIL
+name|D3D11_INIT_CREATEDEVICE_FAIL
+block|,
+comment|// CreateDevice returned E_NOTIMPL
+name|D3D11_INIT_CREATEDEVICE_NOTIMPL
+block|,
+comment|// CreateDevice returned E_OUTOFMEMORY
+name|D3D11_INIT_CREATEDEVICE_OUTOFMEMORY
+block|,
+comment|// CreateDevice returned DXGI_ERROR_INVALID_CALL
+name|D3D11_INIT_CREATEDEVICE_INVALIDCALL
+block|,
+comment|// CreateDevice returned DXGI_ERROR_SDK_COMPONENT_MISSING
+name|D3D11_INIT_CREATEDEVICE_COMPONENTMISSING
+block|,
+comment|// CreateDevice returned DXGI_ERROR_WAS_STILL_DRAWING
+name|D3D11_INIT_CREATEDEVICE_WASSTILLDRAWING
+block|,
+comment|// CreateDevice returned DXGI_ERROR_NOT_CURRENTLY_AVAILABLE
+name|D3D11_INIT_CREATEDEVICE_NOTAVAILABLE
+block|,
+comment|// CreateDevice returned DXGI_ERROR_DEVICE_HUNG
+name|D3D11_INIT_CREATEDEVICE_DEVICEHUNG
+block|,
+comment|// CreateDevice returned NULL
+name|D3D11_INIT_CREATEDEVICE_NULL
+block|,
 name|NUM_D3D11_INIT_ERRORS
 block|}
 enum|;
@@ -190,16 +262,6 @@ operator|~
 name|Renderer11
 argument_list|()
 block|;
-specifier|static
-name|Renderer11
-operator|*
-name|makeRenderer11
-argument_list|(
-name|Renderer
-operator|*
-name|renderer
-argument_list|)
-block|;
 name|egl
 operator|::
 name|Error
@@ -220,6 +282,14 @@ argument_list|()
 specifier|const
 name|override
 block|;
+name|void
+name|generateDisplayExtensions
+argument_list|(
+argument|egl::DisplayExtensions *outExtensions
+argument_list|)
+specifier|const
+name|override
+block|;
 name|gl
 operator|::
 name|Error
@@ -234,7 +304,6 @@ name|finish
 argument_list|()
 name|override
 block|;
-name|virtual
 name|SwapChainD3D
 operator|*
 name|createSwapChain
@@ -246,7 +315,16 @@ argument_list|,
 argument|GLenum backBufferFormat
 argument_list|,
 argument|GLenum depthBufferFormat
+argument_list|,
+argument|EGLint orientation
 argument_list|)
+name|override
+block|;
+name|CompilerImpl
+operator|*
+name|createCompiler
+argument_list|()
+name|override
 block|;
 name|virtual
 name|gl
@@ -296,81 +374,22 @@ name|setUniformBuffers
 argument_list|(
 argument|const gl::Data&data
 argument_list|,
-argument|const GLint vertexUniformBuffers[]
+argument|const std::vector<GLint>&vertexUniformBuffers
 argument_list|,
-argument|const GLint fragmentUniformBuffers[]
+argument|const std::vector<GLint>&fragmentUniformBuffers
 argument_list|)
 name|override
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
-name|setRasterizerState
+name|updateState
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|RasterizerState
-operator|&
-name|rasterState
-argument_list|)
-block|;
-name|gl
-operator|::
-name|Error
-name|setBlendState
-argument_list|(
-argument|const gl::Framebuffer *framebuffer
-argument_list|,
-argument|const gl::BlendState&blendState
-argument_list|,
-argument|const gl::ColorF&blendColor
-argument_list|,
-argument|unsigned int sampleMask
-argument_list|)
-name|override
-block|;
-name|virtual
-name|gl
-operator|::
-name|Error
-name|setDepthStencilState
-argument_list|(
-argument|const gl::DepthStencilState&depthStencilState
-argument_list|,
-argument|int stencilRef
-argument_list|,
-argument|int stencilBackRef
-argument_list|,
-argument|bool frontFaceCCW
-argument_list|)
-block|;
-name|virtual
-name|void
-name|setScissorRectangle
-argument_list|(
-argument|const gl::Rectangle&scissor
-argument_list|,
-argument|bool enabled
-argument_list|)
-block|;
-name|virtual
-name|void
-name|setViewport
-argument_list|(
-argument|const gl::Rectangle&viewport
-argument_list|,
-argument|float zNear
-argument_list|,
-argument|float zFar
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum drawMode
-argument_list|,
-argument|GLenum frontFace
-argument_list|,
-argument|bool ignoreViewport
 argument_list|)
+name|override
 block|;
 name|virtual
 name|bool
@@ -392,47 +411,18 @@ argument|const gl::Framebuffer *frameBuffer
 argument_list|)
 name|override
 block|;
-name|virtual
-name|gl
-operator|::
-name|Error
-name|applyShaders
-argument_list|(
-argument|gl::Program *program
-argument_list|,
-argument|const gl::VertexFormat inputLayout[]
-argument_list|,
-argument|const gl::Framebuffer *framebuffer
-argument_list|,
-argument|bool rasterizerDiscard
-argument_list|,
-argument|bool transformFeedbackActive
-argument_list|)
-block|;
-name|virtual
 name|gl
 operator|::
 name|Error
 name|applyUniforms
 argument_list|(
-specifier|const
-name|ProgramImpl
-operator|&
-name|program
+argument|const ProgramD3D&programD3D
 argument_list|,
-specifier|const
-name|std
-operator|::
-name|vector
-operator|<
-name|gl
-operator|::
-name|LinkedUniform
-operator|*
-operator|>
-operator|&
-name|uniformArray
+argument|GLenum drawMode
+argument_list|,
+argument|const std::vector<D3DUniform *>&uniformArray
 argument_list|)
+name|override
 block|;
 name|virtual
 name|gl
@@ -449,17 +439,18 @@ argument_list|,
 argument|GLsizei count
 argument_list|,
 argument|GLsizei instances
+argument_list|,
+argument|TranslatedIndexData *indexInfo
 argument_list|)
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
 name|applyIndexBuffer
 argument_list|(
-argument|const GLvoid *indices
+argument|const gl::Data&data
 argument_list|,
-argument|gl::Buffer *elementArrayBuffer
+argument|const GLvoid *indices
 argument_list|,
 argument|GLsizei count
 argument_list|,
@@ -469,6 +460,7 @@ argument|GLenum type
 argument_list|,
 argument|TranslatedIndexData *indexInfo
 argument_list|)
+name|override
 block|;
 name|void
 name|applyTransformFeedbackBuffers
@@ -476,49 +468,6 @@ argument_list|(
 argument|const gl::State&state
 argument_list|)
 name|override
-block|;
-name|gl
-operator|::
-name|Error
-name|drawArrays
-argument_list|(
-argument|const gl::Data&data
-argument_list|,
-argument|GLenum mode
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|GLsizei instances
-argument_list|,
-argument|bool usesPointSize
-argument_list|)
-name|override
-block|;
-name|virtual
-name|gl
-operator|::
-name|Error
-name|drawElements
-argument_list|(
-argument|GLenum mode
-argument_list|,
-argument|GLsizei count
-argument_list|,
-argument|GLenum type
-argument_list|,
-argument|const GLvoid *indices
-argument_list|,
-argument|gl::Buffer *elementArrayBuffer
-argument_list|,
-argument|const TranslatedIndexData&indexInfo
-argument_list|,
-argument|GLsizei instances
-argument_list|)
-block|;
-name|virtual
-name|void
-name|markAllStateDirty
-argument_list|()
 block|;
 comment|// lost device
 name|bool
@@ -531,12 +480,6 @@ name|testDeviceResettable
 argument_list|()
 name|override
 block|;
-name|VendorID
-name|getVendorId
-argument_list|()
-specifier|const
-name|override
-block|;
 name|std
 operator|::
 name|string
@@ -545,7 +488,7 @@ argument_list|()
 specifier|const
 name|override
 block|;
-name|GUID
+name|DeviceIdentifier
 name|getAdapterIdentifier
 argument_list|()
 specifier|const
@@ -579,15 +522,8 @@ name|getReservedFragmentUniformBuffers
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|bool
 name|getShareHandleSupport
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|bool
-name|getPostSubBufferSupport
 argument_list|()
 specifier|const
 block|;
@@ -708,15 +644,18 @@ argument_list|,
 argument|RenderTargetD3D **outRT
 argument_list|)
 block|;
-comment|// Framebuffer creation
-name|FramebufferImpl
-operator|*
-name|createDefaultFramebuffer
+name|gl
+operator|::
+name|Error
+name|createRenderTargetCopy
 argument_list|(
-argument|const gl::Framebuffer::Data&data
+argument|RenderTargetD3D *source
+argument_list|,
+argument|RenderTargetD3D **outRT
 argument_list|)
 name|override
 block|;
+comment|// Framebuffer creation
 name|FramebufferImpl
 operator|*
 name|createFramebuffer
@@ -726,35 +665,23 @@ argument_list|)
 name|override
 block|;
 comment|// Shader creation
-name|virtual
-name|CompilerImpl
-operator|*
-name|createCompiler
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|Data
-operator|&
-name|data
-argument_list|)
-block|;
-name|virtual
 name|ShaderImpl
 operator|*
 name|createShader
 argument_list|(
-argument|GLenum type
+argument|const gl::Shader::Data&data
 argument_list|)
+name|override
 block|;
-name|virtual
 name|ProgramImpl
 operator|*
 name|createProgram
-argument_list|()
+argument_list|(
+argument|const gl::Program::Data&data
+argument_list|)
+name|override
 block|;
 comment|// Shader operations
-name|virtual
 name|gl
 operator|::
 name|Error
@@ -766,14 +693,14 @@ argument|size_t length
 argument_list|,
 argument|ShaderType type
 argument_list|,
-argument|const std::vector<gl::LinkedVarying>&transformFeedbackVaryings
+argument|const std::vector<D3DVarying>&streamOutVaryings
 argument_list|,
 argument|bool separatedOutputBuffers
 argument_list|,
 argument|ShaderExecutableD3D **outExecutable
 argument_list|)
+name|override
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
@@ -785,7 +712,7 @@ argument|const std::string&shaderHLSL
 argument_list|,
 argument|ShaderType type
 argument_list|,
-argument|const std::vector<gl::LinkedVarying>&transformFeedbackVaryings
+argument|const std::vector<D3DVarying>&streamOutVaryings
 argument_list|,
 argument|bool separatedOutputBuffers
 argument_list|,
@@ -793,14 +720,15 @@ argument|const D3DCompilerWorkarounds&workarounds
 argument_list|,
 argument|ShaderExecutableD3D **outExectuable
 argument_list|)
+name|override
 block|;
-name|virtual
 name|UniformStorageD3D
 operator|*
 name|createUniformStorage
 argument_list|(
 argument|size_t storageSize
 argument_list|)
+name|override
 block|;
 comment|// Image operations
 name|virtual
@@ -820,6 +748,17 @@ argument|ImageD3D *source
 argument_list|)
 name|override
 block|;
+name|gl
+operator|::
+name|Error
+name|generateMipmapsUsingD3D
+argument_list|(
+argument|TextureStorage *storage
+argument_list|,
+argument|const gl::TextureState&textureState
+argument_list|)
+name|override
+block|;
 name|virtual
 name|TextureStorage
 operator|*
@@ -829,6 +768,14 @@ name|SwapChainD3D
 operator|*
 name|swapChain
 argument_list|)
+block|;
+name|TextureStorage
+operator|*
+name|createTextureStorageEGLImage
+argument_list|(
+argument|EGLImageD3D *eglImage
+argument_list|)
+name|override
 block|;
 name|virtual
 name|TextureStorage
@@ -936,11 +883,13 @@ name|createIndexBuffer
 argument_list|()
 block|;
 comment|// Vertex Array creation
-name|virtual
 name|VertexArrayImpl
 operator|*
 name|createVertexArray
-argument_list|()
+argument_list|(
+argument|const gl::VertexArray::Data&data
+argument_list|)
+name|override
 block|;
 comment|// Query and Fence creation
 name|virtual
@@ -980,6 +929,12 @@ return|return
 name|mDevice
 return|;
 block|}
+name|void
+operator|*
+name|getD3DDevice
+argument_list|()
+name|override
+block|;
 name|ID3D11DeviceContext
 operator|*
 name|getDeviceContext
@@ -1010,6 +965,15 @@ name|mDxgiFactory
 return|;
 block|}
 block|;
+name|RenderStateCache
+operator|&
+name|getStateCache
+argument_list|()
+block|{
+return|return
+name|mStateCache
+return|;
+block|}
 name|Blit11
 operator|*
 name|getBlitter
@@ -1057,6 +1021,10 @@ argument|const gl::Box&destArea
 argument_list|)
 block|;
 name|void
+name|markAllStateDirty
+argument_list|()
+block|;
+name|void
 name|unapplyRenderTargets
 argument_list|()
 block|;
@@ -1073,9 +1041,10 @@ operator|::
 name|Error
 name|packPixels
 argument_list|(
-name|ID3D11Texture2D
-operator|*
-name|readTexture
+specifier|const
+name|TextureHelper11
+operator|&
+name|textureHelper
 argument_list|,
 specifier|const
 name|PackPixelsParams
@@ -1095,32 +1064,30 @@ argument_list|)
 specifier|const
 name|override
 block|;
-name|virtual
 name|VertexConversionType
 name|getVertexConversionType
 argument_list|(
-argument|const gl::VertexFormat&vertexFormat
+argument|gl::VertexFormatType vertexFormatType
 argument_list|)
 specifier|const
+name|override
 block|;
-name|virtual
 name|GLenum
 name|getVertexComponentType
 argument_list|(
-argument|const gl::VertexFormat&vertexFormat
+argument|gl::VertexFormatType vertexFormatType
 argument_list|)
 specifier|const
+name|override
 block|;
 name|gl
 operator|::
 name|Error
-name|readTextureData
+name|readFromAttachment
 argument_list|(
-argument|ID3D11Texture2D *texture
+argument|const gl::FramebufferAttachment&srcAttachment
 argument_list|,
-argument|unsigned int subResource
-argument_list|,
-argument|const gl::Rectangle&area
+argument|const gl::Rectangle&sourceArea
 argument_list|,
 argument|GLenum format
 argument_list|,
@@ -1131,16 +1098,6 @@ argument_list|,
 argument|const gl::PixelPackState&pack
 argument_list|,
 argument|uint8_t *pixels
-argument_list|)
-block|;
-name|void
-name|setShaderResource
-argument_list|(
-argument|gl::SamplerType shaderType
-argument_list|,
-argument|UINT resourceSlot
-argument_list|,
-argument|ID3D11ShaderResourceView *srv
 argument_list|)
 block|;
 name|gl
@@ -1172,13 +1129,14 @@ name|isES3Capable
 argument_list|()
 specifier|const
 block|;
-name|D3D_FEATURE_LEVEL
-name|getFeatureLevel
-argument_list|()
 specifier|const
+name|Renderer11DeviceCaps
+operator|&
+name|getRenderer11DeviceCaps
+argument_list|()
 block|{
 return|return
-name|mFeatureLevel
+name|mRenderer11DeviceCaps
 return|;
 block|}
 block|;
@@ -1192,8 +1150,126 @@ return|return
 name|RENDERER_D3D11
 return|;
 block|}
+name|InputLayoutCache
+operator|*
+name|getInputLayoutCache
+argument_list|()
+block|{
+return|return
+operator|&
+name|mInputLayoutCache
+return|;
+block|}
+name|StateManager11
+operator|*
+name|getStateManager
+argument_list|()
+block|{
+return|return
+operator|&
+name|mStateManager
+return|;
+block|}
+name|void
+name|onSwap
+argument_list|()
+block|;
+name|void
+name|onBufferDelete
+argument_list|(
+specifier|const
+name|Buffer11
+operator|*
+name|deleted
+argument_list|)
+block|;
+name|egl
+operator|::
+name|Error
+name|getEGLDevice
+argument_list|(
+argument|DeviceImpl **device
+argument_list|)
+name|override
+block|;
+name|protected
+operator|:
+name|void
+name|createAnnotator
+argument_list|()
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|clearTextures
+argument_list|(
+argument|gl::SamplerType samplerType
+argument_list|,
+argument|size_t rangeStart
+argument_list|,
+argument|size_t rangeEnd
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|applyShadersImpl
+argument_list|(
+argument|const gl::Data&data
+argument_list|,
+argument|GLenum drawMode
+argument_list|)
+name|override
+block|;
+name|void
+name|syncState
+argument_list|(
+argument|const gl::State&state
+argument_list|,
+argument|const gl::State::DirtyBits&bitmask
+argument_list|)
+name|override
+block|;
 name|private
 operator|:
+name|gl
+operator|::
+name|Error
+name|drawArraysImpl
+argument_list|(
+argument|const gl::Data&data
+argument_list|,
+argument|GLenum mode
+argument_list|,
+argument|GLsizei count
+argument_list|,
+argument|GLsizei instances
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|drawElementsImpl
+argument_list|(
+argument|const gl::Data&data
+argument_list|,
+argument|const TranslatedIndexData&indexInfo
+argument_list|,
+argument|GLenum mode
+argument_list|,
+argument|GLsizei count
+argument_list|,
+argument|GLenum type
+argument_list|,
+argument|const GLvoid *indices
+argument_list|,
+argument|GLsizei instances
+argument_list|)
+name|override
+block|;
 name|void
 name|generateCaps
 argument_list|(
@@ -1202,11 +1278,13 @@ argument_list|,
 argument|gl::TextureCapsMap *outTextureCaps
 argument_list|,
 argument|gl::Extensions *outExtensions
+argument_list|,
+argument|gl::Limitations *outLimitations
 argument_list|)
 specifier|const
 name|override
 block|;
-name|Workarounds
+name|WorkaroundsD3D
 name|generateWorkarounds
 argument_list|()
 specifier|const
@@ -1217,15 +1295,17 @@ operator|::
 name|Error
 name|drawLineLoop
 argument_list|(
+argument|const gl::Data&data
+argument_list|,
 argument|GLsizei count
 argument_list|,
 argument|GLenum type
 argument_list|,
 argument|const GLvoid *indices
 argument_list|,
-argument|int minIndex
+argument|const TranslatedIndexData *indexInfo
 argument_list|,
-argument|gl::Buffer *elementArrayBuffer
+argument|int instances
 argument_list|)
 block|;
 name|gl
@@ -1233,6 +1313,8 @@ operator|::
 name|Error
 name|drawTriangleFan
 argument_list|(
+argument|const gl::Data&data
+argument_list|,
 argument|GLsizei count
 argument_list|,
 argument|GLenum type
@@ -1240,8 +1322,6 @@ argument_list|,
 argument|const GLvoid *indices
 argument_list|,
 argument|int minIndex
-argument_list|,
-argument|gl::Buffer *elementArrayBuffer
 argument_list|,
 argument|int instances
 argument_list|)
@@ -1256,20 +1336,21 @@ argument|unsigned int subresource
 argument_list|)
 block|;
 name|void
-name|unsetConflictingSRVs
-argument_list|(
-argument|gl::SamplerType shaderType
-argument_list|,
-argument|uintptr_t resource
-argument_list|,
-argument|const gl::ImageIndex *index
-argument_list|)
+name|populateRenderer11DeviceCaps
+argument_list|()
+block|;
+name|void
+name|updateHistograms
+argument_list|()
 block|;
 name|HMODULE
 name|mD3d11Module
 block|;
 name|HMODULE
 name|mDxgiModule
+block|;
+name|HMODULE
+name|mDCompModule
 block|;
 name|std
 operator|::
@@ -1280,10 +1361,23 @@ operator|>
 name|mAvailableFeatureLevels
 block|;
 name|D3D_DRIVER_TYPE
-name|mDriverType
+name|mRequestedDriverType
+block|;
+name|bool
+name|mCreatedWithDeviceEXT
+block|;
+name|DeviceD3D
+operator|*
+name|mEGLDevice
 block|;
 name|HLSLCompiler
 name|mCompiler
+block|;
+name|egl
+operator|::
+name|Error
+name|initializeD3DDevice
+argument_list|()
 block|;
 name|void
 name|initializeDevice
@@ -1296,6 +1390,13 @@ block|;
 name|void
 name|release
 argument_list|()
+block|;
+name|d3d11
+operator|::
+name|ANGLED3D11DeviceType
+name|getDeviceType
+argument_list|()
+specifier|const
 block|;
 name|RenderStateCache
 name|mStateCache
@@ -1311,27 +1412,6 @@ index|]
 block|;
 name|uintptr_t
 name|mAppliedDSV
-block|;
-name|bool
-name|mDepthStencilInitialized
-block|;
-name|bool
-name|mRenderTargetDescInitialized
-block|;      struct
-name|RenderTargetDesc
-block|{
-name|size_t
-name|width
-block|;
-name|size_t
-name|height
-block|;
-name|DXGI_FORMAT
-name|format
-block|;     }
-block|;
-name|RenderTargetDesc
-name|mRenderTargetDesc
 block|;
 comment|// Currently applied sampler states
 name|std
@@ -1370,104 +1450,8 @@ name|SamplerState
 operator|>
 name|mCurPixelSamplerStates
 block|;
-comment|// Currently applied textures
-block|struct
-name|SRVRecord
-block|{
-name|uintptr_t
-name|srv
-block|;
-name|uintptr_t
-name|resource
-block|;
-name|D3D11_SHADER_RESOURCE_VIEW_DESC
-name|desc
-block|;     }
-block|;
-name|std
-operator|::
-name|vector
-operator|<
-name|SRVRecord
-operator|>
-name|mCurVertexSRVs
-block|;
-name|std
-operator|::
-name|vector
-operator|<
-name|SRVRecord
-operator|>
-name|mCurPixelSRVs
-block|;
-comment|// Currently applied blend state
-name|bool
-name|mForceSetBlendState
-block|;
-name|gl
-operator|::
-name|BlendState
-name|mCurBlendState
-block|;
-name|gl
-operator|::
-name|ColorF
-name|mCurBlendColor
-block|;
-name|unsigned
-name|int
-name|mCurSampleMask
-block|;
-comment|// Currently applied rasterizer state
-name|bool
-name|mForceSetRasterState
-block|;
-name|gl
-operator|::
-name|RasterizerState
-name|mCurRasterState
-block|;
-comment|// Currently applied depth stencil state
-name|bool
-name|mForceSetDepthStencilState
-block|;
-name|gl
-operator|::
-name|DepthStencilState
-name|mCurDepthStencilState
-block|;
-name|int
-name|mCurStencilRef
-block|;
-name|int
-name|mCurStencilBackRef
-block|;
-comment|// Currently applied scissor rectangle
-name|bool
-name|mForceSetScissor
-block|;
-name|bool
-name|mScissorEnabled
-block|;
-name|gl
-operator|::
-name|Rectangle
-name|mCurScissor
-block|;
-comment|// Currently applied viewport
-name|bool
-name|mForceSetViewport
-block|;
-name|gl
-operator|::
-name|Rectangle
-name|mCurViewport
-block|;
-name|float
-name|mCurNear
-block|;
-name|float
-name|mCurFar
+name|StateManager11
+name|mStateManager
 block|;
 comment|// Currently applied primitive topology
 name|D3D11_PRIMITIVE_TOPOLOGY
@@ -1484,6 +1468,9 @@ block|;
 name|unsigned
 name|int
 name|mAppliedIBOffset
+block|;
+name|bool
+name|mAppliedIBChanged
 block|;
 comment|// Currently applied transform feedback buffers
 name|size_t
@@ -1532,10 +1519,7 @@ block|;
 name|uintptr_t
 name|mAppliedPixelShader
 block|;
-name|dx_VertexConstants
-name|mVertexConstants
-block|;
-name|dx_VertexConstants
+name|dx_VertexConstants11
 name|mAppliedVertexConstants
 block|;
 name|ID3D11Buffer
@@ -1571,10 +1555,7 @@ operator|::
 name|IMPLEMENTATION_MAX_VERTEX_SHADER_UNIFORM_BUFFERS
 index|]
 block|;
-name|dx_PixelConstants
-name|mPixelConstants
-block|;
-name|dx_PixelConstants
+name|dx_PixelConstants11
 name|mAppliedPixelConstants
 block|;
 name|ID3D11Buffer
@@ -1658,16 +1639,26 @@ name|ID3D11Query
 operator|*
 name|mSyncQuery
 block|;
-comment|// Constant buffer offset support
-name|bool
-name|mSupportsConstantBufferOffsets
+comment|// Created objects state tracking
+name|std
+operator|::
+name|set
+operator|<
+specifier|const
+name|Buffer11
+operator|*
+operator|>
+name|mAliveBuffers
+block|;
+name|double
+name|mLastHistogramUpdateTime
 block|;
 name|ID3D11Device
 operator|*
 name|mDevice
 block|;
-name|D3D_FEATURE_LEVEL
-name|mFeatureLevel
+name|Renderer11DeviceCaps
+name|mRenderer11DeviceCaps
 block|;
 name|ID3D11DeviceContext
 operator|*
@@ -1694,8 +1685,33 @@ name|DXGIFactory
 operator|*
 name|mDxgiFactory
 block|;
-name|DebugAnnotator11
-name|mAnnotator
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_MINGW32_COMPAT
+argument_list|)
+name|ID3D11Debug
+operator|*
+name|mDebug
+block|;
+endif|#
+directive|endif
+name|std
+operator|::
+name|vector
+operator|<
+name|GLuint
+operator|>
+name|mScratchIndexDataBuffer
+block|;
+name|mutable
+name|Optional
+operator|<
+name|bool
+operator|>
+name|mSupportsShareHandles
 block|; }
 decl_stmt|;
 block|}

@@ -111,19 +111,19 @@ argument_list|(
 name|nativeWindow
 argument_list|)
 block|,
-name|mShareHandle
-argument_list|(
-name|shareHandle
-argument_list|)
-block|,
-name|mBackBufferFormat
+name|mOffscreenRenderTargetFormat
 argument_list|(
 name|backBufferFormat
 argument_list|)
 block|,
 name|mDepthBufferFormat
 argument_list|(
-argument|depthBufferFormat
+name|depthBufferFormat
+argument_list|)
+block|,
+name|mShareHandle
+argument_list|(
+argument|shareHandle
 argument_list|)
 block|{     }
 name|virtual
@@ -205,12 +205,12 @@ operator|=
 literal|0
 block|;
 name|GLenum
-name|GetBackBufferInternalFormat
+name|GetRenderTargetInternalFormat
 argument_list|()
 specifier|const
 block|{
 return|return
-name|mBackBufferFormat
+name|mOffscreenRenderTargetFormat
 return|;
 block|}
 name|GLenum
@@ -230,6 +230,14 @@ return|return
 name|mShareHandle
 return|;
 block|}
+name|virtual
+name|void
+operator|*
+name|getKeyedMutex
+argument_list|()
+operator|=
+literal|0
+block|;
 name|protected
 operator|:
 name|rx
@@ -240,7 +248,7 @@ block|;
 comment|// Handler for the Window that the surface is created for.
 specifier|const
 name|GLenum
-name|mBackBufferFormat
+name|mOffscreenRenderTargetFormat
 block|;
 specifier|const
 name|GLenum

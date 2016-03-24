@@ -53,6 +53,11 @@ include|#
 directive|include
 file|"libANGLE/Framebuffer.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libANGLE/renderer/d3d/d3d11/renderer11_utils.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -150,17 +155,56 @@ name|clearParams
 argument_list|)
 block|;      struct
 name|ClearShader
+name|final
+operator|:
+name|public
+name|angle
+operator|::
+name|NonCopyable
 block|{
-name|ID3D11InputLayout
+name|ClearShader
+argument_list|(
+argument|DXGI_FORMAT colorType
+argument_list|,
+argument|const char *inputLayoutName
+argument_list|,
+argument|const BYTE *vsByteCode
+argument_list|,
+argument|size_t vsSize
+argument_list|,
+argument|const char *vsDebugName
+argument_list|,
+argument|const BYTE *psByteCode
+argument_list|,
+argument|size_t psSize
+argument_list|,
+argument|const char *psDebugName
+argument_list|)
+block|;
+operator|~
+name|ClearShader
+argument_list|()
+block|;
+name|d3d11
+operator|::
+name|LazyInputLayout
 operator|*
 name|inputLayout
 block|;
+name|d3d11
+operator|::
+name|LazyShader
+operator|<
 name|ID3D11VertexShader
-operator|*
+operator|>
 name|vertexShader
 block|;
+name|d3d11
+operator|::
+name|LazyShader
+operator|<
 name|ID3D11PixelShader
-operator|*
+operator|>
 name|pixelShader
 block|;     }
 block|;
@@ -186,10 +230,6 @@ argument|const BYTE(&vsByteCode)[vsSize]
 argument_list|,
 argument|const BYTE(&psByteCode)[psSize]
 argument_list|)
-block|;
-name|Renderer11
-operator|*
-name|mRenderer
 block|;      struct
 name|ClearBlendInfo
 block|{
@@ -233,18 +273,6 @@ name|ClearBlendInfoComparisonFunction
 operator|>
 name|ClearBlendStateMap
 expr_stmt|;
-name|ClearBlendStateMap
-name|mClearBlendStates
-decl_stmt|;
-name|ClearShader
-name|mFloatClearShader
-decl_stmt|;
-name|ClearShader
-name|mUintClearShader
-decl_stmt|;
-name|ClearShader
-name|mIntClearShader
-decl_stmt|;
 struct|struct
 name|ClearDepthStencilInfo
 block|{
@@ -289,6 +317,25 @@ name|ClearDepthStencilInfoComparisonFunction
 operator|>
 name|ClearDepthStencilStateMap
 expr_stmt|;
+name|Renderer11
+modifier|*
+name|mRenderer
+decl_stmt|;
+name|ClearBlendStateMap
+name|mClearBlendStates
+decl_stmt|;
+name|ClearShader
+modifier|*
+name|mFloatClearShader
+decl_stmt|;
+name|ClearShader
+modifier|*
+name|mUintClearShader
+decl_stmt|;
+name|ClearShader
+modifier|*
+name|mIntClearShader
+decl_stmt|;
 name|ClearDepthStencilStateMap
 name|mClearDepthStencilStates
 decl_stmt|;
@@ -299,9 +346,6 @@ decl_stmt|;
 name|ID3D11RasterizerState
 modifier|*
 name|mRasterizerState
-decl_stmt|;
-name|bool
-name|mSupportsClearView
 decl_stmt|;
 block|}
 end_decl_stmt

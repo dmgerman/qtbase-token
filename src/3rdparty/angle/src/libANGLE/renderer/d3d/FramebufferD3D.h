@@ -41,6 +41,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"common/Optional.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"libANGLE/angletypes.h"
 end_include
 begin_include
@@ -58,6 +63,17 @@ decl_stmt|;
 struct_decl|struct
 name|PixelPackState
 struct_decl|;
+typedef|typedef
+name|std
+operator|::
+name|vector
+operator|<
+specifier|const
+name|FramebufferAttachment
+operator|*
+operator|>
+name|AttachmentList
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_decl_stmt
@@ -65,11 +81,14 @@ name|namespace
 name|rx
 block|{
 name|class
-name|RenderTargetD3D
-decl_stmt|;
-name|class
 name|RendererD3D
 decl_stmt|;
+name|class
+name|RenderTargetD3D
+decl_stmt|;
+struct_decl|struct
+name|WorkaroundsD3D
+struct_decl|;
 struct|struct
 name|ClearParameters
 block|{
@@ -165,76 +184,6 @@ operator|~
 name|FramebufferD3D
 argument_list|()
 block|;
-name|void
-name|setColorAttachment
-argument_list|(
-argument|size_t index
-argument_list|,
-argument|const gl::FramebufferAttachment *attachment
-argument_list|)
-name|override
-block|;
-name|void
-name|setDepthAttachment
-argument_list|(
-argument|const gl::FramebufferAttachment *attachment
-argument_list|)
-name|override
-block|;
-name|void
-name|setStencilAttachment
-argument_list|(
-argument|const gl::FramebufferAttachment *attachment
-argument_list|)
-name|override
-block|;
-name|void
-name|setDepthStencilAttachment
-argument_list|(
-argument|const gl::FramebufferAttachment *attachment
-argument_list|)
-name|override
-block|;
-name|void
-name|setDrawBuffers
-argument_list|(
-argument|size_t count
-argument_list|,
-argument|const GLenum *buffers
-argument_list|)
-name|override
-block|;
-name|void
-name|setReadBuffer
-argument_list|(
-argument|GLenum buffer
-argument_list|)
-name|override
-block|;
-name|gl
-operator|::
-name|Error
-name|invalidate
-argument_list|(
-argument|size_t count
-argument_list|,
-argument|const GLenum *attachments
-argument_list|)
-name|override
-block|;
-name|gl
-operator|::
-name|Error
-name|invalidateSub
-argument_list|(
-argument|size_t count
-argument_list|,
-argument|const GLenum *attachments
-argument_list|,
-argument|const gl::Rectangle&area
-argument_list|)
-name|override
-block|;
 name|gl
 operator|::
 name|Error
@@ -251,7 +200,7 @@ operator|::
 name|Error
 name|clearBufferfv
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum buffer
 argument_list|,
@@ -266,7 +215,7 @@ operator|::
 name|Error
 name|clearBufferuiv
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum buffer
 argument_list|,
@@ -281,7 +230,7 @@ operator|::
 name|Error
 name|clearBufferiv
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum buffer
 argument_list|,
@@ -296,7 +245,7 @@ operator|::
 name|Error
 name|clearBufferfi
 argument_list|(
-argument|const gl::State&state
+argument|const gl::Data&data
 argument_list|,
 argument|GLenum buffer
 argument_list|,
@@ -357,10 +306,17 @@ argument|const gl::Framebuffer *sourceFramebuffer
 argument_list|)
 name|override
 block|;
-name|GLenum
+name|bool
 name|checkStatus
 argument_list|()
 specifier|const
+name|override
+block|;
+name|void
+name|syncState
+argument_list|(
+argument|const gl::Framebuffer::DirtyBits&dirtyBits
+argument_list|)
 name|override
 block|;
 specifier|const
@@ -369,31 +325,11 @@ operator|::
 name|AttachmentList
 operator|&
 name|getColorAttachmentsForRender
-argument_list|(
-argument|const Workarounds&workarounds
-argument_list|)
+argument_list|()
 specifier|const
-block|;
-name|protected
-operator|:
-comment|// Cache variable
-name|mutable
-name|gl
-operator|::
-name|AttachmentList
-name|mColorAttachmentsForRender
-block|;
-name|mutable
-name|bool
-name|mInvalidateColorAttachmentCache
 block|;
 name|private
 operator|:
-name|RendererD3D
-operator|*
-specifier|const
-name|mRenderer
-block|;
 name|virtual
 name|gl
 operator|::
@@ -403,9 +339,9 @@ argument_list|(
 specifier|const
 name|gl
 operator|::
-name|State
+name|Data
 operator|&
-name|state
+name|data
 argument_list|,
 specifier|const
 name|ClearParameters
@@ -419,7 +355,7 @@ name|virtual
 name|gl
 operator|::
 name|Error
-name|readPixels
+name|readPixelsImpl
 argument_list|(
 argument|const gl::Rectangle&area
 argument_list|,
@@ -471,37 +407,19 @@ argument_list|)
 specifier|const
 operator|=
 literal|0
+block|;
+name|RendererD3D
+operator|*
+name|mRenderer
+block|;
+name|Optional
+operator|<
+name|gl
+operator|::
+name|AttachmentList
+operator|>
+name|mColorAttachmentsForRender
 block|; }
-decl_stmt|;
-name|gl
-operator|::
-name|Error
-name|GetAttachmentRenderTarget
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|FramebufferAttachment
-operator|*
-name|attachment
-argument_list|,
-name|RenderTargetD3D
-operator|*
-operator|*
-name|outRT
-argument_list|)
-expr_stmt|;
-name|unsigned
-name|int
-name|GetAttachmentSerial
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|FramebufferAttachment
-operator|*
-name|attachment
-argument_list|)
 decl_stmt|;
 block|}
 end_decl_stmt

@@ -268,9 +268,9 @@ name|ImageIndexIterator
 argument_list|(
 argument|GLenum type
 argument_list|,
-argument|const rx::Range<GLint>&mipRange
+argument|const Range<GLint>&mipRange
 argument_list|,
-argument|const rx::Range<GLint>&layerRange
+argument|const Range<GLint>&layerRange
 argument_list|,
 argument|const GLsizei *layerCounts
 argument_list|)
@@ -283,16 +283,12 @@ expr_stmt|;
 name|GLenum
 name|mType
 decl_stmt|;
-name|rx
-operator|::
 name|Range
 operator|<
 name|GLint
 operator|>
 name|mMipRange
 expr_stmt|;
-name|rx
-operator|::
 name|Range
 operator|<
 name|GLint

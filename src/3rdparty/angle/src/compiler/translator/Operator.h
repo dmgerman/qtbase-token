@@ -50,10 +50,6 @@ comment|// denotes a list of statements, or parameters, etc.
 DECL|enumerator|EOpFunctionCall
 name|EOpFunctionCall
 block|,
-DECL|enumerator|EOpInternalFunctionCall
-name|EOpInternalFunctionCall
-block|,
-comment|// Call to an internal helper function
 DECL|enumerator|EOpFunction
 name|EOpFunction
 block|,
@@ -475,8 +471,26 @@ block|,
 DECL|enumerator|EOpConstructMat2
 name|EOpConstructMat2
 block|,
+DECL|enumerator|EOpConstructMat2x3
+name|EOpConstructMat2x3
+block|,
+DECL|enumerator|EOpConstructMat2x4
+name|EOpConstructMat2x4
+block|,
+DECL|enumerator|EOpConstructMat3x2
+name|EOpConstructMat3x2
+block|,
 DECL|enumerator|EOpConstructMat3
 name|EOpConstructMat3
+block|,
+DECL|enumerator|EOpConstructMat3x4
+name|EOpConstructMat3x4
+block|,
+DECL|enumerator|EOpConstructMat4x2
+name|EOpConstructMat4x2
+block|,
+DECL|enumerator|EOpConstructMat4x3
+name|EOpConstructMat4x3
 block|,
 DECL|enumerator|EOpConstructMat4
 name|EOpConstructMat4

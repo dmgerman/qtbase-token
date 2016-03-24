@@ -85,14 +85,12 @@ operator|*
 name|directiveHandler
 argument_list|)
 block|;
-name|virtual
 name|void
 name|lex
 argument_list|(
-name|Token
-operator|*
-name|token
+argument|Token *token
 argument_list|)
+name|override
 block|;
 name|private
 operator|:
@@ -292,6 +290,11 @@ block|;
 name|bool
 name|mPastFirstStatement
 block|;
+name|bool
+name|mSeenNonPreprocessorToken
+block|;
+comment|// Tracks if a non-preprocessor token has been seen yet.  Some macros, such as
+comment|// #extension must be declared before all shader code.
 name|std
 operator|::
 name|vector
@@ -315,6 +318,9 @@ block|;
 name|DirectiveHandler
 operator|*
 name|mDirectiveHandler
+block|;
+name|int
+name|mShaderVersion
 block|; }
 decl_stmt|;
 block|}

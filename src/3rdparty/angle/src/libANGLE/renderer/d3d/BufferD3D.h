@@ -31,17 +31,22 @@ end_define
 begin_include
 include|#
 directive|include
-file|"libANGLE/renderer/BufferImpl.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"libANGLE/angletypes.h"
 end_include
 begin_include
 include|#
 directive|include
+file|"libANGLE/renderer/BufferImpl.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<stdint.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<vector>
 end_include
 begin_decl_stmt
 name|namespace
@@ -56,6 +61,30 @@ decl_stmt|;
 name|class
 name|StaticVertexBufferInterface
 decl_stmt|;
+enum|enum
+name|D3DBufferUsage
+block|{
+name|D3D_BUFFER_USAGE_STATIC
+block|,
+name|D3D_BUFFER_USAGE_DYNAMIC
+block|, }
+enum|;
+enum|enum
+name|D3DBufferInvalidationType
+block|{
+name|D3D_BUFFER_INVALIDATE_WHOLE_CACHE
+block|,
+name|D3D_BUFFER_INVALIDATE_DEFAULT_BUFFER_ONLY
+block|, }
+enum|;
+enum|enum
+name|D3DStaticBufferCreationType
+block|{
+name|D3D_BUFFER_CREATE_IF_NECESSARY
+block|,
+name|D3D_BUFFER_DO_NOT_CREATE
+block|, }
+enum|;
 name|class
 name|BufferD3D
 range|:
@@ -109,30 +138,47 @@ argument_list|()
 operator|=
 literal|0
 block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|getData
+argument_list|(
+specifier|const
+name|uint8_t
+operator|*
+operator|*
+name|outData
+argument_list|)
+operator|=
+literal|0
+block|;
 name|StaticVertexBufferInterface
 operator|*
 name|getStaticVertexBuffer
-argument_list|()
-block|{
-return|return
-name|mStaticVertexBuffer
-return|;
-block|}
+argument_list|(
+argument|const gl::VertexAttribute&attribute
+argument_list|,
+argument|D3DStaticBufferCreationType creationType
+argument_list|)
+block|;
 name|StaticIndexBufferInterface
 operator|*
 name|getStaticIndexBuffer
 argument_list|()
-block|{
-return|return
-name|mStaticIndexBuffer
-return|;
-block|}
+block|;
 name|void
 name|initializeStaticData
 argument_list|()
 block|;
 name|void
 name|invalidateStaticData
+argument_list|(
+argument|D3DBufferInvalidationType invalidationType
+argument_list|)
+block|;
+name|void
+name|reinitOutOfDateStaticData
 argument_list|()
 block|;
 name|void
@@ -141,10 +187,37 @@ argument_list|(
 argument|int dataSize
 argument_list|)
 block|;
+name|gl
+operator|::
+name|Error
+name|getIndexRange
+argument_list|(
+argument|GLenum type
+argument_list|,
+argument|size_t offset
+argument_list|,
+argument|size_t count
+argument_list|,
+argument|bool primitiveRestartEnabled
+argument_list|,
+argument|gl::IndexRange *outRange
+argument_list|)
+name|override
+block|;
 name|protected
 operator|:
 name|void
 name|updateSerial
+argument_list|()
+block|;
+name|void
+name|updateD3DBufferUsage
+argument_list|(
+argument|GLenum usage
+argument_list|)
+block|;
+name|void
+name|emptyStaticBufferCache
 argument_list|()
 block|;
 name|BufferFactoryD3D
@@ -168,9 +241,30 @@ name|StaticIndexBufferInterface
 operator|*
 name|mStaticIndexBuffer
 block|;
+name|std
+operator|::
+name|vector
+operator|<
+name|StaticVertexBufferInterface
+operator|*
+operator|>
+operator|*
+name|mStaticBufferCache
+block|;
+name|unsigned
+name|int
+name|mStaticBufferCacheTotalSize
+block|;
+name|unsigned
+name|int
+name|mStaticVertexBufferOutOfDate
+block|;
 name|unsigned
 name|int
 name|mUnmodifiedDataUse
+block|;
+name|D3DBufferUsage
+name|mUsage
 block|; }
 decl_stmt|;
 block|}

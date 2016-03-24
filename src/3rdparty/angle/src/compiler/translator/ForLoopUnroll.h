@@ -68,8 +68,19 @@ block|;
 name|ForLoopUnrollMarker
 argument_list|(
 argument|UnrollCondition condition
+argument_list|,
+argument|bool hasRunLoopValidation
 argument_list|)
 operator|:
+name|TIntermTraverser
+argument_list|(
+name|true
+argument_list|,
+name|false
+argument_list|,
+name|false
+argument_list|)
+block|,
 name|mUnrollCondition
 argument_list|(
 name|condition
@@ -82,39 +93,38 @@ argument_list|)
 block|,
 name|mVisitSamplerArrayIndexNodeInsideLoop
 argument_list|(
-argument|false
+name|false
+argument_list|)
+block|,
+name|mHasRunLoopValidation
+argument_list|(
+argument|hasRunLoopValidation
 argument_list|)
 block|{     }
-name|virtual
 name|bool
 name|visitBinary
 argument_list|(
-name|Visit
+argument|Visit
 argument_list|,
-name|TIntermBinary
-operator|*
-name|node
+argument|TIntermBinary *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitLoop
 argument_list|(
-name|Visit
+argument|Visit
 argument_list|,
-name|TIntermLoop
-operator|*
-name|node
+argument|TIntermLoop *node
 argument_list|)
+name|override
 block|;
-name|virtual
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
-name|node
+argument|TIntermSymbol *node
 argument_list|)
+name|override
 block|;
 name|bool
 name|samplerArrayIndexIsFloatLoopIndex
@@ -138,6 +148,9 @@ name|mSamplerArrayIndexIsFloatLoopIndex
 block|;
 name|bool
 name|mVisitSamplerArrayIndexNodeInsideLoop
+block|;
+name|bool
+name|mHasRunLoopValidation
 block|; }
 decl_stmt|;
 end_decl_stmt

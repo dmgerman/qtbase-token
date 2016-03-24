@@ -22,12 +22,6 @@ include|#
 directive|include
 file|<EGL/egl.h>
 end_include
-begin_define
-DECL|macro|EGL_EGLEXT_PROTOTYPES
-define|#
-directive|define
-name|EGL_EGLEXT_PROTOTYPES
-end_define
 begin_include
 include|#
 directive|include

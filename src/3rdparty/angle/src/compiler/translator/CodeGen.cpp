@@ -14,16 +14,34 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_ESSL
+end_ifdef
 begin_include
 include|#
 directive|include
 file|"compiler/translator/TranslatorESSL.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_GLSL
+end_ifdef
 begin_include
 include|#
 directive|include
 file|"compiler/translator/TranslatorGLSL.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -82,6 +100,9 @@ block|{
 case|case
 name|SH_ESSL_OUTPUT
 case|:
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_ESSL
 return|return
 operator|new
 name|TranslatorESSL
@@ -91,12 +112,52 @@ argument_list|,
 name|spec
 argument_list|)
 return|;
+else|#
+directive|else
+comment|// This compiler is not supported in this
+comment|// configuration. Return NULL per the ShConstructCompiler API.
+return|return
+literal|nullptr
+return|;
+endif|#
+directive|endif
+comment|// ANGLE_ENABLE_ESSL
 case|case
-name|SH_GLSL_CORE_OUTPUT
+name|SH_GLSL_130_OUTPUT
+case|:
+case|case
+name|SH_GLSL_140_OUTPUT
+case|:
+case|case
+name|SH_GLSL_150_CORE_OUTPUT
+case|:
+case|case
+name|SH_GLSL_330_CORE_OUTPUT
+case|:
+case|case
+name|SH_GLSL_400_CORE_OUTPUT
+case|:
+case|case
+name|SH_GLSL_410_CORE_OUTPUT
+case|:
+case|case
+name|SH_GLSL_420_CORE_OUTPUT
+case|:
+case|case
+name|SH_GLSL_430_CORE_OUTPUT
+case|:
+case|case
+name|SH_GLSL_440_CORE_OUTPUT
+case|:
+case|case
+name|SH_GLSL_450_CORE_OUTPUT
 case|:
 case|case
 name|SH_GLSL_COMPATIBILITY_OUTPUT
 case|:
+ifdef|#
+directive|ifdef
+name|ANGLE_ENABLE_GLSL
 return|return
 operator|new
 name|TranslatorGLSL
@@ -108,11 +169,24 @@ argument_list|,
 name|output
 argument_list|)
 return|;
+else|#
+directive|else
+comment|// This compiler is not supported in this
+comment|// configuration. Return NULL per the ShConstructCompiler API.
+return|return
+literal|nullptr
+return|;
+endif|#
+directive|endif
+comment|// ANGLE_ENABLE_GLSL
 case|case
-name|SH_HLSL9_OUTPUT
+name|SH_HLSL_3_0_OUTPUT
 case|:
 case|case
-name|SH_HLSL11_OUTPUT
+name|SH_HLSL_4_1_OUTPUT
+case|:
+case|case
+name|SH_HLSL_4_0_FL9_3_OUTPUT
 case|:
 ifdef|#
 directive|ifdef
@@ -133,7 +207,7 @@ directive|else
 comment|// This compiler is not supported in this
 comment|// configuration. Return NULL per the ShConstructCompiler API.
 return|return
-name|NULL
+literal|nullptr
 return|;
 endif|#
 directive|endif
@@ -141,7 +215,7 @@ comment|// ANGLE_ENABLE_HLSL
 default|default:
 comment|// Unknown format. Return NULL per the ShConstructCompiler API.
 return|return
-name|NULL
+literal|nullptr
 return|;
 block|}
 block|}

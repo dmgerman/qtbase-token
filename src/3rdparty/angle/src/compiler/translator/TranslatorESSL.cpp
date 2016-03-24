@@ -32,6 +32,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"compiler/translator/RecordConstantPrecision.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"compiler/translator/OutputESSL.h"
 end_include
 begin_include
@@ -85,7 +90,8 @@ name|compileOptions
 operator|&
 name|SH_EMULATE_BUILT_IN_FUNCTIONS
 condition|)
-name|InitBuiltInFunctionEmulatorForGLSL
+block|{
+name|InitBuiltInFunctionEmulatorForGLSLWorkarounds
 argument_list|(
 name|emu
 argument_list|,
@@ -93,6 +99,7 @@ name|getShaderType
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -119,14 +126,14 @@ operator|.
 name|obj
 decl_stmt|;
 name|int
-name|shaderVersion
+name|shaderVer
 init|=
 name|getShaderVersion
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|shaderVersion
+name|shaderVer
 operator|>
 literal|100
 condition|)
@@ -135,7 +142,7 @@ name|sink
 operator|<<
 literal|"#version "
 operator|<<
-name|shaderVersion
+name|shaderVer
 operator|<<
 literal|" es\n"
 expr_stmt|;
@@ -167,6 +174,12 @@ condition|)
 block|{
 name|EmulatePrecision
 name|emulatePrecision
+argument_list|(
+name|getSymbolTable
+argument_list|()
+argument_list|,
+name|shaderVer
+argument_list|)
 decl_stmt|;
 name|root
 operator|->
@@ -191,6 +204,14 @@ name|SH_ESSL_OUTPUT
 argument_list|)
 expr_stmt|;
 block|}
+name|RecordConstantPrecision
+argument_list|(
+name|root
+argument_list|,
+name|getTemporaryIndex
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Write emulated built-in functions if needed.
 if|if
 condition|(
@@ -274,7 +295,7 @@ argument_list|,
 name|getSymbolTable
 argument_list|()
 argument_list|,
-name|shaderVersion
+name|shaderVer
 argument_list|,
 name|precisionEmulation
 argument_list|)

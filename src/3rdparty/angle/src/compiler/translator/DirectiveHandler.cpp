@@ -27,7 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"compiler/translator/compilerdebug.h"
+file|"angle_gl.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"common/debug.h"
 end_include
 begin_include
 include|#
@@ -138,6 +143,11 @@ name|int
 modifier|&
 name|shaderVersion
 parameter_list|,
+name|sh
+operator|::
+name|GLenum
+name|shaderType
+parameter_list|,
 name|bool
 name|debugShaderPrecisionSupported
 parameter_list|)
@@ -155,6 +165,11 @@ member_init_list|,
 name|mShaderVersion
 argument_list|(
 name|shaderVersion
+argument_list|)
+member_init_list|,
+name|mShaderType
+argument_list|(
+name|shaderType
 argument_list|)
 member_init_list|,
 name|mDebugShaderPrecisionSupported
@@ -276,6 +291,39 @@ name|value
 operator|==
 name|kAll
 condition|)
+block|{
+if|if
+condition|(
+name|mShaderVersion
+operator|==
+literal|300
+operator|&&
+name|mShaderType
+operator|==
+name|GL_FRAGMENT_SHADER
+condition|)
+block|{
+comment|// ESSL 3.00.4 section 4.6.1
+name|mDiagnostics
+operator|.
+name|writeInfo
+argument_list|(
+name|pp
+operator|::
+name|Diagnostics
+operator|::
+name|PP_ERROR
+argument_list|,
+name|loc
+argument_list|,
+literal|"#pragma STDGL invariant(all) can not be used in fragment shader"
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 name|mPragma
 operator|.
 name|stdgl
@@ -284,6 +332,7 @@ name|invariantAll
 operator|=
 literal|true
 expr_stmt|;
+block|}
 comment|// The STDGL pragma is used to reserve pragmas for use by future
 comment|// revisions of GLSL.  Do not generate an error on unexpected
 comment|// name and value.

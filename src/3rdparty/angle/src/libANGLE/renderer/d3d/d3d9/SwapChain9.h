@@ -69,6 +69,8 @@ argument_list|,
 argument|GLenum backBufferFormat
 argument_list|,
 argument|GLenum depthBufferFormat
+argument_list|,
+argument|EGLint orientation
 argument_list|)
 block|;
 name|virtual
@@ -171,15 +173,11 @@ return|return
 name|mHeight
 return|;
 block|}
-specifier|static
-name|SwapChain9
+name|void
 operator|*
-name|makeSwapChain9
-argument_list|(
-name|SwapChainD3D
-operator|*
-name|swapChain
-argument_list|)
+name|getKeyedMutex
+argument_list|()
+name|override
 block|;
 name|private
 operator|:
@@ -192,10 +190,10 @@ operator|*
 name|mRenderer
 block|;
 name|EGLint
-name|mHeight
+name|mWidth
 block|;
 name|EGLint
-name|mWidth
+name|mHeight
 block|;
 name|EGLint
 name|mSwapInterval

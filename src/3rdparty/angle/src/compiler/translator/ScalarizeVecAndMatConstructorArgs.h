@@ -46,6 +46,15 @@ argument_list|,
 argument|bool fragmentPrecisionHigh
 argument_list|)
 operator|:
+name|TIntermTraverser
+argument_list|(
+name|true
+argument_list|,
+name|false
+argument_list|,
+name|false
+argument_list|)
+block|,
 name|mTempVarCount
 argument_list|(
 literal|0
@@ -63,7 +72,6 @@ argument_list|)
 block|{}
 name|protected
 operator|:
-name|virtual
 name|bool
 name|visitAggregate
 argument_list|(
@@ -71,6 +79,7 @@ argument|Visit visit
 argument_list|,
 argument|TIntermAggregate *node
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

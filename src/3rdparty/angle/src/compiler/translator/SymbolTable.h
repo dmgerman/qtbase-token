@@ -320,16 +320,16 @@ argument_list|(
 literal|0
 argument_list|)
 block|{     }
-name|virtual
 operator|~
 name|TVariable
 argument_list|()
-block|{     }
-name|virtual
+name|override
+block|{}
 name|bool
 name|isVariable
 argument_list|()
 specifier|const
+name|override
 block|{
 return|return
 name|true
@@ -377,34 +377,8 @@ argument_list|(
 name|qualifier
 argument_list|)
 block|;     }
-name|ConstantUnion
-operator|*
-name|getConstPointer
-argument_list|()
-block|{
-if|if
-condition|(
-operator|!
-name|unionArray
-condition|)
-name|unionArray
-operator|=
-name|new
-name|ConstantUnion
-index|[
-name|type
-operator|.
-name|getObjectSize
-argument_list|()
-index|]
-expr_stmt|;
-return|return
-name|unionArray
-return|;
-block|}
-end_decl_stmt
-begin_expr_stmt
-name|ConstantUnion
+specifier|const
+name|TConstantUnion
 operator|*
 name|getConstPointer
 argument_list|()
@@ -414,61 +388,177 @@ return|return
 name|unionArray
 return|;
 block|}
-end_expr_stmt
-begin_function
 name|void
 name|shareConstPointer
-parameter_list|(
-name|ConstantUnion
-modifier|*
-name|constArray
-parameter_list|)
+argument_list|(
+argument|const TConstantUnion *constArray
+argument_list|)
 block|{
-if|if
-condition|(
-name|unionArray
-operator|==
-name|constArray
-condition|)
-return|return;
-name|delete
-index|[]
-name|unionArray
-decl_stmt|;
 name|unionArray
 operator|=
 name|constArray
-expr_stmt|;
-block|}
-end_function
-begin_label
+block|; }
 name|private
-label|:
-end_label
-begin_decl_stmt
+operator|:
 name|TType
 name|type
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+block|;
 name|bool
 name|userType
-decl_stmt|;
-end_decl_stmt
-begin_comment
+block|;
 comment|// we are assuming that Pool Allocator will free the memory
-end_comment
-begin_comment
 comment|// allocated to unionArray when this object is destroyed.
-end_comment
-begin_decl_stmt
-name|ConstantUnion
-modifier|*
+specifier|const
+name|TConstantUnion
+operator|*
 name|unionArray
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_comment
-unit|};
+comment|// Immutable version of TParameter.
+end_comment
+begin_struct
+DECL|struct|TConstParameter
+struct|struct
+name|TConstParameter
+block|{
+DECL|function|TConstParameter
+name|TConstParameter
+argument_list|()
+operator|:
+name|name
+argument_list|(
+name|nullptr
+argument_list|)
+operator|,
+name|type
+argument_list|(
+argument|nullptr
+argument_list|)
+block|{     }
+DECL|function|TConstParameter
+name|explicit
+name|TConstParameter
+argument_list|(
+specifier|const
+name|TString
+operator|*
+name|n
+argument_list|)
+operator|:
+name|name
+argument_list|(
+name|n
+argument_list|)
+operator|,
+name|type
+argument_list|(
+argument|nullptr
+argument_list|)
+block|{     }
+DECL|function|TConstParameter
+name|explicit
+name|TConstParameter
+argument_list|(
+specifier|const
+name|TType
+operator|*
+name|t
+argument_list|)
+operator|:
+name|name
+argument_list|(
+name|nullptr
+argument_list|)
+operator|,
+name|type
+argument_list|(
+argument|t
+argument_list|)
+block|{     }
+DECL|function|TConstParameter
+name|TConstParameter
+argument_list|(
+specifier|const
+name|TString
+operator|*
+name|n
+argument_list|,
+specifier|const
+name|TType
+operator|*
+name|t
+argument_list|)
+operator|:
+name|name
+argument_list|(
+name|n
+argument_list|)
+operator|,
+name|type
+argument_list|(
+argument|t
+argument_list|)
+block|{     }
+comment|// Both constructor arguments must be const.
+name|TConstParameter
+argument_list|(
+name|TString
+operator|*
+name|n
+argument_list|,
+name|TType
+operator|*
+name|t
+argument_list|)
+operator|=
+name|delete
+expr_stmt|;
+name|TConstParameter
+argument_list|(
+specifier|const
+name|TString
+operator|*
+name|n
+argument_list|,
+name|TType
+operator|*
+name|t
+argument_list|)
+operator|=
+name|delete
+expr_stmt|;
+name|TConstParameter
+argument_list|(
+name|TString
+operator|*
+name|n
+argument_list|,
+specifier|const
+name|TType
+operator|*
+name|t
+argument_list|)
+operator|=
+name|delete
+expr_stmt|;
+DECL|member|name
+specifier|const
+name|TString
+modifier|*
+name|name
+decl_stmt|;
+DECL|member|type
+specifier|const
+name|TType
+modifier|*
+name|type
+decl_stmt|;
+block|}
+struct|;
+end_struct
+begin_comment
 comment|// The function sub-class of symbols and the parser will need to
 end_comment
 begin_comment
@@ -479,6 +569,45 @@ DECL|struct|TParameter
 struct|struct
 name|TParameter
 block|{
+comment|// Destructively converts to TConstParameter.
+comment|// This method resets name and type to nullptrs to make sure
+comment|// their content cannot be modified after the call.
+DECL|function|turnToConst
+name|TConstParameter
+name|turnToConst
+parameter_list|()
+block|{
+specifier|const
+name|TString
+modifier|*
+name|constName
+init|=
+name|name
+decl_stmt|;
+specifier|const
+name|TType
+modifier|*
+name|constType
+init|=
+name|type
+decl_stmt|;
+name|name
+operator|=
+name|nullptr
+expr_stmt|;
+name|type
+operator|=
+name|nullptr
+expr_stmt|;
+return|return
+name|TConstParameter
+argument_list|(
+name|constName
+argument_list|,
+name|constType
+argument_list|)
+return|;
+block|}
 DECL|member|name
 name|TString
 modifier|*
@@ -506,41 +635,11 @@ name|public
 operator|:
 name|TFunction
 argument_list|(
-argument|TOperator o
-argument_list|)
-operator|:
-name|TSymbol
-argument_list|(
-literal|0
-argument_list|)
-block|,
-name|returnType
-argument_list|(
-name|TType
-argument_list|(
-name|EbtVoid
-argument_list|,
-name|EbpUndefined
-argument_list|)
-argument_list|)
-block|,
-name|op
-argument_list|(
-name|o
-argument_list|)
-block|,
-name|defined
-argument_list|(
-argument|false
-argument_list|)
-block|{     }
-name|TFunction
-argument_list|(
 argument|const TString *name
 argument_list|,
-argument|const TType&retType
+argument|const TType *retType
 argument_list|,
-argument|TOperator tOp = EOpNull
+argument|TOperator tOp   = EOpNull
 argument_list|,
 argument|const char *ext =
 literal|""
@@ -558,13 +657,7 @@ argument_list|)
 block|,
 name|mangledName
 argument_list|(
-name|TFunction
-operator|::
-name|mangleName
-argument_list|(
-operator|*
-name|name
-argument_list|)
+name|nullptr
 argument_list|)
 block|,
 name|op
@@ -574,6 +667,11 @@ argument_list|)
 block|,
 name|defined
 argument_list|(
+name|false
+argument_list|)
+block|,
+name|mHasPrototypeDeclaration
+argument_list|(
 argument|false
 argument_list|)
 block|{
@@ -582,16 +680,16 @@ argument_list|(
 name|ext
 argument_list|)
 block|;     }
-name|virtual
 operator|~
 name|TFunction
 argument_list|()
+name|override
 block|;
-name|virtual
 name|bool
 name|isFunction
 argument_list|()
 specifier|const
+name|override
 block|{
 return|return
 name|true
@@ -637,7 +735,7 @@ block|}
 name|void
 name|addParameter
 argument_list|(
-argument|TParameter&p
+argument|const TConstParameter&p
 argument_list|)
 block|{
 name|parameters
@@ -649,14 +747,7 @@ argument_list|)
 block|;
 name|mangledName
 operator|=
-name|mangledName
-operator|+
-name|p
-operator|.
-name|type
-operator|->
-name|getMangledName
-argument_list|()
+name|nullptr
 block|;     }
 specifier|const
 name|TString
@@ -664,8 +755,23 @@ operator|&
 name|getMangledName
 argument_list|()
 specifier|const
+name|override
 block|{
+if|if
+condition|(
+name|mangledName
+operator|==
+name|nullptr
+condition|)
+block|{
+name|mangledName
+operator|=
+name|buildMangledName
+argument_list|()
+expr_stmt|;
+block|}
 return|return
+operator|*
 name|mangledName
 return|;
 block|}
@@ -677,6 +783,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
+operator|*
 name|returnType
 return|;
 block|}
@@ -696,13 +803,30 @@ block|{
 name|defined
 operator|=
 name|true
-block|;     }
+block|; }
 name|bool
 name|isDefined
 argument_list|()
 block|{
 return|return
 name|defined
+return|;
+block|}
+name|void
+name|setHasPrototypeDeclaration
+argument_list|()
+block|{
+name|mHasPrototypeDeclaration
+operator|=
+name|true
+block|; }
+name|bool
+name|hasPrototypeDeclaration
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mHasPrototypeDeclaration
 return|;
 block|}
 name|size_t
@@ -718,7 +842,7 @@ argument_list|()
 return|;
 block|}
 specifier|const
-name|TParameter
+name|TConstParameter
 operator|&
 name|getParam
 argument_list|(
@@ -735,10 +859,17 @@ return|;
 block|}
 name|private
 operator|:
+specifier|const
+name|TString
+operator|*
+name|buildMangledName
+argument_list|()
+specifier|const
+block|;
 typedef|typedef
 name|TVector
 operator|<
-name|TParameter
+name|TConstParameter
 operator|>
 name|TParamList
 expr_stmt|;
@@ -747,12 +878,17 @@ name|parameters
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+specifier|const
 name|TType
+modifier|*
 name|returnType
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|mutable
+specifier|const
 name|TString
+modifier|*
 name|mangledName
 decl_stmt|;
 end_decl_stmt
@@ -764,6 +900,11 @@ end_decl_stmt
 begin_decl_stmt
 name|bool
 name|defined
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|mHasPrototypeDeclaration
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -1156,20 +1297,111 @@ literal|1
 argument_list|)
 argument_list|)
 block|;
-name|constant
-operator|->
-name|getConstPointer
-argument_list|()
-operator|->
+name|TConstantUnion
+operator|*
+name|unionArray
+operator|=
+name|new
+name|TConstantUnion
+index|[
+literal|1
+index|]
+block|;
+name|unionArray
+index|[
+literal|0
+index|]
+operator|.
 name|setIConst
 argument_list|(
 name|value
+argument_list|)
+block|;
+name|constant
+operator|->
+name|shareConstPointer
+argument_list|(
+name|unionArray
 argument_list|)
 block|;
 return|return
 name|insert
 argument_list|(
 name|level
+argument_list|,
+name|constant
+argument_list|)
+return|;
+block|}
+name|bool
+name|insertConstIntExt
+argument_list|(
+argument|ESymbolLevel level
+argument_list|,
+argument|const char *ext
+argument_list|,
+argument|const char *name
+argument_list|,
+argument|int value
+argument_list|)
+block|{
+name|TVariable
+operator|*
+name|constant
+operator|=
+name|new
+name|TVariable
+argument_list|(
+name|NewPoolTString
+argument_list|(
+name|name
+argument_list|)
+argument_list|,
+name|TType
+argument_list|(
+name|EbtInt
+argument_list|,
+name|EbpUndefined
+argument_list|,
+name|EvqConst
+argument_list|,
+literal|1
+argument_list|)
+argument_list|)
+block|;
+name|TConstantUnion
+operator|*
+name|unionArray
+operator|=
+name|new
+name|TConstantUnion
+index|[
+literal|1
+index|]
+block|;
+name|unionArray
+index|[
+literal|0
+index|]
+operator|.
+name|setIConst
+argument_list|(
+name|value
+argument_list|)
+block|;
+name|constant
+operator|->
+name|shareConstPointer
+argument_list|(
+name|unionArray
+argument_list|)
+block|;
+return|return
+name|insert
+argument_list|(
+name|level
+argument_list|,
+name|ext
 argument_list|,
 name|constant
 argument_list|)
@@ -1184,22 +1416,22 @@ argument|TOperator op
 argument_list|,
 argument|const char *ext
 argument_list|,
-argument|TType *rvalue
+argument|const TType *rvalue
 argument_list|,
 argument|const char *name
 argument_list|,
-argument|TType *ptype1
+argument|const TType *ptype1
 argument_list|,
-argument|TType *ptype2 =
+argument|const TType *ptype2 =
 literal|0
 argument_list|,
-argument|TType *ptype3 =
+argument|const TType *ptype3 =
 literal|0
 argument_list|,
-argument|TType *ptype4 =
+argument|const TType *ptype4 =
 literal|0
 argument_list|,
-argument|TType *ptype5 =
+argument|const TType *ptype5 =
 literal|0
 argument_list|)
 block|;
@@ -1208,22 +1440,22 @@ name|insertBuiltIn
 argument_list|(
 argument|ESymbolLevel level
 argument_list|,
-argument|TType *rvalue
+argument|const TType *rvalue
 argument_list|,
 argument|const char *name
 argument_list|,
-argument|TType *ptype1
+argument|const TType *ptype1
 argument_list|,
-argument|TType *ptype2 =
+argument|const TType *ptype2 =
 literal|0
 argument_list|,
-argument|TType *ptype3 =
+argument|const TType *ptype3 =
 literal|0
 argument_list|,
-argument|TType *ptype4 =
+argument|const TType *ptype4 =
 literal|0
 argument_list|,
-argument|TType *ptype5 =
+argument|const TType *ptype5 =
 literal|0
 argument_list|)
 block|{
@@ -1257,22 +1489,22 @@ argument|ESymbolLevel level
 argument_list|,
 argument|const char *ext
 argument_list|,
-argument|TType *rvalue
+argument|const TType *rvalue
 argument_list|,
 argument|const char *name
 argument_list|,
-argument|TType *ptype1
+argument|const TType *ptype1
 argument_list|,
-argument|TType *ptype2 =
+argument|const TType *ptype2 =
 literal|0
 argument_list|,
-argument|TType *ptype3 =
+argument|const TType *ptype3 =
 literal|0
 argument_list|,
-argument|TType *ptype4 =
+argument|const TType *ptype4 =
 literal|0
 argument_list|,
-argument|TType *ptype5 =
+argument|const TType *ptype5 =
 literal|0
 argument_list|)
 block|{
@@ -1306,22 +1538,22 @@ argument|ESymbolLevel level
 argument_list|,
 argument|TOperator op
 argument_list|,
-argument|TType *rvalue
+argument|const TType *rvalue
 argument_list|,
 argument|const char *name
 argument_list|,
-argument|TType *ptype1
+argument|const TType *ptype1
 argument_list|,
-argument|TType *ptype2 =
+argument|const TType *ptype2 =
 literal|0
 argument_list|,
-argument|TType *ptype3 =
+argument|const TType *ptype3 =
 literal|0
 argument_list|,
-argument|TType *ptype4 =
+argument|const TType *ptype4 =
 literal|0
 argument_list|,
-argument|TType *ptype5 =
+argument|const TType *ptype5 =
 literal|0
 argument_list|)
 block|{
@@ -1427,16 +1659,36 @@ if|if
 condition|(
 name|type
 operator|.
+name|type
+operator|==
+name|EbtUInt
+condition|)
+return|return
+name|false
+return|;
+end_decl_stmt
+begin_comment
+comment|// ESSL 3.00.4 section 4.5.4
+end_comment
+begin_if
+if|if
+condition|(
+name|type
+operator|.
 name|isAggregate
 argument_list|()
 condition|)
 return|return
 name|false
 return|;
+end_if
+begin_comment
 comment|// Not allowed to set for aggregate types
+end_comment
+begin_decl_stmt
 name|int
 name|indexOfLastElement
-operator|=
+init|=
 name|static_cast
 operator|<
 name|int

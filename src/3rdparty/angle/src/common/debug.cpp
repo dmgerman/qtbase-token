@@ -174,6 +174,9 @@ operator|->
 name|beginEvent
 argument_list|(
 name|formattedWideMessage
+operator|.
+name|c_str
+argument_list|()
 argument_list|)
 expr_stmt|;
 break|break;
@@ -185,6 +188,9 @@ operator|->
 name|setMarker
 argument_list|(
 name|formattedWideMessage
+operator|.
+name|c_str
+argument_list|()
 argument_list|)
 expr_stmt|;
 break|break;
@@ -195,7 +201,7 @@ operator|::
 name|string
 name|formattedMessage
 decl_stmt|;
-name|UNUSED_TRACE_VARIABLE
+name|UNUSED_VARIABLE
 argument_list|(
 name|formattedMessage
 argument_list|)

@@ -1670,7 +1670,7 @@ define|#
 directive|define
 name|TRACE_EVENT_API_GET_CATEGORY_ENABLED
 define|\
-value|gl::TraceGetTraceCategoryEnabledFlag
+value|angle::GetTraceCategoryEnabledFlag
 end_define
 begin_comment
 comment|// Add a trace event to the platform tracing system.
@@ -1711,7 +1711,7 @@ define|#
 directive|define
 name|TRACE_EVENT_API_ADD_TRACE_EVENT
 define|\
-value|gl::TraceAddTraceEvent
+value|angle::AddTraceEvent
 end_define
 begin_comment
 comment|////////////////////////////////////////////////////////////////////////////////
@@ -2524,33 +2524,25 @@ comment|// store pointers to the internal c_str and pass through to the tracing 
 comment|// arg values must live throughout these procedures.
 specifier|static
 specifier|inline
-name|void
+name|angle
+operator|::
+name|Platform
+operator|::
+name|TraceEventHandle
 name|addTraceEvent
-parameter_list|(
-name|char
-name|phase
-parameter_list|,
-specifier|const
-name|unsigned
-name|char
-modifier|*
-name|categoryEnabled
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|name
-parameter_list|,
-name|unsigned
-name|long
-name|long
-name|id
-parameter_list|,
-name|unsigned
-name|char
-name|flags
-parameter_list|)
+argument_list|(
+argument|char phase
+argument_list|,
+argument|const unsigned char* categoryEnabled
+argument_list|,
+argument|const char* name
+argument_list|,
+argument|unsigned long long id
+argument_list|,
+argument|unsigned char flags
+argument_list|)
 block|{
+return|return
 name|TRACE_EVENT_API_ADD_TRACE_EVENT
 argument_list|(
 name|phase
@@ -2571,7 +2563,7 @@ literal|0
 argument_list|,
 name|flags
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 name|template
 operator|<
@@ -2580,7 +2572,11 @@ name|ARG1_TYPE
 operator|>
 specifier|static
 specifier|inline
-name|void
+name|angle
+operator|::
+name|Platform
+operator|::
+name|TraceEventHandle
 name|addTraceEvent
 argument_list|(
 argument|char phase
@@ -2636,6 +2632,7 @@ literal|0
 index|]
 argument_list|)
 block|;
+return|return
 name|TRACE_EVENT_API_ADD_TRACE_EVENT
 argument_list|(
 name|phase
@@ -2657,7 +2654,8 @@ name|argValues
 argument_list|,
 name|flags
 argument_list|)
-block|; }
+return|;
+block|}
 name|template
 operator|<
 name|class
@@ -2668,7 +2666,11 @@ name|ARG2_TYPE
 operator|>
 specifier|static
 specifier|inline
-name|void
+name|angle
+operator|::
+name|Platform
+operator|::
+name|TraceEventHandle
 name|addTraceEvent
 argument_list|(
 argument|char phase

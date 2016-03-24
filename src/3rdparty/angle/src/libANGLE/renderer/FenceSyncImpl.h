@@ -71,7 +71,11 @@ name|gl
 operator|::
 name|Error
 name|set
-argument_list|()
+argument_list|(
+argument|GLenum condition
+argument_list|,
+argument|GLbitfield flags
+argument_list|)
 operator|=
 literal|0
 block|;

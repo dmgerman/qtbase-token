@@ -30,11 +30,12 @@ include|#
 directive|include
 file|"compiler/translator/IntermNode.h"
 end_include
-begin_struct_decl
-struct_decl|struct
+begin_decl_stmt
+DECL|variable|TParseContext
+name|class
 name|TParseContext
-struct_decl|;
-end_struct_decl
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|ValidateSwitch

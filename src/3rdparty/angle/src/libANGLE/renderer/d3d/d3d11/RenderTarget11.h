@@ -62,16 +62,6 @@ operator|~
 name|RenderTarget11
 argument_list|()
 block|{ }
-specifier|static
-name|RenderTarget11
-operator|*
-name|makeRenderTarget11
-argument_list|(
-name|RenderTargetD3D
-operator|*
-name|renderTarget
-argument_list|)
-block|;
 name|virtual
 name|ID3D11Resource
 operator|*
@@ -124,11 +114,6 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
-name|private
-operator|:
-name|D3D_FEATURE_LEVEL
-name|mFeatureLevel
 block|; }
 decl_stmt|;
 name|class

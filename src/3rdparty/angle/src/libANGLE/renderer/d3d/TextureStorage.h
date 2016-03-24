@@ -92,13 +92,12 @@ name|public
 operator|:
 name|TextureStorage
 argument_list|()
-block|;
+block|{}
 name|virtual
 operator|~
 name|TextureStorage
 argument_list|()
 block|{}
-block|;
 name|virtual
 name|int
 name|getTopLevel
@@ -118,6 +117,14 @@ block|;
 name|virtual
 name|bool
 name|isManaged
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|bool
+name|supportsNativeMipmapFunction
 argument_list|()
 specifier|const
 operator|=
@@ -209,20 +216,6 @@ argument_list|)
 operator|=
 literal|0
 block|;
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-argument|const gl::ImageIndex&index
-argument_list|)
-specifier|const
-block|;
-name|unsigned
-name|int
-name|getTextureSerial
-argument_list|()
-specifier|const
-block|;
 comment|// This is a no-op for most implementations of TextureStorage. Some (e.g. TextureStorage11_2D) might override it.
 name|virtual
 name|gl
@@ -242,28 +235,8 @@ name|GL_NO_ERROR
 argument_list|)
 return|;
 block|}
-name|protected
-operator|:
-name|void
-name|initializeSerials
-argument_list|(
-argument|unsigned int rtSerialsToReserve
-argument_list|,
-argument|unsigned int rtSerialsLayerStride
-argument_list|)
-block|;
-name|private
-operator|:
-name|unsigned
-name|int
-name|mFirstRenderTargetSerial
-block|;
-name|unsigned
-name|int
-name|mRenderTargetSerialsLayerStride
-block|; }
-decl_stmt|;
-block|}
+expr|}
+block|;  }
 end_decl_stmt
 begin_endif
 endif|#

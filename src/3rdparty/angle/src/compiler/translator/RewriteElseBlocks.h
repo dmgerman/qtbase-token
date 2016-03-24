@@ -49,6 +49,11 @@ parameter_list|(
 name|TIntermNode
 modifier|*
 name|node
+parameter_list|,
+name|unsigned
+name|int
+modifier|*
+name|temporaryIndex
 parameter_list|)
 function_decl|;
 block|}

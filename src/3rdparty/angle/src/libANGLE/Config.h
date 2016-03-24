@@ -214,6 +214,10 @@ name|EGLint
 name|transparentBlueValue
 decl_stmt|;
 comment|// Transparent blue value
+name|EGLint
+name|optimalOrientation
+decl_stmt|;
+comment|// Optimal window surface orientation
 block|}
 struct|;
 name|class

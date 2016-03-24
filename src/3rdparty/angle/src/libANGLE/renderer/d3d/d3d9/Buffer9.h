@@ -70,16 +70,6 @@ operator|~
 name|Buffer9
 argument_list|()
 block|;
-specifier|static
-name|Buffer9
-operator|*
-name|makeBuffer9
-argument_list|(
-name|BufferImpl
-operator|*
-name|buffer
-argument_list|)
-block|;
 comment|// BufferD3D implementation
 name|virtual
 name|size_t
@@ -101,6 +91,15 @@ return|return
 name|false
 return|;
 block|}
+name|gl
+operator|::
+name|Error
+name|getData
+argument_list|(
+argument|const uint8_t **outData
+argument_list|)
+name|override
+block|;
 comment|// BufferImpl implementation
 name|virtual
 name|gl
@@ -114,15 +113,6 @@ argument|size_t size
 argument_list|,
 argument|GLenum usage
 argument_list|)
-block|;
-name|gl
-operator|::
-name|Error
-name|getData
-argument_list|(
-argument|const uint8_t **outData
-argument_list|)
-name|override
 block|;
 name|virtual
 name|gl
@@ -158,6 +148,17 @@ operator|::
 name|Error
 name|map
 argument_list|(
+argument|GLenum access
+argument_list|,
+argument|GLvoid **mapPtr
+argument_list|)
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|mapRange
+argument_list|(
 argument|size_t offset
 argument_list|,
 argument|size_t length
@@ -172,7 +173,11 @@ name|gl
 operator|::
 name|Error
 name|unmap
-argument_list|()
+argument_list|(
+name|GLboolean
+operator|*
+name|result
+argument_list|)
 block|;
 name|virtual
 name|void
@@ -181,10 +186,6 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|Renderer9
-operator|*
-name|mRenderer
-block|;
 name|MemoryBuffer
 name|mMemory
 block|;

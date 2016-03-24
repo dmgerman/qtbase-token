@@ -33,6 +33,11 @@ include|#
 directive|include
 file|"libANGLE/renderer/DisplayImpl.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"libANGLE/Device.h"
+end_include
 begin_decl_stmt
 name|namespace
 name|rx
@@ -66,9 +71,9 @@ name|terminate
 argument_list|()
 name|override
 block|;
-name|egl
-operator|::
-name|Error
+comment|// Surface creation
+name|SurfaceImpl
+operator|*
 name|createWindowSurface
 argument_list|(
 argument|const egl::Config *configuration
@@ -76,27 +81,21 @@ argument_list|,
 argument|EGLNativeWindowType window
 argument_list|,
 argument|const egl::AttributeMap&attribs
-argument_list|,
-argument|SurfaceImpl **outSurface
 argument_list|)
 name|override
 block|;
-name|egl
-operator|::
-name|Error
+name|SurfaceImpl
+operator|*
 name|createPbufferSurface
 argument_list|(
 argument|const egl::Config *configuration
 argument_list|,
 argument|const egl::AttributeMap&attribs
-argument_list|,
-argument|SurfaceImpl **outSurface
 argument_list|)
 name|override
 block|;
-name|egl
-operator|::
-name|Error
+name|SurfaceImpl
+operator|*
 name|createPbufferFromClientBuffer
 argument_list|(
 argument|const egl::Config *configuration
@@ -104,14 +103,11 @@ argument_list|,
 argument|EGLClientBuffer shareHandle
 argument_list|,
 argument|const egl::AttributeMap&attribs
-argument_list|,
-argument|SurfaceImpl **outSurface
 argument_list|)
 name|override
 block|;
-name|egl
-operator|::
-name|Error
+name|SurfaceImpl
+operator|*
 name|createPixmapSurface
 argument_list|(
 argument|const egl::Config *configuration
@@ -119,14 +115,25 @@ argument_list|,
 argument|NativePixmapType nativePixmap
 argument_list|,
 argument|const egl::AttributeMap&attribs
-argument_list|,
-argument|SurfaceImpl **outSurface
 argument_list|)
 name|override
 block|;
-name|egl
+name|ImageImpl
+operator|*
+name|createImage
+argument_list|(
+argument|EGLenum target
+argument_list|,
+argument|egl::ImageSibling *buffer
+argument_list|,
+argument|const egl::AttributeMap&attribs
+argument_list|)
+name|override
+block|;
+name|gl
 operator|::
-name|Error
+name|Context
+operator|*
 name|createContext
 argument_list|(
 argument|const egl::Config *config
@@ -134,8 +141,6 @@ argument_list|,
 argument|const gl::Context *shareContext
 argument_list|,
 argument|const egl::AttributeMap&attribs
-argument_list|,
-argument|gl::Context **outContext
 argument_list|)
 name|override
 block|;
@@ -186,11 +191,42 @@ argument_list|)
 specifier|const
 name|override
 block|;
+name|egl
+operator|::
+name|Error
+name|getDevice
+argument_list|(
+argument|DeviceImpl **device
+argument_list|)
+name|override
+block|;
 name|std
 operator|::
 name|string
 name|getVendorString
 argument_list|()
+specifier|const
+name|override
+block|;
+name|egl
+operator|::
+name|Error
+name|waitClient
+argument_list|()
+specifier|const
+name|override
+block|;
+name|egl
+operator|::
+name|Error
+name|waitNative
+argument_list|(
+argument|EGLint engine
+argument_list|,
+argument|egl::Surface *drawSurface
+argument_list|,
+argument|egl::Surface *readSurface
+argument_list|)
 specifier|const
 name|override
 block|;

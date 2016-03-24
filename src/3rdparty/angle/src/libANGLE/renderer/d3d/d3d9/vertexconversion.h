@@ -579,8 +579,8 @@ operator|=
 name|SimpleDefaultValues
 operator|<
 name|InT
-operator|>
-expr|> struct
+operator|>>
+expr|struct
 name|VertexDataConverter
 block|{
 typedef|typedef

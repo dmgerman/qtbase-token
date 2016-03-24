@@ -73,7 +73,7 @@ name|applyDeclaration
 argument_list|(
 argument|IDirect3DDevice9 *device
 argument_list|,
-argument|TranslatedAttribute attributes[]
+argument|const std::vector<TranslatedAttribute>&attributes
 argument_list|,
 argument|gl::Program *program
 argument_list|,

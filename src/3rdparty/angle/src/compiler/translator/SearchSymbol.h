@@ -72,10 +72,9 @@ block|;
 name|void
 name|visitSymbol
 argument_list|(
-name|TIntermSymbol
-operator|*
-name|symbolNode
+argument|TIntermSymbol *symbolNode
 argument_list|)
+name|override
 block|;
 name|bool
 name|foundMatch

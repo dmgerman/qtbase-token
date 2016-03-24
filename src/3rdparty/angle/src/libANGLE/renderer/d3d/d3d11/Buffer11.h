@@ -31,6 +31,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<map>
+end_include
+begin_include
+include|#
+directive|include
 file|"libANGLE/angletypes.h"
 end_include
 begin_include
@@ -40,11 +45,26 @@ file|"libANGLE/renderer/d3d/BufferD3D.h"
 end_include
 begin_decl_stmt
 name|namespace
+name|gl
+block|{
+name|class
+name|FramebufferAttachment
+decl_stmt|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|namespace
 name|rx
 block|{
 name|class
 name|Renderer11
 decl_stmt|;
+struct_decl|struct
+name|SourceIndexData
+struct_decl|;
+struct_decl|struct
+name|TranslatedAttribute
+struct_decl|;
 enum|enum
 name|BufferUsage
 block|{
@@ -61,6 +81,10 @@ block|,
 name|BUFFER_USAGE_UNIFORM
 block|,
 name|BUFFER_USAGE_SYSTEM_MEMORY
+block|,
+name|BUFFER_USAGE_EMULATED_INDEXED_VERTEX
+block|,
+name|BUFFER_USAGE_COUNT
 block|, }
 enum|;
 struct|struct
@@ -138,21 +162,34 @@ operator|~
 name|Buffer11
 argument_list|()
 block|;
-specifier|static
-name|Buffer11
-operator|*
-name|makeBuffer11
-argument_list|(
-name|BufferImpl
-operator|*
-name|buffer
-argument_list|)
-block|;
 name|ID3D11Buffer
 operator|*
 name|getBuffer
 argument_list|(
 argument|BufferUsage usage
+argument_list|)
+block|;
+name|ID3D11Buffer
+operator|*
+name|getEmulatedIndexedBuffer
+argument_list|(
+name|SourceIndexData
+operator|*
+name|indexInfo
+argument_list|,
+specifier|const
+name|TranslatedAttribute
+operator|*
+name|attribute
+argument_list|)
+block|;
+name|ID3D11Buffer
+operator|*
+name|getConstantBufferRange
+argument_list|(
+argument|GLintptr offset
+argument_list|,
+argument|GLsizeiptr size
 argument_list|)
 block|;
 name|ID3D11ShaderResourceView
@@ -178,12 +215,23 @@ operator|::
 name|Error
 name|packPixels
 argument_list|(
-argument|ID3D11Texture2D *srcTexure
+specifier|const
+name|gl
+operator|::
+name|FramebufferAttachment
+operator|&
+name|readAttachment
 argument_list|,
-argument|UINT srcSubresource
-argument_list|,
-argument|const PackPixelsParams&params
+specifier|const
+name|PackPixelsParams
+operator|&
+name|params
 argument_list|)
+block|;
+name|size_t
+name|getTotalCPUBufferMemoryBytes
+argument_list|()
+specifier|const
 block|;
 comment|// BufferD3D implementation
 name|virtual
@@ -202,6 +250,15 @@ name|supportsDirectBinding
 argument_list|()
 specifier|const
 block|;
+name|gl
+operator|::
+name|Error
+name|getData
+argument_list|(
+argument|const uint8_t **outData
+argument_list|)
+name|override
+block|;
 comment|// BufferImpl implementation
 name|virtual
 name|gl
@@ -215,15 +272,6 @@ argument|size_t size
 argument_list|,
 argument|GLenum usage
 argument_list|)
-block|;
-name|gl
-operator|::
-name|Error
-name|getData
-argument_list|(
-argument|const uint8_t **outData
-argument_list|)
-name|override
 block|;
 name|virtual
 name|gl
@@ -259,6 +307,17 @@ operator|::
 name|Error
 name|map
 argument_list|(
+argument|GLenum access
+argument_list|,
+argument|GLvoid **mapPtr
+argument_list|)
+block|;
+name|virtual
+name|gl
+operator|::
+name|Error
+name|mapRange
+argument_list|(
 argument|size_t offset
 argument_list|,
 argument|size_t length
@@ -273,7 +332,11 @@ name|gl
 operator|::
 name|Error
 name|unmap
-argument_list|()
+argument_list|(
+name|GLboolean
+operator|*
+name|result
+argument_list|)
 block|;
 name|virtual
 name|void
@@ -284,6 +347,9 @@ name|private
 operator|:
 name|class
 name|BufferStorage
+block|;
+name|class
+name|EmulatedIndexedStorage
 block|;
 name|class
 name|NativeStorage
@@ -307,15 +373,62 @@ name|mMappedStorage
 block|;
 name|std
 operator|::
-name|map
+name|vector
 operator|<
-name|BufferUsage
-block|,
 name|BufferStorage
 operator|*
 operator|>
 name|mBufferStorages
+block|;      struct
+name|ConstantBufferCacheEntry
+block|{
+name|ConstantBufferCacheEntry
+argument_list|()
+operator|:
+name|storage
+argument_list|(
+name|nullptr
+argument_list|)
+block|,
+name|lruCount
+argument_list|(
+literal|0
+argument_list|)
+block|{ }
+name|BufferStorage
+operator|*
+name|storage
 block|;
+name|unsigned
+name|int
+name|lruCount
+block|;     }
+block|;
+comment|// Cache of D3D11 constant buffer for specific ranges of buffer data.
+comment|// This is used to emulate UBO ranges on 11.0 devices.
+comment|// Constant buffers are indexed by there start offset.
+typedef|typedef
+name|std
+operator|::
+name|map
+operator|<
+name|GLintptr
+comment|/*offset*/
+operator|,
+name|ConstantBufferCacheEntry
+operator|>
+name|ConstantBufferCache
+expr_stmt|;
+name|ConstantBufferCache
+name|mConstantBufferRangeStoragesCache
+decl_stmt|;
+name|size_t
+name|mConstantBufferStorageAdditionalSize
+decl_stmt|;
+name|unsigned
+name|int
+name|mMaxConstantBufferLruCount
+decl_stmt|;
 typedef|typedef
 name|std
 operator|::
@@ -334,17 +447,14 @@ operator|::
 name|map
 operator|<
 name|DXGI_FORMAT
-block|,
+operator|,
 name|BufferSRVPair
 operator|>
 name|mBufferResourceViews
-decl_stmt|;
+expr_stmt|;
 name|unsigned
 name|int
 name|mReadUsageCount
-decl_stmt|;
-name|bool
-name|mHasSystemMemoryStorage
 decl_stmt|;
 name|void
 name|markBufferUsage
@@ -371,6 +481,20 @@ operator|*
 name|storageOut
 argument_list|)
 expr_stmt|;
+name|void
+name|updateBufferStorage
+parameter_list|(
+name|BufferStorage
+modifier|*
+name|storage
+parameter_list|,
+name|size_t
+name|sourceOffset
+parameter_list|,
+name|size_t
+name|storageSize
+parameter_list|)
+function_decl|;
 name|BufferStorage
 modifier|*
 name|getBufferStorage
@@ -385,6 +509,21 @@ name|getLatestBufferStorage
 argument_list|()
 specifier|const
 expr_stmt|;
+name|BufferStorage
+modifier|*
+name|getConstantBufferRangeStorage
+parameter_list|(
+name|GLintptr
+name|offset
+parameter_list|,
+name|GLsizeiptr
+name|size
+parameter_list|)
+function_decl|;
+name|void
+name|invalidateEmulatedIndexedBuffer
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt

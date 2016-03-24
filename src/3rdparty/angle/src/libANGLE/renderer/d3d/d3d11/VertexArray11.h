@@ -55,64 +55,27 @@ name|public
 operator|:
 name|VertexArray11
 argument_list|(
-name|Renderer11
-operator|*
-name|renderer
+specifier|const
+name|gl
+operator|::
+name|VertexArray
+operator|::
+name|Data
+operator|&
+name|data
 argument_list|)
 operator|:
 name|VertexArrayImpl
-argument_list|()
-block|,
-name|mRenderer
 argument_list|(
-argument|renderer
+argument|data
 argument_list|)
 block|{     }
 name|virtual
 operator|~
 name|VertexArray11
 argument_list|()
-block|{ }
-name|virtual
-name|void
-name|setElementArrayBuffer
-argument_list|(
-argument|const gl::Buffer *buffer
-argument_list|)
-block|{ }
-name|virtual
-name|void
-name|setAttribute
-argument_list|(
-argument|size_t idx
-argument_list|,
-argument|const gl::VertexAttribute&attr
-argument_list|)
-block|{ }
-name|virtual
-name|void
-name|setAttributeDivisor
-argument_list|(
-argument|size_t idx
-argument_list|,
-argument|GLuint divisor
-argument_list|)
-block|{ }
-name|virtual
-name|void
-name|enableAttribute
-argument_list|(
-argument|size_t idx
-argument_list|,
-argument|bool enabledState
-argument_list|)
-block|{ }
-name|private
-operator|:
-name|Renderer11
-operator|*
-name|mRenderer
-block|; }
+block|{}
+block|}
 decl_stmt|;
 block|}
 end_decl_stmt

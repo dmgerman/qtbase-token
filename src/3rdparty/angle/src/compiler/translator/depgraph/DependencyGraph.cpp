@@ -14,16 +14,6 @@ end_comment
 begin_comment
 comment|//
 end_comment
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4718
-name|)
-end_pragma
 begin_include
 include|#
 directive|include

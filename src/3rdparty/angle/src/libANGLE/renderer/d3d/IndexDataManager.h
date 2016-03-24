@@ -107,11 +107,37 @@ name|class
 name|RendererD3D
 decl_stmt|;
 struct|struct
+name|SourceIndexData
+block|{
+name|BufferD3D
+modifier|*
+name|srcBuffer
+decl_stmt|;
+specifier|const
+name|GLvoid
+modifier|*
+name|srcIndices
+decl_stmt|;
+name|unsigned
+name|int
+name|srcCount
+decl_stmt|;
+name|GLenum
+name|srcIndexType
+decl_stmt|;
+name|bool
+name|srcIndicesChanged
+decl_stmt|;
+block|}
+struct|;
+struct|struct
 name|TranslatedIndexData
 block|{
-name|RangeUI
+name|gl
+operator|::
+name|IndexRange
 name|indexRange
-decl_stmt|;
+expr_stmt|;
 name|unsigned
 name|int
 name|startIndex
@@ -135,6 +161,9 @@ decl_stmt|;
 name|unsigned
 name|int
 name|serial
+decl_stmt|;
+name|SourceIndexData
+name|srcIndexData
 decl_stmt|;
 block|}
 struct|;
@@ -165,19 +194,39 @@ operator|::
 name|Error
 name|prepareIndexData
 argument_list|(
-argument|GLenum type
+argument|GLenum srcType
 argument_list|,
 argument|GLsizei count
 argument_list|,
-argument|gl::Buffer *arrayElementBuffer
+argument|gl::Buffer *glBuffer
 argument_list|,
 argument|const GLvoid *indices
 argument_list|,
 argument|TranslatedIndexData *translated
+argument_list|,
+argument|bool primitiveRestartFixedIndexEnabled
 argument_list|)
 block|;
 name|private
 operator|:
+name|gl
+operator|::
+name|Error
+name|streamIndexData
+argument_list|(
+argument|const GLvoid *data
+argument_list|,
+argument|unsigned int count
+argument_list|,
+argument|GLenum srcType
+argument_list|,
+argument|GLenum dstType
+argument_list|,
+argument|bool usePrimitiveRestartFixedIndex
+argument_list|,
+argument|TranslatedIndexData *translated
+argument_list|)
+block|;
 name|gl
 operator|::
 name|Error

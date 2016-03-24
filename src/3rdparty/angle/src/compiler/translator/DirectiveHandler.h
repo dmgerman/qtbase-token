@@ -45,6 +45,11 @@ include|#
 directive|include
 file|"compiler/preprocessor/DirectiveHandlerBase.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"GLSLANG/ShaderLang.h"
+end_include
 begin_decl_stmt
 DECL|variable|TDiagnostics
 name|class
@@ -69,19 +74,21 @@ name|public
 label|:
 name|TDirectiveHandler
 argument_list|(
-argument|TExtensionBehavior& extBehavior
+argument|TExtensionBehavior&extBehavior
 argument_list|,
-argument|TDiagnostics& diagnostics
+argument|TDiagnostics&diagnostics
 argument_list|,
-argument|int& shaderVersion
+argument|int&shaderVersion
+argument_list|,
+argument|sh::GLenum shaderType
 argument_list|,
 argument|bool debugShaderPrecisionSupported
 argument_list|)
 empty_stmt|;
-name|virtual
 operator|~
 name|TDirectiveHandler
 argument_list|()
+name|override
 expr_stmt|;
 specifier|const
 name|TPragma
@@ -105,7 +112,6 @@ return|return
 name|mExtensionBehavior
 return|;
 block|}
-name|virtual
 name|void
 name|handleError
 argument_list|(
@@ -123,8 +129,8 @@ name|string
 operator|&
 name|msg
 argument_list|)
+name|override
 decl_stmt|;
-name|virtual
 name|void
 name|handlePragma
 argument_list|(
@@ -152,8 +158,8 @@ argument_list|,
 name|bool
 name|stdgl
 argument_list|)
+name|override
 decl_stmt|;
-name|virtual
 name|void
 name|handleExtension
 argument_list|(
@@ -178,8 +184,8 @@ name|string
 operator|&
 name|behavior
 argument_list|)
+name|override
 decl_stmt|;
-name|virtual
 name|void
 name|handleVersion
 argument_list|(
@@ -193,6 +199,7 @@ argument_list|,
 name|int
 name|version
 argument_list|)
+name|override
 decl_stmt|;
 name|private
 label|:
@@ -211,6 +218,11 @@ name|int
 modifier|&
 name|mShaderVersion
 decl_stmt|;
+name|sh
+operator|::
+name|GLenum
+name|mShaderType
+expr_stmt|;
 name|bool
 name|mDebugShaderPrecisionSupported
 decl_stmt|;

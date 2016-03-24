@@ -46,6 +46,15 @@ modifier|&
 name|symbol
 parameter_list|)
 member_init_list|:
+name|TIntermTraverser
+argument_list|(
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|)
+member_init_list|,
 name|mSymbol
 argument_list|(
 name|symbol

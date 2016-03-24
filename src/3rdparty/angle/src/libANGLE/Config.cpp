@@ -243,6 +243,11 @@ name|transparentBlueValue
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|optimalOrientation
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 DECL|function|add
 name|EGLint
@@ -260,10 +265,16 @@ comment|// Set the config's ID to a small number that starts at 1 ([EGL 1.5] sec
 name|EGLint
 name|id
 init|=
+cast|static_cast
+argument_list|<
+name|EGLint
+argument_list|>
+argument_list|(
 name|mConfigs
 operator|.
 name|size
 argument_list|()
+argument_list|)
 operator|+
 literal|1
 decl_stmt|;
@@ -1364,6 +1375,18 @@ name|config
 operator|.
 name|maxPBufferPixels
 operator|>=
+name|attributeValue
+expr_stmt|;
+break|break;
+case|case
+name|EGL_OPTIMAL_SURFACE_ORIENTATION_ANGLE
+case|:
+name|match
+operator|=
+name|config
+operator|.
+name|optimalOrientation
+operator|==
 name|attributeValue
 expr_stmt|;
 break|break;

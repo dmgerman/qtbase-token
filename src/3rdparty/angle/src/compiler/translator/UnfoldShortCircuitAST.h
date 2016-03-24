@@ -64,8 +64,16 @@ name|public
 operator|:
 name|UnfoldShortCircuitAST
 argument_list|()
-block|{ }
-name|virtual
+operator|:
+name|TIntermTraverser
+argument_list|(
+argument|true
+argument_list|,
+argument|false
+argument_list|,
+argument|false
+argument_list|)
+block|{     }
 name|bool
 name|visitBinary
 argument_list|(
@@ -73,6 +81,7 @@ argument|Visit visit
 argument_list|,
 argument|TIntermBinary *
 argument_list|)
+name|override
 block|; }
 decl_stmt|;
 end_decl_stmt

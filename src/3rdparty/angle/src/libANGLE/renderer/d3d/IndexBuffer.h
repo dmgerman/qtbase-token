@@ -41,11 +41,6 @@ include|#
 directive|include
 file|"libANGLE/Error.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"libANGLE/renderer/IndexRangeCache.h"
-end_include
 begin_decl_stmt
 name|namespace
 name|rx

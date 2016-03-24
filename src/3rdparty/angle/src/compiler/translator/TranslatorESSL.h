@@ -57,7 +57,6 @@ argument|int compileOptions
 argument_list|)
 name|override
 block|;
-name|virtual
 name|void
 name|translate
 argument_list|(
@@ -65,6 +64,7 @@ argument|TIntermNode *root
 argument_list|,
 argument|int compileOptions
 argument_list|)
+name|override
 block|;
 name|private
 operator|:

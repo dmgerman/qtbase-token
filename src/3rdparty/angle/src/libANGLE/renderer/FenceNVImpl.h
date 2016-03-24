@@ -71,7 +71,9 @@ name|gl
 operator|::
 name|Error
 name|set
-argument_list|()
+argument_list|(
+argument|GLenum condition
+argument_list|)
 operator|=
 literal|0
 block|;
@@ -81,9 +83,9 @@ operator|::
 name|Error
 name|test
 argument_list|(
-argument|bool flushCommandBuffer
-argument_list|,
-argument|GLboolean *outFinished
+name|GLboolean
+operator|*
+name|outFinished
 argument_list|)
 operator|=
 literal|0
@@ -92,12 +94,8 @@ name|virtual
 name|gl
 operator|::
 name|Error
-name|finishFence
-argument_list|(
-name|GLboolean
-operator|*
-name|outFinished
-argument_list|)
+name|finish
+argument_list|()
 operator|=
 literal|0
 block|; }

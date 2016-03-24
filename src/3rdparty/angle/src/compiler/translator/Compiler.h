@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"compiler/translator/CallDAG.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"compiler/translator/ExtensionBehavior.h"
 end_include
 begin_include
@@ -131,6 +136,24 @@ name|IsWebGLBasedSpec
 parameter_list|(
 name|ShShaderSpec
 name|spec
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Helper function to check if the shader type is GLSL.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_function_decl
+name|bool
+name|IsGLSL130OrNewer
+parameter_list|(
+name|ShShaderOutput
+name|output
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -225,16 +248,16 @@ argument_list|,
 argument|ShShaderOutput output
 argument_list|)
 block|;
-name|virtual
 operator|~
 name|TCompiler
 argument_list|()
+name|override
 block|;
-name|virtual
 name|TCompiler
 operator|*
 name|getAsCompiler
 argument_list|()
+name|override
 block|{
 return|return
 name|this
@@ -292,6 +315,11 @@ return|return
 name|infoSink
 return|;
 block|}
+comment|// Clears the results from the previous compilation.
+name|void
+name|clearResults
+argument_list|()
+block|;
 specifier|const
 name|std
 operator|::
@@ -317,7 +345,7 @@ name|vector
 operator|<
 name|sh
 operator|::
-name|Attribute
+name|OutputVariable
 operator|>
 operator|&
 name|getOutputVariables
@@ -440,6 +468,13 @@ return|return
 name|builtInResourcesString
 return|;
 block|}
+name|bool
+name|shouldRunLoopAndIndexingValidation
+argument_list|(
+argument|int compileOptions
+argument_list|)
+specifier|const
+block|;
 comment|// Get the resources set by InitBuiltInSymbolTable
 specifier|const
 name|ShBuiltInResources
@@ -476,21 +511,10 @@ name|void
 name|setResourceString
 argument_list|()
 block|;
-comment|// Clears the results from the previous compilation.
-name|void
-name|clearResults
-argument_list|()
-block|;
-comment|// Return true if function recursion is detected or call depth exceeded.
+comment|// Return false if the call depth is exceeded.
 name|bool
-name|detectCallDepth
-argument_list|(
-argument|TIntermNode* root
-argument_list|,
-argument|TInfoSink& infoSink
-argument_list|,
-argument|bool limitCallStackDepth
-argument_list|)
+name|checkCallDepth
+argument_list|()
 block|;
 comment|// Returns true if a program has no conflicting or missing fragment outputs
 name|bool
@@ -650,6 +674,17 @@ name|void
 name|writePragma
 argument_list|()
 block|;
+name|unsigned
+name|int
+operator|*
+name|getTemporaryIndex
+argument_list|()
+block|{
+return|return
+operator|&
+name|mTemporaryIndex
+return|;
+block|}
 specifier|const
 name|ArrayBoundsClamper
 operator|&
@@ -685,7 +720,7 @@ name|vector
 operator|<
 name|sh
 operator|::
-name|Attribute
+name|OutputVariable
 operator|>
 name|outputVariables
 block|;
@@ -729,17 +764,72 @@ name|InterfaceBlock
 operator|>
 name|interfaceBlocks
 block|;
+name|virtual
+name|bool
+name|shouldCollectVariables
+argument_list|(
+argument|int compileOptions
+argument_list|)
+block|{
+return|return
+operator|(
+name|compileOptions
+operator|&
+name|SH_VARIABLES
+operator|)
+operator|!=
+literal|0
+return|;
+block|}
 name|private
 operator|:
+comment|// Creates the function call DAG for further analysis, returning false if there is a recursion
+name|bool
+name|initCallDag
+argument_list|(
+name|TIntermNode
+operator|*
+name|root
+argument_list|)
+block|;
+comment|// Return false if "main" doesn't exist
+name|bool
+name|tagUsedFunctions
+argument_list|()
+block|;
+name|void
+name|internalTagUsedFunction
+argument_list|(
+argument|size_t index
+argument_list|)
+block|;
+name|void
+name|initSamplerDefaultPrecision
+argument_list|(
+argument|TBasicType samplerType
+argument_list|)
+block|;
+comment|// Removes unused function declarations and prototypes from the AST
+name|class
+name|UnusedPredicate
+block|;
+name|bool
+name|pruneUnusedFunctions
+argument_list|(
+name|TIntermNode
+operator|*
+name|root
+argument_list|)
+block|;
 name|TIntermNode
 operator|*
 name|compileTreeImpl
 argument_list|(
-argument|const char* const shaderStrings[]
+argument|const char *const shaderStrings[]
 argument_list|,
 argument|size_t numStrings
 argument_list|,
-argument|int compileOptions
+argument|const int compileOptions
 argument_list|)
 block|;
 name|sh
@@ -752,6 +842,31 @@ name|shaderSpec
 block|;
 name|ShShaderOutput
 name|outputType
+block|;      struct
+name|FunctionMetadata
+block|{
+name|FunctionMetadata
+argument_list|()
+operator|:
+name|used
+argument_list|(
+argument|false
+argument_list|)
+block|{         }
+name|bool
+name|used
+block|;     }
+block|;
+name|CallDAG
+name|mCallDag
+block|;
+name|std
+operator|::
+name|vector
+operator|<
+name|FunctionMetadata
+operator|>
+name|functionMetadata
 block|;
 name|int
 name|maxUniformVectors
@@ -814,6 +929,10 @@ name|nameMap
 block|;
 name|TPragma
 name|mPragma
+block|;
+name|unsigned
+name|int
+name|mTemporaryIndex
 block|; }
 decl_stmt|;
 end_decl_stmt

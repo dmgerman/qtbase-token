@@ -53,6 +53,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"compiler/translator/ASTMetadataHLSL.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"compiler/translator/IntermNode.h"
 end_include
 begin_include
@@ -200,11 +205,24 @@ name|top
 argument_list|()
 return|;
 block|}
+specifier|static
+name|bool
+name|canWriteAsHLSLLiteral
+argument_list|(
+name|TIntermTyped
+operator|*
+name|expression
+argument_list|)
+block|;
 name|protected
 operator|:
 name|void
 name|header
 argument_list|(
+name|TInfoSinkBase
+operator|&
+name|out
+argument_list|,
 specifier|const
 name|BuiltInFunctionEmulator
 operator|*
@@ -297,14 +315,6 @@ argument_list|,
 argument|TIntermBranch*
 argument_list|)
 block|;
-name|void
-name|traverseStatements
-argument_list|(
-name|TIntermNode
-operator|*
-name|node
-argument_list|)
-block|;
 name|bool
 name|isSingleStatement
 argument_list|(
@@ -316,6 +326,10 @@ block|;
 name|bool
 name|handleExcessiveLoop
 argument_list|(
+name|TInfoSinkBase
+operator|&
+name|out
+argument_list|,
 name|TIntermLoop
 operator|*
 name|node
@@ -325,20 +339,8 @@ comment|// Emit one of three strings depending on traverse phase. Called with li
 name|void
 name|outputTriplet
 argument_list|(
-argument|Visit visit
-argument_list|,
-argument|const char *preString
-argument_list|,
-argument|const char *inString
-argument_list|,
-argument|const char *postString
-argument_list|,
 argument|TInfoSinkBase&out
-argument_list|)
-block|;
-name|void
-name|outputTriplet
-argument_list|(
+argument_list|,
 argument|Visit visit
 argument_list|,
 argument|const char *preString
@@ -351,6 +353,8 @@ block|;
 name|void
 name|outputLineDirective
 argument_list|(
+argument|TInfoSinkBase&out
+argument_list|,
 argument|int line
 argument_list|)
 block|;
@@ -374,6 +378,8 @@ comment|// Emit constructor. Called with literal names so using const char* inst
 name|void
 name|outputConstructor
 argument_list|(
+argument|TInfoSinkBase&out
+argument_list|,
 argument|Visit visit
 argument_list|,
 argument|const TType&type
@@ -384,17 +390,21 @@ argument|const TIntermSequence *parameters
 argument_list|)
 block|;
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|*
 name|writeConstantUnion
 argument_list|(
+name|TInfoSinkBase
+operator|&
+name|out
+argument_list|,
 specifier|const
 name|TType
 operator|&
 name|type
 argument_list|,
 specifier|const
-name|ConstantUnion
+name|TConstantUnion
 operator|*
 name|constUnion
 argument_list|)
@@ -414,6 +424,8 @@ block|;
 name|void
 name|writeEmulatedFunctionTriplet
 argument_list|(
+argument|TInfoSinkBase&out
+argument_list|,
 argument|Visit visit
 argument_list|,
 argument|const char *preStr
@@ -451,12 +463,41 @@ operator|*
 name|expression
 argument_list|)
 block|;
+comment|// Returns true if variable initializer could be written using literal {} notation.
+name|bool
+name|writeConstantInitialization
+argument_list|(
+name|TInfoSinkBase
+operator|&
+name|out
+argument_list|,
+name|TIntermSymbol
+operator|*
+name|symbolNode
+argument_list|,
+name|TIntermTyped
+operator|*
+name|expression
+argument_list|)
+block|;
 name|void
 name|writeDeferredGlobalInitializers
 argument_list|(
 name|TInfoSinkBase
 operator|&
 name|out
+argument_list|)
+block|;
+name|void
+name|writeSelection
+argument_list|(
+name|TInfoSinkBase
+operator|&
+name|out
+argument_list|,
+name|TIntermSelection
+operator|*
+name|node
 argument_list|)
 block|;
 comment|// Returns the function name
@@ -480,6 +521,25 @@ argument_list|)
 block|;
 name|TString
 name|addArrayAssignmentFunction
+argument_list|(
+specifier|const
+name|TType
+operator|&
+name|type
+argument_list|)
+block|;
+name|TString
+name|addArrayConstructIntoFunction
+argument_list|(
+specifier|const
+name|TType
+operator|&
+name|type
+argument_list|)
+block|;
+comment|// Ensures if the type is a struct, the struct is defined
+name|void
+name|ensureStructDefined
 argument_list|(
 specifier|const
 name|TType
@@ -511,10 +571,6 @@ name|mOutputType
 block|;
 name|int
 name|mCompileOptions
-block|;
-name|UnfoldShortCircuit
-operator|*
-name|mUnfoldShortCircuit
 block|;
 name|bool
 name|mInsideFunction
@@ -678,11 +734,15 @@ name|int
 name|mUniqueIndex
 decl_stmt|;
 comment|// For creating unique names
-name|bool
-name|mContainsLoopDiscontinuity
+name|CallDAG
+name|mCallDag
 decl_stmt|;
-name|bool
-name|mContainsAnyLoop
+name|MetadataList
+name|mASTMetadataList
+decl_stmt|;
+name|ASTMetadataHLSL
+modifier|*
+name|mCurrentFunctionMetadata
 decl_stmt|;
 name|bool
 name|mOutputLod0Function
@@ -736,26 +796,12 @@ name|TString
 operator|>
 name|mFlaggedStructOriginalNames
 expr_stmt|;
-comment|// Some initializers use varyings, uniforms or attributes, thus we can't evaluate some variables
-comment|// at global static scope in HLSL. These variables depend on values which we retrieve from the
-comment|// shader input structure, which we set in the D3D main function. Instead, we can initialize
-comment|// these static globals after we initialize our other globals.
-name|std
-operator|::
-name|vector
-operator|<
-name|std
-operator|::
-name|pair
-operator|<
-name|TIntermSymbol
-operator|*
-operator|,
-name|TIntermTyped
-operator|*
-operator|>>
+comment|// Some initializers may have been unfolded into if statements, thus we can't evaluate all initializers
+comment|// at global static scope in HLSL. Instead, we can initialize these static globals inside a helper function.
+comment|// This also enables initialization of globals with uniforms.
+name|TIntermSequence
 name|mDeferredGlobalInitializers
-expr_stmt|;
+decl_stmt|;
 struct|struct
 name|HelperFunction
 block|{
@@ -832,6 +878,17 @@ operator|<
 name|ArrayHelperFunction
 operator|>
 name|mArrayAssignmentFunctions
+expr_stmt|;
+comment|// The construct-into functions are functions that fill an N-element array passed as an out parameter
+comment|// with the other N parameters of the function. This is used to work around that arrays can't be
+comment|// return values in HLSL.
+name|std
+operator|::
+name|vector
+operator|<
+name|ArrayHelperFunction
+operator|>
+name|mArrayConstructIntoFunctions
 expr_stmt|;
 block|}
 end_decl_stmt

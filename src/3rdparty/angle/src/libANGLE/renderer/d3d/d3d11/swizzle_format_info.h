@@ -1,0 +1,143 @@
+begin_unit
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Copyright 2015 The ANGLE Project Authors. All rights reserved.
+end_comment
+begin_comment
+comment|// Use of this source code is governed by a BSD-style license that can be
+end_comment
+begin_comment
+comment|// found in the LICENSE file.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// swizzle_format_info:
+end_comment
+begin_comment
+comment|//   Provides information for swizzle format and a map from type->formatinfo
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|LIBANGLE_RENDERER_D3D_D3D11_SWIZZLEFORMATINFO_H_
+end_ifndef
+begin_define
+DECL|macro|LIBANGLE_RENDERER_D3D_D3D11_SWIZZLEFORMATINFO_H_
+define|#
+directive|define
+name|LIBANGLE_RENDERER_D3D_D3D11_SWIZZLEFORMATINFO_H_
+end_define
+begin_include
+include|#
+directive|include
+file|<GLES2/gl2.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<map>
+end_include
+begin_include
+include|#
+directive|include
+file|"common/platform.h"
+end_include
+begin_decl_stmt
+name|namespace
+name|rx
+block|{
+name|namespace
+name|d3d11
+block|{
+struct|struct
+name|SwizzleSizeType
+block|{
+name|size_t
+name|maxComponentSize
+decl_stmt|;
+name|GLenum
+name|componentType
+decl_stmt|;
+name|SwizzleSizeType
+argument_list|()
+expr_stmt|;
+name|SwizzleSizeType
+argument_list|(
+argument|size_t maxComponentSize
+argument_list|,
+argument|GLenum componentType
+argument_list|)
+empty_stmt|;
+name|bool
+name|operator
+operator|<
+operator|(
+specifier|const
+name|SwizzleSizeType
+operator|&
+name|other
+operator|)
+specifier|const
+expr_stmt|;
+block|}
+struct|;
+struct|struct
+name|SwizzleFormatInfo
+block|{
+name|DXGI_FORMAT
+name|mTexFormat
+decl_stmt|;
+name|DXGI_FORMAT
+name|mSRVFormat
+decl_stmt|;
+name|DXGI_FORMAT
+name|mRTVFormat
+decl_stmt|;
+name|SwizzleFormatInfo
+argument_list|()
+expr_stmt|;
+name|SwizzleFormatInfo
+argument_list|(
+argument|DXGI_FORMAT texFormat
+argument_list|,
+argument|DXGI_FORMAT srvFormat
+argument_list|,
+argument|DXGI_FORMAT rtvFormat
+argument_list|)
+empty_stmt|;
+block|}
+struct|;
+specifier|const
+name|SwizzleFormatInfo
+modifier|&
+name|GetSwizzleFormatInfo
+parameter_list|(
+name|GLuint
+name|maxBits
+parameter_list|,
+name|GLenum
+name|componentType
+parameter_list|)
+function_decl|;
+block|}
+comment|// namespace d3d11
+block|}
+end_decl_stmt
+begin_comment
+comment|// namespace rx
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// LIBANGLE_RENDERER_D3D_D3D11_SWIZZLEFORMATINFO_H_
+end_comment
+end_unit

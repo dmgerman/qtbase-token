@@ -308,9 +308,9 @@ parameter_list|(
 specifier|const
 name|gl
 operator|::
-name|Data
+name|Limitations
 modifier|&
-name|data
+name|rendererLimitations
 parameter_list|,
 name|GLenum
 name|type
@@ -346,11 +346,8 @@ argument_list|(
 name|this
 argument_list|,
 name|mFactory
-operator|->
-name|createShader
-argument_list|(
-name|type
-argument_list|)
+argument_list|,
+name|rendererLimitations
 argument_list|,
 name|type
 argument_list|,
@@ -391,9 +388,6 @@ operator|new
 name|Program
 argument_list|(
 name|mFactory
-operator|->
-name|createProgram
-argument_list|()
 argument_list|,
 name|this
 argument_list|,
@@ -1702,6 +1696,8 @@ init|=
 operator|new
 name|Sampler
 argument_list|(
+name|mFactory
+argument_list|,
 name|sampler
 argument_list|)
 decl_stmt|;

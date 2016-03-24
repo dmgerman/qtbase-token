@@ -80,9 +80,13 @@ argument|EGLNativeWindowType window
 argument_list|,
 argument|EGLint fixedSize
 argument_list|,
+argument|EGLint directComposition
+argument_list|,
 argument|EGLint width
 argument_list|,
 argument|EGLint height
+argument_list|,
+argument|EGLint orientation
 argument_list|)
 block|;
 specifier|static
@@ -117,6 +121,14 @@ operator|::
 name|Error
 name|initialize
 argument_list|()
+name|override
+block|;
+name|FramebufferImpl
+operator|*
+name|createDefaultFramebuffer
+argument_list|(
+argument|const gl::Framebuffer::Data&data
+argument_list|)
 name|override
 block|;
 name|egl
@@ -157,6 +169,8 @@ operator|::
 name|Error
 name|bindTexImage
 argument_list|(
+argument|gl::Texture *texture
+argument_list|,
 argument|EGLint buffer
 argument_list|)
 name|override
@@ -195,6 +209,12 @@ argument_list|()
 specifier|const
 name|override
 block|;
+name|EGLint
+name|getSwapBehavior
+argument_list|()
+specifier|const
+name|override
+block|;
 comment|// D3D implementations
 name|SwapChainD3D
 operator|*
@@ -213,6 +233,17 @@ name|bool
 name|checkForOutOfDateSwapChain
 argument_list|()
 block|;
+name|gl
+operator|::
+name|Error
+name|getAttachmentRenderTarget
+argument_list|(
+argument|const gl::FramebufferAttachment::Target&target
+argument_list|,
+argument|FramebufferAttachmentRenderTarget **rtOut
+argument_list|)
+name|override
+block|;
 name|private
 operator|:
 name|SurfaceD3D
@@ -228,6 +259,10 @@ argument_list|,
 argument|EGLint height
 argument_list|,
 argument|EGLint fixedSize
+argument_list|,
+argument|EGLint orientation
+argument_list|,
+argument|EGLint directComposition
 argument_list|,
 argument|EGLClientBuffer shareHandle
 argument_list|,
@@ -268,14 +303,6 @@ argument_list|,
 argument|int backbufferHeight
 argument_list|)
 block|;
-name|void
-name|subclassWindow
-argument_list|()
-block|;
-name|void
-name|unsubclassWindow
-argument_list|()
-block|;
 name|RendererD3D
 operator|*
 name|mRenderer
@@ -288,6 +315,9 @@ name|mDisplay
 block|;
 name|bool
 name|mFixedSize
+block|;
+name|GLint
+name|mOrientation
 block|;
 name|GLenum
 name|mRenderTargetFormat
@@ -302,10 +332,6 @@ block|;
 name|bool
 name|mSwapIntervalDirty
 block|;
-name|bool
-name|mWindowSubclassed
-block|;
-comment|// Indicates whether we successfully subclassed mWindow for WM_RESIZE hooking
 name|NativeWindow
 name|mNativeWindow
 block|;

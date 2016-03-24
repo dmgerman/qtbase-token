@@ -107,6 +107,10 @@ name|buf
 parameter_list|,
 name|size_t
 name|maxSize
+parameter_list|,
+name|int
+modifier|*
+name|lineNo
 parameter_list|)
 function_decl|;
 struct|struct
@@ -148,6 +152,14 @@ return|;
 block|}
 name|private
 label|:
+comment|// Skip a character and return the next character after the one that was skipped.
+comment|// Return nullptr if data runs out.
+specifier|const
+name|char
+modifier|*
+name|skipChar
+parameter_list|()
+function_decl|;
 comment|// Input.
 name|size_t
 name|mCount

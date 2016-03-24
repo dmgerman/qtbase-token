@@ -4,7 +4,7 @@ DECL|macro|ANGLE_COMMIT_HASH
 define|#
 directive|define
 name|ANGLE_COMMIT_HASH
-value|"99f075dade7c"
+value|"8613f4946861"
 end_define
 begin_define
 DECL|macro|ANGLE_COMMIT_HASH_SIZE
@@ -18,6 +18,6 @@ DECL|macro|ANGLE_COMMIT_DATE
 define|#
 directive|define
 name|ANGLE_COMMIT_DATE
-value|"2015-04-02 17:07:24 +0000"
+value|"2016-02-11 19:53:41 +0000"
 end_define
 end_unit

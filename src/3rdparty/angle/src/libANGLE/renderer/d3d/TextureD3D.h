@@ -57,7 +57,7 @@ name|namespace
 name|rx
 block|{
 name|class
-name|ImageD3D
+name|EGLImageD3D
 decl_stmt|;
 name|class
 name|ImageD3D
@@ -201,21 +201,6 @@ argument_list|)
 operator|=
 literal|0
 block|;
-name|virtual
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|ImageIndex
-operator|&
-name|index
-argument_list|)
-operator|=
-literal|0
-block|;
 comment|// Returns an iterator over all "Images" for this particular Texture.
 name|virtual
 name|gl
@@ -253,12 +238,14 @@ specifier|const
 operator|=
 literal|0
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
 name|generateMipmaps
-argument_list|()
+argument_list|(
+argument|const gl::TextureState&textureState
+argument_list|)
+name|override
 block|;
 name|TextureStorage
 operator|*
@@ -271,12 +258,23 @@ name|getBaseLevelImage
 argument_list|()
 specifier|const
 block|;
+name|gl
+operator|::
+name|Error
+name|getAttachmentRenderTarget
+argument_list|(
+argument|const gl::FramebufferAttachment::Target&target
+argument_list|,
+argument|FramebufferAttachmentRenderTarget **rtOut
+argument_list|)
+name|override
+block|;
 name|protected
 operator|:
 name|gl
 operator|::
 name|Error
-name|setImage
+name|setImageImpl
 argument_list|(
 argument|const gl::ImageIndex&index
 argument_list|,
@@ -312,7 +310,7 @@ block|;
 name|gl
 operator|::
 name|Error
-name|setCompressedImage
+name|setCompressedImageImpl
 argument_list|(
 argument|const gl::ImageIndex&index
 argument_list|,
@@ -511,6 +509,12 @@ argument_list|(
 argument|const ImageD3D *image
 argument_list|)
 specifier|const
+block|;
+name|gl
+operator|::
+name|Error
+name|generateMipmapsUsingImages
+argument_list|()
 block|; }
 decl_stmt|;
 name|class
@@ -648,6 +652,8 @@ argument|const gl::Extents&size
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
 argument_list|,
+argument|size_t imageSize
+argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
 name|override
@@ -666,6 +672,8 @@ argument_list|,
 argument|GLenum format
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|size_t imageSize
 argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
@@ -736,6 +744,17 @@ name|void
 name|releaseTexImage
 argument_list|()
 block|;
+name|gl
+operator|::
+name|Error
+name|setEGLImageTarget
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|egl::Image *image
+argument_list|)
+name|override
+block|;
 name|virtual
 name|gl
 operator|::
@@ -753,19 +772,6 @@ name|RenderTargetD3D
 operator|*
 operator|*
 name|outRT
-argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|ImageIndex
-operator|&
-name|index
 argument_list|)
 block|;
 name|virtual
@@ -875,12 +881,17 @@ block|;
 name|void
 name|redefineImage
 argument_list|(
-argument|GLint level
+argument|size_t level
 argument_list|,
 argument|GLenum internalformat
 argument_list|,
 argument|const gl::Extents&size
+argument_list|,
+argument|bool forceRelease
 argument_list|)
+block|;
+name|bool
+name|mEGLImageTarget
 block|;
 name|ImageD3D
 operator|*
@@ -1047,6 +1058,8 @@ argument|const gl::Extents&size
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
 argument_list|,
+argument|size_t imageSize
+argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
 name|override
@@ -1065,6 +1078,8 @@ argument_list|,
 argument|GLenum format
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|size_t imageSize
 argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
@@ -1135,6 +1150,17 @@ name|void
 name|releaseTexImage
 argument_list|()
 block|;
+name|gl
+operator|::
+name|Error
+name|setEGLImageTarget
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|egl::Image *image
+argument_list|)
+name|override
+block|;
 name|virtual
 name|gl
 operator|::
@@ -1152,19 +1178,6 @@ name|RenderTargetD3D
 operator|*
 operator|*
 name|outRT
-argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|ImageIndex
-operator|&
-name|index
 argument_list|)
 block|;
 name|virtual
@@ -1449,6 +1462,8 @@ argument|const gl::Extents&size
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
 argument_list|,
+argument|size_t imageSize
+argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
 name|override
@@ -1467,6 +1482,8 @@ argument_list|,
 argument|GLenum format
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|size_t imageSize
 argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
@@ -1537,6 +1554,17 @@ name|void
 name|releaseTexImage
 argument_list|()
 block|;
+name|gl
+operator|::
+name|Error
+name|setEGLImageTarget
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|egl::Image *image
+argument_list|)
+name|override
+block|;
 name|virtual
 name|gl
 operator|::
@@ -1554,19 +1582,6 @@ name|RenderTargetD3D
 operator|*
 operator|*
 name|outRT
-argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|ImageIndex
-operator|&
-name|index
 argument_list|)
 block|;
 name|virtual
@@ -1828,6 +1843,8 @@ argument|const gl::Extents&size
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
 argument_list|,
+argument|size_t imageSize
+argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
 name|override
@@ -1846,6 +1863,8 @@ argument_list|,
 argument|GLenum format
 argument_list|,
 argument|const gl::PixelUnpackState&unpack
+argument_list|,
+argument|size_t imageSize
 argument_list|,
 argument|const uint8_t *pixels
 argument_list|)
@@ -1916,6 +1935,17 @@ name|void
 name|releaseTexImage
 argument_list|()
 block|;
+name|gl
+operator|::
+name|Error
+name|setEGLImageTarget
+argument_list|(
+argument|GLenum target
+argument_list|,
+argument|egl::Image *image
+argument_list|)
+name|override
+block|;
 name|virtual
 name|gl
 operator|::
@@ -1933,19 +1963,6 @@ name|RenderTargetD3D
 operator|*
 operator|*
 name|outRT
-argument_list|)
-block|;
-name|virtual
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|(
-specifier|const
-name|gl
-operator|::
-name|ImageIndex
-operator|&
-name|index
 argument_list|)
 block|;
 name|virtual

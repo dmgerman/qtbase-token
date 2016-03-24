@@ -25,11 +25,12 @@ define|#
 directive|define
 name|COMPILER_TRANSLATOR_GLSLANG_H_
 end_define
-begin_struct_decl
-struct_decl|struct
+begin_decl_stmt
+DECL|variable|TParseContext
+name|class
 name|TParseContext
-struct_decl|;
-end_struct_decl
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 specifier|extern
 name|int

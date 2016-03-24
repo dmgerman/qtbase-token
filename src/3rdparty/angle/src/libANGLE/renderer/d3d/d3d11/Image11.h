@@ -63,6 +63,9 @@ name|class
 name|Renderer11
 decl_stmt|;
 name|class
+name|TextureHelper11
+decl_stmt|;
+name|class
 name|TextureStorage11
 decl_stmt|;
 name|class
@@ -84,16 +87,6 @@ name|virtual
 operator|~
 name|Image11
 argument_list|()
-block|;
-specifier|static
-name|Image11
-operator|*
-name|makeImage11
-argument_list|(
-name|ImageD3D
-operator|*
-name|img
-argument_list|)
 block|;
 specifier|static
 name|gl
@@ -193,62 +186,29 @@ operator|*
 name|input
 argument_list|)
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
-name|copy
+name|copyFromTexStorage
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|Offset
-operator|&
-name|destOffset
+argument|const gl::ImageIndex&imageIndex
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Rectangle
-operator|&
-name|sourceArea
-argument_list|,
-name|RenderTargetD3D
-operator|*
-name|source
+argument|TextureStorage *source
 argument_list|)
+name|override
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
-name|copy
+name|copyFromFramebuffer
 argument_list|(
-specifier|const
-name|gl
-operator|::
-name|Offset
-operator|&
-name|destOffset
+argument|const gl::Offset&destOffset
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|sourceArea
+argument|const gl::Rectangle&sourceArea
 argument_list|,
-specifier|const
-name|gl
-operator|::
-name|ImageIndex
-operator|&
-name|sourceIndex
-argument_list|,
-name|TextureStorage
-operator|*
-name|source
+argument|const gl::Framebuffer *source
 argument_list|)
+name|override
 block|;
 name|gl
 operator|::
@@ -288,37 +248,13 @@ operator|:
 name|gl
 operator|::
 name|Error
-name|copyToStorageImpl
-argument_list|(
-name|TextureStorage11
-operator|*
-name|storage11
-argument_list|,
-specifier|const
-name|gl
-operator|::
-name|ImageIndex
-operator|&
-name|index
-argument_list|,
-specifier|const
-name|gl
-operator|::
-name|Box
-operator|&
-name|region
-argument_list|)
-block|;
-name|gl
-operator|::
-name|Error
-name|copy
+name|copyWithoutConversion
 argument_list|(
 argument|const gl::Offset&destOffset
 argument_list|,
 argument|const gl::Box&sourceArea
 argument_list|,
-argument|ID3D11Resource *source
+argument|const TextureHelper11&textureHelper
 argument_list|,
 argument|UINT sourceSubResource
 argument_list|)
@@ -346,9 +282,6 @@ block|;
 name|Renderer11
 operator|*
 name|mRenderer
-block|;
-name|D3D_FEATURE_LEVEL
-name|mFeatureLevel
 block|;
 name|DXGI_FORMAT
 name|mDXGIFormat

@@ -48,11 +48,11 @@ argument_list|,
 argument|ShShaderOutput output
 argument_list|)
 block|;
-name|virtual
 name|TranslatorHLSL
 operator|*
 name|getAsTranslatorHLSL
 argument_list|()
+name|override
 block|{
 return|return
 name|this
@@ -90,7 +90,6 @@ specifier|const
 block|;
 name|protected
 operator|:
-name|virtual
 name|void
 name|translate
 argument_list|(
@@ -98,7 +97,20 @@ argument|TIntermNode *root
 argument_list|,
 argument|int compileOptions
 argument_list|)
+name|override
 block|;
+comment|// collectVariables needs to be run always so registers can be assigned.
+name|bool
+name|shouldCollectVariables
+argument_list|(
+argument|int compileOptions
+argument_list|)
+name|override
+block|{
+return|return
+name|true
+return|;
+block|}
 name|std
 operator|::
 name|map

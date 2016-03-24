@@ -45,13 +45,21 @@ name|emu
 parameter_list|)
 block|{
 name|TType
+modifier|*
 name|float1
+init|=
+operator|new
+name|TType
 argument_list|(
 name|EbtFloat
 argument_list|)
 decl_stmt|;
 name|TType
+modifier|*
 name|float2
+init|=
+operator|new
+name|TType
 argument_list|(
 name|EbtFloat
 argument_list|,
@@ -59,7 +67,11 @@ literal|2
 argument_list|)
 decl_stmt|;
 name|TType
+modifier|*
 name|float3
+init|=
+operator|new
+name|TType
 argument_list|(
 name|EbtFloat
 argument_list|,
@@ -67,7 +79,11 @@ literal|3
 argument_list|)
 decl_stmt|;
 name|TType
+modifier|*
 name|float4
+init|=
+operator|new
+name|TType
 argument_list|(
 name|EbtFloat
 argument_list|,
@@ -646,7 +662,11 @@ literal|"}\n"
 argument_list|)
 expr_stmt|;
 name|TType
+modifier|*
 name|uint1
+init|=
+operator|new
+name|TType
 argument_list|(
 name|EbtUInt
 argument_list|)
@@ -850,7 +870,11 @@ literal|"}\n"
 argument_list|)
 expr_stmt|;
 name|TType
+modifier|*
 name|mat2
+init|=
+operator|new
+name|TType
 argument_list|(
 name|EbtFloat
 argument_list|,
@@ -860,7 +884,11 @@ literal|2
 argument_list|)
 decl_stmt|;
 name|TType
+modifier|*
 name|mat3
+init|=
+operator|new
+name|TType
 argument_list|(
 name|EbtFloat
 argument_list|,
@@ -870,7 +898,11 @@ literal|3
 argument_list|)
 decl_stmt|;
 name|TType
+modifier|*
 name|mat4
+init|=
+operator|new
+name|TType
 argument_list|(
 name|EbtFloat
 argument_list|,
@@ -972,6 +1004,128 @@ literal|" - m[0][0] * m[2][1] * m[1][2] - m[1][0] * m[0][1] * m[2][2] - m[2][0] 
 literal|"    float4x4 cof = { cof00, cof10, cof20, cof30, cof01, cof11, cof21, cof31,"
 literal|" cof02, cof12, cof22, cof32, cof03, cof13, cof23, cof33 };\n"
 literal|"    return cof / determinant(transpose(m));\n"
+literal|"}\n"
+argument_list|)
+expr_stmt|;
+name|TType
+modifier|*
+name|bool1
+init|=
+operator|new
+name|TType
+argument_list|(
+name|EbtBool
+argument_list|)
+decl_stmt|;
+name|TType
+modifier|*
+name|bool2
+init|=
+operator|new
+name|TType
+argument_list|(
+name|EbtBool
+argument_list|,
+literal|2
+argument_list|)
+decl_stmt|;
+name|TType
+modifier|*
+name|bool3
+init|=
+operator|new
+name|TType
+argument_list|(
+name|EbtBool
+argument_list|,
+literal|3
+argument_list|)
+decl_stmt|;
+name|TType
+modifier|*
+name|bool4
+init|=
+operator|new
+name|TType
+argument_list|(
+name|EbtBool
+argument_list|,
+literal|4
+argument_list|)
+decl_stmt|;
+comment|// Emulate ESSL3 variant of mix that takes last argument as boolean vector.
+comment|// genType mix (genType x, genType y, genBType a): Selects which vector each returned component comes from.
+comment|// For a component of 'a' that is false, the corresponding component of 'x' is returned.For a component of 'a' that is true,
+comment|// the corresponding component of 'y' is returned.
+name|emu
+operator|->
+name|addEmulatedFunction
+argument_list|(
+name|EOpMix
+argument_list|,
+name|float1
+argument_list|,
+name|float1
+argument_list|,
+name|bool1
+argument_list|,
+literal|"float webgl_mix_emu(float x, float y, bool a)\n"
+literal|"{\n"
+literal|"    return a ? y : x;\n"
+literal|"}\n"
+argument_list|)
+expr_stmt|;
+name|emu
+operator|->
+name|addEmulatedFunction
+argument_list|(
+name|EOpMix
+argument_list|,
+name|float2
+argument_list|,
+name|float2
+argument_list|,
+name|bool2
+argument_list|,
+literal|"float2 webgl_mix_emu(float2 x, float2 y, bool2 a)\n"
+literal|"{\n"
+literal|"    return a ? y : x;\n"
+literal|"}\n"
+argument_list|)
+expr_stmt|;
+name|emu
+operator|->
+name|addEmulatedFunction
+argument_list|(
+name|EOpMix
+argument_list|,
+name|float3
+argument_list|,
+name|float3
+argument_list|,
+name|bool3
+argument_list|,
+literal|"float3 webgl_mix_emu(float3 x, float3 y, bool3 a)\n"
+literal|"{\n"
+literal|"    return a ? y : x;\n"
+literal|"}\n"
+argument_list|)
+expr_stmt|;
+name|emu
+operator|->
+name|addEmulatedFunction
+argument_list|(
+name|EOpMix
+argument_list|,
+name|float4
+argument_list|,
+name|float4
+argument_list|,
+name|bool4
+argument_list|,
+literal|"float4 webgl_mix_emu(float4 x, float4 y, bool4 a)\n"
+literal|"{\n"
+literal|"    return a ? y : x;\n"
 literal|"}\n"
 argument_list|)
 expr_stmt|;

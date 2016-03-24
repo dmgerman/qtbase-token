@@ -48,6 +48,9 @@ name|namespace
 name|rx
 block|{
 name|class
+name|EGLImageD3D
+decl_stmt|;
+name|class
 name|RendererD3D
 decl_stmt|;
 name|class
@@ -76,17 +79,6 @@ operator|~
 name|RenderbufferD3D
 argument_list|()
 block|;
-specifier|static
-name|RenderbufferD3D
-operator|*
-name|makeRenderbufferD3D
-argument_list|(
-name|RenderbufferImpl
-operator|*
-name|renderbuffer
-argument_list|)
-block|;
-name|virtual
 name|gl
 operator|::
 name|Error
@@ -100,7 +92,6 @@ argument|size_t height
 argument_list|)
 name|override
 block|;
-name|virtual
 name|gl
 operator|::
 name|Error
@@ -116,16 +107,36 @@ argument|size_t height
 argument_list|)
 name|override
 block|;
+name|gl
+operator|::
+name|Error
+name|setStorageEGLImageTarget
+argument_list|(
+argument|egl::Image *image
+argument_list|)
+name|override
+block|;
+name|gl
+operator|::
+name|Error
+name|getRenderTarget
+argument_list|(
 name|RenderTargetD3D
 operator|*
-name|getRenderTarget
-argument_list|()
+operator|*
+name|outRenderTarget
+argument_list|)
 block|;
-name|unsigned
-name|int
-name|getRenderTargetSerial
-argument_list|()
-specifier|const
+name|gl
+operator|::
+name|Error
+name|getAttachmentRenderTarget
+argument_list|(
+argument|const gl::FramebufferAttachment::Target&target
+argument_list|,
+argument|FramebufferAttachmentRenderTarget **rtOut
+argument_list|)
+name|override
 block|;
 name|private
 operator|:
@@ -136,6 +147,10 @@ block|;
 name|RenderTargetD3D
 operator|*
 name|mRenderTarget
+block|;
+name|EGLImageD3D
+operator|*
+name|mImage
 block|; }
 decl_stmt|;
 block|}

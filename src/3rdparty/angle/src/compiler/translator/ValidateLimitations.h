@@ -60,7 +60,7 @@ name|ValidateLimitations
 argument_list|(
 argument|sh::GLenum shaderType
 argument_list|,
-argument|TInfoSinkBase&sink
+argument|TInfoSinkBase *sink
 argument_list|)
 block|;
 name|int
@@ -72,44 +72,49 @@ return|return
 name|mNumErrors
 return|;
 block|}
-name|virtual
 name|bool
 name|visitBinary
 argument_list|(
-name|Visit
+argument|Visit
 argument_list|,
-name|TIntermBinary
-operator|*
+argument|TIntermBinary *
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitUnary
 argument_list|(
-name|Visit
+argument|Visit
 argument_list|,
-name|TIntermUnary
-operator|*
+argument|TIntermUnary *
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitAggregate
 argument_list|(
-name|Visit
+argument|Visit
 argument_list|,
-name|TIntermAggregate
-operator|*
+argument|TIntermAggregate *
 argument_list|)
+name|override
 block|;
-name|virtual
 name|bool
 name|visitLoop
 argument_list|(
-name|Visit
+argument|Visit
 argument_list|,
+argument|TIntermLoop *
+argument_list|)
+name|override
+block|;
+specifier|static
+name|bool
+name|IsLimitedForLoop
+argument_list|(
 name|TIntermLoop
 operator|*
+name|node
 argument_list|)
 block|;
 name|private
@@ -232,7 +237,7 @@ name|GLenum
 name|mShaderType
 block|;
 name|TInfoSinkBase
-operator|&
+operator|*
 name|mSink
 block|;
 name|int
@@ -240,6 +245,12 @@ name|mNumErrors
 block|;
 name|TLoopStack
 name|mLoopStack
+block|;
+name|bool
+name|mValidateIndexing
+block|;
+name|bool
+name|mValidateInnerLoops
 block|; }
 decl_stmt|;
 end_decl_stmt
