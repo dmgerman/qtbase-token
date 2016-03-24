@@ -1133,7 +1133,7 @@ begin_comment
 comment|/*!     \fn QMetaObject *QMetaObject::superClass() const      Returns the meta-object of the superclass, or 0 if there is no     such object.      \sa className() */
 end_comment
 begin_comment
-comment|/*     Returns \c true if the class described by this QMetaObject inherits     the type described by \a metaObject; otherwise returns false.      A type is considered to inherit itself.      \since 5.7 */
+comment|/*!     Returns \c true if the class described by this QMetaObject inherits     the type described by \a metaObject; otherwise returns false.      A type is considered to inherit itself.      \since 5.7 */
 end_comment
 begin_function
 name|bool

@@ -364,8 +364,8 @@ begin_comment
 comment|//! [96]
 end_comment
 begin_expr_stmt
-name|qApp
-operator|->
+name|QCoreApplication
+operator|::
 name|setAttribute
 argument_list|(
 name|Qt
@@ -377,6 +377,6 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_comment
-comment|//! [97]
+comment|//! [96]
 end_comment
 end_unit

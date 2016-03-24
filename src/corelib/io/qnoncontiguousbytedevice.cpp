@@ -35,13 +35,13 @@ begin_comment
 comment|/*!     \fn virtual bool QNonContiguousByteDevice::advanceReadPointer(qint64 amount)       will advance the internal read pointer by \a amount bytes.      The old readPointer is invalid after this call.      \sa readPointer()      \internal */
 end_comment
 begin_comment
-comment|/*!     \fn virtual bool QNonContiguousByteDevice::atEnd()       Returns \c true if everything has been read and the read      pointer cannot be advanced anymore.      \sa readPointer(), advanceReadPointer(), reset()      \internal */
+comment|/*!     \fn virtual bool QNonContiguousByteDevice::atEnd() const       Returns \c true if everything has been read and the read      pointer cannot be advanced anymore.      \sa readPointer(), advanceReadPointer(), reset()      \internal */
 end_comment
 begin_comment
 comment|/*!     \fn virtual bool QNonContiguousByteDevice::reset()      Moves the internal read pointer back to the beginning.     Returns \c false if this was not possible.      \sa atEnd()      \internal */
 end_comment
 begin_comment
-comment|/*!     \fn virtual qint64 QNonContiguousByteDevice::size()      Returns the size of the complete device or -1 if unknown.     May also return less/more than what can be actually read with readPointer()      \internal */
+comment|/*!     \fn virtual qint64 QNonContiguousByteDevice::size() const      Returns the size of the complete device or -1 if unknown.     May also return less/more than what can be actually read with readPointer()      \internal */
 end_comment
 begin_comment
 comment|/*!     \fn void QNonContiguousByteDevice::readyRead()      Emitted when there is data available      \internal */
