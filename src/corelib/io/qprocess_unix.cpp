@@ -3460,7 +3460,7 @@ name|QPROCESS_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QProcessPrivate::killProcess()"
+literal|"QProcessPrivate::terminateProcess()"
 argument_list|)
 expr_stmt|;
 endif|#
