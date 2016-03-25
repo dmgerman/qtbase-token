@@ -169,13 +169,6 @@ argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
 name|virtual
-name|bool
-name|canReadLine
-argument_list|()
-specifier|const
-name|Q_DECL_OVERRIDE
-block|;
-name|virtual
 name|qint64
 name|readData
 argument_list|(
@@ -727,14 +720,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// Used for normal downloading. For "zero copy" the downloadBuffer is used
-end_comment
-begin_decl_stmt
-name|QByteDataBuffer
-name|readBuffer
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|qint64
 name|bytesDownloaded
@@ -771,7 +756,7 @@ name|state
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// only used when the "zero copy" style is used. Else readBuffer is used.
+comment|// Only used when the "zero copy" style is used.
 end_comment
 begin_comment
 comment|// Please note that the whole "zero copy" download buffer API is private right now. Do not use it.

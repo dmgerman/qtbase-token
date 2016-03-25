@@ -770,10 +770,6 @@ block|;
 name|qint64
 name|preMigrationDownloaded
 block|;
-comment|// Used for normal downloading. For "zero copy" the downloadZerocopyBuffer is used
-name|QByteDataBuffer
-name|downloadMultiBuffer
-block|;
 name|QByteDataBuffer
 name|pendingDownloadData
 block|;
@@ -781,7 +777,10 @@ comment|// For signal compression
 name|qint64
 name|bytesDownloaded
 block|;
-comment|// only used when the "zero copy" style is used. Else downloadMultiBuffer is used.
+name|qint64
+name|bytesBuffered
+block|;
+comment|// Only used when the "zero copy" style is used.
 comment|// Please note that the whole "zero copy" download buffer API is private right now. Do not use it.
 name|qint64
 name|downloadBufferReadPosition
