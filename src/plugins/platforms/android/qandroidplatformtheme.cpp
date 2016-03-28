@@ -2341,6 +2341,18 @@ literal|72
 argument_list|)
 expr_stmt|;
 comment|// keep default size the same after changing from 100 dpi to 72 dpi
+comment|// by default use native menu bar
+name|QCoreApplication
+operator|::
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|AA_DontUseNativeMenuBar
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_function
