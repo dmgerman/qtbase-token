@@ -245,7 +245,58 @@ name|QtActivity
 extends|extends
 name|Activity
 block|{
+DECL|field|APPLICATION_PARAMETERS
+specifier|public
+name|String
+name|APPLICATION_PARAMETERS
+init|=
+literal|null
+decl_stmt|;
+comment|// use this variable to pass any parameters to your application,
+comment|// the parameters must not contain any white spaces
+comment|// and must be separated with "\t"
+comment|// e.g "-param1\t-param2=value2\t-param3\tvalue3"
+DECL|field|ENVIRONMENT_VARIABLES
+specifier|public
+name|String
+name|ENVIRONMENT_VARIABLES
+init|=
+literal|"QT_USE_ANDROID_NATIVE_DIALOGS=1"
+decl_stmt|;
+comment|// use this variable to add any environment variables to your application.
+comment|// the env vars must be separated with "\t"
+comment|// e.g. "ENV_VAR1=1\tENV_VAR2=2\t"
+comment|// Currently the following vars are used by the android plugin:
+comment|// * QT_USE_ANDROID_NATIVE_DIALOGS - 1 to use the android native dialogs.
+DECL|field|QT_ANDROID_THEMES
+specifier|public
+name|String
+index|[]
+name|QT_ANDROID_THEMES
+init|=
+literal|null
+decl_stmt|;
+comment|// A list with all themes that your application want to use.
+comment|// The name of the theme must be the same with any theme from
+comment|// http://developer.android.com/reference/android/R.style.html
+comment|// The most used themes are:
+comment|//  * "Theme" - (fallback) check http://developer.android.com/reference/android/R.style.html#Theme
+comment|//  * "Theme_Black" - check http://developer.android.com/reference/android/R.style.html#Theme_Black
+comment|//  * "Theme_Light" - (default for API<=10) check http://developer.android.com/reference/android/R.style.html#Theme_Light
+comment|//  * "Theme_Holo" - check http://developer.android.com/reference/android/R.style.html#Theme_Holo
+comment|//  * "Theme_Holo_Light" - (default for API 11-13) check http://developer.android.com/reference/android/R.style.html#Theme_Holo_Light
+comment|//  * "Theme_DeviceDefault" - check http://developer.android.com/reference/android/R.style.html#Theme_DeviceDefault
+comment|//  * "Theme_DeviceDefault_Light" - (default for API 14+) check http://developer.android.com/reference/android/R.style.html#Theme_DeviceDefault_Light
+DECL|field|QT_ANDROID_DEFAULT_THEME
+specifier|public
+name|String
+name|QT_ANDROID_DEFAULT_THEME
+init|=
+literal|null
+decl_stmt|;
+comment|// sets the default theme.
 DECL|field|m_loader
+specifier|private
 name|QtActivityLoader
 name|m_loader
 decl_stmt|;
@@ -273,8 +324,6 @@ operator|>=
 literal|21
 condition|)
 block|{
-name|m_loader
-operator|.
 name|QT_ANDROID_THEMES
 operator|=
 operator|new
@@ -284,8 +333,6 @@ block|{
 literal|"Theme_Holo_Light"
 block|}
 expr_stmt|;
-name|m_loader
-operator|.
 name|QT_ANDROID_DEFAULT_THEME
 operator|=
 literal|"Theme_Holo_Light"
@@ -293,8 +340,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|m_loader
-operator|.
 name|QT_ANDROID_THEMES
 operator|=
 operator|new
@@ -304,8 +349,6 @@ block|{
 literal|"Theme_DeviceDefault_Light"
 block|}
 expr_stmt|;
-name|m_loader
-operator|.
 name|QT_ANDROID_DEFAULT_THEME
 operator|=
 literal|"Theme_DeviceDefault_Light"
@@ -1046,6 +1089,30 @@ name|onCreate
 argument_list|(
 name|savedInstanceState
 argument_list|)
+expr_stmt|;
+name|m_loader
+operator|.
+name|APPLICATION_PARAMETERS
+operator|=
+name|APPLICATION_PARAMETERS
+expr_stmt|;
+name|m_loader
+operator|.
+name|ENVIRONMENT_VARIABLES
+operator|=
+name|ENVIRONMENT_VARIABLES
+expr_stmt|;
+name|m_loader
+operator|.
+name|QT_ANDROID_THEMES
+operator|=
+name|QT_ANDROID_THEMES
+expr_stmt|;
+name|m_loader
+operator|.
+name|QT_ANDROID_DEFAULT_THEME
+operator|=
+name|QT_ANDROID_DEFAULT_THEME
 expr_stmt|;
 name|m_loader
 operator|.
