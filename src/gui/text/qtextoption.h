@@ -329,6 +329,10 @@ name|SuppressColors
 init|=
 literal|0x8
 block|,
+name|ShowDocumentTerminator
+init|=
+literal|0x10
+block|,
 name|IncludeTrailingSpaces
 init|=
 literal|0x80000000
