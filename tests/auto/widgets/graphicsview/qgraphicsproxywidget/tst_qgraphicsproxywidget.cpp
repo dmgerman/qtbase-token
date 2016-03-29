@@ -7373,12 +7373,12 @@ operator|->
 name|update
 argument_list|()
 expr_stmt|;
-name|QTRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
 name|proxy
 operator|.
 name|paintCount
-argument_list|,
+operator|>=
 literal|1
 argument_list|)
 expr_stmt|;
