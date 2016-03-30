@@ -6637,11 +6637,6 @@ modifier|&
 name|after
 parameter_list|)
 block|{
-name|QString
-name|copy
-init|=
-name|after
-decl_stmt|;
 return|return
 name|replace
 argument_list|(
@@ -6649,12 +6644,12 @@ name|pos
 argument_list|,
 name|len
 argument_list|,
-name|copy
+name|after
 operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|copy
+name|after
 operator|.
 name|length
 argument_list|()
