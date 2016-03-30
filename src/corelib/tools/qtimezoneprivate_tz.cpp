@@ -188,14 +188,17 @@ condition|)
 block|{
 comment|// Data rows are tab-separated columns Region, Coordinates, ID, Optional Comments
 specifier|const
-name|QStringList
+specifier|auto
 name|parts
 init|=
 name|line
 operator|.
-name|split
+name|splitRef
+argument_list|(
+name|QLatin1Char
 argument_list|(
 literal|'\t'
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QTzTimeZone
