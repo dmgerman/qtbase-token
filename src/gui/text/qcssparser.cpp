@@ -115,6 +115,12 @@ name|QtBlockIndent
 block|}
 block|,
 block|{
+literal|"-qt-line-height-type"
+block|,
+name|QtLineHeightType
+block|}
+block|,
+block|{
 literal|"-qt-list-indent"
 block|,
 name|QtListIndent

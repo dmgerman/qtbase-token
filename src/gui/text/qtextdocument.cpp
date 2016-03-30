@@ -10699,6 +10699,23 @@ operator|::
 name|SingleHeight
 condition|)
 block|{
+name|html
+operator|+=
+name|QLatin1String
+argument_list|(
+literal|" line-height:"
+argument_list|)
+operator|+
+name|QString
+operator|::
+name|number
+argument_list|(
+name|format
+operator|.
+name|lineHeight
+argument_list|()
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|format
@@ -10712,6 +10729,14 @@ name|QTextBlockFormat
 operator|::
 name|ProportionalHeight
 case|:
+name|html
+operator|+=
+name|QLatin1String
+argument_list|(
+literal|"%;"
+argument_list|)
+expr_stmt|;
+break|break;
 case|case
 name|QTextBlockFormat
 operator|::
@@ -10721,7 +10746,7 @@ name|html
 operator|+=
 name|QLatin1String
 argument_list|(
-literal|" line-height:"
+literal|"; -qt-line-height-type: fixed;"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -10734,7 +10759,7 @@ name|html
 operator|+=
 name|QLatin1String
 argument_list|(
-literal|" min-height:"
+literal|"px;"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -10747,57 +10772,21 @@ name|html
 operator|+=
 name|QLatin1String
 argument_list|(
-literal|" line-spacing:"
+literal|"; -qt-line-height-type: line-distance;"
 argument_list|)
 expr_stmt|;
 break|break;
-case|case
-name|QTextBlockFormat
-operator|::
-name|SingleHeight
-case|:
 default|default:
+name|html
+operator|+=
+name|QLatin1String
+argument_list|(
+literal|";"
+argument_list|)
+expr_stmt|;
 break|break;
 comment|// Should never reach here
 block|}
-name|html
-operator|+=
-name|QString
-operator|::
-name|number
-argument_list|(
-name|format
-operator|.
-name|lineHeight
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|format
-operator|.
-name|lineHeightType
-argument_list|()
-operator|==
-name|QTextBlockFormat
-operator|::
-name|ProportionalHeight
-condition|)
-name|html
-operator|+=
-name|QLatin1String
-argument_list|(
-literal|"%;"
-argument_list|)
-expr_stmt|;
-else|else
-name|html
-operator|+=
-name|QLatin1String
-argument_list|(
-literal|"px;"
-argument_list|)
-expr_stmt|;
 block|}
 name|emitPageBreakPolicy
 argument_list|(

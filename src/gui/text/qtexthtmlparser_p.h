@@ -414,6 +414,12 @@ name|hasOwnListStyle
 range|:
 literal|1
 decl_stmt|;
+DECL|member|hasOwnLineHeightType
+name|uint
+name|hasOwnLineHeightType
+range|:
+literal|1
+decl_stmt|;
 DECL|member|hasCssListIndent
 name|uint
 name|hasCssListIndent

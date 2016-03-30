@@ -356,6 +356,8 @@ name|QtListNumberSuffix
 block|,
 name|LineHeight
 block|,
+name|QtLineHeightType
+block|,
 name|NumProperties
 block|}
 enum|;
