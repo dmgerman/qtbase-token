@@ -662,7 +662,10 @@ return|return
 operator|!
 name|t
 operator|.
-name|inherits
+name|parentMimeTypes
+argument_list|()
+operator|.
+name|contains
 argument_list|(
 name|parentName
 argument_list|)
