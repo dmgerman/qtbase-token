@@ -2757,7 +2757,7 @@ name|QUrlInfo
 operator|::
 name|WriteOther
 decl_stmt|;
-name|QString
+name|QStringRef
 name|ext
 decl_stmt|;
 name|int
@@ -2784,7 +2784,7 @@ name|ext
 operator|=
 name|name
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|extIndex
 operator|+
@@ -4686,12 +4686,12 @@ argument_list|(
 literal|'-'
 argument_list|)
 expr_stmt|;
-name|QString
+name|QStringRef
 name|lineLeft4
 init|=
 name|line
 operator|.
-name|left
+name|leftRef
 argument_list|(
 literal|4
 argument_list|)
@@ -4713,7 +4713,7 @@ name|replyText
 operator|+=
 name|line
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|4
 argument_list|)
@@ -4749,7 +4749,7 @@ name|lineLeft4
 operator|=
 name|line
 operator|.
-name|left
+name|leftRef
 argument_list|(
 literal|4
 argument_list|)
@@ -4759,7 +4759,7 @@ name|replyText
 operator|+=
 name|line
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|4
 argument_list|)
@@ -5348,12 +5348,13 @@ argument_list|(
 name|portPos
 argument_list|)
 decl_stmt|;
-name|QStringList
+specifier|const
+specifier|auto
 name|epsvParameters
 init|=
 name|replyText
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|portPos
 argument_list|)

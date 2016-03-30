@@ -754,12 +754,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|QStringList
+specifier|const
+specifier|auto
 name|descriptionList
 init|=
 name|descriptionOneLine
 operator|.
-name|split
+name|splitRef
 argument_list|(
 name|QLatin1Char
 argument_list|(
@@ -802,6 +803,9 @@ name|at
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 name|QString
 name|protoString
@@ -812,6 +816,9 @@ name|at
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 decl_stmt|;
 name|ciph
 operator|.
@@ -964,6 +971,9 @@ name|mid
 argument_list|(
 literal|3
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -999,6 +1009,9 @@ name|mid
 argument_list|(
 literal|3
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -1034,6 +1047,9 @@ name|mid
 argument_list|(
 literal|4
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 name|ciph
 operator|.

@@ -3470,12 +3470,12 @@ name|invalid
 return|;
 comment|// invalid netmask
 comment|// parse the address manually
-name|QStringList
+name|auto
 name|parts
 init|=
 name|netStr
 operator|.
-name|split
+name|splitRef
 argument_list|(
 name|QLatin1Char
 argument_list|(
@@ -3505,7 +3505,7 @@ if|if
 condition|(
 name|parts
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|isEmpty

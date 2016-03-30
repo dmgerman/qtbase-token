@@ -3709,7 +3709,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|const
-name|QStringList
+specifier|auto
 name|bits
 init|=
 name|ciph
@@ -3718,9 +3718,12 @@ name|d
 operator|->
 name|name
 operator|.
-name|split
+name|splitRef
+argument_list|(
+name|QLatin1Char
 argument_list|(
 literal|'-'
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
