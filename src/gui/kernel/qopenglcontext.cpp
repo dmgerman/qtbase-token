@@ -1381,6 +1381,11 @@ argument_list|(
 name|screen
 argument_list|)
 condition|)
+block|{
+name|screen
+operator|=
+literal|0
+expr_stmt|;
 name|q
 operator|->
 name|setScreen
@@ -1388,6 +1393,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
