@@ -1365,6 +1365,16 @@ name|arguments
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|arguments
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+literal|1
+return|;
 name|parser
 operator|.
 name|process
