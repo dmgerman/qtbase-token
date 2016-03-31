@@ -5536,15 +5536,22 @@ literal|2
 argument_list|)
 decl_stmt|;
 comment|// -2 so that Ctrl++ works
+name|QStringRef
+name|accelRef
+argument_list|(
+operator|&
+name|accel
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|p
 operator|>
 literal|0
 condition|)
-name|accel
+name|accelRef
 operator|=
-name|accel
+name|accelRef
 operator|.
 name|mid
 argument_list|(
@@ -5560,7 +5567,7 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|accel
+name|accelRef
 operator|.
 name|length
 argument_list|()
@@ -5579,7 +5586,7 @@ name|qtKey
 init|=
 name|qtkeyForMacSymbol
 argument_list|(
-name|accel
+name|accelRef
 operator|.
 name|at
 argument_list|(
@@ -5606,7 +5613,7 @@ directive|endif
 block|{
 name|ret
 operator||=
-name|accel
+name|accelRef
 operator|.
 name|at
 argument_list|(
@@ -5624,7 +5631,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|accel
+name|accelRef
 operator|.
 name|at
 argument_list|(
@@ -5639,7 +5646,7 @@ operator|&&
 operator|(
 name|fnum
 operator|=
-name|accel
+name|accelRef
 operator|.
 name|mid
 argument_list|(
@@ -5755,7 +5762,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|accel
+name|accelRef
 operator|==
 name|keyName
 operator|.

@@ -3735,14 +3735,15 @@ condition|)
 return|return
 name|family_list
 return|;
-name|QStringList
+specifier|const
+specifier|auto
 name|list
 init|=
 name|req
 operator|.
 name|family
 operator|.
-name|split
+name|splitRef
 argument_list|(
 name|QLatin1Char
 argument_list|(
@@ -3781,7 +3782,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QString
+name|QStringRef
 name|str
 init|=
 name|list
@@ -3859,6 +3860,9 @@ expr_stmt|;
 name|family_list
 operator|<<
 name|str
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 block|}
 comment|// append the substitute list for each family in family_list
