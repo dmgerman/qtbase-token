@@ -3045,7 +3045,10 @@ name|void
 name|huntAndUnregister
 parameter_list|(
 specifier|const
-name|QStringList
+name|QVector
+argument_list|<
+name|QStringRef
+argument_list|>
 modifier|&
 name|pathComponents
 parameter_list|,
@@ -12900,7 +12903,10 @@ init|=
 operator|&
 name|rootNode
 decl_stmt|;
-name|QStringList
+name|QVector
+argument_list|<
+name|QStringRef
+argument_list|>
 name|pathComponents
 decl_stmt|;
 name|int
@@ -12927,7 +12933,7 @@ name|pathComponents
 operator|=
 name|path
 operator|.
-name|split
+name|splitRef
 argument_list|(
 name|QLatin1Char
 argument_list|(
