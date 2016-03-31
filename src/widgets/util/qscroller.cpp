@@ -945,6 +945,11 @@ modifier|*
 name|_d
 parameter_list|)
 member_init_list|:
+name|QAbstractAnimation
+argument_list|(
+name|_d
+argument_list|)
+member_init_list|,
 name|d
 argument_list|(
 name|_d
