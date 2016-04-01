@@ -144,25 +144,26 @@ name|abs
 operator|=
 literal|false
 argument_list|;
-name|QStringList
+specifier|const
+name|auto
 name|args
 operator|=
 name|specification
 operator|.
-name|split
+name|splitRef
 argument_list|(
 name|QLatin1Char
 argument_list|(
 literal|':'
 argument_list|)
 argument_list|)
-argument_list|;     foreach
+argument_list|;     for
 operator|(
 specifier|const
-name|QString
+name|QStringRef
 operator|&
 name|arg
-operator|,
+operator|:
 name|args
 operator|)
 block|{

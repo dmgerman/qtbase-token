@@ -3265,12 +3265,13 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|QStringList
+specifier|const
+specifier|auto
 name|parts
 init|=
 name|versionString
 operator|.
-name|split
+name|splitRef
 argument_list|(
 name|QLatin1Char
 argument_list|(
