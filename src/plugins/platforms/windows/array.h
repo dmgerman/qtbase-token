@@ -252,7 +252,12 @@ name|oldData
 operator|+
 name|m_size
 argument_list|,
+name|QT_MAKE_CHECKED_ARRAY_ITERATOR
+argument_list|(
 name|data
+argument_list|,
+name|capacity
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|delete

@@ -7022,7 +7022,17 @@ name|b
 argument_list|,
 name|e
 argument_list|,
+name|QT_MAKE_CHECKED_ARRAY_ITERATOR
+argument_list|(
 name|lb
+argument_list|,
+name|l
+operator|.
+name|p
+operator|.
+name|size
+argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}

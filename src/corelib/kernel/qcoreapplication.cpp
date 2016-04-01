@@ -2044,7 +2044,12 @@ name|argv
 operator|+
 name|argc
 argument_list|,
+name|QT_MAKE_CHECKED_ARRAY_ITERATOR
+argument_list|(
 name|origArgv
+argument_list|,
+name|argc
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

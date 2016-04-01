@@ -152,7 +152,12 @@ name|key
 operator|+
 name|MaxKeyCount
 argument_list|,
+name|QT_MAKE_CHECKED_ARRAY_ITERATOR
+argument_list|(
 name|key
+argument_list|,
+name|MaxKeyCount
+argument_list|)
 argument_list|)
 block|;     }
 name|QAtomicInt

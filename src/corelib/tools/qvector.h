@@ -5976,7 +5976,16 @@ name|b
 argument_list|,
 name|e
 argument_list|,
+name|QT_MAKE_CHECKED_ARRAY_ITERATOR
+argument_list|(
 name|vb
+argument_list|,
+name|v
+operator|.
+name|d
+operator|->
+name|size
+argument_list|)
 argument_list|)
 return|;
 end_return
