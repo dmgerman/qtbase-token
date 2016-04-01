@@ -1328,7 +1328,8 @@ operator|.
 name|flags
 argument_list|)
 expr_stmt|;
-comment|// Trigger geometry/screen change signals of QWindow.
+comment|// Trigger geometry change (unless it has a special state in which case setWindowState()
+comment|// will send the message) and screen change signals of QWindow.
 if|if
 condition|(
 operator|(
@@ -1346,8 +1347,31 @@ operator|::
 name|Desktop
 condition|)
 block|{
+specifier|const
+name|Qt
+operator|::
+name|WindowState
+name|state
+init|=
+name|window
+operator|->
+name|windowState
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
+name|state
+operator|!=
+name|Qt
+operator|::
+name|WindowMaximized
+operator|&&
+name|state
+operator|!=
+name|Qt
+operator|::
+name|WindowFullScreen
+operator|&&
 name|requested
 operator|.
 name|geometry
@@ -1356,6 +1380,7 @@ name|obtained
 operator|.
 name|geometry
 condition|)
+block|{
 name|QWindowSystemInterface
 operator|::
 name|handleGeometryChange
@@ -1367,6 +1392,7 @@ operator|.
 name|geometry
 argument_list|)
 expr_stmt|;
+block|}
 name|QPlatformScreen
 modifier|*
 name|screen
