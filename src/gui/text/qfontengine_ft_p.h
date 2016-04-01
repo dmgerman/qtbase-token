@@ -212,6 +212,9 @@ name|int
 name|ysize
 decl_stmt|;
 comment|// 26.6
+name|QFixed
+name|scalableBitmapScaleFactor
+decl_stmt|;
 name|FT_Matrix
 name|matrix
 decl_stmt|;
@@ -264,6 +267,11 @@ modifier|*
 name|nPoints
 parameter_list|)
 function_decl|;
+name|bool
+name|isScalableBitmap
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|static
 name|void
 name|addGlyphToPath
@@ -907,6 +915,17 @@ argument|const QTransform&t
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|QImage
+name|bitmapForGlyph
+argument_list|(
+argument|glyph_t
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
+argument_list|)
+name|Q_DECL_OVERRIDE
+block|;
 name|glyph_metrics_t
 name|alphaMapBoundingBox
 argument_list|(
@@ -1036,6 +1055,19 @@ return|return
 name|defaultFormat
 operator|==
 name|Format_Mono
+return|;
+block|}
+specifier|inline
+name|bool
+name|isScalableBitmap
+argument_list|()
+specifier|const
+block|{
+return|return
+name|freetype
+operator|->
+name|isScalableBitmap
+argument_list|()
 return|;
 block|}
 specifier|inline
@@ -1297,6 +1329,20 @@ name|bool
 name|shouldUseDesignMetrics
 argument_list|(
 argument|ShaperFlags flags
+argument_list|)
+specifier|const
+block|;
+name|QFixed
+name|scaledBitmapMetrics
+argument_list|(
+argument|QFixed m
+argument_list|)
+specifier|const
+block|;
+name|glyph_metrics_t
+name|scaledBitmapMetrics
+argument_list|(
+argument|const glyph_metrics_t&m
 argument_list|)
 specifier|const
 block|;

@@ -28,7 +28,7 @@ operator|+
 name|FREETYPE_PATCH
 operator|)
 operator|<
-literal|20110
+literal|20200
 operator|)
 end_if
 begin_error
