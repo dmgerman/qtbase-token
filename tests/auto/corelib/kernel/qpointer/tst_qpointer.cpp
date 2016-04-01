@@ -106,6 +106,10 @@ name|void
 name|constPointer
 parameter_list|()
 function_decl|;
+name|void
+name|constQPointer
+parameter_list|()
+function_decl|;
 block|}
 class|;
 end_class
@@ -1808,6 +1812,51 @@ name|fp
 operator|.
 name|data
 argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|constQPointer
+name|void
+name|tst_QPointer
+operator|::
+name|constQPointer
+parameter_list|()
+block|{
+comment|// Check that const QPointers work. It's a bit weird to mark a pointer
+comment|// const if its value can change, but the shallow-const principle in C/C++
+comment|// allows this, and people use it, so document it with a test.
+comment|//
+comment|// It's unlikely that this test will fail in and out of itself, but it
+comment|// presents the use-case to static and dynamic checkers that can raise
+comment|// a warning (hopefully) should this become an issue.
+name|QObject
+modifier|*
+name|o
+init|=
+operator|new
+name|QObject
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+specifier|const
+name|QPointer
+argument_list|<
+name|QObject
+argument_list|>
+name|p
+init|=
+name|o
+decl_stmt|;
+operator|delete
+name|o
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|p
+argument_list|)
 expr_stmt|;
 block|}
 end_function
