@@ -6368,7 +6368,7 @@ name|_iterator
 argument_list|,
 name|_metaType_id_key
 argument_list|,
-name|_metaType_flags_value
+name|_metaType_flags_key
 argument_list|)
 return|;
 block|}
