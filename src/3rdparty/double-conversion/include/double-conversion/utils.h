@@ -395,6 +395,24 @@ directive|define
 name|DOUBLE_CONVERSION_CORRECT_DOUBLE_OPERATIONS
 value|1
 end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|__ghs
+argument_list|)
+end_elif
+begin_comment
+comment|// Green Hills toolchain uses a 64bit wide floating point stack
+end_comment
+begin_define
+DECL|macro|DOUBLE_CONVERSION_CORRECT_DOUBLE_OPERATIONS
+define|#
+directive|define
+name|DOUBLE_CONVERSION_CORRECT_DOUBLE_OPERATIONS
+value|1
+end_define
 begin_else
 else|#
 directive|else
