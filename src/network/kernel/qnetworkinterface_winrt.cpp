@@ -209,6 +209,14 @@ name|QNetworkInterface
 operator|::
 name|IsRunning
 expr_stmt|;
+name|iface
+operator|->
+name|flags
+operator||=
+name|QNetworkInterface
+operator|::
+name|CanBroadcast
+expr_stmt|;
 name|ComPtr
 argument_list|<
 name|INetworkAdapter
