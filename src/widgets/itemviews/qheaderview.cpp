@@ -4840,6 +4840,15 @@ argument_list|(
 name|QHeaderView
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|stretchLastSection
+operator|==
+name|stretch
+condition|)
+return|return;
 name|d
 operator|->
 name|stretchLastSection
