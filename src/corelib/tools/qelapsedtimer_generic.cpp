@@ -62,7 +62,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Restarts the timer and returns the time elapsed since the previous start.     This function is equivalent to obtaining the elapsed time with elapsed()     and then starting the timer again with start(), but it does so in one     single operation, avoiding the need to obtain the clock value twice.      Restarting the timer makes it valid again.      The following example illustrates how to use this function to calibrate a     parameter to a slow operation (for example, an iteration count) so that     this operation takes at least 250 milliseconds:      \snippet qelapsedtimer/main.cpp 3      \sa start(), invalidate(), elapsed() */
+comment|/*!     Restarts the timer and returns the time elapsed since the previous start.     This function is equivalent to obtaining the elapsed time with elapsed()     and then starting the timer again with start(), but it does so in one     single operation, avoiding the need to obtain the clock value twice.      Calling this function on a QElapsedTimer that is invalid     results in undefined behavior.      The following example illustrates how to use this function to calibrate a     parameter to a slow operation (for example, an iteration count) so that     this operation takes at least 250 milliseconds:      \snippet qelapsedtimer/main.cpp 3      \sa start(), invalidate(), elapsed(), isValid() */
 end_comment
 begin_function
 name|qint64
@@ -96,7 +96,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \since 4.8      Returns the number of nanoseconds since this QElapsedTimer was last     started. Calling this function in a QElapsedTimer that was invalidated     will result in undefined results.      On platforms that do not provide nanosecond resolution, the value returned     will be the best estimate available.      \sa start(), restart(), hasExpired(), invalidate() */
+comment|/*! \since 4.8      Returns the number of nanoseconds since this QElapsedTimer was last     started.      Calling this function on a QElapsedTimer that is invalid     results in undefined behavior.      On platforms that do not provide nanosecond resolution, the value returned     will be the best estimate available.      \sa start(), restart(), hasExpired(), invalidate() */
 end_comment
 begin_function
 name|qint64
@@ -116,7 +116,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of milliseconds since this QElapsedTimer was last     started. Calling this function in a QElapsedTimer that was invalidated     will result in undefined results.      \sa start(), restart(), hasExpired(), invalidate() */
+comment|/*!     Returns the number of milliseconds since this QElapsedTimer was last     started.      Calling this function on a QElapsedTimer that is invalid     results in undefined behavior.      \sa start(), restart(), hasExpired(), isValid(), invalidate() */
 end_comment
 begin_function
 name|qint64
@@ -186,7 +186,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of seconds between this QElapsedTimer and \a other. If     \a other was started before this object, the returned value will be     negative. If it was started later, the returned value will be positive.      The return value is undefined if this object or \a other were invalidated.      \sa msecsTo(), elapsed() */
+comment|/*!     Returns the number of seconds between this QElapsedTimer and \a other. If     \a other was started before this object, the returned value will be     negative. If it was started later, the returned value will be positive.      Calling this function on or with a QElapsedTimer that is invalid     results in undefined behavior.      \sa msecsTo(), elapsed() */
 end_comment
 begin_function
 name|qint64
