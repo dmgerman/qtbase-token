@@ -15617,7 +15617,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a matrix that maps viewport coordinates to scene coordinates.      \sa mapToScene(), mapFromScene() */
+comment|/*!     Returns a matrix that maps scene coordinates to viewport coordinates.      \sa mapToScene(), mapFromScene() */
 end_comment
 begin_function
 DECL|function|viewportTransform

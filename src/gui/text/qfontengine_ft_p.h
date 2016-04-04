@@ -1193,6 +1193,14 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|Qt
+operator|::
+name|HANDLE
+name|handle
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+block|;
 name|bool
 name|initFromFontEngine
 argument_list|(

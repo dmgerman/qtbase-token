@@ -986,6 +986,14 @@ return|return
 literal|0
 return|;
 block|}
+name|virtual
+name|Qt
+operator|::
+name|HANDLE
+name|handle
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 operator|*
 name|harfbuzzFont

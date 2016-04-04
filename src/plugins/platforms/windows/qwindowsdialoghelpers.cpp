@@ -7429,7 +7429,7 @@ name|pattern
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{8}"
+literal|"\\A[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}\\z"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -12041,6 +12041,17 @@ name|DialogType
 name|type
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|_WIN32_WCE
+argument_list|)
+operator|||
+name|_WIN32_WCE
+operator|<
+literal|0x800
 if|if
 condition|(
 name|QWindowsIntegration
@@ -12111,6 +12122,14 @@ block|}
 return|return
 literal|false
 return|;
+else|#
+directive|else
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
+comment|// !defined(_WIN32_WCE) || _WIN32_WCE< 0x800
 block|}
 DECL|function|createHelper
 name|QPlatformDialogHelper
@@ -12123,6 +12142,17 @@ name|DialogType
 name|type
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|_WIN32_WCE
+argument_list|)
+operator|||
+name|_WIN32_WCE
+operator|<
+literal|0x800
 if|if
 condition|(
 name|QWindowsIntegration
@@ -12245,6 +12275,14 @@ block|}
 return|return
 literal|0
 return|;
+else|#
+directive|else
+return|return
+literal|0
+return|;
+endif|#
+directive|endif
+comment|// !defined(_WIN32_WCE) || _WIN32_WCE< 0x800
 block|}
 block|}
 end_namespace
