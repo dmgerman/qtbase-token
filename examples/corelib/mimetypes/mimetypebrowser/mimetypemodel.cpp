@@ -78,6 +78,7 @@ block|}
 enum|;
 end_enum
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|operator <
 name|bool
 name|operator
@@ -108,6 +109,7 @@ return|;
 block|}
 end_function
 begin_function
+name|QT_END_NAMESPACE
 DECL|function|createRow
 specifier|static
 name|StandardItemList
