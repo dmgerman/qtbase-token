@@ -3537,7 +3537,7 @@ ifndef|#
 directive|ifndef
 name|Q_OS_WIN
 comment|// The data is not immediately sent, but buffered.
-comment|// On Windows, the flushing is done asynchronously by a separate thread.
+comment|// On Windows, the flushing is done by an asynchronous write operation.
 comment|// However, this operation will never complete as long as the data is not
 comment|// read by the other end, so the call below always times out.
 comment|// On Unix, the flushing is synchronous and thus needs to be done before
