@@ -17375,7 +17375,7 @@ name|qgetenv
 argument_list|(
 name|string
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|1
 argument_list|)
@@ -17430,7 +17430,7 @@ name|qgetenv
 argument_list|(
 name|string
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|1
 argument_list|,

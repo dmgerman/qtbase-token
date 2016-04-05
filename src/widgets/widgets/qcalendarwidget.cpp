@@ -2674,12 +2674,13 @@ name|size
 argument_list|()
 condition|)
 block|{
-name|QString
+specifier|const
+name|QStringRef
 name|mid
 init|=
 name|format
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|pos
 argument_list|)

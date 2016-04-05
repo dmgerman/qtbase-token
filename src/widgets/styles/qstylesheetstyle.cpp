@@ -24972,12 +24972,14 @@ operator|.
 name|tabWidth
 argument_list|)
 expr_stmt|;
-name|QString
+name|QStringRef
 name|s
-init|=
+argument_list|(
+operator|&
 name|mi
 operator|.
 name|text
+argument_list|)
 decl_stmt|;
 name|p
 operator|->
@@ -25118,6 +25120,9 @@ name|t
 operator|+
 literal|1
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|s
@@ -25144,6 +25149,9 @@ name|left
 argument_list|(
 name|t
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

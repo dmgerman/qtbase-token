@@ -5475,7 +5475,7 @@ name|s
 operator|+=
 name|fill
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|i
 argument_list|,
@@ -5529,7 +5529,7 @@ name|s
 operator|+=
 name|fill
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|i
 argument_list|,

@@ -11860,7 +11860,7 @@ operator|.
 name|text
 argument_list|()
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|0
 argument_list|,

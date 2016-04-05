@@ -337,14 +337,14 @@ name|setText
 argument_list|(
 name|text
 operator|.
-name|left
+name|leftRef
 argument_list|(
 name|c
 argument_list|)
 operator|+
 name|newText
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|c
 argument_list|)
