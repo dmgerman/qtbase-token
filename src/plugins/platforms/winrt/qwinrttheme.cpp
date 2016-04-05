@@ -2255,7 +2255,7 @@ operator|::
 name|SetFocusOnTouchRelease
 case|:
 return|return
-literal|false
+literal|true
 return|;
 case|case
 name|QPlatformIntegration
