@@ -772,6 +772,16 @@ name|bool
 name|isSignalConnected
 argument_list|(
 argument|uint signalIdx
+argument_list|,
+argument|bool checkDeclarative = true
+argument_list|)
+specifier|const
+block|;
+specifier|inline
+name|bool
+name|isDeclarativeSignalConnected
+argument_list|(
+argument|uint signalIdx
 argument_list|)
 specifier|const
 block|;
@@ -964,6 +974,8 @@ operator|::
 name|isSignalConnected
 argument_list|(
 argument|uint signal_index
+argument_list|,
+argument|bool checkDeclarative
 argument_list|)
 specifier|const
 block|{
@@ -996,6 +1008,30 @@ operator|)
 operator|)
 operator|||
 operator|(
+name|checkDeclarative
+operator|&&
+name|isDeclarativeSignalConnected
+argument_list|(
+name|signal_index
+argument_list|)
+operator|)
+operator|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+DECL|function|isDeclarativeSignalConnected
+specifier|inline
+name|bool
+name|QObjectPrivate
+operator|::
+name|isDeclarativeSignalConnected
+argument_list|(
+argument|uint signal_index
+argument_list|)
+specifier|const
+block|{
+return|return
 name|declarativeData
 operator|&&
 name|QAbstractDeclarativeData
@@ -1013,8 +1049,6 @@ argument_list|()
 argument_list|,
 name|signal_index
 argument_list|)
-operator|)
-operator|)
 return|;
 block|}
 end_expr_stmt
