@@ -4484,6 +4484,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|(
@@ -4538,6 +4539,7 @@ name|char
 operator|*
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|a2
@@ -4574,6 +4576,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|a1
@@ -4610,6 +4613,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 operator|!
@@ -4637,6 +4641,7 @@ name|char
 operator|*
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|a2
@@ -4674,6 +4679,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|a1
@@ -4711,6 +4717,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4740,6 +4747,7 @@ name|char
 operator|*
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4769,6 +4777,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4798,6 +4807,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4827,6 +4837,7 @@ name|char
 operator|*
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4856,6 +4867,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4885,6 +4897,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4914,6 +4927,7 @@ name|char
 operator|*
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4943,6 +4957,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -4972,6 +4987,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -5001,6 +5017,7 @@ name|char
 operator|*
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
@@ -5030,6 +5047,7 @@ name|QByteArray
 operator|&
 name|a2
 operator|)
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|qstrcmp
