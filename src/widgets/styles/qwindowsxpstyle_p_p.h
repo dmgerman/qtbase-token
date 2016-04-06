@@ -2390,6 +2390,9 @@ function_decl|;
 name|bool
 name|drawBackgroundDirectly
 parameter_list|(
+name|HDC
+name|dc
+parameter_list|,
 name|XPThemeData
 modifier|&
 name|themeData
