@@ -6654,7 +6654,7 @@ name|setError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|NetworkError
+name|RemoteHostClosedError
 argument_list|,
 name|RemoteHostClosedErrorString
 argument_list|)
@@ -6733,7 +6733,7 @@ name|setError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|NetworkError
+name|RemoteHostClosedError
 argument_list|,
 name|RemoteHostClosedErrorString
 argument_list|)
