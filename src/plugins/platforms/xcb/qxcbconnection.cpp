@@ -3258,6 +3258,15 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|glIntegrationNames
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|qCDebug
 argument_list|(
 name|QT_XCB_GLINTEGRATION
@@ -3350,6 +3359,7 @@ argument_list|)
 operator|<<
 literal|"Failed to create xcb gl-integration"
 expr_stmt|;
+block|}
 name|sync
 argument_list|()
 expr_stmt|;
