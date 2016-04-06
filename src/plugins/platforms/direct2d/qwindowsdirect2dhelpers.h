@@ -46,7 +46,6 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|to_d2d_rect_u
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|D2D1_RECT_U
 name|to_d2d_rect_u
@@ -97,7 +96,6 @@ block|}
 end_function
 begin_function
 DECL|function|to_d2d_rect_f
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|D2D1_RECT_F
 name|to_d2d_rect_f
@@ -148,7 +146,6 @@ block|}
 end_function
 begin_function
 DECL|function|to_d2d_size_u
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|D2D1_SIZE_U
 name|to_d2d_size_u
@@ -179,7 +176,6 @@ block|}
 end_function
 begin_function
 DECL|function|to_d2d_size_u
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|D2D1_SIZE_U
 name|to_d2d_size_u
@@ -210,7 +206,6 @@ block|}
 end_function
 begin_function
 DECL|function|to_d2d_point_2f
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|D2D1_POINT_2F
 name|to_d2d_point_2f
@@ -241,7 +236,6 @@ block|}
 end_function
 begin_expr_stmt
 DECL|function|to_d2d_color_f
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|D2D1
 operator|::
@@ -281,7 +275,6 @@ block|}
 end_expr_stmt
 begin_function
 DECL|function|to_d2d_matrix_3x2_f
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|D2D1_MATRIX_3X2_F
 name|to_d2d_matrix_3x2_f
