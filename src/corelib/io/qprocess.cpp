@@ -261,7 +261,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_PROCESS
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \since 5.6      \macro QT_NO_PROCESS_COMBINED_ARGUMENT_START     \relates QProcess      Disables the QProcess::start() overload taking a single string.     In most cases where it is used, the user intends for the first argument     to be treated atomically as per the other overload.      \sa QProcess::start() */
+comment|/*!     \since 5.6      \macro QT_NO_PROCESS_COMBINED_ARGUMENT_START     \relates QProcess      Disables the     \l {QProcess::start(const QString&, OpenMode)}{QProcess::start()}     overload taking a single string.     In most cases where it is used, the user intends for the first argument     to be treated atomically as per the other overload.      \sa QProcess::start(const QString&command, OpenMode mode) */
 comment|/*!     \class QProcessEnvironment     \inmodule QtCore      \brief The QProcessEnvironment class holds the environment variables that     can be passed to a program.      \ingroup io     \ingroup misc     \ingroup shared     \reentrant     \since 4.6      A process's environment is composed of a set of key=value pairs known as     environment variables. The QProcessEnvironment class wraps that concept     and allows easy manipulation of those variables. It's meant to be used     along with QProcess, to set the environment for child processes. It     cannot be used to change the current process's environment.      The environment of the calling process can be obtained using     QProcessEnvironment::systemEnvironment().      On Unix systems, the variable names are case-sensitive. Note that the     Unix environment allows both variable names and contents to contain arbitrary     binary data (except for the NUL character). QProcessEnvironment will preserve     such variables, but does not support manipulating variables whose names or     values cannot be encoded by the current locale settings (see     QTextCodec::codecForLocale).      On Windows, the variable names are case-insensitive, but case-preserving.     QProcessEnvironment behaves accordingly.      On Windows CE, the concept of environment does not exist. This class will     keep the values set for compatibility with other platforms, but the values     set will have no effect on the processes being created.      \sa QProcess, QProcess::systemEnvironment(), QProcess::setProcessEnvironment() */
 DECL|function|toList
 name|QStringList
@@ -6544,7 +6544,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Starts the command \a command in a new process, and detaches from it.     Returns \c true on success; otherwise returns \c false.      Argument handling is identical to the respective start() overload.      After the \a command string has been split and unquoted, this function     behaves like the overload which takes the arguments as a string list.      \sa start() */
+comment|/*!     \overload      Starts the command \a command in a new process, and detaches from it.     Returns \c true on success; otherwise returns \c false.      Argument handling is identical to the respective start() overload.      After the \a command string has been split and unquoted, this function     behaves like the overload which takes the arguments as a string list.      \sa start(const QString&command, OpenMode mode) */
 end_comment
 begin_function
 DECL|function|startDetached
