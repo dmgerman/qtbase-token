@@ -2976,7 +2976,7 @@ name|bufferStr
 init|=
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
 name|buffer
 argument_list|)
@@ -3269,7 +3269,7 @@ name|err
 operator|=
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
 name|line
 argument_list|)
@@ -4506,7 +4506,7 @@ name|line
 init|=
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
 name|commandSocket
 operator|.
@@ -4737,7 +4737,7 @@ name|line
 operator|=
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
 name|commandSocket
 operator|.
@@ -6117,7 +6117,7 @@ name|write
 argument_list|(
 name|currentCmd
 operator|.
-name|toLatin1
+name|toUtf8
 argument_list|()
 argument_list|)
 expr_stmt|;

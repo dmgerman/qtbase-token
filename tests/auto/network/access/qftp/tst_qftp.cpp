@@ -4806,7 +4806,8 @@ argument_list|(
 literal|'A'
 argument_list|)
 expr_stmt|;
-comment|// test the two put() overloads in one routine
+comment|// test the two put() overloads in one routine with a file name containing
+comment|// U+0x00FC (latin small letter u with diaeresis) for QTBUG-52303, testing UTF-8
 for|for
 control|(
 name|int
@@ -4859,10 +4860,22 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-name|QString
+operator|(
+name|QLatin1String
 argument_list|(
-literal|"qtest/upload/rel01_%1"
+literal|"qtest/upload/rel01_"
 argument_list|)
+operator|+
+name|QChar
+argument_list|(
+literal|0xfc
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"%1"
+argument_list|)
+operator|)
 operator|<<
 name|rfc3252
 operator|<<
