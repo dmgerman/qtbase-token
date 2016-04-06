@@ -404,7 +404,12 @@ name|QLocalSocket
 operator|::
 name|UnconnectedState
 argument_list|)
-block|{ }
+block|{
+name|writeBufferChunkSize
+operator|=
+name|QIODEVICE_BUFFERSIZE
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QLocalSocketPrivate
@@ -1009,13 +1014,6 @@ name|pipeWriter
 operator|=
 literal|0
 expr_stmt|;
-name|d
-operator|->
-name|writeBuffer
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
 name|close
 argument_list|()
@@ -1258,6 +1256,13 @@ operator|==
 name|NotOpen
 condition|)
 return|return;
+name|d
+operator|->
+name|setWriteChannelCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|QIODevice
 operator|::
 name|close
