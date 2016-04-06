@@ -23294,13 +23294,8 @@ name|setClipRect
 argument_list|(
 name|region
 operator|.
-name|rects
+name|boundingRect
 argument_list|()
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
