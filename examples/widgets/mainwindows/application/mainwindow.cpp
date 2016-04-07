@@ -69,6 +69,9 @@ operator|::
 name|documentWasModified
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
 name|QGuiApplication
 operator|::
 name|setFallbackSessionManagementEnabled
@@ -93,6 +96,8 @@ operator|::
 name|commitData
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|setCurrentFile
 argument_list|(
 name|QString
@@ -1900,6 +1905,11 @@ end_function
 begin_comment
 comment|//! [49]
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
+end_ifndef
 begin_function
 DECL|function|commitData
 name|void
@@ -1951,4 +1961,8 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 end_unit
