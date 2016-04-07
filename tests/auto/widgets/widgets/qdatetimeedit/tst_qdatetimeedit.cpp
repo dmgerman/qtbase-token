@@ -28783,7 +28783,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"00/2/Tue"
+literal|"00/2/Tue."
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -29225,7 +29225,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"2000/Feb/29"
+literal|"2000/Feb./29"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -29252,7 +29252,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"2000/Feb/29"
+literal|"2000/Feb./29"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -29279,7 +29279,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"00/Feb/29"
+literal|"00/Feb./29"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -29959,7 +29959,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Feb/00/29"
+literal|"Feb./00/29"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -29986,7 +29986,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Feb/2000/29"
+literal|"Feb./2000/29"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -30018,7 +30018,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Feb/2001/28"
+literal|"Feb./2001/28"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -30045,7 +30045,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Feb/2000/29"
+literal|"Feb./2000/29"
 argument_list|)
 expr_stmt|;
 name|QTest
