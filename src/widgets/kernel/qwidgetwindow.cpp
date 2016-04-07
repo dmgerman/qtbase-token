@@ -5442,6 +5442,16 @@ operator|&
 name|ev
 argument_list|)
 expr_stmt|;
+name|event
+operator|->
+name|setAccepted
+argument_list|(
+name|ev
+operator|.
+name|isAccepted
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(

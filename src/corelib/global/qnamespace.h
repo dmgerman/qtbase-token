@@ -1561,6 +1561,10 @@ name|AA_DontUseNativeDialogs
 init|=
 literal|23
 block|,
+name|AA_SynthesizeMouseForUnhandledTabletEvents
+init|=
+literal|24
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}

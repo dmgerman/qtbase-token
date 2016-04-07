@@ -1607,6 +1607,13 @@ argument_list|,
 argument|Qt::KeyboardModifiers modifiers = Qt::NoModifier
 argument_list|)
 block|;
+specifier|static
+name|void
+name|setPlatformSynthesizesMouse
+argument_list|(
+argument|bool v
+argument_list|)
+block|;
 name|TabletEvent
 argument_list|(
 argument|QWindow *w
@@ -1748,6 +1755,10 @@ name|z
 block|;
 name|qint64
 name|uid
+block|;
+specifier|static
+name|bool
+name|platformSynthesizesMouse
 block|;     }
 decl_stmt|;
 name|class

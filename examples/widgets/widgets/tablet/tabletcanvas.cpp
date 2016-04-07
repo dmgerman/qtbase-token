@@ -393,6 +393,11 @@ break|break;
 default|default:
 break|break;
 block|}
+name|event
+operator|->
+name|accept
+argument_list|()
+expr_stmt|;
 name|update
 argument_list|()
 expr_stmt|;

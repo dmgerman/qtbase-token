@@ -4183,6 +4183,15 @@ operator|-
 literal|1
 return|;
 block|}
+name|QWindowSystemInterfacePrivate
+operator|::
+name|TabletEvent
+operator|::
+name|setPlatformSynthesizesMouse
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|m_javaVM
 operator|=
 name|vm

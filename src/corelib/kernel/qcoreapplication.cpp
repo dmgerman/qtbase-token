@@ -1351,6 +1351,14 @@ name|Qt
 operator|::
 name|AA_SynthesizeMouseForUnhandledTouchEvents
 operator|)
+operator||
+operator|(
+literal|1
+operator|<<
+name|Qt
+operator|::
+name|AA_SynthesizeMouseForUnhandledTabletEvents
+operator|)
 decl_stmt|;
 end_decl_stmt
 begin_struct
