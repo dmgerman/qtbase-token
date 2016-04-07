@@ -344,6 +344,9 @@ name|uc
 index|[
 name|i
 index|]
+operator|.
+name|unicode
+argument_list|()
 operator|<
 literal|0x20
 operator|&&
@@ -351,6 +354,9 @@ name|uc
 index|[
 name|i
 index|]
+operator|.
+name|unicode
+argument_list|()
 operator|!=
 literal|0x09
 operator|)

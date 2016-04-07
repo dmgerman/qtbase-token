@@ -8612,12 +8612,6 @@ decl_stmt|;
 name|bool
 name|foundGuid
 init|=
-literal|false
-decl_stmt|;
-if|if
-condition|(
-name|foundGuid
-operator|=
 name|dllName
 operator|.
 name|contains
@@ -8627,6 +8621,10 @@ argument_list|(
 literal|"Guid"
 argument_list|)
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|foundGuid
 condition|)
 name|debugInfixChar
 operator|=

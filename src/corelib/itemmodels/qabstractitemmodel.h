@@ -2646,10 +2646,13 @@ return|return
 name|uint
 argument_list|(
 operator|(
+name|uint
+argument_list|(
 name|index
 operator|.
 name|row
 argument_list|()
+argument_list|)
 operator|<<
 literal|4
 operator|)

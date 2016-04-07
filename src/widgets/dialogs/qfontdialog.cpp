@@ -375,6 +375,10 @@ operator||
 name|Qt
 operator|::
 name|WindowSystemMenuHint
+operator||
+name|Qt
+operator|::
+name|WindowCloseButtonHint
 decl_stmt|;
 end_decl_stmt
 begin_constructor

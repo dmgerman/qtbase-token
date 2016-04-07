@@ -8105,6 +8105,20 @@ operator|->
 name|properties
 argument_list|()
 decl_stmt|;
+name|QByteArray
+name|postscriptName
+init|=
+name|properties
+operator|.
+name|postscriptName
+operator|.
+name|replace
+argument_list|(
+literal|' '
+argument_list|,
+literal|'_'
+argument_list|)
+decl_stmt|;
 block|{
 name|qreal
 name|scale
@@ -8184,8 +8198,6 @@ name|s
 operator|<<
 literal|'+'
 operator|<<
-name|properties
-operator|.
 name|postscriptName
 operator|<<
 literal|"\n"
@@ -8436,8 +8448,6 @@ literal|"<< /Type /Font\n"
 literal|"/Subtype /CIDFontType2\n"
 literal|"/BaseFont /"
 operator|<<
-name|properties
-operator|.
 name|postscriptName
 operator|<<
 literal|"\n"
@@ -8524,8 +8534,6 @@ literal|"<< /Type /Font\n"
 literal|"/Subtype /Type0\n"
 literal|"/BaseFont /"
 operator|<<
-name|properties
-operator|.
 name|postscriptName
 operator|<<
 literal|"\n"

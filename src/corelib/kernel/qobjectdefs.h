@@ -88,6 +88,114 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|// The following macros can be defined by tools that understand Qt
+end_comment
+begin_comment
+comment|// to have the information from the macro.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_ANNOTATE_CLASS
+end_ifndef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_COMPILER_VARIADIC_MACROS
+end_ifndef
+begin_define
+DECL|macro|QT_ANNOTATE_CLASS
+define|#
+directive|define
+name|QT_ANNOTATE_CLASS
+parameter_list|(
+name|type
+parameter_list|,
+name|x
+parameter_list|)
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|QT_ANNOTATE_CLASS
+define|#
+directive|define
+name|QT_ANNOTATE_CLASS
+parameter_list|(
+name|type
+parameter_list|,
+modifier|...
+parameter_list|)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_ANNOTATE_CLASS2
+end_ifndef
+begin_define
+DECL|macro|QT_ANNOTATE_CLASS2
+define|#
+directive|define
+name|QT_ANNOTATE_CLASS2
+parameter_list|(
+name|type
+parameter_list|,
+name|a1
+parameter_list|,
+name|a2
+parameter_list|)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_ANNOTATE_FUNCTION
+end_ifndef
+begin_define
+DECL|macro|QT_ANNOTATE_FUNCTION
+define|#
+directive|define
+name|QT_ANNOTATE_FUNCTION
+parameter_list|(
+name|x
+parameter_list|)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_ANNOTATE_ACCESS_SPECIFIER
+end_ifndef
+begin_define
+DECL|macro|QT_ANNOTATE_ACCESS_SPECIFIER
+define|#
+directive|define
+name|QT_ANNOTATE_ACCESS_SPECIFIER
+parameter_list|(
+name|x
+parameter_list|)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|// The following macros are our "extensions" to C++
 end_comment
 begin_comment
@@ -131,13 +239,14 @@ DECL|macro|slots
 define|#
 directive|define
 name|slots
+value|Q_SLOTS
 end_define
 begin_define
 DECL|macro|signals
 define|#
 directive|define
 name|signals
-value|public
+value|Q_SIGNALS
 end_define
 begin_endif
 endif|#
@@ -152,13 +261,14 @@ DECL|macro|Q_SLOTS
 define|#
 directive|define
 name|Q_SLOTS
+value|QT_ANNOTATE_ACCESS_SPECIFIER(qt_slot)
 end_define
 begin_define
 DECL|macro|Q_SIGNALS
 define|#
 directive|define
 name|Q_SIGNALS
-value|public
+value|public QT_ANNOTATE_ACCESS_SPECIFIER(qt_signal)
 end_define
 begin_define
 DECL|macro|Q_PRIVATE_SLOT
@@ -170,6 +280,7 @@ name|d
 parameter_list|,
 name|signature
 parameter_list|)
+value|QT_ANNOTATE_CLASS2(qt_private_slot, d, signature)
 end_define
 begin_define
 DECL|macro|Q_EMIT
@@ -192,6 +303,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_CLASSINFO
+end_ifndef
 begin_define
 DECL|macro|Q_CLASSINFO
 define|#
@@ -203,6 +319,10 @@ parameter_list|,
 name|value
 parameter_list|)
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|Q_PLUGIN_METADATA
 define|#
@@ -211,6 +331,7 @@ name|Q_PLUGIN_METADATA
 parameter_list|(
 name|x
 parameter_list|)
+value|QT_ANNOTATE_CLASS(qt_plugin_metadata, x)
 end_define
 begin_define
 DECL|macro|Q_INTERFACES
@@ -220,6 +341,7 @@ name|Q_INTERFACES
 parameter_list|(
 name|x
 parameter_list|)
+value|QT_ANNOTATE_CLASS(qt_interfaces, x)
 end_define
 begin_ifdef
 ifdef|#
@@ -234,6 +356,7 @@ name|Q_PROPERTY
 parameter_list|(
 modifier|...
 parameter_list|)
+value|QT_ANNOTATE_CLASS(qt_property, __VA_ARGS__)
 end_define
 begin_else
 else|#
@@ -247,6 +370,7 @@ name|Q_PROPERTY
 parameter_list|(
 name|text
 parameter_list|)
+value|QT_ANNOTATE_CLASS(qt_property, text)
 end_define
 begin_endif
 endif|#
@@ -262,7 +386,13 @@ name|d
 parameter_list|,
 name|text
 parameter_list|)
+value|QT_ANNOTATE_CLASS2(qt_private_property, d, text)
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_REVISION
+end_ifndef
 begin_define
 DECL|macro|Q_REVISION
 define|#
@@ -272,6 +402,10 @@ parameter_list|(
 name|v
 parameter_list|)
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|Q_OVERRIDE
 define|#
@@ -280,6 +414,17 @@ name|Q_OVERRIDE
 parameter_list|(
 name|text
 parameter_list|)
+value|QT_ANNOTATE_CLASS(qt_override, text)
+end_define
+begin_define
+DECL|macro|QDOC_PROPERTY
+define|#
+directive|define
+name|QDOC_PROPERTY
+parameter_list|(
+name|text
+parameter_list|)
+value|QT_ANNOTATE_CLASS(qt_qdoc_property, text)
 end_define
 begin_define
 DECL|macro|Q_ENUMS
@@ -289,6 +434,7 @@ name|Q_ENUMS
 parameter_list|(
 name|x
 parameter_list|)
+value|QT_ANNOTATE_CLASS(qt_enums, x)
 end_define
 begin_define
 DECL|macro|Q_FLAGS
@@ -298,12 +444,13 @@ name|Q_FLAGS
 parameter_list|(
 name|x
 parameter_list|)
+value|QT_ANNOTATE_CLASS(qt_enums, x)
 end_define
 begin_define
-DECL|macro|Q_ENUM
+DECL|macro|Q_ENUM_IMPL
 define|#
 directive|define
-name|Q_ENUM
+name|Q_ENUM_IMPL
 parameter_list|(
 name|ENUM
 parameter_list|)
@@ -311,38 +458,52 @@ define|\
 value|friend Q_DECL_CONSTEXPR const QMetaObject *qt_getEnumMetaObject(ENUM) Q_DECL_NOEXCEPT { return&staticMetaObject; } \     friend Q_DECL_CONSTEXPR const char *qt_getEnumName(ENUM) Q_DECL_NOEXCEPT { return #ENUM; }
 end_define
 begin_define
+DECL|macro|Q_ENUM
+define|#
+directive|define
+name|Q_ENUM
+parameter_list|(
+name|x
+parameter_list|)
+value|Q_ENUMS(x) Q_ENUM_IMPL(x)
+end_define
+begin_define
 DECL|macro|Q_FLAG
 define|#
 directive|define
 name|Q_FLAG
 parameter_list|(
-name|ENUM
+name|x
 parameter_list|)
-value|Q_ENUM(ENUM)
+value|Q_FLAGS(x) Q_ENUM_IMPL(x)
 end_define
 begin_define
 DECL|macro|Q_SCRIPTABLE
 define|#
 directive|define
 name|Q_SCRIPTABLE
+value|QT_ANNOTATE_FUNCTION(qt_scriptable)
 end_define
 begin_define
 DECL|macro|Q_INVOKABLE
 define|#
 directive|define
 name|Q_INVOKABLE
+value|QT_ANNOTATE_FUNCTION(qt_invokable)
 end_define
 begin_define
 DECL|macro|Q_SIGNAL
 define|#
 directive|define
 name|Q_SIGNAL
+value|QT_ANNOTATE_FUNCTION(qt_signal)
 end_define
 begin_define
 DECL|macro|Q_SLOT
 define|#
 directive|define
 name|Q_SLOT
+value|QT_ANNOTATE_FUNCTION(qt_slot)
 end_define
 begin_endif
 endif|#
@@ -541,13 +702,13 @@ define|#
 directive|define
 name|Q_OBJECT
 define|\
-value|public: \     Q_OBJECT_CHECK \     QT_WARNING_PUSH \     Q_OBJECT_NO_OVERRIDE_WARNING \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     virtual int qt_metacall(QMetaObject::Call, int, void **); \     QT_TR_FUNCTIONS \ private: \     Q_OBJECT_NO_ATTRIBUTES_WARNING \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     QT_WARNING_POP \     struct QPrivateSignal {};
+value|public: \     Q_OBJECT_CHECK \     QT_WARNING_PUSH \     Q_OBJECT_NO_OVERRIDE_WARNING \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     virtual int qt_metacall(QMetaObject::Call, int, void **); \     QT_TR_FUNCTIONS \ private: \     Q_OBJECT_NO_ATTRIBUTES_WARNING \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     QT_WARNING_POP \     struct QPrivateSignal {}; \     QT_ANNOTATE_CLASS(qt_qobject, "")
 comment|/* qmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT_FAKE
 define|#
 directive|define
 name|Q_OBJECT_FAKE
-value|Q_OBJECT
+value|Q_OBJECT QT_ANNOTATE_CLASS(qt_fake, "")
 ifndef|#
 directive|ifndef
 name|QT_NO_META_MACROS
@@ -557,7 +718,7 @@ define|#
 directive|define
 name|Q_GADGET
 define|\
-value|public: \     static const QMetaObject staticMetaObject; \     void qt_check_for_QGADGET_macro(); \     typedef void QtGadgetHelper; \ private: \     QT_WARNING_PUSH \     Q_OBJECT_NO_ATTRIBUTES_WARNING \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     QT_WARNING_POP
+value|public: \     static const QMetaObject staticMetaObject; \     void qt_check_for_QGADGET_macro(); \     typedef void QtGadgetHelper; \ private: \     QT_WARNING_PUSH \     Q_OBJECT_NO_ATTRIBUTES_WARNING \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **); \     QT_WARNING_POP \     QT_ANNOTATE_CLASS(qt_qgadget, "")
 expr|\
 comment|/*end*/
 endif|#

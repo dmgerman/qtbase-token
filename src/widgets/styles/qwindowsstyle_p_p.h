@@ -115,7 +115,7 @@ argument|QStyle::PixelMetric pm
 argument_list|)
 block|;
 specifier|static
-name|int
+name|qreal
 name|devicePixelRatio
 argument_list|(
 argument|const QWidget *widget =
@@ -125,13 +125,10 @@ block|{
 return|return
 name|widget
 operator|?
-name|int
-argument_list|(
 name|widget
 operator|->
 name|devicePixelRatioF
 argument_list|()
-argument_list|)
 operator|:
 name|QWindowsStylePrivate
 operator|::
@@ -224,13 +221,9 @@ block|;
 name|private
 operator|:
 specifier|static
-name|int
+name|qreal
 name|appDevicePixelRatio
 argument_list|()
-block|;
-specifier|static
-name|int
-name|m_appDevicePixelRatio
 block|; }
 decl_stmt|;
 end_decl_stmt

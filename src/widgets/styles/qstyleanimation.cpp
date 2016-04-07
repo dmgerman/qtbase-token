@@ -985,6 +985,16 @@ name|format
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|blended
+operator|.
+name|setDevicePixelRatio
+argument_list|(
+name|start
+operator|.
+name|devicePixelRatio
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|uchar
 modifier|*
 name|mixed_data

@@ -5445,13 +5445,6 @@ operator|<
 literal|32
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|metaMod
-operator|<
-literal|32
-argument_list|)
-expr_stmt|;
 name|xkb_mod_mask_t
 name|depressed
 decl_stmt|;
@@ -5586,6 +5579,10 @@ operator|)
 expr_stmt|;
 if|if
 condition|(
+name|metaMod
+operator|<
+literal|32
+operator|&&
 name|neededMods
 operator|&
 name|Qt

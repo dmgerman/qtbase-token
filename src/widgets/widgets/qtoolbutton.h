@@ -325,6 +325,12 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void _q_buttonReleased()
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_updateButtonDown()
 argument_list|)
 name|Q_PRIVATE_SLOT
