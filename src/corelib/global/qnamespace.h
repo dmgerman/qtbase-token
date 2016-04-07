@@ -4193,6 +4193,8 @@ name|ImSurroundingText
 operator||
 name|ImCurrentSelection
 operator||
+name|ImAnchorRectangle
+operator||
 name|ImAnchorPosition
 block|,
 name|ImQueryAll
