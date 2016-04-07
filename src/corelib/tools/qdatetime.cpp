@@ -13860,6 +13860,7 @@ operator|>
 literal|2
 condition|)
 block|{
+specifier|const
 name|QVector
 argument_list|<
 name|QStringRef

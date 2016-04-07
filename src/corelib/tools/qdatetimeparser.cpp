@@ -4442,6 +4442,7 @@ name|month
 decl_stmt|,
 name|day
 decl_stmt|;
+specifier|const
 name|QDate
 name|currentDate
 init|=
