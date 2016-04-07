@@ -387,6 +387,7 @@ literal|512
 argument_list|,
 literal|"gdb --pid %d 2>/dev/null<<EOF\n"
 literal|"set prompt\n"
+literal|"set height 0\n"
 literal|"thread apply all where full\n"
 literal|"detach\n"
 literal|"quit\n"
