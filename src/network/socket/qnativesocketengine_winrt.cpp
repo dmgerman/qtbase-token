@@ -6492,6 +6492,10 @@ operator|->
 name|connectionReady
 argument_list|()
 emit|;
+if|if
+condition|(
+name|notifyOnRead
+condition|)
 emit|emit
 name|q
 operator|->
@@ -7480,6 +7484,10 @@ argument_list|(
 name|datagram
 argument_list|)
 block|;
+if|if
+condition|(
+name|notifyOnRead
+condition|)
 emit|emit
 name|q
 operator|->
