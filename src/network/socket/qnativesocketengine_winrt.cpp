@@ -2811,13 +2811,6 @@ argument_list|(
 name|hr
 argument_list|)
 expr_stmt|;
-name|d
-operator|->
-name|socketDescriptor
-operator|=
-operator|-
-literal|1
-expr_stmt|;
 block|}
 name|d
 operator|->
