@@ -11,9 +11,9 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|Q_LOGGING_CATEGORY
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|,
-literal|"qt.xcb.glintegration"
+literal|"qt.qpa.gl"
 argument_list|)
 DECL|function|QXcbGlIntegration
 name|QXcbGlIntegration

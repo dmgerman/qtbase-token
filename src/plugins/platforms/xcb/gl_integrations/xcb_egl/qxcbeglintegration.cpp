@@ -44,7 +44,7 @@ argument_list|)
 block|{
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"Xcb EGL gl-integration created"
@@ -136,7 +136,7 @@ argument_list|)
 expr_stmt|;
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"Xcb EGL gl-integration retrying with display"
@@ -173,7 +173,7 @@ argument_list|)
 expr_stmt|;
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"Xcb EGL gl-integration successfully initialized"

@@ -46,7 +46,7 @@ DECL|function|Q_DECLARE_LOGGING_CATEGORY
 name|Q_XCB_EXPORT
 name|Q_DECLARE_LOGGING_CATEGORY
 parameter_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 parameter_list|)
 name|class
 name|Q_XCB_EXPORT

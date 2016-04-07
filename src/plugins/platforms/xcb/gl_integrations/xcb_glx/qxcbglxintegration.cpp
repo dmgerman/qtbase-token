@@ -234,7 +234,7 @@ argument_list|)
 block|{
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"Xcb GLX gl-integration created"
@@ -352,7 +352,7 @@ condition|)
 block|{
 name|qCWarning
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"QXcbConnection: Failed to initialize GLX"
@@ -389,7 +389,7 @@ argument_list|)
 expr_stmt|;
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"Xcb GLX gl-integration successfully initialized"

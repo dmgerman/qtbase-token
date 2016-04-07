@@ -3217,7 +3217,7 @@ condition|)
 block|{
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"QT_XCB_GL_INTEGRATION is set to"
@@ -3269,7 +3269,7 @@ condition|)
 block|{
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"Choosing xcb gl-integration based on following priority\n"
@@ -3326,7 +3326,7 @@ condition|)
 block|{
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"Failed to initialize xcb gl-integration"
@@ -3354,7 +3354,7 @@ name|m_glIntegration
 condition|)
 name|qCDebug
 argument_list|(
-name|QT_XCB_GLINTEGRATION
+name|lcQpaGl
 argument_list|)
 operator|<<
 literal|"Failed to create xcb gl-integration"
