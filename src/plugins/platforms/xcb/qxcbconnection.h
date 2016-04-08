@@ -2292,6 +2292,7 @@ begin_function_decl
 name|bool
 name|xi2HandleTabletEvent
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|event
@@ -2299,10 +2300,6 @@ parameter_list|,
 name|TabletData
 modifier|*
 name|tabletData
-parameter_list|,
-name|QXcbWindowEventListener
-modifier|*
-name|eventListener
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2310,13 +2307,14 @@ begin_function_decl
 name|void
 name|xi2ReportTabletEvent
 parameter_list|(
-name|TabletData
-modifier|&
-name|tabletData
-parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|event
+parameter_list|,
+name|TabletData
+modifier|*
+name|tabletData
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2442,6 +2440,7 @@ specifier|static
 name|bool
 name|xi2GetValuatorValueIfSet
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|event

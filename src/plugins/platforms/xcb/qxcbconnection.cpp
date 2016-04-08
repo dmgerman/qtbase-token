@@ -10183,6 +10183,7 @@ specifier|static
 name|int
 name|xi2ValuatorOffset
 parameter_list|(
+specifier|const
 name|unsigned
 name|char
 modifier|*
@@ -10303,6 +10304,7 @@ name|QXcbConnection
 operator|::
 name|xi2GetValuatorValueIfSet
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|event
@@ -10315,12 +10317,14 @@ modifier|*
 name|value
 parameter_list|)
 block|{
+specifier|const
 name|xXIDeviceEvent
 modifier|*
 name|xideviceevent
 init|=
 cast|static_cast
 argument_list|<
+specifier|const
 name|xXIDeviceEvent
 operator|*
 argument_list|>
@@ -10328,12 +10332,14 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
+specifier|const
 name|unsigned
 name|char
 modifier|*
 name|buttonsMaskAddr
 init|=
 operator|(
+specifier|const
 name|unsigned
 name|char
 operator|*
@@ -10344,6 +10350,7 @@ index|[
 literal|1
 index|]
 decl_stmt|;
+specifier|const
 name|unsigned
 name|char
 modifier|*

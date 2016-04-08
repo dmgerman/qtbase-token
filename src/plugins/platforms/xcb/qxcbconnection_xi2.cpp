@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qpa/qwindowsysteminterface.h>
+file|<qpa/qwindowsysteminterface_p.h>
 end_include
 begin_include
 include|#
@@ -1704,9 +1704,8 @@ operator|=
 name|xiBitMask
 expr_stmt|;
 comment|// When xi2MouseEvents() is true (the default), pointer emulation for touch and tablet
-comment|// events will get disabled. This is preferable for touch, as Qt Quick handles touch events
-comment|// directly while for others QtGui synthesizes mouse events, not so much for tablets. For
-comment|// the latter we will synthesize the events ourselves.
+comment|// events will get disabled. This is preferable, as Qt Quick handles touch events
+comment|// directly, while for other applications QtGui synthesizes mouse events.
 name|mask
 operator|.
 name|deviceid
@@ -1731,9 +1730,19 @@ decl_stmt|;
 if|if
 condition|(
 name|result
-operator|!=
+operator|==
 name|Success
 condition|)
+name|QWindowSystemInterfacePrivate
+operator|::
+name|TabletEvent
+operator|::
+name|setPlatformSynthesizesMouse
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+else|else
 name|qCDebug
 argument_list|(
 name|lcQpaXInput
@@ -3149,8 +3158,6 @@ name|m_tabletData
 index|[
 name|i
 index|]
-argument_list|,
-name|eventListener
 argument_list|)
 condition|)
 return|return;
@@ -6782,6 +6789,7 @@ name|QXcbConnection
 operator|::
 name|xi2HandleTabletEvent
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|event
@@ -6789,10 +6797,6 @@ parameter_list|,
 name|TabletData
 modifier|*
 name|tabletData
-parameter_list|,
-name|QXcbWindowEventListener
-modifier|*
-name|eventListener
 parameter_list|)
 block|{
 name|bool
@@ -6813,12 +6817,14 @@ argument_list|(
 name|m_xlib_display
 argument_list|)
 decl_stmt|;
+specifier|const
 name|xXIGenericDeviceEvent
 modifier|*
 name|xiEvent
 init|=
 cast|static_cast
 argument_list|<
+specifier|const
 name|xXIGenericDeviceEvent
 operator|*
 argument_list|>
@@ -6826,12 +6832,14 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
+specifier|const
 name|xXIDeviceEvent
 modifier|*
 name|xiDeviceEvent
 init|=
 cast|reinterpret_cast
 argument_list|<
+specifier|const
 name|xXIDeviceEvent
 operator|*
 argument_list|>
@@ -6870,10 +6878,9 @@ name|b
 expr_stmt|;
 name|xi2ReportTabletEvent
 argument_list|(
-operator|*
-name|tabletData
-argument_list|,
 name|xiEvent
+argument_list|,
+name|tabletData
 argument_list|)
 expr_stmt|;
 break|break;
@@ -6902,10 +6909,9 @@ name|b
 expr_stmt|;
 name|xi2ReportTabletEvent
 argument_list|(
-operator|*
-name|tabletData
-argument_list|,
 name|xiEvent
+argument_list|,
+name|tabletData
 argument_list|)
 expr_stmt|;
 break|break;
@@ -6927,10 +6933,9 @@ name|NoButton
 condition|)
 name|xi2ReportTabletEvent
 argument_list|(
-operator|*
-name|tabletData
-argument_list|,
 name|xiEvent
+argument_list|,
+name|tabletData
 argument_list|)
 expr_stmt|;
 break|break;
@@ -6940,12 +6945,14 @@ case|:
 block|{
 comment|// This is the wacom driver's way of reporting tool proximity.
 comment|// The evdev driver doesn't do it this way.
+specifier|const
 name|xXIPropertyEvent
 modifier|*
 name|ev
 init|=
 cast|reinterpret_cast
 argument_list|<
+specifier|const
 name|xXIPropertyEvent
 operator|*
 argument_list|>
@@ -7322,45 +7329,6 @@ literal|false
 expr_stmt|;
 break|break;
 block|}
-ifdef|#
-directive|ifdef
-name|XCB_USE_XINPUT22
-comment|// Synthesize mouse events since otherwise there are no mouse events from
-comment|// the pen on the XI 2.2+ path.
-if|if
-condition|(
-name|xi2MouseEvents
-argument_list|()
-operator|&&
-name|eventListener
-condition|)
-name|eventListener
-operator|->
-name|handleXIMouseEvent
-argument_list|(
-cast|reinterpret_cast
-argument_list|<
-name|xcb_ge_event_t
-operator|*
-argument_list|>
-argument_list|(
-name|event
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|MouseEventSynthesizedByQt
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-name|eventListener
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|handled
 return|;
@@ -7373,21 +7341,24 @@ name|QXcbConnection
 operator|::
 name|xi2ReportTabletEvent
 parameter_list|(
-name|TabletData
-modifier|&
-name|tabletData
-parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|event
+parameter_list|,
+name|TabletData
+modifier|*
+name|tabletData
 parameter_list|)
 block|{
+specifier|const
 name|xXIDeviceEvent
 modifier|*
 name|ev
 init|=
 cast|reinterpret_cast
 argument_list|<
+specifier|const
 name|xXIDeviceEvent
 operator|*
 argument_list|>
@@ -7496,7 +7467,7 @@ name|iterator
 name|it
 init|=
 name|tabletData
-operator|.
+operator|->
 name|valuatorInfo
 operator|.
 name|begin
@@ -7505,7 +7476,7 @@ init|,
 name|ite
 init|=
 name|tabletData
-operator|.
+operator|->
 name|valuatorInfo
 operator|.
 name|end
@@ -7623,7 +7594,7 @@ case|:
 switch|switch
 condition|(
 name|tabletData
-operator|.
+operator|->
 name|tool
 condition|)
 block|{
@@ -7685,11 +7656,11 @@ literal|"XI2 event on tablet %d with tool %d type %d seq %d detail %d time %d "
 literal|"pos %6.1f, %6.1f root pos %6.1f, %6.1f buttons 0x%x pressure %4.2lf tilt %d, %d rotation %6.2lf"
 argument_list|,
 name|tabletData
-operator|.
+operator|->
 name|deviceId
 argument_list|,
 name|tabletData
-operator|.
+operator|->
 name|tool
 argument_list|,
 name|ev
@@ -7740,7 +7711,7 @@ operator|(
 name|int
 operator|)
 name|tabletData
-operator|.
+operator|->
 name|buttons
 argument_list|,
 name|pressure
@@ -7767,15 +7738,15 @@ argument_list|,
 name|global
 argument_list|,
 name|tabletData
-operator|.
+operator|->
 name|tool
 argument_list|,
 name|tabletData
-operator|.
+operator|->
 name|pointerType
 argument_list|,
 name|tabletData
-operator|.
+operator|->
 name|buttons
 argument_list|,
 name|pressure
@@ -7791,7 +7762,7 @@ argument_list|,
 literal|0
 argument_list|,
 name|tabletData
-operator|.
+operator|->
 name|serialId
 argument_list|)
 expr_stmt|;
