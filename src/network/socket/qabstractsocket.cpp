@@ -6511,6 +6511,11 @@ name|state
 argument_list|()
 operator|!=
 name|ConnectedState
+operator|&&
+name|state
+argument_list|()
+operator|!=
+name|BoundState
 condition|)
 return|return
 literal|false
