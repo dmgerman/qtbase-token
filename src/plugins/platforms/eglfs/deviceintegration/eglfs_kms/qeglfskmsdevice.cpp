@@ -1950,6 +1950,11 @@ expr_stmt|;
 if|if
 condition|(
 name|primaryScreen
+operator|&&
+name|m_integration
+operator|->
+name|hwCursor
+argument_list|()
 condition|)
 name|m_globalCursor
 operator|=
