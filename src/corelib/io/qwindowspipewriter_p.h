@@ -56,6 +56,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qbytearray.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qt_windows.h>
 end_include
 begin_decl_stmt
@@ -267,12 +272,13 @@ operator|~
 name|QWindowsPipeWriter
 argument_list|()
 block|;
-name|qint64
+name|bool
 name|write
 argument_list|(
-argument|const char *data
-argument_list|,
-argument|qint64 maxlen
+specifier|const
+name|QByteArray
+operator|&
+name|ba
 argument_list|)
 block|;
 name|void
@@ -383,6 +389,9 @@ name|handle
 block|;
 name|Overlapped
 name|overlapped
+block|;
+name|QByteArray
+name|buffer
 block|;
 name|qint64
 name|numberOfBytesToWrite
