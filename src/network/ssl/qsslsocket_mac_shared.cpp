@@ -504,14 +504,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|QT_PREPEND_NAMESPACE
-argument_list|(
 name|isCaCertificateTrusted
 argument_list|(
 name|cfCert
 argument_list|,
 name|dom
-argument_list|)
 argument_list|)
 condition|)
 block|{
