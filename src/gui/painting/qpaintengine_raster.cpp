@@ -9098,7 +9098,7 @@ argument_list|()
 decl_stmt|;
 specifier|const
 name|QRect
-name|deviceRect
+name|pathDeviceRect
 init|=
 name|s
 operator|->
@@ -9112,6 +9112,20 @@ operator|.
 name|toRect
 argument_list|()
 decl_stmt|;
+comment|// Skip paths that by conservative estimates are completely outside the paint device.
+if|if
+condition|(
+operator|!
+name|pathDeviceRect
+operator|.
+name|intersects
+argument_list|(
+name|d
+operator|->
+name|deviceRect
+argument_list|)
+condition|)
+return|return;
 name|ProcessSpans
 name|blend
 init|=
@@ -9119,7 +9133,7 @@ name|d
 operator|->
 name|getBrushFunc
 argument_list|(
-name|deviceRect
+name|pathDeviceRect
 argument_list|,
 operator|&
 name|s
