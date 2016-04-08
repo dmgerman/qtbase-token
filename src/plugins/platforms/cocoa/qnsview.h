@@ -763,7 +763,7 @@ end_expr_stmt
 begin_expr_stmt
 operator|-
 operator|(
-name|void
+name|bool
 operator|)
 name|handleTabletEvent
 operator|:
