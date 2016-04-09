@@ -599,9 +599,18 @@ block|;
 name|QSFDict
 name|active_fd
 block|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|bool
 name|activateNotifiersPosted
 block|;
+name|void
+name|postActivateSocketNotifiers
+argument_list|()
+block|;
+endif|#
+directive|endif
 name|void
 name|doWsaAsyncSelect
 argument_list|(
@@ -609,10 +618,6 @@ argument|int socket
 argument_list|,
 argument|long event
 argument_list|)
-block|;
-name|void
-name|postActivateSocketNotifiers
-argument_list|()
 block|;
 name|QList
 operator|<
