@@ -565,7 +565,7 @@ begin_comment
 comment|/*! \enum QTest::TestFailMode      This enum describes the modes for handling an expected failure of the     \l QVERIFY() or \l QCOMPARE() macros.      \value Abort Aborts the execution of the test. Use this mode when it            doesn't make sense to execute the test any further after the            expected failure.      \value Continue Continues execution of the test after the expected failure.      \sa QEXPECT_FAIL() */
 end_comment
 begin_comment
-comment|/*! \enum QTest::KeyAction      This enum describes possible actions for key handling.      \value Press    The key is pressed.     \value Release  The key is released.     \value Click    The key is clicked (pressed and released). */
+comment|/*! \enum QTest::KeyAction      This enum describes possible actions for key handling.      \value Press    The key is pressed.     \value Release  The key is released.     \value Click    The key is clicked (pressed and released).     \value Shortcut A shortcut is activated. This value has been added in Qt 5.6. */
 end_comment
 begin_comment
 comment|/*! \enum QTest::MouseAction      This enum describes possible actions for mouse handling.      \value MousePress    A mouse button is pressed.     \value MouseRelease  A mouse button is released.     \value MouseClick    A mouse button is clicked (pressed and released).     \value MouseDClick   A mouse button is double clicked (pressed and released twice).     \value MouseMove     The mouse pointer has moved. */
