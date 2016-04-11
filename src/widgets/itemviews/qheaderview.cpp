@@ -14728,12 +14728,7 @@ name|newSectionLength
 operator|=
 name|section_sizes
 operator|.
-name|front
-argument_list|()
-expr_stmt|;
-name|section_sizes
-operator|.
-name|removeFirst
+name|takeFirst
 argument_list|()
 expr_stmt|;
 block|}
