@@ -13301,22 +13301,9 @@ operator|!=
 operator|-
 literal|1
 operator|&&
-operator|(
-name|d
-operator|->
-name|model
-operator|->
-name|rowCount
-argument_list|(
-name|parent
-argument_list|)
+name|parentRowCount
 operator|==
-name|end
-operator|-
-name|start
-operator|+
-literal|1
-operator|)
+name|delta
 condition|)
 block|{
 comment|// the parent just went from 0 children to more. update to re-paint the decoration
