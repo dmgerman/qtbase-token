@@ -510,7 +510,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QIconCacheGtkReader     \internal     Helper class that reads and looks up into the icon-theme.cache generated with     gtk-update-icon-cache. If at any point we detect a corruption in the file     (because the offsets point at wrong locations for example), the reader     is marked as invalid. */
+comment|/*!     \internal     Helper class that reads and looks up into the icon-theme.cache generated with     gtk-update-icon-cache. If at any point we detect a corruption in the file     (because the offsets point at wrong locations for example), the reader     is marked as invalid. */
 end_comment
 begin_class
 DECL|class|QIconCacheGtkReader

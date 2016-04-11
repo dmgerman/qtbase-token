@@ -6631,13 +6631,7 @@ begin_comment
 comment|/*!  \fn const QClipData *QRasterPaintEngine::clipData() const   \internal */
 end_comment
 begin_comment
-comment|///*!
-end_comment
-begin_comment
-comment|//    \internal
-end_comment
-begin_comment
-comment|//*/
+comment|/*!     \internal */
 end_comment
 begin_function
 DECL|function|fillPath

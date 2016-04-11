@@ -129,6 +129,7 @@ name|QT_BEGIN_NAMESPACE
 name|namespace
 name|QTest
 block|{
+comment|/*!     \internal  */
 name|template
 operator|<
 operator|>

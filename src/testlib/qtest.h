@@ -894,6 +894,9 @@ ifdef|#
 directive|ifdef
 name|QT_NETWORK_LIB
 end_ifdef
+begin_comment
+comment|/*!     \internal  */
+end_comment
 begin_expr_stmt
 unit|template
 operator|<
