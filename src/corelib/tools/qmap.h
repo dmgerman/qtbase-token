@@ -4643,6 +4643,11 @@ operator|>
 operator|(
 operator|)
 block|; }
+name|QT_WARNING_PUSH
+name|QT_WARNING_DISABLE_CLANG
+argument_list|(
+literal|"-Wreturn-stack-address"
+argument_list|)
 name|template
 operator|<
 name|class
@@ -4692,6 +4697,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|QT_WARNING_POP
 name|template
 operator|<
 name|class
