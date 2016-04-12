@@ -391,9 +391,11 @@ name|QVector
 argument_list|<
 name|int
 argument_list|>
-argument_list|()
-operator|<<
+argument_list|(
+literal|1
+argument_list|,
 name|role
+argument_list|)
 argument_list|)
 emit|;
 return|return
