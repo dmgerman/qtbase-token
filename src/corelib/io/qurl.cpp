@@ -3472,16 +3472,10 @@ literal|1
 condition|)
 block|{
 comment|// found a colon but no digits after it
-name|setError
-argument_list|(
-name|PortEmptyError
-argument_list|,
-name|auth
-argument_list|,
-name|colonIndex
-operator|+
+name|port
+operator|=
+operator|-
 literal|1
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else
