@@ -5417,7 +5417,7 @@ specifier|static
 name|void
 name|call
 argument_list|(
-argument|Function f
+argument|Function&f
 argument_list|,
 argument|void **arg
 argument_list|)
