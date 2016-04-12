@@ -145,6 +145,10 @@ block|{
 name|super
 argument_list|(
 name|activity
+argument_list|,
+name|QtActivity
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|m_activity

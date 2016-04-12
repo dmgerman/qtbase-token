@@ -58,6 +58,10 @@ block|{
 name|super
 argument_list|(
 name|service
+argument_list|,
+name|QtService
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|m_service
