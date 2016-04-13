@@ -1382,6 +1382,9 @@ name|pGetModuleHandle
 value|GetModuleHandleW
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|HMODULE
 name|ntdll
 init|=
@@ -1456,6 +1459,17 @@ name|result
 argument_list|)
 expr_stmt|;
 comment|// always returns STATUS_SUCCESS
+else|#
+directive|else
+comment|// !Q_OS_WINCE
+name|GetVersionEx
+argument_list|(
+operator|&
+name|result
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|result
 return|;
