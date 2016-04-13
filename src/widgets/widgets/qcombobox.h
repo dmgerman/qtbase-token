@@ -686,6 +686,16 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|Q_INVOKABLE
+name|QVariant
+name|inputMethodQuery
+argument_list|(
+argument|Qt::InputMethodQuery query
+argument_list|,
+argument|const QVariant&argument
+argument_list|)
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:
