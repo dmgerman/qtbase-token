@@ -2950,17 +2950,10 @@ parameter_list|)
 define|\
 value|QT_MAC_DEPLOYMENT_TARGET_BELOW(osx, __IPHONE_NA)
 end_define
-begin_function_decl
-name|QT_END_NAMESPACE
-name|Q_FORWARD_DECLARE_OBJC_CLASS
-parameter_list|(
-name|NSAutoreleasePool
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
+begin_comment
 comment|// Implemented in qcore_mac_objc.mm
+end_comment
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QMacAutoReleasePool
@@ -2980,7 +2973,7 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QMacAutoReleasePool
 argument_list|)
-name|NSAutoreleasePool
+name|void
 modifier|*
 name|pool
 decl_stmt|;
