@@ -103,6 +103,9 @@ name|void
 name|documentWasModified
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SESSIONMANAGER
 name|void
 name|commitData
 argument_list|(
@@ -110,6 +113,8 @@ name|QSessionManager
 operator|&
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|void

@@ -1382,6 +1382,20 @@ argument_list|,
 name|_O_BINARY
 argument_list|)
 expr_stmt|;
+comment|// Make sure QIODevice does not do LF->CRLF,
+comment|// otherwise we'll end up in CRCRLF instead of
+comment|// CRLF.
+if|if
+condition|(
+name|list
+condition|)
+name|mode
+operator|&=
+operator|~
+name|QIODevice
+operator|::
+name|Text
+expr_stmt|;
 endif|#
 directive|endif
 comment|// Q_OS_WIN

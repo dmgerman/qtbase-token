@@ -42599,22 +42599,18 @@ name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Work round known quirk in the old test server (danted -v< v1.1.19):
 if|if
 condition|(
 name|reply
 operator|->
 name|error
 argument_list|()
-operator|==
+operator|!=
 name|QNetworkReply
 operator|::
 name|HostNotFoundError
 condition|)
-name|QSKIP
-argument_list|(
-literal|"skip because of quirk in the old test server"
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|reply
@@ -42652,7 +42648,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|//QTBUG-23136 workaround
+comment|// QTBUG-23136 workaround (needed even with danted v1.1.19):
 if|if
 condition|(
 name|proxy
@@ -42677,7 +42673,6 @@ expr_stmt|;
 else|#
 directive|else
 return|return;
-comment|//XFAIL result above
 endif|#
 directive|endif
 block|}

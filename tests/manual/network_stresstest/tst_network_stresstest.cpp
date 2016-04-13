@@ -461,6 +461,8 @@ name|currentTestFunction
 argument_list|()
 argument_list|,
 literal|"nam"
+argument_list|,
+literal|3
 argument_list|)
 operator|==
 literal|0

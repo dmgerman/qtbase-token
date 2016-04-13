@@ -159,6 +159,8 @@ name|isApparentlyStale
 argument_list|()
 specifier|const
 expr_stmt|;
+comment|// used in dbusmenu
+name|Q_CORE_EXPORT
 specifier|static
 name|QString
 name|processNameByPid
