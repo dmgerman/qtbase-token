@@ -93,7 +93,7 @@ operator|::
 name|arguments
 argument_list|()
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 operator|.
@@ -119,7 +119,7 @@ operator|::
 name|arguments
 argument_list|()
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 operator|.

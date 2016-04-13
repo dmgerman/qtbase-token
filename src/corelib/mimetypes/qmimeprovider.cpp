@@ -804,7 +804,7 @@ name|foundFile
 init|=
 name|m_cacheFiles
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|->
 name|file
@@ -3716,7 +3716,7 @@ name|data
 operator|.
 name|globPatterns
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|!=
 name|mainPattern
@@ -3778,7 +3778,7 @@ name|data
 operator|.
 name|globPatterns
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|!=
 name|mainPattern

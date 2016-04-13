@@ -551,7 +551,7 @@ name|src
 operator|->
 name|timerList
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|->
 name|timeout

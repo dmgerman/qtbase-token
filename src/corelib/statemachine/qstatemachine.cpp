@@ -2960,7 +2960,7 @@ name|s
 init|=
 name|enteredStates
 operator|.
-name|first
+name|constFirst
 argument_list|()
 decl_stmt|;
 name|assignmentsForEnteredStates

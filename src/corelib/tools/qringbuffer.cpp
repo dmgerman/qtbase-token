@@ -153,7 +153,7 @@ name|blockSize
 init|=
 name|buffers
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|size
@@ -186,7 +186,7 @@ if|if
 condition|(
 name|buffers
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|size
@@ -337,7 +337,7 @@ name|newSize
 operator|>
 name|buffers
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|size
@@ -350,7 +350,7 @@ name|newSize
 operator|>
 name|buffers
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|capacity
@@ -654,7 +654,7 @@ if|if
 condition|(
 name|buffers
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|size
@@ -725,7 +725,7 @@ name|tail
 operator|=
 name|buffers
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|size

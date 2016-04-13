@@ -466,7 +466,7 @@ argument_list|(
 literal|':'
 argument_list|)
 operator|.
-name|first
+name|constFirst
 argument_list|()
 expr_stmt|;
 if|if

@@ -461,7 +461,7 @@ name|other
 init|=
 name|queue
 operator|.
-name|first
+name|constFirst
 argument_list|()
 decl_stmt|;
 name|SetEvent

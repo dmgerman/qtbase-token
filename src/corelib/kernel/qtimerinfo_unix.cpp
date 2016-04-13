@@ -2519,7 +2519,7 @@ name|QTimerInfo
 modifier|*
 name|currentTimerInfo
 init|=
-name|first
+name|constFirst
 argument_list|()
 decl_stmt|;
 if|if

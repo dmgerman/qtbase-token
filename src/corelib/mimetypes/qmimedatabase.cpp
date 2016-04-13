@@ -1314,6 +1314,7 @@ operator|->
 name|mutex
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QStringList
 name|matches
 init|=

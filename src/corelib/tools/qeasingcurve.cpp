@@ -722,7 +722,7 @@ if|if
 condition|(
 name|_bezierCurves
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|==
 name|QPointF

@@ -1472,6 +1472,7 @@ function_decl|;
 name|QModelIndexPairList
 name|store_persistent_indexes
 parameter_list|()
+specifier|const
 function_decl|;
 name|void
 name|update_persistent_indexes
@@ -5743,9 +5744,11 @@ name|QSortFilterProxyModelPrivate
 operator|::
 name|store_persistent_indexes
 parameter_list|()
+specifier|const
 block|{
 name|Q_Q
 argument_list|(
+specifier|const
 name|QSortFilterProxyModel
 argument_list|)
 expr_stmt|;

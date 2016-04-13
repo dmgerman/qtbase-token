@@ -314,7 +314,7 @@ condition|(
 name|isEmpty
 argument_list|()
 operator|||
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|priority

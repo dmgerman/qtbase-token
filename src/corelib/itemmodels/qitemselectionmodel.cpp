@@ -3890,7 +3890,7 @@ name|range
 init|=
 name|currentSelection
 operator|.
-name|first
+name|constFirst
 argument_list|()
 decl_stmt|;
 name|QModelIndex

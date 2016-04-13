@@ -639,7 +639,7 @@ switch|switch
 condition|(
 name|values
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|type
@@ -693,7 +693,7 @@ name|macValue
 argument_list|(
 name|values
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 else|:

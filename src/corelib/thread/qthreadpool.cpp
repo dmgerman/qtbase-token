@@ -792,7 +792,7 @@ name|tryStart
 argument_list|(
 name|queue
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|first
