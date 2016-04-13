@@ -1773,6 +1773,10 @@ argument_list|(
 name|generic
 argument_list|)
 expr_stmt|;
+else|else
+operator|delete
+name|generic
+expr_stmt|;
 block|}
 block|}
 name|QBearerEngine

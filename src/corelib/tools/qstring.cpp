@@ -17687,7 +17687,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete Use asprintf(), arg() or QTextStream instead. */
+comment|/*!     \obsolete      Use asprintf(), arg() or QTextStream instead. */
 end_comment
 begin_function
 DECL|function|sprintf
@@ -17789,7 +17789,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete Use vasprintf(), arg() or QTextStream instead. */
+comment|/*!     \obsolete      Use vasprintf(), arg() or QTextStream instead. */
 end_comment
 begin_function
 DECL|function|vsprintf
@@ -30373,7 +30373,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     \fn QString Qt::escape(const QString&plain)      \sa QString::toHtmlEscaped() */
+comment|/*!     \obsolete     \fn QString Qt::escape(const QString&plain)      Use QString::toHtmlEscaped() instead. */
 end_comment
 begin_comment
 comment|/*!     \since 5.0      Converts a plain text string to an HTML string with     HTML metacharacters \c{<}, \c{>}, \c{&}, and \c{"} replaced by HTML     entities.      Example:      \snippet code/src_corelib_tools_qstring.cpp 7 */

@@ -598,6 +598,14 @@ operator|<<
 literal|4
 expr_stmt|;
 comment|// for the format of IPv6 addresses see also RFC 5952
+comment|// rule 4.1: Leading zeros MUST be suppressed
+comment|// rule 4.2.1: Shorten as Much as Possible
+comment|// rule 4.2.2: The symbol "::" MUST NOT be used to shorten just one 16-bit 0 field.
+comment|// rule 4.2.3: the longest run of consecutive 16-bit 0 fields MUST be shortened
+comment|//             When the length of the consecutive 16-bit 0 fields, the first sequence
+comment|//             of zero bits MUST be shortened
+comment|// rule 4.3: The characters "a", "b", "c", "d", "e", and "f" in an IPv6 address
+comment|//           MUST be represented in lowercase
 name|QTest
 operator|::
 name|newRow
@@ -619,6 +627,7 @@ argument_list|)
 operator|<<
 literal|6
 expr_stmt|;
+comment|// 4.3
 name|QTest
 operator|::
 name|newRow
@@ -640,6 +649,7 @@ argument_list|)
 operator|<<
 literal|6
 expr_stmt|;
+comment|// 4.1, 4.2.1
 name|QTest
 operator|::
 name|newRow
@@ -913,6 +923,7 @@ argument_list|)
 operator|<<
 literal|6
 expr_stmt|;
+comment|// 4.2.2
 name|QTest
 operator|::
 name|newRow
@@ -959,23 +970,46 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"ip6_17"
+literal|"ip6_17a"
 argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"1080:0:0:0:8:800:0:0"
+literal|"1080:0:0:8:800:0:0:0"
 argument_list|)
 operator|<<
 literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"1080::8:800:0:0"
+literal|"1080:0:0:8:800::"
 argument_list|)
 operator|<<
 literal|6
 expr_stmt|;
+comment|// 4.2.3a
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"ip6_17b"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"1080:0:0:0:8:0:0:0"
+argument_list|)
+operator|<<
+literal|true
+operator|<<
+name|QString
+argument_list|(
+literal|"1080::8:0:0:0"
+argument_list|)
+operator|<<
+literal|6
+expr_stmt|;
+comment|// 4.2.3b
 name|QTest
 operator|::
 name|newRow
