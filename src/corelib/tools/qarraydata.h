@@ -168,9 +168,10 @@ literal|0x1
 block|,
 if|#
 directive|if
-name|QT_SUPPORTS
+operator|!
+name|defined
 argument_list|(
-name|UNSHARABLE_CONTAINERS
+name|QT_NO_UNSHARABLE_CONTAINERS
 argument_list|)
 DECL|enumerator|Unsharable
 name|Unsharable
@@ -1791,9 +1792,10 @@ end_function
 begin_if
 if|#
 directive|if
-name|QT_SUPPORTS
+operator|!
+name|defined
 argument_list|(
-name|UNSHARABLE_CONTAINERS
+name|QT_NO_UNSHARABLE_CONTAINERS
 argument_list|)
 end_if
 begin_function
