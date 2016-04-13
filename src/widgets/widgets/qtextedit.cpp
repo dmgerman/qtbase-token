@@ -910,7 +910,7 @@ name|setFocusPolicy
 argument_list|(
 name|Qt
 operator|::
-name|WheelFocus
+name|StrongFocus
 argument_list|)
 expr_stmt|;
 name|q
