@@ -1952,9 +1952,11 @@ operator|::
 name|QSslCipher_from_SSLCipherSuite
 argument_list|(
 name|cfCiphers
-index|[
+operator|.
+name|at
+argument_list|(
 name|i
-index|]
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -4808,9 +4810,11 @@ operator|=
 name|configuration
 operator|.
 name|localCertificateChain
-index|[
+operator|.
+name|at
+argument_list|(
 literal|0
-index|]
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -6342,7 +6346,7 @@ name|SslHandshakeFailedError
 argument_list|,
 name|sslErrors
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|errorString

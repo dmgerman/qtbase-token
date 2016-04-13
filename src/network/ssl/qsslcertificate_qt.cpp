@@ -715,6 +715,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|QSslCertificate
@@ -1402,9 +1403,11 @@ name|elem
 operator|.
 name|value
 argument_list|()
-index|[
+operator|.
+name|at
+argument_list|(
 literal|0
-index|]
+argument_list|)
 operator|+
 literal|1
 argument_list|)

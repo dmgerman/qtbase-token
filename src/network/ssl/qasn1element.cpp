@@ -1121,6 +1121,7 @@ name|mType
 operator|=
 name|ObjectIdentifierType
 expr_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|QByteArray
@@ -1949,9 +1950,11 @@ name|quint8
 name|b
 init|=
 name|mValue
-index|[
+operator|.
+name|at
+argument_list|(
 literal|0
-index|]
+argument_list|)
 decl_stmt|;
 name|key
 operator|+=
@@ -2002,9 +2005,11 @@ block|{
 name|b
 operator|=
 name|mValue
-index|[
+operator|.
+name|at
+argument_list|(
 name|i
-index|]
+argument_list|)
 expr_stmt|;
 name|val
 operator|=

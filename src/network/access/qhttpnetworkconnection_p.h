@@ -653,6 +653,7 @@ block|;
 name|QHttpNetworkRequest
 name|predictNextRequest
 argument_list|()
+specifier|const
 block|;
 name|void
 name|fillPipeline

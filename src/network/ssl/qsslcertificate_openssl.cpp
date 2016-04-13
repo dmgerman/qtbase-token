@@ -2625,6 +2625,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|QSslCertificate

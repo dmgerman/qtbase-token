@@ -6864,7 +6864,7 @@ name|SslHandshakeFailedError
 argument_list|,
 name|sslErrors
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|errorString

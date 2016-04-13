@@ -295,7 +295,7 @@ name|QNetworkProxyQuery
 argument_list|()
 argument_list|)
 operator|.
-name|first
+name|constFirst
 argument_list|()
 return|;
 block|}

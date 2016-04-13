@@ -1398,6 +1398,7 @@ operator|::
 name|SequenceType
 condition|)
 return|return;
+specifier|const
 name|QVector
 argument_list|<
 name|QAsn1Element
@@ -1583,6 +1584,7 @@ name|SequenceType
 condition|)
 return|return;
 comment|// key params
+specifier|const
 name|QVector
 argument_list|<
 name|QAsn1Element
@@ -1686,6 +1688,7 @@ block|}
 block|}
 else|else
 block|{
+specifier|const
 name|QVector
 argument_list|<
 name|QAsn1Element
@@ -2007,6 +2010,7 @@ operator|==
 literal|"4,ENCRYPTED"
 condition|)
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|QByteArray

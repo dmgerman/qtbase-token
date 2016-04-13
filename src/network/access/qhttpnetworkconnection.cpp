@@ -3542,6 +3542,7 @@ name|QHttpNetworkConnectionPrivate
 operator|::
 name|predictNextRequest
 parameter_list|()
+specifier|const
 block|{
 if|if
 condition|(
