@@ -5162,9 +5162,6 @@ name|arg
 operator|+
 literal|7
 argument_list|)
-operator|.
-name|toLower
-argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -5198,9 +5195,6 @@ operator|++
 name|i
 index|]
 argument_list|)
-operator|.
-name|toLower
-argument_list|()
 expr_stmt|;
 block|}
 else|else

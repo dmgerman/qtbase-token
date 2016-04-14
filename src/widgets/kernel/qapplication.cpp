@@ -4254,6 +4254,9 @@ operator|=
 name|QApplicationPrivate
 operator|::
 name|styleOverride
+operator|.
+name|toLower
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
