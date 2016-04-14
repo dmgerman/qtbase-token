@@ -3495,9 +3495,11 @@ operator|!
 name|d
 operator|->
 name|colorAttachments
-index|[
+operator|.
+name|at
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|.
 name|guard
 condition|)
@@ -3848,7 +3850,9 @@ condition|)
 name|release
 argument_list|()
 expr_stmt|;
-name|id
+name|auto
+operator|&
+name|guard
 operator|=
 name|d
 operator|->
@@ -3858,14 +3862,11 @@ name|colorAttachmentIndex
 index|]
 operator|.
 name|guard
+expr_stmt|;
+name|id
+operator|=
+name|guard
 condition|?
-name|d
-operator|->
-name|colorAttachments
-index|[
-name|colorAttachmentIndex
-index|]
-operator|.
 name|guard
 operator|->
 name|id
@@ -3875,13 +3876,6 @@ literal|0
 expr_stmt|;
 comment|// Do not call free() on texture_guard, just null it out.
 comment|// This way the texture will not be deleted when the guard is destroyed.
-name|d
-operator|->
-name|colorAttachments
-index|[
-name|colorAttachmentIndex
-index|]
-operator|.
 name|guard
 operator|=
 literal|0

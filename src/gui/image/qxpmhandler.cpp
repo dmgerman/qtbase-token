@@ -11443,6 +11443,7 @@ name|x
 operator|)
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QByteArray
 name|chars
 argument_list|(

@@ -19776,7 +19776,7 @@ condition|)
 return|return
 name|insertionPoints
 operator|.
-name|last
+name|constLast
 argument_list|()
 return|;
 return|return
@@ -19820,7 +19820,7 @@ condition|)
 return|return
 name|insertionPoints
 operator|.
-name|first
+name|constFirst
 argument_list|()
 return|;
 return|return

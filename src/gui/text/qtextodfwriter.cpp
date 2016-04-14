@@ -6311,6 +6311,7 @@ name|blockIt
 expr_stmt|;
 block|}
 comment|// add objects for lists, frames and tables
+specifier|const
 name|QVector
 argument_list|<
 name|QTextFormat
@@ -6322,6 +6323,7 @@ operator|->
 name|allFormats
 argument_list|()
 decl_stmt|;
+specifier|const
 name|QList
 argument_list|<
 name|int
@@ -6335,28 +6337,10 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|QList
-argument_list|<
-name|int
-argument_list|>
-operator|::
-name|Iterator
-name|iter
-init|=
+name|auto
+name|index
+range|:
 name|copy
-operator|.
-name|begin
-argument_list|()
-init|;
-name|iter
-operator|!=
-name|copy
-operator|.
-name|end
-argument_list|()
-condition|;
-operator|++
-name|iter
 control|)
 block|{
 name|QTextObject
@@ -6369,8 +6353,7 @@ name|objectForFormat
 argument_list|(
 name|allFormats
 index|[
-operator|*
-name|iter
+name|index
 index|]
 argument_list|)
 decl_stmt|;

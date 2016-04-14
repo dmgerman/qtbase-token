@@ -1305,6 +1305,7 @@ block|{
 name|QFile
 name|themeIndex
 decl_stmt|;
+specifier|const
 name|QStringList
 name|iconDirs
 init|=

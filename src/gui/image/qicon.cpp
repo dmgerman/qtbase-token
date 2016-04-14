@@ -1296,9 +1296,11 @@ name|pe
 operator|==
 operator|&
 name|pixmaps
-index|[
+operator|.
+name|at
+argument_list|(
 name|idx
-index|]
+argument_list|)
 condition|)
 block|{
 name|pixmaps

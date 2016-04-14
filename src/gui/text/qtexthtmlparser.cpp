@@ -3801,7 +3801,7 @@ name|parser
 argument_list|(
 name|nodes
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|text

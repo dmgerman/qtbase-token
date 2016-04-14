@@ -8156,7 +8156,7 @@ name|state
 operator|->
 name|clipInfo
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|operation

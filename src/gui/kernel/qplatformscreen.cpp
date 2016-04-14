@@ -202,6 +202,7 @@ name|pos
 parameter_list|)
 specifier|const
 block|{
+specifier|const
 name|QWindowList
 name|list
 init|=

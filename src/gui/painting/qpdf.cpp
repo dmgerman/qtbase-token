@@ -8673,7 +8673,7 @@ name|addXrefEntry
 argument_list|(
 name|pages
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -9160,7 +9160,7 @@ name|catalog
 argument_list|,
 name|xrefPositions
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|)
 expr_stmt|;

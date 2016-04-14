@@ -10715,6 +10715,7 @@ return|return
 name|QRect
 argument_list|()
 return|;
+specifier|const
 name|QStringList
 name|func
 init|=
@@ -12028,6 +12029,19 @@ name|v
 parameter_list|)
 specifier|const
 block|{
+specifier|const
+name|DeclarationData
+modifier|*
+name|d
+init|=
+name|this
+operator|->
+name|d
+operator|.
+name|data
+argument_list|()
+decl_stmt|;
+comment|// make it const and shadow d
 operator|*
 name|image
 operator|=

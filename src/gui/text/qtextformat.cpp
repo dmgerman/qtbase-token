@@ -6058,9 +6058,11 @@ control|)
 if|if
 condition|(
 name|formats
-index|[
+operator|.
+name|at
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|.
 name|d
 condition|)

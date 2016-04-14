@@ -3515,7 +3515,7 @@ name|m_context
 operator|=
 name|m_shares
 operator|.
-name|first
+name|constFirst
 argument_list|()
 expr_stmt|;
 if|if
@@ -4100,7 +4100,7 @@ operator|->
 name|shares
 argument_list|()
 operator|.
-name|first
+name|constFirst
 argument_list|()
 decl_stmt|;
 name|QOpenGLSharedResource
