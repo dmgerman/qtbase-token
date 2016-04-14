@@ -17140,9 +17140,11 @@ operator|=
 name|group
 operator|->
 name|m_shares
-index|[
+operator|.
+name|at
+argument_list|(
 literal|0
-index|]
+argument_list|)
 expr_stmt|;
 comment|// If there is only one context left, then make the list empty.
 if|if

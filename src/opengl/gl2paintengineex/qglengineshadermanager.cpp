@@ -1540,9 +1540,11 @@ modifier|*
 name|cachedProg
 init|=
 name|cachedPrograms
-index|[
+operator|.
+name|at
+argument_list|(
 name|i
-index|]
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
