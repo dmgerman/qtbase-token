@@ -58,7 +58,7 @@ name|QObject
 operator|*
 name|parent
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -73,7 +73,7 @@ name|QObject
 modifier|*
 name|parent
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 end_function_decl
