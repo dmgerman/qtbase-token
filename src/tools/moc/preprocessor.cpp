@@ -852,7 +852,7 @@ argument_list|()
 operator|&&
 name|symbols
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|token
@@ -865,7 +865,7 @@ name|newString
 init|=
 name|symbols
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|unquotedLexem
@@ -913,7 +913,7 @@ name|Symbol
 argument_list|(
 name|symbols
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|lineNum
@@ -3335,7 +3335,7 @@ argument_list|()
 operator|&&
 name|expansion
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|token
@@ -3414,7 +3414,7 @@ argument_list|()
 operator|&&
 name|expansion
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|token
@@ -3429,7 +3429,7 @@ name|last
 init|=
 name|expansion
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 name|expansion
@@ -5561,7 +5561,7 @@ name|macro
 operator|.
 name|symbols
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|token
@@ -5572,7 +5572,7 @@ name|macro
 operator|.
 name|symbols
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|token
@@ -5604,7 +5604,7 @@ name|macro
 operator|.
 name|symbols
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|token
@@ -5615,7 +5615,7 @@ name|macro
 operator|.
 name|symbols
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|token

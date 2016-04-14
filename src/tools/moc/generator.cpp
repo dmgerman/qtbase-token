@@ -292,7 +292,7 @@ name|cdef
 operator|->
 name|superclassList
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|first

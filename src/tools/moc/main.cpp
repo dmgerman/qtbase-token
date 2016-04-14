@@ -2017,11 +2017,13 @@ operator|>
 name|spos
 operator|&&
 name|filename
-index|[
+operator|.
+name|at
+argument_list|(
 name|ppos
 operator|+
 literal|1
-index|]
+argument_list|)
 operator|.
 name|toLower
 argument_list|()
