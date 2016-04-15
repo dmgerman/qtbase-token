@@ -6322,6 +6322,15 @@ return|return
 name|S_OK
 return|;
 block|}
+name|QWindowSystemInterface
+operator|::
+name|handleApplicationStateChanged
+argument_list|(
+name|Qt
+operator|::
+name|ApplicationActive
+argument_list|)
+expr_stmt|;
 comment|// Activate topWindow
 if|if
 condition|(
