@@ -1158,6 +1158,8 @@ argument_list|(
 name|basecfgs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|build_proj
 operator|->
 name|read
@@ -1167,8 +1169,7 @@ operator|->
 name|projectFile
 argument_list|()
 argument_list|)
-expr_stmt|;
-comment|//done
+condition|)
 return|return
 name|createMakefileGenerator
 argument_list|(
