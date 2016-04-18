@@ -200,6 +200,11 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|using
+name|QObject
+operator|::
+name|parent
+block|;
 name|bool
 name|hasChildren
 argument_list|(
