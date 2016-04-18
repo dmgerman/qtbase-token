@@ -81,7 +81,11 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_X86_64
 argument_list|)
-comment|// x86-64 or x32
+operator|&&
+name|QT_POINTER_SIZE
+operator|==
+literal|8
+comment|// x86-64 64-bit
 define|#
 directive|define
 name|QT_VERSION_TAG_RELOC
@@ -91,7 +95,7 @@ parameter_list|)
 value|".quad " QT_STRINGIFY(QT_MANGLE_NAMESPACE(sym)) "@GOT\n"
 else|#
 directive|else
-comment|// x86
+comment|// x86 or x86-64 32-bit (x32)
 define|#
 directive|define
 name|QT_VERSION_TAG_RELOC
