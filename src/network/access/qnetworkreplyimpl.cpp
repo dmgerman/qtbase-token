@@ -1305,15 +1305,13 @@ name|QNetworkSession
 operator|::
 name|Disconnected
 operator|&&
-operator|(
 name|state
 operator|!=
 name|Idle
-operator|||
+operator|&&
 name|state
 operator|!=
 name|Reconnecting
-operator|)
 condition|)
 block|{
 name|error
