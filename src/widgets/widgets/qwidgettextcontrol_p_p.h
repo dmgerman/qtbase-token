@@ -270,6 +270,10 @@ argument|bool enable
 argument_list|)
 block|;
 name|void
+name|updateCursorBlinking
+argument_list|()
+block|;
+name|void
 name|extendWordwiseSelection
 argument_list|(
 argument|int suggestedNewPosition
@@ -575,6 +579,9 @@ name|doc
 block|;
 name|bool
 name|cursorOn
+block|;
+name|bool
+name|blinkingEnabled
 block|;
 name|QTextCursor
 name|cursor
