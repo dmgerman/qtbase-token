@@ -1863,7 +1863,7 @@ name|writeSettings
 argument_list|(
 literal|"sourceTree"
 argument_list|,
-literal|"<Group>"
+literal|"<group>"
 argument_list|)
 operator|<<
 literal|";\n"
@@ -5157,7 +5157,7 @@ name|writeSettings
 argument_list|(
 literal|"sourceTree"
 argument_list|,
-literal|"<Group>"
+literal|"<group>"
 argument_list|)
 operator|<<
 literal|";\n"
@@ -7905,7 +7905,7 @@ name|writeSettings
 argument_list|(
 literal|"sourceTree"
 argument_list|,
-literal|"<Group>"
+literal|"<group>"
 argument_list|)
 operator|<<
 literal|";\n"
@@ -8963,7 +8963,7 @@ name|writeSettings
 argument_list|(
 literal|"sourceTree"
 argument_list|,
-literal|"<Group>"
+literal|"<group>"
 argument_list|)
 operator|<<
 literal|";\n"
@@ -9715,7 +9715,7 @@ name|writeSettings
 argument_list|(
 literal|"sourceTree"
 argument_list|,
-literal|"<Group>"
+literal|"<group>"
 argument_list|)
 operator|<<
 literal|";\n"
@@ -9791,7 +9791,7 @@ name|writeSettings
 argument_list|(
 literal|"sourceTree"
 argument_list|,
-literal|"<Group>"
+literal|"<group>"
 argument_list|)
 operator|<<
 literal|";\n"
