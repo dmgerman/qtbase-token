@@ -4746,6 +4746,8 @@ return|;
 comment|// Backend does not support resuming download.
 if|if
 condition|(
+name|backend
+operator|&&
 operator|!
 name|backend
 operator|->
@@ -4761,19 +4763,6 @@ name|QNetworkReplyPrivate
 operator|::
 name|Reconnecting
 expr_stmt|;
-if|if
-condition|(
-name|backend
-condition|)
-block|{
-operator|delete
-name|backend
-expr_stmt|;
-name|backend
-operator|=
-literal|0
-expr_stmt|;
-block|}
 name|cookedHeaders
 operator|.
 name|clear
@@ -4787,6 +4776,9 @@ expr_stmt|;
 name|preMigrationDownloaded
 operator|=
 name|bytesDownloaded
+expr_stmt|;
+operator|delete
+name|backend
 expr_stmt|;
 name|backend
 operator|=
