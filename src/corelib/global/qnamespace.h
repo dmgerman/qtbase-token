@@ -4179,6 +4179,10 @@ name|ImAnchorRectangle
 init|=
 literal|0x4000
 block|,
+name|ImInputItemClipRectangle
+init|=
+literal|0x8000
+block|,
 name|ImPlatformData
 init|=
 literal|0x80000000
