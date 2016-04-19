@@ -2251,22 +2251,18 @@ condition|(
 name|scopedFunctionName
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-argument_list|(
+init|=
 literal|"Function declaration "
-argument_list|)
-decl_stmt|;
-name|msg
-operator|+=
+operator|+
 name|def
 operator|->
 name|name
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" contains extra qualification. Ignoring as signal or slot."
-expr_stmt|;
+decl_stmt|;
 name|warning
 argument_list|(
 name|msg
@@ -2725,22 +2721,18 @@ name|isInvokable
 operator|)
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-argument_list|(
+init|=
 literal|"parsemaybe: Function declaration "
-argument_list|)
-decl_stmt|;
-name|msg
-operator|+=
+operator|+
 name|def
 operator|->
 name|name
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" contains extra qualification. Ignoring as signal or slot."
-expr_stmt|;
+decl_stmt|;
 name|warning
 argument_list|(
 name|msg
@@ -5915,23 +5907,18 @@ name|isNull
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-decl_stmt|;
-name|msg
-operator|+=
+init|=
 literal|"Property declaration "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|propDef
 operator|.
 name|name
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" has no READ accessor function or associated MEMBER variable. The property will be invalid."
-expr_stmt|;
+decl_stmt|;
 name|warning
 argument_list|(
 name|msg
@@ -5956,23 +5943,18 @@ name|isNull
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-decl_stmt|;
-name|msg
-operator|+=
+init|=
 literal|"Property declaration "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|propDef
 operator|.
 name|name
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" is both WRITEable and CONSTANT. CONSTANT will be ignored."
-expr_stmt|;
+decl_stmt|;
 name|propDef
 operator|.
 name|constant
@@ -6003,23 +5985,18 @@ name|isNull
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-decl_stmt|;
-name|msg
-operator|+=
+init|=
 literal|"Property declaration "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|propDef
 operator|.
 name|name
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" is both NOTIFYable and CONSTANT. CONSTANT will be ignored."
-expr_stmt|;
+decl_stmt|;
 name|propDef
 operator|.
 name|constant
@@ -6307,22 +6284,17 @@ name|exists
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-decl_stmt|;
-name|msg
-operator|+=
+init|=
 literal|"Plugin Metadata file "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|lexem
 argument_list|()
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" does not exist. Declaration will be ignored"
-expr_stmt|;
+decl_stmt|;
 name|error
 argument_list|(
 name|msg
@@ -6395,22 +6367,17 @@ name|isObject
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-decl_stmt|;
-name|msg
-operator|+=
+init|=
 literal|"Plugin Metadata file "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|lexem
 argument_list|()
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" does not contain a valid JSON object. Declaration will be ignored"
-expr_stmt|;
+decl_stmt|;
 name|warning
 argument_list|(
 name|msg
@@ -7907,7 +7874,7 @@ comment|// enable once we /require/ include paths
 if|#
 directive|if
 literal|0
-block|QByteArray msg;         msg += "Class ";         msg += def->className;         msg += " contains the Q_OBJECT macro and inherits from ";         msg += def->superclassList.value(0);         msg += " but that is not a known QObject subclass. You may get compilation errors.";         warning(msg.constData());
+block|const QByteArray msg                 = "Class "                 + def->className                 + " contains the Q_OBJECT macro and inherits from "                 + def->superclassList.value(0)                 + " but that is not a known QObject subclass. You may get compilation errors.";         warning(msg.constData());
 endif|#
 directive|endif
 return|return;
@@ -7957,39 +7924,26 @@ name|superClass
 argument_list|)
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-decl_stmt|;
-name|msg
-operator|+=
+init|=
 literal|"Class "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|def
 operator|->
 name|classname
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" inherits from two QObject subclasses "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|firstSuperclass
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" and "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|superClass
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|". This is not supported!"
-expr_stmt|;
+decl_stmt|;
 name|warning
 argument_list|(
 name|msg
@@ -8064,39 +8018,26 @@ operator|!
 name|registeredInterface
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|msg
-decl_stmt|;
-name|msg
-operator|+=
+init|=
 literal|"Class "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|def
 operator|->
 name|classname
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" implements the interface "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|superClass
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" but does not list it in Q_INTERFACES. qobject_cast to "
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 name|superClass
-expr_stmt|;
-name|msg
-operator|+=
+operator|+
 literal|" will not work!"
-expr_stmt|;
+decl_stmt|;
 name|warning
 argument_list|(
 name|msg

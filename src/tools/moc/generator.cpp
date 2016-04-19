@@ -9454,15 +9454,11 @@ block|{
 name|thisPtr
 operator|=
 literal|"const_cast< "
-expr_stmt|;
-name|thisPtr
-operator|+=
+operator|+
 name|cdef
 operator|->
 name|qualified
-expr_stmt|;
-name|thisPtr
-operator|+=
+operator|+
 literal|" *>(this)"
 expr_stmt|;
 name|constQualifier
