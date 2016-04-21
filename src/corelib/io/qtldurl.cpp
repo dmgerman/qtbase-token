@@ -40,7 +40,7 @@ name|bool
 name|containsTLDEntry
 parameter_list|(
 specifier|const
-name|QString
+name|QStringRef
 modifier|&
 name|entry
 parameter_list|)
@@ -168,6 +168,31 @@ literal|false
 return|;
 block|}
 end_function
+begin_function
+DECL|function|containsTLDEntry
+specifier|static
+specifier|inline
+name|bool
+name|containsTLDEntry
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|entry
+parameter_list|)
+block|{
+return|return
+name|containsTLDEntry
+argument_list|(
+name|QStringRef
+argument_list|(
+operator|&
+name|entry
+argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \internal      Return the top-level-domain per Qt's copy of the Mozilla public suffix list of     \a domain. */
 end_comment
@@ -271,7 +296,7 @@ name|qIsEffectiveTLD
 argument_list|(
 name|level
 operator|.
-name|right
+name|rightRef
 argument_list|(
 name|level
 operator|.
@@ -302,7 +327,7 @@ name|bool
 name|qIsEffectiveTLD
 parameter_list|(
 specifier|const
-name|QString
+name|QStringRef
 modifier|&
 name|domain
 parameter_list|)
@@ -360,7 +385,7 @@ argument_list|)
 operator|+
 name|domain
 operator|.
-name|rightRef
+name|right
 argument_list|(
 name|count
 argument_list|)
