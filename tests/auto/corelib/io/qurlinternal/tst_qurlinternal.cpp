@@ -6846,7 +6846,15 @@ name|void
 name|loadInvalidUtf8Rows
 argument_list|()
 decl_stmt|;
+specifier|extern
+name|void
+name|loadNonCharactersRows
+argument_list|()
+decl_stmt|;
 name|loadInvalidUtf8Rows
+argument_list|()
+expr_stmt|;
+name|loadNonCharactersRows
 argument_list|()
 expr_stmt|;
 name|QTest

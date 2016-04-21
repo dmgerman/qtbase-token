@@ -951,6 +951,36 @@ super|:
 specifier|public
 name|QUtf8BaseTraitsNoAscii
 block|{
+comment|// From RFC 3987:
+comment|//    iunreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~" / ucschar
+comment|//
+comment|//    ucschar        = %xA0-D7FF / %xF900-FDCF / %xFDF0-FFEF
+comment|//                   / %x10000-1FFFD / %x20000-2FFFD / %x30000-3FFFD
+comment|//                   / %x40000-4FFFD / %x50000-5FFFD / %x60000-6FFFD
+comment|//                   / %x70000-7FFFD / %x80000-8FFFD / %x90000-9FFFD
+comment|//                   / %xA0000-AFFFD / %xB0000-BFFFD / %xC0000-CFFFD
+comment|//                   / %xD0000-DFFFD / %xE1000-EFFFD
+comment|//
+comment|//    iprivate       = %xE000-F8FF / %xF0000-FFFFD / %x100000-10FFFD
+comment|//
+comment|// That RFC allows iprivate only as part of iquery, but we don't know here
+comment|// whether we're looking at a query or another part of an URI, so we accept
+comment|// them too. The definition above excludes U+FFF0 to U+FFFD from appearing
+comment|// unencoded, but we see no reason for its exclusion, so we allow them to
+comment|// be decoded (and we need U+FFFD the replacement character to indicate
+comment|// failure to decode).
+comment|//
+comment|// That means we must disallow:
+comment|//  * unpaired surrogates (QUtf8Functions takes care of that for us)
+comment|//  * non-characters
+DECL|member|allowNonCharacters
+specifier|static
+specifier|const
+name|bool
+name|allowNonCharacters
+init|=
+literal|false
+decl_stmt|;
 comment|// override: our "bytes" are three percent-encoded UTF-16 characters
 DECL|function|appendByte
 specifier|static
