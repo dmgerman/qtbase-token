@@ -24,6 +24,7 @@ directive|include
 file|"renderthread.h"
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QLabel
 name|class
 name|QLabel
@@ -35,10 +36,9 @@ name|class
 name|QPushButton
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|//! [Window class definition]
-end_comment
 begin_decl_stmt
+name|QT_END_NAMESPACE
+comment|//! [Window class definition]
 name|class
 name|Window
 range|:
