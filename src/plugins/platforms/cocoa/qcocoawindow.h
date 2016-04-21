@@ -149,6 +149,12 @@ name|_grabbingMouse
 block|;
 name|BOOL
 name|_releaseOnMouseUp
+block|;
+name|QPointer
+operator|<
+name|QObject
+operator|>
+name|_watcher
 block|; }
 expr|@
 name|property
@@ -1202,7 +1208,12 @@ operator|>
 name|m_enabledContentBorderAreas
 block|;
 comment|// identifer -> enabled state (true/false)
-block|}
+comment|// This object is tracked by a 'watcher'
+comment|// object in a window helper, preventing use of dangling
+comment|// pointers.
+name|QObject
+name|sentinel
+block|; }
 block|;
 name|QT_END_NAMESPACE
 end_decl_stmt
