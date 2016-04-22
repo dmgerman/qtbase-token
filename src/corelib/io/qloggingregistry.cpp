@@ -1466,13 +1466,6 @@ operator|::
 name|updateRules
 parameter_list|()
 block|{
-if|if
-condition|(
-name|categoryFilter
-operator|!=
-name|defaultCategoryFilter
-condition|)
-return|return;
 name|rules
 operator|=
 name|qtConfigRules
