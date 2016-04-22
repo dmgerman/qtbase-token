@@ -175,6 +175,9 @@ name|mMouseToo
 block|;
 name|ulong
 name|mTimestamp
+block|;
+name|int
+name|mWheelEventCount
 block|; }
 decl_stmt|;
 end_decl_stmt
