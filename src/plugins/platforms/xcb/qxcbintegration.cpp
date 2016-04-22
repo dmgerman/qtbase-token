@@ -399,6 +399,17 @@ name|m_instance
 operator|=
 name|this
 expr_stmt|;
+name|qApp
+operator|->
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|AA_CompressHighFrequencyEvents
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|qRegisterMetaType
 argument_list|<
 name|QXcbWindow

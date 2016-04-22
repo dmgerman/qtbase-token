@@ -1565,6 +1565,10 @@ name|AA_SynthesizeMouseForUnhandledTabletEvents
 init|=
 literal|24
 block|,
+name|AA_CompressHighFrequencyEvents
+init|=
+literal|25
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}
