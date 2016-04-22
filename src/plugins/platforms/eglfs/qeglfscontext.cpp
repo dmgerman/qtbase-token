@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qeglfsglobal.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QSurface>
 end_include
 begin_include

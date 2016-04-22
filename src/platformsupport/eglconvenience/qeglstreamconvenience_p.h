@@ -51,12 +51,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<EGL/egl.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<EGL/eglext.h>
+file|<QtPlatformSupport/private/qt_egl_p.h>
 end_include
 begin_comment
 comment|// This provides runtime EGLDevice/Output/Stream support even when eglext.h in
