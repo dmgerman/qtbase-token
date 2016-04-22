@@ -1042,16 +1042,26 @@ comment|// and try again...
 block|}
 else|else
 block|{
+comment|// Fail.  Probably can't happen in fact (dwFlags is 0).
 ifndef|#
 directive|ifndef
 name|QT_NO_DEBUG
-comment|// Fail.
-name|qWarning
+comment|// Can't use qWarning(), as it'll recurse to handle %ls
+name|fprintf
 argument_list|(
-literal|"WideCharToMultiByte: Cannot convert multibyte text (error %d): %s (UTF-8)"
+name|stderr
+argument_list|,
+literal|"WideCharToMultiByte: Cannot convert multibyte text (error %d): %ls\n"
 argument_list|,
 name|r
 argument_list|,
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|wchar_t
+operator|*
+argument_list|>
+argument_list|(
 name|QString
 argument_list|(
 name|ch
@@ -1059,11 +1069,9 @@ argument_list|,
 name|uclen
 argument_list|)
 operator|.
-name|toLocal8Bit
+name|utf16
 argument_list|()
-operator|.
-name|data
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#

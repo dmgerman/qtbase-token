@@ -13309,7 +13309,7 @@ name|char
 modifier|*
 name|sourceName
 init|=
-literal|nullptr
+literal|0
 decl_stmt|;
 if|if
 condition|(

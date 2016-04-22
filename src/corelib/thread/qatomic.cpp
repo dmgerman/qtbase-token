@@ -251,7 +251,7 @@ begin_comment
 comment|/*!     \fn T *QAtomicPointer::load() const      Atomically loads the value of this QAtomicPointer using relaxed memory     ordering. The value is not modified in any way, but note that there's no     guarantee that it remains so.      \sa store(), loadAcquire() */
 end_comment
 begin_comment
-comment|/*!     \fn T *QAtomicPointer::loadAcquire() const      Atomically loads the value of this QAtomicPointerusing the "Acquire" memory     ordering. The value is not modified in any way, but note that there's no     guarantee that it remains so.      \sa store(), load() */
+comment|/*!     \fn T *QAtomicPointer::loadAcquire() const      Atomically loads the value of this QAtomicPointer using the "Acquire" memory     ordering. The value is not modified in any way, but note that there's no     guarantee that it remains so.      \sa store(), load() */
 end_comment
 begin_comment
 comment|/*!     \fn void QAtomicPointer::store(T *newValue)      Atomically stores the \a newValue value into this atomic type, using     relaxed memory ordering.      \sa storeRelease(), load() */

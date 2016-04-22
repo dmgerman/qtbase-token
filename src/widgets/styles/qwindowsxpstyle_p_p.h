@@ -2145,12 +2145,16 @@ name|ToolTipTheme
 block|,
 name|TrackBarTheme
 block|,
-name|TreeViewTheme
+name|XpTreeViewTheme
 block|,
+comment|// '+'/'-' shape treeview indicators (XP)
 name|WindowTheme
 block|,
 name|StatusTheme
 block|,
+name|VistaTreeViewTheme
+block|,
+comment|// arrow shape treeview indicators (Vista) obtained from "explorer" theme.
 name|NThemes
 block|}
 enum|;
@@ -2544,6 +2548,16 @@ function_decl|;
 endif|#
 directive|endif
 specifier|static
+name|bool
+name|initVistaTreeViewTheming
+parameter_list|()
+function_decl|;
+specifier|static
+name|void
+name|cleanupVistaTreeViewTheming
+parameter_list|()
+function_decl|;
+specifier|static
 name|QBasicAtomicInt
 name|ref
 decl_stmt|;
@@ -2581,6 +2595,10 @@ name|int
 name|bufferW
 decl_stmt|,
 name|bufferH
+decl_stmt|;
+specifier|static
+name|HWND
+name|m_vistaTreeViewHelper
 decl_stmt|;
 specifier|static
 name|HTHEME

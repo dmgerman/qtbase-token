@@ -553,10 +553,6 @@ operator|:
 name|QWindowsVistaStylePrivate
 argument_list|()
 block|;
-operator|~
-name|QWindowsVistaStylePrivate
-argument_list|()
-block|;
 specifier|static
 name|int
 name|fixedPixelMetric
@@ -574,19 +570,6 @@ name|bool
 name|transitionsEnabled
 argument_list|()
 specifier|const
-block|;
-name|private
-operator|:
-name|bool
-name|initTreeViewTheming
-argument_list|()
-block|;
-name|void
-name|cleanupTreeViewTheming
-argument_list|()
-block|;
-name|HWND
-name|m_treeViewHelper
 block|; }
 decl_stmt|;
 end_decl_stmt
