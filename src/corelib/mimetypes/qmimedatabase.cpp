@@ -1738,6 +1738,13 @@ argument_list|(
 literal|"http"
 argument_list|)
 argument_list|)
+operator|||
+name|scheme
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"mailto"
+argument_list|)
 condition|)
 return|return
 name|mimeTypeForName
