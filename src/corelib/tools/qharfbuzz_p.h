@@ -1525,6 +1525,15 @@ name|Q_PRIMITIVE_TYPE
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|HB_ScriptItem
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

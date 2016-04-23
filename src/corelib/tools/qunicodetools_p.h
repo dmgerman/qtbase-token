@@ -132,6 +132,26 @@ name|script
 decl_stmt|;
 block|}
 struct|;
+block|}
+end_decl_stmt
+begin_comment
+comment|// namespace QUnicodeTools
+end_comment
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QUnicodeTools
+operator|::
+name|ScriptItem
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
+name|namespace
+name|QUnicodeTools
+block|{
 enum|enum
 name|CharAttributeOption
 block|{
