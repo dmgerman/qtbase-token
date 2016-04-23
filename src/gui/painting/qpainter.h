@@ -3311,6 +3311,17 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QPainter
+operator|::
+name|PixmapFragment
+argument_list|,
+name|Q_RELOCATABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(

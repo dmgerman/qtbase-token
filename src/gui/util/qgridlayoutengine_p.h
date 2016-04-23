@@ -700,6 +700,18 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QGridLayoutBox
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|// cannot be Q_PRIMITIVE_TYPE, as q_maximumSize, say, is != 0
+end_comment
+begin_expr_stmt
 name|bool
 name|operator
 operator|==

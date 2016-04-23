@@ -2442,6 +2442,36 @@ block|}
 block|}
 block|}
 end_namespace
+begin_comment
+comment|// unnamed namespace
+end_comment
+begin_comment
+comment|// the following is really a lie, because Segments cannot be relocated, as they
+end_comment
+begin_comment
+comment|// reference each other by address. For the same reason, they aren't even copyable,
+end_comment
+begin_comment
+comment|// but the code works with the compiler-generated (wrong) copy and move special
+end_comment
+begin_comment
+comment|// members, so use this as an optimization. The only container these are used in
+end_comment
+begin_comment
+comment|// (a QVarLengthArray in qt_regionToPath()) is resized once up-front, so doesn't
+end_comment
+begin_comment
+comment|// have a problem with this, but benefits from not having to run Segment ctors:
+end_comment
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|Segment
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_function
 DECL|function|qt_regionToPath
 name|Q_GUI_EXPORT

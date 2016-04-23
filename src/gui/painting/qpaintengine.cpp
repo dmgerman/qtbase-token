@@ -374,6 +374,15 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QT_Point
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|/*!     \fn void QPaintEngine::drawPolygon(const QPointF *points, int pointCount,     PolygonDrawMode mode)      Reimplement this virtual function to draw the polygon defined     by the \a pointCount first points in \a points, using mode \a     mode.      \note At least one of the drawPolygon() functions must be reimplemented. */
 end_comment
@@ -523,6 +532,15 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QT_PointF
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|/*!     \overload      Reimplement this virtual function to draw the polygon defined by the     \a pointCount first points in \a points, using mode \a mode.      \note At least one of the drawPolygon() functions must be reimplemented. */
 end_comment

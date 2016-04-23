@@ -618,6 +618,15 @@ literal|1
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QGlyphAttributes
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_struct
 DECL|struct|QGlyphLayout
 struct|struct
