@@ -6472,12 +6472,20 @@ name|d
 operator|->
 name|currentPage
 operator|<<
+name|qMax
+argument_list|(
+name|qreal
+argument_list|(
+literal|1.0
+argument_list|)
+argument_list|,
 name|d
 operator|->
 name|pen
 operator|.
 name|miterLimit
 argument_list|()
+argument_list|)
 operator|<<
 literal|"M "
 expr_stmt|;
