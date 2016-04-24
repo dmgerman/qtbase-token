@@ -47,44 +47,31 @@ name|int
 name|size
 argument_list|)
 range|:
-name|mutexes
+name|count
 argument_list|(
 name|size
 argument_list|)
 decl_stmt|,
-name|recursionMode
+name|mutexes
 argument_list|(
-name|recursionMode
-argument_list|)
-argument_list|{     for
-operator|(
-name|int
-name|index
-operator|=
-literal|0
-expr|;
-name|index
-operator|<
-name|mutexes
-operator|.
-name|count
-argument_list|()
-expr|;
-operator|++
-name|index
-operator|)
-block|{
-name|mutexes
+operator|new
+name|QAtomicPointer
+argument_list|<
+name|QMutex
+argument_list|>
 index|[
-name|index
+name|size
 index|]
-operator|.
-name|store
-argument_list|(
-literal|0
+operator|(
+operator|)
 argument_list|)
-block|;     }
-argument_list|}
+decl_stmt|,
+comment|// (): zero-initialize
+name|recursionMode
+argument_list|(
+name|recursionMode
+argument_list|)
+argument_list|{ }
 comment|/*!     Destructs a QMutexPool. All QMutexes that were created by the pool     are deleted. */
 DECL|function|~QMutexPool
 name|QMutexPool
@@ -92,31 +79,19 @@ operator|::
 name|~
 name|QMutexPool
 argument_list|()
-argument_list|{     for
-operator|(
-name|int
-name|index
-operator|=
-literal|0
-expr|;
-name|index
-operator|<
+argument_list|{
+name|qDeleteAll
+argument_list|(
 name|mutexes
-operator|.
+argument_list|,
+name|mutexes
+operator|+
 name|count
-argument_list|()
-expr|;
-operator|++
-name|index
-operator|)
+argument_list|)
+argument_list|;
 operator|delete
+index|[]
 name|mutexes
-index|[
-name|index
-index|]
-operator|.
-name|load
-argument_list|()
 argument_list|; }
 comment|/*!     Returns the global QMutexPool instance. */
 DECL|function|instance
