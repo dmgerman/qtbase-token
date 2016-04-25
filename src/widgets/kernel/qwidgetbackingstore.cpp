@@ -6652,6 +6652,18 @@ operator|&
 name|hasDirtySiblingsAbove
 argument_list|)
 expr_stmt|;
+comment|// Make a copy of the widget's dirty region, to restore it in case there is an opaque
+comment|// render-to-texture child that completely covers the widget, because otherwise the
+comment|// render-to-texture child won't be visible, due to its parent widget not being redrawn
+comment|// with a proper blending mask.
+specifier|const
+name|QRegion
+name|dirtyBeforeSubtractedOpaqueChildren
+init|=
+name|wd
+operator|->
+name|dirty
+decl_stmt|;
 comment|// Scrolled and moved widgets must draw all children.
 if|if
 condition|(
@@ -6678,6 +6690,25 @@ operator|->
 name|rect
 argument_list|()
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|wd
+operator|->
+name|dirty
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|wd
+operator|->
+name|textureChildSeen
+condition|)
+name|wd
+operator|->
+name|dirty
+operator|=
+name|dirtyBeforeSubtractedOpaqueChildren
 expr_stmt|;
 if|if
 condition|(
