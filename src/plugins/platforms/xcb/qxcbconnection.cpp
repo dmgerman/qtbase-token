@@ -1298,7 +1298,10 @@ argument_list|)
 operator|<<
 literal|"primary output is"
 operator|<<
+name|qAsConst
+argument_list|(
 name|m_screens
+argument_list|)
 operator|.
 name|first
 argument_list|()
@@ -1517,7 +1520,10 @@ operator|>
 literal|0
 condition|)
 block|{
+name|qAsConst
+argument_list|(
 name|m_screens
+argument_list|)
 operator|.
 name|first
 argument_list|()
@@ -1643,7 +1649,10 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+name|qAsConst
+argument_list|(
 name|m_screens
+argument_list|)
 operator|.
 name|first
 argument_list|()
@@ -2664,7 +2673,10 @@ condition|)
 block|{
 if|if
 condition|(
+name|qAsConst
+argument_list|(
 name|m_screens
+argument_list|)
 operator|.
 name|first
 argument_list|()
@@ -2739,7 +2751,10 @@ argument_list|)
 operator|<<
 literal|"primary output is"
 operator|<<
+name|qAsConst
+argument_list|(
 name|m_screens
+argument_list|)
 operator|.
 name|first
 argument_list|()
@@ -4655,7 +4670,10 @@ name|qDebug
 argument_list|(
 literal|"Caused some time after: %s:%d"
 argument_list|,
+name|qAsConst
+argument_list|(
 name|m_callLog
+argument_list|)
 operator|.
 name|first
 argument_list|()
@@ -4665,7 +4683,10 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
+name|qAsConst
+argument_list|(
 name|m_callLog
+argument_list|)
 operator|.
 name|first
 argument_list|()
