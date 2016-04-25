@@ -123,9 +123,16 @@ return|;
 block|}
 name|bool
 name|isRecursive
-parameter_list|()
-function_decl|;
-comment|//### Qt6: mark const
+argument_list|()
+name|Q_DECL_NOTHROW
+expr_stmt|;
+comment|//### Qt6: remove me
+name|bool
+name|isRecursive
+argument_list|()
+specifier|const
+name|Q_DECL_NOTHROW
+expr_stmt|;
 name|private
 label|:
 specifier|inline
@@ -318,11 +325,19 @@ name|unlock
 argument_list|()
 name|Q_DECL_NOTHROW
 block|;
-name|using
+name|bool
+name|isRecursive
+argument_list|()
+specifier|const
+name|Q_DECL_NOTHROW
+block|{
+return|return
 name|QBasicMutex
 operator|::
 name|isRecursive
-block|;
+argument_list|()
+return|;
+block|}
 name|private
 operator|:
 name|Q_DISABLE_COPY
@@ -653,8 +668,9 @@ block|{}
 specifier|inline
 name|bool
 name|isRecursive
-parameter_list|()
-function|Q_DECL_NOTHROW
+argument_list|()
+specifier|const
+name|Q_DECL_NOTHROW
 block|{
 return|return
 name|true
