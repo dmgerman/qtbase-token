@@ -885,6 +885,15 @@ condition|(
 name|o
 condition|)
 block|{
+name|hash
+operator|.
+name|reserve
+argument_list|(
+name|o
+operator|->
+name|length
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|uint
