@@ -568,6 +568,7 @@ parameter_list|,
 name|xcb_randr_crtc_t
 name|crtc
 parameter_list|)
+specifier|const
 block|{
 foreach|foreach
 control|(
@@ -617,6 +618,7 @@ parameter_list|,
 name|xcb_randr_output_t
 name|output
 parameter_list|)
+specifier|const
 block|{
 foreach|foreach
 control|(
@@ -663,6 +665,7 @@ parameter_list|(
 name|xcb_window_t
 name|rootWindow
 parameter_list|)
+specifier|const
 block|{
 foreach|foreach
 control|(
