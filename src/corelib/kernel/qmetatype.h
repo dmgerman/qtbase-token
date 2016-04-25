@@ -6100,6 +6100,11 @@ argument_list|(
 name|p
 argument_list|)
 operator|,
+name|_iterator
+argument_list|(
+name|Q_NULLPTR
+argument_list|)
+operator|,
 name|_metaType_id_key
 argument_list|(
 argument|qMetaTypeId<typename T::key_type>()
@@ -6195,6 +6200,11 @@ name|QAssociativeIterableImpl
 argument_list|()
 operator|:
 name|_iterable
+argument_list|(
+name|Q_NULLPTR
+argument_list|)
+operator|,
+name|_iterator
 argument_list|(
 name|Q_NULLPTR
 argument_list|)
