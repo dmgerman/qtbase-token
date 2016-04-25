@@ -69,6 +69,18 @@ DECL|typedef|D3D11_QUERY_DATA_SO_STATISTICS
 name|D3D11_QUERY_DATA_SO_STATISTICS
 typedef|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// ANGLE_MINGW32_COMPAT
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__MINGW32__
+end_ifdef
 begin_typedef
 DECL|struct|D3D11_QUERY_DATA_TIMESTAMP_DISJOINT
 typedef|typedef
@@ -92,6 +104,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// MINGW32
+end_comment
 begin_namespace
 DECL|namespace|rx
 namespace|namespace
