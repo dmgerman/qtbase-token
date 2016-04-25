@@ -2411,6 +2411,17 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// Quoting MSDN IInputStream::ReadAsync() documentation:
+comment|// "Depending on the implementation, the data that's read might be placed
+comment|// into the input buffer, or it might be returned in a different buffer."
+comment|// Using GetAddressOf can cause ref counting errors leaking the original
+comment|// buffer.
+name|ComPtr
+argument_list|<
+name|IBuffer
+argument_list|>
+name|effectiveBuffer
+decl_stmt|;
 name|hr
 operator|=
 name|QWinRTFunctions
@@ -2419,7 +2430,7 @@ name|await
 argument_list|(
 name|op
 argument_list|,
-name|buffer
+name|effectiveBuffer
 operator|.
 name|GetAddressOf
 argument_list|()
@@ -2437,7 +2448,7 @@ argument_list|)
 expr_stmt|;
 name|hr
 operator|=
-name|buffer
+name|effectiveBuffer
 operator|->
 name|get_Length
 argument_list|(
@@ -2469,7 +2480,7 @@ name|byteArrayAccess
 decl_stmt|;
 name|hr
 operator|=
-name|buffer
+name|effectiveBuffer
 operator|.
 name|As
 argument_list|(
