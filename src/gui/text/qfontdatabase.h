@@ -593,6 +593,10 @@ name|friend
 name|class
 name|QFontEngineMulti
 decl_stmt|;
+name|friend
+name|class
+name|QRawFont
+decl_stmt|;
 name|QFontDatabasePrivate
 modifier|*
 name|d

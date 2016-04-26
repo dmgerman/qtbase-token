@@ -13208,6 +13208,12 @@ name|index
 init|=
 name|match
 argument_list|(
+name|multi
+condition|?
+name|QChar
+operator|::
+name|Script_Common
+else|:
 name|script
 argument_list|,
 name|request
@@ -13461,6 +13467,12 @@ name|index
 operator|=
 name|match
 argument_list|(
+name|multi
+condition|?
+name|QChar
+operator|::
+name|Script_Common
+else|:
 name|script
 argument_list|,
 name|def
