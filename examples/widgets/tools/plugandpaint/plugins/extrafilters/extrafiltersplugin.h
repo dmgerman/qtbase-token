@@ -19,6 +19,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<interfaces.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QObject>
 end_include
 begin_include
@@ -35,11 +40,6 @@ begin_include
 include|#
 directive|include
 file|<QImage>
-end_include
-begin_include
-include|#
-directive|include
-file|<plugandpaint/interfaces.h>
 end_include
 begin_decl_stmt
 DECL|variable|QObject

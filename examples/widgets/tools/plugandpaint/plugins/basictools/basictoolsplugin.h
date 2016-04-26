@@ -13,6 +13,14 @@ define|#
 directive|define
 name|BASICTOOLSPLUGIN_H
 end_define
+begin_comment
+comment|//! [0]
+end_comment
+begin_include
+include|#
+directive|include
+file|<interfaces.h>
+end_include
 begin_include
 include|#
 directive|include
@@ -42,14 +50,6 @@ begin_include
 include|#
 directive|include
 file|<QImage>
-end_include
-begin_comment
-comment|//! [0]
-end_comment
-begin_include
-include|#
-directive|include
-file|<plugandpaint/interfaces.h>
 end_include
 begin_comment
 comment|//! [1]
