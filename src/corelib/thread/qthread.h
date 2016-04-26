@@ -65,6 +65,7 @@ name|HANDLE
 name|currentThreadId
 argument_list|()
 name|Q_DECL_NOTHROW
+name|Q_DECL_PURE_FUNCTION
 block|;
 specifier|static
 name|QThread
