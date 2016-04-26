@@ -496,7 +496,7 @@ parameter_list|,
 name|x
 parameter_list|)
 define|\
-value|((b == LSBFirst) ?                          \          qFromLittleEndian<t>((const uchar *)(x)) : \          qFromBigEndian<t>((const uchar *)(x)))
+value|((b == LSBFirst) ?                          \          qFromLittleEndian<t>(x) : \          qFromBigEndian<t>(x))
 DECL|macro|VALIDATE_LENGTH
 define|#
 directive|define

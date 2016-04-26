@@ -62,11 +62,11 @@ name|void
 name|qbswap_helper
 parameter_list|(
 specifier|const
-name|uchar
+name|void
 modifier|*
 name|src
 parameter_list|,
-name|uchar
+name|void
 modifier|*
 name|dest
 parameter_list|,
@@ -88,12 +88,27 @@ condition|;
 operator|++
 name|i
 control|)
+name|static_cast
+operator|<
+name|uchar
+operator|*
+operator|>
+operator|(
 name|dest
+operator|)
 index|[
 name|i
 index|]
 operator|=
+name|static_cast
+operator|<
+specifier|const
+name|uchar
+operator|*
+operator|>
+operator|(
 name|src
+operator|)
 index|[
 name|size
 operator|-
@@ -105,7 +120,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*  * qbswap(const T src, const uchar *dest);  * Changes the byte order of \a src from big endian to little endian or vice versa  * and stores the result in \a dest.  * There is no alignment requirements for \a dest. */
+comment|/*  * qbswap(const T src, const void *dest);  * Changes the byte order of \a src from big endian to little endian or vice versa  * and stores the result in \a dest.  * There is no alignment requirements for \a dest. */
 end_comment
 begin_expr_stmt
 DECL|function|qbswap
@@ -120,21 +135,13 @@ name|qbswap
 argument_list|(
 argument|const T src
 argument_list|,
-argument|uchar *dest
+argument|void *dest
 argument_list|)
 block|{
 name|qbswap_helper
 argument_list|(
-name|reinterpret_cast
-operator|<
-specifier|const
-name|uchar
-operator|*
-operator|>
-operator|(
 operator|&
 name|src
-operator|)
 argument_list|,
 name|dest
 argument_list|,
@@ -158,7 +165,7 @@ name|qToUnaligned
 argument_list|(
 argument|const T src
 argument_list|,
-argument|uchar *dest
+argument|void *dest
 argument_list|)
 block|{
 comment|// Using sizeof(T) inside memcpy function produces internal compiler error with
@@ -203,7 +210,7 @@ name|Q_ALWAYS_INLINE
 name|T
 name|qFromUnaligned
 argument_list|(
-argument|const uchar *src
+argument|const void *src
 argument_list|)
 block|{
 name|T
@@ -348,7 +355,7 @@ operator|(
 name|quint64
 name|source
 operator|,
-name|uchar
+name|void
 operator|*
 name|dest
 operator|)
@@ -380,7 +387,7 @@ operator|(
 name|quint32
 name|source
 operator|,
-name|uchar
+name|void
 operator|*
 name|dest
 operator|)
@@ -650,7 +657,7 @@ operator|(
 name|quint16
 name|source
 operator|,
-name|uchar
+name|void
 operator|*
 name|dest
 operator|)
@@ -828,7 +835,7 @@ operator|(
 name|qint64
 name|source
 operator|,
-name|uchar
+name|void
 operator|*
 name|dest
 operator|)
@@ -860,7 +867,7 @@ operator|(
 name|qint32
 name|source
 operator|,
-name|uchar
+name|void
 operator|*
 name|dest
 operator|)
@@ -892,7 +899,7 @@ operator|(
 name|qint16
 name|source
 operator|,
-name|uchar
+name|void
 operator|*
 name|dest
 operator|)
@@ -1015,7 +1022,7 @@ name|qToBigEndian
 argument_list|(
 argument|T src
 argument_list|,
-argument|uchar *dest
+argument|void *dest
 argument_list|)
 block|{
 name|qToUnaligned
@@ -1040,7 +1047,7 @@ name|qToLittleEndian
 argument_list|(
 argument|T src
 argument_list|,
-argument|uchar *dest
+argument|void *dest
 argument_list|)
 block|{
 name|qbswap
@@ -1156,7 +1163,7 @@ name|qToBigEndian
 argument_list|(
 argument|T src
 argument_list|,
-argument|uchar *dest
+argument|void *dest
 argument_list|)
 block|{
 name|qbswap
@@ -1181,7 +1188,7 @@ name|qToLittleEndian
 argument_list|(
 argument|T src
 argument_list|,
-argument|uchar *dest
+argument|void *dest
 argument_list|)
 block|{
 name|qToUnaligned
@@ -1239,7 +1246,7 @@ return|;
 block|}
 end_expr_stmt
 begin_comment
-comment|/* T qFromLittleEndian(const uchar *src)  * This function will read a little-endian encoded value from \a src  * and return the value in host-endian encoding.  * There is no requirement that \a src must be aligned. */
+comment|/* T qFromLittleEndian(const void *src)  * This function will read a little-endian encoded value from \a src  * and return the value in host-endian encoding.  * There is no requirement that \a src must be aligned. */
 end_comment
 begin_expr_stmt
 DECL|function|qFromLittleEndian
@@ -1252,7 +1259,7 @@ specifier|inline
 name|T
 name|qFromLittleEndian
 argument_list|(
-argument|const uchar *src
+argument|const void *src
 argument_list|)
 block|{
 return|return
@@ -1282,7 +1289,7 @@ name|quint8
 operator|>
 operator|(
 specifier|const
-name|uchar
+name|void
 operator|*
 name|src
 operator|)
@@ -1290,14 +1297,16 @@ block|{
 return|return
 name|static_cast
 operator|<
+specifier|const
 name|quint8
+operator|*
 operator|>
 operator|(
 name|src
+operator|)
 index|[
 literal|0
 index|]
-operator|)
 return|;
 block|}
 end_expr_stmt
@@ -1314,7 +1323,7 @@ name|qint8
 operator|>
 operator|(
 specifier|const
-name|uchar
+name|void
 operator|*
 name|src
 operator|)
@@ -1322,14 +1331,16 @@ block|{
 return|return
 name|static_cast
 operator|<
+specifier|const
 name|qint8
+operator|*
 operator|>
 operator|(
 name|src
+operator|)
 index|[
 literal|0
 index|]
-operator|)
 return|;
 block|}
 end_expr_stmt
@@ -1347,7 +1358,7 @@ specifier|inline
 name|T
 name|qFromBigEndian
 argument_list|(
-argument|const uchar *src
+argument|const void *src
 argument_list|)
 block|{
 return|return
@@ -1377,7 +1388,7 @@ name|quint8
 operator|>
 operator|(
 specifier|const
-name|uchar
+name|void
 operator|*
 name|src
 operator|)
@@ -1385,14 +1396,16 @@ block|{
 return|return
 name|static_cast
 operator|<
+specifier|const
 name|quint8
+operator|*
 operator|>
 operator|(
 name|src
+operator|)
 index|[
 literal|0
 index|]
-operator|)
 return|;
 block|}
 end_expr_stmt
@@ -1409,7 +1422,7 @@ name|qint8
 operator|>
 operator|(
 specifier|const
-name|uchar
+name|void
 operator|*
 name|src
 operator|)
@@ -1417,14 +1430,16 @@ block|{
 return|return
 name|static_cast
 operator|<
+specifier|const
 name|qint8
+operator|*
 operator|>
 operator|(
 name|src
+operator|)
 index|[
 literal|0
 index|]
-operator|)
 return|;
 block|}
 end_expr_stmt
