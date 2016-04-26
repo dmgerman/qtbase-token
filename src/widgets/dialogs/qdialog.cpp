@@ -3210,6 +3210,33 @@ name|y
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// QTBUG-52735: Manually set the correct target screen since scaling in a
+comment|// subsequent call to QWindow::resize() may otherwise use the wrong factor
+comment|// if the screen changed notification is still in an event queue.
+if|if
+condition|(
+name|QWindow
+modifier|*
+name|window
+init|=
+name|windowHandle
+argument_list|()
+condition|)
+name|window
+operator|->
+name|setScreen
+argument_list|(
+name|QGuiApplication
+operator|::
+name|screens
+argument_list|()
+operator|.
+name|at
+argument_list|(
+name|scrn
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|move
 argument_list|(
 name|p
