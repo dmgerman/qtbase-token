@@ -76,6 +76,10 @@ argument|QRectF keyboardRectangle READ keyboardRectangle NOTIFY keyboardRectangl
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|QRectF inputItemClipRectangle READ inputItemClipRectangle NOTIFY inputItemClipRectangleChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|bool visible READ isVisible NOTIFY visibleChanged
 argument_list|)
 name|Q_PROPERTY
@@ -136,6 +140,11 @@ comment|// ### ditto
 comment|// keyboard geometry in window coords
 name|QRectF
 name|keyboardRectangle
+argument_list|()
+specifier|const
+block|;
+name|QRectF
+name|inputItemClipRectangle
 argument_list|()
 specifier|const
 block|;      enum
@@ -233,6 +242,10 @@ argument_list|()
 block|;
 name|void
 name|keyboardRectangleChanged
+argument_list|()
+block|;
+name|void
+name|inputItemClipRectangleChanged
 argument_list|()
 block|;
 name|void
