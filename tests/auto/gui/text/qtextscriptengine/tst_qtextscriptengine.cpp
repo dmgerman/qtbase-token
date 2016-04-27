@@ -6977,11 +6977,6 @@ operator|::
 name|controlInSyllable_qtbug14204
 parameter_list|()
 block|{
-name|QSKIP
-argument_list|(
-literal|"Result differs for HarfBuzz-NG, skip test."
-argument_list|)
-expr_stmt|;
 name|QFontDatabase
 name|db
 decl_stmt|;
@@ -7173,7 +7168,7 @@ name|num_glyphs
 argument_list|,
 name|ushort
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7232,7 +7227,7 @@ index|]
 argument_list|,
 name|ushort
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7245,7 +7240,7 @@ index|]
 argument_list|,
 name|ushort
 argument_list|(
-literal|0
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
