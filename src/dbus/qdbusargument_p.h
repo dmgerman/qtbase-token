@@ -127,6 +127,7 @@ argument_list|(
 argument|flags
 argument_list|)
 block|{ }
+name|virtual
 operator|~
 name|QDBusArgumentPrivate
 argument_list|()
