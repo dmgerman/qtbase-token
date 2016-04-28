@@ -138,6 +138,9 @@ operator|-
 literal|1
 argument_list|)
 block|,
+name|ephemeralServerKey
+argument_list|()
+block|,
 name|nextProtocolNegotiationStatus
 argument_list|(
 argument|QSslConfiguration::NextProtocolNegotiationNone
