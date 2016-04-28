@@ -2599,6 +2599,11 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+name|mdiArea
+operator|.
+name|activateWindow
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|QTest
