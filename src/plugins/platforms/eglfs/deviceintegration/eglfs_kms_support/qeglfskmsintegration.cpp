@@ -580,7 +580,7 @@ name|object
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"hwcursor"
 argument_list|)
@@ -597,7 +597,7 @@ name|object
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"pbuffers"
 argument_list|)
@@ -614,7 +614,7 @@ name|object
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"device"
 argument_list|)
@@ -629,7 +629,7 @@ name|object
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"separateScreens"
 argument_list|)
@@ -648,7 +648,7 @@ name|object
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"outputs"
 argument_list|)
