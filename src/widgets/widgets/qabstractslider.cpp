@@ -1704,9 +1704,20 @@ condition|)
 block|{
 comment|// We moved less than a line, but might still have accumulated partial scroll,
 comment|// unless we already are at one of the ends.
+specifier|const
+name|float
+name|effective_offset
+init|=
+name|invertedControls
+condition|?
+operator|-
+name|offset_accumulated
+else|:
+name|offset_accumulated
+decl_stmt|;
 if|if
 condition|(
-name|offset_accumulated
+name|effective_offset
 operator|>
 literal|0.f
 operator|&&
@@ -1719,7 +1730,7 @@ literal|true
 return|;
 if|if
 condition|(
-name|offset_accumulated
+name|effective_offset
 argument_list|<
 literal|0.f
 operator|&&
