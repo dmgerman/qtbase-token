@@ -2668,7 +2668,7 @@ argument_list|)
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"MetaData"
 argument_list|)
@@ -2685,7 +2685,7 @@ name|metaData
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Keys"
 argument_list|)
@@ -2702,7 +2702,7 @@ name|metaData
 operator|.
 name|value
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"MimeTypes"
 argument_list|)
