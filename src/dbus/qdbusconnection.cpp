@@ -107,50 +107,67 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DBUS
 end_ifndef
-begin_decl_stmt
+begin_function_decl
 name|QT_BEGIN_NAMESPACE
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+specifier|static
+name|void
+name|preventDllUnload
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_macro
 name|Q_GLOBAL_STATIC
 argument_list|(
-name|QDBusConnectionManager
+argument|QDBusConnectionManager
 argument_list|,
-name|_q_manager
+argument|_q_manager
 argument_list|)
+end_macro
+begin_comment
 comment|// can be replaced with a lambda in Qt 5.7
+end_comment
+begin_class
 DECL|class|QDBusConnectionDispatchEnabler
-name|class
+class|class
 name|QDBusConnectionDispatchEnabler
-range|:
+super|:
 specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
 DECL|member|con
 name|QDBusConnectionPrivate
-operator|*
+modifier|*
 name|con
-block|;
-specifier|public
-operator|:
+decl_stmt|;
+public|public:
 DECL|function|QDBusConnectionDispatchEnabler
 name|QDBusConnectionDispatchEnabler
-argument_list|(
+parameter_list|(
 name|QDBusConnectionPrivate
-operator|*
+modifier|*
 name|con
-argument_list|)
-operator|:
+parameter_list|)
+member_init_list|:
 name|con
 argument_list|(
-argument|con
+name|con
 argument_list|)
 block|{}
-specifier|public
+public|public
 name|slots
-operator|:
+public|:
 DECL|function|execute
 name|void
 name|execute
-argument_list|()
+parameter_list|()
 block|{
 name|con
 operator|->
@@ -158,7 +175,7 @@ name|setDispatchEnabled
 argument_list|(
 literal|true
 argument_list|)
-block|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -176,11 +193,13 @@ argument_list|()
 expr_stmt|;
 name|deleteLater
 argument_list|()
-block|;     }
-end_decl_stmt
+expr_stmt|;
+block|}
+block|}
+class|;
+end_class
 begin_struct
 DECL|struct|ConnectionRequestData
-unit|};
 struct|struct
 name|QDBusConnectionManager
 operator|::
@@ -503,6 +522,15 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// ugly, don't do this in other projects
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+comment|// prevent the library from being unloaded on Windows. See comments in the function.
+name|preventDllUnload
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 name|defaultBuses
 index|[
 literal|0
@@ -4075,14 +4103,70 @@ end_comment
 begin_comment
 comment|/*!     \enum QDBus::CallMode      This enum describes the various ways of placing a function call. The valid modes are:      \value NoBlock              Place the call but don't wait for the reply (the reply's contents                                 will be discarded).     \value Block                Don't use an event loop to wait for a reply, but instead block on                                 network operations while waiting. This means the                                 user-interface may not be updated until the function returns.     \value BlockWithGui         Use the Qt event loop to wait for a reply. This means that the                                 user-interface will stay responsive (processing input events),                                 but it also means other events may happen, like signal delivery                                 and other D-Bus method calls.     \value AutoDetect           Automatically detect if the called function has a reply.      When using BlockWithGui, applications must be prepared for reentrancy in any function. */
 end_comment
-begin_macro
+begin_function
 name|QT_END_NAMESPACE
-end_macro
-begin_include
 include|#
 directive|include
 file|"qdbusconnection.moc"
-end_include
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+include|#
+directive|include
+file|<qt_windows.h>
+name|QT_BEGIN_NAMESPACE
+DECL|function|preventDllUnload
+specifier|static
+name|void
+name|preventDllUnload
+parameter_list|()
+block|{
+comment|// Thread termination is really wacky on Windows. For some reason we don't
+comment|// understand, exiting from the thread may try to unload the DLL. Since the
+comment|// QDBusConnectionManager thread runs until the DLL is unloaded, we've got
+comment|// a deadlock: the main thread is waiting for the manager thread to exit,
+comment|// but the manager thread is attempting to acquire a lock to unload the DLL.
+comment|//
+comment|// We work around the issue by preventing the unload from happening in the
+comment|// first place.
+comment|//
+comment|// For this trick, see
+comment|// https://blogs.msdn.microsoft.com/oldnewthing/20131105-00/?p=2733
+specifier|static
+name|HMODULE
+name|self
+decl_stmt|;
+name|GetModuleHandleEx
+argument_list|(
+name|GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS
+operator||
+name|GET_MODULE_HANDLE_EX_FLAG_PIN
+argument_list|,
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|wchar_t
+operator|*
+argument_list|>
+argument_list|(
+operator|&
+name|self
+argument_list|)
+argument_list|,
+comment|// any address in this DLL
+operator|&
+name|self
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
