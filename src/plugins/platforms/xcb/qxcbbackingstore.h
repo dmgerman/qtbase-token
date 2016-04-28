@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QStack>
+end_include
+begin_include
+include|#
+directive|include
 file|<xcb/xcb.h>
 end_include
 begin_include
@@ -183,9 +188,12 @@ name|QXcbShmImage
 modifier|*
 name|m_image
 decl_stmt|;
+name|QStack
+operator|<
 name|QRegion
-name|m_paintRegion
-decl_stmt|;
+operator|>
+name|m_paintRegions
+expr_stmt|;
 name|QImage
 name|m_rgbImage
 decl_stmt|;
