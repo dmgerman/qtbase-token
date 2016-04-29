@@ -11751,7 +11751,10 @@ literal|"QMAKE_FILE_IN_BASE"
 argument_list|)
 condition|)
 block|{
-comment|//filePath = true;
+name|filePath
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -12169,7 +12172,10 @@ literal|"QMAKE_FILE_OUT_BASE"
 argument_list|)
 condition|)
 block|{
-comment|//filePath = true;
+name|filePath
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|int
