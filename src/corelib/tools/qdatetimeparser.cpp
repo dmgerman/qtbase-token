@@ -3473,7 +3473,7 @@ name|sectiontext
 operator|<<
 name|text
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|index
 argument_list|,
@@ -3598,7 +3598,6 @@ name|state
 operator|!=
 name|Invalid
 condition|)
-block|{
 name|text
 operator|.
 name|replace
@@ -3609,13 +3608,12 @@ name|used
 argument_list|,
 name|sectiontext
 operator|.
-name|left
-argument_list|(
+name|constData
+argument_list|()
+argument_list|,
 name|used
 argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 break|break;
 block|}
 case|case
@@ -3761,10 +3759,10 @@ name|used
 argument_list|,
 name|sectiontext
 operator|.
-name|left
-argument_list|(
+name|constData
+argument_list|()
+argument_list|,
 name|used
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3998,7 +3996,7 @@ name|QDTPDEBUG
 operator|<<
 name|sectiontext
 operator|.
-name|left
+name|leftRef
 argument_list|(
 name|digits
 argument_list|)
@@ -4603,7 +4601,7 @@ literal|"invalid because"
 operator|<<
 name|input
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|pos
 argument_list|,
@@ -5133,7 +5131,7 @@ literal|"invalid because"
 operator|<<
 name|input
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|pos
 argument_list|)
@@ -7488,7 +7486,11 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|QStringRef
+argument_list|(
+operator|&
 name|str
+argument_list|)
 operator|.
 name|trimmed
 argument_list|()
