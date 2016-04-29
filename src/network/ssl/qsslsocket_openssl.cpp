@@ -1254,15 +1254,6 @@ argument_list|)
 argument_list|)
 control|)
 block|{
-name|QString
-name|certFormat
-argument_list|(
-name|QStringLiteral
-argument_list|(
-literal|"O=%1 CN=%2 L=%3 OU=%4 C=%5 ST=%6"
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|qCDebug
 argument_list|(
 name|lcSsl

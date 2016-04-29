@@ -1498,6 +1498,12 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
+name|watchForDBusDisconnection
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|_q_newConnection
 parameter_list|(
 name|QDBusConnectionPrivate
@@ -1655,6 +1661,12 @@ name|QString
 modifier|&
 name|serviceName
 parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|handleDBusDisconnection
+parameter_list|()
 function_decl|;
 end_function_decl
 begin_label

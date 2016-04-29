@@ -3878,7 +3878,7 @@ parameter_list|(
 name|a
 parameter_list|)
 define|\
-value|if (sl_minus_1< (int)sizeof(int) * CHAR_BIT)       \         hashHaystack -= (a)<< sl_minus_1; \     hashHaystack<<= 1
+value|if (sl_minus_1< sizeof(uint) * CHAR_BIT)  \         hashHaystack -= uint(a)<< sl_minus_1; \     hashHaystack<<= 1
 end_define
 begin_function
 DECL|function|qIsUpper
@@ -9030,14 +9030,14 @@ name|sl
 operator|)
 decl_stmt|;
 specifier|const
-name|int
+name|uint
 name|sl_minus_1
 init|=
 name|sl
 operator|-
 literal|1
 decl_stmt|;
-name|int
+name|uint
 name|hashNeedle
 init|=
 literal|0
@@ -9045,7 +9045,8 @@ decl_stmt|,
 name|hashHaystack
 init|=
 literal|0
-decl_stmt|,
+decl_stmt|;
+name|int
 name|idx
 decl_stmt|;
 if|if
@@ -9444,7 +9445,7 @@ operator|+=
 name|from
 expr_stmt|;
 specifier|const
-name|int
+name|uint
 name|sl_minus_1
 init|=
 name|sl
@@ -9469,7 +9470,7 @@ name|haystack
 operator|+
 name|sl_minus_1
 decl_stmt|;
-name|int
+name|uint
 name|hashNeedle
 init|=
 literal|0
@@ -9477,7 +9478,8 @@ decl_stmt|,
 name|hashHaystack
 init|=
 literal|0
-decl_stmt|,
+decl_stmt|;
+name|int
 name|idx
 decl_stmt|;
 if|if

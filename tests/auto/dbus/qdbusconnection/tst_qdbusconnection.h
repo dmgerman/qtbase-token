@@ -337,6 +337,10 @@ name|void
 name|callVirtualObjectLocal
 argument_list|()
 block|;
+name|void
+name|pendingCallWhenDisconnected
+argument_list|()
+block|;
 name|public
 operator|:
 name|QString
