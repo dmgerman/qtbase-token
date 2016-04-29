@@ -5659,6 +5659,8 @@ expr_stmt|;
 comment|// Test first and last transition rule
 comment|// Warning: This could vary depending on age of TZ file!
 comment|// Test low date uses first rule found
+comment|// Note: Depending on the OS in question, the database may be carrying the
+comment|// Local Mean Time. which for Berlin is 0:53:28
 name|QTimeZonePrivate
 operator|::
 name|Data
@@ -5689,18 +5691,39 @@ name|QCOMPARE
 argument_list|(
 name|dat
 operator|.
-name|standardTimeOffset
+name|daylightTimeOffset
 argument_list|,
-literal|3600
+literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|dat
+operator|.
+name|abbreviation
+operator|==
+literal|"LMT"
+condition|)
+block|{
 name|QCOMPARE
 argument_list|(
 name|dat
 operator|.
-name|daylightTimeOffset
+name|standardTimeOffset
 argument_list|,
-literal|0
+literal|3208
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|QCOMPARE
+argument_list|(
+name|dat
+operator|.
+name|standardTimeOffset
+argument_list|,
+literal|3600
 argument_list|)
 expr_stmt|;
 comment|// Test previous to low value is invalid
@@ -5765,6 +5788,7 @@ name|min
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|dat
 operator|=
 name|tzp
