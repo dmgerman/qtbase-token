@@ -264,6 +264,12 @@ argument|int charsAdded
 argument_list|)
 block|;
 name|void
+name|setCursorVisible
+argument_list|(
+argument|bool visible
+argument_list|)
+block|;
+name|void
 name|setBlinkingCursorEnabled
 argument_list|(
 argument|bool enable
@@ -582,6 +588,9 @@ name|cursorOn
 block|;
 name|bool
 name|blinkingEnabled
+block|;
+name|bool
+name|cursorVisible
 block|;
 name|QTextCursor
 name|cursor
