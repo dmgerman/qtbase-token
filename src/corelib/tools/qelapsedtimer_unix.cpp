@@ -228,8 +228,16 @@ name|int
 name|unixCheckClockType
 parameter_list|()
 block|{
-if|#
-directive|if
+ifdef|#
+directive|ifdef
+name|Q_OS_LINUX
+comment|// Despite glibc claiming that we should check at runtime, the Linux kernel
+comment|// always supports the monotonic clock
+return|return
+name|CLOCK_MONOTONIC
+return|;
+elif|#
+directive|elif
 operator|(
 name|_POSIX_MONOTONIC_CLOCK
 operator|-
@@ -253,7 +261,6 @@ operator|&&
 name|CLOCK_REALTIME
 operator|>=
 literal|0
-DECL|macro|IS_VALID_CLOCK
 define|#
 directive|define
 name|IS_VALID_CLOCK
@@ -261,7 +268,6 @@ parameter_list|(
 name|clock
 parameter_list|)
 value|(clock>= 0)
-DECL|macro|INVALID_CLOCK
 define|#
 directive|define
 name|INVALID_CLOCK
@@ -347,11 +353,9 @@ expr_stmt|;
 return|return
 name|clock
 return|;
-DECL|macro|INVALID_CLOCK
 undef|#
 directive|undef
 name|INVALID_CLOCK
-DECL|macro|IS_VALID_CLOCK
 undef|#
 directive|undef
 name|IS_VALID_CLOCK
