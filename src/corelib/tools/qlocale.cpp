@@ -78,11 +78,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdatetime_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qdatetimeparser_p.h"
 end_include
 begin_include
