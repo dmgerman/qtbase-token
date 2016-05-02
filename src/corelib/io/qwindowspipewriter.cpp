@@ -384,10 +384,13 @@ name|ERROR_SUCCESS
 operator|||
 name|numberOfBytesWritten
 operator|==
+name|DWORD
+argument_list|(
 name|buffer
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|buffer
