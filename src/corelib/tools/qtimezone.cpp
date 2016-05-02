@@ -300,18 +300,19 @@ begin_comment
 comment|/*!     Create a null/invalid time zone instance. */
 end_comment
 begin_constructor
-DECL|function|QTimeZone
 name|QTimeZone
 operator|::
 name|QTimeZone
 parameter_list|()
-member_init_list|:
+name|Q_DECL_NOTHROW
+constructor|:
 name|d
-argument_list|(
-literal|0
-argument_list|)
-block|{ }
+constructor|(0
 end_constructor
+begin_block
+unit|)
+block|{ }
+end_block
 begin_comment
 comment|/*!     Creates an instance of the requested time zone \a ianaId.      The ID must be one of the available system IDs otherwise an invalid     time zone will be returned.      \sa availableTimeZoneIds() */
 end_comment

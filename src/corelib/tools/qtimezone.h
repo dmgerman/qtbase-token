@@ -107,6 +107,7 @@ name|OffsetDataList
 expr_stmt|;
 name|QTimeZone
 argument_list|()
+name|Q_DECL_NOTHROW
 expr_stmt|;
 name|explicit
 name|QTimeZone
