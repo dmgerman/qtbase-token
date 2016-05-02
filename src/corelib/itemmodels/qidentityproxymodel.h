@@ -99,6 +99,11 @@ argument_list|)
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|using
+name|QObject
+operator|::
+name|parent
+block|;
 name|int
 name|rowCount
 argument_list|(

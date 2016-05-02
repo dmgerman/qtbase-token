@@ -7680,11 +7680,16 @@ name|keys
 operator|+
 name|MaxKeys
 argument_list|,
+name|QT_MAKE_CHECKED_ARRAY_ITERATOR
+argument_list|(
 name|keysequence
 operator|.
 name|d
 operator|->
 name|key
+argument_list|,
+name|MaxKeys
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

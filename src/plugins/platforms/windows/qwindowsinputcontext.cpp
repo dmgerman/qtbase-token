@@ -3035,7 +3035,10 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
+name|QT_MAKE_UNCHECKED_ARRAY_ITERATOR
+argument_list|(
 name|pastReconv
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

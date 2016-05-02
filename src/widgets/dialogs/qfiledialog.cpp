@@ -16121,6 +16121,12 @@ argument_list|(
 name|QStyle
 operator|::
 name|SH_ItemView_ActivateItemOnSingleClick
+argument_list|,
+name|Q_NULLPTR
+argument_list|,
+name|qFileDialogUi
+operator|->
+name|treeView
 argument_list|)
 operator|||
 name|q
