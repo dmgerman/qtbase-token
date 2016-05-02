@@ -5822,7 +5822,7 @@ name|QNATIVESOCKETENGINE_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QNativeSocketEnginePrivate::nativePendingDatagramSize() == %li"
+literal|"QNativeSocketEnginePrivate::nativePendingDatagramSize() == %lli"
 argument_list|,
 name|ret
 argument_list|)
@@ -6547,9 +6547,29 @@ name|defined
 argument_list|(
 name|QNATIVESOCKETENGINE_DEBUG
 argument_list|)
+name|bool
+name|printSender
+init|=
+operator|(
+name|ret
+operator|!=
+operator|-
+literal|1
+operator|&&
+operator|(
+name|options
+operator|&
+name|QNativeSocketEngine
+operator|::
+name|WantDatagramSender
+operator|)
+operator|!=
+literal|0
+operator|)
+decl_stmt|;
 name|qDebug
 argument_list|(
-literal|"QNativeSocketEnginePrivate::nativeReceiveDatagram(%p \"%s\", %li, %s, %i) == %li"
+literal|"QNativeSocketEnginePrivate::nativeReceiveDatagram(%p \"%s\", %lli, %s, %i) == %lli"
 argument_list|,
 name|data
 argument_list|,
@@ -6575,10 +6595,12 @@ argument_list|()
 argument_list|,
 name|maxLength
 argument_list|,
-name|address
+name|printSender
 condition|?
-name|address
+name|header
 operator|->
+name|senderAddress
+operator|.
 name|toString
 argument_list|()
 operator|.
@@ -6588,12 +6610,13 @@ operator|.
 name|constData
 argument_list|()
 else|:
-literal|"(nil)"
+literal|"(unknown)"
 argument_list|,
-name|port
+name|printSender
 condition|?
-operator|*
-name|port
+name|header
+operator|->
+name|senderPort
 else|:
 literal|0
 argument_list|,
@@ -7450,7 +7473,7 @@ name|QNATIVESOCKETENGINE_DEBUG
 argument_list|)
 name|qDebug
 argument_list|(
-literal|"QNativeSocketEnginePrivate::nativeSendDatagram(%p \"%s\", %li, \"%s\", %i) == %li"
+literal|"QNativeSocketEnginePrivate::nativeSendDatagram(%p \"%s\", %lli, \"%s\", %i) == %lli"
 argument_list|,
 name|data
 argument_list|,
@@ -7474,9 +7497,11 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
-literal|0
+name|len
 argument_list|,
-name|address
+name|header
+operator|.
+name|destinationAddress
 operator|.
 name|toString
 argument_list|()
@@ -7487,7 +7512,9 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|port
+name|header
+operator|.
+name|destinationPort
 argument_list|,
 name|ret
 argument_list|)
