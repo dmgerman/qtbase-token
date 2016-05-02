@@ -1689,17 +1689,25 @@ end_function
 begin_function
 DECL|function|switchToGraphicsMode
 specifier|static
-name|bool
+name|void
 name|switchToGraphicsMode
 parameter_list|(
 name|int
 name|ttyfd
+parameter_list|,
+name|bool
+name|doSwitch
 parameter_list|,
 name|int
 modifier|*
 name|oldMode
 parameter_list|)
 block|{
+comment|// Do not warn if the switch fails: the ioctl fails when launching from a
+comment|// remote console and there is nothing we can do about it.  The matching
+comment|// call in resetTty should at least fail then, too, so we do no harm.
+if|if
+condition|(
 name|ioctl
 argument_list|(
 name|ttyfd
@@ -1708,17 +1716,19 @@ name|KDGETMODE
 argument_list|,
 name|oldMode
 argument_list|)
-expr_stmt|;
+operator|==
+literal|0
+condition|)
+block|{
 if|if
 condition|(
+name|doSwitch
+operator|&&
 operator|*
 name|oldMode
 operator|!=
 name|KD_GRAPHICS
 condition|)
-block|{
-if|if
-condition|(
 name|ioctl
 argument_list|(
 name|ttyfd
@@ -1727,16 +1737,8 @@ name|KDSETMODE
 argument_list|,
 name|KD_GRAPHICS
 argument_list|)
-operator|!=
-literal|0
-condition|)
-return|return
-literal|false
-return|;
+expr_stmt|;
 block|}
-return|return
-literal|true
-return|;
 block|}
 end_function
 begin_function
@@ -1819,11 +1821,24 @@ operator|-
 literal|1
 argument_list|)
 member_init_list|,
+name|mTtyFd
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+member_init_list|,
 name|mBlitter
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{
+name|mMmap
+operator|.
+name|data
+operator|=
+literal|0
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QLinuxFbScreen
@@ -1841,6 +1856,12 @@ operator|-
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+name|mMmap
+operator|.
+name|data
+condition|)
 name|munmap
 argument_list|(
 name|mMmap
@@ -1869,7 +1890,6 @@ operator|!=
 operator|-
 literal|1
 condition|)
-block|{
 name|resetTty
 argument_list|(
 name|mTtyFd
@@ -1877,12 +1897,6 @@ argument_list|,
 name|mOldTtyMode
 argument_list|)
 expr_stmt|;
-name|close
-argument_list|(
-name|mTtyFd
-argument_list|)
-expr_stmt|;
-block|}
 operator|delete
 name|mBlitter
 expr_stmt|;
@@ -2526,20 +2540,16 @@ argument_list|,
 literal|"Failed to open tty"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|doSwitchToGraphicsMode
-condition|)
 name|switchToGraphicsMode
 argument_list|(
 name|mTtyFd
+argument_list|,
+name|doSwitchToGraphicsMode
 argument_list|,
 operator|&
 name|mOldTtyMode
 argument_list|)
 expr_stmt|;
-comment|// Do not warn if the switch fails: the ioctl fails when launching from
-comment|// a remote console and there is nothing we can do about it.
 name|blankScreen
 argument_list|(
 name|mFbFd
