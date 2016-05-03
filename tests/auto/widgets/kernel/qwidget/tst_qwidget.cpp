@@ -60869,28 +60869,6 @@ operator|::
 name|movedAndResizedAttributes
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_OSX
-argument_list|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"FixMe, QTBUG-8941 and QTBUG-8977"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 comment|// Use Qt::Tool as fully decorated windows have a minimum width of 160 on
 name|QWidget
 name|w
@@ -61203,8 +61181,6 @@ name|WA_Resized
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 DECL|function|childAt
 name|void
