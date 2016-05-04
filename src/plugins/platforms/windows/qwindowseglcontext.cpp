@@ -3226,6 +3226,12 @@ name|defined
 argument_list|(
 name|QT_STATIC
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_OPENGL_DYNAMIC
+argument_list|)
 specifier|static
 struct|struct
 name|StdFunc
