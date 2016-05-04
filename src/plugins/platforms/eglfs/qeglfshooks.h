@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qeglfsglobal.h"
+file|"qeglfsdeviceintegration.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qeglfsdeviceintegration.h"
+file|"qeglfsglobal.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

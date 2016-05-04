@@ -66,7 +66,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qt_egl_p.h>
+file|<EGL/egl.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

@@ -18,11 +18,6 @@ include|#
 directive|include
 file|<qglobal.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtPlatformSupport/private/qt_egl_p.h>
-end_include
 begin_ifdef
 ifdef|#
 directive|ifdef

@@ -112,7 +112,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qt_egl_p.h>
+file|<EGL/egl.h>
 end_include
 begin_endif
 endif|#

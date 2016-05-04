@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/QPointer>
 end_include
+begin_include
+include|#
+directive|include
+file|<EGL/egl.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QEglFSWindow
