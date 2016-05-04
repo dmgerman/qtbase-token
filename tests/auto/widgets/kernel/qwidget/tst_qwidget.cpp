@@ -38983,13 +38983,13 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|timerEvent
 name|void
 name|timerEvent
 parameter_list|(
 name|QTimerEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 switch|switch
 condition|(
@@ -39083,7 +39083,6 @@ return|return
 literal|false
 return|;
 block|}
-DECL|function|nativeEvent
 name|bool
 name|nativeEvent
 parameter_list|(
@@ -39099,6 +39098,7 @@ parameter_list|,
 name|long
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -39118,7 +39118,6 @@ literal|false
 return|;
 block|}
 comment|// QAbstractNativeEventFilter interface
-specifier|virtual
 name|bool
 name|nativeEventFilter
 parameter_list|(
