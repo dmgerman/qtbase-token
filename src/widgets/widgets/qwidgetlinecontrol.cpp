@@ -7267,6 +7267,12 @@ name|ke
 operator|==
 name|QKeySequence
 operator|::
+name|MoveToStartOfLine
+operator|||
+name|ke
+operator|==
+name|QKeySequence
+operator|::
 name|MoveToEndOfLine
 operator|||
 name|ke
