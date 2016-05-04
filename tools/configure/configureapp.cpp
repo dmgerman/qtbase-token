@@ -10920,6 +10920,13 @@ index|]
 operator|=
 literal|"poll"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"ZLIB"
+index|]
+operator|=
+literal|"system"
+expr_stmt|;
 block|}
 block|}
 end_function
