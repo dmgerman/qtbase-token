@@ -497,9 +497,6 @@ block|;
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
-name|pthread_t
-name|thread_id
-block|;
 name|QWaitCondition
 name|thread_done
 block|;

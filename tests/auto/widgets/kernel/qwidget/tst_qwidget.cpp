@@ -207,7 +207,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 end_if
 begin_include
@@ -629,7 +629,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 end_ifdef
 begin_include
 include|#
@@ -1269,7 +1269,7 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 name|void
 name|sheetOpacity
 parameter_list|()
@@ -1366,7 +1366,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|Q_OS_MAC
+name|Q_OS_OSX
 name|void
 name|scroll
 parameter_list|()
@@ -1794,7 +1794,7 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 name|void
 name|childAt_unifiedToolBar
 parameter_list|()
@@ -16832,7 +16832,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 if|if
 condition|(
 operator|!
@@ -16862,7 +16862,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 if|if
 condition|(
 operator|!
@@ -19091,7 +19091,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|Q_OS_MAC
+name|Q_OS_OSX
 name|UpdateWidget
 name|widget
 decl_stmt|;
@@ -19340,7 +19340,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 if|if
 condition|(
 name|child1
@@ -20447,7 +20447,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 if|if
 condition|(
@@ -20700,7 +20700,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|Q_OS_MAC
+name|Q_OS_OSX
 name|QEXPECT_FAIL
 argument_list|(
 literal|0
@@ -24165,7 +24165,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 DECL|function|sheetOpacity
 name|void
 name|tst_QWidget
@@ -28792,7 +28792,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 if|if
 condition|(
 name|child
@@ -28933,7 +28933,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|Q_OS_MAC
+name|Q_OS_OSX
 name|QWidget
 name|w
 decl_stmt|;
@@ -29374,7 +29374,7 @@ directive|endif
 block|}
 ifndef|#
 directive|ifndef
-name|Q_OS_MAC
+name|Q_OS_OSX
 comment|/*     Test that scrolling of a widget invalidates the correct regions */
 DECL|function|scroll
 name|void
@@ -32369,7 +32369,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 if|if
 condition|(
@@ -32873,7 +32873,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 if|if
 condition|(
@@ -34212,7 +34212,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 comment|// should be scrolled in backingstore
 name|QCOMPARE
@@ -38978,13 +38978,13 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|timerEvent
 name|void
 name|timerEvent
 parameter_list|(
 name|QTimerEvent
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 switch|switch
 condition|(
@@ -39078,7 +39078,6 @@ return|return
 literal|false
 return|;
 block|}
-DECL|function|nativeEvent
 name|bool
 name|nativeEvent
 parameter_list|(
@@ -39094,6 +39093,7 @@ parameter_list|,
 name|long
 modifier|*
 parameter_list|)
+name|Q_DECL_OVERRIDE
 block|{
 if|if
 condition|(
@@ -39113,7 +39113,6 @@ literal|false
 return|;
 block|}
 comment|// QAbstractNativeEventFilter interface
-specifier|virtual
 name|bool
 name|nativeEventFilter
 parameter_list|(
@@ -45420,7 +45419,7 @@ comment|// rrrrrrrrrr
 comment|// ...
 ifndef|#
 directive|ifndef
-name|Q_OS_MAC
+name|Q_OS_OSX
 for|for
 control|(
 name|int
@@ -52409,7 +52408,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 if|if
 condition|(
@@ -56436,7 +56435,7 @@ expr_stmt|;
 comment|// and ensure that the child widget doesn't get any update.
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -56551,7 +56550,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -56622,7 +56621,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -56677,7 +56676,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -56864,7 +56863,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -56939,7 +56938,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -60847,7 +60846,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
+name|Q_OS_OSX
 argument_list|)
 name|QEXPECT_FAIL
 argument_list|(
@@ -61667,7 +61666,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_OS_OSX
 DECL|function|childAt_unifiedToolBar
 name|void
 name|tst_QWidget

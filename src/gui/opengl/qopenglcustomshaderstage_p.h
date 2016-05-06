@@ -48,6 +48,11 @@ include|#
 directive|include
 file|<QOpenGLShaderProgram>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGlobal>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QPainter
@@ -131,6 +136,10 @@ name|QOpenGLCustomShaderStagePrivate
 modifier|*
 name|d_ptr
 decl_stmt|;
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QOpenGLCustomShaderStage
+argument_list|)
 block|}
 end_decl_stmt
 begin_empty_stmt

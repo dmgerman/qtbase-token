@@ -704,10 +704,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|// ### DOC: What does this do to child frames?
-end_comment
-begin_comment
-comment|/*!     Destroys the frame, and removes it from the document's layout. */
+comment|/*!     Destroys the text frame.      \warning Text frames are owned by the document, so you should     never destroy them yourself. In order to remove a frame from     its document, remove its contents using a \c QTextCursor. */
 end_comment
 begin_destructor
 DECL|function|~QTextFrame

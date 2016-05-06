@@ -409,6 +409,11 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|m_bo
+condition|)
+block|{
 name|gbm_bo_destroy
 argument_list|(
 name|m_bo
@@ -418,6 +423,7 @@ name|m_bo
 operator|=
 name|Q_NULLPTR
 expr_stmt|;
+block|}
 block|}
 end_destructor
 begin_function
@@ -472,6 +478,12 @@ argument_list|(
 name|window
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|m_bo
+condition|)
+return|return;
 if|if
 condition|(
 operator|!

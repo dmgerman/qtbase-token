@@ -4965,7 +4965,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the given \a widget to the splitter's layout after all the other     items.      If \a widget is already in the splitter, it will be moved to the new position.      \sa insertWidget(), widget(), indexOf() */
+comment|/*!     Adds the given \a widget to the splitter's layout after all the other     items.      If \a widget is already in the splitter, it will be moved to the new position.      \note The splitter takes ownership of the widget.      \sa insertWidget(), widget(), indexOf() */
 end_comment
 begin_function
 DECL|function|addWidget
@@ -4999,7 +4999,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the \a widget specified into the splitter's layout at the     given \a index.      If \a widget is already in the splitter, it will be moved to the new position.      if \a index is an invalid index, then the widget will be inserted at the end.      \sa addWidget(), indexOf(), widget() */
+comment|/*!     Inserts the \a widget specified into the splitter's layout at the     given \a index.      If \a widget is already in the splitter, it will be moved to the new position.      If \a index is an invalid index, then the widget will be inserted at the end.      \note The splitter takes ownership of the widget.      \sa addWidget(), indexOf(), widget() */
 end_comment
 begin_function
 DECL|function|insertWidget
