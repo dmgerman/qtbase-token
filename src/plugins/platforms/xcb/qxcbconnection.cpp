@@ -7968,7 +7968,7 @@ condition|)
 return|return
 literal|false
 return|;
-comment|// compress XI_Motion
+comment|// compress XI_Motion, but not from tablet devices
 if|if
 condition|(
 name|isXIType
@@ -7981,6 +7981,46 @@ name|XI_Motion
 argument_list|)
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_TABLETEVENT
+name|xXIDeviceEvent
+modifier|*
+name|xdev
+init|=
+cast|reinterpret_cast
+argument_list|<
+name|xXIDeviceEvent
+operator|*
+argument_list|>
+argument_list|(
+name|event
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+cast|const_cast
+argument_list|<
+name|QXcbConnection
+operator|*
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+operator|->
+name|tabletDataForDevice
+argument_list|(
+name|xdev
+operator|->
+name|sourceid
+argument_list|)
+condition|)
+return|return
+literal|false
+return|;
+endif|#
+directive|endif
+comment|// QT_NO_TABLETEVENT
 for|for
 control|(
 name|int

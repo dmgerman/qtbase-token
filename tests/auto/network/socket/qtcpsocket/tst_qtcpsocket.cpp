@@ -3083,13 +3083,19 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+specifier|const
+name|quint16
+name|port
+init|=
+literal|80
+decl_stmt|;
 name|socket
 operator|->
 name|connectToHost
 argument_list|(
 name|hostName
 argument_list|,
-literal|80
+name|port
 argument_list|)
 expr_stmt|;
 name|QVERIFY2
@@ -3099,7 +3105,34 @@ operator|->
 name|waitForConnected
 argument_list|()
 argument_list|,
-literal|"Network timeout"
+operator|(
+name|hostName
+operator|.
+name|toLocal8Bit
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|port
+argument_list|)
+operator|+
+literal|' '
+operator|+
+name|QtNetworkSettings
+operator|::
+name|msgSocketError
+argument_list|(
+operator|*
+name|socket
+argument_list|)
+operator|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

@@ -8696,8 +8696,8 @@ block|,
 name|NULL
 block|}
 decl_stmt|;
-name|bool
-name|ret
+name|HRESULT
+name|hres
 init|=
 operator|::
 name|CopyFile2
@@ -8731,8 +8731,14 @@ argument_list|,
 operator|&
 name|copyParams
 argument_list|)
-operator|!=
-literal|0
+decl_stmt|;
+name|bool
+name|ret
+init|=
+name|SUCCEEDED
+argument_list|(
+name|hres
+argument_list|)
 decl_stmt|;
 endif|#
 directive|endif

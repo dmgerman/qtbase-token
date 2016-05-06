@@ -2350,6 +2350,16 @@ operator|>
 name|m_tabletData
 expr_stmt|;
 end_expr_stmt
+begin_function_decl
+name|TabletData
+modifier|*
+name|tabletDataForDevice
+parameter_list|(
+name|int
+name|id
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif

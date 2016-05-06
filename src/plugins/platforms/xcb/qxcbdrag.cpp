@@ -5835,12 +5835,6 @@ name|at
 operator|==
 operator|-
 literal|1
-operator|&&
-name|event
-operator|->
-name|time
-operator|==
-name|XCB_CURRENT_TIME
 condition|)
 block|{
 name|xcb_window_t
@@ -5863,6 +5857,12 @@ condition|)
 block|{
 if|if
 condition|(
+name|event
+operator|->
+name|time
+operator|==
+name|XCB_CURRENT_TIME
+operator|&&
 name|current_target
 operator|==
 name|target

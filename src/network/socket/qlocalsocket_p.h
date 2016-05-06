@@ -346,14 +346,8 @@ name|function
 argument_list|)
 block|;
 name|void
-name|startNextWrite
+name|_q_canWrite
 argument_list|()
-block|;
-name|void
-name|_q_bytesWritten
-argument_list|(
-argument|qint64 bytes
-argument_list|)
 block|;
 name|void
 name|_q_pipeClosed

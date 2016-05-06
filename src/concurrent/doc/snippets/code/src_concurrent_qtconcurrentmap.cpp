@@ -726,6 +726,7 @@ operator|::
 name|scaledToWidth
 argument_list|,
 literal|100
+argument_list|,
 name|Qt
 operator|::
 name|SmoothTransformation
