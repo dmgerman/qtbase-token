@@ -2747,6 +2747,9 @@ comment|// This also disables the runtime checking that the processor actually
 comment|// contains all the features that the code required. Qt 4 ran for years
 comment|// like that, so it shouldn't be a problem.
 name|qt_cpu_features
+index|[
+literal|0
+index|]
 operator|.
 name|store
 argument_list|(
@@ -2758,6 +2761,23 @@ name|QSimdInitialized
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_ATOMIC_INT64_IS_SUPPORTED
+name|qt_cpu_features
+index|[
+literal|1
+index|]
+operator|.
+name|store
+argument_list|(
+name|minFeature
+operator|>>
+literal|32
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 return|return;
 endif|#
 directive|endif
