@@ -587,9 +587,6 @@ name|bool
 name|cursorOn
 block|;
 name|bool
-name|blinkingEnabled
-block|;
-name|bool
 name|cursorVisible
 block|;
 name|QTextCursor
