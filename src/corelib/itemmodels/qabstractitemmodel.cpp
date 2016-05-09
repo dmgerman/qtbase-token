@@ -10159,10 +10159,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QAbstractItemModel::modelAboutToBeReset()     \since 4.2      This signal is emitted when reset() is called, before the model's internal     state (e.g. persistent model indexes) has been invalidated.      \sa beginResetModel(), modelReset() */
+comment|/*!     \fn QAbstractItemModel::modelAboutToBeReset()     \since 4.2      This signal is emitted when beginResetModel() is called, before the model's internal     state (e.g. persistent model indexes) has been invalidated.      \sa beginResetModel(), modelReset() */
 end_comment
 begin_comment
-comment|/*!     \fn QAbstractItemModel::modelReset()     \since 4.1      This signal is emitted when reset() or endResetModel() is called, after the     model's internal state (e.g. persistent model indexes) has been invalidated.      Note that if a model is reset it should be considered that all information     previously retrieved from it is invalid. This includes but is not limited     to the rowCount() and columnCount(), flags(), data retrieved through data(),     and roleNames().      \sa endResetModel(), modelAboutToBeReset() */
+comment|/*!     \fn QAbstractItemModel::modelReset()     \since 4.1      This signal is emitted when endResetModel() is called, after the     model's internal state (e.g. persistent model indexes) has been invalidated.      Note that if a model is reset it should be considered that all information     previously retrieved from it is invalid. This includes but is not limited     to the rowCount() and columnCount(), flags(), data retrieved through data(),     and roleNames().      \sa endResetModel(), modelAboutToBeReset() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QModelIndex::operator<(const QModelIndex&other) const     \since 4.1      Returns \c{true} if this model index is smaller than the \a other     model index; otherwise returns \c{false}.      The less than calculation is not directly useful to developers - the way that indexes     with different parents compare is not defined. This operator only exists so that the     class can be used with QMap. */
