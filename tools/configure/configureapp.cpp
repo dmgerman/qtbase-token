@@ -10840,6 +10840,13 @@ index|]
 operator|=
 literal|"poll"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"ZLIB"
+index|]
+operator|=
+literal|"system"
+expr_stmt|;
 block|}
 elseif|else
 if|if
