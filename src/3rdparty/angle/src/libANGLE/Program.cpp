@@ -12193,11 +12193,6 @@ name|uniform
 operator|.
 name|type
 argument_list|)
-operator|*
-name|uniform
-operator|.
-name|elementCount
-argument_list|()
 decl_stmt|;
 switch|switch
 condition|(
