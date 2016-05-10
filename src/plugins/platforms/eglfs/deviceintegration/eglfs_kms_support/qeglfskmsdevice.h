@@ -79,7 +79,7 @@ parameter_list|()
 function_decl|;
 name|virtual
 name|EGLNativeDisplayType
-name|device
+name|nativeDisplay
 argument_list|()
 specifier|const
 operator|=
@@ -124,12 +124,6 @@ name|int
 name|fd
 parameter_list|)
 function_decl|;
-name|private
-label|:
-name|Q_DISABLE_COPY
-argument_list|(
-argument|QEglFSKmsDevice
-argument_list|)
 name|QEglFSKmsIntegration
 modifier|*
 name|m_integration
@@ -206,6 +200,12 @@ modifier|*
 name|user_data
 parameter_list|)
 function_decl|;
+name|private
+label|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QEglFSKmsDevice
+argument_list|)
 block|}
 end_decl_stmt
 begin_empty_stmt

@@ -194,16 +194,10 @@ argument_list|(
 name|m_device
 argument_list|)
 argument_list|;     return
-cast|reinterpret_cast
-argument_list|<
-name|EGLNativeDisplayType
-argument_list|>
-argument_list|(
 name|m_device
 operator|->
-name|device
+name|nativeDisplay
 argument_list|()
-argument_list|)
 argument_list|; }
 DECL|function|usesDefaultScreen
 name|bool

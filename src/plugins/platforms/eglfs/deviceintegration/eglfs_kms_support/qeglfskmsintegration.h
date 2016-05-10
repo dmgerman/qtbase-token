@@ -158,8 +158,6 @@ argument_list|)
 operator|=
 literal|0
 block|;
-name|private
-operator|:
 name|void
 name|loadConfig
 argument_list|()

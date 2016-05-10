@@ -67,7 +67,7 @@ argument_list|()
 name|Q_DECL_OVERRIDE
 block|;
 name|EGLNativeDisplayType
-name|device
+name|nativeDisplay
 argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE

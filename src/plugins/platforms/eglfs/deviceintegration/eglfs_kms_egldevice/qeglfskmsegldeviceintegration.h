@@ -87,6 +87,15 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 block|;
+name|EGLDeviceEXT
+name|eglDevice
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_egl_device
+return|;
+block|}
 name|protected
 operator|:
 name|QEglFSKmsDevice

@@ -163,16 +163,10 @@ name|QEglFSScreen
 argument_list|(
 name|eglGetDisplay
 argument_list|(
-cast|reinterpret_cast
-argument_list|<
-name|EGLNativeDisplayType
-argument_list|>
-argument_list|(
 name|device
 operator|->
-name|device
+name|nativeDisplay
 argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 member_init_list|,

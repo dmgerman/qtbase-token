@@ -290,7 +290,7 @@ argument|QPlatformScreen::PowerState state
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
-name|private
+name|protected
 operator|:
 name|QEglFSKmsIntegration
 operator|*
