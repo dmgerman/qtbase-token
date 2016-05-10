@@ -29,8 +29,12 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
-name|fbGetDisplay
-argument_list|()
+comment|// Do not rely on fbGetDisplay() since the signature has changed over time.
+comment|// Stick to fbGetDisplayByIndex().
+name|fbGetDisplayByIndex
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
