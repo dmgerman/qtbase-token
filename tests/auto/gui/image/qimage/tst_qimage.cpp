@@ -24410,6 +24410,56 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Try specifying an invalid position.
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QImage::setPixelColor: coordinate (-1,-1) out of range"
+argument_list|)
+expr_stmt|;
+name|argb32
+operator|.
+name|setPixelColor
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+name|QColor
+argument_list|(
+name|Qt
+operator|::
+name|red
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Try setting an invalid color.
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QImage::setPixelColor: color is invalid"
+argument_list|)
+expr_stmt|;
+name|argb32
+operator|.
+name|setPixelColor
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|QColor
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

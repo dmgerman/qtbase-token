@@ -7888,12 +7888,6 @@ name|y
 operator|>=
 name|height
 argument_list|()
-operator|||
-operator|!
-name|color
-operator|.
-name|isValid
-argument_list|()
 condition|)
 block|{
 name|qWarning
@@ -7903,6 +7897,22 @@ argument_list|,
 name|x
 argument_list|,
 name|y
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|color
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QImage::setPixelColor: color is invalid"
 argument_list|)
 expr_stmt|;
 return|return;
