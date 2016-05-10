@@ -4838,6 +4838,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_FOREACH
+end_ifndef
 begin_expr_stmt
 name|template
 operator|<
@@ -4952,6 +4957,13 @@ parameter_list|)
 define|\
 value|for (QForeachContainer<typename QtPrivate::remove_reference<decltype(container)>::type> _container_((container)); \      _container_.control&& _container_.i != _container_.e;         \      ++_container_.i, _container_.control ^= 1)                     \     for (variable = *_container_.i; _container_.control; _container_.control = 0)
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_FOREACH
+end_comment
 begin_define
 DECL|macro|Q_FOREVER
 define|#
@@ -4963,6 +4975,11 @@ begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_KEYWORDS
+end_ifndef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_FOREACH
 end_ifndef
 begin_ifndef
 ifndef|#
@@ -4980,6 +4997,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_FOREACH
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
