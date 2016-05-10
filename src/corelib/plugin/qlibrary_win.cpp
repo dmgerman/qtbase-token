@@ -475,9 +475,6 @@ argument_list|(
 name|moduleFileName
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|// !Q_OS_WINRT
 if|if
 condition|(
 name|loadHints
@@ -525,7 +522,15 @@ operator|==
 name|pHnd
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|ok
+argument_list|)
+expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// !Q_OS_WINRT
 block|}
 return|return
 operator|(
