@@ -599,26 +599,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|if
-condition|(
-operator|!
-name|QGuiApplication
-operator|::
-name|platformName
-argument_list|()
-operator|.
-name|compare
-argument_list|(
-literal|"xcb"
-argument_list|,
-name|Qt
-operator|::
-name|CaseInsensitive
-argument_list|)
-condition|)
-block|{
 name|QVERIFY
 argument_list|(
+operator|!
 name|QFont
 argument_list|(
 literal|"sans"
@@ -630,6 +613,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QFont
 argument_list|(
 literal|"sans-serif"
@@ -641,6 +625,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QFont
 argument_list|(
 literal|"serif"
@@ -652,6 +637,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|QFont
 argument_list|(
 literal|"monospace"
@@ -661,7 +647,6 @@ name|exactMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|QSKIP
 argument_list|(
 literal|"This test is bogus on Unix with support for font aliases in fontconfig"
