@@ -1370,13 +1370,13 @@ name|debugWait
 init|=
 literal|false
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|char
 modifier|*
 name|arg
-decl|,
+range|:
 name|args
 control|)
 block|{
