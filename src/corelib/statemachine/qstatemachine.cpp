@@ -9236,13 +9236,22 @@ operator|==
 name|Starting
 argument_list|)
 expr_stmt|;
-foreach|foreach
+comment|// iterate over a copy, since we emit signals which may cause
+comment|// 'configuration' to change, resulting in undefined behavior when
+comment|// iterating at the same time:
+specifier|const
+specifier|auto
+name|config
+init|=
+name|configuration
+decl_stmt|;
+for|for
 control|(
 name|QAbstractState
 modifier|*
 name|state
-decl|,
-name|configuration
+range|:
+name|config
 control|)
 block|{
 name|QAbstractStatePrivate
