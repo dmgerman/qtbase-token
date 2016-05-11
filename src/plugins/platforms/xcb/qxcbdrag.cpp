@@ -4359,7 +4359,7 @@ index|[
 literal|0
 index|]
 operator|!=
-name|current_proxy_target
+name|current_target
 condition|)
 return|return;
 specifier|const
