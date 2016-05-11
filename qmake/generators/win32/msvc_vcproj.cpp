@@ -8651,13 +8651,13 @@ block|{
 name|QFileInfo
 name|info2
 decl_stmt|;
-foreach|foreach
+for|for
 control|(
 specifier|const
 name|ProString
 modifier|&
 name|dllPath
-decl|,
+range|:
 name|dllPaths
 control|)
 block|{
