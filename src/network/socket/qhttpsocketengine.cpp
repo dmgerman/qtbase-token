@@ -774,6 +774,23 @@ parameter_list|,
 name|quint16
 parameter_list|)
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
+name|setError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|UnsupportedSocketOperationError
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"Unsupported socket operation"
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -787,6 +804,23 @@ operator|::
 name|listen
 parameter_list|()
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
+name|setError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|UnsupportedSocketOperationError
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"Unsupported socket operation"
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -800,8 +834,26 @@ operator|::
 name|accept
 parameter_list|()
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
+name|setError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|UnsupportedSocketOperationError
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"Unsupported socket operation"
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 end_function
@@ -1042,6 +1094,11 @@ name|QNetworkInterface
 modifier|&
 parameter_list|)
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
 name|setError
 argument_list|(
 name|QAbstractSocket
@@ -1050,7 +1107,7 @@ name|UnsupportedSocketOperationError
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"Operation on socket is not supported"
+literal|"Unsupported socket operation"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1075,6 +1132,11 @@ name|QNetworkInterface
 modifier|&
 parameter_list|)
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
 name|setError
 argument_list|(
 name|QAbstractSocket
@@ -1083,7 +1145,7 @@ name|UnsupportedSocketOperationError
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"Operation on socket is not supported"
+literal|"Unsupported socket operation"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1119,6 +1181,11 @@ name|QNetworkInterface
 modifier|&
 parameter_list|)
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
 name|setError
 argument_list|(
 name|QAbstractSocket
@@ -1127,7 +1194,7 @@ name|UnsupportedSocketOperationError
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"Operation on socket is not supported"
+literal|"Unsupported socket operation"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1161,8 +1228,26 @@ parameter_list|,
 name|PacketHeaderOptions
 parameter_list|)
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
+name|setError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|UnsupportedSocketOperationError
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"Unsupported socket operation"
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 end_function
@@ -1184,8 +1269,26 @@ name|QIpPacketHeader
 modifier|&
 parameter_list|)
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
+name|setError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|UnsupportedSocketOperationError
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"Unsupported socket operation"
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 end_function
@@ -1198,6 +1301,11 @@ name|hasPendingDatagrams
 parameter_list|()
 specifier|const
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -1212,8 +1320,14 @@ name|pendingDatagramSize
 parameter_list|()
 specifier|const
 block|{
+name|qWarning
+argument_list|(
+literal|"Operation is not supported"
+argument_list|)
+expr_stmt|;
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 end_function
