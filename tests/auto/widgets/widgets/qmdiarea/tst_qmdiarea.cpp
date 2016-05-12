@@ -2615,16 +2615,16 @@ name|mdiArea
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QTRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
+operator|!
 name|spy
 operator|.
-name|count
+name|isEmpty
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
+comment|// Normally 1, but 2 events might be received on some X11 window managers
 name|QVERIFY
 argument_list|(
 name|mdiArea

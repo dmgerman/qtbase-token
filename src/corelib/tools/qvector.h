@@ -495,9 +495,10 @@ end_expr_stmt
 begin_if
 if|#
 directive|if
-name|QT_SUPPORTS
+operator|!
+name|defined
 argument_list|(
-name|UNSHARABLE_CONTAINERS
+name|QT_NO_UNSHARABLE_CONTAINERS
 argument_list|)
 end_if
 begin_function
@@ -3206,9 +3207,10 @@ condition|)
 block|{
 if|#
 directive|if
-name|QT_SUPPORTS
+operator|!
+name|defined
 argument_list|(
-name|UNSHARABLE_CONTAINERS
+name|QT_NO_UNSHARABLE_CONTAINERS
 argument_list|)
 if|if
 condition|(
@@ -4332,9 +4334,10 @@ expr_stmt|;
 comment|// aalloc is bigger then 0 so it is not [un]sharedEmpty
 if|#
 directive|if
-name|QT_SUPPORTS
+operator|!
+name|defined
 argument_list|(
-name|UNSHARABLE_CONTAINERS
+name|QT_NO_UNSHARABLE_CONTAINERS
 argument_list|)
 name|Q_ASSERT
 argument_list|(
@@ -4786,9 +4789,10 @@ end_expr_stmt
 begin_if
 if|#
 directive|if
-name|QT_SUPPORTS
+operator|!
+name|defined
 argument_list|(
-name|UNSHARABLE_CONTAINERS
+name|QT_NO_UNSHARABLE_CONTAINERS
 argument_list|)
 end_if
 begin_expr_stmt

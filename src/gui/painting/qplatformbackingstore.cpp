@@ -767,7 +767,7 @@ begin_comment
 comment|/*!     \class QPlatformBackingStore     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformBackingStore class provides the drawing area for top-level     windows. */
 end_comment
 begin_comment
-comment|/*!     \fn void QPlatformBackingStore::flush(QWindow *window, const QRegion&region,                                   const QPoint&offset)      Flushes the given \a region from the specified \a window onto the     screen.      Note that the \a offset parameter is currently unused. */
+comment|/*!     \fn void QPlatformBackingStore::flush(QWindow *window, const QRegion&region,                                   const QPoint&offset)      Flushes the given \a region from the specified \a window onto the     screen.      The \a offset parameter is relative to the origin of the backing     store image. */
 end_comment
 begin_ifndef
 ifndef|#

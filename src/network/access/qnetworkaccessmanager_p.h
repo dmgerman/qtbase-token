@@ -501,6 +501,27 @@ argument_list|(
 argument|bool isOnline
 argument_list|)
 block|;
+name|void
+name|_q_configurationChanged
+argument_list|(
+specifier|const
+name|QNetworkConfiguration
+operator|&
+name|configuration
+argument_list|)
+block|;
+name|void
+name|_q_networkSessionFailed
+argument_list|(
+argument|QNetworkSession::SessionError error
+argument_list|)
+block|;
+name|QSet
+operator|<
+name|QString
+operator|>
+name|onlineConfigurations
+block|;
 endif|#
 directive|endif
 name|QNetworkRequest

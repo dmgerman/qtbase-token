@@ -5126,9 +5126,10 @@ name|list2
 decl_stmt|;
 if|#
 directive|if
-name|QT_SUPPORTS
+operator|!
+name|defined
 argument_list|(
-name|UNSHARABLE_CONTAINERS
+name|QT_NO_UNSHARABLE_CONTAINERS
 argument_list|)
 name|QLinkedList
 argument_list|<
@@ -5271,9 +5272,10 @@ specifier|const
 block|{
 if|#
 directive|if
-name|QT_SUPPORTS
+operator|!
+name|defined
 argument_list|(
-name|UNSHARABLE_CONTAINERS
+name|QT_NO_UNSHARABLE_CONTAINERS
 argument_list|)
 name|QLinkedList
 argument_list|<

@@ -2602,6 +2602,7 @@ operator|&
 name|mFbScreenImage
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QVector
 argument_list|<
 name|QRect
@@ -2613,6 +2614,15 @@ operator|.
 name|rects
 argument_list|()
 decl_stmt|;
+name|mBlitter
+operator|->
+name|setCompositionMode
+argument_list|(
+name|QPainter
+operator|::
+name|CompositionMode_Source
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -2627,8 +2637,8 @@ operator|.
 name|size
 argument_list|()
 condition|;
-name|i
 operator|++
+name|i
 control|)
 name|mBlitter
 operator|->

@@ -1843,7 +1843,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 5.0      Returns \c true if the model contains modified values that have not been     committed to the datase, otherwise false. */
+comment|/*!     \overload     \since 5.0      Returns \c true if the model contains modified values that have not been     committed to the database, otherwise false. */
 end_comment
 begin_function
 DECL|function|isDirty
