@@ -3371,7 +3371,7 @@ name|netmask
 operator|=
 name|subnet
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|slash
 operator|+

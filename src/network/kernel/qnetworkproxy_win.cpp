@@ -1594,7 +1594,7 @@ name|value
 init|=
 name|entry
 operator|.
-name|mid
+name|midRef
 argument_list|(
 name|pos
 operator|+

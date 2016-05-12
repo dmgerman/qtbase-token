@@ -261,7 +261,7 @@ name|domain
 operator|==
 name|reference
 operator|.
-name|mid
+name|midRef
 argument_list|(
 literal|1
 argument_list|)

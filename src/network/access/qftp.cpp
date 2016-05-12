@@ -6094,7 +6094,7 @@ literal|"QFtpPI send: %s"
 argument_list|,
 name|currentCmd
 operator|.
-name|left
+name|leftRef
 argument_list|(
 name|currentCmd
 operator|.
