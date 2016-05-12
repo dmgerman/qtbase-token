@@ -1475,6 +1475,9 @@ begin_comment
 comment|/*!     \fn QDebug operator<<(QDebug stream, const QFlags<T>&flag)     \relates QDebug     \since 4.7      Writes \a flag to \a stream. */
 end_comment
 begin_comment
+comment|/*!     \fn QDebug operator<<(QDebug debug, const QSharedPointer<T>&ptr)     \relates QSharedPointer     \since 5.7      Writes the pointer tracked by \a ptr into the debug object \a debug for     debugging purposes.      \sa {Debugging Techniques} */
+end_comment
+begin_comment
 comment|/*!     \class QDebugStateSaver     \inmodule QtCore     \brief Convenience class for custom QDebug operators      Saves the settings used by QDebug, and restores them upon destruction,     then calls \l {QDebug::maybeSpace()}{maybeSpace()}, to separate arguments with a space if     \l {QDebug::autoInsertSpaces()}{autoInsertSpaces()} was true at the time of constructing the QDebugStateSaver.      The automatic insertion of spaces between writes is one of the settings     that QDebugStateSaver stores for the duration of the current block.      The settings of the internal QTextStream are also saved and restored,     so that using<< hex in a QDebug operator doesn't affect other QDebug     operators.      \since 5.1 */
 end_comment
 begin_class
