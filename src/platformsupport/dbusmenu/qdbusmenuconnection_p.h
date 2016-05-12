@@ -100,6 +100,14 @@ operator|*
 name|parent
 operator|=
 literal|0
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|serviceName
+operator|=
+name|QString
+argument_list|()
 argument_list|)
 block|;
 name|QDBusConnection

@@ -768,6 +768,8 @@ operator|new
 name|QDBusMenuConnection
 argument_list|(
 name|this
+argument_list|,
+name|m_instanceId
 argument_list|)
 expr_stmt|;
 name|m_notifier
