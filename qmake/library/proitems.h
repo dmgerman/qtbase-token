@@ -1526,7 +1526,7 @@ argument_list|)
 decl|const
 block|{
 return|return
-name|toQString
+name|toQStringRef
 argument_list|()
 operator|.
 name|toInt
@@ -1537,7 +1537,6 @@ name|base
 argument_list|)
 return|;
 block|}
-comment|// XXX optimize
 name|short
 name|toShort
 argument_list|(
@@ -1555,7 +1554,7 @@ argument_list|)
 decl|const
 block|{
 return|return
-name|toQString
+name|toQStringRef
 argument_list|()
 operator|.
 name|toShort
@@ -1566,7 +1565,6 @@ name|base
 argument_list|)
 return|;
 block|}
-comment|// XXX optimize
 name|uint
 name|hash
 argument_list|()
