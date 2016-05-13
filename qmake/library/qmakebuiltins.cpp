@@ -3592,7 +3592,12 @@ decl_stmt|;
 name|qlonglong
 name|num
 init|=
-name|m_tmp3
+name|args
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|toLongLong
 argument_list|(
