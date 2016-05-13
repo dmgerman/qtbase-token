@@ -5081,10 +5081,12 @@ name|pos
 parameter_list|)
 specifier|const
 block|{
-name|QString
+name|QStringRef
 name|text
-init|=
+argument_list|(
+operator|&
 name|t
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -5228,6 +5230,9 @@ operator|)
 expr_stmt|;
 return|return
 name|text
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 end_function

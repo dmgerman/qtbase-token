@@ -1296,12 +1296,13 @@ name|isVisible
 argument_list|()
 condition|)
 block|{
-name|QString
+specifier|const
+name|QStringRef
 name|firstTag
 init|=
 name|txt
 operator|.
-name|left
+name|leftRef
 argument_list|(
 name|txt
 operator|.

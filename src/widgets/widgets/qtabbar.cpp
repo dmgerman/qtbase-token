@@ -6997,7 +6997,7 @@ name|ret
 operator|=
 name|text
 operator|.
-name|left
+name|leftRef
 argument_list|(
 literal|2
 argument_list|)
@@ -7014,7 +7014,7 @@ name|ret
 operator|=
 name|text
 operator|.
-name|left
+name|leftRef
 argument_list|(
 literal|1
 argument_list|)
@@ -7023,7 +7023,7 @@ name|Ellipses
 operator|+
 name|text
 operator|.
-name|right
+name|rightRef
 argument_list|(
 literal|1
 argument_list|)
@@ -7040,7 +7040,7 @@ name|Ellipses
 operator|+
 name|text
 operator|.
-name|right
+name|rightRef
 argument_list|(
 literal|2
 argument_list|)
