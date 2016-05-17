@@ -19483,7 +19483,7 @@ argument_list|()
 condition|)
 name|qmakeVars
 operator|+=
-literal|"LIBS           += "
+literal|"EXTRA_LIBS += "
 operator|+
 name|formatPaths
 argument_list|(
@@ -20019,7 +20019,7 @@ name|qmakeVars
 operator|+=
 name|QString
 argument_list|(
-literal|"DEFINES        += "
+literal|"EXTRA_DEFINES += "
 argument_list|)
 operator|+
 name|qmakeDefines
@@ -20041,7 +20041,7 @@ name|qmakeVars
 operator|+=
 name|QString
 argument_list|(
-literal|"INCLUDEPATH    += "
+literal|"EXTRA_INCLUDEPATH += "
 argument_list|)
 operator|+
 name|formatPaths
