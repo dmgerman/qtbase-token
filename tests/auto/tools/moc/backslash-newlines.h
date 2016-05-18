@@ -74,4 +74,7 @@ end_endif
 begin_comment
 comment|// BACKSLASH_NEWLINES_H
 end_comment
+begin_comment
+comment|// ends with \\\r should not make moc crash (QTBUG-53441) (no new lines on purpose!!) \
+end_comment
 end_unit
