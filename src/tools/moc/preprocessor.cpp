@@ -59,7 +59,7 @@ name|result
 decl_stmt|;
 name|result
 operator|.
-name|reserve
+name|resize
 argument_list|(
 name|input
 operator|.
@@ -260,6 +260,10 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
+name|data
+operator|!=
+name|end
+operator|&&
 operator|*
 name|data
 operator|!=
@@ -295,6 +299,13 @@ operator|++
 name|data
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|data
+operator|==
+name|end
+condition|)
+break|break;
 name|char
 name|ch
 init|=

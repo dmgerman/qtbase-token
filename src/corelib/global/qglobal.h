@@ -88,6 +88,15 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// The QT_SUPPORTS macro is deprecated. Don't use it in new code.
+end_comment
+begin_comment
+comment|// Instead, use #ifdef/ndef QT_NO_feature.
+end_comment
+begin_comment
+comment|// ### Qt6: remove macro
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef

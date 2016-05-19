@@ -1358,7 +1358,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Marks the stack as clean and emits cleanChanged() if the stack was     not already clean.      Whenever the stack returns to this state through the use of undo/redo     commands, it emits the signal cleanChanged(). This signal is also     emitted when the stack leaves the clean state.      \sa isClean(), cleanIndex() */
+comment|/*!     Marks the stack as clean and emits cleanChanged() if the stack was     not already clean.      This is typically called when a document is saved, for example.      Whenever the stack returns to this state through the use of undo/redo     commands, it emits the signal cleanChanged(). This signal is also     emitted when the stack leaves the clean state.      \sa isClean(), cleanIndex() */
 end_comment
 begin_function
 DECL|function|setClean

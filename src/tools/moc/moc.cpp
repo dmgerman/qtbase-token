@@ -1816,6 +1816,8 @@ name|isStatic
 operator|=
 literal|true
 operator|)
+operator|==
+literal|true
 operator|)
 operator|||
 operator|(
@@ -1831,6 +1833,8 @@ name|isVirtual
 operator|=
 literal|true
 operator|)
+operator|==
+literal|true
 operator|)
 comment|//mark as virtual
 operator|||
@@ -2338,6 +2342,8 @@ name|isStatic
 operator|=
 literal|true
 operator|)
+operator|==
+literal|true
 operator|)
 operator|||
 operator|(
@@ -2353,6 +2359,8 @@ name|isVirtual
 operator|=
 literal|true
 operator|)
+operator|==
+literal|true
 operator|)
 comment|//mark as virtual
 operator|||
