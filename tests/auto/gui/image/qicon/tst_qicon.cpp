@@ -5100,6 +5100,9 @@ literal|"gtk-update-icon-cache not run (binary not found)"
 argument_list|)
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|QProcess
 name|process
 decl_stmt|;
@@ -5193,6 +5196,9 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_PROCESS
 name|QVERIFY
 argument_list|(
 name|QFileInfo
