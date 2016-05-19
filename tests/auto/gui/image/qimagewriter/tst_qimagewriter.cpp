@@ -855,6 +855,25 @@ argument_list|(
 literal|"jpeg"
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"ICO: App"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"App.ico"
+argument_list|)
+operator|<<
+literal|true
+operator|<<
+name|QByteArray
+argument_list|(
+literal|"ico"
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -1192,6 +1211,8 @@ operator|<<
 literal|"png"
 operator|<<
 literal|"ppm"
+operator|<<
+literal|"ico"
 decl_stmt|;
 comment|//<< "jpeg";
 name|QImage
