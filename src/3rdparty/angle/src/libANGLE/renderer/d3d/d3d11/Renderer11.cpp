@@ -11838,24 +11838,14 @@ return|return
 literal|false
 return|;
 block|}
+comment|// Qt: we don't care about the 9_3 limitation
+if|#
+directive|if
+literal|0
 comment|// Also disable share handles on Feature Level 9_3, since it doesn't support share handles on RGBA8 textures/swapchains.
-if|if
-condition|(
-name|mRenderer11DeviceCaps
-operator|.
-name|featureLevel
-operator|<=
-name|D3D_FEATURE_LEVEL_9_3
-condition|)
-block|{
-name|mSupportsShareHandles
-operator|=
-literal|false
-expr_stmt|;
-return|return
-literal|false
-return|;
-block|}
+block|if (mRenderer11DeviceCaps.featureLevel<= D3D_FEATURE_LEVEL_9_3)     {         mSupportsShareHandles = false;         return false;     }
+endif|#
+directive|endif
 comment|// Find out which type of D3D11 device the Renderer11 is using
 name|d3d11
 operator|::
