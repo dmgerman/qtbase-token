@@ -186,6 +186,15 @@ name|int
 name|signalsReceived
 block|;
 name|public
+operator|:
+specifier|static
+name|int
+name|hookCallCount
+block|;
+name|tst_QDBusConnection
+argument_list|()
+block|;
+name|public
 name|slots
 operator|:
 name|void
@@ -212,6 +221,14 @@ argument_list|()
 block|; }
 name|void
 name|secondCallWithCallback
+argument_list|()
+block|;
+name|void
+name|init
+argument_list|()
+block|;
+name|void
+name|cleanup
 argument_list|()
 block|;
 name|private

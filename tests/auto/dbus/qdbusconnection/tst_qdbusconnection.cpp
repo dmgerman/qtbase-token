@@ -86,6 +86,94 @@ expr_stmt|;
 comment|//qDebug()<< msg;
 block|}
 end_function
+begin_decl_stmt
+DECL|member|hookCallCount
+name|int
+name|tst_QDBusConnection
+operator|::
+name|hookCallCount
+decl_stmt|;
+end_decl_stmt
+begin_constructor
+DECL|function|tst_QDBusConnection
+name|tst_QDBusConnection
+operator|::
+name|tst_QDBusConnection
+parameter_list|()
+block|{
+ifdef|#
+directive|ifdef
+name|HAS_HOOKSETUPFUNCTION
+DECL|macro|QCOMPARE_HOOKCOUNT
+define|#
+directive|define
+name|QCOMPARE_HOOKCOUNT
+parameter_list|(
+name|n
+parameter_list|)
+value|QCOMPARE(hookCallCount, n); hookCallCount = 0
+DECL|macro|QVERIFY_HOOKCALLED
+define|#
+directive|define
+name|QVERIFY_HOOKCALLED
+parameter_list|()
+value|QCOMPARE(hookCallCount, 1); hookCallCount = 0
+name|hookSetupFunction
+argument_list|()
+expr_stmt|;
+else|#
+directive|else
+define|#
+directive|define
+name|QCOMPARE_HOOKCOUNT
+parameter_list|(
+name|n
+parameter_list|)
+value|qt_noop()
+define|#
+directive|define
+name|QVERIFY_HOOKCALLED
+parameter_list|()
+value|qt_noop()
+endif|#
+directive|endif
+block|}
+end_constructor
+begin_comment
+comment|// called before each testcase
+end_comment
+begin_function
+DECL|function|init
+name|void
+name|tst_QDBusConnection
+operator|::
+name|init
+parameter_list|()
+block|{
+name|hookCallCount
+operator|=
+literal|0
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|cleanup
+name|void
+name|tst_QDBusConnection
+operator|::
+name|cleanup
+parameter_list|()
+block|{
+name|QVERIFY2
+argument_list|(
+operator|!
+name|hookCallCount
+argument_list|,
+literal|"Unchecked call"
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_function
 DECL|function|noConnection
 name|void
@@ -1744,6 +1832,9 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 comment|// make sure it's gone
 name|QVERIFY
@@ -1756,6 +1847,9 @@ argument_list|,
 name|path
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -1956,6 +2050,9 @@ argument_list|,
 name|interface
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 comment|// make sure it's gone
 name|QVERIFY
@@ -1970,6 +2067,9 @@ argument_list|,
 name|interface
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -2174,6 +2274,9 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 name|QDBusConnection
 operator|::
@@ -2222,6 +2325,9 @@ name|path
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 name|server
 operator|.
@@ -2254,6 +2360,9 @@ name|path
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 name|server
 operator|.
@@ -2284,6 +2393,9 @@ argument_list|,
 name|path
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 name|QDBusConnection
@@ -2373,6 +2485,9 @@ literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2383,6 +2498,9 @@ argument_list|,
 literal|"/p1"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -2395,6 +2513,9 @@ literal|"/p2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2406,6 +2527,9 @@ literal|"/p1/q"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2416,6 +2540,9 @@ argument_list|,
 literal|"/p1/q/r"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 comment|// register one object at root:
@@ -2461,6 +2588,9 @@ literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 comment|// make sure it's gone
 name|QVERIFY
@@ -2473,6 +2603,9 @@ argument_list|,
 literal|"/"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 comment|// register one at an element:
@@ -2507,6 +2640,9 @@ literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|callMethod
@@ -2528,6 +2664,9 @@ argument_list|(
 literal|"/p1"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 comment|// re-register it somewhere else
 name|QVERIFY
@@ -2569,6 +2708,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|callMethod
@@ -2591,6 +2733,9 @@ literal|"/p2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 comment|// make sure it's gone
 name|QVERIFY
@@ -2604,6 +2749,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2614,6 +2762,9 @@ argument_list|,
 literal|"/p2"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 comment|// register at a deep path
@@ -2648,6 +2799,9 @@ literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2659,6 +2813,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2669,6 +2826,9 @@ argument_list|,
 literal|"/p1/q"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -2692,6 +2852,9 @@ literal|"/p1/q/r"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 comment|// make sure it's gone
 name|QVERIFY
@@ -2704,6 +2867,9 @@ argument_list|,
 literal|"/p1/q/r"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 name|MyObject
@@ -2748,6 +2914,9 @@ literal|"/p1/q2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 comment|// try unregistering
 name|con
 operator|.
@@ -2766,6 +2935,9 @@ argument_list|,
 literal|"/p1/q2"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 comment|// register it again
 name|QVERIFY
@@ -2807,6 +2979,9 @@ literal|"/p1/q2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 comment|// now try removing things around it:
 name|con
 operator|.
@@ -2826,6 +3001,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unrelated object shouldn't affect
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|con
 operator|.
 name|unregisterObject
@@ -2844,6 +3022,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unregistering just the parent shouldn't affect it
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|con
 operator|.
 name|unregisterObject
@@ -2862,6 +3043,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unregistering non-existing child shouldn't affect it either
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|con
 operator|.
 name|unregisterObject
@@ -2880,6 +3064,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unregistering sibling (before) shouldn't affect
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|con
 operator|.
 name|unregisterObject
@@ -2898,6 +3085,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unregistering sibling (after) shouldn't affect
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 comment|// now remove it:
 name|con
 operator|.
@@ -2922,6 +3112,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// we removed the full tree
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -3014,6 +3207,9 @@ literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3024,6 +3220,9 @@ argument_list|,
 literal|"/p1"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -3036,6 +3235,9 @@ literal|"/p2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3047,6 +3249,9 @@ literal|"/p1/q"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3057,6 +3262,9 @@ argument_list|,
 literal|"/p1/q/r"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 comment|// register one object at root:
@@ -3102,6 +3310,9 @@ literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 comment|// make sure it's gone
 name|QVERIFY
@@ -3114,6 +3325,9 @@ argument_list|,
 literal|"/"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 comment|// register one at an element:
@@ -3148,6 +3362,9 @@ literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|callMethodPeer
@@ -3169,6 +3386,9 @@ argument_list|(
 literal|"/p1"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 comment|// re-register it somewhere else
 name|QVERIFY
@@ -3210,6 +3430,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|callMethodPeer
@@ -3232,6 +3455,9 @@ literal|"/p2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 comment|// make sure it's gone
 name|QVERIFY
@@ -3245,6 +3471,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3255,6 +3484,9 @@ argument_list|,
 literal|"/p2"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 comment|// register at a deep path
@@ -3289,6 +3521,9 @@ literal|"/"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3300,6 +3535,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3310,6 +3548,9 @@ argument_list|,
 literal|"/p1/q"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -3333,6 +3574,9 @@ literal|"/p1/q/r"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 comment|// make sure it's gone
 name|QVERIFY
@@ -3345,6 +3589,9 @@ argument_list|,
 literal|"/p1/q/r"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 name|MyObject
@@ -3389,6 +3636,9 @@ literal|"/p1/q2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 comment|// try unregistering
 name|con
 operator|.
@@ -3407,6 +3657,9 @@ argument_list|,
 literal|"/p1/q2"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 comment|// register it again
 name|QVERIFY
@@ -3448,6 +3701,9 @@ literal|"/p1/q2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 comment|// now try removing things around it:
 name|con
 operator|.
@@ -3467,6 +3723,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unrelated object shouldn't affect
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|con
 operator|.
 name|unregisterObject
@@ -3485,6 +3744,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unregistering just the parent shouldn't affect it
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|con
 operator|.
 name|unregisterObject
@@ -3503,6 +3765,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unregistering non-existing child shouldn't affect it either
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|con
 operator|.
 name|unregisterObject
@@ -3521,6 +3786,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unregistering sibling (before) shouldn't affect
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|con
 operator|.
 name|unregisterObject
@@ -3539,6 +3807,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// unregistering sibling (after) shouldn't affect
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 comment|// now remove it:
 name|con
 operator|.
@@ -3563,6 +3834,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// we removed the full tree
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 name|QDBusConnection
 operator|::
@@ -3600,6 +3874,9 @@ argument_list|,
 literal|"/p1"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|{
 name|MyObject
@@ -3718,6 +3995,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|callMethod
@@ -3736,6 +4016,9 @@ name|callCount
 argument_list|,
 literal|1
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -3756,6 +4039,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|callMethod
@@ -3774,6 +4060,9 @@ name|callCount
 argument_list|,
 literal|1
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -3794,6 +4083,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3805,6 +4097,9 @@ literal|"/p1/d"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3815,6 +4110,9 @@ argument_list|,
 literal|"/p1/c/abc"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 comment|// pull an object, see if it goes away:
 operator|delete
@@ -3831,6 +4129,9 @@ literal|"/p1/b"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 operator|delete
 name|c
 expr_stmt|;
@@ -3845,6 +4146,9 @@ literal|"/p1/c"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3855,6 +4159,9 @@ argument_list|,
 literal|"/p1/c/cc"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 name|QVERIFY
@@ -3868,6 +4175,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3878,6 +4188,9 @@ argument_list|,
 literal|"/p1/a"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -3890,6 +4203,9 @@ literal|"/p1/b"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3901,6 +4217,9 @@ literal|"/p1/c"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -3911,6 +4230,9 @@ argument_list|,
 literal|"/p1/c/cc"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -4007,6 +4329,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|{
 name|MyObject
 name|obj
@@ -4124,6 +4449,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|callMethodPeer
@@ -4142,6 +4470,9 @@ name|callCount
 argument_list|,
 literal|1
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -4162,6 +4493,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|callMethodPeer
@@ -4180,6 +4514,9 @@ name|callCount
 argument_list|,
 literal|1
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -4200,6 +4537,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -4211,6 +4551,9 @@ literal|"/p1/d"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -4221,6 +4564,9 @@ argument_list|,
 literal|"/p1/c/abc"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 comment|// pull an object, see if it goes away:
 operator|delete
@@ -4237,6 +4583,9 @@ literal|"/p1/b"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 operator|delete
 name|c
 expr_stmt|;
@@ -4251,6 +4600,9 @@ literal|"/p1/c"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -4261,6 +4613,9 @@ argument_list|,
 literal|"/p1/c/cc"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 name|QVERIFY
@@ -4274,6 +4629,9 @@ literal|"/p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -4284,6 +4642,9 @@ argument_list|,
 literal|"/p1/a"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
@@ -4296,6 +4657,9 @@ literal|"/p1/b"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -4307,6 +4671,9 @@ literal|"/p1/c"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
@@ -4317,6 +4684,9 @@ argument_list|,
 literal|"/p1/c/cc"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QDBusConnection
 operator|::
@@ -4706,6 +5076,9 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|interface
 operator|.
 name|call
@@ -4728,6 +5101,9 @@ argument_list|(
 literal|"test0"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|interface
 operator|.
@@ -4753,6 +5129,9 @@ argument_list|(
 literal|"test1 42"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QDBusMessage
 name|reply
@@ -4797,6 +5176,9 @@ argument_list|()
 argument_list|,
 literal|43
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QDBusMessage
 name|msg
@@ -4846,6 +5228,9 @@ argument_list|()
 argument_list|,
 literal|45
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -5259,6 +5644,9 @@ operator|::
 name|ReplyMessage
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -5287,6 +5675,9 @@ argument_list|,
 literal|"/p1"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|MyObject
 name|obj
@@ -5363,6 +5754,9 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -5764,6 +6158,11 @@ argument_list|(
 name|signalsReceived
 argument_list|,
 literal|1
+argument_list|)
+expr_stmt|;
+name|QCOMPARE_HOOKCOUNT
+argument_list|(
+literal|2
 argument_list|)
 expr_stmt|;
 block|}
@@ -6851,6 +7250,9 @@ name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|obj
@@ -6994,6 +7396,9 @@ name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|obj
@@ -7129,6 +7534,9 @@ operator|.
 name|timeout
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 name|QTest
 operator|::
@@ -7336,6 +7744,9 @@ name|arguments
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
+expr_stmt|;
 name|obj
 operator|.
 name|replyArguments
@@ -7441,6 +7852,9 @@ operator|.
 name|arguments
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|QVERIFY_HOOKCALLED
+argument_list|()
 expr_stmt|;
 block|}
 end_function

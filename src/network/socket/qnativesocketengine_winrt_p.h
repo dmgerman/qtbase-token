@@ -465,7 +465,7 @@ name|notifyOnWrite
 block|,
 name|notifyOnException
 block|;
-name|bool
+name|QAtomicInt
 name|closingDown
 block|;      enum
 name|ErrorString

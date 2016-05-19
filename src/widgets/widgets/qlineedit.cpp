@@ -8046,13 +8046,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|d
-operator|->
-name|m_iconSize
-operator|=
-name|QSize
-argument_list|()
-expr_stmt|;
 name|update
 argument_list|()
 expr_stmt|;

@@ -22988,7 +22988,10 @@ argument_list|)
 argument_list|,
 name|maxHeight
 operator|/
+name|qreal
+argument_list|(
 literal|2.
+argument_list|)
 argument_list|)
 argument_list|,
 name|pen
@@ -23103,7 +23106,10 @@ operator|.
 name|toReal
 argument_list|()
 operator|-
+name|qreal
+argument_list|(
 literal|0.5
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|const

@@ -57,7 +57,7 @@ DECL|member|bHeight
 name|quint8
 name|bHeight
 decl_stmt|;
-comment|// Height of the image (times 2)
+comment|// Height of the image (actual height, not times 2)
 DECL|member|bColorCount
 name|quint8
 name|bColorCount
@@ -3910,7 +3910,17 @@ name|image
 operator|.
 name|height
 argument_list|()
+operator|<
+literal|256
+condition|?
+name|image
+operator|.
+name|height
+argument_list|()
+else|:
+literal|0
 expr_stmt|;
+comment|// 0 means 256
 name|entries
 index|[
 name|i
@@ -3922,7 +3932,17 @@ name|image
 operator|.
 name|width
 argument_list|()
+operator|<
+literal|256
+condition|?
+name|image
+operator|.
+name|width
+argument_list|()
+else|:
+literal|0
 expr_stmt|;
+comment|// 0 means 256
 name|entries
 index|[
 name|i
@@ -4072,6 +4092,17 @@ name|i
 index|]
 operator|.
 name|bHeight
+condition|?
+name|entries
+index|[
+name|i
+index|]
+operator|.
+name|bHeight
+operator|*
+literal|2
+else|:
+literal|256
 operator|*
 literal|2
 expr_stmt|;
@@ -4128,6 +4159,15 @@ name|i
 index|]
 operator|.
 name|bWidth
+condition|?
+name|entries
+index|[
+name|i
+index|]
+operator|.
+name|bWidth
+else|:
+literal|256
 expr_stmt|;
 name|bmpHeaders
 index|[
