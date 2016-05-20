@@ -1300,7 +1300,7 @@ argument_list|()
 operator|->
 name|hostName
 decl_stmt|;
-name|qint16
+name|quint16
 name|connectPort
 init|=
 name|connection
