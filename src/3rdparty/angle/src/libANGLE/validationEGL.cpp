@@ -2332,6 +2332,14 @@ name|EGL_BAD_ATTRIBUTE
 argument_list|)
 return|;
 block|}
+comment|// On Windows Store, we know the originating texture came from D3D11, so bypass this check
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ANGLE_ENABLE_WINDOWS_STORE
+argument_list|)
 specifier|const
 name|Caps
 modifier|&
@@ -2379,6 +2387,8 @@ name|EGL_BAD_MATCH
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 block|}
 return|return
 name|Error

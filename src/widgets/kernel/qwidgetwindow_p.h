@@ -340,8 +340,10 @@ argument_list|(
 argument|FocusWidgets fw
 argument_list|)
 block|;
+name|QPointer
+operator|<
 name|QWidget
-operator|*
+operator|>
 name|m_widget
 block|;
 name|QPointer

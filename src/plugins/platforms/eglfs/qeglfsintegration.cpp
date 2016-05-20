@@ -214,11 +214,6 @@ include|#
 directive|include
 file|<QtPlatformHeaders/qeglfsfunctions.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<EGL/egl.h>
-end_include
 begin_function
 DECL|function|initResources
 specifier|static

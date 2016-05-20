@@ -5352,6 +5352,18 @@ argument_list|()
 condition|)
 block|{
 comment|// a valid drive ??
+specifier|const
+name|UINT
+name|oldErrorMode
+init|=
+operator|::
+name|SetErrorMode
+argument_list|(
+name|SEM_FAILCRITICALERRORS
+operator||
+name|SEM_NOOPENFILEERRORBOX
+argument_list|)
+decl_stmt|;
 name|DWORD
 name|drivesBitmask
 init|=
@@ -5359,6 +5371,12 @@ operator|::
 name|GetLogicalDrives
 argument_list|()
 decl_stmt|;
+operator|::
+name|SetErrorMode
+argument_list|(
+name|oldErrorMode
+argument_list|)
+expr_stmt|;
 name|int
 name|drivebit
 init|=

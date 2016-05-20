@@ -3139,6 +3139,11 @@ decl_stmt|;
 if|if
 condition|(
 name|widgetWindow
+operator|&&
+name|widgetWindow
+operator|->
+name|widget
+argument_list|()
 condition|)
 return|return
 name|filterEvent

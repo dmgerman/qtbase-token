@@ -1510,6 +1510,34 @@ literal|0
 return|;
 block|}
 name|int
+name|toLongLong
+argument_list|(
+name|bool
+operator|*
+name|ok
+operator|=
+literal|0
+argument_list|,
+name|int
+name|base
+operator|=
+literal|10
+argument_list|)
+decl|const
+block|{
+return|return
+name|toQStringRef
+argument_list|()
+operator|.
+name|toLongLong
+argument_list|(
+name|ok
+argument_list|,
+name|base
+argument_list|)
+return|;
+block|}
+name|int
 name|toInt
 argument_list|(
 name|bool
@@ -1526,7 +1554,7 @@ argument_list|)
 decl|const
 block|{
 return|return
-name|toQString
+name|toQStringRef
 argument_list|()
 operator|.
 name|toInt
@@ -1537,7 +1565,6 @@ name|base
 argument_list|)
 return|;
 block|}
-comment|// XXX optimize
 name|short
 name|toShort
 argument_list|(
@@ -1555,7 +1582,7 @@ argument_list|)
 decl|const
 block|{
 return|return
-name|toQString
+name|toQStringRef
 argument_list|()
 operator|.
 name|toShort
@@ -1566,7 +1593,6 @@ name|base
 argument_list|)
 return|;
 block|}
-comment|// XXX optimize
 name|uint
 name|hash
 argument_list|()

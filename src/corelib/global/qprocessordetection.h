@@ -230,6 +230,11 @@ name|defined
 argument_list|(
 name|__ARM64_ARCH_8__
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__aarch64__
+argument_list|)
 end_elif
 begin_define
 DECL|macro|Q_PROCESSOR_ARM

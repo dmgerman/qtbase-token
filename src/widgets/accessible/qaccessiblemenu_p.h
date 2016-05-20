@@ -324,6 +324,13 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+name|QWindow
+operator|*
+name|window
+argument_list|()
+specifier|const
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|QRect
 name|rect
 argument_list|()

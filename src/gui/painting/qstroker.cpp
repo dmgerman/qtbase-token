@@ -2249,6 +2249,12 @@ if|if
 condition|(
 operator|!
 name|bwclosed
+operator|&&
+operator|!
+name|fwStartTangent
+operator|.
+name|isNull
+argument_list|()
 condition|)
 name|joinPoints
 argument_list|(
