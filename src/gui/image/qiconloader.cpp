@@ -1834,9 +1834,7 @@ name|Scalable
 condition|)
 block|{
 return|return
-name|dir
-operator|.
-name|size
+name|iconsize
 operator|<=
 name|dir
 operator|.
