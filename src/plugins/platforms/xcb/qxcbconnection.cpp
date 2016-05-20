@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/private/qhighdpiscaling_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QDebug>
 end_include
 begin_include
@@ -1150,6 +1155,11 @@ name|name
 argument_list|()
 operator|<<
 literal|"is connected and enabled"
+expr_stmt|;
+name|QHighDpiScaling
+operator|::
+name|updateHighDpiScaling
+argument_list|()
 expr_stmt|;
 block|}
 block|}
