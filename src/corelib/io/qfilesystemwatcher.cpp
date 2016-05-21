@@ -124,6 +124,11 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
+name|Q_OS_OPENBSD
+argument_list|)
+operator|||
+name|defined
+argument_list|(
 name|Q_OS_IOS
 argument_list|)
 end_elif
@@ -202,6 +207,11 @@ operator|||
 name|defined
 argument_list|(
 name|Q_OS_NETBSD
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_OPENBSD
 argument_list|)
 operator|||
 name|defined
