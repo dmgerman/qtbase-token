@@ -5825,6 +5825,9 @@ name|t
 operator|.
 name|tm_isdst
 condition|?
+operator|(
+name|long
+operator|)
 name|SECS_PER_HOUR
 else|:
 literal|0L
