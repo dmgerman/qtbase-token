@@ -2615,6 +2615,11 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
+name|Q_OS_NETBSD
+argument_list|)
+operator|||
+name|defined
+argument_list|(
 name|Q_OS_ANDROID
 argument_list|)
 operator|||
