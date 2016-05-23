@@ -1406,10 +1406,15 @@ name|window
 argument_list|,
 name|requested
 argument_list|,
+name|QWindowsWindow
+operator|::
+name|formatWindowTitle
+argument_list|(
 name|window
 operator|->
 name|title
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|qCDebug

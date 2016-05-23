@@ -1524,6 +1524,16 @@ argument_list|(
 argument|bool border
 argument_list|)
 block|;
+specifier|static
+name|QString
+name|formatWindowTitle
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|title
+argument_list|)
+block|;
 name|private
 operator|:
 specifier|inline

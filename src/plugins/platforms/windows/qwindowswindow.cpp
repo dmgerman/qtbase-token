@@ -9109,11 +9109,6 @@ operator|::
 name|formatWindowTitle
 argument_list|(
 name|title
-argument_list|,
-name|QStringLiteral
-argument_list|(
-literal|" - "
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13760,6 +13755,34 @@ argument_list|(
 name|HasBorderInFullScreen
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|formatWindowTitle
+name|QString
+name|QWindowsWindow
+operator|::
+name|formatWindowTitle
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|title
+parameter_list|)
+block|{
+return|return
+name|QPlatformWindow
+operator|::
+name|formatWindowTitle
+argument_list|(
+name|title
+argument_list|,
+name|QStringLiteral
+argument_list|(
+literal|" - "
+argument_list|)
+argument_list|)
+return|;
 block|}
 end_function
 begin_macro
