@@ -1836,9 +1836,16 @@ operator|->
 name|size
 argument_list|()
 condition|)
+block|{
 name|recreateFbo
 argument_list|()
 expr_stmt|;
+name|q
+operator|->
+name|update
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
