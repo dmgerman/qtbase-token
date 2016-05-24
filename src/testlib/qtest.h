@@ -843,13 +843,10 @@ name|vstring
 operator|.
 name|append
 argument_list|(
-name|qvariant_cast
-operator|<
-name|QString
-operator|>
-operator|(
 name|v
-operator|)
+operator|.
+name|toString
+argument_list|()
 operator|.
 name|toLocal8Bit
 argument_list|()
