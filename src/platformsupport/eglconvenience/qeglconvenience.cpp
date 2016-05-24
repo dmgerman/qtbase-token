@@ -2733,6 +2733,15 @@ name|int
 name|framebufferDevice
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_LINUX
+name|Q_UNUSED
+argument_list|(
+argument|framebufferDevice
+argument_list|)
+endif|#
+directive|endif
 specifier|static
 name|qreal
 name|rate
