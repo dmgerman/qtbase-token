@@ -1024,6 +1024,11 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_ARM_V8
 argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|__ARM_FEATURE_CRC32
+argument_list|)
 end_if
 begin_define
 DECL|macro|QT_FUNCTION_TARGET_STRING_CRC32
