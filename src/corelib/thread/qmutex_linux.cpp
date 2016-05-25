@@ -81,7 +81,7 @@ DECL|macro|FUTEX_PRIVATE_FLAG
 define|#
 directive|define
 name|FUTEX_PRIVATE_FLAG
-value|128
+value|0
 end_define
 begin_endif
 endif|#
