@@ -482,7 +482,7 @@ directive|ifndef
 name|QT_NO_CURSOR
 name|changeCursor
 argument_list|(
-literal|nullptr
+name|Q_NULLPTR
 argument_list|,
 name|m_screen
 operator|->
