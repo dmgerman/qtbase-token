@@ -740,14 +740,7 @@ argument_list|)
 operator|,
 name|state
 argument_list|(
-name|Qt
-operator|::
-name|TouchPointStationary
-argument_list|)
-operator|,
-name|flags
-argument_list|(
-literal|0
+argument|Qt::TouchPointStationary
 argument_list|)
 block|{ }
 name|int
@@ -959,7 +952,7 @@ name|bool
 modifier|*
 name|accepted
 init|=
-literal|0
+name|Q_NULLPTR
 parameter_list|)
 function_decl|;
 specifier|static
