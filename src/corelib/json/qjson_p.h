@@ -1990,16 +1990,16 @@ name|chunk
 argument_list|)
 expr_stmt|;
 comment|// unaligned 64-bit store
-name|qUnalignedStore
+name|qToUnaligned
 argument_list|(
-name|l
-operator|+
-name|i
-argument_list|,
 name|_mm_cvtsi128_si64
 argument_list|(
 name|chunk
 argument_list|)
+argument_list|,
+name|l
+operator|+
+name|i
 argument_list|)
 expr_stmt|;
 name|i

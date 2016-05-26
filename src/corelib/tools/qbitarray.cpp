@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qendian.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<string.h>
 end_include
 begin_macro
@@ -188,44 +193,6 @@ end_comment
 begin_comment
 comment|/*! \fn int QBitArray::count() const      Same as size(). */
 end_comment
-begin_function
-DECL|function|qUnalignedLoad
-template|template
-parameter_list|<
-name|typename
-name|T
-parameter_list|>
-name|T
-name|qUnalignedLoad
-parameter_list|(
-specifier|const
-name|uchar
-modifier|*
-name|ptr
-parameter_list|)
-block|{
-comment|/*      * Testing with different compilers shows that they all optimize the memcpy      * call away and replace with direct loads whenever possible. On x86 and PPC,      * GCC does direct unaligned loads; on MIPS, it generates a pair of load-left      * and load-right instructions. ICC and Clang do the same on x86. This is both      * 32- and 64-bit.      *      * On ARM cores without unaligned loads, the compiler leaves a call to      * memcpy.      */
-name|T
-name|u
-decl_stmt|;
-name|memcpy
-argument_list|(
-operator|&
-name|u
-argument_list|,
-name|ptr
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|u
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|u
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     If \a on is true, this function returns the number of     1-bits stored in the bit array; otherwise the number     of 0-bits is returned. */
 end_comment
@@ -299,7 +266,7 @@ block|{
 name|quint64
 name|v
 init|=
-name|qUnalignedLoad
+name|qFromUnaligned
 argument_list|<
 name|quint64
 argument_list|>
@@ -334,7 +301,7 @@ block|{
 name|quint32
 name|v
 init|=
-name|qUnalignedLoad
+name|qFromUnaligned
 argument_list|<
 name|quint32
 argument_list|>
@@ -369,7 +336,7 @@ block|{
 name|quint16
 name|v
 init|=
-name|qUnalignedLoad
+name|qFromUnaligned
 argument_list|<
 name|quint16
 argument_list|>
