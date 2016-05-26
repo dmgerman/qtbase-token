@@ -5414,6 +5414,18 @@ name|S_OK
 return|;
 block|}
 end_function
+begin_comment
+comment|// Required for qwinrtdrag.cpp
+end_comment
+begin_decl_stmt
+DECL|variable|qt_winrt_lastPointerPoint
+name|ComPtr
+argument_list|<
+name|IPointerPoint
+argument_list|>
+name|qt_winrt_lastPointerPoint
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|onPointerUpdated
 name|HRESULT
@@ -5456,6 +5468,10 @@ condition|)
 return|return
 name|E_INVALIDARG
 return|;
+name|qt_winrt_lastPointerPoint
+operator|=
+name|pointerPoint
+expr_stmt|;
 comment|// Common traits - point, modifiers, properties
 name|Point
 name|point
