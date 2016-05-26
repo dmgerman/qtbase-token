@@ -788,11 +788,6 @@ name|void
 name|verifyClientCertificate
 parameter_list|()
 function_decl|;
-name|void
-name|setEmptyDefaultConfiguration
-parameter_list|()
-function_decl|;
-comment|// this test should be last
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENSSL
@@ -814,6 +809,14 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
+name|void
+name|setEmptyDefaultConfiguration
+parameter_list|()
+function_decl|;
+comment|// this test should be last
+protected|protected
+name|slots
+protected|:
 DECL|function|exitLoop
 specifier|static
 name|void
@@ -842,9 +845,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-protected|protected
-name|slots
-protected|:
 DECL|function|ignoreErrorSlot
 name|void
 name|ignoreErrorSlot
