@@ -5703,7 +5703,7 @@ begin_comment
 comment|// FIXME we could do a proper realloc, which copy constructs only needed data.
 end_comment
 begin_comment
-comment|// FIXME we ara about to delete data maybe it is good time to shrink?
+comment|// FIXME we are about to delete data - maybe it is good time to shrink?
 end_comment
 begin_comment
 comment|// FIXME the shrink is also an issue in removeLast, that is just a copy + reduce of this.
@@ -5832,11 +5832,28 @@ argument_list|,
 name|aend
 argument_list|)
 expr_stmt|;
+comment|// QTBUG-53605: static_cast<void *> masks clang errors of the form
+comment|// error: destination for this 'memmove' call is a pointer to class containing a dynamic class
+comment|// FIXME maybe use std::is_polymorphic (as soon as allowed) to avoid the memmove
 name|memmove
 argument_list|(
+name|static_cast
+operator|<
+name|void
+operator|*
+operator|>
+operator|(
 name|abegin
+operator|)
 argument_list|,
+name|static_cast
+operator|<
+name|void
+operator|*
+operator|>
+operator|(
 name|aend
+operator|)
 argument_list|,
 operator|(
 name|d
