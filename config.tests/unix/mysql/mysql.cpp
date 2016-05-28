@@ -19,6 +19,9 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
+name|mysql_get_client_version
+argument_list|()
+expr_stmt|;
 return|return
 literal|0
 return|;
