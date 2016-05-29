@@ -15428,6 +15428,8 @@ operator|&
 name|Qt
 operator|::
 name|UniqueConnection
+operator|&&
+name|slot
 condition|)
 block|{
 name|QObjectConnectionListVector
