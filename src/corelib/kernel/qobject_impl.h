@@ -1094,6 +1094,8 @@ argument_list|)
 block|{
 name|bool
 name|ret
+operator|=
+name|false
 block|;
 name|m_impl
 argument_list|(
@@ -1407,17 +1409,15 @@ break|break;
 case|case
 name|Compare
 case|:
-operator|*
-name|ret
-operator|=
-name|false
-expr_stmt|;
 comment|// not implemented
-break|break;
 case|case
 name|NumOperations
 case|:
-empty_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|ret
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|public
@@ -1545,17 +1545,15 @@ break|break;
 case|case
 name|Compare
 case|:
-operator|*
-name|ret
-operator|=
-name|false
-expr_stmt|;
 comment|// not implemented
-break|break;
 case|case
 name|NumOperations
 case|:
-empty_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|ret
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|public
