@@ -210,6 +210,10 @@ operator|=
 literal|1
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|NetworkAccessibility
+argument_list|)
 endif|#
 directive|endif
 name|explicit
