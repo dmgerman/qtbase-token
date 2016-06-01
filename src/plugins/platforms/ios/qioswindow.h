@@ -224,6 +224,11 @@ argument_list|()
 specifier|const
 name|Q_DECL_OVERRIDE
 expr_stmt|;
+name|void
+name|requestUpdate
+argument_list|()
+name|Q_DECL_OVERRIDE
+expr_stmt|;
 name|private
 label|:
 name|void
