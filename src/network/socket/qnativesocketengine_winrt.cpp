@@ -6573,7 +6573,7 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 expr_stmt|;
-break|break;
+return|return;
 case|case
 literal|0x80072751
 case|:
@@ -6593,7 +6593,7 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 expr_stmt|;
-break|break;
+return|return;
 case|case
 literal|0x8007274d
 case|:
@@ -6613,7 +6613,7 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 expr_stmt|;
-break|break;
+return|return;
 default|default:
 if|if
 condition|(
@@ -6638,8 +6638,8 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 expr_stmt|;
+return|return;
 block|}
-break|break;
 block|}
 comment|// The callback might be triggered several times if we do not cancel/reset it here
 if|if
