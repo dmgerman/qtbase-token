@@ -3088,6 +3088,9 @@ argument_list|(
 name|hr
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_WINRT_LIMITED_DRAGANDDROP
 name|ComPtr
 argument_list|<
 name|IDragStartingEventArgs2
@@ -3177,6 +3180,9 @@ argument_list|(
 name|hr
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_WINRT_LIMITED_DRAGANDDROP
 name|QMimeData
 modifier|*
 name|mimeData
@@ -4188,6 +4194,9 @@ operator|&
 name|modifiers
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_WINRT_LIMITED_DRAGANDDROP
 name|ComPtr
 argument_list|<
 name|IDragEventArgs3
@@ -4252,6 +4261,31 @@ argument_list|(
 name|dataOp
 argument_list|)
 decl_stmt|;
+else|#
+directive|else
+comment|// !QT_WINRT_LIMITED_DRAGANDDROP
+specifier|const
+name|Qt
+operator|::
+name|DropActions
+name|actions
+init|=
+name|Qt
+operator|::
+name|LinkAction
+operator||
+name|Qt
+operator|::
+name|CopyAction
+operator||
+name|Qt
+operator|::
+name|MoveAction
+decl_stmt|;
+empty_stmt|;
+endif|#
+directive|endif
+comment|// !QT_WINRT_LIMITED_DRAGANDDROP
 name|ComPtr
 argument_list|<
 name|IDataPackageView
