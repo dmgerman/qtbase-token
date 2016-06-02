@@ -60,6 +60,12 @@ file|<QDataStream>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QSocketNotifier
+name|class
+name|QSocketNotifier
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|namespace
 name|QEvdevKeyboardMap
 block|{
@@ -655,6 +661,12 @@ end_decl_stmt
 begin_decl_stmt
 name|int
 name|m_fd
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|QSocketNotifier
+modifier|*
+name|m_notify
 decl_stmt|;
 end_decl_stmt
 begin_comment
