@@ -2587,6 +2587,14 @@ argument_list|(
 name|action
 argument_list|)
 expr_stmt|;
+comment|// If there is no pending IO (no read established before) the function will fail with
+comment|// "function was called at an unexpected time" which is fine.
+if|if
+condition|(
+name|hr
+operator|!=
+name|E_ILLEGAL_METHOD_CALL
+condition|)
 name|Q_ASSERT_SUCCEEDED
 argument_list|(
 name|hr
