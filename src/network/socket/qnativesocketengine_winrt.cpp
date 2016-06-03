@@ -1142,14 +1142,15 @@ block|{
 name|HRESULT
 name|hr
 decl_stmt|;
-name|hr
-operator|=
 name|QEventDispatcherWinRT
 operator|::
 name|runOnXamlThread
 argument_list|(
 capture|[
 name|d
+capture|,
+modifier|&
+name|hr
 capture|,
 name|socket
 capture|,
@@ -1177,7 +1178,7 @@ decl_stmt|,
 modifier|&
 name|buffer
 decl_stmt|);
-name|RETURN_HR_IF_FAILED
+name|RETURN_OK_IF_FAILED
 argument_list|(
 literal|"initialize(): Could not create buffer"
 argument_list|)
@@ -1198,7 +1199,7 @@ operator|&
 name|stream
 argument_list|)
 expr_stmt|;
-name|RETURN_HR_IF_FAILED
+name|RETURN_OK_IF_FAILED
 argument_list|(
 literal|"initialize(): Could not obtain input stream"
 argument_list|)
@@ -1226,18 +1227,8 @@ name|GetAddressOf
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|FAILED
+name|RETURN_OK_IF_FAILED_WITH_ARGS
 argument_list|(
-name|hr
-argument_list|)
-condition|)
-block|{
-name|qErrnoWarning
-argument_list|(
-name|hr
-argument_list|,
 literal|"initialize(): Failed to read from the socket buffer (%s)."
 argument_list|,
 name|socketDescription
@@ -1249,10 +1240,6 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-name|E_FAIL
-return|;
-block|}
 name|hr
 operator|=
 name|d
@@ -1278,18 +1265,8 @@ name|Get
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|FAILED
+name|RETURN_OK_IF_FAILED_WITH_ARGS
 argument_list|(
-name|hr
-argument_list|)
-condition|)
-block|{
-name|qErrnoWarning
-argument_list|(
-name|hr
-argument_list|,
 literal|"initialize(): Failed to set socket read callback (%s)."
 argument_list|,
 name|socketDescription
@@ -1302,10 +1279,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|E_FAIL
-return|;
-block|}
-return|return
 name|S_OK
 return|;
 block|}
@@ -1313,18 +1286,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|FAILED
+argument_list|(
 name|hr
-operator|==
-name|E_FAIL
+argument_list|)
 condition|)
 return|return
 literal|false
 return|;
-name|Q_ASSERT_SUCCEEDED
-argument_list|(
-name|hr
-argument_list|)
-expr_stmt|;
 block|}
 name|d
 operator|->
