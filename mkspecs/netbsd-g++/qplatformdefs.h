@@ -144,15 +144,6 @@ directive|define
 name|QT_OPEN_LARGEFILE
 value|0
 end_define
-begin_comment
-comment|// QT_SOCKLEN_T
-end_comment
-begin_comment
-comment|// NetBSD 1.0 - 1.3.3           int
-end_comment
-begin_comment
-comment|// NetBSD 1.4 - 1.5             socklen_t
-end_comment
 begin_define
 DECL|macro|QT_SNPRINTF
 define|#
@@ -167,24 +158,6 @@ directive|define
 name|QT_VSNPRINTF
 value|::vsnprintf
 end_define
-begin_comment
-comment|// Older NetBSD versions may still use the a.out format instead of ELF.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|__ELF__
-end_ifndef
-begin_define
-DECL|macro|QT_AOUT_UNDERSCORE
-define|#
-directive|define
-name|QT_AOUT_UNDERSCORE
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
