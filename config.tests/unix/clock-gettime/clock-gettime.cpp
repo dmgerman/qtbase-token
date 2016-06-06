@@ -26,6 +26,7 @@ parameter_list|)
 block|{
 if|#
 directive|if
+operator|(
 name|defined
 argument_list|(
 name|_POSIX_TIMERS
@@ -36,6 +37,12 @@ name|_POSIX_TIMERS
 operator|>
 literal|0
 operator|)
+operator|)
+operator|||
+name|defined
+argument_list|(
+name|__OpenBSD__
+argument_list|)
 name|timespec
 name|ts
 decl_stmt|;
