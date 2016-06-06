@@ -40,7 +40,7 @@ name|char
 name|defaultUrl
 index|[]
 init|=
-literal|"https://qt-project.org/"
+literal|"https://www.qt.io/"
 decl_stmt|;
 end_decl_stmt
 begin_else
@@ -55,7 +55,7 @@ name|char
 name|defaultUrl
 index|[]
 init|=
-literal|"http://qt-project.org/"
+literal|"http://www.qt.io/"
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -374,7 +374,7 @@ name|writableLocation
 argument_list|(
 name|QStandardPaths
 operator|::
-name|DownloadLocation
+name|TempLocation
 argument_list|)
 decl_stmt|;
 if|if

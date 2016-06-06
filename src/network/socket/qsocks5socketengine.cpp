@@ -5655,6 +5655,15 @@ operator|==
 name|QSocks5SocketEnginePrivate
 operator|::
 name|Uninitialized
+comment|// We may have new auth credentials since an earlier failure:
+operator|||
+name|d
+operator|->
+name|socks5State
+operator|==
+name|QSocks5SocketEnginePrivate
+operator|::
+name|AuthenticatingError
 condition|)
 block|{
 name|setState

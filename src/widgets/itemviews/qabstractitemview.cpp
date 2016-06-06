@@ -15278,6 +15278,20 @@ operator|->
 name|clearOrRemove
 argument_list|()
 expr_stmt|;
+comment|// Reset the drop indicator
+name|d
+operator|->
+name|dropIndicatorRect
+operator|=
+name|QRect
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|dropIndicatorPosition
+operator|=
+name|OnItem
+expr_stmt|;
 block|}
 block|}
 end_function

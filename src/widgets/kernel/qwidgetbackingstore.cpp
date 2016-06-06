@@ -5578,11 +5578,49 @@ if|if
 condition|(
 operator|!
 name|switchableWidgetComposition
+comment|// The Windows compositor handles fullscreen OpenGL window specially. Besides
+comment|// having trouble with popups, it also has issues with flip-flopping between
+comment|// OpenGL-based and normal flushing. Therefore, stick with GL for fullscreen
+comment|// windows. (QTBUG-53515)
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINRT
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|||
+name|tlw
+operator|->
+name|windowState
+argument_list|()
+operator|.
+name|testFlag
+argument_list|(
+name|Qt
+operator|::
+name|WindowFullScreen
+argument_list|)
+endif|#
+directive|endif
 condition|)
+block|{
 return|return
 name|qt_dummy_platformTextureList
 argument_list|()
 return|;
+block|}
 block|}
 return|return
 literal|0
@@ -6614,6 +6652,18 @@ operator|&
 name|hasDirtySiblingsAbove
 argument_list|)
 expr_stmt|;
+comment|// Make a copy of the widget's dirty region, to restore it in case there is an opaque
+comment|// render-to-texture child that completely covers the widget, because otherwise the
+comment|// render-to-texture child won't be visible, due to its parent widget not being redrawn
+comment|// with a proper blending mask.
+specifier|const
+name|QRegion
+name|dirtyBeforeSubtractedOpaqueChildren
+init|=
+name|wd
+operator|->
+name|dirty
+decl_stmt|;
 comment|// Scrolled and moved widgets must draw all children.
 if|if
 condition|(
@@ -6640,6 +6690,25 @@ operator|->
 name|rect
 argument_list|()
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|wd
+operator|->
+name|dirty
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|wd
+operator|->
+name|textureChildSeen
+condition|)
+name|wd
+operator|->
+name|dirty
+operator|=
+name|dirtyBeforeSubtractedOpaqueChildren
 expr_stmt|;
 if|if
 condition|(

@@ -11,7 +11,7 @@ name|QClipboard
 modifier|*
 name|clipboard
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|clipboard
 argument_list|()

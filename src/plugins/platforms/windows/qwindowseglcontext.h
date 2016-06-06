@@ -616,6 +616,21 @@ argument_list|(
 argument|EGLDisplay display
 argument_list|)
 block|;
+specifier|static
+name|bool
+name|initializeAngle
+argument_list|(
+argument|QWindowsOpenGLTester::Renderers preferredType
+argument_list|,
+argument|HDC dc
+argument_list|,
+argument|EGLDisplay *display
+argument_list|,
+argument|EGLint *major
+argument_list|,
+argument|EGLint *minor
+argument_list|)
+block|;
 specifier|const
 name|EGLDisplay
 name|m_display

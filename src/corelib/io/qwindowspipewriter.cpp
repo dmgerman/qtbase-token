@@ -647,6 +647,14 @@ name|stopped
 operator|=
 literal|true
 expr_stmt|;
+name|bytesWrittenPending
+operator|=
+literal|false
+expr_stmt|;
+name|pendingBytesWrittenValue
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|writeSequenceStarted

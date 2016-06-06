@@ -7273,8 +7273,11 @@ literal|"/etc/openssl/certs/"
 comment|// BlackBerry
 operator|<<
 literal|"/opt/openssl/certs/"
-return|;
 comment|// HP-UX
+operator|<<
+literal|"/etc/ssl/"
+return|;
+comment|// OpenBSD
 block|}
 end_function
 begin_comment

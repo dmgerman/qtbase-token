@@ -425,11 +425,7 @@ name|getHardwareMaximum
 argument_list|()
 expr_stmt|;
 comment|// socket notifier for events on the mouse device
-name|QSocketNotifier
-operator|*
-name|notifier
-expr_stmt|;
-name|notifier
+name|m_notify
 operator|=
 operator|new
 name|QSocketNotifier
@@ -442,10 +438,10 @@ name|Read
 argument_list|,
 name|this
 argument_list|)
-argument_list|;
+expr_stmt|;
 name|connect
 argument_list|(
-name|notifier
+name|m_notify
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -966,6 +962,33 @@ argument_list|,
 literal|"evdevmouse: Could not read from input device"
 argument_list|)
 expr_stmt|;
+comment|// If the device got disconnected, stop reading, otherwise we get flooded
+comment|// by the above error over and over again.
+if|if
+condition|(
+name|errno
+operator|==
+name|ENODEV
+condition|)
+block|{
+operator|delete
+name|m_notify
+expr_stmt|;
+name|m_notify
+operator|=
+name|Q_NULLPTR
+expr_stmt|;
+name|qt_safe_close
+argument_list|(
+name|m_fd
+argument_list|)
+expr_stmt|;
+name|m_fd
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
 return|return;
 block|}
 block|}

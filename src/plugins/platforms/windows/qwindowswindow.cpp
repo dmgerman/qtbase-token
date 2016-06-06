@@ -9012,7 +9012,16 @@ return|;
 name|PAINTSTRUCT
 name|ps
 decl_stmt|;
+name|BeginPaint
+argument_list|(
+name|hwnd
+argument_list|,
+operator|&
+name|ps
+argument_list|)
+expr_stmt|;
 comment|// Observed painting problems with Aero style disabled (QTBUG-7865).
+comment|// 5.8: Consider making it dependent on !DwmIsCompositionEnabled().
 if|if
 condition|(
 name|testFlag
@@ -9025,21 +9034,13 @@ argument_list|(
 name|OpenGLDoubleBuffered
 argument_list|)
 condition|)
-name|InvalidateRect
+name|SelectClipRgn
 argument_list|(
-name|hwnd
-argument_list|,
-literal|0
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-name|BeginPaint
-argument_list|(
-name|hwnd
-argument_list|,
-operator|&
 name|ps
+operator|.
+name|hdc
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 comment|// If the a window is obscured by another window (such as a child window)

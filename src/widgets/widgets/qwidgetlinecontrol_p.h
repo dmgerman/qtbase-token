@@ -108,6 +108,11 @@ include|#
 directive|include
 file|"qplatformdefs.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<vector>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -2726,10 +2731,6 @@ name|Command
 block|{
 specifier|inline
 name|Command
-argument_list|()
-block|{}
-specifier|inline
-name|Command
 argument_list|(
 argument|CommandType t
 argument_list|,
@@ -2796,7 +2797,9 @@ name|m_undoState
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|QVector
+name|std
+operator|::
+name|vector
 operator|<
 name|Command
 operator|>

@@ -662,9 +662,6 @@ modifier|*
 name|directories
 parameter_list|)
 block|{
-name|bool
-name|isEmpty
-decl_stmt|;
 name|QStringList
 name|p
 init|=
@@ -777,13 +774,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-name|isEmpty
-operator|=
-name|pathToID
-operator|.
-name|isEmpty
-argument_list|()
-expr_stmt|;
 return|return
 name|p
 return|;

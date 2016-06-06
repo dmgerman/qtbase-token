@@ -13705,14 +13705,6 @@ name|d
 operator|->
 name|dpi
 expr_stmt|;
-if|if
-condition|(
-name|req
-operator|.
-name|weight
-operator|==
-literal|0
-condition|)
 name|req
 operator|.
 name|weight

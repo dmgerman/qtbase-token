@@ -10664,16 +10664,6 @@ name|m_script
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|request
-operator|.
-name|weight
-operator|>
-name|QFont
-operator|::
-name|Normal
-condition|)
 name|engine
 operator|->
 name|fontDef
