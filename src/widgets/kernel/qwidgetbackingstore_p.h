@@ -314,6 +314,11 @@ argument_list|()
 operator|&&
 operator|!
 name|fullUpdatePending
+operator|&&
+name|dirtyRenderToTextureWidgets
+operator|.
+name|isEmpty
+argument_list|()
 operator|)
 return|;
 block|}
