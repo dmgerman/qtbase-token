@@ -545,12 +545,36 @@ argument_list|(
 name|__mips_hard_float
 argument_list|)
 end_if
+begin_comment
+comment|// Use "-hardfloat" for platforms that usually have no FPUs
+end_comment
+begin_comment
+comment|// (and for the platforms which had "-hardfloat" before we established the rule)
+end_comment
 begin_define
 DECL|macro|ARCH_ABI2
 define|#
 directive|define
 name|ARCH_ABI2
 value|"-hardfloat"
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|_SOFT_FLOAT
+argument_list|)
+end_elif
+begin_comment
+comment|// Use "-softfloat" for architectures that usually have FPUs
+end_comment
+begin_define
+DECL|macro|ARCH_ABI2
+define|#
+directive|define
+name|ARCH_ABI2
+value|"-softfloat"
 end_define
 begin_else
 else|#
