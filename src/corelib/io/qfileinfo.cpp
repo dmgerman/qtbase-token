@@ -2047,7 +2047,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the complete suffix of the file.      The complete suffix consists of all characters in the file after     (but not including) the first '.'.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 7      \sa fileName(), suffix(), baseName(), completeBaseName() */
+comment|/*!     Returns the complete suffix (extension) of the file.      The complete suffix consists of all characters in the file after     (but not including) the first '.'.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 7      \sa fileName(), suffix(), baseName(), completeBaseName() */
 end_comment
 begin_function
 DECL|function|completeSuffix
@@ -2087,7 +2087,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the suffix of the file.      The suffix consists of all characters in the file after (but not     including) the last '.'.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 8      The suffix of a file is computed equally on all platforms, independent of     file naming conventions (e.g., ".bashrc" on Unix has an empty base name,     and the suffix is "bashrc").      \sa fileName(), completeSuffix(), baseName(), completeBaseName() */
+comment|/*!     Returns the suffix (extension) of the file.      The suffix consists of all characters in the file after (but not     including) the last '.'.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 8      The suffix of a file is computed equally on all platforms, independent of     file naming conventions (e.g., ".bashrc" on Unix has an empty base name,     and the suffix is "bashrc").      \sa fileName(), completeSuffix(), baseName(), completeBaseName() */
 end_comment
 begin_function
 DECL|function|suffix
