@@ -569,8 +569,7 @@ block|{
 comment|// In order to support more number types, we have to do something stupid because the PPS
 comment|// library won't let us work any other way. Basically, we have to probe the encoded type in
 comment|// order to try to get exactly what we want.
-name|long
-name|long
+name|int64_t
 name|llValue
 decl_stmt|;
 name|double
@@ -676,7 +675,14 @@ name|QPpsAttributePrivate
 operator|::
 name|createPpsAttribute
 argument_list|(
+cast|static_cast
+argument_list|<
+name|long
+name|long
+argument_list|>
+argument_list|(
 name|llValue
+argument_list|)
 argument_list|,
 name|flags
 argument_list|)
