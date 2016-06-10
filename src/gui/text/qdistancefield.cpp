@@ -5453,16 +5453,20 @@ name|n
 operator|.
 name|x
 argument_list|()
+argument_list|)
 operator|*
 name|n
 operator|.
 name|x
 argument_list|()
 operator|+
+name|qreal
+argument_list|(
 name|n
 operator|.
 name|y
 argument_list|()
+argument_list|)
 operator|*
 name|n
 operator|.
@@ -5470,9 +5474,15 @@ name|y
 argument_list|()
 argument_list|)
 argument_list|)
-argument_list|)
 decl_stmt|;
 comment|// 8:16
+name|Q_ASSERT
+argument_list|(
+name|scale
+operator|!=
+literal|0
+argument_list|)
+expr_stmt|;
 name|n
 operator|.
 name|rx
