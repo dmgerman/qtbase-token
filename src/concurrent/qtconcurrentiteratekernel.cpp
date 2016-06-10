@@ -145,6 +145,7 @@ parameter_list|()
 block|{
 if|#
 directive|if
+operator|(
 name|defined
 argument_list|(
 name|_POSIX_TIMERS
@@ -155,6 +156,12 @@ name|_POSIX_TIMERS
 operator|>
 literal|0
 operator|)
+operator|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_OPENBSD
+argument_list|)
 name|clockid_t
 name|clockId
 decl_stmt|;

@@ -149,15 +149,6 @@ directive|define
 name|QT_OPEN_LARGEFILE
 value|0
 end_define
-begin_comment
-comment|// QT_SOCKLEN_T
-end_comment
-begin_comment
-comment|// OpenBSD 2.2 - 2.4            int
-end_comment
-begin_comment
-comment|// OpenBSD 2.5 - 2.8            socklen_t
-end_comment
 begin_define
 DECL|macro|QT_SNPRINTF
 define|#
@@ -172,72 +163,6 @@ directive|define
 name|QT_VSNPRINTF
 value|::vsnprintf
 end_define
-begin_comment
-comment|// 1003.1c-1995 says on page 38 (2.9.3, paragraph 3) that if _POSIX_THREADS
-end_comment
-begin_comment
-comment|// is defined, then _POSIX_THREAD_SAFE_FUNCTIONS must also be defined.
-end_comment
-begin_comment
-comment|// However this looks like a well-known typo (reversed dependency).
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// On the other hand _POSIX_THREAD_SAFE_FUNCTIONS should be defined only
-end_comment
-begin_comment
-comment|// if the Thread-Safe Functions option is implemented. OpenBSD does not
-end_comment
-begin_comment
-comment|// support all of the required _r() interfaces, especially getpwuid_r(),
-end_comment
-begin_comment
-comment|// which means it should not define _POSIX_THREAD_SAFE_FUNCTIONS.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// Since OpenBSD does define _POSIX_THREAD_SAFE_FUNCTIONS, we have to
-end_comment
-begin_comment
-comment|// undefine it behind its back.
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|_POSIX_THREAD_SAFE_FUNCTIONS
-end_ifdef
-begin_undef
-DECL|macro|_POSIX_THREAD_SAFE_FUNCTIONS
-undef|#
-directive|undef
-name|_POSIX_THREAD_SAFE_FUNCTIONS
-end_undef
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Older OpenBSD versions may still use the a.out format instead of ELF.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|__ELF__
-end_ifndef
-begin_define
-DECL|macro|QT_AOUT_UNDERSCORE
-define|#
-directive|define
-name|QT_AOUT_UNDERSCORE
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif

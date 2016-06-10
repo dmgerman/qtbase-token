@@ -15697,9 +15697,9 @@ name|State_Sunken
 expr_stmt|;
 name|QStyleOption
 name|arrowOpt
-argument_list|(
-literal|0
-argument_list|)
+init|=
+operator|*
+name|cmb
 decl_stmt|;
 name|arrowOpt
 operator|.
@@ -15719,14 +15719,6 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-name|arrowOpt
-operator|.
-name|palette
-operator|=
-name|cmb
-operator|->
-name|palette
 expr_stmt|;
 name|arrowOpt
 operator|.

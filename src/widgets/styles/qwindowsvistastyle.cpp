@@ -6404,9 +6404,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|theme
-operator|.
-name|rect
+name|animRect
 operator|.
 name|size
 argument_list|()

@@ -13705,14 +13705,6 @@ name|d
 operator|->
 name|dpi
 expr_stmt|;
-name|req
-operator|.
-name|weight
-operator|=
-name|QFont
-operator|::
-name|Normal
-expr_stmt|;
 if|if
 condition|(
 name|req

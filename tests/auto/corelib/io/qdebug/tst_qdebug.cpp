@@ -1901,7 +1901,16 @@ name|QChar
 argument_list|(
 literal|'f'
 argument_list|)
+operator|<<
+name|QChar
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'\xE4'
+argument_list|)
+argument_list|)
 expr_stmt|;
+comment|// f, Ã¤
 name|d
 operator|.
 name|nospace
@@ -1919,7 +1928,16 @@ name|QChar
 argument_list|(
 literal|'o'
 argument_list|)
+operator|<<
+name|QChar
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'\xC4'
+argument_list|)
+argument_list|)
 expr_stmt|;
+comment|// o, o, Ã
 block|}
 ifndef|#
 directive|ifndef
@@ -1955,7 +1973,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"'f' oo"
+literal|"'f' '\\u00e4' oo\\u00c4"
 argument_list|)
 argument_list|)
 expr_stmt|;
