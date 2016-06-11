@@ -1152,6 +1152,9 @@ decl_stmt|;
 name|QRegion
 name|m_exposeRegion
 decl_stmt|;
+name|QSize
+name|m_oldWindowSize
+decl_stmt|;
 name|xcb_visualid_t
 name|m_visualId
 decl_stmt|;
