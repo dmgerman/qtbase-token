@@ -651,16 +651,19 @@ begin_comment
 comment|/*!     \enum QSysInfo::WinVersion      This enum provides symbolic names for the various versions of the     Windows operating system. On Windows, the     QSysInfo::WindowsVersion variable gives the version of the system     on which the application is run.      MS-DOS-based versions:      \value WV_32s   Windows 3.1 with Win 32s     \value WV_95    Windows 95     \value WV_98    Windows 98     \value WV_Me    Windows Me      NT-based versions (note that each operating system version is only represented once rather than each Windows edition):      \value WV_NT    Windows NT (operating system version 4.0)     \value WV_2000  Windows 2000 (operating system version 5.0)     \value WV_XP    Windows XP (operating system version 5.1)     \value WV_2003  Windows Server 2003, Windows Server 2003 R2, Windows Home Server, Windows XP Professional x64 Edition (operating system version 5.2)     \value WV_VISTA Windows Vista, Windows Server 2008 (operating system version 6.0)     \value WV_WINDOWS7 Windows 7, Windows Server 2008 R2 (operating system version 6.1)     \value WV_WINDOWS8 Windows 8 (operating system version 6.2)     \value WV_WINDOWS8_1 Windows 8.1 (operating system version 6.3), introduced in Qt 5.2     \value WV_WINDOWS10 Windows 10 (operating system version 10.0), introduced in Qt 5.5      Alternatively, you may use the following macros which correspond directly to the Windows operating system version number:      \value WV_4_0   Operating system version 4.0, corresponds to Windows NT     \value WV_5_0   Operating system version 5.0, corresponds to Windows 2000     \value WV_5_1   Operating system version 5.1, corresponds to Windows XP     \value WV_5_2   Operating system version 5.2, corresponds to Windows Server 2003, Windows Server 2003 R2, Windows Home Server, and Windows XP Professional x64 Edition     \value WV_6_0   Operating system version 6.0, corresponds to Windows Vista and Windows Server 2008     \value WV_6_1   Operating system version 6.1, corresponds to Windows 7 and Windows Server 2008 R2     \value WV_6_2   Operating system version 6.2, corresponds to Windows 8     \value WV_6_3   Operating system version 6.3, corresponds to Windows 8.1, introduced in Qt 5.2     \value WV_10_0  Operating system version 10.0, corresponds to Windows 10, introduced in Qt 5.5      CE-based versions:      \value WV_CE    Windows CE     \value WV_CENET Windows CE .NET     \value WV_CE_5  Windows CE 5.x     \value WV_CE_6  Windows CE 6.x      The following masks can be used for testing whether a Windows     version is MS-DOS-based, NT-based, or CE-based:      \value WV_DOS_based MS-DOS-based version of Windows     \value WV_NT_based  NT-based version of Windows     \value WV_CE_based  CE-based version of Windows      \value WV_None Operating system other than Windows.      \sa MacVersion */
 end_comment
 begin_comment
-comment|/*!     \enum QSysInfo::MacVersion      This enum provides symbolic names for the various versions of the     Darwin operating system, covering both OS X and iOS. The     QSysInfo::MacintoshVersion variable gives the version of the     system on which the application is run.      \value MV_9        Mac OS 9     \value MV_10_0     Mac OS X 10.0     \value MV_10_1     Mac OS X 10.1     \value MV_10_2     Mac OS X 10.2     \value MV_10_3     Mac OS X 10.3     \value MV_10_4     Mac OS X 10.4     \value MV_10_5     Mac OS X 10.5     \value MV_10_6     Mac OS X 10.6     \value MV_10_7     Mac OS X 10.7     \value MV_10_8     OS X 10.8     \value MV_10_9     OS X 10.9     \value MV_10_10    OS X 10.10     \value MV_10_11    OS X 10.11     \value MV_Unknown  An unknown and currently unsupported platform      \value MV_CHEETAH  Apple codename for MV_10_0     \value MV_PUMA     Apple codename for MV_10_1     \value MV_JAGUAR   Apple codename for MV_10_2     \value MV_PANTHER  Apple codename for MV_10_3     \value MV_TIGER    Apple codename for MV_10_4     \value MV_LEOPARD  Apple codename for MV_10_5     \value MV_SNOWLEOPARD  Apple codename for MV_10_6     \value MV_LION     Apple codename for MV_10_7     \value MV_MOUNTAINLION Apple codename for MV_10_8     \value MV_MAVERICKS    Apple codename for MV_10_9     \value MV_YOSEMITE     Apple codename for MV_10_10     \value MV_ELCAPITAN    Apple codename for MV_10_11      \value MV_IOS      iOS (any)     \value MV_IOS_4_3  iOS 4.3     \value MV_IOS_5_0  iOS 5.0     \value MV_IOS_5_1  iOS 5.1     \value MV_IOS_6_0  iOS 6.0     \value MV_IOS_6_1  iOS 6.1     \value MV_IOS_7_0  iOS 7.0     \value MV_IOS_7_1  iOS 7.1     \value MV_IOS_8_0  iOS 8.0     \value MV_IOS_8_1  iOS 8.1     \value MV_IOS_8_2  iOS 8.2     \value MV_IOS_8_3  iOS 8.3     \value MV_IOS_8_4  iOS 8.4     \value MV_IOS_9_0  iOS 9.0      \value MV_None     Not a Darwin operating system      \sa WinVersion */
+comment|/*!     \enum QSysInfo::MacVersion      This enum provides symbolic names for the various versions of the     Darwin operating system, covering both OS X and iOS. The     QSysInfo::MacintoshVersion variable gives the version of the     system on which the application is run.      \value MV_9        Mac OS 9     \value MV_10_0     Mac OS X 10.0     \value MV_10_1     Mac OS X 10.1     \value MV_10_2     Mac OS X 10.2     \value MV_10_3     Mac OS X 10.3     \value MV_10_4     Mac OS X 10.4     \value MV_10_5     Mac OS X 10.5     \value MV_10_6     Mac OS X 10.6     \value MV_10_7     Mac OS X 10.7     \value MV_10_8     OS X 10.8     \value MV_10_9     OS X 10.9     \value MV_10_10    OS X 10.10     \value MV_10_11    OS X 10.11     \value MV_10_12    macOS 10.12     \value MV_Unknown  An unknown and currently unsupported platform      \value MV_CHEETAH  Apple codename for MV_10_0     \value MV_PUMA     Apple codename for MV_10_1     \value MV_JAGUAR   Apple codename for MV_10_2     \value MV_PANTHER  Apple codename for MV_10_3     \value MV_TIGER    Apple codename for MV_10_4     \value MV_LEOPARD  Apple codename for MV_10_5     \value MV_SNOWLEOPARD  Apple codename for MV_10_6     \value MV_LION     Apple codename for MV_10_7     \value MV_MOUNTAINLION Apple codename for MV_10_8     \value MV_MAVERICKS    Apple codename for MV_10_9     \value MV_YOSEMITE     Apple codename for MV_10_10     \value MV_ELCAPITAN    Apple codename for MV_10_11     \value MV_SIERRA       Apple codename for MV_10_12      \value MV_IOS      iOS (any)     \value MV_IOS_4_3  iOS 4.3     \value MV_IOS_5_0  iOS 5.0     \value MV_IOS_5_1  iOS 5.1     \value MV_IOS_6_0  iOS 6.0     \value MV_IOS_6_1  iOS 6.1     \value MV_IOS_7_0  iOS 7.0     \value MV_IOS_7_1  iOS 7.1     \value MV_IOS_8_0  iOS 8.0     \value MV_IOS_8_1  iOS 8.1     \value MV_IOS_8_2  iOS 8.2     \value MV_IOS_8_3  iOS 8.3     \value MV_IOS_8_4  iOS 8.4     \value MV_IOS_9_0  iOS 9.0     \value MV_IOS_9_1  iOS 9.1     \value MV_IOS_9_2  iOS 9.2     \value MV_IOS_9_3  iOS 9.3     \value MV_IOS_10_0 iOS 10.0      \value MV_None     Not a Darwin operating system      \sa WinVersion */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin-based operating systems such as OS X and iOS,     including any open source version(s) of Darwin. */
+comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin-based operating systems such as OS X and iOS. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_MAC     \relates<QtGlobal>      Defined on Darwin-based operating systems distributed by Apple, which     currently includes OS X and iOS, but not the open source versions of Darwin.  */
+comment|/*!     \macro Q_OS_MAC     \relates<QtGlobal>      Deprecated synonym for \c Q_OS_DARWIN. Do not use.  */
 end_comment
 begin_comment
-comment|/*!     \macro Q_OS_OSX     \relates<QtGlobal>      Defined on OS X.  */
+comment|/*!     \macro Q_OS_OSX     \relates<QtGlobal>      Deprecated synonym for \c Q_OS_MACOS. Do not use.  */
+end_comment
+begin_comment
+comment|/*!     \macro Q_OS_MACOS     \relates<QtGlobal>      Defined on macOS.  */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_IOS     \relates<QtGlobal>      Defined on iOS.  */
@@ -3979,7 +3982,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.4      Returns the product name of the operating system this application is     running in. If the application is running on some sort of emulation or     virtualization layer (such as WINE on a Unix system), this function will     inspect the emulation / virtualization layer.      Values returned by this function are stable and will not change over time,     so applications can rely on the returned value as an identifier, except     that new OS types may be added over time.      \b{Linux and Android note}: this function returns "android" for Linux     systems running Android userspace, notably when using the Bionic library.     For all other Linux systems, regardless of C library being used, it tries     to determine the distribution name and returns that. If determining the     distribution name failed, it returns "unknown".      \b{BlackBerry note}: this function returns "blackberry" for QNX systems     running the BlackBerry userspace, but "qnx" for all other QNX-based     systems.      \b{Darwin, OS X and iOS note}: this function returns "osx" for OS X     systems, "ios" for iOS systems and "darwin" in case the system could not be     determined.      \b{FreeBSD note}: this function returns "debian" for Debian/kFreeBSD and     "unknown" otherwise.      \b{Windows note}: this function returns "winphone" for builds for Windows     Phone, "winrt" for WinRT builds, "wince" for Windows CE and Embedded     Compact builds, and "windows" for normal desktop builds.      For other Unix-type systems, this function usually returns "unknown".      \sa QFileSelector, kernelType(), kernelVersion(), productVersion(), prettyProductName() */
+comment|/*!     \since 5.4      Returns the product name of the operating system this application is     running in. If the application is running on some sort of emulation or     virtualization layer (such as WINE on a Unix system), this function will     inspect the emulation / virtualization layer.      Values returned by this function are stable and will not change over time,     so applications can rely on the returned value as an identifier, except     that new OS types may be added over time.      \b{Linux and Android note}: this function returns "android" for Linux     systems running Android userspace, notably when using the Bionic library.     For all other Linux systems, regardless of C library being used, it tries     to determine the distribution name and returns that. If determining the     distribution name failed, it returns "unknown".      \b{BlackBerry note}: this function returns "blackberry" for QNX systems     running the BlackBerry userspace, but "qnx" for all other QNX-based     systems.      \b{Darwin, OS X and iOS note}: this function returns "macos" for macOS     systems, "ios" for iOS systems and "darwin" in case the system could not be     determined.      \b{OS X note}: this function returns "osx" for versions of macOS prior to 10.12.      \b{FreeBSD note}: this function returns "debian" for Debian/kFreeBSD and     "unknown" otherwise.      \b{Windows note}: this function returns "winphone" for builds for Windows     Phone, "winrt" for WinRT builds, "wince" for Windows CE and Embedded     Compact builds, and "windows" for normal desktop builds.      For other Unix-type systems, this function usually returns "unknown".      \sa QFileSelector, kernelType(), kernelVersion(), productVersion(), prettyProductName() */
 end_comment
 begin_function
 DECL|function|productType
@@ -4090,12 +4093,39 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_OSX
+name|Q_OS_MACOS
 argument_list|)
+specifier|const
+name|QAppleOperatingSystemVersion
+name|version
+init|=
+name|qt_apple_os_version
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|version
+operator|.
+name|major
+operator|==
+literal|10
+operator|&&
+name|version
+operator|.
+name|minor
+operator|<
+literal|12
+condition|)
 return|return
 name|QStringLiteral
 argument_list|(
 literal|"osx"
+argument_list|)
+return|;
+return|return
+name|QStringLiteral
+argument_list|(
+literal|"macos"
 argument_list|)
 return|;
 elif|#
@@ -4375,7 +4405,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_OSX
+name|Q_OS_MACOS
 argument_list|)
 comment|// get the known codenames
 specifier|const
@@ -4470,6 +4500,14 @@ operator|=
 literal|"OS X El Capitan ("
 expr_stmt|;
 break|break;
+case|case
+name|MV_SIERRA
+case|:
+name|basename
+operator|=
+literal|"macOS Sierra ("
+expr_stmt|;
+break|break;
 block|}
 if|if
 condition|(
@@ -4489,11 +4527,11 @@ argument_list|(
 literal|')'
 argument_list|)
 return|;
-comment|// a future version of OS X
+comment|// a future version of macOS
 return|return
 name|QLatin1String
 argument_list|(
-literal|"OS X "
+literal|"macOS "
 argument_list|)
 operator|+
 name|productVersion
