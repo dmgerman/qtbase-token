@@ -898,7 +898,7 @@ expr|struct
 name|renamedInQt5_warning_checkTheLifeTime
 operator|*
 operator|=
-literal|0
+name|Q_NULLPTR
 argument_list|)
 name|Q_DECL_EQ_DELETE
 decl_stmt|;

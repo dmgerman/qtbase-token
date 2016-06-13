@@ -416,7 +416,7 @@ literal|""
 argument_list|,
 name|message
 argument_list|,
-literal|0
+name|Q_NULLPTR
 argument_list|)
 return|;
 block|}

@@ -1625,10 +1625,9 @@ specifier|inline
 name|QString
 name|text
 argument_list|(
-argument|const char* key
+argument|const char *key
 argument_list|,
-argument|const char* lang=
-literal|0
+argument|const char *lang = Q_NULLPTR
 argument_list|)
 specifier|const
 block|;
