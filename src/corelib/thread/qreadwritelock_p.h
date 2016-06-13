@@ -104,6 +104,11 @@ name|id
 argument_list|(
 literal|0
 argument_list|)
+operator|,
+name|currentWriter
+argument_list|(
+argument|nullptr
+argument_list|)
 block|{}
 name|QMutex
 name|mutex
