@@ -1782,6 +1782,12 @@ name|QDataStream
 operator|::
 name|Ok
 condition|)
+block|{
+name|in
+operator|.
+name|resetStatus
+argument_list|()
+expr_stmt|;
 name|in
 operator|.
 name|setStatus
@@ -1789,6 +1795,7 @@ argument_list|(
 name|oldStatus
 argument_list|)
 expr_stmt|;
+block|}
 end_if
 begin_return
 return|return
@@ -2075,6 +2082,12 @@ name|QDataStream
 operator|::
 name|Ok
 condition|)
+block|{
+name|in
+operator|.
+name|resetStatus
+argument_list|()
+expr_stmt|;
 name|in
 operator|.
 name|setStatus
@@ -2082,6 +2095,7 @@ argument_list|(
 name|oldStatus
 argument_list|)
 expr_stmt|;
+block|}
 end_if
 begin_return
 return|return
