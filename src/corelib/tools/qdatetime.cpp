@@ -8622,7 +8622,9 @@ case|:
 ifdef|#
 directive|ifdef
 name|QT_BOOTSTRAPPED
-break|break;
+return|return
+literal|0
+return|;
 else|#
 directive|else
 return|return
