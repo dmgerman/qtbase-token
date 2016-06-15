@@ -19,9 +19,12 @@ file|<private/qmath_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+comment|// Use a name different from qLcEglfsEglKmsDebug to avoid duplicate symbols in
+comment|// static builds. Starting from Qt 5.7 this will be solved by the common kms
+comment|// support library, but in the meantime just work it around.
 name|Q_LOGGING_CATEGORY
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"qt.qpa.eglfs.kms"
 argument_list|)
@@ -69,7 +72,7 @@ argument_list|)
 argument_list|{
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"New DRM/KMS on EGLDevice integration created"
 argument_list|)
@@ -116,7 +119,7 @@ argument_list|)
 argument_list|;
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Opening %s"
 argument_list|,
@@ -159,7 +162,7 @@ argument_list|)
 argument_list|;
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"DRM/KMS initialized"
 argument_list|)
@@ -225,7 +228,7 @@ argument_list|)
 argument_list|{
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Creating display"
 argument_list|)
@@ -663,7 +666,7 @@ parameter_list|()
 block|{
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Creating stream"
 argument_list|)
@@ -714,7 +717,7 @@ return|return;
 block|}
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Created stream %p on display %p"
 argument_list|,
@@ -758,7 +761,7 @@ return|return;
 block|}
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Output has %d layers"
 argument_list|,
@@ -855,7 +858,7 @@ condition|)
 block|{
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"  [%d] layer %p - crtc %d"
 argument_list|,
@@ -917,7 +920,7 @@ block|{
 comment|// Not used yet, just for debugging.
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"  [%d] layer %p - plane %d"
 argument_list|,
@@ -939,7 +942,7 @@ else|else
 block|{
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"  [%d] layer %p - unknown"
 argument_list|,
@@ -1015,7 +1018,7 @@ return|return;
 block|}
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Using layer %p"
 argument_list|,
@@ -1074,7 +1077,7 @@ argument_list|)
 expr_stmt|;
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|)
 operator|<<
 literal|"Stream producer format is"
@@ -1107,7 +1110,7 @@ argument_list|()
 decl_stmt|;
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Creating stream producer surface of size %dx%d"
 argument_list|,
@@ -1159,7 +1162,7 @@ condition|)
 return|return;
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Created stream producer surface %p"
 argument_list|,
@@ -1384,7 +1387,7 @@ condition|)
 block|{
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Mode already set"
 argument_list|)
@@ -1394,7 +1397,7 @@ block|}
 block|}
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Setting mode"
 argument_list|)
@@ -1620,7 +1623,7 @@ return|;
 block|}
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Using connector with type %d"
 argument_list|,
@@ -1760,7 +1763,7 @@ name|crtc
 expr_stmt|;
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|)
 operator|.
 name|noquote
@@ -1860,7 +1863,7 @@ return|;
 block|}
 name|qCDebug
 argument_list|(
-name|qLcEglfsKmsDebug
+name|qLcEglfsEglDevDebug
 argument_list|,
 literal|"Found %d EGL devices"
 argument_list|,
