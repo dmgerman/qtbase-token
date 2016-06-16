@@ -1606,21 +1606,6 @@ operator|.
 name|state
 argument_list|()
 expr_stmt|;
-name|tp
-operator|.
-name|area
-operator|=
-name|QRectF
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|1
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
 comment|// we map the touch to the size of the window. we do this, because frankly,
 comment|// trying to figure out which part of the screen to hit in order to press an
 comment|// element on the UI is pretty tricky when one is not using an overlay-style
