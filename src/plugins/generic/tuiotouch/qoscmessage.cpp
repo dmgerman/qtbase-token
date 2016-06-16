@@ -277,11 +277,6 @@ argument_list|<
 name|quint32
 argument_list|>
 argument_list|(
-operator|(
-specifier|const
-name|uchar
-operator|*
-operator|)
 name|data
 operator|.
 name|constData
@@ -376,11 +371,6 @@ argument_list|<
 name|quint32
 argument_list|>
 argument_list|(
-operator|(
-specifier|const
-name|uchar
-operator|*
-operator|)
 name|data
 operator|.
 name|constData

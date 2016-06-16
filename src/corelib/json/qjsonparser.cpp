@@ -2718,16 +2718,9 @@ name|qToLittleEndian
 argument_list|(
 name|ui
 argument_list|,
-cast|reinterpret_cast
-argument_list|<
-name|uchar
-operator|*
-argument_list|>
-argument_list|(
 name|data
 operator|+
 name|pos
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

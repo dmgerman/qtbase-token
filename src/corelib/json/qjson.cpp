@@ -2342,10 +2342,6 @@ name|v
 operator|.
 name|ui
 argument_list|,
-operator|(
-name|uchar
-operator|*
-operator|)
 name|dest
 argument_list|)
 expr_stmt|;
