@@ -14771,7 +14771,7 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-literal|"r"
+name|QT_POPEN_READ
 argument_list|)
 condition|)
 block|{
@@ -15512,7 +15512,7 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-literal|"r"
+name|QT_POPEN_READ
 argument_list|)
 condition|)
 block|{

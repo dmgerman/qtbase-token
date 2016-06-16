@@ -147,6 +147,13 @@ name|QT_POPEN
 value|_popen
 end_define
 begin_define
+DECL|macro|QT_POPEN_READ
+define|#
+directive|define
+name|QT_POPEN_READ
+value|"rb"
+end_define
+begin_define
 DECL|macro|QT_PCLOSE
 define|#
 directive|define
@@ -163,6 +170,13 @@ define|#
 directive|define
 name|QT_POPEN
 value|popen
+end_define
+begin_define
+DECL|macro|QT_POPEN_READ
+define|#
+directive|define
+name|QT_POPEN_READ
+value|"r"
 end_define
 begin_define
 DECL|macro|QT_PCLOSE
@@ -1665,7 +1679,7 @@ operator|.
 name|toLocal8Bit
 argument_list|()
 argument_list|,
-literal|"r"
+name|QT_POPEN_READ
 argument_list|)
 condition|)
 block|{
