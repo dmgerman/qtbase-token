@@ -659,15 +659,7 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|(
-cast|reinterpret_cast
-argument_list|<
-specifier|const
-name|uchar
-operator|*
-argument_list|>
-argument_list|(
 name|p
-argument_list|)
 argument_list|)
 operator|&
 name|mask

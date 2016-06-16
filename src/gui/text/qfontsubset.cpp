@@ -6945,10 +6945,6 @@ name|qToBigEndian
 argument_list|(
 name|checksum_adjust
 argument_list|,
-operator|(
-name|uchar
-operator|*
-operator|)
 name|font
 operator|.
 name|data
