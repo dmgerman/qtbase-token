@@ -1481,11 +1481,13 @@ operator|>
 literal|0
 return|;
 block|}
-default|default:
+block|}
 name|Q_UNREACHABLE
 argument_list|()
 expr_stmt|;
-block|}
+return|return
+literal|false
+return|;
 block|}
 end_function
 begin_comment
