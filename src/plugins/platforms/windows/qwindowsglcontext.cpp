@@ -627,8 +627,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|resolve
-name|void
-modifier|*
+name|PROC
 name|QWindowsOpengl32DLL
 operator|::
 name|resolve
@@ -642,16 +641,11 @@ block|{
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE
-name|void
-modifier|*
+name|PROC
 name|proc
 init|=
 name|m_lib
 condition|?
-operator|(
-name|void
-operator|*
-operator|)
 operator|::
 name|GetProcAddress
 argument_list|(
@@ -664,16 +658,11 @@ literal|0
 decl_stmt|;
 else|#
 directive|else
-name|void
-modifier|*
+name|PROC
 name|proc
 init|=
 name|m_lib
 condition|?
-operator|(
-name|void
-operator|*
-operator|)
 operator|::
 name|GetProcAddress
 argument_list|(
@@ -7514,14 +7503,9 @@ block|{
 comment|// Even though we use QFunctionPointer, it does not mean the function can be called.
 comment|// It will need to be cast to the proper function type with the correct calling
 comment|// convention. QFunctionPointer is nothing more than a glorified void* here.
-name|QFunctionPointer
+name|PROC
 name|procAddress
 init|=
-cast|reinterpret_cast
-argument_list|<
-name|QFunctionPointer
-argument_list|>
-argument_list|(
 name|QOpenGLStaticContext
 operator|::
 name|opengl32
@@ -7529,7 +7513,6 @@ operator|.
 name|wglGetProcAddress
 argument_list|(
 name|procName
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// We support AllGLFunctionsQueryable, which means this function must be able to
@@ -7546,8 +7529,7 @@ name|procAddress
 operator|==
 cast|reinterpret_cast
 argument_list|<
-name|void
-operator|*
+name|PROC
 argument_list|>
 argument_list|(
 literal|0x1
@@ -7557,8 +7539,7 @@ name|procAddress
 operator|==
 cast|reinterpret_cast
 argument_list|<
-name|void
-operator|*
+name|PROC
 argument_list|>
 argument_list|(
 literal|0x2
@@ -7568,8 +7549,7 @@ name|procAddress
 operator|==
 cast|reinterpret_cast
 argument_list|<
-name|void
-operator|*
+name|PROC
 argument_list|>
 argument_list|(
 literal|0x3
@@ -7579,8 +7559,7 @@ name|procAddress
 operator|==
 cast|reinterpret_cast
 argument_list|<
-name|void
-operator|*
+name|PROC
 argument_list|>
 argument_list|(
 operator|-
@@ -7589,11 +7568,6 @@ argument_list|)
 condition|)
 name|procAddress
 operator|=
-cast|reinterpret_cast
-argument_list|<
-name|QFunctionPointer
-argument_list|>
-argument_list|(
 name|QOpenGLStaticContext
 operator|::
 name|opengl32
@@ -7601,7 +7575,6 @@ operator|.
 name|resolve
 argument_list|(
 name|procName
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -7633,7 +7606,13 @@ operator|<<
 name|procAddress
 expr_stmt|;
 return|return
+cast|reinterpret_cast
+argument_list|<
+name|QFunctionPointer
+argument_list|>
+argument_list|(
 name|procAddress
+argument_list|)
 return|;
 block|}
 end_function

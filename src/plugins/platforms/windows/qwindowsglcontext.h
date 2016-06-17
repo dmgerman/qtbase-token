@@ -456,8 +456,7 @@ name|GLenum
 name|name
 parameter_list|)
 function_decl|;
-name|void
-modifier|*
+name|PROC
 name|resolve
 parameter_list|(
 specifier|const
