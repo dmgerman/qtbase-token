@@ -4282,6 +4282,15 @@ argument_list|)
 operator|!=
 literal|0
 operator|)
+operator|||
+name|qstrcmp
+argument_list|(
+name|renderer
+argument_list|,
+literal|"PowerVR SGX 554"
+argument_list|)
+operator|==
+literal|0
 decl_stmt|;
 specifier|const
 name|bool
