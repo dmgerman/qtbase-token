@@ -1504,10 +1504,14 @@ decl_stmt|;
 name|drmModeConnector
 modifier|*
 name|connector
+init|=
+name|Q_NULLPTR
 decl_stmt|;
 name|drmModeEncoder
 modifier|*
 name|encoder
+init|=
+name|Q_NULLPTR
 decl_stmt|;
 name|quint32
 name|crtc
