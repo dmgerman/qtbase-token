@@ -2599,7 +2599,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Reads all remaining data from the device, and returns it as a     byte array.      This function has no way of reporting errors; returning an empty     QByteArray can mean either that no data was currently available     for reading, or that an error occurred. */
+comment|/*!     Reads all remaining data from the device, and returns it as a     byte array.      This function has no way of reporting errors; returning an empty     QByteArray can mean either that no data was currently available     for reading, or that an error occurred. */
 end_comment
 begin_function
 DECL|function|readAll
