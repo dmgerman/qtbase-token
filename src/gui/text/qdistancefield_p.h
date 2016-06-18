@@ -65,11 +65,6 @@ define|#
 directive|define
 name|QT_DISTANCEFIELD_DEFAULT_BASEFONTSIZE
 value|54
-DECL|macro|QT_DISTANCEFIELD_DEFAULT_TILESIZE
-define|#
-directive|define
-name|QT_DISTANCEFIELD_DEFAULT_TILESIZE
-value|64
 DECL|macro|QT_DISTANCEFIELD_DEFAULT_SCALE
 define|#
 directive|define
@@ -94,15 +89,6 @@ name|NarrowOutlineFont
 parameter_list|)
 define|\
 value|(NarrowOutlineFont ? QT_DISTANCEFIELD_DEFAULT_BASEFONTSIZE * 2 : \                          QT_DISTANCEFIELD_DEFAULT_BASEFONTSIZE)
-DECL|macro|QT_DISTANCEFIELD_TILESIZE
-define|#
-directive|define
-name|QT_DISTANCEFIELD_TILESIZE
-parameter_list|(
-name|NarrowOutlineFont
-parameter_list|)
-define|\
-value|(NarrowOutlineFont ? QT_DISTANCEFIELD_DEFAULT_TILESIZE * 2 : \                          QT_DISTANCEFIELD_DEFAULT_TILESIZE)
 DECL|macro|QT_DISTANCEFIELD_SCALE
 define|#
 directive|define

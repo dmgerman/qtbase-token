@@ -5517,6 +5517,23 @@ condition|)
 return|return
 literal|false
 return|;
+comment|// A slot, attached to sslErrors signal can call
+comment|// abort/close/disconnetFromHost/etc; no need to
+comment|// continue handshake then.
+if|if
+condition|(
+name|q
+operator|->
+name|state
+argument_list|()
+operator|!=
+name|QAbstractSocket
+operator|::
+name|ConnectedState
+condition|)
+return|return
+literal|false
+return|;
 block|}
 else|else
 block|{

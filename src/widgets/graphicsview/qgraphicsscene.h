@@ -669,7 +669,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|?
-literal|0
+name|Q_NULLPTR
 else|:
 name|itemsAtPoint
 operator|.
@@ -827,7 +827,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|?
-literal|0
+name|Q_NULLPTR
 else|:
 name|itemsAtPoint
 operator|.

@@ -3170,6 +3170,11 @@ block|}
 else|#
 directive|else
 comment|// 32-bit, we can't do MOVQ to load 8 bytes
+name|Q_UNUSED
+argument_list|(
+name|nullmask
+argument_list|)
+expr_stmt|;
 enum|enum
 block|{
 name|MaxTailLength
