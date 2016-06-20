@@ -4554,6 +4554,19 @@ name|bundle
 operator|==
 name|SlicedBundle
 condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|ret
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|ret
+operator|+=
+literal|"\n\t"
+expr_stmt|;
 name|ret
 operator|+=
 name|mkdir_p_asstring
@@ -4566,9 +4579,8 @@ literal|"`\""
 argument_list|,
 literal|false
 argument_list|)
-operator|+
-literal|"\n\t"
 expr_stmt|;
+block|}
 name|copy_cmd
 operator|+=
 literal|"-$(INSTALL_PROGRAM) "

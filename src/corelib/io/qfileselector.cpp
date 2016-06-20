@@ -913,6 +913,28 @@ operator|::
 name|productType
 argument_list|()
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MACOS
+if|if
+condition|(
+name|productName
+operator|!=
+name|QStringLiteral
+argument_list|(
+literal|"osx"
+argument_list|)
+condition|)
+name|ret
+operator|<<
+name|QStringLiteral
+argument_list|(
+literal|"osx"
+argument_list|)
+expr_stmt|;
+comment|// compatibility
+endif|#
+directive|endif
 if|if
 condition|(
 name|productName
@@ -926,7 +948,7 @@ name|ret
 operator|<<
 name|productName
 expr_stmt|;
-comment|// "opensuse", "fedora", "osx", "ios", "android"
+comment|// "opensuse", "fedora", "macos", "ios", "android"
 endif|#
 directive|endif
 return|return

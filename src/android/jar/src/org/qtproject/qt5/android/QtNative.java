@@ -452,6 +452,14 @@ name|m_checkSelfPermissionMethod
 init|=
 literal|null
 decl_stmt|;
+DECL|field|m_tabletEventSupported
+specifier|private
+specifier|static
+name|Boolean
+name|m_tabletEventSupported
+init|=
+literal|null
+decl_stmt|;
 DECL|field|runPendingCppRunnablesRunnable
 specifier|private
 specifier|static
@@ -1728,6 +1736,17 @@ name|pointerType
 init|=
 literal|0
 decl_stmt|;
+if|if
+condition|(
+name|m_tabletEventSupported
+operator|==
+literal|null
+condition|)
+name|m_tabletEventSupported
+operator|=
+name|isTabletEventSupported
+argument_list|()
+expr_stmt|;
 switch|switch
 condition|(
 name|event
@@ -1764,6 +1783,8 @@ comment|// TODO TOOL_TYPE_MOUSE
 block|}
 if|if
 condition|(
+name|m_tabletEventSupported
+operator|&&
 name|pointerType
 operator|!=
 literal|0
@@ -3588,6 +3609,14 @@ parameter_list|)
 function_decl|;
 comment|// pointer methods
 comment|// tablet methods
+DECL|method|isTabletEventSupported
+specifier|public
+specifier|static
+specifier|native
+name|boolean
+name|isTabletEventSupported
+parameter_list|()
+function_decl|;
 DECL|method|tabletEvent
 specifier|public
 specifier|static
