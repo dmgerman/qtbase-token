@@ -1384,10 +1384,7 @@ name|data
 argument_list|(
 name|QDateTime
 operator|::
-name|currentDateTimeUtc
-argument_list|()
-operator|.
-name|toMSecsSinceEpoch
+name|currentMSecsSinceEpoch
 argument_list|()
 argument_list|)
 decl_stmt|;

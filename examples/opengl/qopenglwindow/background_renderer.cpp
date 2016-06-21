@@ -684,10 +684,7 @@ name|uint
 operator|)
 name|QDateTime
 operator|::
-name|currentDateTime
-argument_list|()
-operator|.
-name|toMSecsSinceEpoch
+name|currentMSecsSinceEpoch
 argument_list|()
 argument_list|)
 expr_stmt|;
