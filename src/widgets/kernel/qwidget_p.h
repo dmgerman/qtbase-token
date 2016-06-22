@@ -3698,6 +3698,13 @@ range|:
 literal|1
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|uint
+name|renderToTextureComposeActive
+range|:
+literal|1
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
