@@ -4110,6 +4110,14 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|q
+operator|->
+name|isFloating
+argument_list|()
+condition|)
+comment|// Might not be floating when dragging a QDockWidgetGroupWindow
 name|undockedGeometry
 operator|=
 name|q
