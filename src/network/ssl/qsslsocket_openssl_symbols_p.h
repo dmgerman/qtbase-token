@@ -2528,11 +2528,19 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10001000L
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|OPENSSL_NO_PSK
-end_ifndef
+argument_list|)
+end_if
 begin_typedef
 DECL|typedef|q_psk_client_callback_t
 typedef|typedef
@@ -2589,7 +2597,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// OPENSSL_NO_PSK
+comment|// OPENSSL_VERSION_NUMBER>= 0x10001000L&& !defined(OPENSSL_NO_PSK)
 end_comment
 begin_if
 if|#
