@@ -846,7 +846,7 @@ name|QLibrary
 operator|::
 name|tr
 argument_list|(
-literal|"Plugin verification data mismatch in '%1'"
+literal|"Failed to extract plugin meta data from '%1'"
 argument_list|)
 operator|.
 name|arg

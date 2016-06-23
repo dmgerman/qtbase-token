@@ -603,7 +603,7 @@ name|sbpl
 operator|/
 sizeof|sizeof
 argument_list|(
-name|quint32
+name|SRC
 argument_list|)
 argument_list|)
 condition|)

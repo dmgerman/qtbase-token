@@ -12381,12 +12381,6 @@ name|currentMSecsSinceEpoch
 parameter_list|()
 name|Q_DECL_NOTHROW
 block|{
-name|QDate
-name|d
-decl_stmt|;
-name|QTime
-name|t
-decl_stmt|;
 name|SYSTEMTIME
 name|st
 decl_stmt|;
