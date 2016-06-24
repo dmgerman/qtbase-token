@@ -1331,18 +1331,20 @@ argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|{
+comment|// Search's implicit cast (QModelIndex to QPersistentModelIndex) is slow; use cheap pre-test to avoid when we can.
 return|return
+operator|!
 name|indexEditorHash
 operator|.
-name|find
+name|isEmpty
+argument_list|()
+operator|&&
+name|indexEditorHash
+operator|.
+name|contains
 argument_list|(
 name|index
 argument_list|)
-operator|!=
-name|indexEditorHash
-operator|.
-name|constEnd
-argument_list|()
 return|;
 block|}
 name|QModelIndex
