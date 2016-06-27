@@ -2192,10 +2192,7 @@ name|fileName
 argument_list|)
 condition|)
 return|return
-name|QString
-argument_list|(
 name|fileName
-argument_list|)
 return|;
 name|QString
 name|ret
