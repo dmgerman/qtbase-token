@@ -7,6 +7,23 @@ include|#
 directive|include
 file|<fcntl.h>
 end_include
+begin_comment
+comment|// NetBSD 7 has posix_fallocate, but in unistd.h instead of fcntl.h
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__NetBSD__
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<unistd.h>
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|main
 name|int

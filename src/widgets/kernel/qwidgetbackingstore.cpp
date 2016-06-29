@@ -116,6 +116,14 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|Q_GLOBAL_STATIC
+argument_list|(
+argument|QPlatformTextureList
+argument_list|,
+argument|qt_dummy_platformTextureList
+argument_list|)
+end_macro
 begin_comment
 comment|/**  * Flushes the contents of the \a backingStore into the screen area of \a widget.  * \a tlwOffset is the position of the top level widget relative to the window surface.  * \a region is the region to be updated in \a widget coordinates.  */
 end_comment
@@ -365,6 +373,58 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
+specifier|const
+name|bool
+name|compositionWasActive
+init|=
+name|widget
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|renderToTextureComposeActive
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|widgetTextures
+condition|)
+block|{
+name|widget
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|renderToTextureComposeActive
+operator|=
+literal|false
+expr_stmt|;
+comment|// Detect the case of falling back to the normal flush path when no
+comment|// render-to-texture widgets are visible anymore. We will force one
+comment|// last flush to go through the OpenGL-based composition to prevent
+comment|// artifacts. The next flush after this one will use the normal path.
+if|if
+condition|(
+name|compositionWasActive
+condition|)
+name|widgetTextures
+operator|=
+name|qt_dummy_platformTextureList
+expr_stmt|;
+block|}
+else|else
+block|{
+name|widget
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|renderToTextureComposeActive
+operator|=
+literal|true
+expr_stmt|;
+block|}
+comment|// re-test since we may have been forced to this path via the dummy texture list above
 if|if
 condition|(
 name|widgetTextures
@@ -5417,14 +5477,6 @@ block|}
 block|}
 block|}
 end_function
-begin_macro
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|QPlatformTextureList
-argument_list|,
-argument|qt_dummy_platformTextureList
-argument_list|)
-end_macro
 begin_function
 DECL|function|widgetTexturesFor
 specifier|static
