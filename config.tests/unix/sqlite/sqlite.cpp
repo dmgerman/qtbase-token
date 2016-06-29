@@ -19,6 +19,17 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
+name|sqlite3_open_v2
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;

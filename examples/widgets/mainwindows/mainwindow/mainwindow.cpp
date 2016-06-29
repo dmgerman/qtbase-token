@@ -2612,7 +2612,7 @@ argument_list|,
 operator|&
 name|QDialog
 operator|::
-name|reject
+name|accept
 argument_list|)
 expr_stmt|;
 name|layout
