@@ -1953,12 +1953,26 @@ argument_list|(
 name|dpiAwareness
 argument_list|)
 decl_stmt|;
+comment|// E_ACCESSDENIED means set externally (MSVC manifest or external app loading Qt plugin).
+comment|// Silence warning in that case unless debug is enabled.
 if|if
 condition|(
 name|FAILED
 argument_list|(
 name|hr
 argument_list|)
+operator|&&
+operator|(
+name|hr
+operator|!=
+name|E_ACCESSDENIED
+operator|||
+name|lcQpaWindows
+argument_list|()
+operator|.
+name|isDebugEnabled
+argument_list|()
+operator|)
 condition|)
 block|{
 name|qWarning
@@ -4150,6 +4164,17 @@ operator|+=
 name|QByteArrayLiteral
 argument_list|(
 literal|"E_UNEXPECTED"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|E_ACCESSDENIED
+case|:
+name|result
+operator|+=
+name|QByteArrayLiteral
+argument_list|(
+literal|"E_ACCESSDENIED"
 argument_list|)
 expr_stmt|;
 break|break;
