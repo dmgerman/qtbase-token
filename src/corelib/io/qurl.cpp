@@ -3089,6 +3089,11 @@ continue|continue;
 block|}
 if|if
 condition|(
+name|i
+condition|)
+block|{
+if|if
+condition|(
 name|p
 index|[
 name|i
@@ -3102,10 +3107,6 @@ name|i
 index|]
 operator|<=
 literal|'9'
-operator|&&
-name|i
-operator|>
-literal|0
 condition|)
 continue|continue;
 if|if
@@ -3132,6 +3133,7 @@ operator|==
 literal|'.'
 condition|)
 continue|continue;
+block|}
 comment|// found something else
 comment|// don't call setError needlessly:
 comment|// if we've been called from parse(), it will try to recover
