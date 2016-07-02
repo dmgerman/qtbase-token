@@ -164,11 +164,7 @@ name|asprintf
 argument_list|(
 literal|"-QT%04x-"
 argument_list|,
-operator|(
 name|QT_VERSION
-operator|%
-literal|0xffff00
-operator|)
 operator|>>
 literal|8
 argument_list|)
