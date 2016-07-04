@@ -2506,6 +2506,8 @@ name|nextDataBlockSize
 argument_list|()
 operator|>
 literal|0
+operator|&&
+name|context
 condition|)
 block|{
 specifier|const
@@ -2670,7 +2672,7 @@ name|data
 decl_stmt|;
 while|while
 condition|(
-literal|true
+name|context
 condition|)
 block|{
 name|size_t
@@ -6217,11 +6219,23 @@ name|sslErrors
 operator|=
 name|errors
 expr_stmt|;
+comment|// checkSslErrors unconditionally emits sslErrors:
+comment|// a user's slot can abort/close/disconnect on this
+comment|// signal, so we also test the socket's state:
 if|if
 condition|(
 operator|!
 name|checkSslErrors
 argument_list|()
+operator|||
+name|q
+operator|->
+name|state
+argument_list|()
+operator|!=
+name|QAbstractSocket
+operator|::
+name|ConnectedState
 condition|)
 return|return
 literal|false
