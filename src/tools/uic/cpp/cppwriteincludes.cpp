@@ -1489,7 +1489,11 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|QStringRef
+argument_list|(
+operator|&
 name|header
+argument_list|)
 operator|.
 name|trimmed
 argument_list|()
@@ -1497,7 +1501,6 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|m_output
 operator|<<
 literal|"#include "
@@ -1513,7 +1516,6 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|function|acceptWidgetScripts
