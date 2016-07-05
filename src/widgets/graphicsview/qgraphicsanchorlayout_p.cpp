@@ -4598,7 +4598,7 @@ operator|=
 operator|(
 name|candidates
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|==
 name|adjacents
@@ -4822,7 +4822,7 @@ name|beforeSequence
 argument_list|,
 name|candidates
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4837,7 +4837,7 @@ name|beforeSequence
 operator|=
 name|candidates
 operator|.
-name|first
+name|constFirst
 argument_list|()
 expr_stmt|;
 name|candidates
@@ -4868,7 +4868,7 @@ name|edgeData
 argument_list|(
 name|candidates
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|,
 name|afterSequence
@@ -4885,7 +4885,7 @@ name|afterSequence
 operator|=
 name|candidates
 operator|.
-name|last
+name|constLast
 argument_list|()
 expr_stmt|;
 name|candidates

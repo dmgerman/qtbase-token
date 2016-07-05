@@ -3579,7 +3579,7 @@ if|if
 condition|(
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|==
 name|item
@@ -3620,7 +3620,7 @@ literal|"QGraphicsItem::grabMouse: already blocked by mouse grabber: %p"
 argument_list|,
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3643,7 +3643,7 @@ name|last
 init|=
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 if|if
@@ -3755,7 +3755,7 @@ name|item
 operator|!=
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 condition|)
 block|{
@@ -3788,7 +3788,7 @@ name|item
 operator|==
 name|popupWidgets
 operator|.
-name|last
+name|constLast
 argument_list|()
 condition|)
 block|{
@@ -3866,7 +3866,7 @@ name|last
 init|=
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 name|QEvent
@@ -3950,7 +3950,7 @@ if|if
 condition|(
 name|keyboardGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|==
 name|item
@@ -3967,7 +3967,7 @@ literal|"QGraphicsItem::grabKeyboard: already blocked by keyboard grabber: %p"
 argument_list|,
 name|keyboardGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3996,7 +3996,7 @@ name|sendEvent
 argument_list|(
 name|keyboardGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|,
 operator|&
@@ -4076,7 +4076,7 @@ name|item
 operator|!=
 name|keyboardGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 condition|)
 block|{
@@ -4146,7 +4146,7 @@ name|last
 init|=
 name|keyboardGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 name|QEvent
@@ -4191,7 +4191,7 @@ name|ungrabKeyboard
 argument_list|(
 name|keyboardGrabberItems
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4481,7 +4481,7 @@ argument_list|)
 argument_list|,
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|d_ptr
@@ -5420,7 +5420,7 @@ name|item
 init|=
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 if|if
@@ -5622,7 +5622,7 @@ if|if
 condition|(
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|isBlockedByModalPanel
@@ -5963,7 +5963,7 @@ name|cachedItemsUnderMouse
 operator|<<
 name|modalPanels
 operator|.
-name|first
+name|constFirst
 argument_list|()
 expr_stmt|;
 comment|// Find a mouse grabber by sending mouse press events to all mouse grabber
@@ -6240,7 +6240,7 @@ argument_list|()
 operator|||
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|!=
 name|item
@@ -8414,6 +8414,7 @@ name|deviceTransform
 parameter_list|)
 specifier|const
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|QGraphicsItem
@@ -13773,7 +13774,7 @@ name|d
 operator|->
 name|popupWidgets
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -14164,7 +14165,7 @@ name|commonAncestorItem
 argument_list|(
 name|hoverItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|)
 else|:
@@ -14395,7 +14396,7 @@ name|item
 operator|==
 name|hoverItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 condition|)
 block|{
@@ -14607,7 +14608,7 @@ name|d
 operator|->
 name|keyboardGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 else|:
 literal|0
@@ -14738,7 +14739,7 @@ name|d
 operator|->
 name|keyboardGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 else|:
 literal|0
@@ -15049,7 +15050,7 @@ name|d
 operator|->
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 expr_stmt|;
 if|if
@@ -15062,7 +15063,7 @@ name|d
 operator|->
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|ungrabMouse
@@ -23802,7 +23803,7 @@ literal|0
 else|:
 name|cachedItemsUnderMouse
 operator|.
-name|first
+name|constFirst
 argument_list|()
 expr_stmt|;
 block|}
@@ -24422,7 +24423,7 @@ argument_list|()
 operator|||
 name|cachedItemsUnderMouse
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|!=
 name|origin
@@ -25106,7 +25107,7 @@ name|item
 init|=
 name|mouseGrabberItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 decl_stmt|;
 if|if

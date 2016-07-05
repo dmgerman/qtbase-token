@@ -607,7 +607,7 @@ name|system
 operator|=
 name|writingSystems
 operator|.
-name|last
+name|constLast
 argument_list|()
 expr_stmt|;
 if|if

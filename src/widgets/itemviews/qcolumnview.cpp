@@ -1673,7 +1673,7 @@ operator|=
 operator|(
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|x
@@ -1681,7 +1681,7 @@ argument_list|()
 operator|+
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|width
@@ -1690,7 +1690,7 @@ operator|)
 operator|-
 name|columns
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|->
 name|x
@@ -1708,7 +1708,7 @@ operator|=
 operator|(
 name|columns
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|->
 name|x
@@ -1716,7 +1716,7 @@ argument_list|()
 operator|+
 name|columns
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|->
 name|width
@@ -1725,7 +1725,7 @@ operator|)
 operator|-
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|x
@@ -2876,7 +2876,7 @@ name|setCurrentIndex
 argument_list|(
 name|dirsToAppend
 operator|.
-name|last
+name|constLast
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3471,7 +3471,7 @@ argument_list|()
 operator|&&
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|isHidden
@@ -3479,7 +3479,7 @@ argument_list|()
 condition|)
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|setVisible
@@ -3929,7 +3929,7 @@ argument_list|()
 operator|&&
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|==
 name|previewColumn
@@ -4902,7 +4902,7 @@ if|if
 condition|(
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|isHidden
@@ -4911,7 +4911,7 @@ condition|)
 block|{
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|setVisible
@@ -4924,7 +4924,7 @@ if|if
 condition|(
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|selectionModel
@@ -4932,7 +4932,7 @@ argument_list|()
 condition|)
 name|columns
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|->
 name|selectionModel

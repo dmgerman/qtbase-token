@@ -12961,7 +12961,7 @@ name|y
 operator|=
 name|segmentPositions
 operator|.
-name|last
+name|constLast
 argument_list|()
 expr_stmt|;
 block|}
@@ -12972,7 +12972,7 @@ name|x
 operator|=
 name|segmentPositions
 operator|.
-name|last
+name|constLast
 argument_list|()
 expr_stmt|;
 name|y
@@ -14363,7 +14363,7 @@ name|max
 operator|-
 name|positions
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|)
 decl_stmt|;

@@ -12027,7 +12027,7 @@ name|d
 operator|->
 name|viewItems
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|index
@@ -12077,7 +12077,7 @@ name|d
 operator|->
 name|viewItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|index
@@ -13673,7 +13673,7 @@ name|d
 operator|->
 name|viewItems
 operator|.
-name|last
+name|constLast
 argument_list|()
 operator|.
 name|index
@@ -13713,7 +13713,7 @@ name|d
 operator|->
 name|viewItems
 operator|.
-name|first
+name|constFirst
 argument_list|()
 operator|.
 name|index

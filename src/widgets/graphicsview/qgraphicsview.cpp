@@ -8668,6 +8668,7 @@ condition|)
 return|return
 literal|0
 return|;
+specifier|const
 name|QList
 argument_list|<
 name|QGraphicsItem
@@ -10679,7 +10680,7 @@ argument_list|()
 operator|->
 name|popupWidgets
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -10861,7 +10862,7 @@ argument_list|()
 operator|->
 name|popupWidgets
 operator|.
-name|first
+name|constFirst
 argument_list|()
 argument_list|)
 expr_stmt|;

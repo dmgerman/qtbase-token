@@ -19335,6 +19335,7 @@ name|Orientation
 name|orientation
 parameter_list|)
 block|{
+specifier|const
 name|QList
 argument_list|<
 name|int

@@ -6239,6 +6239,7 @@ operator|=
 operator|&
 name|dummy
 expr_stmt|;
+specifier|const
 name|QGraphicsScenePrivate
 modifier|*
 name|scene_d

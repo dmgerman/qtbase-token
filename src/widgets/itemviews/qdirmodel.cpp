@@ -3527,7 +3527,7 @@ name|host
 init|=
 name|pathElements
 operator|.
-name|first
+name|constFirst
 argument_list|()
 decl_stmt|;
 name|int
