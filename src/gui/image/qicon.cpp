@@ -4705,7 +4705,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.6      Indicate that this icon is a mask image, and hence can potentially     be modified based on where it's displayed.     \sa isMask() */
+comment|/*!     \since 5.6      Indicate that this icon is a mask image(boolean \a isMask), and hence can     potentially be modified based on where it's displayed.     \sa isMask() */
 end_comment
 begin_function
 DECL|function|setIsMask
