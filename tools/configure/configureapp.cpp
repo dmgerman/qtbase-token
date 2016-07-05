@@ -12542,7 +12542,7 @@ literal|"no"
 argument_list|,
 literal|"-no-angle"
 argument_list|,
-literal|"Do not use ANGLE.\nSee http://code.google.com/p/angleproject/\n"
+literal|"Do not use ANGLE.\nSee https://chromium.googlesource.com/angle/angle/+/master/README.md\n"
 argument_list|)
 expr_stmt|;
 comment|// Qt\Windows only options go below here --------------------------------------------------------------------------------

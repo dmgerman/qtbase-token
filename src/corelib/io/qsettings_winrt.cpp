@@ -343,7 +343,7 @@ while|while
 condition|(
 name|SUCCEEDED
 argument_list|(
-name|S_OK
+name|hr
 argument_list|)
 operator|&&
 name|current

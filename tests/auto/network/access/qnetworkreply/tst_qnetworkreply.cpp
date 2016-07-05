@@ -45927,7 +45927,14 @@ name|QByteArray
 name|expectedContent
 init|=
 literal|"<root attr=\"value\" attr2=\"value2\">"
-literal|"<person /><fruit /></root>\n"
+literal|"<person /><fruit /></root>"
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+literal|"\r"
+endif|#
+directive|endif
+literal|"\n"
 decl_stmt|;
 name|QCOMPARE
 argument_list|(

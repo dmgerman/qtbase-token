@@ -358,8 +358,10 @@ block|{
 name|qWarning
 argument_list|(
 literal|"Qt has caught an exception thrown from an event handler. Throwing\n"
-literal|"exceptions from an event handler is not supported in Qt. You must\n"
-literal|"reimplement QApplication::notify() and catch all exceptions there.\n"
+literal|"exceptions from an event handler is not supported in Qt.\n"
+literal|"You must not let any exception whatsoever propagate through Qt code.\n"
+literal|"If that is not possible, in Qt 5 you must at least reimplement\n"
+literal|"QCoreApplication::notify() and catch all exceptions there.\n"
 argument_list|)
 expr_stmt|;
 block|}

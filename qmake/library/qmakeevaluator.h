@@ -796,17 +796,6 @@ block|;
 name|ProStringList
 name|expandVariableReferences
 argument_list|(
-argument|const ProString&value
-argument_list|,
-argument|int *pos =
-literal|0
-argument_list|,
-argument|bool joined = false
-argument_list|)
-block|;
-name|ProStringList
-name|expandVariableReferences
-argument_list|(
 argument|const ushort *&tokPtr
 argument_list|,
 argument|int sizeHint =
