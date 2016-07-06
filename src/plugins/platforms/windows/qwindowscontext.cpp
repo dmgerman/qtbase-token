@@ -2412,12 +2412,14 @@ block|}
 comment|// Create a unique name for the flag combination
 name|QString
 name|cname
-init|=
-name|QStringLiteral
+decl_stmt|;
+name|cname
+operator|+=
+name|QLatin1String
 argument_list|(
 literal|"Qt5QWindow"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 switch|switch
 condition|(
 name|type
@@ -2430,7 +2432,7 @@ name|Tool
 case|:
 name|cname
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Tool"
 argument_list|)
@@ -2443,7 +2445,7 @@ name|ToolTip
 case|:
 name|cname
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"ToolTip"
 argument_list|)
@@ -2456,7 +2458,7 @@ name|Popup
 case|:
 name|cname
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Popup"
 argument_list|)
@@ -2473,7 +2475,7 @@ name|CS_DROPSHADOW
 condition|)
 name|cname
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"DropShadow"
 argument_list|)
@@ -2486,7 +2488,7 @@ name|CS_SAVEBITS
 condition|)
 name|cname
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"SaveBits"
 argument_list|)
@@ -2499,7 +2501,7 @@ name|CS_OWNDC
 condition|)
 name|cname
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"OwnDC"
 argument_list|)
@@ -2510,7 +2512,7 @@ name|icon
 condition|)
 name|cname
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Icon"
 argument_list|)
@@ -4057,34 +4059,32 @@ name|WCode
 argument_list|()
 condition|)
 return|return
-name|QStringLiteral
-argument_list|(
-literal|"IDispatch error #"
-argument_list|)
-operator|+
 name|QString
 operator|::
-name|number
+name|asprintf
+argument_list|(
+literal|"IDispatch error #%u"
+argument_list|,
+name|uint
 argument_list|(
 name|wCode
 argument_list|)
+argument_list|)
 return|;
 return|return
-name|QStringLiteral
-argument_list|(
-literal|"Unknown error 0x0"
-argument_list|)
-operator|+
 name|QString
 operator|::
-name|number
+name|asprintf
+argument_list|(
+literal|"Unknown error 0x0%x"
+argument_list|,
+name|uint
 argument_list|(
 name|comError
 operator|.
 name|Error
 argument_list|()
-argument_list|,
-literal|16
+argument_list|)
 argument_list|)
 return|;
 block|}

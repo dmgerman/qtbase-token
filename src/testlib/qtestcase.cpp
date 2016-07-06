@@ -4827,7 +4827,7 @@ argument_list|(
 name|name
 argument_list|)
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"()"
 argument_list|)

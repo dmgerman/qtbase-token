@@ -720,7 +720,7 @@ name|qstrdup
 argument_list|(
 name|qPrintable
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Invalid URL: "
 argument_list|)

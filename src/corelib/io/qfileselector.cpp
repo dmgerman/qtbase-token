@@ -920,7 +920,7 @@ if|if
 condition|(
 name|productName
 operator|!=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"osx"
 argument_list|)

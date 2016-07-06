@@ -2037,7 +2037,7 @@ name|sslLibraryVersionString
 parameter_list|()
 block|{
 return|return
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"Secure Transport, "
 argument_list|)

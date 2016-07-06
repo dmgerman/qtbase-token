@@ -1150,7 +1150,7 @@ argument_list|(
 literal|"HOME"
 argument_list|)
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/.XCompose"
 argument_list|)

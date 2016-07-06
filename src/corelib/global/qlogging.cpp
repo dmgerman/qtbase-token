@@ -4697,7 +4697,7 @@ literal|0
 condition|)
 name|error
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"QT_MESSAGE_PATTERN: %{backtrace} depth must be a number greater than 0\n"
 argument_list|)
@@ -4759,7 +4759,7 @@ else|#
 directive|else
 name|error
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"QT_MESSAGE_PATTERN: %{backtrace} is not supported by this Qt build\n"
 argument_list|)
@@ -4832,7 +4832,7 @@ name|nestedIfError
 condition|)
 name|error
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"QT_MESSAGE_PATTERN: %{endif} without an %{if-*}\n"
 argument_list|)
@@ -4932,7 +4932,7 @@ name|nestedIfError
 condition|)
 name|error
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"QT_MESSAGE_PATTERN: %{if-*} cannot be nested\n"
 argument_list|)
@@ -4944,7 +4944,7 @@ name|inIf
 condition|)
 name|error
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"QT_MESSAGE_PATTERN: missing %{endif}\n"
 argument_list|)

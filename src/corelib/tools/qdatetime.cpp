@@ -10732,7 +10732,7 @@ condition|)
 block|{
 name|buf
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|" GMT"
 argument_list|)

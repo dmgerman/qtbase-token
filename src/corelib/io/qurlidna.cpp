@@ -25025,7 +25025,7 @@ name|insert
 argument_list|(
 name|outLen
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"xn--"
 argument_list|)

@@ -2160,7 +2160,7 @@ argument_list|(
 literal|'%'
 argument_list|)
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"%25"
 argument_list|)
@@ -5774,7 +5774,7 @@ condition|)
 block|{
 name|tmp
 operator|=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"//"
 argument_list|)

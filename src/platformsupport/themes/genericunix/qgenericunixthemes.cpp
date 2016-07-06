@@ -613,7 +613,7 @@ operator|::
 name|homePath
 argument_list|()
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/.icons"
 argument_list|)
@@ -1017,7 +1017,7 @@ condition|)
 return|return
 name|kdeDir
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/kdeglobals"
 argument_list|)
@@ -1025,7 +1025,7 @@ return|;
 return|return
 name|kdeDir
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/share/config/kdeglobals"
 argument_list|)
@@ -3264,7 +3264,7 @@ operator|::
 name|homePath
 argument_list|()
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/.kde"
 argument_list|)
@@ -3297,7 +3297,7 @@ operator|::
 name|homePath
 argument_list|()
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/.kde"
 argument_list|)
@@ -3320,7 +3320,7 @@ specifier|const
 name|QString
 name|kdeRcPath
 init|=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/etc/kde"
 argument_list|)
@@ -3330,7 +3330,7 @@ argument_list|(
 name|kdeVersionBA
 argument_list|)
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"rc"
 argument_list|)
@@ -3386,7 +3386,7 @@ specifier|const
 name|QString
 name|kdeVersionPrefix
 init|=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/etc/kde"
 argument_list|)

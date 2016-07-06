@@ -4134,7 +4134,7 @@ name|replace
 argument_list|(
 literal|'\\'
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\\\"
 argument_list|)
@@ -4148,7 +4148,7 @@ name|replace
 argument_list|(
 literal|':'
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\:"
 argument_list|)
@@ -4162,7 +4162,7 @@ name|replace
 argument_list|(
 literal|','
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\,"
 argument_list|)
@@ -4176,7 +4176,7 @@ name|replace
 argument_list|(
 literal|'='
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\="
 argument_list|)
@@ -4190,7 +4190,7 @@ name|replace
 argument_list|(
 literal|';'
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\;"
 argument_list|)
@@ -4204,7 +4204,7 @@ name|replace
 argument_list|(
 literal|'\"'
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\\\""
 argument_list|)

@@ -140,7 +140,7 @@ operator|::
 name|tempPath
 argument_list|()
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/qt-trayicon-XXXXXX.png"
 argument_list|)
@@ -684,7 +684,7 @@ name|processName
 operator|.
 name|endsWith
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"indicator-application-service"
 argument_list|)

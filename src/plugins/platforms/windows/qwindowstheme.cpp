@@ -2499,7 +2499,7 @@ operator|::
 name|applicationDirPath
 argument_list|()
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"/icons"
 argument_list|)

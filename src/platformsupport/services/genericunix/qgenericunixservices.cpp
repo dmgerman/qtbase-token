@@ -320,7 +320,7 @@ name|browser
 operator|->
 name|append
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|" exec"
 argument_list|)
@@ -472,7 +472,7 @@ name|qPrintable
 argument_list|(
 name|command
 operator|+
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"&"
 argument_list|)

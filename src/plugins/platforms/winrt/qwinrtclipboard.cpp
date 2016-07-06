@@ -318,12 +318,12 @@ name|text
 operator|.
 name|replace
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\r\n"
 argument_list|)
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"\n"
 argument_list|)

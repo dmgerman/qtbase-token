@@ -1214,7 +1214,7 @@ name|CXO_MESSAGES
 condition|)
 name|result
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|" CXO_MESSAGES"
 argument_list|)
@@ -1227,7 +1227,7 @@ name|CXO_CSRMESSAGES
 condition|)
 name|result
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|" CXO_CSRMESSAGES"
 argument_list|)
@@ -1238,7 +1238,7 @@ name|m_tiltSupport
 condition|)
 name|result
 operator|+=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|" tilt"
 argument_list|)

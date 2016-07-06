@@ -400,7 +400,7 @@ name|name
 operator|.
 name|contains
 argument_list|(
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"@2x"
 argument_list|)

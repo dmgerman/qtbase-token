@@ -251,7 +251,7 @@ specifier|const
 name|QString
 name|postFix
 operator|=
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|" (from "
 argument_list|)
