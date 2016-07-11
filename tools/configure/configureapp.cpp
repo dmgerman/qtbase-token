@@ -3041,6 +3041,28 @@ decl_stmt|;
 if|if
 condition|(
 name|option
+operator|==
+literal|"xp"
+condition|)
+block|{
+name|cout
+operator|<<
+literal|"ERROR: option \"-target xp\" is no longer valid"
+operator|<<
+name|endl
+expr_stmt|;
+name|dictionary
+index|[
+literal|"DONE"
+index|]
+operator|=
+literal|"error"
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|option
 operator|!=
 literal|"xp"
 condition|)
@@ -11802,18 +11824,6 @@ argument_list|,
 literal|false
 argument_list|,
 literal|' '
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"TARGET_OS"
-argument_list|,
-literal|"*"
-argument_list|,
-literal|"-target"
-argument_list|,
-literal|"Set target OS version. Currently the only valid value is 'xp' for targeting Windows XP.\n"
-literal|"MSVC>= 2012 targets Windows Vista by default.\n"
 argument_list|)
 expr_stmt|;
 name|desc
